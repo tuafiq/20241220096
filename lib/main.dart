@@ -7,116 +7,126 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Al-Qur\'an NU',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF13A884)),
+        useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+      // Warna hijau dasar seperti pada gambar
+      backgroundColor: const Color(0xFF13A884),
+      body: Stack(
+        children: [
+          // Latar belakang putih dengan bentuk kubah (dome) di bagian atas
+          Positioned.fill(
+            child: ClipPath(
+              clipper: DomeClipper(),
+              child: Container(
+                color: Colors.white,
+                // Konten aplikasi selanjutnya akan ditambahkan di sini
+              ),
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+          ),
+        ],
       ),
     );
   }
+}
+
+// CustomClipper untuk membuat bentuk lengkungan masjid yang presisi
+class DomeClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    double w = size.width;
+    double h = size.height;
+    
+    // Titik referensi Y (atur tinggi kubah di sini)
+    double baseY = h * 0.28; 
+    double tipY = h * 0.08;
+    double hDiff = baseY - tipY;
+    
+    // Titik koordinat X dan Y untuk sudut-sudut tajam ke dalam (inward corners)
+    // Proporsi ini disesuaikan untuk membentuk 2 lengkungan di sisi + 1 pucuk kubah
+    double p1x = w * 0.16;
+    double p1y = baseY - hDiff * 0.25;
+    
+    double p2x = w * 0.33;
+    double p2y = baseY - hDiff * 0.65;
+    
+    double p3x = w * 0.5;
+    double p3y = tipY;
+
+    // Titik simetris untuk sebelah kanan
+    double p2x_r = w - p2x;
+    double p1x_r = w - p1x;
+    
+    path.moveTo(0, baseY);
+    
+    // 1. Lengkungan Kiri Bawah (Lobe 1)
+    // Melengkung keluar (bulge out) ke arah titik sudut pertama (p1)
+    path.quadraticBezierTo(
+      0, p1y, 
+      p1x, p1y
+    );
+    
+    // 2. Lengkungan Kiri Tengah (Lobe 2)
+    // Melengkung keluar lagi menuju titik sudut kedua (p2)
+    path.quadraticBezierTo(
+      p1x, p2y, 
+      p2x, p2y
+    );
+    
+    // 3. Lengkungan Kiri Atas menuju Puncak (Lobe 3)
+    // Membentuk kurva Ogee (khas kubah masjid) yang meruncing ke ujung
+    path.cubicTo(
+      p2x, p3y + hDiff * 0.1, 
+      p3x - w * 0.05, p3y + hDiff * 0.1, 
+      p3x, p3y
+    );
+    
+    // 4. Lengkungan Kanan Atas turun dari Puncak
+    // Simetris dari lengkungan kiri atas
+    path.cubicTo(
+      p3x + w * 0.05, p3y + hDiff * 0.1, 
+      p2x_r, p3y + hDiff * 0.1, 
+      p2x_r, p2y
+    );
+    
+    // 5. Lengkungan Kanan Tengah (Lobe 2 Kanan)
+    path.quadraticBezierTo(
+      p1x_r, p2y, 
+      p1x_r, p1y
+    );
+    
+    // 6. Lengkungan Kanan Bawah (Lobe 1 Kanan)
+    path.quadraticBezierTo(
+      w, p1y, 
+      w, baseY
+    );
+    
+    // Menutup shape ke bawah layar hingga menutupi seluruh background
+    path.lineTo(w, h);
+    path.lineTo(0, h);
+    path.close();
+    
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }
