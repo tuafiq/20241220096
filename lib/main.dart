@@ -127,6 +127,8 @@ class _HomePageState extends State<HomePage> {
       childAspectRatio: 0.85,
       children: const [
         AlQuranIcon(),
+        JadwalShalatIcon(),
+        WiridDoaIcon(),
       ],
     );
   }
@@ -161,6 +163,173 @@ class AlQuranIcon extends StatelessWidget {
         const SizedBox(height: 5),
         const Text(
           'Al-Quran',
+          style: TextStyle(
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+            color: Color(0xFF333333),
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// ICON 2: JADWAL SHALAT
+// <a href="https://www.flaticon.com/free-icons/wall-clock" title="wall clock icons">Wall clock icons created by Freepik - Flaticon</a>
+// ─────────────────────────────────────────────────────────────
+class JadwalShalatIcon extends StatelessWidget {
+  const JadwalShalatIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 52,
+          height: 52,
+          decoration: const BoxDecoration(
+            color: Color(0xFFE8F5F1),
+            shape: BoxShape.circle,
+          ),
+          padding: const EdgeInsets.all(10),
+          child: CustomPaint(
+            size: const Size(32, 32),
+            painter: WallClockPainter(),
+          ),
+        ),
+        const SizedBox(height: 5),
+        const Text(
+          'Jadwal Shalat',
+          style: TextStyle(
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+            color: Color(0xFF333333),
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+}
+
+class WallClockPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final center = Offset(size.width / 2, size.height / 2);
+    final radius = size.width / 2;
+
+    final borderPaint = Paint()
+      ..color = const Color(0xFF13A884)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = size.width * 0.12;
+
+    final bgPaint = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.fill;
+
+    final tickPaint = Paint()
+      ..color = const Color(0xFF13A884)
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round
+      ..strokeWidth = size.width * 0.06;
+
+    final handPaint = Paint()
+      ..color = const Color(0xFF13A884)
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round
+      ..strokeWidth = size.width * 0.08;
+
+    final centerDotPaint = Paint()
+      ..color = const Color(0xFF13A884)
+      ..style = PaintingStyle.fill;
+
+    final double effectiveRadius = radius - borderPaint.strokeWidth / 2;
+
+    // Draw background and border
+    canvas.drawCircle(center, effectiveRadius, bgPaint);
+    canvas.drawCircle(center, effectiveRadius, borderPaint);
+
+    // Draw 4 ticks
+    final tickLength = size.width * 0.1;
+    // 12 o'clock
+    canvas.drawLine(
+      Offset(center.dx, center.dy - effectiveRadius + borderPaint.strokeWidth / 2),
+      Offset(center.dx, center.dy - effectiveRadius + borderPaint.strokeWidth / 2 + tickLength),
+      tickPaint,
+    );
+    // 3 o'clock
+    canvas.drawLine(
+      Offset(center.dx + effectiveRadius - borderPaint.strokeWidth / 2, center.dy),
+      Offset(center.dx + effectiveRadius - borderPaint.strokeWidth / 2 - tickLength, center.dy),
+      tickPaint,
+    );
+    // 6 o'clock
+    canvas.drawLine(
+      Offset(center.dx, center.dy + effectiveRadius - borderPaint.strokeWidth / 2),
+      Offset(center.dx, center.dy + effectiveRadius - borderPaint.strokeWidth / 2 - tickLength),
+      tickPaint,
+    );
+    // 9 o'clock
+    canvas.drawLine(
+      Offset(center.dx - effectiveRadius + borderPaint.strokeWidth / 2, center.dy),
+      Offset(center.dx - effectiveRadius + borderPaint.strokeWidth / 2 + tickLength, center.dy),
+      tickPaint,
+    );
+
+    // Minute hand (pointing to ~10 minutes / 2 o'clock)
+    canvas.drawLine(
+      center,
+      Offset(center.dx + radius * 0.45, center.dy - radius * 0.3),
+      handPaint,
+    );
+
+    // Hour hand (pointing to ~10 o'clock)
+    canvas.drawLine(
+      center,
+      Offset(center.dx - radius * 0.25, center.dy - radius * 0.25),
+      handPaint,
+    );
+
+    // Center dot
+    canvas.drawCircle(center, size.width * 0.08, centerDotPaint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+// ─────────────────────────────────────────────────────────────
+// ICON 3: WIRID & DOA
+// ─────────────────────────────────────────────────────────────
+class WiridDoaIcon extends StatelessWidget {
+  const WiridDoaIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 52,
+          height: 52,
+          decoration: const BoxDecoration(
+            color: Color(0xFFE8F5F1),
+            shape: BoxShape.circle,
+          ),
+          padding: const EdgeInsets.all(8),
+          child: Image.asset(
+            'assets/images/wirid_doa_icon.png',
+            fit: BoxFit.contain,
+          ),
+        ),
+        const SizedBox(height: 5),
+        const Text(
+          'Wirid & Doa',
           style: TextStyle(
             fontSize: 10,
             fontWeight: FontWeight.w500,
