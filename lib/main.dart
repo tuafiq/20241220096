@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 void main() {
   runApp(const MyApp());
@@ -119,9 +118,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildMenuGrid() {
-    return const Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
+    return GridView.count(
+      crossAxisCount: 4,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      mainAxisSpacing: 16,
+      crossAxisSpacing: 8,
+      childAspectRatio: 0.85,
+      children: const [
         AlQuranIcon(),
       ],
     );
@@ -130,6 +134,7 @@ class _HomePageState extends State<HomePage> {
 
 // ─────────────────────────────────────────────────────────────
 // ICON 1: AL-QURAN
+// Icon by BZZRINCANTATION - Flaticon (https://www.flaticon.com/free-icons/quran)
 // ─────────────────────────────────────────────────────────────
 class AlQuranIcon extends StatelessWidget {
   const AlQuranIcon({super.key});
@@ -138,24 +143,26 @@ class AlQuranIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          width: 64,
-          height: 64,
-          decoration: BoxDecoration(
-            color: const Color(0xFFE8F5F1), // mint/teal muda
+          width: 52,
+          height: 52,
+          decoration: const BoxDecoration(
+            color: Color(0xFFE8F5F1),
             shape: BoxShape.circle,
           ),
-          child: CustomPaint(
-            size: const Size(64, 64),
-            painter: AlQuranPainter(),
+          padding: const EdgeInsets.all(8),
+          child: Image.asset(
+            'assets/images/alquran_icon.png',
+            fit: BoxFit.contain,
           ),
         ),
-        const SizedBox(height: 6),
+        const SizedBox(height: 5),
         const Text(
           'Al-Quran',
           style: TextStyle(
-            fontSize: 11,
+            fontSize: 10,
             fontWeight: FontWeight.w500,
             color: Color(0xFF333333),
           ),
@@ -166,127 +173,7 @@ class AlQuranIcon extends StatelessWidget {
   }
 }
 
-class AlQuranPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final double cx = size.width / 2;
-    final double cy = size.height / 2;
 
-    // ── COLORS ──
-    final Color tealColor = const Color(0xFF118C70); // Dark Teal for cover and rehal
-    final Color pageColor = const Color(0xFFF8E3C5); // Cream/Light Orange for pages
-    final Color lineColor = const Color(0xFFD67A58); // Orange/Brown for text
-    final Color bookmarkColor = const Color(0xFFF4A261); // Orange for bookmark
-
-    // ── REHAL (Book Stand) ──
-    final rehalPaint = Paint()
-      ..color = tealColor
-      ..style = PaintingStyle.fill;
-
-    // Base legs (X-like shape)
-    final rehalBase = Path();
-    rehalBase.moveTo(cx - 14, cy + 20); // bottom left
-    rehalBase.lineTo(cx - 8, cy + 20); // bottom left inner
-    rehalBase.lineTo(cx, cy + 12);     // center cross
-    rehalBase.lineTo(cx + 8, cy + 20); // bottom right inner
-    rehalBase.lineTo(cx + 14, cy + 20); // bottom right
-    rehalBase.lineTo(cx + 6, cy + 9);  // right under book
-    rehalBase.lineTo(cx - 6, cy + 9);  // left under book
-    rehalBase.close();
-    canvas.drawPath(rehalBase, rehalPaint);
-
-    // Support bar
-    final rehalBar = RRect.fromRectAndRadius(
-      Rect.fromCenter(center: Offset(cx, cy + 9), width: 34, height: 4),
-      const Radius.circular(2),
-    );
-    canvas.drawRRect(rehalBar, rehalPaint);
-
-    // ── BUKU AL-QURAN COVER ──
-    final coverPaint = Paint()
-      ..color = tealColor
-      ..style = PaintingStyle.fill;
-    
-    final coverPath = Path();
-    coverPath.moveTo(cx, cy + 11); // Spine bottom
-    coverPath.quadraticBezierTo(cx - 10, cy + 5, cx - 21, cy + 9); // Left bottom curve
-    coverPath.lineTo(cx - 21, cy - 5); // Left edge
-    coverPath.quadraticBezierTo(cx - 10, cy - 9, cx, cy - 3); // Left top curve
-    coverPath.quadraticBezierTo(cx + 10, cy - 9, cx + 21, cy - 5); // Right top curve
-    coverPath.lineTo(cx + 21, cy + 9); // Right edge
-    coverPath.quadraticBezierTo(cx + 10, cy + 5, cx, cy + 11); // Right bottom curve
-    coverPath.close();
-    canvas.drawPath(coverPath, coverPaint);
-
-    // ── PAGES ──
-    final pagePaint = Paint()
-      ..color = pageColor
-      ..style = PaintingStyle.fill;
-    
-    final pagePath = Path();
-    pagePath.moveTo(cx, cy + 9); // Spine bottom
-    pagePath.quadraticBezierTo(cx - 10, cy + 3, cx - 19, cy + 7); // Left bottom curve
-    pagePath.lineTo(cx - 19, cy - 3); // Left edge
-    pagePath.quadraticBezierTo(cx - 10, cy - 7, cx, cy - 1); // Left top curve
-    pagePath.quadraticBezierTo(cx + 10, cy - 7, cx + 19, cy - 3); // Right top curve
-    pagePath.lineTo(cx + 19, cy + 7); // Right edge
-    pagePath.quadraticBezierTo(cx + 10, cy + 3, cx, cy + 9); // Right bottom curve
-    pagePath.close();
-    canvas.drawPath(pagePath, pagePaint);
-
-    // Center fold line
-    final foldPaint = Paint()
-      ..color = const Color(0xFFE8CBA3) // Slightly darker cream
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.0;
-    canvas.drawLine(Offset(cx, cy - 1), Offset(cx, cy + 9), foldPaint);
-
-    // ── TEXT LINES ──
-    final linePaint = Paint()
-      ..color = lineColor
-      ..strokeWidth = 1.2
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round;
-
-    void drawCurvedLine(double yOffset) {
-      final leftLine = Path();
-      leftLine.moveTo(cx - 3, cy + yOffset);
-      leftLine.quadraticBezierTo(cx - 10, cy - 4 + yOffset, cx - 16, cy + 1 + yOffset);
-      canvas.drawPath(leftLine, linePaint);
-
-      final rightLine = Path();
-      rightLine.moveTo(cx + 3, cy + yOffset);
-      rightLine.quadraticBezierTo(cx + 10, cy - 4 + yOffset, cx + 16, cy + 1 + yOffset);
-      canvas.drawPath(rightLine, linePaint);
-    }
-
-    drawCurvedLine(-1.5);
-    drawCurvedLine(2.0);
-    drawCurvedLine(5.5);
-
-    // ── BOOKMARK ──
-    final bookmarkPaint = Paint()
-      ..color = bookmarkColor
-      ..style = PaintingStyle.fill;
-    
-    final bookmarkPath = Path();
-    bookmarkPath.moveTo(cx - 1.5, cy + 7);
-    bookmarkPath.lineTo(cx + 1.5, cy + 7);
-    bookmarkPath.lineTo(cx + 1.5, cy + 14);
-    bookmarkPath.lineTo(cx, cy + 16); // Pointy tip
-    bookmarkPath.lineTo(cx - 1.5, cy + 14);
-    bookmarkPath.close();
-    canvas.drawPath(bookmarkPath, bookmarkPaint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
-}
-
-
-// ─────────────────────────────────────────────────────────────
-// DOME CLIPPER (masjid silhouette header)
-// ─────────────────────────────────────────────────────────────
 class DomeClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
