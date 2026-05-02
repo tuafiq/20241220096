@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
           Positioned.fill(
             child: Container(color: const Color(0xFF13A884)),
           ),
-          // Layer 2: White dome overlay (menutupi area bawah dome)
+          
           Positioned.fill(
             child: ClipPath(
               clipper: DomeClipper(),
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                     
                       SizedBox(height: domeBaseY - MediaQuery.of(context).padding.top + 16),
-                      // White area content
+                     
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Column(
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildMenuGrid() {
     return GridView.count(
-      crossAxisCount: 4, // 4 kolom sesuai gambar referensi
+      crossAxisCount: 4, 
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       mainAxisSpacing: 16,
@@ -128,8 +128,8 @@ class _HomePageState extends State<HomePage> {
       children: const [
         AlQuranIcon(),
         WiridDoaIcon(),
-        JadwalShalatIcon(), // Icon jam yang baru kita buat
-        KiblatIcon(),       // Tambahkan placeholder jika ingin melengkapi
+        JadwalShalatIcon(), 
+        KiblatIcon(),       
         TahlilIcon(),
         MaulidIcon(),
         ZakatIcon(),
@@ -141,7 +141,6 @@ class _HomePageState extends State<HomePage> {
 
 // ─────────────────────────────────────────────────────────────
 // ICON 1: AL-QURAN
-// Icon by BZZRINCANTATION - Flaticon (https://www.flaticon.com/free-icons/quran)
 // ─────────────────────────────────────────────────────────────
 class AlQuranIcon extends StatelessWidget {
   const AlQuranIcon({super.key});
@@ -222,7 +221,6 @@ class WiridDoaIcon extends StatelessWidget {
 
 // ─────────────────────────────────────────────────────────────
 // ICON 3: JADWAL SHALAT
-// Icon by Ghozi Muhtarom - Flaticon (https://www.flaticon.com/free-icons/prayer)
 // ─────────────────────────────────────────────────────────────
 class JadwalShalatIcon extends StatelessWidget {
   const JadwalShalatIcon({super.key});
@@ -237,7 +235,7 @@ class JadwalShalatIcon extends StatelessWidget {
           width: 52,
           height: 52,
           decoration: const BoxDecoration(
-            color: Color(0xFFE8F5F1), // Background lingkaran luar (soft green)
+            color: Color(0xFFE8F5F1), 
             shape: BoxShape.circle,
           ),
           child: Center(
@@ -248,14 +246,14 @@ class JadwalShalatIcon extends StatelessWidget {
                 color: Colors.white,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: const Color(0xFF13A884), // Warna hijau NU
+                  color: const Color(0xFF13A884), 
                   width: 2.5,
                 ),
               ),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  // Titik tengah jam
+                 
                   Container(
                     width: 4,
                     height: 4,
@@ -264,7 +262,7 @@ class JadwalShalatIcon extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                   ),
-                  // Jarum Menit (Panjang - Menghadap ke atas)
+                  
                   Positioned(
                     top: 4,
                     child: Container(
@@ -276,7 +274,7 @@ class JadwalShalatIcon extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // Jarum Jam (Pendek - Menghadap ke samping)
+                  
                   Positioned(
                     right: 6,
                     child: Container(
@@ -310,7 +308,6 @@ class JadwalShalatIcon extends StatelessWidget {
 
 // ─────────────────────────────────────────────────────────────
 // ICON 4: KIBLAT
-// Icon by Fahrul Oktaviana - Flaticon (https://www.flaticon.com/free-icons/kiblat)
 // ─────────────────────────────────────────────────────────────
 class KiblatIcon extends StatelessWidget {
   const KiblatIcon({super.key});
@@ -325,7 +322,7 @@ class KiblatIcon extends StatelessWidget {
           width: 52,
           height: 52,
           decoration: const BoxDecoration(
-            color: Color(0xFFE8F5F1), // Background lingkaran luar
+            color: Color(0xFFE8F5F1), 
             shape: BoxShape.circle,
           ),
           child: Center(
@@ -336,7 +333,7 @@ class KiblatIcon extends StatelessWidget {
                 color: const Color(0xFFF4F4F4),
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: const Color(0xFF0C9347), // Green border
+                  color: const Color(0xFF0C9347), 
                   width: 3.0,
                 ),
               ),
@@ -375,7 +372,7 @@ class KiblatPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round;
 
     for (int i = 0; i < 8; i++) {
-      if (i == 0) continue; // Skip top tick for the arrow
+      if (i == 0) continue; 
       final angle = i * pi / 4 - pi / 2;
       final start = Offset(
         cx + cos(angle) * (cx - 7),
@@ -480,9 +477,198 @@ class KiblatPainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
+// ─────────────────────────────────────────────────────────────
+// ICON 5: TAHLIL & YASIN
+// ─────────────────────────────────────────────────────────────
 class TahlilIcon extends StatelessWidget {
   const TahlilIcon({super.key});
-  @override Widget build(BuildContext context) => _buildPlaceholder('Tahlil');
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 52,
+          height: 52,
+          decoration: const BoxDecoration(
+            color: Color(0xFFE8F5F1),
+            shape: BoxShape.circle,
+          ),
+          child: Center(
+            child: CustomPaint(
+              size: const Size(32, 32),
+              painter: TahlilPainter(),
+            ),
+          ),
+        ),
+        const SizedBox(height: 5),
+        const Text(
+          'Tahlil & Yasin',
+          style: TextStyle(
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+            color: Color(0xFF333333),
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+}
+
+class TahlilPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    // Colors
+    final skinColor = const Color(0xFFF2D091);
+    final robeColor = const Color(0xFF13A884); // NU Green
+    final sleeveColor = const Color(0xFF16B992); // Slightly lighter green
+    final hairColor = const Color(0xFF3B3B3B);
+    final capColor = const Color(0xFF86D945); // Bright green peci
+    final matColor = const Color(0xFF283236);
+    final collarColor = const Color(0xFFA9B2BC);
+    final bgElementColor = const Color(0xFFC0C0C0);
+
+    // 1. Moon & Stars
+    final moonBase = Path()..addOval(Rect.fromCircle(center: const Offset(25, 8), radius: 4.5));
+    final moonCut = Path()..addOval(Rect.fromCircle(center: const Offset(23.5, 7), radius: 4.5));
+    final crescent = Path.combine(PathOperation.difference, moonBase, moonCut);
+    canvas.drawPath(crescent, Paint()..color = bgElementColor);
+
+    void drawStar(Offset center) {
+      final paint = Paint()
+        ..color = bgElementColor
+        ..strokeWidth = 1.5
+        ..strokeCap = StrokeCap.round;
+      canvas.drawLine(Offset(center.dx - 2.5, center.dy), Offset(center.dx + 2.5, center.dy), paint);
+      canvas.drawLine(Offset(center.dx, center.dy - 2.5), Offset(center.dx, center.dy + 2.5), paint);
+    }
+    drawStar(const Offset(6, 8));
+    drawStar(const Offset(27, 21));
+
+    // 2. Foot
+    final footPath = Path()
+      ..moveTo(8, 25)
+      ..lineTo(5, 25)
+      ..quadraticBezierTo(4, 26, 5, 27)
+      ..lineTo(8, 27)
+      ..close();
+    canvas.drawPath(footPath, Paint()..color = skinColor);
+
+    // 3. Mat
+    canvas.drawLine(
+      const Offset(4, 27.5),
+      const Offset(28, 27.5),
+      Paint()
+        ..color = matColor
+        ..strokeWidth = 2.0
+        ..strokeCap = StrokeCap.round,
+    );
+
+    // 4. Head
+    final headPath = Path()
+      ..moveTo(10, 11) // back neck
+      ..lineTo(10, 5) // back head
+      ..lineTo(13, 4) // top head
+      ..lineTo(15, 5) // forehead
+      ..lineTo(16, 6) // eye level
+      ..lineTo(17.5, 7.5) // nose tip
+      ..lineTo(16.5, 8.5) // upper lip
+      ..lineTo(17, 9) // lower lip/chin
+      ..lineTo(15.5, 11) // front neck
+      ..close();
+    canvas.drawPath(headPath, Paint()..color = skinColor);
+
+    // 5. Hair
+    final hairPath = Path()
+      ..moveTo(10, 11)
+      ..lineTo(10, 5)
+      ..lineTo(13, 4)
+      ..lineTo(14, 5)
+      ..lineTo(12.5, 6.5) // sideburn
+      ..lineTo(12, 8)
+      ..lineTo(11, 11)
+      ..close();
+    canvas.drawPath(hairPath, Paint()..color = hairColor);
+
+    // 6. Cap
+    canvas.drawArc(
+      Rect.fromLTRB(9.5, 2.5, 14.5, 6.5),
+      pi,
+      pi,
+      true,
+      Paint()..color = capColor,
+    );
+    // Cap bottom rim
+    canvas.drawLine(
+      const Offset(9.5, 4.5),
+      const Offset(14.5, 4.5),
+      Paint()
+        ..color = matColor
+        ..strokeWidth = 1.0
+        ..strokeCap = StrokeCap.round,
+    );
+
+    // 7. Body
+    final bodyPath = Path()
+      ..moveTo(10, 11) // back shoulder
+      ..quadraticBezierTo(7, 16, 7, 27) // back curve
+      ..lineTo(21, 27) // bottom line
+      ..quadraticBezierTo(24, 27, 23, 24) // knee curve
+      ..lineTo(19, 19) // lap
+      ..lineTo(14, 19) // waist fold
+      ..lineTo(13, 11) // front chest up to collar
+      ..close();
+    canvas.drawPath(bodyPath, Paint()..color = robeColor);
+
+    // 8. Collar
+    canvas.drawLine(
+      const Offset(10, 11),
+      const Offset(14, 11.5),
+      Paint()
+        ..color = collarColor
+        ..strokeWidth = 2.5
+        ..strokeCap = StrokeCap.round,
+    );
+
+    // 9. Hand
+    final handPath = Path()
+      ..moveTo(19.5, 15.5) // wrist top
+      ..lineTo(23, 12) // fingertips
+      ..quadraticBezierTo(24, 13, 23.5, 14) // curve
+      ..lineTo(20.5, 17.5) // wrist bottom
+      ..close();
+    canvas.drawPath(handPath, Paint()..color = skinColor);
+    // Thumb
+    canvas.drawCircle(const Offset(21.5, 13.5), 1.0, Paint()..color = skinColor);
+
+    // 10. Arm
+    final armPath = Path()
+      ..moveTo(11, 12.5) // shoulder
+      ..lineTo(13, 20) // elbow
+      ..lineTo(20, 16.5); // wrist
+    canvas.drawPath(armPath, Paint()
+      ..color = sleeveColor
+      ..strokeWidth = 3.5
+      ..strokeJoin = StrokeJoin.round
+      ..strokeCap = StrokeCap.round
+      ..style = PaintingStyle.stroke);
+
+    // 11. Cuff
+    canvas.drawLine(
+      const Offset(19.5, 15.5),
+      const Offset(20.5, 17.5),
+      Paint()
+        ..color = collarColor
+        ..strokeWidth = 1.5
+        ..strokeCap = StrokeCap.round,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
 class MaulidIcon extends StatelessWidget {
