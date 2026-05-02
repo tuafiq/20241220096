@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // Layer 1: Full teal/hijau background
+          
           Positioned.fill(
             child: Container(color: const Color(0xFF13A884)),
           ),
@@ -54,18 +55,17 @@ class _HomePageState extends State<HomePage> {
               child: Container(color: Colors.white),
             ),
           ),
-          // Content
+          
           LayoutBuilder(
             builder: (context, constraints) {
-              // Hitung posisi batas dome (baseY = 28% dari tinggi layar)
-              // Tambah sedikit padding agar icon masuk ke area putih
+              
               final double screenHeight = MediaQuery.of(context).size.height;
               final double domeBaseY = screenHeight * 0.28;
               return SafeArea(
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      // Spacer agar icon turun ke area putih
+                    
                       SizedBox(height: domeBaseY - MediaQuery.of(context).padding.top + 16),
                       // White area content
                       Padding(
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildMenuGrid() {
     return GridView.count(
-      crossAxisCount: 4,
+      crossAxisCount: 4, // 4 kolom sesuai gambar referensi
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       mainAxisSpacing: 16,
@@ -127,8 +127,13 @@ class _HomePageState extends State<HomePage> {
       childAspectRatio: 0.85,
       children: const [
         AlQuranIcon(),
-        JadwalShalatIcon(),
         WiridDoaIcon(),
+        JadwalShalatIcon(), // Icon jam yang baru kita buat
+        KiblatIcon(),       // Tambahkan placeholder jika ingin melengkapi
+        TahlilIcon(),
+        MaulidIcon(),
+        ZakatIcon(),
+        LainnyaIcon(),
       ],
     );
   }
@@ -176,134 +181,7 @@ class AlQuranIcon extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────
-// ICON 2: JADWAL SHALAT
-// <a href="https://www.flaticon.com/free-icons/wall-clock" title="wall clock icons">Wall clock icons created by Freepik - Flaticon</a>
-// ─────────────────────────────────────────────────────────────
-class JadwalShalatIcon extends StatelessWidget {
-  const JadwalShalatIcon({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: 52,
-          height: 52,
-          decoration: const BoxDecoration(
-            color: Color(0xFFE8F5F1),
-            shape: BoxShape.circle,
-          ),
-          padding: const EdgeInsets.all(10),
-          child: CustomPaint(
-            size: const Size(32, 32),
-            painter: WallClockPainter(),
-          ),
-        ),
-        const SizedBox(height: 5),
-        const Text(
-          'Jadwal Shalat',
-          style: TextStyle(
-            fontSize: 10,
-            fontWeight: FontWeight.w500,
-            color: Color(0xFF333333),
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
-    );
-  }
-}
-
-class WallClockPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-    final radius = size.width / 2;
-
-    final borderPaint = Paint()
-      ..color = const Color(0xFF13A884)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.12;
-
-    final bgPaint = Paint()
-      ..color = Colors.white
-      ..style = PaintingStyle.fill;
-
-    final tickPaint = Paint()
-      ..color = const Color(0xFF13A884)
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round
-      ..strokeWidth = size.width * 0.06;
-
-    final handPaint = Paint()
-      ..color = const Color(0xFF13A884)
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round
-      ..strokeWidth = size.width * 0.08;
-
-    final centerDotPaint = Paint()
-      ..color = const Color(0xFF13A884)
-      ..style = PaintingStyle.fill;
-
-    final double effectiveRadius = radius - borderPaint.strokeWidth / 2;
-
-    // Draw background and border
-    canvas.drawCircle(center, effectiveRadius, bgPaint);
-    canvas.drawCircle(center, effectiveRadius, borderPaint);
-
-    // Draw 4 ticks
-    final tickLength = size.width * 0.1;
-    // 12 o'clock
-    canvas.drawLine(
-      Offset(center.dx, center.dy - effectiveRadius + borderPaint.strokeWidth / 2),
-      Offset(center.dx, center.dy - effectiveRadius + borderPaint.strokeWidth / 2 + tickLength),
-      tickPaint,
-    );
-    // 3 o'clock
-    canvas.drawLine(
-      Offset(center.dx + effectiveRadius - borderPaint.strokeWidth / 2, center.dy),
-      Offset(center.dx + effectiveRadius - borderPaint.strokeWidth / 2 - tickLength, center.dy),
-      tickPaint,
-    );
-    // 6 o'clock
-    canvas.drawLine(
-      Offset(center.dx, center.dy + effectiveRadius - borderPaint.strokeWidth / 2),
-      Offset(center.dx, center.dy + effectiveRadius - borderPaint.strokeWidth / 2 - tickLength),
-      tickPaint,
-    );
-    // 9 o'clock
-    canvas.drawLine(
-      Offset(center.dx - effectiveRadius + borderPaint.strokeWidth / 2, center.dy),
-      Offset(center.dx - effectiveRadius + borderPaint.strokeWidth / 2 + tickLength, center.dy),
-      tickPaint,
-    );
-
-    // Minute hand (pointing to ~10 minutes / 2 o'clock)
-    canvas.drawLine(
-      center,
-      Offset(center.dx + radius * 0.45, center.dy - radius * 0.3),
-      handPaint,
-    );
-
-    // Hour hand (pointing to ~10 o'clock)
-    canvas.drawLine(
-      center,
-      Offset(center.dx - radius * 0.25, center.dy - radius * 0.25),
-      handPaint,
-    );
-
-    // Center dot
-    canvas.drawCircle(center, size.width * 0.08, centerDotPaint);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-}
-
-// ─────────────────────────────────────────────────────────────
-// ICON 3: WIRID & DOA
+// ICON 2: WIRID & DOA
 // ─────────────────────────────────────────────────────────────
 class WiridDoaIcon extends StatelessWidget {
   const WiridDoaIcon({super.key});
@@ -342,6 +220,312 @@ class WiridDoaIcon extends StatelessWidget {
   }
 }
 
+// ─────────────────────────────────────────────────────────────
+// ICON 3: JADWAL SHALAT
+// Icon by Ghozi Muhtarom - Flaticon (https://www.flaticon.com/free-icons/prayer)
+// ─────────────────────────────────────────────────────────────
+class JadwalShalatIcon extends StatelessWidget {
+  const JadwalShalatIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 52,
+          height: 52,
+          decoration: const BoxDecoration(
+            color: Color(0xFFE8F5F1), // Background lingkaran luar (soft green)
+            shape: BoxShape.circle,
+          ),
+          child: Center(
+            child: Container(
+              width: 32,
+              height: 32,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: const Color(0xFF13A884), // Warna hijau NU
+                  width: 2.5,
+                ),
+              ),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  // Titik tengah jam
+                  Container(
+                    width: 4,
+                    height: 4,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF13A884),
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                  // Jarum Menit (Panjang - Menghadap ke atas)
+                  Positioned(
+                    top: 4,
+                    child: Container(
+                      width: 2,
+                      height: 12,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF13A884),
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                  ),
+                  // Jarum Jam (Pendek - Menghadap ke samping)
+                  Positioned(
+                    right: 6,
+                    child: Container(
+                      width: 10,
+                      height: 2,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF13A884),
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 5),
+        const Text(
+          'Jadwal Shalat',
+          style: TextStyle(
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+            color: Color(0xFF333333),
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// ICON 4: KIBLAT
+// Icon by Fahrul Oktaviana - Flaticon (https://www.flaticon.com/free-icons/kiblat)
+// ─────────────────────────────────────────────────────────────
+class KiblatIcon extends StatelessWidget {
+  const KiblatIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 52,
+          height: 52,
+          decoration: const BoxDecoration(
+            color: Color(0xFFE8F5F1), // Background lingkaran luar
+            shape: BoxShape.circle,
+          ),
+          child: Center(
+            child: Container(
+              width: 38,
+              height: 38,
+              decoration: BoxDecoration(
+                color: const Color(0xFFF4F4F4),
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: const Color(0xFF0C9347), // Green border
+                  width: 3.0,
+                ),
+              ),
+              child: CustomPaint(
+                size: const Size(32, 32),
+                painter: KiblatPainter(),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 5),
+        const Text(
+          'Kiblat',
+          style: TextStyle(
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+            color: Color(0xFF333333),
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+}
+
+class KiblatPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final cx = size.width / 2;
+    final cy = size.height / 2;
+
+    // Ticks
+    final tickPaint = Paint()
+      ..color = const Color(0xFFF94343)
+      ..strokeWidth = 2.0
+      ..strokeCap = StrokeCap.round;
+
+    for (int i = 0; i < 8; i++) {
+      if (i == 0) continue; // Skip top tick for the arrow
+      final angle = i * pi / 4 - pi / 2;
+      final start = Offset(
+        cx + cos(angle) * (cx - 7),
+        cy + sin(angle) * (cy - 7),
+      );
+      final end = Offset(
+        cx + cos(angle) * (cx - 3),
+        cy + sin(angle) * (cy - 3),
+      );
+      canvas.drawLine(start, end, tickPaint);
+    }
+
+    // Red Arrow
+    final arrowPath = Path()
+      ..moveTo(cx, 3.5)
+      ..lineTo(cx - 3.5, 9.5)
+      ..lineTo(cx + 3.5, 9.5)
+      ..close();
+
+    final arrowPaint = Paint()
+      ..color = const Color(0xFFF94343)
+      ..style = PaintingStyle.fill;
+    canvas.drawPath(arrowPath, arrowPaint);
+
+    // Kaaba
+    final kw = 7.0; // half width
+    final kh = 7.5; // half height
+    final kcx = cx;
+    final kcy = cy + 1.5;
+
+    final p1 = Offset(kcx, kcy - kh);
+    final p2 = Offset(kcx - kw, kcy - kh + 3.5);
+    final p3 = Offset(kcx, kcy - kh + 7);
+    final p4 = Offset(kcx + kw, kcy - kh + 3.5);
+    final p5 = Offset(kcx, kcy + kh);
+    final p6 = Offset(kcx - kw, kcy + kh - 3.5);
+    final p7 = Offset(kcx + kw, kcy + kh - 3.5);
+
+    // Top
+    final topFace = Path()..moveTo(p1.dx, p1.dy)..lineTo(p2.dx, p2.dy)..lineTo(p3.dx, p3.dy)..lineTo(p4.dx, p4.dy)..close();
+    canvas.drawPath(topFace, Paint()..color = const Color(0xFF4B4B4B));
+
+    // Left
+    final leftFace = Path()..moveTo(p2.dx, p2.dy)..lineTo(p3.dx, p3.dy)..lineTo(p5.dx, p5.dy)..lineTo(p6.dx, p6.dy)..close();
+    canvas.drawPath(leftFace, Paint()..color = const Color(0xFF3B3B3B));
+
+    // Right
+    final rightFace = Path()..moveTo(p3.dx, p3.dy)..lineTo(p4.dx, p4.dy)..lineTo(p7.dx, p7.dy)..lineTo(p5.dx, p5.dy)..close();
+    canvas.drawPath(rightFace, Paint()..color = const Color(0xFF2B2B2B));
+
+    // Left Band
+    final lBand = Path()
+      ..moveTo(kcx - kw, kcy - kh + 3.5 + 2.5) // TL
+      ..lineTo(kcx, kcy - kh + 7 + 2.5) // TR
+      ..lineTo(kcx, kcy - kh + 7 + 5.5) // BR
+      ..lineTo(kcx - kw, kcy - kh + 3.5 + 5.5) // BL
+      ..close();
+    canvas.drawPath(lBand, Paint()..color = const Color(0xFFD9D9D9));
+
+    // Right Band
+    final rBand = Path()
+      ..moveTo(kcx, kcy - kh + 7 + 2.5) // TL
+      ..lineTo(kcx + kw, kcy - kh + 3.5 + 2.5) // TR
+      ..lineTo(kcx + kw, kcy - kh + 3.5 + 5.5) // BR
+      ..lineTo(kcx, kcy - kh + 7 + 5.5) // BL
+      ..close();
+    canvas.drawPath(rBand, Paint()..color = const Color(0xFFC9C9C9));
+
+    // Door
+    final door = Path()
+      ..moveTo(kcx - 5, kcy + 1.5)
+      ..lineTo(kcx - 2, kcy + 3)
+      ..lineTo(kcx - 2, kcy + 6.5)
+      ..lineTo(kcx - 5, kcy + 5)
+      ..close();
+    canvas.drawPath(door, Paint()..color = const Color(0xFFF9C000));
+
+    // Gold marks
+    final goldPaint = Paint()
+      ..color = const Color(0xFFF9C000)
+      ..strokeWidth = 1.0
+      ..style = PaintingStyle.fill;
+    
+    final g1 = Path()
+      ..moveTo(kcx + 2, kcy + 2.8)
+      ..lineTo(kcx + 3, kcy + 2.3)
+      ..lineTo(kcx + 3, kcy + 3.3)
+      ..lineTo(kcx + 2, kcy + 3.8)
+      ..close();
+    canvas.drawPath(g1, goldPaint);
+
+    final g2 = Path()
+      ..moveTo(kcx + 4.5, kcy + 1.5)
+      ..lineTo(kcx + 6.5, kcy + 0.5)
+      ..lineTo(kcx + 6.5, kcy + 1.5)
+      ..lineTo(kcx + 4.5, kcy + 2.5)
+      ..close();
+    canvas.drawPath(g2, goldPaint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+class TahlilIcon extends StatelessWidget {
+  const TahlilIcon({super.key});
+  @override Widget build(BuildContext context) => _buildPlaceholder('Tahlil');
+}
+
+class MaulidIcon extends StatelessWidget {
+  const MaulidIcon({super.key});
+  @override Widget build(BuildContext context) => _buildPlaceholder('Maulid');
+}
+
+class ZakatIcon extends StatelessWidget {
+  const ZakatIcon({super.key});
+  @override Widget build(BuildContext context) => _buildPlaceholder('Zakat');
+}
+
+class LainnyaIcon extends StatelessWidget {
+  const LainnyaIcon({super.key});
+  @override Widget build(BuildContext context) => _buildPlaceholder('Lainnya');
+}
+
+Widget _buildPlaceholder(String title) {
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+        width: 52,
+        height: 52,
+        decoration: const BoxDecoration(
+          color: Color(0xFFE8F5F1),
+          shape: BoxShape.circle,
+        ),
+      ),
+      const SizedBox(height: 5),
+      Text(
+        title,
+        style: const TextStyle(
+          fontSize: 10,
+          fontWeight: FontWeight.w500,
+          color: Color(0xFF333333),
+        ),
+        textAlign: TextAlign.center,
+      ),
+    ],
+  );
+}
 
 class DomeClipper extends CustomClipper<Path> {
   @override
