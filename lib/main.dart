@@ -495,7 +495,7 @@ class TahlilIcon extends StatelessWidget {
 
 // ─────────────────────────────────────────────────────────────
 // ICON 6: MAULID
-// Mosque icons created by BZZRINCANTATION - Flaticon (https://www.flaticon.com/free-icons/mosque)
+// Eid mubarak icons created by mnauliady - Flaticon (https://www.flaticon.com/free-icons/eid-mubarak)
 // ─────────────────────────────────────────────────────────────
 class MaulidIcon extends StatelessWidget {
   const MaulidIcon({super.key});
