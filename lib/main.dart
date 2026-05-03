@@ -1,5 +1,5 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
           Positioned.fill(
             child: Container(color: const Color(0xFF13A884)),
           ),
-          
+          // Layer 2: White dome overlay (menutupi area bawah dome)
           Positioned.fill(
             child: ClipPath(
               clipper: DomeClipper(),
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                     
                       SizedBox(height: domeBaseY - MediaQuery.of(context).padding.top + 16),
-                     
+                      // White area content
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Column(
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildMenuGrid() {
     return GridView.count(
-      crossAxisCount: 4, 
+      crossAxisCount: 4, // 4 kolom sesuai gambar referensi
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       mainAxisSpacing: 16,
@@ -128,8 +128,8 @@ class _HomePageState extends State<HomePage> {
       children: const [
         AlQuranIcon(),
         WiridDoaIcon(),
-        JadwalShalatIcon(), 
-        KiblatIcon(),       
+        JadwalShalatIcon(), // Icon jam yang baru kita buat
+        KiblatIcon(),       // Tambahkan placeholder jika ingin melengkapi
         TahlilIcon(),
         MaulidIcon(),
         ZakatIcon(),
@@ -141,6 +141,7 @@ class _HomePageState extends State<HomePage> {
 
 // ─────────────────────────────────────────────────────────────
 // ICON 1: AL-QURAN
+// Icon by BZZRINCANTATION - Flaticon (https://www.flaticon.com/free-icons/quran)
 // ─────────────────────────────────────────────────────────────
 class AlQuranIcon extends StatelessWidget {
   const AlQuranIcon({super.key});
@@ -221,6 +222,7 @@ class WiridDoaIcon extends StatelessWidget {
 
 // ─────────────────────────────────────────────────────────────
 // ICON 3: JADWAL SHALAT
+// Icon by Ghozi Muhtarom - Flaticon (https://www.flaticon.com/free-icons/prayer)
 // ─────────────────────────────────────────────────────────────
 class JadwalShalatIcon extends StatelessWidget {
   const JadwalShalatIcon({super.key});
@@ -235,7 +237,7 @@ class JadwalShalatIcon extends StatelessWidget {
           width: 52,
           height: 52,
           decoration: const BoxDecoration(
-            color: Color(0xFFE8F5F1), 
+            color: Color(0xFFE8F5F1), // Background lingkaran luar (soft green)
             shape: BoxShape.circle,
           ),
           child: Center(
@@ -246,14 +248,14 @@ class JadwalShalatIcon extends StatelessWidget {
                 color: Colors.white,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: const Color(0xFF13A884), 
+                  color: const Color(0xFF13A884), // Warna hijau NU
                   width: 2.5,
                 ),
               ),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                 
+                  // Titik tengah jam
                   Container(
                     width: 4,
                     height: 4,
@@ -262,7 +264,7 @@ class JadwalShalatIcon extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                   ),
-                  
+                  // Jarum Menit (Panjang - Menghadap ke atas)
                   Positioned(
                     top: 4,
                     child: Container(
@@ -274,7 +276,7 @@ class JadwalShalatIcon extends StatelessWidget {
                       ),
                     ),
                   ),
-                  
+                  // Jarum Jam (Pendek - Menghadap ke samping)
                   Positioned(
                     right: 6,
                     child: Container(
@@ -308,6 +310,7 @@ class JadwalShalatIcon extends StatelessWidget {
 
 // ─────────────────────────────────────────────────────────────
 // ICON 4: KIBLAT
+// Kiblat icons created by Fahrul Oktaviana - Flaticon (https://www.flaticon.com/free-icons/kiblat)
 // ─────────────────────────────────────────────────────────────
 class KiblatIcon extends StatelessWidget {
   const KiblatIcon({super.key});
@@ -322,23 +325,22 @@ class KiblatIcon extends StatelessWidget {
           width: 52,
           height: 52,
           decoration: const BoxDecoration(
-            color: Color(0xFFE8F5F1), 
+            color: Color(0xFFE8F5F1),
             shape: BoxShape.circle,
           ),
           child: Center(
             child: Container(
-              width: 38,
-              height: 38,
+              width: 36,
+              height: 36,
               decoration: BoxDecoration(
                 color: const Color(0xFFF4F4F4),
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: const Color(0xFF0C9347), 
-                  width: 3.0,
+                  color: const Color(0xFF13A884),
+                  width: 2.5,
                 ),
               ),
               child: CustomPaint(
-                size: const Size(32, 32),
                 painter: KiblatPainter(),
               ),
             ),
@@ -362,123 +364,97 @@ class KiblatIcon extends StatelessWidget {
 class KiblatPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final cx = size.width / 2;
-    final cy = size.height / 2;
+    final Paint paint = Paint()..style = PaintingStyle.fill;
 
-    // Ticks
-    final tickPaint = Paint()
-      ..color = const Color(0xFFF94343)
+    // Draw Red Compass Marks
+    final Paint linePaint = Paint()
+      ..color = const Color(0xFFFF4747)
       ..strokeWidth = 2.0
       ..strokeCap = StrokeCap.round;
 
-    for (int i = 0; i < 8; i++) {
-      if (i == 0) continue; 
-      final angle = i * pi / 4 - pi / 2;
-      final start = Offset(
-        cx + cos(angle) * (cx - 7),
-        cy + sin(angle) * (cy - 7),
+    final double cx = size.width / 2;
+    final double cy = size.height / 2;
+
+    // Draw 7 dashes
+    final List<double> angles = [0, 45, 90, 135, 180, 225, 315];
+    for (var angle in angles) {
+      final double rad = angle * pi / 180;
+      final double innerRadius = 12.0;
+      final double outerRadius = 14.0;
+      canvas.drawLine(
+        Offset(cx + innerRadius * cos(rad), cy + innerRadius * sin(rad)),
+        Offset(cx + outerRadius * cos(rad), cy + outerRadius * sin(rad)),
+        linePaint,
       );
-      final end = Offset(
-        cx + cos(angle) * (cx - 3),
-        cy + sin(angle) * (cy - 3),
-      );
-      canvas.drawLine(start, end, tickPaint);
     }
 
-    // Red Arrow
-    final arrowPath = Path()
-      ..moveTo(cx, 3.5)
-      ..lineTo(cx - 3.5, 9.5)
-      ..lineTo(cx + 3.5, 9.5)
+    // Draw Red Triangle at Top (270 degrees)
+    final Path trianglePath = Path()
+      ..moveTo(cx, 3)
+      ..lineTo(cx - 3, 8)
+      ..lineTo(cx + 3, 8)
       ..close();
+    paint.color = const Color(0xFFFF4747);
+    canvas.drawPath(trianglePath, paint);
 
-    final arrowPaint = Paint()
-      ..color = const Color(0xFFF94343)
-      ..style = PaintingStyle.fill;
-    canvas.drawPath(arrowPath, arrowPaint);
-
-    // Kaaba
-    final kw = 7.0; // half width
-    final kh = 7.5; // half height
-    final kcx = cx;
-    final kcy = cy + 1.5;
-
-    final p1 = Offset(kcx, kcy - kh);
-    final p2 = Offset(kcx - kw, kcy - kh + 3.5);
-    final p3 = Offset(kcx, kcy - kh + 7);
-    final p4 = Offset(kcx + kw, kcy - kh + 3.5);
-    final p5 = Offset(kcx, kcy + kh);
-    final p6 = Offset(kcx - kw, kcy + kh - 3.5);
-    final p7 = Offset(kcx + kw, kcy + kh - 3.5);
-
-    // Top
-    final topFace = Path()..moveTo(p1.dx, p1.dy)..lineTo(p2.dx, p2.dy)..lineTo(p3.dx, p3.dy)..lineTo(p4.dx, p4.dy)..close();
-    canvas.drawPath(topFace, Paint()..color = const Color(0xFF4B4B4B));
-
-    // Left
-    final leftFace = Path()..moveTo(p2.dx, p2.dy)..lineTo(p3.dx, p3.dy)..lineTo(p5.dx, p5.dy)..lineTo(p6.dx, p6.dy)..close();
-    canvas.drawPath(leftFace, Paint()..color = const Color(0xFF3B3B3B));
-
-    // Right
-    final rightFace = Path()..moveTo(p3.dx, p3.dy)..lineTo(p4.dx, p4.dy)..lineTo(p7.dx, p7.dy)..lineTo(p5.dx, p5.dy)..close();
-    canvas.drawPath(rightFace, Paint()..color = const Color(0xFF2B2B2B));
-
-    // Left Band
-    final lBand = Path()
-      ..moveTo(kcx - kw, kcy - kh + 3.5 + 2.5) // TL
-      ..lineTo(kcx, kcy - kh + 7 + 2.5) // TR
-      ..lineTo(kcx, kcy - kh + 7 + 5.5) // BR
-      ..lineTo(kcx - kw, kcy - kh + 3.5 + 5.5) // BL
+    // Top face (Dark grey)
+    final Path topFace = Path()
+      ..moveTo(18, 9)
+      ..lineTo(10, 13)
+      ..lineTo(18, 17)
+      ..lineTo(26, 13)
       ..close();
-    canvas.drawPath(lBand, Paint()..color = const Color(0xFFD9D9D9));
+    paint.color = const Color(0xFF4A4A4A);
+    canvas.drawPath(topFace, paint);
 
-    // Right Band
-    final rBand = Path()
-      ..moveTo(kcx, kcy - kh + 7 + 2.5) // TL
-      ..lineTo(kcx + kw, kcy - kh + 3.5 + 2.5) // TR
-      ..lineTo(kcx + kw, kcy - kh + 3.5 + 5.5) // BR
-      ..lineTo(kcx, kcy - kh + 7 + 5.5) // BL
+    // Left face (Light grey)
+    final Path leftFace = Path()
+      ..moveTo(10, 13)
+      ..lineTo(10, 23)
+      ..lineTo(18, 27)
+      ..lineTo(18, 17)
       ..close();
-    canvas.drawPath(rBand, Paint()..color = const Color(0xFFC9C9C9));
+    paint.color = const Color(0xFFB4B4B4);
+    canvas.drawPath(leftFace, paint);
 
-    // Door
-    final door = Path()
-      ..moveTo(kcx - 5, kcy + 1.5)
-      ..lineTo(kcx - 2, kcy + 3)
-      ..lineTo(kcx - 2, kcy + 6.5)
-      ..lineTo(kcx - 5, kcy + 5)
+    // Right face (Black / Very dark grey)
+    final Path rightFace = Path()
+      ..moveTo(26, 13)
+      ..lineTo(26, 23)
+      ..lineTo(18, 27)
+      ..lineTo(18, 17)
       ..close();
-    canvas.drawPath(door, Paint()..color = const Color(0xFFF9C000));
+    paint.color = const Color(0xFF333333);
+    canvas.drawPath(rightFace, paint);
 
-    // Gold marks
-    final goldPaint = Paint()
-      ..color = const Color(0xFFF9C000)
-      ..strokeWidth = 1.0
-      ..style = PaintingStyle.fill;
-    
-    final g1 = Path()
-      ..moveTo(kcx + 2, kcy + 2.8)
-      ..lineTo(kcx + 3, kcy + 2.3)
-      ..lineTo(kcx + 3, kcy + 3.3)
-      ..lineTo(kcx + 2, kcy + 3.8)
+    // Right Face Yellow Band
+    final Path rightBand = Path()
+      ..moveTo(26, 16)
+      ..lineTo(18, 20)
+      ..lineTo(18, 22)
+      ..lineTo(26, 18)
       ..close();
-    canvas.drawPath(g1, goldPaint);
+    paint.color = const Color(0xFFFFD700);
+    canvas.drawPath(rightBand, paint);
 
-    final g2 = Path()
-      ..moveTo(kcx + 4.5, kcy + 1.5)
-      ..lineTo(kcx + 6.5, kcy + 0.5)
-      ..lineTo(kcx + 6.5, kcy + 1.5)
-      ..lineTo(kcx + 4.5, kcy + 2.5)
+    // Left Face Door
+    final Path door = Path()
+      ..moveTo(17, 26.5)
+      ..lineTo(13, 24.5)
+      ..lineTo(13, 19)
+      ..lineTo(17, 21)
       ..close();
-    canvas.drawPath(g2, goldPaint);
+    paint.color = const Color(0xFFFFD700);
+    canvas.drawPath(door, paint);
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
 // ─────────────────────────────────────────────────────────────
 // ICON 5: TAHLIL & YASIN
+// Worship icons created by ariyantodeni - Flaticon (https://www.flaticon.com/free-icons/worship)
 // ─────────────────────────────────────────────────────────────
 class TahlilIcon extends StatelessWidget {
   const TahlilIcon({super.key});
@@ -496,11 +472,10 @@ class TahlilIcon extends StatelessWidget {
             color: Color(0xFFE8F5F1),
             shape: BoxShape.circle,
           ),
-          child: Center(
-            child: CustomPaint(
-              size: const Size(32, 32),
-              painter: TahlilPainter(),
-            ),
+          padding: const EdgeInsets.all(8),
+          child: Image.asset(
+            'assets/images/tahlil_icon.png',
+            fit: BoxFit.contain,
           ),
         ),
         const SizedBox(height: 5),
@@ -518,172 +493,190 @@ class TahlilIcon extends StatelessWidget {
   }
 }
 
-class TahlilPainter extends CustomPainter {
+// ─────────────────────────────────────────────────────────────
+// ICON 6: MAULID
+// Mosque icons created by BZZRINCANTATION - Flaticon (https://www.flaticon.com/free-icons/mosque)
+// ─────────────────────────────────────────────────────────────
+class MaulidIcon extends StatelessWidget {
+  const MaulidIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 52,
+          height: 52,
+          decoration: const BoxDecoration(
+            color: Color(0xFFE8F5F1),
+            shape: BoxShape.circle,
+          ),
+          padding: const EdgeInsets.all(8),
+          child: Image.asset(
+            'assets/images/maulid_icon.png',
+            fit: BoxFit.contain,
+          ),
+        ),
+        const SizedBox(height: 5),
+        const Text(
+          'Maulid',
+          style: TextStyle(
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+            color: Color(0xFF333333),
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// ICON 7: ZAKAT
+// Zakat icons created by Freepik - Flaticon (https://www.flaticon.com/free-icons/zakat)
+// ─────────────────────────────────────────────────────────────
+class ZakatIcon extends StatelessWidget {
+  const ZakatIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 52,
+          height: 52,
+          decoration: const BoxDecoration(
+            color: Color(0xFFE8F5F1),
+            shape: BoxShape.circle,
+          ),
+          padding: const EdgeInsets.all(8),
+          child: Image.asset(
+            'assets/images/zakat_icon.png',
+            fit: BoxFit.contain,
+          ),
+        ),
+        const SizedBox(height: 5),
+        const Text(
+          'Zakat',
+          style: TextStyle(
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+            color: Color(0xFF333333),
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// ICON 8: LAINNYA
+// More icons created by Pixel perfect - Flaticon (https://www.flaticon.com/free-icons/more)
+// ─────────────────────────────────────────────────────────────
+class LainnyaIcon extends StatelessWidget {
+  const LainnyaIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 52,
+          height: 52,
+          decoration: const BoxDecoration(
+            color: Color(0xFFE8F5F1),
+            shape: BoxShape.circle,
+          ),
+          child: Center(
+            child: SizedBox(
+              width: 36,
+              height: 36,
+              child: CustomPaint(
+                painter: MoreIconPainter(),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 5),
+        const Text(
+          'Lainnya',
+          style: TextStyle(
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+            color: Color(0xFF333333),
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+}
+
+class MoreIconPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    // Colors
-    final skinColor = const Color(0xFFF2D091);
-    final robeColor = const Color(0xFF13A884); // NU Green
-    final sleeveColor = const Color(0xFF16B992); // Slightly lighter green
-    final hairColor = const Color(0xFF3B3B3B);
-    final capColor = const Color(0xFF86D945); // Bright green peci
-    final matColor = const Color(0xFF283236);
-    final collarColor = const Color(0xFFA9B2BC);
-    final bgElementColor = const Color(0xFFC0C0C0);
-
-    // 1. Moon & Stars
-    final moonBase = Path()..addOval(Rect.fromCircle(center: const Offset(25, 8), radius: 4.5));
-    final moonCut = Path()..addOval(Rect.fromCircle(center: const Offset(23.5, 7), radius: 4.5));
-    final crescent = Path.combine(PathOperation.difference, moonBase, moonCut);
-    canvas.drawPath(crescent, Paint()..color = bgElementColor);
-
-    void drawStar(Offset center) {
-      final paint = Paint()
-        ..color = bgElementColor
-        ..strokeWidth = 1.5
-        ..strokeCap = StrokeCap.round;
-      canvas.drawLine(Offset(center.dx - 2.5, center.dy), Offset(center.dx + 2.5, center.dy), paint);
-      canvas.drawLine(Offset(center.dx, center.dy - 2.5), Offset(center.dx, center.dy + 2.5), paint);
-    }
-    drawStar(const Offset(6, 8));
-    drawStar(const Offset(27, 21));
-
-    // 2. Foot
-    final footPath = Path()
-      ..moveTo(8, 25)
-      ..lineTo(5, 25)
-      ..quadraticBezierTo(4, 26, 5, 27)
-      ..lineTo(8, 27)
-      ..close();
-    canvas.drawPath(footPath, Paint()..color = skinColor);
-
-    // 3. Mat
-    canvas.drawLine(
-      const Offset(4, 27.5),
-      const Offset(28, 27.5),
-      Paint()
-        ..color = matColor
-        ..strokeWidth = 2.0
-        ..strokeCap = StrokeCap.round,
-    );
-
-    // 4. Head
-    final headPath = Path()
-      ..moveTo(10, 11) // back neck
-      ..lineTo(10, 5) // back head
-      ..lineTo(13, 4) // top head
-      ..lineTo(15, 5) // forehead
-      ..lineTo(16, 6) // eye level
-      ..lineTo(17.5, 7.5) // nose tip
-      ..lineTo(16.5, 8.5) // upper lip
-      ..lineTo(17, 9) // lower lip/chin
-      ..lineTo(15.5, 11) // front neck
-      ..close();
-    canvas.drawPath(headPath, Paint()..color = skinColor);
-
-    // 5. Hair
-    final hairPath = Path()
-      ..moveTo(10, 11)
-      ..lineTo(10, 5)
-      ..lineTo(13, 4)
-      ..lineTo(14, 5)
-      ..lineTo(12.5, 6.5) // sideburn
-      ..lineTo(12, 8)
-      ..lineTo(11, 11)
-      ..close();
-    canvas.drawPath(hairPath, Paint()..color = hairColor);
-
-    // 6. Cap
+    final Paint paint = Paint()..style = PaintingStyle.fill;
+    
+    // Left half of background
+    paint.color = const Color(0xFF50A855);
     canvas.drawArc(
-      Rect.fromLTRB(9.5, 2.5, 14.5, 6.5),
-      pi,
+      Rect.fromLTWH(0, 0, size.width, size.height),
+      pi / 2,
       pi,
       true,
-      Paint()..color = capColor,
-    );
-    // Cap bottom rim
-    canvas.drawLine(
-      const Offset(9.5, 4.5),
-      const Offset(14.5, 4.5),
-      Paint()
-        ..color = matColor
-        ..strokeWidth = 1.0
-        ..strokeCap = StrokeCap.round,
+      paint,
     );
 
-    // 7. Body
-    final bodyPath = Path()
-      ..moveTo(10, 11) // back shoulder
-      ..quadraticBezierTo(7, 16, 7, 27) // back curve
-      ..lineTo(21, 27) // bottom line
-      ..quadraticBezierTo(24, 27, 23, 24) // knee curve
-      ..lineTo(19, 19) // lap
-      ..lineTo(14, 19) // waist fold
-      ..lineTo(13, 11) // front chest up to collar
-      ..close();
-    canvas.drawPath(bodyPath, Paint()..color = robeColor);
-
-    // 8. Collar
-    canvas.drawLine(
-      const Offset(10, 11),
-      const Offset(14, 11.5),
-      Paint()
-        ..color = collarColor
-        ..strokeWidth = 2.5
-        ..strokeCap = StrokeCap.round,
+    // Right half of background
+    paint.color = const Color(0xFF429147);
+    canvas.drawArc(
+      Rect.fromLTWH(0, 0, size.width, size.height),
+      -pi / 2,
+      pi,
+      true,
+      paint,
     );
 
-    // 9. Hand
-    final handPath = Path()
-      ..moveTo(19.5, 15.5) // wrist top
-      ..lineTo(23, 12) // fingertips
-      ..quadraticBezierTo(24, 13, 23.5, 14) // curve
-      ..lineTo(20.5, 17.5) // wrist bottom
-      ..close();
-    canvas.drawPath(handPath, Paint()..color = skinColor);
-    // Thumb
-    canvas.drawCircle(const Offset(21.5, 13.5), 1.0, Paint()..color = skinColor);
+    // The three dots
+    final double dotRadius = size.width * 0.13;
+    final double spacing = size.width * 0.32;
+    final double cy = size.height / 2;
 
-    // 10. Arm
-    final armPath = Path()
-      ..moveTo(11, 12.5) // shoulder
-      ..lineTo(13, 20) // elbow
-      ..lineTo(20, 16.5); // wrist
-    canvas.drawPath(armPath, Paint()
-      ..color = sleeveColor
-      ..strokeWidth = 3.5
-      ..strokeJoin = StrokeJoin.round
-      ..strokeCap = StrokeCap.round
-      ..style = PaintingStyle.stroke);
+    for (int i = -1; i <= 1; i++) {
+      final double cx = size.width / 2 + (i * spacing);
+      
+      // Left half of dot
+      paint.color = const Color(0xFFE0E0E0);
+      canvas.drawArc(
+        Rect.fromCircle(center: Offset(cx, cy), radius: dotRadius),
+        pi / 2,
+        pi,
+        true,
+        paint,
+      );
 
-    // 11. Cuff
-    canvas.drawLine(
-      const Offset(19.5, 15.5),
-      const Offset(20.5, 17.5),
-      Paint()
-        ..color = collarColor
-        ..strokeWidth = 1.5
-        ..strokeCap = StrokeCap.round,
-    );
+      // Right half of dot
+      paint.color = Colors.white;
+      canvas.drawArc(
+        Rect.fromCircle(center: Offset(cx, cy), radius: dotRadius),
+        -pi / 2,
+        pi,
+        true,
+        paint,
+      );
+    }
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
-}
-
-class MaulidIcon extends StatelessWidget {
-  const MaulidIcon({super.key});
-  @override Widget build(BuildContext context) => _buildPlaceholder('Maulid');
-}
-
-class ZakatIcon extends StatelessWidget {
-  const ZakatIcon({super.key});
-  @override Widget build(BuildContext context) => _buildPlaceholder('Zakat');
-}
-
-class LainnyaIcon extends StatelessWidget {
-  const LainnyaIcon({super.key});
-  @override Widget build(BuildContext context) => _buildPlaceholder('Lainnya');
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
 Widget _buildPlaceholder(String title) {
