@@ -31,6 +31,28 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  String _selectedCity = 'Pamekasan, Kabupaten Pamekasan';
+
+  void _showCitySelectionDialog() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (context) {
+        return _CitySelectionSheet(
+          cities: indonesiaCities,
+          onCitySelected: (String city) {
+            setState(() {
+              _selectedCity = city;
+            });
+            Navigator.pop(context);
+          },
+        );
+      },
+    );
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -72,6 +94,9 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Column(
                           children: [
+                            const SizedBox(height: 8),
+                            _buildLocationRow(),
+                            const SizedBox(height: 32),
                             _buildMenuGrid(),
                           ],
                         ),
@@ -114,6 +139,42 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildLocationRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Icon(
+          Icons.location_on,
+          color: Color(0xFFD32F2F),
+          size: 16,
+        ),
+        const SizedBox(width: 4),
+        Flexible(
+          child: Text(
+            _selectedCity,
+            style: const TextStyle(
+              fontSize: 13,
+              color: Color(0xFF757575),
+            ),
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        const SizedBox(width: 4),
+        GestureDetector(
+          onTap: _showCitySelectionDialog,
+          child: const Text(
+            '(Ganti)',
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF13A884),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -745,3 +806,207 @@ class DomeClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }
+
+const List<String> indonesiaCities = [
+  'Ambon, Kota Ambon',
+  'Balikpapan, Kota Balikpapan',
+  'Banda Aceh, Kota Banda Aceh',
+  'Bandar Lampung, Kota Bandar Lampung',
+  'Bandung, Kabupaten Bandung',
+  'Bandung, Kota Bandung',
+  'Bangkalan, Kabupaten Bangkalan',
+  'Banjar, Kota Banjar',
+  'Banjarmasin, Kota Banjarmasin',
+  'Banyuwangi, Kabupaten Banyuwangi',
+  'Batam, Kota Batam',
+  'Batu, Kota Batu',
+  'Bekasi, Kabupaten Bekasi',
+  'Bekasi, Kota Bekasi',
+  'Bengkulu, Kota Bengkulu',
+  'Bima, Kota Bima',
+  'Binjai, Kota Binjai',
+  'Bitung, Kota Bitung',
+  'Blitar, Kabupaten Blitar',
+  'Blitar, Kota Blitar',
+  'Bogor, Kabupaten Bogor',
+  'Bogor, Kota Bogor',
+  'Bojonegoro, Kabupaten Bojonegoro',
+  'Bondowoso, Kabupaten Bondowoso',
+  'Bontang, Kota Bontang',
+  'Bukittinggi, Kota Bukittinggi',
+  'Cianjur, Kabupaten Cianjur',
+  'Cilegon, Kota Cilegon',
+  'Cimahi, Kota Cimahi',
+  'Cirebon, Kabupaten Cirebon',
+  'Cirebon, Kota Cirebon',
+  'Denpasar, Kota Denpasar',
+  'Depok, Kota Depok',
+  'Dumai, Kota Dumai',
+  'Garut, Kabupaten Garut',
+  'Gorontalo, Kota Gorontalo',
+  'Gresik, Kabupaten Gresik',
+  'Jakarta Barat, Kota Jakarta Barat',
+  'Jakarta Pusat, Kota Jakarta Pusat',
+  'Jakarta Selatan, Kota Jakarta Selatan',
+  'Jakarta Timur, Kota Jakarta Timur',
+  'Jakarta Utara, Kota Jakarta Utara',
+  'Jambi, Kota Jambi',
+  'Jayapura, Kota Jayapura',
+  'Jember, Kabupaten Jember',
+  'Jombang, Kabupaten Jombang',
+  'Kediri, Kabupaten Kediri',
+  'Kediri, Kota Kediri',
+  'Kendari, Kota Kendari',
+  'Kupang, Kota Kupang',
+  'Lamongan, Kabupaten Lamongan',
+  'Lhokseumawe, Kota Lhokseumawe',
+  'Lubuklinggau, Kota Lubuklinggau',
+  'Lumajang, Kabupaten Lumajang',
+  'Madiun, Kabupaten Madiun',
+  'Madiun, Kota Madiun',
+  'Magelang, Kota Magelang',
+  'Makassar, Kota Makassar',
+  'Malang, Kabupaten Malang',
+  'Malang, Kota Malang',
+  'Manado, Kota Manado',
+  'Mataram, Kota Mataram',
+  'Medan, Kota Medan',
+  'Mojokerto, Kabupaten Mojokerto',
+  'Mojokerto, Kota Mojokerto',
+  'Nganjuk, Kabupaten Nganjuk',
+  'Ngawi, Kabupaten Ngawi',
+  'Pacitan, Kabupaten Pacitan',
+  'Padang, Kota Padang',
+  'Palangka Raya, Kota Palangka Raya',
+  'Palembang, Kota Palembang',
+  'Palu, Kota Palu',
+  'Pamekasan, Kabupaten Pamekasan',
+  'Pangkalpinang, Kota Pangkalpinang',
+  'Parepare, Kota Parepare',
+  'Pasuruan, Kabupaten Pasuruan',
+  'Pasuruan, Kota Pasuruan',
+  'Pekalongan, Kota Pekalongan',
+  'Pekanbaru, Kota Pekanbaru',
+  'Pematangsiantar, Kota Pematangsiantar',
+  'Pontianak, Kota Pontianak',
+  'Ponorogo, Kabupaten Ponorogo',
+  'Probolinggo, Kabupaten Probolinggo',
+  'Probolinggo, Kota Probolinggo',
+  'Purwokerto, Kabupaten Banyumas',
+  'Salatiga, Kota Salatiga',
+  'Samarinda, Kota Samarinda',
+  'Sampang, Kabupaten Sampang',
+  'Semarang, Kota Semarang',
+  'Serang, Kota Serang',
+  'Sidoarjo, Kabupaten Sidoarjo',
+  'Situbondo, Kabupaten Situbondo',
+  'Sorong, Kota Sorong',
+  'Sukabumi, Kota Sukabumi',
+  'Sumenep, Kabupaten Sumenep',
+  'Surabaya, Kota Surabaya',
+  'Surakarta, Kota Surakarta',
+  'Tangerang Selatan, Kota Tangerang Selatan',
+  'Tangerang, Kabupaten Tangerang',
+  'Tangerang, Kota Tangerang',
+  'Tanjungpinang, Kota Tanjungpinang',
+  'Tarakan, Kota Tarakan',
+  'Tasikmalaya, Kota Tasikmalaya',
+  'Tegal, Kota Tegal',
+  'Ternate, Kota Ternate',
+  'Tuban, Kabupaten Tuban',
+  'Tulungagung, Kabupaten Tulungagung',
+  'Yogyakarta, Kota Yogyakarta',
+];
+
+class _CitySelectionSheet extends StatefulWidget {
+  final List<String> cities;
+  final Function(String) onCitySelected;
+
+  const _CitySelectionSheet({
+    required this.cities,
+    required this.onCitySelected,
+  });
+
+  @override
+  State<_CitySelectionSheet> createState() => _CitySelectionSheetState();
+}
+
+class _CitySelectionSheetState extends State<_CitySelectionSheet> {
+  String _searchQuery = '';
+  late List<String> _filteredCities;
+
+  @override
+  void initState() {
+    super.initState();
+    _filteredCities = widget.cities;
+  }
+
+  void _filterCities(String query) {
+    setState(() {
+      _searchQuery = query;
+      _filteredCities = widget.cities
+          .where((city) => city.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+        top: 16,
+        left: 16,
+        right: 16,
+      ),
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.7,
+        child: Column(
+          children: [
+            Container(
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Pilih Kota/Kabupaten',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              onChanged: _filterCities,
+              decoration: InputDecoration(
+                hintText: 'Cari kota atau kabupaten...',
+                prefixIcon: const Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                contentPadding: const EdgeInsets.symmetric(vertical: 0),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _filteredCities.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(_filteredCities[index]),
+                    onTap: () => widget.onCitySelected(_filteredCities[index]),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
