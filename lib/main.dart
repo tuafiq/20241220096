@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'dart:async';
 
 void main() {
   runApp(const MyApp());
@@ -96,7 +97,9 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             const SizedBox(height: 8),
                             _buildLocationRow(),
-                            const SizedBox(height: 32),
+                            const SizedBox(height: 16),
+                            const PrayerTimeSection(),
+                            const SizedBox(height: 24),
                             _buildMenuGrid(),
                           ],
                         ),
@@ -1006,6 +1009,133 @@ class _CitySelectionSheetState extends State<_CitySelectionSheet> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class PrayerTimeSection extends StatefulWidget {
+  const PrayerTimeSection({super.key});
+
+  @override
+  State<PrayerTimeSection> createState() => _PrayerTimeSectionState();
+}
+
+class _PrayerTimeSectionState extends State<PrayerTimeSection> {
+  Timer? _timer;
+  String _nextPrayerName = '';
+  String _nextPrayerTimeStr = '';
+  Duration _timeUntilNext = Duration.zero;
+
+  // Jadwal Shalat dummy (bisa diganti dengan API)
+  final Map<String, String> _schedule = {
+    'Imsak': '04:00',
+    'Subuh': '04:15',
+    'Terbit': '05:30',
+    'Dhuha': '06:00',
+    'Dzuhur': '11:35',
+    'Ashar': '14:55',
+    'Maghrib': '17:30',
+    'Isya': '18:45',
+  };
+
+  @override
+  void initState() {
+    super.initState();
+    _updateTime();
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (mounted) {
+        _updateTime();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  void _updateTime() {
+    final now = DateTime.now();
+    DateTime? nextPrayerTime;
+    String nextName = '';
+
+    List<MapEntry<String, DateTime>> prayerTimes = _schedule.entries.map((e) {
+      final parts = e.value.split(':');
+      final dt = DateTime(now.year, now.month, now.day, int.parse(parts[0]), int.parse(parts[1]));
+      return MapEntry(e.key, dt);
+    }).toList();
+
+    prayerTimes.sort((a, b) => a.value.compareTo(b.value));
+
+    for (var p in prayerTimes) {
+      if (p.value.isAfter(now)) {
+        nextPrayerTime = p.value;
+        nextName = p.key;
+        break;
+      }
+    }
+
+    if (nextPrayerTime == null) {
+      nextName = prayerTimes.first.key;
+      nextPrayerTime = prayerTimes.first.value.add(const Duration(days: 1));
+    }
+
+    setState(() {
+      _nextPrayerName = nextName;
+      _nextPrayerTimeStr = _schedule[nextName]!;
+      _timeUntilNext = nextPrayerTime!.difference(now);
+    });
+  }
+
+  String _formatDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, "0");
+    String hours = twoDigits(duration.inHours);
+    String minutes = twoDigits(duration.inMinutes.remainder(60));
+    String seconds = twoDigits(duration.inSeconds.remainder(60));
+    return "- $hours : $minutes : $seconds";
+  }
+
+  String _getFormattedDate() {
+    final now = DateTime.now();
+    final months = [
+      'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ];
+    // Contoh untuk Hijriah hardcode sementara: 11 Dzulqa'dah 1447
+    return '${now.day} ${months[now.month - 1]} ${now.year} / 11 Dzulqa\'dah 1447';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          '$_nextPrayerName $_nextPrayerTimeStr WIB',
+          style: const TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.black87,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          _formatDuration(_timeUntilNext),
+          style: const TextStyle(
+            fontSize: 14,
+            color: Color(0xFF757575),
+            letterSpacing: 1.2,
+          ),
+        ),
+        const SizedBox(height: 12),
+        Text(
+          _getFormattedDate(),
+          style: const TextStyle(
+            fontSize: 12,
+            color: Color(0xFF757575),
+          ),
+        ),
+      ],
     );
   }
 }
