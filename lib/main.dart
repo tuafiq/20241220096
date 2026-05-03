@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 import 'dart:async';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -32,33 +32,245 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  String _selectedCity = 'Pamekasan, Kabupaten Pamekasan';
+  String _currentLocation = 'Pamekasan, Kabupaten Pamekasan';
 
-  void _showCitySelectionDialog() {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
-      builder: (context) {
-        return _CitySelectionSheet(
-          cities: indonesiaCities,
-          onCitySelected: (String city) {
-            setState(() {
-              _selectedCity = city;
-            });
-            Navigator.pop(context);
-          },
-        );
-      },
-    );
+  Timer? _timer;
+  DateTime _currentTime = DateTime.now();
+  String _nextPrayerName = 'Maghrib';
+  String _nextPrayerTimeStr = '17:20';
+  Duration _timeUntilNextPrayer = Duration.zero;
+
+  @override
+  void initState() {
+    super.initState();
+    _updateTime();
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      _updateTime();
+    });
   }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  void _updateTime() {
+    final now = DateTime.now();
+    // Dummy jadwal sholat untuk hari ini
+    final schedule = {
+      'Subuh': DateTime(now.year, now.month, now.day, 4, 25),
+      'Dzuhur': DateTime(now.year, now.month, now.day, 11, 45),
+      'Ashar': DateTime(now.year, now.month, now.day, 15, 0),
+      'Maghrib': DateTime(now.year, now.month, now.day, 17, 45),
+      'Isya': DateTime(now.year, now.month, now.day, 18, 55),
+    };
+
+    String nextName = 'Subuh';
+    DateTime nextTime = schedule['Subuh']!.add(const Duration(days: 1)); // Default ke Subuh besok jika sudah melewati Isya
+
+    for (var entry in schedule.entries) {
+      if (now.isBefore(entry.value)) {
+        nextName = entry.key;
+        nextTime = entry.value;
+        break;
+      }
+    }
+
+    if (mounted) {
+      setState(() {
+        _currentTime = now;
+        _nextPrayerName = nextName;
+        _nextPrayerTimeStr = '${nextTime.hour.toString().padLeft(2, '0')}:${nextTime.minute.toString().padLeft(2, '0')}';
+        _timeUntilNextPrayer = nextTime.difference(now);
+      });
+    }
+  }
+
+  String _getFormattedDate(DateTime date) {
+    const List<String> bulan = [
+      '', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ];
+    return '${date.day} ${bulan[date.month]} ${date.year}';
+  }
+
+  String _getHijriDate(DateTime date) {
+    // Estimasi sederhana: 4 Mei 2026 ~ 16 Dzulqa'dah 1447
+    int diffDays = date.difference(DateTime(2026, 5, 4)).inDays;
+    int baseDay = 16 + diffDays;
+    int hDay = ((baseDay - 1) % 30) + 1;
+    return '$hDay Dzulqa\'dah 1447';
+  }
+
+  final List<String> _indonesianCities = [
+    'Pamekasan, Kabupaten Pamekasan',
+    'Surabaya, Kota Surabaya',
+    'Jakarta Pusat, Kota Jakarta Pusat',
+    'Jakarta Selatan, Kota Jakarta Selatan',
+    'Bandung, Kota Bandung',
+    'Yogyakarta, Kota Yogyakarta',
+    'Semarang, Kota Semarang',
+    'Malang, Kota Malang',
+    'Medan, Kota Medan',
+    'Makassar, Kota Makassar',
+    'Denpasar, Kota Denpasar',
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+  void _showLocationPicker() {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (context) {
+        return Container(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text(
+                'Pilih Kota/Kabupaten',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: _indonesianCities.length,
+                  itemBuilder: (context, index) {
+                    final city = _indonesianCities[index];
+                    return ListTile(
+                      leading: const Icon(Icons.location_on, color: Colors.grey),
+                      title: Text(city),
+                      onTap: () {
+                        setState(() {
+                          _currentLocation = city;
+                        });
+                        Navigator.pop(context);
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildLocationHeader() {
+    return Column(
+      children: [
+        // Placeholder untuk nuonline logo text
+        RichText(
+          text: const TextSpan(
+            text: 'nu',
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF13A884), // Hijau NU
+            ),
+            children: [
+              TextSpan(
+                text: 'online',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 12),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.location_on, color: Colors.red, size: 16),
+            const SizedBox(width: 4),
+            Flexible(
+              child: Text(
+                _currentLocation,
+                style: const TextStyle(
+                  fontSize: 13,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w500,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            const SizedBox(width: 4),
+            GestureDetector(
+              onTap: _showLocationPicker,
+              child: const Text(
+                '(Ganti)',
+                style: TextStyle(
+                  fontSize: 13,
+                  color: Color(0xFF13A884),
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 16),
+        RichText(
+          text: TextSpan(
+            text: '$_nextPrayerName ',
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+            children: [
+              TextSpan(
+                text: '$_nextPrayerTimeStr ',
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              const TextSpan(
+                text: 'WIB',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          '- ${_timeUntilNextPrayer.inHours.toString().padLeft(2, '0')} : ${(_timeUntilNextPrayer.inMinutes % 60).toString().padLeft(2, '0')} : ${(_timeUntilNextPrayer.inSeconds % 60).toString().padLeft(2, '0')}',
+          style: const TextStyle(
+            fontSize: 14,
+            color: Colors.grey,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          '${_getFormattedDate(_currentTime)} / ${_getHijriDate(_currentTime)}',
+          style: const TextStyle(
+            fontSize: 12,
+            color: Colors.black87,
+          ),
+        ),
+        const SizedBox(height: 24),
+      ],
+    );
   }
 
   @override
@@ -83,23 +295,19 @@ class _HomePageState extends State<HomePage> {
             builder: (context, constraints) {
               
               final double screenHeight = MediaQuery.of(context).size.height;
-              final double domeBaseY = screenHeight * 0.28;
+              final double topOffset = screenHeight * 0.12; // Adjusted to sit inside the dome
               return SafeArea(
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
                     
-                      SizedBox(height: domeBaseY - MediaQuery.of(context).padding.top + 16),
+                      SizedBox(height: topOffset),
                       // White area content
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Column(
                           children: [
-                            const SizedBox(height: 8),
-                            _buildLocationRow(),
-                            const SizedBox(height: 16),
-                            const PrayerTimeSection(),
-                            const SizedBox(height: 24),
+                            _buildLocationHeader(),
                             _buildMenuGrid(),
                           ],
                         ),
@@ -142,42 +350,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildLocationRow() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Icon(
-          Icons.location_on,
-          color: Color(0xFFD32F2F),
-          size: 16,
-        ),
-        const SizedBox(width: 4),
-        Flexible(
-          child: Text(
-            _selectedCity,
-            style: const TextStyle(
-              fontSize: 13,
-              color: Color(0xFF757575),
-            ),
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
-        const SizedBox(width: 4),
-        GestureDetector(
-          onTap: _showCitySelectionDialog,
-          child: const Text(
-            '(Ganti)',
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w500,
-              color: Color(0xFF13A884),
-            ),
-          ),
-        ),
-      ],
     );
   }
 
@@ -809,334 +981,3 @@ class DomeClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }
-
-const List<String> indonesiaCities = [
-  'Ambon, Kota Ambon',
-  'Balikpapan, Kota Balikpapan',
-  'Banda Aceh, Kota Banda Aceh',
-  'Bandar Lampung, Kota Bandar Lampung',
-  'Bandung, Kabupaten Bandung',
-  'Bandung, Kota Bandung',
-  'Bangkalan, Kabupaten Bangkalan',
-  'Banjar, Kota Banjar',
-  'Banjarmasin, Kota Banjarmasin',
-  'Banyuwangi, Kabupaten Banyuwangi',
-  'Batam, Kota Batam',
-  'Batu, Kota Batu',
-  'Bekasi, Kabupaten Bekasi',
-  'Bekasi, Kota Bekasi',
-  'Bengkulu, Kota Bengkulu',
-  'Bima, Kota Bima',
-  'Binjai, Kota Binjai',
-  'Bitung, Kota Bitung',
-  'Blitar, Kabupaten Blitar',
-  'Blitar, Kota Blitar',
-  'Bogor, Kabupaten Bogor',
-  'Bogor, Kota Bogor',
-  'Bojonegoro, Kabupaten Bojonegoro',
-  'Bondowoso, Kabupaten Bondowoso',
-  'Bontang, Kota Bontang',
-  'Bukittinggi, Kota Bukittinggi',
-  'Cianjur, Kabupaten Cianjur',
-  'Cilegon, Kota Cilegon',
-  'Cimahi, Kota Cimahi',
-  'Cirebon, Kabupaten Cirebon',
-  'Cirebon, Kota Cirebon',
-  'Denpasar, Kota Denpasar',
-  'Depok, Kota Depok',
-  'Dumai, Kota Dumai',
-  'Garut, Kabupaten Garut',
-  'Gorontalo, Kota Gorontalo',
-  'Gresik, Kabupaten Gresik',
-  'Jakarta Barat, Kota Jakarta Barat',
-  'Jakarta Pusat, Kota Jakarta Pusat',
-  'Jakarta Selatan, Kota Jakarta Selatan',
-  'Jakarta Timur, Kota Jakarta Timur',
-  'Jakarta Utara, Kota Jakarta Utara',
-  'Jambi, Kota Jambi',
-  'Jayapura, Kota Jayapura',
-  'Jember, Kabupaten Jember',
-  'Jombang, Kabupaten Jombang',
-  'Kediri, Kabupaten Kediri',
-  'Kediri, Kota Kediri',
-  'Kendari, Kota Kendari',
-  'Kupang, Kota Kupang',
-  'Lamongan, Kabupaten Lamongan',
-  'Lhokseumawe, Kota Lhokseumawe',
-  'Lubuklinggau, Kota Lubuklinggau',
-  'Lumajang, Kabupaten Lumajang',
-  'Madiun, Kabupaten Madiun',
-  'Madiun, Kota Madiun',
-  'Magelang, Kota Magelang',
-  'Makassar, Kota Makassar',
-  'Malang, Kabupaten Malang',
-  'Malang, Kota Malang',
-  'Manado, Kota Manado',
-  'Mataram, Kota Mataram',
-  'Medan, Kota Medan',
-  'Mojokerto, Kabupaten Mojokerto',
-  'Mojokerto, Kota Mojokerto',
-  'Nganjuk, Kabupaten Nganjuk',
-  'Ngawi, Kabupaten Ngawi',
-  'Pacitan, Kabupaten Pacitan',
-  'Padang, Kota Padang',
-  'Palangka Raya, Kota Palangka Raya',
-  'Palembang, Kota Palembang',
-  'Palu, Kota Palu',
-  'Pamekasan, Kabupaten Pamekasan',
-  'Pangkalpinang, Kota Pangkalpinang',
-  'Parepare, Kota Parepare',
-  'Pasuruan, Kabupaten Pasuruan',
-  'Pasuruan, Kota Pasuruan',
-  'Pekalongan, Kota Pekalongan',
-  'Pekanbaru, Kota Pekanbaru',
-  'Pematangsiantar, Kota Pematangsiantar',
-  'Pontianak, Kota Pontianak',
-  'Ponorogo, Kabupaten Ponorogo',
-  'Probolinggo, Kabupaten Probolinggo',
-  'Probolinggo, Kota Probolinggo',
-  'Purwokerto, Kabupaten Banyumas',
-  'Salatiga, Kota Salatiga',
-  'Samarinda, Kota Samarinda',
-  'Sampang, Kabupaten Sampang',
-  'Semarang, Kota Semarang',
-  'Serang, Kota Serang',
-  'Sidoarjo, Kabupaten Sidoarjo',
-  'Situbondo, Kabupaten Situbondo',
-  'Sorong, Kota Sorong',
-  'Sukabumi, Kota Sukabumi',
-  'Sumenep, Kabupaten Sumenep',
-  'Surabaya, Kota Surabaya',
-  'Surakarta, Kota Surakarta',
-  'Tangerang Selatan, Kota Tangerang Selatan',
-  'Tangerang, Kabupaten Tangerang',
-  'Tangerang, Kota Tangerang',
-  'Tanjungpinang, Kota Tanjungpinang',
-  'Tarakan, Kota Tarakan',
-  'Tasikmalaya, Kota Tasikmalaya',
-  'Tegal, Kota Tegal',
-  'Ternate, Kota Ternate',
-  'Tuban, Kabupaten Tuban',
-  'Tulungagung, Kabupaten Tulungagung',
-  'Yogyakarta, Kota Yogyakarta',
-];
-
-class _CitySelectionSheet extends StatefulWidget {
-  final List<String> cities;
-  final Function(String) onCitySelected;
-
-  const _CitySelectionSheet({
-    required this.cities,
-    required this.onCitySelected,
-  });
-
-  @override
-  State<_CitySelectionSheet> createState() => _CitySelectionSheetState();
-}
-
-class _CitySelectionSheetState extends State<_CitySelectionSheet> {
-  String _searchQuery = '';
-  late List<String> _filteredCities;
-
-  @override
-  void initState() {
-    super.initState();
-    _filteredCities = widget.cities;
-  }
-
-  void _filterCities(String query) {
-    setState(() {
-      _searchQuery = query;
-      _filteredCities = widget.cities
-          .where((city) => city.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).viewInsets.bottom,
-        top: 16,
-        left: 16,
-        right: 16,
-      ),
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.7,
-        child: Column(
-          children: [
-            Container(
-              width: 40,
-              height: 4,
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(2),
-              ),
-            ),
-            const SizedBox(height: 16),
-            const Text(
-              'Pilih Kota/Kabupaten',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              onChanged: _filterCities,
-              decoration: InputDecoration(
-                hintText: 'Cari kota atau kabupaten...',
-                prefixIcon: const Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                contentPadding: const EdgeInsets.symmetric(vertical: 0),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Expanded(
-              child: ListView.builder(
-                itemCount: _filteredCities.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(_filteredCities[index]),
-                    onTap: () => widget.onCitySelected(_filteredCities[index]),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class PrayerTimeSection extends StatefulWidget {
-  const PrayerTimeSection({super.key});
-
-  @override
-  State<PrayerTimeSection> createState() => _PrayerTimeSectionState();
-}
-
-class _PrayerTimeSectionState extends State<PrayerTimeSection> {
-  Timer? _timer;
-  String _nextPrayerName = '';
-  String _nextPrayerTimeStr = '';
-  Duration _timeUntilNext = Duration.zero;
-
-  // Jadwal Shalat dummy (bisa diganti dengan API)
-  final Map<String, String> _schedule = {
-    'Imsak': '04:00',
-    'Subuh': '04:15',
-    'Terbit': '05:30',
-    'Dhuha': '06:00',
-    'Dzuhur': '11:35',
-    'Ashar': '14:55',
-    'Maghrib': '17:30',
-    'Isya': '18:45',
-  };
-
-  @override
-  void initState() {
-    super.initState();
-    _updateTime();
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (mounted) {
-        _updateTime();
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    _timer?.cancel();
-    super.dispose();
-  }
-
-  void _updateTime() {
-    final now = DateTime.now();
-    DateTime? nextPrayerTime;
-    String nextName = '';
-
-    List<MapEntry<String, DateTime>> prayerTimes = _schedule.entries.map((e) {
-      final parts = e.value.split(':');
-      final dt = DateTime(now.year, now.month, now.day, int.parse(parts[0]), int.parse(parts[1]));
-      return MapEntry(e.key, dt);
-    }).toList();
-
-    prayerTimes.sort((a, b) => a.value.compareTo(b.value));
-
-    for (var p in prayerTimes) {
-      if (p.value.isAfter(now)) {
-        nextPrayerTime = p.value;
-        nextName = p.key;
-        break;
-      }
-    }
-
-    if (nextPrayerTime == null) {
-      nextName = prayerTimes.first.key;
-      nextPrayerTime = prayerTimes.first.value.add(const Duration(days: 1));
-    }
-
-    setState(() {
-      _nextPrayerName = nextName;
-      _nextPrayerTimeStr = _schedule[nextName]!;
-      _timeUntilNext = nextPrayerTime!.difference(now);
-    });
-  }
-
-  String _formatDuration(Duration duration) {
-    String twoDigits(int n) => n.toString().padLeft(2, "0");
-    String hours = twoDigits(duration.inHours);
-    String minutes = twoDigits(duration.inMinutes.remainder(60));
-    String seconds = twoDigits(duration.inSeconds.remainder(60));
-    return "- $hours : $minutes : $seconds";
-  }
-
-  String _getFormattedDate() {
-    final now = DateTime.now();
-    final months = [
-      'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
-    ];
-    // Contoh untuk Hijriah hardcode sementara: 11 Dzulqa'dah 1447
-    return '${now.day} ${months[now.month - 1]} ${now.year} / 11 Dzulqa\'dah 1447';
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          '$_nextPrayerName $_nextPrayerTimeStr WIB',
-          style: const TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          _formatDuration(_timeUntilNext),
-          style: const TextStyle(
-            fontSize: 14,
-            color: Color(0xFF757575),
-            letterSpacing: 1.2,
-          ),
-        ),
-        const SizedBox(height: 12),
-        Text(
-          _getFormattedDate(),
-          style: const TextStyle(
-            fontSize: 12,
-            color: Color(0xFF757575),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
