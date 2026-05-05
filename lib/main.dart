@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:math';
 import 'wirid_doa_page.dart';
+import 'prayer_schedule_page.dart';
+import 'quran_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -335,47 +337,55 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Stack(
+      body: IndexedStack(
+        index: _selectedIndex,
         children: [
-          
-          Positioned.fill(
-            child: Container(color: const Color(0xFF13A884)),
-          ),
-          // Layer 2: White dome overlay (menutupi area bawah dome)
-          Positioned.fill(
-            child: ClipPath(
-              clipper: DomeClipper(),
-              child: Container(color: Colors.white),
-            ),
-          ),
-          
-          LayoutBuilder(
-            builder: (context, constraints) {
-              
-              final double screenHeight = MediaQuery.of(context).size.height;
-              final double topOffset = screenHeight * 0.12; // Adjusted to sit inside the dome
-              return SafeArea(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                    
-                      SizedBox(height: topOffset),
-                      // White area content
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Column(
-                          children: [
-                            _buildLocationHeader(),
-                            _buildMenuGrid(),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+          // Index 0: Beranda (Home)
+          Stack(
+            children: [
+              Positioned.fill(
+                child: Container(color: const Color(0xFF13A884)),
+              ),
+              Positioned.fill(
+                child: ClipPath(
+                  clipper: DomeClipper(),
+                  child: Container(color: Colors.white),
                 ),
-              );
-            },
+              ),
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final double screenHeight = MediaQuery.of(context).size.height;
+                  final double topOffset = screenHeight * 0.12;
+                  return SafeArea(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          SizedBox(height: topOffset),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Column(
+                              children: [
+                                _buildLocationHeader(),
+                                _buildMenuGrid(),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ],
           ),
+          // Index 1: Al-Quran (Bottom Nav - Local Data)
+          const QuranPage(useApi: false),
+          // Index 2: Artikel
+          const Center(child: Text('Halaman Artikel')),
+          // Index 3: Kalender
+          const Center(child: Text('Halaman Kalender')),
+          // Index 4: Pengaturan
+          const Center(child: Text('Halaman Pengaturan')),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -442,34 +452,42 @@ class AlQuranIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: 52,
-          height: 52,
-          decoration: const BoxDecoration(
-            color: Color(0xFFE8F5F1),
-            shape: BoxShape.circle,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const QuranPage(useApi: true)),
+        );
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 52,
+            height: 52,
+            decoration: const BoxDecoration(
+              color: Color(0xFFE8F5F1),
+              shape: BoxShape.circle,
+            ),
+            padding: const EdgeInsets.all(8),
+            child: Image.asset(
+              'assets/images/alquran_icon.png',
+              fit: BoxFit.contain,
+            ),
           ),
-          padding: const EdgeInsets.all(8),
-          child: Image.asset(
-            'assets/images/alquran_icon.png',
-            fit: BoxFit.contain,
+          const SizedBox(height: 5),
+          const Text(
+            'Al-Quran',
+            style: TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF333333),
+            ),
+            textAlign: TextAlign.center,
           ),
-        ),
-        const SizedBox(height: 5),
-        const Text(
-          'Al-Quran',
-          style: TextStyle(
-            fontSize: 10,
-            fontWeight: FontWeight.w500,
-            color: Color(0xFF333333),
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -531,81 +549,86 @@ class JadwalShalatIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: 52,
-          height: 52,
-          decoration: const BoxDecoration(
-            color: Color(0xFFE8F5F1), // Background lingkaran luar (soft green)
-            shape: BoxShape.circle,
-          ),
-          child: Center(
-            child: Container(
-              width: 32,
-              height: 32,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: const Color(0xFF13A884), // Warna hijau NU
-                  width: 2.5,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const PrayerSchedulePage()),
+        );
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 52,
+            height: 52,
+            decoration: const BoxDecoration(
+              color: Color(0xFFE8F5F1),
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Container(
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: const Color(0xFF13A884),
+                    width: 2.5,
+                  ),
                 ),
-              ),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  // Titik tengah jam
-                  Container(
-                    width: 4,
-                    height: 4,
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF13A884),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  // Jarum Menit (Panjang - Menghadap ke atas)
-                  Positioned(
-                    top: 4,
-                    child: Container(
-                      width: 2,
-                      height: 12,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF13A884),
-                        borderRadius: BorderRadius.circular(2),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                      width: 4,
+                      height: 4,
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF13A884),
+                        shape: BoxShape.circle,
                       ),
                     ),
-                  ),
-                  // Jarum Jam (Pendek - Menghadap ke samping)
-                  Positioned(
-                    right: 6,
-                    child: Container(
-                      width: 10,
-                      height: 2,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF13A884),
-                        borderRadius: BorderRadius.circular(2),
+                    Positioned(
+                      top: 4,
+                      child: Container(
+                        width: 2,
+                        height: 12,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF13A884),
+                          borderRadius: BorderRadius.circular(2),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                    Positioned(
+                      right: 6,
+                      child: Container(
+                        width: 10,
+                        height: 2,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF13A884),
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-        const SizedBox(height: 5),
-        const Text(
-          'Jadwal Shalat',
-          style: TextStyle(
-            fontSize: 10,
-            fontWeight: FontWeight.w500,
-            color: Color(0xFF333333),
+          const SizedBox(height: 5),
+          const Text(
+            'Jadwal Shalat',
+            style: TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF333333),
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
