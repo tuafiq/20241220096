@@ -4,6 +4,9 @@ import 'dart:math';
 import 'wirid_doa_page.dart';
 import 'prayer_schedule_page.dart';
 import 'quran_page.dart';
+import 'qibla_page.dart';
+import 'calendar_page.dart';
+import 'settings_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -234,7 +237,7 @@ class _HomePageState extends State<HomePage> {
         // Placeholder untuk nuonline logo text
         RichText(
           text: const TextSpan(
-            text: 'nu',
+            text: 'MD',
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
@@ -383,16 +386,16 @@ class _HomePageState extends State<HomePage> {
           // Index 2: Artikel
           const Center(child: Text('Halaman Artikel')),
           // Index 3: Kalender
-          const Center(child: Text('Halaman Kalender')),
+          const CalendarPage(),
           // Index 4: Pengaturan
-          const Center(child: Text('Halaman Pengaturan')),
+          const SettingsPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: Colors.grey,
+        selectedItemColor: const Color(0xFF13A884),
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
         items: const [
@@ -642,10 +645,17 @@ class KiblatIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const QiblaPage()),
+        );
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
         Container(
           width: 52,
           height: 52,
@@ -682,6 +692,7 @@ class KiblatIcon extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
       ],
+      ),
     );
   }
 }
