@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'edit_profile_page.dart';
@@ -13,6 +14,7 @@ class _SettingsPageState extends State<SettingsPage> {
   bool _isLoggedIn = false;
   final String _mockUserName = 'Taufiq Hidayat';
   final String _mockUserEmail = 'tuafiq8214829@gmail.com';
+  Uint8List? _profileImageBytes;
 
   @override
   Widget build(BuildContext context) {
@@ -39,19 +41,27 @@ class _SettingsPageState extends State<SettingsPage> {
                   Container(
                     width: 70,
                     height: 70,
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF0088CC), // Blue color for avatar
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF0088CC), // Blue color for avatar
                       shape: BoxShape.circle,
+                      image: _profileImageBytes != null
+                          ? DecorationImage(
+                              image: MemoryImage(_profileImageBytes!),
+                              fit: BoxFit.cover,
+                            )
+                          : null,
                     ),
-                    child: const Center(
-                      child: Text(
-                        'T',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 32,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
+                    child: Center(
+                      child: _profileImageBytes == null
+                          ? const Text(
+                              'T',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 32,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            )
+                          : null,
                     ),
                   )
                 else
@@ -122,11 +132,16 @@ class _SettingsPageState extends State<SettingsPage> {
                         )
                       else
                         OutlinedButton(
-                          onPressed: () {
-                            Navigator.push(
+                          onPressed: () async {
+                            final newImageBytes = await Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => const EditProfilePage()),
                             );
+                            if (newImageBytes != null && newImageBytes is Uint8List) {
+                              setState(() {
+                                _profileImageBytes = newImageBytes;
+                              });
+                            }
                           },
                           style: OutlinedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

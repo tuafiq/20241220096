@@ -317,7 +317,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.pop(context, _imageBytes);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF009688),
