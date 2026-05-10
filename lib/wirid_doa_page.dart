@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'doa_data.dart';
+import 'wirid_data.dart';
+import 'wirid_detail_page.dart';
 
 class WiridDoaPage extends StatefulWidget {
   final int initialIndex;
@@ -59,16 +61,18 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
           indicatorWeight: 3,
           labelColor: Colors.white,
           unselectedLabelColor: Colors.white70,
-          labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
           tabs: const [
+            Tab(text: 'Wirid'),
             Tab(text: 'Doa Harian'),
-            Tab(text: 'Tahlil'),
           ],
         ),
       ),
       body: TabBarView(
         controller: _tabController,
         children: [
+          // Tab Wirid
+          _buildWiridTab(),
           // Tab Doa Harian
           Column(
             children: [
@@ -84,16 +88,100 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
               ),
             ],
           ),
-          // Tab Tahlil
-          ListView.builder(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-            itemCount: DoaData.listTahlil.length,
-            itemBuilder: (context, index) {
-              return _buildTahlilItem(DoaData.listTahlil[index], index);
-            },
-          ),
         ],
       ),
+    );
+  }
+
+  Widget _buildWiridTab() {
+    return ListView.builder(
+      padding: const EdgeInsets.all(16),
+      itemCount: wiridData.length,
+      itemBuilder: (context, index) {
+        final category = wiridData[index];
+        return Container(
+          margin: const EdgeInsets.only(bottom: 16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(16),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => WiridDetailPage(category: category),
+                  ),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 48,
+                      height: 48,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFE8F5F1),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Center(
+                        child: Text(
+                          category.id,
+                          style: const TextStyle(
+                            color: Color(0xFF13A884),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            category.title,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF2D3436),
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            category.subtitle,
+                            style: const TextStyle(
+                              fontSize: 13,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 16,
+                      color: Colors.grey,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -330,3 +418,4 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
     );
   }
 }
+

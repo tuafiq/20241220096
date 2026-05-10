@@ -164,7 +164,47 @@ class _SettingsPageState extends State<SettingsPage> {
               ],
             ),
           ),
-          const SizedBox(height: 12), 
+          const SizedBox(height: 8), 
+          Container(
+            color: Colors.white,
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  child: Text(
+                    'Umum',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                ListTile(
+                  leading: const Icon(Icons.dark_mode_outlined, color: Colors.black54),
+                  title: const Text('Tampilan', style: TextStyle(color: Colors.black87)),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
+                  onTap: () {},
+                ),
+                const Divider(height: 1, indent: 16, endIndent: 16),
+                ListTile(
+                  leading: const Icon(Icons.text_format, color: Colors.black54),
+                  title: const Text('Preferensi Membaca', style: TextStyle(color: Colors.black87)),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
+                  onTap: () {},
+                ),
+                const Divider(height: 1, indent: 16, endIndent: 16),
+                ListTile(
+                  leading: const Icon(Icons.bookmark_border, color: Colors.black54),
+                  title: const Text('Daftar Bookmark', style: TextStyle(color: Colors.black87)),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

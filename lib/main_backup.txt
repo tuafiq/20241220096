@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:math';
 import 'dart:ui';
@@ -389,8 +389,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                           child: Column(
-                            children: [
                               _buildMenuGrid(),
+                              const SizedBox(height: 12),
                             ],
                           ),
                         ),
@@ -468,10 +468,10 @@ class _HomePageState extends State<HomePage> {
 
 }
 
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // ICON 1: AL-QURAN
 // Icon by BZZRINCANTATION - Flaticon (https://www.flaticon.com/free-icons/quran)
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class AlQuranIcon extends StatelessWidget {
   const AlQuranIcon({super.key});
 
@@ -496,8 +496,9 @@ class AlQuranIcon extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(8),
-            child: CustomPaint(
-              painter: QuranIconPainter(),
+            child: Image.asset(
+              'assets/images/alquran_icon.png',
+              fit: BoxFit.contain,
             ),
           ),
           const SizedBox(height: 5),
@@ -516,9 +517,9 @@ class AlQuranIcon extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // ICON 2: WIRID & DOA
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class WiridDoaIcon extends StatelessWidget {
   const WiridDoaIcon({super.key});
 
@@ -543,8 +544,9 @@ class WiridDoaIcon extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(8),
-            child: CustomPaint(
-              painter: WiridDoaPainter(),
+            child: Image.asset(
+              'assets/images/wirid_doa_icon.png',
+              fit: BoxFit.contain,
             ),
           ),
           const SizedBox(height: 5),
@@ -563,10 +565,10 @@ class WiridDoaIcon extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // ICON 3: JADWAL SHALAT
 // Icon by Ghozi Muhtarom - Flaticon (https://www.flaticon.com/free-icons/prayer)
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class JadwalShalatIcon extends StatelessWidget {
   const JadwalShalatIcon({super.key});
 
@@ -656,10 +658,10 @@ class JadwalShalatIcon extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // ICON 4: KIBLAT
 // Kiblat icons created by Fahrul Oktaviana - Flaticon (https://www.flaticon.com/free-icons/kiblat)
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class KiblatIcon extends StatelessWidget {
   const KiblatIcon({super.key});
 
@@ -687,9 +689,13 @@ class KiblatIcon extends StatelessWidget {
             child: Container(
               width: 36,
               height: 36,
-              decoration: const BoxDecoration(
-                color: Colors.transparent,
+              decoration: BoxDecoration(
+                color: const Color(0xFFF4F4F4),
                 shape: BoxShape.circle,
+                border: Border.all(
+                  color: const Color(0xFF13A884),
+                  width: 2.5,
+                ),
               ),
               child: CustomPaint(
                 painter: KiblatPainter(),
@@ -804,10 +810,10 @@ class KiblatPainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // ICON 5: TAHLIL & YASIN
 // Worship icons created by ariyantodeni - Flaticon (https://www.flaticon.com/free-icons/worship)
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class TahlilIcon extends StatelessWidget {
   const TahlilIcon({super.key});
 
@@ -853,10 +859,10 @@ class TahlilIcon extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // ICON 6: MAULID
 // Eid mubarak icons created by mnauliady - Flaticon (https://www.flaticon.com/free-icons/eid-mubarak)
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class MaulidIcon extends StatelessWidget {
   const MaulidIcon({super.key});
 
@@ -894,10 +900,10 @@ class MaulidIcon extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // ICON 7: ZAKAT
 // Zakat icons created by Freepik - Flaticon (https://www.flaticon.com/free-icons/zakat)
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class ZakatIcon extends StatelessWidget {
   const ZakatIcon({super.key});
 
@@ -935,10 +941,10 @@ class ZakatIcon extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // ICON 8: LAINNYA
 // More icons created by Pixel perfect - Flaticon (https://www.flaticon.com/free-icons/more)
-// ─────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class LainnyaIcon extends StatelessWidget {
   const LainnyaIcon({super.key});
 
@@ -1106,162 +1112,4 @@ class DomeClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
-}
-
-class QuranIconPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()..style = PaintingStyle.fill;
-    final double w = size.width;
-    final double h = size.height;
-
-    // 1. Draw Rehal (Stand) - Reddish Brown
-    paint.color = const Color(0xFFA63D2D);
-    final Path rehalPath = Path()
-      ..moveTo(w * 0.1, h * 0.75)
-      ..lineTo(w * 0.45, h * 0.55)
-      ..lineTo(w * 0.55, h * 0.55)
-      ..lineTo(w * 0.9, h * 0.75)
-      ..lineTo(w * 0.95, h * 0.88)
-      ..lineTo(w * 0.75, h * 0.88)
-      ..lineTo(w * 0.5, h * 0.72)
-      ..lineTo(w * 0.25, h * 0.88)
-      ..lineTo(w * 0.05, h * 0.88)
-      ..close();
-    canvas.drawPath(rehalPath, paint);
-
-    // 2. Draw Quran Cover - Green
-    paint.color = const Color(0xFF429B46);
-    final Path coverPath = Path()
-      ..moveTo(w * 0.1, h * 0.15)
-      ..lineTo(w * 0.5, h * 0.35)
-      ..lineTo(w * 0.9, h * 0.15)
-      ..lineTo(w * 0.95, h * 0.55)
-      ..lineTo(w * 0.5, h * 0.75)
-      ..lineTo(w * 0.05, h * 0.55)
-      ..close();
-    canvas.drawPath(coverPath, paint);
-
-    // 3. Draw Pages - White/Light Grey
-    paint.color = Colors.white;
-    final Path leftPage = Path()
-      ..moveTo(w * 0.15, h * 0.18)
-      ..quadraticBezierTo(w * 0.3, h * 0.1, w * 0.48, h * 0.32)
-      ..lineTo(w * 0.48, h * 0.68)
-      ..quadraticBezierTo(w * 0.3, h * 0.48, w * 0.15, h * 0.53)
-      ..close();
-    canvas.drawPath(leftPage, paint);
-
-    final Path rightPage = Path()
-      ..moveTo(w * 0.85, h * 0.18)
-      ..quadraticBezierTo(w * 0.7, h * 0.1, w * 0.52, h * 0.32)
-      ..lineTo(w * 0.52, h * 0.68)
-      ..quadraticBezierTo(w * 0.7, h * 0.48, w * 0.85, h * 0.53)
-      ..close();
-    canvas.drawPath(rightPage, paint);
-
-    // 4. Draw Lines (Text) - Black
-    final Paint linePaint = Paint()
-      ..color = Colors.black87
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.2
-      ..strokeCap = StrokeCap.round;
-
-    // Left page lines
-    for (int i = 0; i < 4; i++) {
-      double yOff = i * h * 0.08;
-      canvas.drawPath(
-        Path()
-          ..moveTo(w * 0.22, h * 0.25 + yOff)
-          ..quadraticBezierTo(w * 0.32, h * 0.2 + yOff, w * 0.42, h * 0.3 + yOff),
-        linePaint
-      );
-    }
-
-    // Right page lines
-    for (int i = 0; i < 4; i++) {
-      double yOff = i * h * 0.08;
-      canvas.drawPath(
-        Path()
-          ..moveTo(w * 0.78, h * 0.25 + yOff)
-          ..quadraticBezierTo(w * 0.68, h * 0.2 + yOff, w * 0.58, h * 0.3 + yOff),
-        linePaint
-      );
-    }
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
-}
-
-class WiridDoaPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()..style = PaintingStyle.fill;
-    final double w = size.width;
-    final double h = size.height;
-
-    // 1. Draw Sleeve (Green)
-    paint.color = const Color(0xFF13A884);
-    canvas.drawRRect(
-      RRect.fromLTRBR(w * 0.75, h * 0.15, w * 0.95, h * 0.5, const Radius.circular(4)),
-      paint,
-    );
-
-    // 2. Draw Hand (Skin Tone)
-    paint.color = const Color(0xFFF1D1B1);
-    final Path handPath = Path()
-      ..moveTo(w * 0.35, h * 0.2)
-      ..quadraticBezierTo(w * 0.6, h * 0.1, w * 0.8, h * 0.25)
-      ..lineTo(w * 0.8, h * 0.5)
-      ..quadraticBezierTo(w * 0.6, h * 0.65, w * 0.35, h * 0.55)
-      ..close();
-    canvas.drawPath(handPath, paint);
-
-    // Fingers
-    for (int i = 0; i < 3; i++) {
-      canvas.drawRRect(
-        RRect.fromLTRBR(w * 0.2, h * 0.25 + (i * h * 0.12), w * 0.45, h * 0.33 + (i * h * 0.12), const Radius.circular(10)),
-        paint,
-      );
-    }
-
-    // 3. Draw Tasbih (Beads) - Brownish Orange
-    paint.color = const Color(0xFFC66900);
-    final double beadRadius = w * 0.06;
-    
-    // Loop of beads
-    final List<Offset> beads = [
-      Offset(w * 0.25, h * 0.15),
-      Offset(w * 0.18, h * 0.22),
-      Offset(w * 0.12, h * 0.32),
-      Offset(w * 0.1, h * 0.45),
-      Offset(w * 0.15, h * 0.58),
-      Offset(w * 0.25, h * 0.68),
-      Offset(w * 0.38, h * 0.75),
-      Offset(w * 0.52, h * 0.78),
-      Offset(w * 0.65, h * 0.72),
-      Offset(w * 0.55, h * 0.6),
-      Offset(w * 0.48, h * 0.48),
-      Offset(w * 0.45, h * 0.35),
-      Offset(w * 0.45, h * 0.22),
-    ];
-
-    for (var pos in beads) {
-      canvas.drawCircle(pos, beadRadius, paint);
-    }
-
-    // 4. Draw Tassel (Brown)
-    paint.color = const Color(0xFF795548);
-    final Path tasselPath = Path()
-      ..moveTo(w * 0.6, h * 0.78)
-      ..lineTo(w * 0.5, h * 0.95)
-      ..lineTo(w * 0.7, h * 0.95)
-      ..close();
-    canvas.drawPath(tasselPath, paint);
-    canvas.drawCircle(Offset(w * 0.6, h * 0.78), beadRadius * 1.2, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
