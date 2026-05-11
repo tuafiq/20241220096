@@ -234,93 +234,184 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildLocationHeader() {
-    return Column(
-      children: [
-        const Text(
-          'nuonline',
-          style: TextStyle(
-            fontSize: 32,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+    const primaryGreen = Color(0xFF13A884);
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.08),
+            blurRadius: 15,
+            offset: const Offset(0, 8),
           ),
-        ),
-        const SizedBox(height: 12),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.location_on, color: Colors.white, size: 16),
-            const SizedBox(width: 4),
-            Flexible(
-              child: Text(
-                _currentLocation,
-                style: const TextStyle(
-                  fontSize: 13,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
-                overflow: TextOverflow.ellipsis,
+        ],
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Stack(
+        children: [
+          // Background Illustration (Lower height for landscape feel)
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Opacity(
+              opacity: 0.4,
+              child: Image.asset(
+                'assets/images/mosque_widget_bg.png',
+                fit: BoxFit.cover,
+                height: 120, // Increased height to match taller container
               ),
             ),
-            const SizedBox(width: 4),
-            GestureDetector(
-              onTap: _showLocationPicker,
-              child: const Text(
-                '(Ganti)',
-                style: TextStyle(
-                  fontSize: 13,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+          ),
+          // Content
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Top Row: Title and Location (Combined to save vertical space)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: const BoxDecoration(
+                            color: primaryGreen,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(Icons.calendar_today_rounded, color: Colors.white, size: 12),
+                        ),
+                        const SizedBox(width: 8),
+                        const Text(
+                          'Widget Hari Ini',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: primaryGreen,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(Icons.location_on, color: primaryGreen, size: 14),
+                        const SizedBox(width: 4),
+                        Text(
+                          _currentLocation.split(',').first.trim(),
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF2D3436),
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Icon(Icons.keyboard_arrow_down_rounded, color: Colors.grey[400], size: 14),
+                      ],
+                    ),
+                  ],
                 ),
-              ),
+                const SizedBox(height: 15),
+                // Center Divider with Icon (Compact)
+                Row(
+                  children: [
+                    Expanded(child: Divider(color: Colors.grey[150], thickness: 1)),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Icon(Icons.wb_sunny_rounded, size: 14, color: primaryGreen.withOpacity(0.4)),
+                    ),
+                    Expanded(child: Divider(color: Colors.grey[150], thickness: 1)),
+                  ],
+                ),
+                const SizedBox(height: 15),
+                // Prayer Time Section (More landscape-oriented)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          _nextPrayerName,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: primaryGreen,
+                          ),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: _nextPrayerTimeStr,
+                                style: const TextStyle(
+                                  fontSize: 34,
+                                  fontWeight: FontWeight.w900,
+                                  color: primaryGreen,
+                                ),
+                              ),
+                              const TextSpan(
+                                text: ' WIB',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: primaryGreen,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                          decoration: BoxDecoration(
+                            color: primaryGreen.withOpacity(0.08),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Text(
+                            '- ${_timeUntilNextPrayer.inHours.toString().padLeft(2, '0')} : ${(_timeUntilNextPrayer.inMinutes % 60).toString().padLeft(2, '0')} : ${(_timeUntilNextPrayer.inSeconds % 60).toString().padLeft(2, '0')}',
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: primaryGreen,
+                              fontFeatures: [FontFeature.tabularFigures()],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          '${_getFormattedDate(_currentTime)} / ${_getHijriDate(_currentTime)}',
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: Colors.grey[600],
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
             ),
-          ],
-        ),
-        const SizedBox(height: 16),
-        RichText(
-          text: TextSpan(
-            text: '$_nextPrayerName ',
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+          ),
+          // Subtle Decoration Icon (Smaller and less intrusive)
+          Positioned(
+            right: -10,
+            bottom: -10,
+            child: Opacity(
+              opacity: 0.05,
+              child: Icon(Icons.nightlight_round, size: 60, color: primaryGreen),
             ),
-            children: [
-              TextSpan(
-                text: '$_nextPrayerTimeStr ',
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              const TextSpan(
-                text: 'WIB',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.white,
-                ),
-              ),
-            ],
           ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          '- ${_timeUntilNextPrayer.inHours.toString().padLeft(2, '0')} : ${(_timeUntilNextPrayer.inMinutes % 60).toString().padLeft(2, '0')} : ${(_timeUntilNextPrayer.inSeconds % 60).toString().padLeft(2, '0')}',
-          style: const TextStyle(
-            fontSize: 14,
-            color: Colors.white,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          '${_getFormattedDate(_currentTime)} / ${_getHijriDate(_currentTime)}',
-          style: const TextStyle(
-            fontSize: 13,
-            color: Colors.white,
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -337,9 +428,9 @@ class _HomePageState extends State<HomePage> {
             child: SingleChildScrollView(
               child: Stack(
                 children: [
-                  // Green Header Background
+                  // Green Header Background (Adjusted height for better proportions)
                   Container(
-                    height: 350,
+                    height: 300,
                     width: double.infinity,
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
@@ -354,47 +445,32 @@ class _HomePageState extends State<HomePage> {
                     bottom: false,
                     child: Column(
                       children: [
-                        const SizedBox(height: 10),
-                        // Glassmorphism Header
+                        const SizedBox(height: 15),
+                        // Widget Hari Ini Header
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 24),
-                          child: ClipPath(
-                            clipper: DomeClipper(),
-                            child: BackdropFilter(
-                              filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
-                              child: Container(
-                                width: double.infinity,
-                                color: Colors.white.withOpacity(0.15),
-                                padding: const EdgeInsets.only(top: 80, bottom: 20, left: 16, right: 16),
-                                child: _buildLocationHeader(),
-                              ),
-                            ),
-                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: _buildLocationHeader(),
                         ),
-                        const SizedBox(height: 20),
-                        // White Container for Grid & Ayat
+                        const SizedBox(height: 60),
+                        // White Menu Card (Floating Design with proper shadow)
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 16),
                           width: double.infinity,
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(30),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.05),
-                                blurRadius: 10,
-                                offset: const Offset(0, 4),
+                                color: Colors.black.withOpacity(0.08),
+                                blurRadius: 20,
+                                offset: const Offset(0, 10),
                               ),
                             ],
                           ),
-                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-                          child: Column(
-                            children: [
-                              _buildMenuGrid(),
-                            ],
-                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+                          child: _buildMenuGrid(),
                         ),
-                        const SizedBox(height: 24), // Bottom padding
+                        const SizedBox(height: 100), // Larger bottom space like in the image
                       ],
                     ),
                   ),
