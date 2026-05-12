@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'dart:math';
 import 'dart:ui';
 import 'wirid_doa_page.dart';
@@ -9,6 +11,10 @@ import 'qibla_page.dart';
 import 'calendar_page.dart';
 import 'settings_page.dart';
 import 'tahlil_yasin_page.dart';
+import 'article_page.dart';
+import 'article_model.dart';
+import 'article_service.dart';
+import 'package:hijri/hijri_calendar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,17 +47,31 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   String _currentLocation = 'Pamekasan, Kabupaten Pamekasan';
+  Map<String, String> _todaySchedule = {
+    'Subuh': '04:25',
+    'Dzuhur': '11:45',
+    'Ashar': '15:00',
+    'Maghrib': '17:45',
+    'Isya': '18:55',
+  };
 
   Timer? _timer;
   DateTime _currentTime = DateTime.now();
   String _nextPrayerName = 'Maghrib';
   String _nextPrayerTimeStr = '17:20';
   Duration _timeUntilNextPrayer = Duration.zero;
+  DateTime? _lastFetchDate;
+  
+  final ArticleService _articleService = ArticleService();
+  List<Article> _homeArticles = [];
+  bool _isArticlesLoading = true;
 
   @override
   void initState() {
     super.initState();
     _updateTime();
+    _fetchPrayerTimes(_currentLocation);
+    _loadHomeArticles();
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       _updateTime();
     });
@@ -65,14 +85,30 @@ class _HomePageState extends State<HomePage> {
 
   void _updateTime() {
     final now = DateTime.now();
-    // Dummy jadwal sholat untuk hari ini
-    final schedule = {
-      'Subuh': DateTime(now.year, now.month, now.day, 4, 25),
-      'Dzuhur': DateTime(now.year, now.month, now.day, 11, 45),
-      'Ashar': DateTime(now.year, now.month, now.day, 15, 0),
-      'Maghrib': DateTime(now.year, now.month, now.day, 17, 45),
-      'Isya': DateTime(now.year, now.month, now.day, 18, 55),
-    };
+    
+    // Auto-refresh schedule at midnight
+    if (_lastFetchDate != null && 
+        (now.day != _lastFetchDate!.day || now.month != _lastFetchDate!.month || now.year != _lastFetchDate!.year)) {
+      _fetchPrayerTimes(_currentLocation);
+    }
+    _lastFetchDate = now;
+    final schedule = <String, DateTime>{};
+    _todaySchedule.forEach((key, value) {
+      try {
+        final parts = value.split(':');
+        schedule[key] = DateTime(
+          now.year,
+          now.month,
+          now.day,
+          int.parse(parts[0]),
+          int.parse(parts[1]),
+        );
+      } catch (e) {
+        // Fallback jika format waktu salah
+      }
+    });
+
+    if (schedule.isEmpty) return;
 
     String nextName = 'Subuh';
     DateTime nextTime = schedule['Subuh']!.add(const Duration(days: 1)); // Default ke Subuh besok jika sudah melewati Isya
@@ -95,6 +131,47 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  Future<void> _fetchPrayerTimes(String location) async {
+    try {
+      String cityName = location.contains(',') ? location.split(',').last.trim() : location;
+      cityName = cityName.replaceAll('Kabupaten ', '').replaceAll('Kota ', '').trim();
+      
+      final searchUrl = Uri.parse('https://api.myquran.com/v2/sholat/kota/cari/$cityName');
+      final searchResponse = await http.get(searchUrl);
+      
+      if (searchResponse.statusCode == 200) {
+        final searchData = json.decode(searchResponse.body);
+        if (searchData['status'] == true && (searchData['data'] as List).isNotEmpty) {
+          final cityId = searchData['data'][0]['id'];
+          
+          final now = DateTime.now();
+          final scheduleUrl = Uri.parse('https://api.myquran.com/v2/sholat/jadwal/$cityId/${now.year}/${now.month}/${now.day}');
+          final scheduleResponse = await http.get(scheduleUrl);
+          
+          if (scheduleResponse.statusCode == 200) {
+            final scheduleData = json.decode(scheduleResponse.body);
+            if (scheduleData['status'] == true) {
+              final jadwal = scheduleData['data']['jadwal'];
+              if (mounted) {
+                setState(() {
+                  _todaySchedule = {
+                    'Subuh': jadwal['subuh'],
+                    'Dzuhur': jadwal['dzuhur'],
+                    'Ashar': jadwal['ashar'],
+                    'Maghrib': jadwal['maghrib'],
+                    'Isya': jadwal['isya'],
+                  };
+                });
+              }
+            }
+          }
+        }
+      }
+    } catch (e) {
+      debugPrint('Error fetching prayer times: $e');
+    }
+  }
+
   String _getFormattedDate(DateTime date) {
     const List<String> bulan = [
       '', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
@@ -104,11 +181,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   String _getHijriDate(DateTime date) {
-    // Estimasi sederhana: 4 Mei 2026 ~ 16 Dzulqa'dah 1447
-    int diffDays = date.difference(DateTime(2026, 5, 4)).inDays;
-    int baseDay = 16 + diffDays;
-    int hDay = ((baseDay - 1) % 30) + 1;
-    return '$hDay Dzulqa\'dah 1447';
+    final h = HijriCalendar.fromDate(date);
+    const months = [
+      'Muharram', 'Safar', 'Rabi\'ul Awal', 'Rabi\'ul Akhir',
+      'Jumadil Awal', 'Jumadil Akhir', 'Rajab', 'Sya\'ban',
+      'Ramadhan', 'Syawal', 'Dzulqa\'dah', 'Dzulhijjah'
+    ];
+    return '${h.hDay} ${months[h.hMonth - 1]} ${h.hYear}';
   }
 
   final List<String> _indonesianCities = [
@@ -218,6 +297,7 @@ class _HomePageState extends State<HomePage> {
                             setState(() {
                               _currentLocation = city;
                             });
+                            _fetchPrayerTimes(city);
                             Navigator.pop(context);
                           },
                         );
@@ -296,21 +376,25 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    Row(
-                      children: [
-                        const Icon(Icons.location_on, color: primaryGreen, size: 14),
-                        const SizedBox(width: 4),
-                        Text(
-                          _currentLocation.split(',').first.trim(),
-                          style: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF2D3436),
+                    GestureDetector(
+                      onTap: _showLocationPicker,
+                      behavior: HitTestBehavior.opaque,
+                      child: Row(
+                        children: [
+                          const Icon(Icons.location_on, color: primaryGreen, size: 14),
+                          const SizedBox(width: 4),
+                          Text(
+                            _currentLocation.split(',').first.trim(),
+                            style: const TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF2D3436),
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 4),
-                        Icon(Icons.keyboard_arrow_down_rounded, color: Colors.grey[400], size: 14),
-                      ],
+                          const SizedBox(width: 4),
+                          Icon(Icons.keyboard_arrow_down_rounded, color: Colors.grey[400], size: 14),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -452,7 +536,6 @@ class _HomePageState extends State<HomePage> {
                           child: _buildLocationHeader(),
                         ),
                         const SizedBox(height: 60),
-                        // White Menu Card (Floating Design with proper shadow)
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 16),
                           width: double.infinity,
@@ -470,7 +553,9 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
                           child: _buildMenuGrid(),
                         ),
-                        const SizedBox(height: 100), // Larger bottom space like in the image
+                        const SizedBox(height: 30),
+                        _buildHomeNewsSection(),
+                        const SizedBox(height: 100),
                       ],
                     ),
                   ),
@@ -481,7 +566,7 @@ class _HomePageState extends State<HomePage> {
           // Index 1: Al-Quran (Bottom Nav - Local Data)
           const QuranPage(useApi: false),
           // Index 2: Artikel
-          const Center(child: Text('Halaman Artikel')),
+          const ArticlePage(),
           // Index 3: Kalender
           const CalendarPage(),
           // Index 4: Pengaturan
@@ -518,6 +603,106 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+    );
+  }
+
+  Future<void> _loadHomeArticles() async {
+    try {
+      final articles = await _articleService.getNews('cnn-news');
+      if (mounted) {
+        setState(() {
+          _homeArticles = articles.take(5).toList();
+          _isArticlesLoading = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() => _isArticlesLoading = false);
+      }
+    }
+  }
+
+  Widget _buildHomeNewsSection() {
+    const primaryGreen = Color(0xFF13A884);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Berita Terbaru',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF2D3436),
+                ),
+              ),
+              TextButton(
+                onPressed: () => _onItemTapped(2),
+                child: const Text('Lihat Semua', style: TextStyle(color: primaryGreen)),
+              ),
+            ],
+          ),
+        ),
+        if (_isArticlesLoading)
+          const Center(child: CircularProgressIndicator(color: primaryGreen))
+        else if (_homeArticles.isEmpty)
+          const Center(child: Text('Gagal memuat berita'))
+        else
+          ListView.separated(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: _homeArticles.length,
+            separatorBuilder: (context, index) => const SizedBox(height: 12),
+            itemBuilder: (context, index) {
+              final article = _homeArticles[index];
+              return Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.04),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: ListTile(
+                  contentPadding: const EdgeInsets.all(8),
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.network(
+                      article.image,
+                      width: 80,
+                      height: 80,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) =>
+                          Container(width: 80, height: 80, color: Colors.grey[200]),
+                    ),
+                  ),
+                  title: Text(
+                    article.title,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text(
+                    article.contentSnippet,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(fontSize: 12),
+                  ),
+                  onTap: () => _onItemTapped(2), // Go to full news page
+                ),
+              );
+            },
+          ),
+      ],
     );
   }
 
