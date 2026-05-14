@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'quran_service.dart';
 import 'quran_data.dart';
@@ -151,10 +152,9 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
               opacity: 0.2,
               child: Text(
                 surah.nama,
-                style: const TextStyle(
-                  fontSize: 100,
+                style: GoogleFonts.scheherazadeNew(
+                  fontSize: 80,
                   color: Colors.white,
-                  fontFamily: 'Amiri',
                 ),
               ),
             ),
@@ -327,12 +327,11 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
               Text(
                 ayat.teksArab,
                 textAlign: TextAlign.right,
-                style: const TextStyle(
-                  fontSize: 28,
-                  height: 2.0,
+                style: GoogleFonts.scheherazadeNew(
+                  fontSize: 32,
+                  height: 1.8,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Amiri',
-                  color: Color(0xFF2D2D2D),
+                  color: const Color(0xFF2D2D2D),
                 ),
               ),
               const SizedBox(height: 20),

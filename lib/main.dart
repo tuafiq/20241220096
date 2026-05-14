@@ -1116,7 +1116,7 @@ class TahlilIcon extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────
-// ICON 6: MAULID
+// ICON 6: HADIS
 // Eid mubarak icons created by mnauliady - Flaticon (https://www.flaticon.com/free-icons/eid-mubarak)
 // ─────────────────────────────────────────────────────────────
 class MaulidIcon extends StatelessWidget {
@@ -1150,7 +1150,7 @@ class MaulidIcon extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           const Text(
-            'Maulid',
+            'Hadis',
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w500,
@@ -1165,8 +1165,8 @@ class MaulidIcon extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────
-// ICON 7: ZAKAT
-// Zakat icons created by Freepik - Flaticon (https://www.flaticon.com/free-icons/zakat)
+// ICON 7: TUTORIAL IBADAH
+// Arabic icons created by MEDZ - Flaticon (https://www.flaticon.com/free-icons/arabic)
 // ─────────────────────────────────────────────────────────────
 class ZakatIcon extends StatelessWidget {
   const ZakatIcon({super.key});
@@ -1192,7 +1192,7 @@ class ZakatIcon extends StatelessWidget {
         ),
         const SizedBox(height: 5),
         const Text(
-          'Zakat',
+          'Tutorial Ibadah',
           style: TextStyle(
             fontSize: 10,
             fontWeight: FontWeight.w500,

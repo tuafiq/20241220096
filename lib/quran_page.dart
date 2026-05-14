@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'quran_data.dart';
 import 'quran_service.dart';
 import 'surah_detail_page.dart';
@@ -217,10 +218,9 @@ class _QuranPageState extends State<QuranPage> {
       ),
       trailing: Text(
         surah.nama,
-        style: const TextStyle(
-          fontSize: 22,
-          fontFamily: 'Amiri', // Optional: Use a nice Arabic font if available
-          color: Color(0xFF13A884),
+        style: GoogleFonts.scheherazadeNew(
+          fontSize: 26,
+          color: const Color(0xFF13A884),
           fontWeight: FontWeight.bold,
         ),
       ),

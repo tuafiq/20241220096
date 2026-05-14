@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'hadith_service.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/services.dart';
@@ -70,7 +71,6 @@ class _HadithListPageState extends State<HadithListPage> {
           : Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Navigation Link
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: GestureDetector(
@@ -87,7 +87,6 @@ class _HadithListPageState extends State<HadithListPage> {
                   ),
                 ),
                 
-                // Chapter Title & Count
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Column(
@@ -106,8 +105,7 @@ class _HadithListPageState extends State<HadithListPage> {
                 ),
                 
                 const SizedBox(height: 16),
-                
-                // Hadith List
+
                 Expanded(
                   child: ListView.separated(
                     padding: const EdgeInsets.all(16),
@@ -133,7 +131,6 @@ class _HadithListPageState extends State<HadithListPage> {
         setState(() {
           _selectedIndex = index;
         });
-        // Tetap navigasi ke detail setelah memilih
         Future.delayed(const Duration(milliseconds: 200), () {
           Navigator.push(
             context,
@@ -230,8 +227,7 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
     _currentNarratorId = widget.narratorId;
     _currentNarratorName = widget.narratorName;
     _normalizeData(widget.hadith);
-    
-    // Check if bookmarked in global manager
+
     _isBookmarked = BookmarkManager().isHadithBookmarked(
       _currentNarratorId ?? 'bukhari', 
       currentHadith['number'] as int
@@ -245,14 +241,13 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
       currentHadith = {
         'number': contents['number'],
         'arab': contents['arab'],
-        'id': contents['id'], // Translation
+        'id': contents['id'], 
         'name': data['name'],
         'slug': data['id'],
       };
       if (_currentNarratorId == null) _currentNarratorId = data['id'];
       if (_currentNarratorName == null) _currentNarratorName = data['name'];
     } else {
-      // It's already the content map (from list or search)
       currentHadith = data;
     }
   }
@@ -336,7 +331,6 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Header Info
             Padding(
               padding: const EdgeInsets.fromLTRB(24, 24, 24, 16),
               child: Column(
@@ -362,18 +356,16 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
               ),
             ),
 
-            // Arabic Text
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
               child: Center(
                 child: Text(
                   currentHadith['arab'] ?? '',
-                  style: const TextStyle(
-                    fontSize: 26,
+                  style: GoogleFonts.scheherazadeNew(
+                    fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Amiri',
-                    height: 2.2,
-                    color: Color(0xFF2D2D2D),
+                    height: 1.8,
+                    color: const Color(0xFF2D2D2D),
                   ),
                   textAlign: TextAlign.center,
                   textDirection: TextDirection.rtl,
@@ -381,7 +373,6 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
               ),
             ),
 
-            // Translation Section
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
               child: Column(
@@ -408,7 +399,6 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
               ),
             ),
 
-            // Status Badge
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
               child: Row(
@@ -438,7 +428,6 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
 
             const SizedBox(height: 24),
 
-            // Bookmark and Share Buttons
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Container(
@@ -493,7 +482,6 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
 
             const SizedBox(height: 24),
 
-            // Informasi Hadis (Screen 5)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
@@ -514,7 +502,6 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
 
             const SizedBox(height: 32),
 
-            // Navigation Buttons (Screen 5)
             Padding(
               padding: const EdgeInsets.fromLTRB(24, 0, 24, 40),
               child: Row(
@@ -762,7 +749,7 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
     String url = '';
     if (platform == 'whatsapp') url = 'whatsapp://send?text=$encodedText';
     else if (platform == 'telegram') url = 'tg://msg?text=$encodedText';
-    else if (platform == 'instagram') url = 'instagram://sharesheet?text=$encodedText'; // Mock deep link
+    else if (platform == 'instagram') url = 'instagram://sharesheet?text=$encodedText';
     else if (platform == 'facebook') url = 'fb://facewebmodal/f?href=https://www.facebook.com/sharer/sharer.php?u=&quote=$encodedText';
     else if (platform == 'gmail') {
       final subject = Uri.encodeComponent('Hadis Hari Ini');

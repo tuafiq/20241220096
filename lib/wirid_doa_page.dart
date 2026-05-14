@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 import 'doa_data.dart';
 import 'wirid_data.dart';
@@ -71,9 +72,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
       body: TabBarView(
         controller: _tabController,
         children: [
-          // Tab Wirid
           _buildWiridTab(),
-          // Tab Doa Harian
           Column(
             children: [
               _buildSearchBar(),
@@ -308,7 +307,6 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Index Number
           Container(
             width: 32,
             height: 32,
@@ -328,7 +326,6 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
             ),
           ),
           const SizedBox(width: 16),
-          // Content
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -355,11 +352,11 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                       Text(
                         tahlil.arabic,
                         textAlign: TextAlign.right,
-                        style: const TextStyle(
-                          fontSize: 22,
-                          height: 1.8,
-                          color: Color(0xFF13A884),
-                          fontWeight: FontWeight.w500,
+                        style: GoogleFonts.scheherazadeNew(
+                          fontSize: 32,
+                          height: 1.5,
+                          color: const Color(0xFF13A884),
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(height: 16),

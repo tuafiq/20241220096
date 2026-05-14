@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'dart:ui';
 import 'dart:math';
@@ -323,11 +324,11 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                 Text(
                   verse.arabic,
                   textAlign: TextAlign.right,
-                  style: const TextStyle(
-                    fontSize: 24,
-                    height: 2.0,
-                    color: Color(0xFF13A884),
-                    fontWeight: FontWeight.w500,
+                  style: GoogleFonts.scheherazadeNew(
+                    fontSize: 28,
+                    height: 1.6,
+                    color: const Color(0xFF13A884),
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -418,11 +419,11 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                       Text(
                         tahlil.arabic,
                         textAlign: TextAlign.right,
-                        style: const TextStyle(
-                          fontSize: 22,
-                          height: 1.8,
-                          color: Color(0xFF13A884),
-                          fontWeight: FontWeight.w500,
+                        style: GoogleFonts.scheherazadeNew(
+                          fontSize: 28,
+                          height: 1.6,
+                          color: const Color(0xFF13A884),
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(height: 16),
