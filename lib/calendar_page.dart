@@ -29,48 +29,50 @@ class _CalendarPageState extends State<CalendarPage> {
     'Rajab', 'Sya\'ban', 'Ramadhan', 'Syawal', 'Dzulqa\'dah', 'Dzulhijjah'
   ];
 
+  final Color primaryGreen = const Color(0xFF0C5441);
+  final Color accentGreen = const Color(0xFF13A884);
+
   @override
   void initState() {
     super.initState();
     _selectedDay = _focusedDay;
-    // Fetch current year, and also next/prev year to be safe for 2026-2027
     _fetchAllHolidays();
   }
 
   Future<void> _fetchAllHolidays() async {
+    if (!mounted) return;
     setState(() => _isLoading = true);
 
-    // Fetch 2026 and 2027 to ensure both are loaded
-    final list2026 = await _holidayService.getHolidays(2026);
-    final list2027 = await _holidayService.getHolidays(2027);
-    
-    // Also fetch current year if it's not 2026 or 2027
-    final currentYear = DateTime.now().year;
-    List<Holiday> listCurrent = [];
-    if (currentYear != 2026 && currentYear != 2027) {
-      listCurrent = await _holidayService.getHolidays(currentYear);
-    }
-
-    final newHolidaysMap = <DateTime, List<Holiday>>{};
-    final allHolidays = [...list2026, ...list2027, ...listCurrent];
-
-    for (var holiday in allHolidays) {
-      final normalizedDate = DateTime.utc(holiday.date.year, holiday.date.month, holiday.date.day);
-      if (newHolidaysMap[normalizedDate] == null) {
-        newHolidaysMap[normalizedDate] = [];
+    try {
+      final currentYear = DateTime.now().year;
+      final yearsToFetch = [currentYear - 1, currentYear, currentYear + 1];
+      
+      final List<Holiday> allHolidaysList = [];
+      for (var year in yearsToFetch) {
+        final list = await _holidayService.getHolidays(year);
+        allHolidaysList.addAll(list);
       }
-      // Prevent duplicates
-      bool exists = newHolidaysMap[normalizedDate]!.any((h) => h.description == holiday.description);
-      if (!exists) {
-        newHolidaysMap[normalizedDate]!.add(holiday);
-      }
-    }
 
-    if (mounted) {
-      setState(() {
-        _holidays = newHolidaysMap;
-        _isLoading = false;
-      });
+      final newHolidaysMap = <DateTime, List<Holiday>>{};
+      for (var holiday in allHolidaysList) {
+        final normalizedDate = DateTime.utc(holiday.date.year, holiday.date.month, holiday.date.day);
+        if (newHolidaysMap[normalizedDate] == null) {
+          newHolidaysMap[normalizedDate] = [];
+        }
+        bool exists = newHolidaysMap[normalizedDate]!.any((h) => h.description == holiday.description);
+        if (!exists) {
+          newHolidaysMap[normalizedDate]!.add(holiday);
+        }
+      }
+
+      if (mounted) {
+        setState(() {
+          _holidays = newHolidaysMap;
+          _isLoading = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) setState(() => _isLoading = false);
     }
   }
 
@@ -86,10 +88,10 @@ class _CalendarPageState extends State<CalendarPage> {
 
   String _getPasaran(DateTime date) {
     const pasaran = ['Legi', 'Pahing', 'Pon', 'Wage', 'Kliwon'];
-    // Base date: 7 May 2026 is Wage (index 3).
-    final baseDate = DateTime(2026, 5, 7);
+    // Base date: 14 May 2026 is Legi (index 0).
+    final baseDate = DateTime(2026, 5, 14);
     final diff = DateTime(date.year, date.month, date.day).difference(baseDate).inDays;
-    int index = (3 + diff) % 5;
+    int index = (0 + diff) % 5;
     if (index < 0) index += 5;
     return pasaran[index];
   }
@@ -101,72 +103,74 @@ class _CalendarPageState extends State<CalendarPage> {
     final hLast = HijriCalendar.fromDate(lastDay);
     
     if (hFirst.hMonth == hLast.hMonth) {
-      return '${hijriMonths[hFirst.hMonth]} ${hFirst.hYear}';
+      return '${hijriMonths[hFirst.hMonth]} - ${hijriMonths[hLast.hMonth]} ${hFirst.hYear}';
     } else {
-      if (hFirst.hYear == hLast.hYear) {
-        return '${hijriMonths[hFirst.hMonth]} - ${hijriMonths[hLast.hMonth]} ${hFirst.hYear}';
-      } else {
-        return '${hijriMonths[hFirst.hMonth]} ${hFirst.hYear} - ${hijriMonths[hLast.hMonth]} ${hLast.hYear}';
-      }
+      return '${hijriMonths[hFirst.hMonth]} - ${hijriMonths[hLast.hMonth]} ${hFirst.hYear}';
     }
   }
 
-  Widget _buildDayCell(DateTime day, {bool isSelected = false, bool isOutside = false}) {
+  Widget _buildDayCell(DateTime day, {bool isSelected = false, bool isOutside = false, bool isToday = false}) {
     final hDate = HijriCalendar.fromDate(day);
     final pasaran = _getPasaran(day);
     final isSunday = day.weekday == DateTime.sunday;
     final isHoliday = _getEventsForDay(day).isNotEmpty;
     final isRed = isSunday || isHoliday;
     
-    Color textColor = isOutside ? Colors.grey[300]! : (isRed ? Colors.red : Colors.black87);
-    Color pasaranColor = isOutside ? Colors.grey[300]! : Colors.grey[500]!;
+    Color textColor = isSelected ? Colors.white : (isOutside ? Colors.grey[300]! : (isRed ? Colors.red : Colors.black87));
+    Color pasaranColor = isSelected ? Colors.white.withOpacity(0.9) : (isOutside ? Colors.grey[300]! : Colors.grey[500]!);
+    Color hijriColor = isSelected ? Colors.white.withOpacity(0.8) : (isOutside ? Colors.grey[300]! : Colors.black54);
 
     return Container(
       margin: const EdgeInsets.all(2),
       decoration: isSelected 
         ? BoxDecoration(
-            border: Border.all(color: Colors.blue.withOpacity(0.5), width: 1.5),
+            color: accentGreen,
             borderRadius: BorderRadius.circular(8),
-            color: Colors.blue.withOpacity(0.05),
+            boxShadow: [
+              BoxShadow(
+                color: accentGreen.withOpacity(0.3),
+                blurRadius: 4,
+                offset: const Offset(0, 2),
+              ),
+            ],
           ) 
         : null,
       child: Stack(
         children: [
-          // Hijri Top Left
+          // Hijri Top Right (Small)
           Positioned(
             top: 2,
-            left: 4,
+            right: 4,
             child: Text(
-              _toArabic(hDate.hDay),
-              style: TextStyle(fontSize: 10, color: isOutside ? Colors.grey[300] : Colors.black54),
+              '${hDate.hDay}',
+              style: TextStyle(fontSize: 9, color: hijriColor),
             ),
           ),
           // Center Date
           Center(
-            child: Text(
-              '${day.day}',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: textColor,
-              ),
-            ),
-          ),
-          // Bottom Pasaran
-          Positioned(
-            bottom: 8,
-            left: 0,
-            right: 0,
-            child: Text(
-              pasaran,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 9, color: pasaranColor),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  '${day.day}',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: textColor,
+                  ),
+                ),
+                const SizedBox(height: 1),
+                Text(
+                  pasaran,
+                  style: TextStyle(fontSize: 8, color: pasaranColor),
+                ),
+              ],
             ),
           ),
           // Holiday Dot
           if (isHoliday && !isOutside)
             Positioned(
-              bottom: 2,
+              bottom: 4,
               left: 0,
               right: 0,
               child: Row(
@@ -175,8 +179,8 @@ class _CalendarPageState extends State<CalendarPage> {
                   Container(
                     width: 4,
                     height: 4,
-                    decoration: const BoxDecoration(
-                      color: Colors.red,
+                    decoration: BoxDecoration(
+                      color: isSelected ? Colors.white : Colors.red,
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -191,124 +195,212 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: const Text('Kalender', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-        backgroundColor: const Color(0xFF13A884),
-        centerTitle: true,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Kalender', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18)),
+            Text('Hijriah & Masehi', style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 12, fontWeight: FontWeight.normal)),
+          ],
+        ),
+        backgroundColor: primaryGreen,
+        elevation: 0,
+        actions: [
+          IconButton(icon: const Icon(Icons.search, color: Colors.white), onPressed: () {}),
+          IconButton(icon: const Icon(Icons.calendar_month, color: Colors.white), onPressed: () {}),
+          IconButton(icon: const Icon(Icons.more_vert, color: Colors.white), onPressed: () {}),
+        ],
       ),
-      body: Column(
-        children: [
-          // Custom Header
-          Container(
-            color: Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 12.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF13A884), size: 18),
-                  onPressed: () {
-                    setState(() {
-                      _focusedDay = DateTime(_focusedDay.year, _focusedDay.month - 1, 1);
-                    });
-                  },
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Top Green Area for Curved Effect
+            Container(
+              height: 40,
+              decoration: BoxDecoration(
+                color: primaryGreen,
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(30),
                 ),
-                Column(
+              ),
+            ),
+            Transform.translate(
+              offset: const Offset(0, -30),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
                   children: [
-                    Text(
-                      '${indonesianMonths[_focusedDay.month - 1]} ${_focusedDay.year}',
-                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    // Calendar Card
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4)),
+                        ],
+                      ),
+                      padding: const EdgeInsets.all(12),
+                      child: Column(
+                        children: [
+                          // Custom Header
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                _buildCircleArrow(Icons.arrow_back_ios_new, () {
+                                  setState(() {
+                                    _focusedDay = DateTime(_focusedDay.year, _focusedDay.month - 1, 1);
+                                  });
+                                }),
+                                Column(
+                                  children: [
+                                    Text(
+                                      '${indonesianMonths[_focusedDay.month - 1]} ${_focusedDay.year}',
+                                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                                    ),
+                                    const SizedBox(height: 2),
+                                    Text(
+                                      _getHijriRange(),
+                                      style: TextStyle(color: accentGreen, fontSize: 13, fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                ),
+                                _buildCircleArrow(Icons.arrow_forward_ios, () {
+                                  setState(() {
+                                    _focusedDay = DateTime(_focusedDay.year, _focusedDay.month + 1, 1);
+                                  });
+                                }),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          // Calendar Grid
+                          TableCalendar<Holiday>(
+                            firstDay: DateTime.utc(2020, 1, 1),
+                            lastDay: DateTime.utc(2030, 12, 31),
+                            focusedDay: _focusedDay,
+                            selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+                            startingDayOfWeek: StartingDayOfWeek.sunday,
+                            headerVisible: false,
+                            rowHeight: 62, 
+                            daysOfWeekHeight: 30,
+                            calendarBuilders: CalendarBuilders(
+                              dowBuilder: (context, day) {
+                                final text = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Ahad'][day.weekday - 1];
+                                final isSunday = day.weekday == DateTime.sunday;
+                                return Center(
+                                  child: Text(
+                                    text,
+                                    style: TextStyle(
+                                      color: isSunday ? Colors.red : Colors.grey[700],
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                );
+                              },
+                              defaultBuilder: (context, day, focusedDay) => _buildDayCell(day),
+                              todayBuilder: (context, day, focusedDay) => _buildDayCell(day, isToday: true, isSelected: isSameDay(_selectedDay, day)),
+                              selectedBuilder: (context, day, focusedDay) => _buildDayCell(day, isSelected: true),
+                              outsideBuilder: (context, day, focusedDay) => _buildDayCell(day, isOutside: true),
+                            ),
+                            onDaySelected: (selectedDay, focusedDay) {
+                              setState(() {
+                                _selectedDay = selectedDay;
+                                _focusedDay = focusedDay;
+                              });
+                            },
+                            onPageChanged: (focusedDay) {
+                              setState(() {
+                                _focusedDay = focusedDay;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
                     ),
-                    const SizedBox(height: 2),
-                    Text(
-                      _getHijriRange(),
-                      style: TextStyle(color: Colors.grey[700], fontSize: 13),
+                    const SizedBox(height: 20),
+                    // Holiday Section
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4)),
+                        ],
+                      ),
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(6),
+                                decoration: BoxDecoration(color: accentGreen.withOpacity(0.1), borderRadius: BorderRadius.circular(8)),
+                                child: Icon(Icons.calendar_today, color: accentGreen, size: 20),
+                              ),
+                              const SizedBox(width: 12),
+                              const Text('Hari Besar & Libur Nasional', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                              const Spacer(),
+                              const Icon(Icons.keyboard_arrow_up, color: Colors.grey),
+                            ],
+                          ),
+                          const SizedBox(height: 16),
+                          _buildHolidayList(),
+                          const SizedBox(height: 16),
+                          SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: accentGreen,
+                                foregroundColor: Colors.white,
+                                shape: RoundedRectangleAttributes(borderRadius: BorderRadius.circular(12)),
+                                padding: const EdgeInsets.symmetric(vertical: 12),
+                                elevation: 0,
+                              ),
+                              child: const Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Lihat Semua Hari Besar', style: TextStyle(fontWeight: FontWeight.bold)),
+                                  SizedBox(width: 8),
+                                  Icon(Icons.arrow_forward, size: 18),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
-                IconButton(
-                  icon: const Icon(Icons.arrow_forward_ios, color: Color(0xFF13A884), size: 18),
-                  onPressed: () {
-                    setState(() {
-                      _focusedDay = DateTime(_focusedDay.year, _focusedDay.month + 1, 1);
-                    });
-                  },
-                ),
-              ],
+              ),
             ),
-          ),
-          // Calendar Grid
-          Container(
-            color: Colors.white,
-            child: Stack(
-              children: [
-                TableCalendar<Holiday>(
-                  firstDay: DateTime.utc(2020, 1, 1),
-                  lastDay: DateTime.utc(2030, 12, 31),
-                  focusedDay: _focusedDay,
-                  selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-                  startingDayOfWeek: StartingDayOfWeek.sunday,
-                  headerVisible: false,
-                  rowHeight: 58, 
-                  daysOfWeekHeight: 30,
-                  calendarBuilders: CalendarBuilders(
-                    dowBuilder: (context, day) {
-                      final text = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Ahad'][day.weekday - 1];
-                      return Center(
-                        child: Text(
-                          text,
-                          style: TextStyle(
-                            color: Colors.grey[700],
-                            fontSize: 13,
-                          ),
-                        ),
-                      );
-                    },
-                    defaultBuilder: (context, day, focusedDay) => _buildDayCell(day),
-                    todayBuilder: (context, day, focusedDay) => _buildDayCell(day),
-                    selectedBuilder: (context, day, focusedDay) => _buildDayCell(day, isSelected: true),
-                    outsideBuilder: (context, day, focusedDay) => _buildDayCell(day, isOutside: true),
-                  ),
-                  onDaySelected: (selectedDay, focusedDay) {
-                    setState(() {
-                      _selectedDay = selectedDay;
-                      _focusedDay = focusedDay; // update focused day to keep it in sync
-                    });
-                  },
-                  onPageChanged: (focusedDay) {
-                    setState(() {
-                      _focusedDay = focusedDay;
-                    });
-                  },
-                ),
-                if (_isLoading)
-                  Positioned.fill(
-                    child: Container(
-                      color: Colors.white.withOpacity(0.7),
-                      child: const Center(
-                        child: CircularProgressIndicator(color: Color(0xFF13A884)),
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 12.0),
-          // Holidays List for the current month
-          Expanded(
-            child: Container(
-              color: Colors.white,
-              child: _buildHolidayList(),
-            ),
-          ),
-        ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCircleArrow(IconData icon, VoidCallback onPressed) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.grey[100],
+        shape: BoxShape.circle,
+      ),
+      child: IconButton(
+        icon: Icon(icon, color: accentGreen, size: 16),
+        onPressed: onPressed,
+        constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+        padding: EdgeInsets.zero,
       ),
     );
   }
 
   Widget _buildHolidayList() {
-    // Get all holidays for current month
     List<Holiday> currentMonthHolidays = [];
     _holidays.forEach((date, list) {
       if (date.month == _focusedDay.month && date.year == _focusedDay.year) {
@@ -318,87 +410,76 @@ class _CalendarPageState extends State<CalendarPage> {
 
     currentMonthHolidays.sort((a, b) => a.date.compareTo(b.date));
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+    if (_isLoading) {
+      return const Center(child: Padding(padding: EdgeInsets.all(20.0), child: CircularProgressIndicator()));
+    }
+
+    if (currentMonthHolidays.isEmpty) {
+      return Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Text('Tidak ada hari libur di bulan ini.', style: TextStyle(color: Colors.grey[500], fontSize: 13)),
+      );
+    }
+
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: currentMonthHolidays.length,
+      itemBuilder: (context, index) {
+        final holiday = currentMonthHolidays[index];
+        final hDate = HijriCalendar.fromDate(holiday.date);
+        final dayName = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Ahad'][holiday.date.weekday - 1];
+        final monthStr = indonesianMonths[holiday.date.month - 1];
+        
+        return Container(
+          margin: const EdgeInsets.only(bottom: 12),
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: Colors.grey[50],
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: Colors.grey[200]!),
+          ),
           child: Row(
             children: [
-              Container(width: 4, height: 16, color: const Color(0xFF8D6E63)),
-              const SizedBox(width: 8),
-              const Text('Hari Besar & Libur Nasional', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-              const Spacer(),
-              const Icon(Icons.keyboard_arrow_up, color: Color(0xFF13A884)),
+              Container(
+                width: 50,
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.grey[200]!),
+                ),
+                child: Column(
+                  children: [
+                    Text(monthStr.substring(0, 3), style: TextStyle(color: Colors.red[300], fontSize: 10, fontWeight: FontWeight.bold)),
+                    Text('${holiday.date.day}', style: TextStyle(color: accentGreen, fontWeight: FontWeight.bold, fontSize: 18)),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(holiday.description, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                    const SizedBox(height: 4),
+                    Text(
+                      '$dayName, ${holiday.date.day} $monthStr ${holiday.date.year} / ${hDate.hDay} ${hijriMonths[hDate.hMonth]} ${hDate.hYear}',
+                      style: TextStyle(color: Colors.grey[600], fontSize: 11),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(Icons.info_outline, size: 20, color: Colors.grey[400]),
             ],
           ),
-        ),
-        const Divider(height: 1),
-        if (currentMonthHolidays.isEmpty)
-          Expanded(
-            child: Center(
-              child: Text('Tidak ada hari besar/libur di bulan ini.', style: TextStyle(color: Colors.grey[500])),
-            ),
-          )
-        else
-          Expanded(
-            child: ListView.builder(
-              itemCount: currentMonthHolidays.length,
-              itemBuilder: (context, index) {
-                final holiday = currentMonthHolidays[index];
-                final hDate = HijriCalendar.fromDate(holiday.date);
-                final dayName = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Ahad'][holiday.date.weekday - 1];
-                final monthStr = indonesianMonths[holiday.date.month - 1].substring(0, 3);
-                
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: 52,
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey[300]!),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Column(
-                          children: [
-                            Text(monthStr, style: TextStyle(color: Colors.grey[600], fontSize: 12)),
-                            Text('${holiday.date.day}', style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 18)),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              holiday.description,
-                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                            ),
-                            const SizedBox(height: 6),
-                            Text(
-                              '$dayName, ${holiday.date.day} ${indonesianMonths[holiday.date.month - 1]} ${holiday.date.year} / ${hDate.hDay} ${hijriMonths[hDate.hMonth]} ${hDate.hYear}',
-                              style: TextStyle(color: Colors.grey[600], fontSize: 12),
-                            ),
-                            const SizedBox(height: 16),
-                            const Divider(height: 1),
-                          ],
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(top: 4.0),
-                        child: Icon(Icons.info, size: 16, color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
-      ],
+        );
+      },
     );
   }
 }
+
+class RoundedRectangleAttributes extends RoundedRectangleBorder {
+  RoundedRectangleAttributes({required super.borderRadius});
+}
+
