@@ -3,6 +3,7 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'holiday_model.dart';
 import 'holiday_service.dart';
+import 'all_holidays_page.dart';
 
 class CalendarPage extends StatefulWidget {
   const CalendarPage({super.key});
@@ -14,9 +15,13 @@ class CalendarPage extends StatefulWidget {
 class _CalendarPageState extends State<CalendarPage> {
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
+  bool _isSearching = false;
+  bool _isExpanded = true;
+  final TextEditingController _searchController = TextEditingController();
 
   final HolidayService _holidayService = HolidayService();
   Map<DateTime, List<Holiday>> _holidays = {};
+  List<Holiday> _allHolidaysList = [];
   bool _isLoading = true;
 
   static const indonesianMonths = [
@@ -47,14 +52,14 @@ class _CalendarPageState extends State<CalendarPage> {
       final currentYear = DateTime.now().year;
       final yearsToFetch = [currentYear - 1, currentYear, currentYear + 1];
       
-      final List<Holiday> allHolidaysList = [];
+      final List<Holiday> fetchedHolidays = [];
       for (var year in yearsToFetch) {
         final list = await _holidayService.getHolidays(year);
-        allHolidaysList.addAll(list);
+        fetchedHolidays.addAll(list);
       }
 
       final newHolidaysMap = <DateTime, List<Holiday>>{};
-      for (var holiday in allHolidaysList) {
+      for (var holiday in fetchedHolidays) {
         final normalizedDate = DateTime.utc(holiday.date.year, holiday.date.month, holiday.date.day);
         if (newHolidaysMap[normalizedDate] == null) {
           newHolidaysMap[normalizedDate] = [];
@@ -67,6 +72,7 @@ class _CalendarPageState extends State<CalendarPage> {
 
       if (mounted) {
         setState(() {
+          _allHolidaysList = fetchedHolidays;
           _holidays = newHolidaysMap;
           _isLoading = false;
         });
@@ -81,14 +87,8 @@ class _CalendarPageState extends State<CalendarPage> {
     return _holidays[normalizedDate] ?? [];
   }
 
-  String _toArabic(int number) {
-    const digits = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-    return number.toString().split('').map((e) => digits[int.parse(e)]).join();
-  }
-
   String _getPasaran(DateTime date) {
     const pasaran = ['Legi', 'Pahing', 'Pon', 'Wage', 'Kliwon'];
-    // Base date: 14 May 2026 is Legi (index 0).
     final baseDate = DateTime(2026, 5, 14);
     final diff = DateTime(date.year, date.month, date.day).difference(baseDate).inDays;
     int index = (0 + diff) % 5;
@@ -102,11 +102,7 @@ class _CalendarPageState extends State<CalendarPage> {
     final hFirst = HijriCalendar.fromDate(firstDay);
     final hLast = HijriCalendar.fromDate(lastDay);
     
-    if (hFirst.hMonth == hLast.hMonth) {
-      return '${hijriMonths[hFirst.hMonth]} - ${hijriMonths[hLast.hMonth]} ${hFirst.hYear}';
-    } else {
-      return '${hijriMonths[hFirst.hMonth]} - ${hijriMonths[hLast.hMonth]} ${hFirst.hYear}';
-    }
+    return '${hijriMonths[hFirst.hMonth]} - ${hijriMonths[hLast.hMonth]} ${hFirst.hYear}';
   }
 
   Widget _buildDayCell(DateTime day, {bool isSelected = false, bool isOutside = false, bool isToday = false}) {
@@ -137,7 +133,6 @@ class _CalendarPageState extends State<CalendarPage> {
         : null,
       child: Stack(
         children: [
-          // Hijri Top Right (Small)
           Positioned(
             top: 2,
             right: 4,
@@ -146,7 +141,6 @@ class _CalendarPageState extends State<CalendarPage> {
               style: TextStyle(fontSize: 9, color: hijriColor),
             ),
           ),
-          // Center Date
           Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -167,7 +161,6 @@ class _CalendarPageState extends State<CalendarPage> {
               ],
             ),
           ),
-          // Holiday Dot
           if (isHoliday && !isOutside)
             Positioned(
               bottom: 4,
@@ -197,25 +190,65 @@ class _CalendarPageState extends State<CalendarPage> {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text('Kalender', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18)),
-            Text('Hijriah & Masehi', style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 12, fontWeight: FontWeight.normal)),
-          ],
-        ),
+        title: _isSearching
+            ? TextField(
+                controller: _searchController,
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
+                  hintText: 'Cari tanggal atau hari besar...',
+                  hintStyle: TextStyle(color: Colors.white70),
+                  border: InputBorder.none,
+                ),
+                onSubmitted: (value) => _navigateToHoliday(value),
+              )
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text('Kalender', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18)),
+                  Text('Hijriah & Masehi', style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 12, fontWeight: FontWeight.normal)),
+                ],
+              ),
         backgroundColor: primaryGreen,
         elevation: 0,
         actions: [
-          IconButton(icon: const Icon(Icons.search, color: Colors.white), onPressed: () {}),
-          IconButton(icon: const Icon(Icons.calendar_month, color: Colors.white), onPressed: () {}),
-          IconButton(icon: const Icon(Icons.more_vert, color: Colors.white), onPressed: () {}),
+          IconButton(
+            icon: Icon(_isSearching ? Icons.close : Icons.search, color: Colors.white),
+            onPressed: () {
+              setState(() {
+                _isSearching = !_isSearching;
+                if (!_isSearching) _searchController.clear();
+              });
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.calendar_month, color: Colors.white),
+            tooltip: 'Hari Ini',
+            onPressed: () {
+              setState(() {
+                _focusedDay = DateTime.now();
+                _selectedDay = DateTime.now();
+              });
+            },
+          ),
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.more_vert, color: Colors.white),
+            onSelected: (value) {
+              if (value == 'correction') {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Fitur Koreksi Hijriah Segera Hadir')));
+              } else if (value == 'export') {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Mengekspor ke Kalender Ponsel...')));
+              }
+            },
+            itemBuilder: (context) => [
+              const PopupMenuItem(value: 'correction', child: Text('Koreksi Hijriah')),
+              const PopupMenuItem(value: 'export', child: Text('Ekspor ke Ponsel')),
+            ],
+          ),
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Top Green Area for Curved Effect
             Container(
               height: 40,
               decoration: BoxDecoration(
@@ -232,7 +265,6 @@ class _CalendarPageState extends State<CalendarPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
                   children: [
-                    // Calendar Card
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -244,7 +276,6 @@ class _CalendarPageState extends State<CalendarPage> {
                       padding: const EdgeInsets.all(12),
                       child: Column(
                         children: [
-                          // Custom Header
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8.0),
                             child: Row(
@@ -277,7 +308,6 @@ class _CalendarPageState extends State<CalendarPage> {
                             ),
                           ),
                           const SizedBox(height: 16),
-                          // Calendar Grid
                           TableCalendar<Holiday>(
                             firstDay: DateTime.utc(2020, 1, 1),
                             lastDay: DateTime.utc(2030, 12, 31),
@@ -322,8 +352,9 @@ class _CalendarPageState extends State<CalendarPage> {
                         ],
                       ),
                     ),
+                    if (_selectedDay != null && _getEventsForDay(_selectedDay!).isNotEmpty)
+                      _buildSelectedDayDetail(),
                     const SizedBox(height: 20),
-                    // Holiday Section
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -335,43 +366,50 @@ class _CalendarPageState extends State<CalendarPage> {
                       padding: const EdgeInsets.all(16),
                       child: Column(
                         children: [
-                          Row(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(6),
-                                decoration: BoxDecoration(color: accentGreen.withOpacity(0.1), borderRadius: BorderRadius.circular(8)),
-                                child: Icon(Icons.calendar_today, color: accentGreen, size: 20),
-                              ),
-                              const SizedBox(width: 12),
-                              const Text('Hari Besar & Libur Nasional', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-                              const Spacer(),
-                              const Icon(Icons.keyboard_arrow_up, color: Colors.grey),
-                            ],
-                          ),
-                          const SizedBox(height: 16),
-                          _buildHolidayList(),
-                          const SizedBox(height: 16),
-                          SizedBox(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: accentGreen,
-                                foregroundColor: Colors.white,
-                                shape: RoundedRectangleAttributes(borderRadius: BorderRadius.circular(12)),
-                                padding: const EdgeInsets.symmetric(vertical: 12),
-                                elevation: 0,
-                              ),
-                              child: const Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('Lihat Semua Hari Besar', style: TextStyle(fontWeight: FontWeight.bold)),
-                                  SizedBox(width: 8),
-                                  Icon(Icons.arrow_forward, size: 18),
-                                ],
-                              ),
+                          InkWell(
+                            onTap: () => setState(() => _isExpanded = !_isExpanded),
+                            child: Row(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(6),
+                                  decoration: BoxDecoration(color: accentGreen.withOpacity(0.1), borderRadius: BorderRadius.circular(8)),
+                                  child: Icon(Icons.calendar_today, color: accentGreen, size: 20),
+                                ),
+                                const SizedBox(width: 12),
+                                const Text('Hari Besar & Libur Nasional', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                                const Spacer(),
+                                Icon(_isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down, color: Colors.grey),
+                              ],
                             ),
                           ),
+                          if (_isExpanded) ...[
+                            const SizedBox(height: 16),
+                            _buildHolidayList(),
+                            const SizedBox(height: 16),
+                            SizedBox(
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => AllHolidaysPage(holidays: _allHolidaysList)));
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: accentGreen,
+                                  foregroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                                  padding: const EdgeInsets.symmetric(vertical: 12),
+                                  elevation: 0,
+                                ),
+                                child: const Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Text('Lihat Semua Hari Besar', style: TextStyle(fontWeight: FontWeight.bold)),
+                                    const SizedBox(width: 8),
+                                    const Icon(Icons.arrow_forward, size: 18),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ],
                       ),
                     ),
@@ -383,6 +421,53 @@ class _CalendarPageState extends State<CalendarPage> {
         ),
       ),
     );
+  }
+
+  Widget _buildSelectedDayDetail() {
+    final events = _getEventsForDay(_selectedDay!);
+    return Container(
+      margin: const EdgeInsets.only(top: 16),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: accentGreen.withOpacity(0.05),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: accentGreen.withOpacity(0.2)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Icon(Icons.info_outline, size: 18, color: Color(0xFF13A884)),
+              const SizedBox(width: 8),
+              Text(
+                'Detail ${indonesianMonths[_selectedDay!.month - 1]} ${_selectedDay!.day}',
+                style: const TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF13A884)),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          ...events.map((e) => Padding(
+            padding: const EdgeInsets.only(bottom: 4.0),
+            child: Text('• ${e.description}', style: const TextStyle(fontWeight: FontWeight.w500)),
+          )),
+        ],
+      ),
+    );
+  }
+
+  void _navigateToHoliday(String query) {
+    final match = _allHolidaysList.where((h) => h.description.toLowerCase().contains(query.toLowerCase())).toList();
+    if (match.isNotEmpty) {
+      setState(() {
+        _focusedDay = match.first.date;
+        _selectedDay = match.first.date;
+        _isSearching = false;
+        _searchController.clear();
+      });
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Tidak ditemukan hari besar tersebut.')));
+    }
   }
 
   Widget _buildCircleArrow(IconData icon, VoidCallback onPressed) {
@@ -479,7 +564,4 @@ class _CalendarPageState extends State<CalendarPage> {
   }
 }
 
-class RoundedRectangleAttributes extends RoundedRectangleBorder {
-  RoundedRectangleAttributes({required super.borderRadius});
-}
 
