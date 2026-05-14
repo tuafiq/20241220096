@@ -15,6 +15,7 @@ import 'article_page.dart';
 import 'article_model.dart';
 import 'article_service.dart';
 import 'package:hijri/hijri_calendar.dart';
+import 'hadith_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -1123,34 +1124,42 @@ class MaulidIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: 52,
-          height: 52,
-          decoration: const BoxDecoration(
-            color: Color(0xFFE8F5F1),
-            shape: BoxShape.circle,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const HadithPage()),
+        );
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 52,
+            height: 52,
+            decoration: const BoxDecoration(
+              color: Color(0xFFE8F5F1),
+              shape: BoxShape.circle,
+            ),
+            padding: const EdgeInsets.all(8),
+            child: Image.asset(
+              'assets/images/maulid_icon.png',
+              fit: BoxFit.contain,
+            ),
           ),
-          padding: const EdgeInsets.all(8),
-          child: Image.asset(
-            'assets/images/maulid_icon.png',
-            fit: BoxFit.contain,
+          const SizedBox(height: 5),
+          const Text(
+            'Maulid',
+            style: TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF333333),
+            ),
+            textAlign: TextAlign.center,
           ),
-        ),
-        const SizedBox(height: 5),
-        const Text(
-          'Maulid',
-          style: TextStyle(
-            fontSize: 10,
-            fontWeight: FontWeight.w500,
-            color: Color(0xFF333333),
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
