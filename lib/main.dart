@@ -16,6 +16,7 @@ import 'article_model.dart';
 import 'article_service.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'hadith_page.dart';
+import 'tutorial_ibadah_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -722,7 +723,7 @@ class _HomePageState extends State<HomePage> {
         KiblatIcon(),       // Tambahkan placeholder jika ingin melengkapi
         TahlilIcon(),
         MaulidIcon(),
-        ZakatIcon(),
+        TutorialIbadahIcon(),
         LainnyaIcon(),
       ],
     );
@@ -1168,39 +1169,47 @@ class MaulidIcon extends StatelessWidget {
 // ICON 7: TUTORIAL IBADAH
 // Arabic icons created by MEDZ - Flaticon (https://www.flaticon.com/free-icons/arabic)
 // ─────────────────────────────────────────────────────────────
-class ZakatIcon extends StatelessWidget {
-  const ZakatIcon({super.key});
+class TutorialIbadahIcon extends StatelessWidget {
+  const TutorialIbadahIcon({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: 52,
-          height: 52,
-          decoration: const BoxDecoration(
-            color: Color(0xFFE8F5F1),
-            shape: BoxShape.circle,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const TutorialIbadahPage()),
+        );
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 52,
+            height: 52,
+            decoration: const BoxDecoration(
+              color: Color(0xFFE8F5F1),
+              shape: BoxShape.circle,
+            ),
+            padding: const EdgeInsets.all(8),
+            child: Image.asset(
+              'assets/images/zakat_icon.png',
+              fit: BoxFit.contain,
+            ),
           ),
-          padding: const EdgeInsets.all(8),
-          child: Image.asset(
-            'assets/images/zakat_icon.png',
-            fit: BoxFit.contain,
+          const SizedBox(height: 5),
+          const Text(
+            'Tutorial Ibadah',
+            style: TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF333333),
+            ),
+            textAlign: TextAlign.center,
           ),
-        ),
-        const SizedBox(height: 5),
-        const Text(
-          'Tutorial Ibadah',
-          style: TextStyle(
-            fontSize: 10,
-            fontWeight: FontWeight.w500,
-            color: Color(0xFF333333),
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
