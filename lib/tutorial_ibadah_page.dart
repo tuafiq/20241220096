@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'tutorial_model.dart';
 import 'tutorial_service.dart';
+import 'tutorial_detail_page.dart';
 
 class TutorialIbadahPage extends StatefulWidget {
   const TutorialIbadahPage({super.key});
@@ -18,10 +19,18 @@ class _TutorialIbadahPageState extends State<TutorialIbadahPage> with SingleTick
   late Future<List<TutorialModel>> _bacaanFuture;
   late Future<List<TutorialModel>> _ayatKursiFuture;
 
+  final Color primaryGreen = const Color(0xFF149177);
+  final Color backgroundLight = const Color(0xFFF8F9F9);
+
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
+    _tabController.addListener(() {
+      if (!_tabController.indexIsChanging) {
+        setState(() {});
+      }
+    });
     _niatFuture = _tutorialService.getNiatSholat();
     _bacaanFuture = _tutorialService.getBacaanSholat();
     _ayatKursiFuture = _tutorialService.getAyatKursi();
@@ -33,33 +42,60 @@ class _TutorialIbadahPageState extends State<TutorialIbadahPage> with SingleTick
     super.dispose();
   }
 
+  String _getSubtitle(String name) {
+    if (name.contains('Iftitah')) return 'Doa pembuka dalam sholat';
+    if (name.contains('Fatihah')) return 'Surah Al-Fatihah';
+    if (name.contains('Ruku')) return 'Doa ketika ruku\'';
+    if (name.contains('Sujud') && !name.contains('Dua Sujud')) return 'Doa ketika sujud';
+    if (name.contains('Dua Sujud')) return 'Doa di antara dua sujud';
+    if (name.contains('Tasyahud Awal')) return 'Tasyahud pertama';
+    if (name.contains('Tasyahud Akhir')) return 'Tasyahud terakhir';
+    if (name.contains('Salam')) return 'Penutup sholat';
+    if (name.contains('Ayat Kursi')) return 'Fadhilah Ayat Kursi';
+    if (name.contains('Niat')) return 'Niat menjalankan sholat';
+    return 'Panduan ibadah sholat';
+  }
+
   @override
   Widget build(BuildContext context) {
-    const primaryColor = Color(0xFF13A884);
-
     return Scaffold(
-      backgroundColor: const Color(0xFFF8FBF9),
+      backgroundColor: backgroundLight,
       appBar: AppBar(
-        title: const Text(
-          'Tutorial Ibadah',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        backgroundColor: primaryColor,
+        backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
-        bottom: TabBar(
-          controller: _tabController,
-          isScrollable: true,
-          indicatorColor: Colors.white,
-          indicatorWeight: 3,
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.white70,
-          labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-          tabs: const [
-            Tab(text: 'Niat Sholat'),
-            Tab(text: 'Bacaan Sholat'),
-            Tab(text: 'Ayat Kursi'),
-          ],
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Color(0xFF2D3436)),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: Text(
+          'Tutorial Ibadah',
+          style: GoogleFonts.poppins(
+            fontWeight: FontWeight.bold, 
+            color: const Color(0xFF2D3436),
+            fontSize: 18,
+          ),
+        ),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(60),
+          child: Container(
+            color: Colors.white,
+            child: TabBar(
+              controller: _tabController,
+              indicatorColor: primaryGreen,
+              indicatorWeight: 3,
+              indicatorSize: TabBarIndicatorSize.label,
+              labelColor: primaryGreen,
+              unselectedLabelColor: Colors.grey[400],
+              labelStyle: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 13),
+              unselectedLabelStyle: GoogleFonts.poppins(fontWeight: FontWeight.w500, fontSize: 13),
+              tabs: [
+                _buildTab('Niat Sholat', 0),
+                _buildTab('Bacaan Sholat', 1),
+                _buildTab('Ayat Kursi', 2),
+              ],
+            ),
+          ),
         ),
       ),
       body: TabBarView(
@@ -73,12 +109,18 @@ class _TutorialIbadahPageState extends State<TutorialIbadahPage> with SingleTick
     );
   }
 
+  Widget _buildTab(String text, int index) {
+    return Tab(
+      child: Text(text, style: GoogleFonts.poppins()),
+    );
+  }
+
   Widget _buildListSection(Future<List<TutorialModel>> future) {
     return FutureBuilder<List<TutorialModel>>(
       future: future,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator(color: Color(0xFF13A884)));
+          return Center(child: CircularProgressIndicator(color: primaryGreen));
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
@@ -87,18 +129,18 @@ class _TutorialIbadahPageState extends State<TutorialIbadahPage> with SingleTick
 
         final items = snapshot.data!;
         return ListView.builder(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(20),
           itemCount: items.length,
           itemBuilder: (context, index) {
             final item = items[index];
-            return _buildTutorialCard(item);
+            return _buildTutorialCard(item, index, items);
           },
         );
       },
     );
   }
 
-  Widget _buildTutorialCard(TutorialModel item) {
+  Widget _buildTutorialCard(TutorialModel item, int index, List<TutorialModel> allItems) {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
@@ -106,92 +148,81 @@ class _TutorialIbadahPageState extends State<TutorialIbadahPage> with SingleTick
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: Colors.black.withOpacity(0.04),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
         ],
       ),
-      child: Theme(
-        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-        child: ExpansionTile(
-          initiallyExpanded: item.name == "Ayat Kursi", // Auto open for Ayat Kursi
-          leading: Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              color: const Color(0xFF13A884).withOpacity(0.1),
-              shape: BoxShape.circle,
-            ),
-            child: Center(
-              child: Text(
-                '${item.id}',
-                style: const TextStyle(
-                  color: Color(0xFF13A884),
-                  fontWeight: FontWeight.bold,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(16),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => TutorialDetailPage(
+                  item: item,
+                  allItems: allItems,
+                  currentIndex: index,
                 ),
               ),
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            child: Row(
+              children: [
+                Container(
+                  width: 28,
+                  height: 28,
+                  decoration: BoxDecoration(
+                    color: primaryGreen,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Center(
+                    child: Text(
+                      '${index + 1}',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        item.name,
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: const Color(0xFF2D3436),
+                        ),
+                      ),
+                      Text(
+                        _getSubtitle(item.name),
+                        style: GoogleFonts.poppins(
+                          fontSize: 12,
+                          color: Colors.grey[500],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Icon(Icons.chevron_right_rounded, color: primaryGreen.withOpacity(0.5)),
+              ],
             ),
           ),
-          title: Text(
-            item.name,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              color: Color(0xFF2D3436),
-            ),
-          ),
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const Divider(height: 1),
-                  const SizedBox(height: 16),
-                  Text(
-                    item.arabic,
-                    textAlign: TextAlign.right,
-                    style: GoogleFonts.scheherazadeNew(
-                      fontSize: 28,
-                      height: 1.6,
-                      color: const Color(0xFF13A884),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    item.latin,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontStyle: FontStyle.italic,
-                      color: Color(0xFF636E72),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  const Text(
-                    'Artinya:',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    item.terjemahan,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: Color(0xFF2D3436),
-                      height: 1.5,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
         ),
       ),
     );
   }
 }
+
+
