@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'doa_data.dart';
 import 'wirid_data.dart';
 import 'wirid_detail_page.dart';
+import 'doa_detail_page.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class WiridDoaPage extends StatefulWidget {
   final int initialIndex;
@@ -48,25 +50,87 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
 
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7F8),
-      appBar: AppBar(
-        title: const Text(
-          'Wirid & Doa',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        backgroundColor: primaryColor,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
-        bottom: TabBar(
-          controller: _tabController,
-          indicatorColor: Colors.white,
-          indicatorWeight: 3,
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.white70,
-          labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-          tabs: const [
-            Tab(text: 'Wirid'),
-            Tab(text: 'Doa Harian'),
-          ],
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(140),
+        child: Container(
+          decoration: const BoxDecoration(
+            color: primaryColor,
+          ),
+          child: SafeArea(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.arrow_back, color: Colors.white),
+                            onPressed: () => Navigator.pop(context),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text('Wirid & Doa', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+                              Text('Kumpulan wirid dan doa harian', style: TextStyle(color: Colors.white70, fontSize: 12)),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(right: 16.0),
+                        child: Icon(Icons.menu_book, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+                const Spacer(),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  height: 45,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  child: TabBar(
+                    controller: _tabController,
+                    indicator: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: Colors.white,
+                    ),
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    labelColor: primaryColor,
+                    unselectedLabelColor: Colors.white,
+                    dividerColor: Colors.transparent,
+                    tabs: [
+                      Tab(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.menu_book, size: 16),
+                            SizedBox(width: 8),
+                            Text('Wirid', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                          ],
+                        ),
+                      ),
+                      Tab(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(FontAwesomeIcons.handsPraying, size: 16),
+                            SizedBox(width: 8),
+                            Text('Doa Harian', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
       body: TabBarView(
@@ -81,7 +145,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   itemCount: _filteredDoa.length,
                   itemBuilder: (context, index) {
-                    return _buildDoaCard(_filteredDoa[index]);
+                    return _buildDoaCard(_filteredDoa[index], index);
                   },
                 ),
               ),
@@ -98,14 +162,26 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
       itemCount: wiridData.length,
       itemBuilder: (context, index) {
         final category = wiridData[index];
+        IconData categoryIcon;
+        switch (category.id) {
+          case '1': categoryIcon = Icons.mosque; break;
+          case '2': categoryIcon = Icons.access_time; break;
+          case '3': categoryIcon = Icons.blur_on; break;
+          case '4': categoryIcon = Icons.menu_book; break;
+          case '5': categoryIcon = Icons.nights_stay; break;
+          case '6': categoryIcon = Icons.calendar_month; break;
+          default: categoryIcon = Icons.book;
+        }
+
         return Container(
           margin: const EdgeInsets.only(bottom: 16),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: const Color(0xFF13A884).withOpacity(0.3), width: 1),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.05),
+                color: Colors.black.withOpacity(0.02),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -127,23 +203,23 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                 padding: const EdgeInsets.all(16),
                 child: Row(
                   children: [
+                    Text(
+                      category.id,
+                      style: const TextStyle(
+                        color: Color(0xFF13A884),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const SizedBox(width: 16),
                     Container(
                       width: 48,
                       height: 48,
                       decoration: BoxDecoration(
-                        color: const Color(0xFFE8F5F1),
+                        color: const Color(0xFFF0F9F6),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Center(
-                        child: Text(
-                          category.id,
-                          style: const TextStyle(
-                            color: Color(0xFF13A884),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
+                      child: Icon(categoryIcon, color: const Color(0xFF13A884)),
                     ),
                     const SizedBox(width: 16),
                     Expanded(
@@ -153,7 +229,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                           Text(
                             category.title,
                             style: const TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontWeight: FontWeight.bold,
                               color: Color(0xFF2D3436),
                             ),
@@ -162,7 +238,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                           Text(
                             category.subtitle,
                             style: const TextStyle(
-                              fontSize: 13,
+                              fontSize: 12,
                               color: Colors.grey,
                             ),
                           ),
@@ -170,9 +246,9 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                       ),
                     ),
                     const Icon(
-                      Icons.arrow_forward_ios,
-                      size: 16,
-                      color: Colors.grey,
+                      Icons.chevron_right,
+                      size: 20,
+                      color: Color(0xFF13A884),
                     ),
                   ],
                 ),
@@ -205,98 +281,82 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
     );
   }
 
-  Widget _buildDoaCard(DoaModel doa) {
+  Widget _buildDoaCard(DoaModel doa, int index) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 16),
+      margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: const Color(0xFF13A884).withOpacity(0.2), width: 1),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withOpacity(0.02),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
         ],
       ),
-      child: ExpansionTile(
-        tilePadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-        title: Text(
-          doa.title,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF2D3436),
-          ),
-        ),
-        iconColor: const Color(0xFF13A884),
-        collapsedIconColor: Colors.grey,
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(16),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DoaDetailPage(
+                  doa: doa,
+                  doaList: _filteredDoa,
+                  currentIndex: index,
+                ),
+              ),
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
               children: [
-                const Divider(),
-                const SizedBox(height: 12),
                 Text(
-                  doa.arabic,
-                  textAlign: TextAlign.right,
+                  '${index + 1}',
                   style: const TextStyle(
-                    fontSize: 24,
-                    height: 1.8,
-                    fontWeight: FontWeight.w500,
                     color: Color(0xFF13A884),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  doa.transliteration,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontStyle: FontStyle.italic,
-                    color: Color(0xFF636E72),
-                  ),
-                ),
-                const SizedBox(height: 12),
-                const Text(
-                  'Artinya:',
-                  style: TextStyle(
-                    fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF2D3436),
+                    fontSize: 15,
                   ),
                 ),
-                const SizedBox(height: 4),
-                Text(
-                  doa.translation,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Color(0xFF2D3436),
-                    height: 1.5,
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        doa.title,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF2D3436),
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      const Text(
+                        'Bacaan doa harian',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 16),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton.icon(
-                    onPressed: () {
-                      Clipboard.setData(ClipboardData(
-                        text: '${doa.title}\n\n${doa.arabic}\n\n${doa.translation}',
-                      ));
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Doa disalin ke clipboard')),
-                      );
-                    },
-                    icon: const Icon(Icons.copy, size: 18),
-                    label: const Text('Salin'),
-                    style: TextButton.styleFrom(foregroundColor: const Color(0xFF13A884)),
-                  ),
+                const Icon(
+                  Icons.chevron_right,
+                  size: 20,
+                  color: Color(0xFF13A884),
                 ),
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }

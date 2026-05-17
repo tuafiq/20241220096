@@ -324,7 +324,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
                         children: [
                           const SizedBox(height: 20),
                           Image.asset(
-                            'assets/images/kaaba_octagonal_icon.png',
+                            'assets/images/kiblat_icon.png',
                             height: 100,
                           ),
                           const SizedBox(height: 16),
@@ -392,7 +392,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
             ),
           ),
           Image.asset(
-            'assets/images/kaaba_octagonal_icon.png',
+            'assets/images/kiblat_icon.png',
             height: 40,
           ),
         ],
@@ -525,7 +525,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
                     alignment: Alignment.topCenter,
                     child: Padding(
                       padding: const EdgeInsets.all(2.0),
-                      child: Image.asset('assets/images/kaaba_compass_icon.png', height: 30),
+                      child: Image.asset('assets/images/kiblat_icon.png', height: 30),
                     ),
                   ),
                 ),

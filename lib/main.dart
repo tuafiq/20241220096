@@ -18,6 +18,7 @@ import 'package:hijri/hijri_calendar.dart';
 import 'hadith_page.dart';
 import 'tutorial_ibadah_page.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -806,8 +807,9 @@ class WiridDoaIcon extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(8),
-            child: CustomPaint(
-              painter: WiridDoaPainter(),
+            child: Image.asset(
+              'assets/images/wirid_doa_icon.png',
+              fit: BoxFit.contain,
             ),
           ),
           const SizedBox(height: 5),
@@ -939,133 +941,35 @@ class KiblatIcon extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-        Container(
-          width: 52,
-          height: 52,
-          decoration: const BoxDecoration(
-            color: Color(0xFFE8F5F1),
-            shape: BoxShape.circle,
-          ),
-          child: Center(
-            child: Container(
-              width: 36,
-              height: 36,
-              decoration: const BoxDecoration(
-                color: Colors.transparent,
-                shape: BoxShape.circle,
-              ),
-              child: CustomPaint(
-                painter: KiblatPainter(),
-              ),
+          Container(
+            width: 52,
+            height: 52,
+            decoration: const BoxDecoration(
+              color: Color(0xFFE8F5F1),
+              shape: BoxShape.circle,
+            ),
+            padding: const EdgeInsets.all(8),
+            child: Image.asset(
+              'assets/images/kiblat_icon.png',
+              fit: BoxFit.contain,
             ),
           ),
-        ),
-        const SizedBox(height: 5),
-        const Text(
-          'Kiblat',
-          style: TextStyle(
-            fontSize: 10,
-            fontWeight: FontWeight.w500,
-            color: Color(0xFF333333),
+          const SizedBox(height: 5),
+          const Text(
+            'Kiblat',
+            style: TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF333333),
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+        ],
       ),
     );
   }
 }
 
-class KiblatPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()..style = PaintingStyle.fill;
-
-    // Draw Red Compass Marks
-    final Paint linePaint = Paint()
-      ..color = const Color(0xFFFF4747)
-      ..strokeWidth = 2.0
-      ..strokeCap = StrokeCap.round;
-
-    final double cx = size.width / 2;
-    final double cy = size.height / 2;
-
-    // Draw 7 dashes
-    final List<double> angles = [0, 45, 90, 135, 180, 225, 315];
-    for (var angle in angles) {
-      final double rad = angle * pi / 180;
-      final double innerRadius = 12.0;
-      final double outerRadius = 14.0;
-      canvas.drawLine(
-        Offset(cx + innerRadius * cos(rad), cy + innerRadius * sin(rad)),
-        Offset(cx + outerRadius * cos(rad), cy + outerRadius * sin(rad)),
-        linePaint,
-      );
-    }
-
-    // Draw Red Triangle at Top (270 degrees)
-    final Path trianglePath = Path()
-      ..moveTo(cx, 3)
-      ..lineTo(cx - 3, 8)
-      ..lineTo(cx + 3, 8)
-      ..close();
-    paint.color = const Color(0xFFFF4747);
-    canvas.drawPath(trianglePath, paint);
-
-    // Top face (Dark grey)
-    final Path topFace = Path()
-      ..moveTo(18, 9)
-      ..lineTo(10, 13)
-      ..lineTo(18, 17)
-      ..lineTo(26, 13)
-      ..close();
-    paint.color = const Color(0xFF4A4A4A);
-    canvas.drawPath(topFace, paint);
-
-    // Left face (Light grey)
-    final Path leftFace = Path()
-      ..moveTo(10, 13)
-      ..lineTo(10, 23)
-      ..lineTo(18, 27)
-      ..lineTo(18, 17)
-      ..close();
-    paint.color = const Color(0xFFB4B4B4);
-    canvas.drawPath(leftFace, paint);
-
-    // Right face (Black / Very dark grey)
-    final Path rightFace = Path()
-      ..moveTo(26, 13)
-      ..lineTo(26, 23)
-      ..lineTo(18, 27)
-      ..lineTo(18, 17)
-      ..close();
-    paint.color = const Color(0xFF333333);
-    canvas.drawPath(rightFace, paint);
-
-    // Right Face Yellow Band
-    final Path rightBand = Path()
-      ..moveTo(26, 16)
-      ..lineTo(18, 20)
-      ..lineTo(18, 22)
-      ..lineTo(26, 18)
-      ..close();
-    paint.color = const Color(0xFFFFD700);
-    canvas.drawPath(rightBand, paint);
-
-    // Left Face Door
-    final Path door = Path()
-      ..moveTo(17, 26.5)
-      ..lineTo(13, 24.5)
-      ..lineTo(13, 19)
-      ..lineTo(17, 21)
-      ..close();
-    paint.color = const Color(0xFFFFD700);
-    canvas.drawPath(door, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
-}
 
 // ─────────────────────────────────────────────────────────────
 // ICON 5: TAHLIL & YASIN
@@ -1215,8 +1119,8 @@ class TutorialIbadahIcon extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────
-// ICON 8: LAINNYA
-// More icons created by Pixel perfect - Flaticon (https://www.flaticon.com/free-icons/more)
+// ICON 8: KHUTBAH (Previously Lainnya)
+// Mosque icons created by BZZRINCANTATION - Flaticon (https://www.flaticon.com/free-icons/mosque)
 // ─────────────────────────────────────────────────────────────
 class LainnyaIcon extends StatelessWidget {
   const LainnyaIcon({super.key});
@@ -1234,19 +1138,15 @@ class LainnyaIcon extends StatelessWidget {
             color: Color(0xFFE8F5F1),
             shape: BoxShape.circle,
           ),
-          child: Center(
-            child: SizedBox(
-              width: 36,
-              height: 36,
-              child: CustomPaint(
-                painter: MoreIconPainter(),
-              ),
-            ),
+          padding: const EdgeInsets.all(8),
+          child: Image.asset(
+            'assets/images/khutbah_icon.png',
+            fit: BoxFit.contain,
           ),
         ),
         const SizedBox(height: 5),
         const Text(
-          'Lainnya',
+          'Khutbah',
           style: TextStyle(
             fontSize: 10,
             fontWeight: FontWeight.w500,
@@ -1259,64 +1159,8 @@ class LainnyaIcon extends StatelessWidget {
   }
 }
 
-class MoreIconPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()..style = PaintingStyle.fill;
-    
-    // Left half of background
-    paint.color = const Color(0xFF50A855);
-    canvas.drawArc(
-      Rect.fromLTWH(0, 0, size.width, size.height),
-      pi / 2,
-      pi,
-      true,
-      paint,
-    );
 
-    // Right half of background
-    paint.color = const Color(0xFF429147);
-    canvas.drawArc(
-      Rect.fromLTWH(0, 0, size.width, size.height),
-      -pi / 2,
-      pi,
-      true,
-      paint,
-    );
 
-    // The three dots
-    final double dotRadius = size.width * 0.13;
-    final double spacing = size.width * 0.32;
-    final double cy = size.height / 2;
-
-    for (int i = -1; i <= 1; i++) {
-      final double cx = size.width / 2 + (i * spacing);
-      
-      // Left half of dot
-      paint.color = const Color(0xFFE0E0E0);
-      canvas.drawArc(
-        Rect.fromCircle(center: Offset(cx, cy), radius: dotRadius),
-        pi / 2,
-        pi,
-        true,
-        paint,
-      );
-
-      // Right half of dot
-      paint.color = Colors.white;
-      canvas.drawArc(
-        Rect.fromCircle(center: Offset(cx, cy), radius: dotRadius),
-        -pi / 2,
-        pi,
-        true,
-        paint,
-      );
-    }
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
-}
 
 Widget _buildPlaceholder(String title) {
   return Column(
@@ -1473,74 +1317,4 @@ class QuranIconPainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
-class WiridDoaPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()..style = PaintingStyle.fill;
-    final double w = size.width;
-    final double h = size.height;
 
-    // 1. Draw Sleeve (Green)
-    paint.color = const Color(0xFF13A884);
-    canvas.drawRRect(
-      RRect.fromLTRBR(w * 0.75, h * 0.15, w * 0.95, h * 0.5, const Radius.circular(4)),
-      paint,
-    );
-
-    // 2. Draw Hand (Skin Tone)
-    paint.color = const Color(0xFFF1D1B1);
-    final Path handPath = Path()
-      ..moveTo(w * 0.35, h * 0.2)
-      ..quadraticBezierTo(w * 0.6, h * 0.1, w * 0.8, h * 0.25)
-      ..lineTo(w * 0.8, h * 0.5)
-      ..quadraticBezierTo(w * 0.6, h * 0.65, w * 0.35, h * 0.55)
-      ..close();
-    canvas.drawPath(handPath, paint);
-
-    // Fingers
-    for (int i = 0; i < 3; i++) {
-      canvas.drawRRect(
-        RRect.fromLTRBR(w * 0.2, h * 0.25 + (i * h * 0.12), w * 0.45, h * 0.33 + (i * h * 0.12), const Radius.circular(10)),
-        paint,
-      );
-    }
-
-    // 3. Draw Tasbih (Beads) - Brownish Orange
-    paint.color = const Color(0xFFC66900);
-    final double beadRadius = w * 0.06;
-    
-    // Loop of beads
-    final List<Offset> beads = [
-      Offset(w * 0.25, h * 0.15),
-      Offset(w * 0.18, h * 0.22),
-      Offset(w * 0.12, h * 0.32),
-      Offset(w * 0.1, h * 0.45),
-      Offset(w * 0.15, h * 0.58),
-      Offset(w * 0.25, h * 0.68),
-      Offset(w * 0.38, h * 0.75),
-      Offset(w * 0.52, h * 0.78),
-      Offset(w * 0.65, h * 0.72),
-      Offset(w * 0.55, h * 0.6),
-      Offset(w * 0.48, h * 0.48),
-      Offset(w * 0.45, h * 0.35),
-      Offset(w * 0.45, h * 0.22),
-    ];
-
-    for (var pos in beads) {
-      canvas.drawCircle(pos, beadRadius, paint);
-    }
-
-    // 4. Draw Tassel (Brown)
-    paint.color = const Color(0xFF795548);
-    final Path tasselPath = Path()
-      ..moveTo(w * 0.6, h * 0.78)
-      ..lineTo(w * 0.5, h * 0.95)
-      ..lineTo(w * 0.7, h * 0.95)
-      ..close();
-    canvas.drawPath(tasselPath, paint);
-    canvas.drawCircle(Offset(w * 0.6, h * 0.78), beadRadius * 1.2, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
-}

@@ -1,0 +1,1 @@
+import 'dart:convert'; import 'package:http/http.dart' as http; void main() async { try { final response = await http.get(Uri.parse('https://islamic-api-zhirrr.vercel.app/api/doaharian')); print('Status: '); print('Body preview: '); final data = json.decode(response.body); print('Is Map: '); print('Data list length: '); } catch (e) { print('Error: '); } }
