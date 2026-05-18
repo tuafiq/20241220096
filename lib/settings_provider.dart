@@ -27,6 +27,18 @@ class SettingsProvider with ChangeNotifier {
   String get reminderTime => _reminderTime;
   List<String> get doaOrder => _doaOrder;
 
+  Locale get locale {
+    switch (_language) {
+      case 'Inggris':
+        return const Locale('en');
+      case 'Arab':
+        return const Locale('ar');
+      case 'Indonesia':
+      default:
+        return const Locale('id');
+    }
+  }
+
   SettingsProvider() {
     _loadSettings();
   }
@@ -43,6 +55,91 @@ class SettingsProvider with ChangeNotifier {
     _doaOrder = _prefs?.getStringList('doaOrder') ?? [];
     notifyListeners();
     _updateNotification();
+  }
+
+  static const Map<String, Map<String, String>> _localizedValues = {
+    'Indonesia': {
+      'title': 'Wirid & Doa',
+      'subtitle': 'Kumpulan wirid dan doa harian',
+      'search_hint': 'Cari doa...',
+      'settings': 'Pengaturan',
+      'font_size': 'Ukuran Font Teks',
+      'font_size_desc': 'Atur ukuran teks',
+      'font_style': 'Jenis Font',
+      'font_style_desc': 'Pilih jenis font',
+      'others': 'Lainnya',
+      'reminder': 'Pengingat Doa',
+      'reminder_desc': 'Atur pengingat doa harian',
+      'language': 'Bahasa',
+      'language_desc': 'Pilih bahasa aplikasi',
+      'about': 'Tentang Aplikasi',
+      'about_desc': 'Informasi versi dan developer',
+      'lang_dialog': 'Pilih Bahasa',
+      'font_size_dialog': 'Pilih Ukuran Font',
+      'font_style_dialog': 'Pilih Jenis Font',
+      'close': 'Tutup',
+      'wirid': 'Wirid',
+      'doa_harian': 'Doa Harian',
+      'appearance': 'Tampilan',
+    },
+    'Inggris': {
+      'title': 'Wirid & Prayer',
+      'subtitle': 'Collection of daily wirid and prayers',
+      'search_hint': 'Search prayer...',
+      'settings': 'Settings',
+      'font_size': 'Text Font Size',
+      'font_size_desc': 'Adjust text size',
+      'font_style': 'Font Family',
+      'font_style_desc': 'Choose font family',
+      'others': 'Others',
+      'reminder': 'Prayer Reminder',
+      'reminder_desc': 'Set daily prayer reminder',
+      'language': 'Language',
+      'language_desc': 'Choose app language',
+      'about': 'About App',
+      'about_desc': 'Version and developer info',
+      'lang_dialog': 'Select Language',
+      'font_size_dialog': 'Select Font Size',
+      'font_style_dialog': 'Select Font Family',
+      'close': 'Close',
+      'wirid': 'Wirid',
+      'doa_harian': 'Daily Prayer',
+      'appearance': 'Appearance',
+    },
+    'Arab': {
+      'title': 'الورد والأدعية',
+      'subtitle': 'مجموعة من الأوراد والأدعية اليومية',
+      'search_hint': 'البحث عن الدعاء...',
+      'settings': 'الإعدادات',
+      'font_size': 'حجم الخط',
+      'font_size_desc': 'ضبط حجم النص',
+      'font_style': 'نوع الخط',
+      'font_style_desc': 'اختر نوع الخط',
+      'others': 'أخرى',
+      'reminder': 'تذكير بالدعاء',
+      'reminder_desc': 'ضبط التذكير اليومي بالدعاء',
+      'language': 'اللغة',
+      'language_desc': 'اختر لغة التطبيق',
+      'about': 'عن التطبيق',
+      'about_desc': 'معلومات الإصدار والمطور',
+      'lang_dialog': 'اختر اللغة',
+      'font_size_dialog': 'اختر حجم الخط',
+      'font_style_dialog': 'اختر نوع الخط',
+      'close': 'إغلاق',
+      'wirid': 'الأوراد',
+      'doa_harian': 'الأدعية اليومية',
+      'appearance': 'المظهر',
+    },
+  };
+
+  String translate(String key) {
+    String lang = _language;
+    if (lang == 'English' || lang == 'Inggris') {
+      lang = 'Inggris';
+    } else if (lang == 'العربية' || lang == 'Arab') {
+      lang = 'Arab';
+    }
+    return _localizedValues[lang]?[key] ?? _localizedValues['Indonesia']![key]!;
   }
 
   Future<void> setSaveLocation(String path) async {

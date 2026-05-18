@@ -1,56 +1,72 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'settings_provider.dart';
 
-class LanguageSelectionPage extends StatefulWidget {
+class LanguageSelectionPage extends StatelessWidget {
   const LanguageSelectionPage({super.key});
 
   @override
-  State<LanguageSelectionPage> createState() => _LanguageSelectionPageState();
-}
-
-class _LanguageSelectionPageState extends State<LanguageSelectionPage> {
-  String _selectedLanguage = 'Indonesia';
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF0C5441),
-        elevation: 0,
-        centerTitle: true,
-        title: const Text(
-          'Pilih Bahasa',
-          style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20),
-        child: Column(
-          children: [
-            _buildLanguageItem(
-              'Indonesia',
-              '🇮🇩',
+    return Consumer<SettingsProvider>(
+      builder: (context, settings, child) {
+        String currentLang = settings.language;
+        // Map localized strings to page representation
+        String selectedRep = 'Indonesia';
+        if (currentLang == 'Inggris' || currentLang == 'English') {
+          selectedRep = 'English';
+        } else if (currentLang == 'Arab' || currentLang == 'العربية') {
+          selectedRep = 'العربية';
+        }
+
+        return Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            backgroundColor: const Color(0xFF0C5441),
+            elevation: 0,
+            centerTitle: true,
+            title: Text(
+              settings.translate('lang_dialog'),
+              style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            _buildLanguageItem(
-              'English',
-              '🇺🇸',
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.white),
+              onPressed: () => Navigator.pop(context),
             ),
-            _buildLanguageItem(
-              'العربية',
-              '🇸🇦',
+          ),
+          body: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Column(
+              children: [
+                _buildLanguageItem(
+                  context,
+                  settings,
+                  'Indonesia',
+                  '🇮🇩',
+                  selectedRep == 'Indonesia',
+                ),
+                _buildLanguageItem(
+                  context,
+                  settings,
+                  'English',
+                  '🇺🇸',
+                  selectedRep == 'English',
+                ),
+                _buildLanguageItem(
+                  context,
+                  settings,
+                  'العربية',
+                  '🇸🇦',
+                  selectedRep == 'العربية',
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 
-  Widget _buildLanguageItem(String name, String flag) {
-    bool isSelected = _selectedLanguage == name;
+  Widget _buildLanguageItem(BuildContext context, SettingsProvider settings, String name, String flag, bool isSelected) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       decoration: BoxDecoration(
@@ -83,11 +99,21 @@ class _LanguageSelectionPageState extends State<LanguageSelectionPage> {
           ? const Icon(Icons.check, color: Color(0xFF13A884), size: 20)
           : null,
         onTap: () {
-          setState(() {
-            _selectedLanguage = name;
-          });
+          String valToSave = 'Indonesia';
+          if (name == 'English') {
+            valToSave = 'Inggris';
+          } else if (name == 'العربية') {
+            valToSave = 'Arab';
+          }
+
+          settings.setLanguage(valToSave);
+          
+          final message = valToSave == 'Inggris' 
+              ? 'Language changed to English' 
+              : (valToSave == 'Arab' ? 'تم تغيير اللغة إلى العربية' : 'Bahasa diubah ke Indonesia');
+
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Bahasa diubah ke $name'), duration: const Duration(seconds: 1)),
+            SnackBar(content: Text(message), duration: const Duration(seconds: 1)),
           );
         },
       ),

@@ -22,6 +22,7 @@ import 'tutorial_ibadah_page.dart';
 import 'package:provider/provider.dart';
 import 'settings_provider.dart';
 import 'notification_service.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,12 +47,26 @@ class MyApp extends StatelessWidget {
           title: 'Al-Qur\'an NU',
           debugShowCheckedModeBanner: false,
           theme: settings.currentTheme,
+          locale: settings.locale,
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale('id'),
+            Locale('en'),
+            Locale('ar'),
+          ],
           builder: (context, child) {
-            return MediaQuery(
-              data: MediaQuery.of(context).copyWith(
-                textScaler: TextScaler.linear(settings.textScaleFactor),
+            return Directionality(
+              textDirection: TextDirection.ltr,
+              child: MediaQuery(
+                data: MediaQuery.of(context).copyWith(
+                  textScaler: TextScaler.linear(settings.textScaleFactor),
+                ),
+                child: child!,
               ),
-              child: child!,
             );
           },
           home: const HomePage(),
