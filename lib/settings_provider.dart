@@ -54,21 +54,20 @@ class SettingsProvider with ChangeNotifier {
   }
 
   ThemeData get currentTheme {
-    Color seedColor = const Color(0xFF13A884); // Hijau default
+    Color seedColor = const Color(0xFF13A884); 
     Brightness brightness = Brightness.light;
 
     if (_themeModeStr == 'Gelap') {
       brightness = Brightness.dark;
     } else if (_themeModeStr == 'Terang') {
       brightness = Brightness.light;
-      // You can change seedColor for Terang if desired, or keep it green
     }
 
     String? fontFamilyName;
     try {
       fontFamilyName = GoogleFonts.getFont(_fontFamily).fontFamily;
     } catch (e) {
-      fontFamilyName = 'Poppins'; // Fallback
+      fontFamilyName = _fontFamily; 
     }
 
     return ThemeData(
@@ -78,7 +77,6 @@ class SettingsProvider with ChangeNotifier {
     );
   }
 
-  // Helper method to get the actual scale factor based on fontSize string
   double get textScaleFactor {
     switch (_fontSize) {
       case 'Kecil':

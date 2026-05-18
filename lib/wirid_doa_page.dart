@@ -561,7 +561,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                       subtitle: 'Pilih jenis font',
                       trailingText: settings.fontFamily,
                       onTap: () {
-                        _showOptionsBottomSheet(context, 'Pilih Jenis Font', ['Poppins', 'Inter', 'Roboto'], settings.fontFamily, (val) {
+                        _showOptionsBottomSheet(context, 'Pilih Jenis Font', ['Poppins', 'Inter', 'Roboto', 'Times New Roman', 'Arial', 'Courier New', 'Georgia', 'Verdana'], settings.fontFamily, (val) {
                           settings.setFontFamily(val);
                         });
                       },
@@ -731,34 +731,36 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (BuildContext context) {
-        return Container(
-          padding: const EdgeInsets.symmetric(vertical: 24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Text(
-                  title,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        return SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Text(
+                    title,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              ...options.map((option) {
-                return ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 24),
-                  title: Text(option),
-                  trailing: currentValue == option
-                      ? const Icon(Icons.check, color: Color(0xFF13A884))
-                      : null,
-                  onTap: () {
-                    onSelected(option);
-                    Navigator.pop(context);
-                  },
-                );
-              }),
-            ],
+                const SizedBox(height: 16),
+                ...options.map((option) {
+                  return ListTile(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+                    title: Text(option),
+                    trailing: currentValue == option
+                        ? const Icon(Icons.check, color: Color(0xFF13A884))
+                        : null,
+                    onTap: () {
+                      onSelected(option);
+                      Navigator.pop(context);
+                    },
+                  );
+                }),
+              ],
+            ),
           ),
         );
       },
