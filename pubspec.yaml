@@ -47,6 +47,9 @@ dependencies:
   share_plus: ^10.1.0
   google_fonts: ^8.1.0
   webview_flutter: ^4.13.1
+  shared_preferences: ^2.5.5
+  provider: ^6.1.5+1
+  file_picker: ^11.0.2
 
 dev_dependencies:
   flutter_test:

@@ -19,8 +19,16 @@ import 'hadith_page.dart';
 import 'tutorial_ibadah_page.dart';
 
 
+import 'package:provider/provider.dart';
+import 'settings_provider.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => SettingsProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -28,14 +36,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Al-Qur\'an NU',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF13A884)),
-        useMaterial3: true,
-      ),
-      home: const HomePage(),
+    return Consumer<SettingsProvider>(
+      builder: (context, settings, child) {
+        return MaterialApp(
+          title: 'Al-Qur\'an NU',
+          debugShowCheckedModeBanner: false,
+          theme: settings.currentTheme,
+          builder: (context, child) {
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaler: TextScaler.linear(settings.textScaleFactor),
+              ),
+              child: child!,
+            );
+          },
+          home: const HomePage(),
+        );
+      },
     );
   }
 }

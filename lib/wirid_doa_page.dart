@@ -6,6 +6,9 @@ import 'wirid_data.dart';
 import 'wirid_detail_page.dart';
 import 'doa_detail_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+import 'settings_provider.dart';
+
 
 class WiridDoaPage extends StatefulWidget {
   final int initialIndex;
@@ -345,16 +348,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                   ),
                 ),
                 const SizedBox(width: 16),
-                Container(
-                  width: 48,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFE8F5F1),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: const Icon(FontAwesomeIcons.handsPraying, color: Color(0xFF13A884), size: 24),
-                ),
-                const SizedBox(width: 16),
+
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -511,7 +505,9 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (BuildContext context) {
-        return Container(
+        return Consumer<SettingsProvider>(
+          builder: (context, settings, child) {
+            return Container(
           height: MediaQuery.of(context).size.height * 0.9,
           decoration: const BoxDecoration(
             color: Colors.white,
@@ -546,33 +542,31 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                 child: ListView(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   children: [
-                    _buildSettingsSectionTitle('Tempat Doa Disimpan'),
-                    _buildSettingsItem(
-                      icon: Icons.folder,
-                      title: 'Lokasi Penyimpanan',
-                      subtitle: 'Pilih tempat penyimpanan doa',
-                    ),
 
-                    const SizedBox(height: 24),
                     _buildSettingsSectionTitle('Tampilan'),
                     _buildSettingsItem(
                       icon: Icons.text_fields,
                       title: 'Ukuran Font Teks',
                       subtitle: 'Atur ukuran teks',
-                      trailingText: 'Sedang',
+                      trailingText: settings.fontSize,
+                      onTap: () {
+                        _showOptionsDialog(context, 'Pilih Ukuran Font', ['Kecil', 'Sedang', 'Besar'], settings.fontSize, (val) {
+                          settings.setFontSize(val);
+                        });
+                      },
                     ),
                     _buildSettingsItem(
                       icon: Icons.font_download,
                       title: 'Jenis Font',
                       subtitle: 'Pilih jenis font',
-                      trailingText: 'Poppins',
+                      trailingText: settings.fontFamily,
+                      onTap: () {
+                        _showOptionsBottomSheet(context, 'Pilih Jenis Font', ['Poppins', 'Inter', 'Roboto'], settings.fontFamily, (val) {
+                          settings.setFontFamily(val);
+                        });
+                      },
                     ),
-                    _buildSettingsItem(
-                      icon: Icons.dark_mode,
-                      title: 'Tema',
-                      subtitle: 'Pilih tema aplikasi',
-                      trailingText: 'Hijau',
-                    ),
+
 
                     const SizedBox(height: 24),
                     _buildSettingsSectionTitle('Lainnya'),
@@ -604,6 +598,8 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
             ],
           ),
         );
+          },
+        );
       },
     );
   }
@@ -628,15 +624,19 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
     required String subtitle,
     String? trailingText,
     bool isSwitch = false,
+    VoidCallback? onTap,
   }) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 12.0),
-      padding: const EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFFF1F3F4), width: 1.5),
-      ),
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 12.0),
+        padding: const EdgeInsets.all(16.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: const Color(0xFFF1F3F4), width: 1.5),
+        ),
       child: Row(
         children: [
           Container(
@@ -692,6 +692,76 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
             const Icon(Icons.chevron_right, color: Color(0xFF13A884), size: 24),
         ],
       ),
+      ),
+    );
+  }
+
+  void _showOptionsDialog(BuildContext context, String title, List<String> options, String currentValue, Function(String) onSelected) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: options.map((option) {
+              return RadioListTile<String>(
+                title: Text(option),
+                value: option,
+                groupValue: currentValue,
+                activeColor: const Color(0xFF13A884),
+                onChanged: (String? value) {
+                  if (value != null) {
+                    onSelected(value);
+                    Navigator.pop(context);
+                  }
+                },
+              );
+            }).toList(),
+          ),
+        );
+      },
+    );
+  }
+
+  void _showOptionsBottomSheet(BuildContext context, String title, List<String> options, String currentValue, Function(String) onSelected) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (BuildContext context) {
+        return Container(
+          padding: const EdgeInsets.symmetric(vertical: 24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Text(
+                  title,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(height: 16),
+              ...options.map((option) {
+                return ListTile(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+                  title: Text(option),
+                  trailing: currentValue == option
+                      ? const Icon(Icons.check, color: Color(0xFF13A884))
+                      : null,
+                  onTap: () {
+                    onSelected(option);
+                    Navigator.pop(context);
+                  },
+                );
+              }),
+            ],
+          ),
+        );
+      },
     );
   }
 }

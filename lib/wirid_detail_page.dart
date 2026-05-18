@@ -203,11 +203,7 @@ class WiridDetailPage extends StatelessWidget {
                   Share.share('${item.arabic}\n\n${item.latin}\n\nArtinya:\n${item.translation}');
                 },
               ),
-              _buildPlayButton(onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Fitur audio sedang dalam pengembangan')),
-                );
-              }),
+
               _buildActionButton(
                 icon: Icons.copy_outlined,
                 label: 'Salin',
@@ -247,31 +243,4 @@ class WiridDetailPage extends StatelessWidget {
     );
   }
 
-  Widget _buildPlayButton({required VoidCallback onTap}) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Column(
-        children: [
-          Container(
-            width: 40,
-            height: 40,
-            decoration: const BoxDecoration(
-              color: Color(0xFF13A884),
-              shape: BoxShape.circle,
-            ),
-            child: const Icon(Icons.play_arrow, color: Colors.white, size: 24),
-          ),
-          const SizedBox(height: 8),
-          const Text(
-            'Dengarkan',
-            style: TextStyle(
-              color: Color(0xFF13A884),
-              fontSize: 12,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 }
