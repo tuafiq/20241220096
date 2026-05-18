@@ -21,8 +21,12 @@ import 'tutorial_ibadah_page.dart';
 
 import 'package:provider/provider.dart';
 import 'settings_provider.dart';
+import 'notification_service.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService().init();
+
   runApp(
     ChangeNotifierProvider(
       create: (context) => SettingsProvider(),

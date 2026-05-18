@@ -8,6 +8,8 @@ import 'doa_detail_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'settings_provider.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'doa_order_page.dart';
 
 
 class WiridDoaPage extends StatefulWidget {
@@ -31,13 +33,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
   }
 
   void _filterDoa() {
-    final query = _searchController.text.toLowerCase();
-    setState(() {
-      _filteredDoa = DoaData.listDoaHarian.where((doa) {
-        return doa.title.toLowerCase().contains(query) ||
-               doa.translation.toLowerCase().contains(query);
-      }).toList();
-    });
+    setState(() {}); // Trigger rebuild to filter using search text
   }
 
   @override
@@ -50,6 +46,26 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     const primaryColor = Color(0xFF13A884);
+    
+    final settings = context.watch<SettingsProvider>();
+    List<DoaModel> orderedList = [];
+    if (settings.doaOrder.isNotEmpty) {
+      for (var title in settings.doaOrder) {
+        final doa = DoaData.listDoaHarian.firstWhere((d) => d.title == title, orElse: () => DoaData.listDoaHarian.first);
+        if (!orderedList.contains(doa)) orderedList.add(doa);
+      }
+      for (var doa in DoaData.listDoaHarian) {
+        if (!orderedList.contains(doa)) orderedList.add(doa);
+      }
+    } else {
+      orderedList = DoaData.listDoaHarian;
+    }
+    
+    final query = _searchController.text.toLowerCase();
+    final displayDoa = orderedList.where((doa) {
+      return doa.title.toLowerCase().contains(query) ||
+             doa.translation.toLowerCase().contains(query);
+    }).toList();
 
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7F8),
@@ -166,9 +182,9 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
               Expanded(
                 child: ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  itemCount: _filteredDoa.length,
+                  itemCount: displayDoa.length,
                   itemBuilder: (context, index) {
-                    return _buildDoaCard(_filteredDoa[index], index);
+                    return _buildDoaCard(displayDoa[index], index, displayDoa);
                   },
                 ),
               ),
@@ -304,7 +320,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
     );
   }
 
-  Widget _buildDoaCard(DoaModel doa, int index) {
+  Widget _buildDoaCard(DoaModel doa, int index, List<DoaModel> displayDoaList) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
@@ -329,7 +345,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
               MaterialPageRoute(
                 builder: (context) => DoaDetailPage(
                   doa: doa,
-                  doaList: _filteredDoa,
+                  doaList: displayDoaList,
                   currentIndex: index,
                 ),
               ),
@@ -574,22 +590,49 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                       icon: Icons.notifications,
                       title: 'Pengingat Doa',
                       subtitle: 'Atur pengingat doa harian',
+                      onTap: () {
+                        _showReminderDialog(context, settings);
+                      },
                     ),
                     _buildSettingsItem(
                       icon: Icons.list,
                       title: 'Urutan Doa',
                       subtitle: 'Atur urutan tampilan doa',
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const DoaOrderPage()));
+                      },
                     ),
                     _buildSettingsItem(
                       icon: Icons.language,
                       title: 'Bahasa',
                       subtitle: 'Pilih bahasa aplikasi',
-                      trailingText: 'Indonesia',
+                      trailingText: settings.language,
+                      onTap: () {
+                        _showOptionsBottomSheet(context, 'Pilih Bahasa', ['Indonesia', 'Inggris', 'Arab'], settings.language, (val) {
+                          settings.setLanguage(val);
+                        });
+                      },
                     ),
                     _buildSettingsItem(
                       icon: Icons.info,
                       title: 'Tentang Aplikasi',
                       subtitle: 'Informasi versi dan developer',
+                      onTap: () async {
+                        final PackageInfo info = await PackageInfo.fromPlatform();
+                        if (context.mounted) {
+                          showAboutDialog(
+                            context: context,
+                            applicationName: 'Wirid & Doa',
+                            applicationVersion: info.version,
+                            applicationIcon: const Icon(Icons.menu_book, size: 48, color: Color(0xFF13A884)),
+                            children: [
+                              const Text('Aplikasi kumpulan wirid dan doa harian dengan UI yang minimalis dan elegan.'),
+                              const SizedBox(height: 8),
+                              const Text('Dikembangkan untuk mempermudah ibadah harian Anda.'),
+                            ],
+                          );
+                        }
+                      },
                     ),
                     const SizedBox(height: 32),
                   ],
@@ -766,5 +809,65 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
       },
     );
   }
-}
 
+  void _showReminderDialog(BuildContext context, SettingsProvider settings) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              title: const Text('Pengingat Doa', style: TextStyle(fontWeight: FontWeight.bold)),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SwitchListTile(
+                    title: const Text('Aktifkan Pengingat'),
+                    value: settings.reminderEnabled,
+                    activeColor: const Color(0xFF13A884),
+                    onChanged: (bool value) {
+                      setState(() {
+                        settings.setReminderEnabled(value);
+                      });
+                    },
+                  ),
+                  if (settings.reminderEnabled)
+                    ListTile(
+                      title: const Text('Waktu Pengingat'),
+                      trailing: Text(
+                        settings.reminderTime,
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      onTap: () async {
+                        final timeParts = settings.reminderTime.split(':');
+                        final initialTime = TimeOfDay(
+                          hour: int.tryParse(timeParts[0]) ?? 4,
+                          minute: int.tryParse(timeParts[1]) ?? 0,
+                        );
+                        final TimeOfDay? picked = await showTimePicker(
+                          context: context,
+                          initialTime: initialTime,
+                        );
+                        if (picked != null) {
+                          setState(() {
+                            final formattedTime = '${picked.hour.toString().padLeft(2, '0')}:${picked.minute.toString().padLeft(2, '0')}';
+                            settings.setReminderTime(formattedTime);
+                          });
+                        }
+                      },
+                    ),
+                ],
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('Tutup', style: TextStyle(color: Color(0xFF13A884))),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
+}
