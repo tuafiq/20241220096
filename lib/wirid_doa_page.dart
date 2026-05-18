@@ -79,9 +79,29 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                           ),
                         ],
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(right: 16.0),
-                        child: Icon(Icons.menu_book, color: Colors.white),
+                      Row(
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 1.5),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              icon: const Icon(Icons.settings, color: Colors.white, size: 24),
+                              onPressed: () {
+                                _showSettingsModal(context);
+                              },
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          const Padding(
+                            padding: EdgeInsets.only(right: 16.0),
+                            child: Icon(Icons.menu_book, color: Colors.white, size: 28),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -325,6 +345,16 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                   ),
                 ),
                 const SizedBox(width: 16),
+                Container(
+                  width: 48,
+                  height: 48,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFE8F5F1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(FontAwesomeIcons.handsPraying, color: Color(0xFF13A884), size: 24),
+                ),
+                const SizedBox(width: 16),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -470,6 +500,196 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
               ],
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  void _showSettingsModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext context) {
+        return Container(
+          height: MediaQuery.of(context).size.height * 0.9,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(24),
+              topRight: Radius.circular(24),
+            ),
+          ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Pengaturan',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF2D3436),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.pop(context),
+                      child: const Icon(Icons.close, color: Color(0xFF13A884), size: 28),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: ListView(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  children: [
+                    _buildSettingsSectionTitle('Tempat Doa Disimpan'),
+                    _buildSettingsItem(
+                      icon: Icons.folder,
+                      title: 'Lokasi Penyimpanan',
+                      subtitle: 'Pilih tempat penyimpanan doa',
+                    ),
+
+                    const SizedBox(height: 24),
+                    _buildSettingsSectionTitle('Tampilan'),
+                    _buildSettingsItem(
+                      icon: Icons.text_fields,
+                      title: 'Ukuran Font Teks',
+                      subtitle: 'Atur ukuran teks',
+                      trailingText: 'Sedang',
+                    ),
+                    _buildSettingsItem(
+                      icon: Icons.font_download,
+                      title: 'Jenis Font',
+                      subtitle: 'Pilih jenis font',
+                      trailingText: 'Poppins',
+                    ),
+                    _buildSettingsItem(
+                      icon: Icons.dark_mode,
+                      title: 'Tema',
+                      subtitle: 'Pilih tema aplikasi',
+                      trailingText: 'Hijau',
+                    ),
+
+                    const SizedBox(height: 24),
+                    _buildSettingsSectionTitle('Lainnya'),
+                    _buildSettingsItem(
+                      icon: Icons.notifications,
+                      title: 'Pengingat Doa',
+                      subtitle: 'Atur pengingat doa harian',
+                    ),
+                    _buildSettingsItem(
+                      icon: Icons.list,
+                      title: 'Urutan Doa',
+                      subtitle: 'Atur urutan tampilan doa',
+                    ),
+                    _buildSettingsItem(
+                      icon: Icons.language,
+                      title: 'Bahasa',
+                      subtitle: 'Pilih bahasa aplikasi',
+                      trailingText: 'Indonesia',
+                    ),
+                    _buildSettingsItem(
+                      icon: Icons.info,
+                      title: 'Tentang Aplikasi',
+                      subtitle: 'Informasi versi dan developer',
+                    ),
+                    const SizedBox(height: 32),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildSettingsSectionTitle(String title) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12.0),
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: Color(0xFF2D3436),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSettingsItem({
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    String? trailingText,
+    bool isSwitch = false,
+  }) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12.0),
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: const Color(0xFFF1F3F4), width: 1.5),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(
+              color: const Color(0xFFE8F5F1),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Icon(icon, color: const Color(0xFF13A884), size: 24),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF2D3436),
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  subtitle,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          if (trailingText != null) ...[
+            Text(
+              trailingText,
+              style: const TextStyle(
+                fontSize: 14,
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(width: 8),
+          ],
+          if (isSwitch)
+            Switch(
+              value: false,
+              onChanged: (val) {},
+              activeColor: const Color(0xFF13A884),
+            )
+          else
+            const Icon(Icons.chevron_right, color: Color(0xFF13A884), size: 24),
         ],
       ),
     );
