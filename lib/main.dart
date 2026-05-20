@@ -396,17 +396,14 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Row(
                       children: [
-                        Container(
-                          padding: const EdgeInsets.all(5),
-                          decoration: const BoxDecoration(
-                            color: primaryGreen,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(Icons.calendar_today_rounded, color: Colors.white, size: 12),
+                        Image.asset(
+                          'assets/images/logo_el_maqam.png',
+                          height: 24,
+                          width: 24,
                         ),
                         const SizedBox(width: 8),
                         const Text(
-                          'Widget Hari Ini',
+                          'MMU Ulul Maqam',
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,

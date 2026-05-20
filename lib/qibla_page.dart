@@ -443,7 +443,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
 
         final double qiblaAngle = _manualCity != null 
             ? _calculateQibla(_manualCity!.latitude, _manualCity!.longitude)
-            : qiblahDirection.qiblah;
+            : qiblahDirection.offset;
 
         return Stack(
           children: [
@@ -502,7 +502,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
                           ),
                           _buildArahKiblatLabel(),
                           const SizedBox(height: 24),
-                          _buildLocationCard(),
+                          _buildLocationCard(true),
                           const SizedBox(height: 40),
                           _buildCompass(qiblahDirection, qiblaAngle),
                           const SizedBox(height: 40),
@@ -572,7 +572,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
     );
   }
 
-  Widget _buildLocationCard() {
+  Widget _buildLocationCard(bool hasData) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -608,7 +608,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
                 Text(
                   _manualCity != null 
                       ? "Lat: ${_manualCity!.latitude}, Lng: ${_manualCity!.longitude}"
-                      : "Mendeteksi lokasi otomatis...",
+                      : (hasData ? "GPS Aktif & Terkoneksi" : "Mendeteksi lokasi otomatis..."),
                   style: const TextStyle(fontSize: 12, color: Colors.grey),
                 ),
               ],
@@ -630,7 +630,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
         children: <Widget>[
           _buildCompassBackground(qiblahDirection, qiblaAngle),
           Transform.rotate(
-            angle: (qiblaAngle * (pi / 180) * -1),
+            angle: ((qiblaAngle - qiblahDirection.direction) * (pi / 180)),
             child: _buildQiblaNeedle(),
           ),
         ],
