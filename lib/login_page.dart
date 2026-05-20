@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
-          'accounts.nuonline.id',
+          'accounts.mdonline.id',
           style: TextStyle(
             color: Colors.black,
             fontSize: 16,
@@ -79,11 +79,11 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 RichText(
                   text: const TextSpan(
-                    text: 'nu',
+                    text: 'MD',
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF13A884), // Hijau NU
+                      color: Color(0xFF13A884),
                     ),
                     children: [
                       TextSpan(

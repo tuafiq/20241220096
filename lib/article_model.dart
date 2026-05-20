@@ -1,44 +1,60 @@
 class Article {
+  final String id;
   final String title;
-  final String link;
-  final String contentSnippet;
-  final String isoDate;
-  final String image;
+  final String url;
+  final String date;
+  final String dateTime;
+  final String author;
+  final String authorLink;
+  final String type;
+  final String thumbnail;
+  final List<String> categories;
 
   Article({
+    required this.id,
     required this.title,
-    required this.link,
-    required this.contentSnippet,
-    required this.isoDate,
-    required this.image,
+    required this.url,
+    required this.date,
+    required this.dateTime,
+    required this.author,
+    required this.authorLink,
+    required this.type,
+    required this.thumbnail,
+    required this.categories,
   });
 
+  // Compatibility getters for the rest of the application
+  String get link => url;
+  String get image => thumbnail;
+  String get isoDate => date;
+  String get contentSnippet => categories.isNotEmpty 
+      ? 'Kategori: ${categories.join(", ")}' 
+      : 'Artikel Islam';
+
   factory Article.fromJson(Map<String, dynamic> json) {
-    // Handle image field which can be a String (Antara) or an Object (CNN)
-    // or a thumbnail (some portals)
-    String imageUrl = '';
-    
-    // Check 'image' field first
-    if (json['image'] != null) {
-      if (json['image'] is String) {
-        imageUrl = json['image'];
-      } else if (json['image'] is Map) {
-        imageUrl = json['image']['large'] ?? json['image']['small'] ?? '';
+    // Categories parsed from array of maps or strings
+    List<String> categoryNames = [];
+    if (json['categories'] != null && json['categories'] is List) {
+      for (var cat in json['categories']) {
+        if (cat is Map && cat['name'] != null) {
+          categoryNames.add(cat['name'].toString());
+        } else if (cat is String) {
+          categoryNames.add(cat);
+        }
       }
-    } 
-    
-    // Fallback to 'thumbnail' if imageUrl is still empty
-    if (imageUrl.isEmpty && json['thumbnail'] != null) {
-      imageUrl = json['thumbnail'].toString();
     }
 
     return Article(
-      title: json['title'] ?? '',
-      link: json['link']?.toString().trim() ?? '',
-      // Handle different content fields across portals
-      contentSnippet: json['contentSnippet'] ?? json['description'] ?? json['content'] ?? '',
-      isoDate: json['isoDate'] ?? json['pubDate'] ?? '',
-      image: imageUrl,
+      id: json['id']?.toString() ?? '',
+      title: json['title']?.toString() ?? '',
+      url: json['url']?.toString() ?? json['link']?.toString() ?? '',
+      date: json['date']?.toString() ?? '',
+      dateTime: json['date_time']?.toString() ?? '',
+      author: json['author']?.toString() ?? '',
+      authorLink: json['author_link']?.toString() ?? '',
+      type: json['type']?.toString() ?? '',
+      thumbnail: json['thumbnail']?.toString() ?? '',
+      categories: categoryNames,
     );
   }
 }

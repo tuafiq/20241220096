@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math' show pi, atan2, sin, cos, tan;
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_qiblah/flutter_qiblah.dart';
 import 'package:geolocator/geolocator.dart';
 import 'city_data.dart';
@@ -13,10 +14,112 @@ class QiblaPage extends StatefulWidget {
 }
 
 class _QiblaPageState extends State<QiblaPage> {
-  final _deviceSupport = FlutterQiblah.androidDeviceSensorSupport();
+  late final Future<bool?> _deviceSupport;
+
+  @override
+  void initState() {
+    super.initState();
+    if (kIsWeb) {
+      _deviceSupport = Future.value(false);
+    } else {
+      _deviceSupport = FlutterQiblah.androidDeviceSensorSupport();
+    }
+  }
+
+  Widget _buildSimpleHeader(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(top: 40, bottom: 20, left: 16, right: 16),
+      decoration: const BoxDecoration(
+        color: Color(0xFF13A884),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(30),
+          bottomRight: Radius.circular(30),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () => Navigator.pop(context),
+          ),
+          const Text(
+            "Arah Kiblat",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(width: 48), // Spacer to balance back button
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    if (kIsWeb) {
+      return Scaffold(
+        backgroundColor: Colors.white,
+        body: Column(
+          children: [
+            _buildSimpleHeader(context),
+            Expanded(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.compass_calibration_outlined,
+                        size: 80,
+                        color: Color(0xFF13A884),
+                      ),
+                      const SizedBox(height: 24),
+                      const Text(
+                        "Sensor Kompas Tidak Didukung di Web",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF2D3436),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      const Text(
+                        "Fitur Arah Kiblat real-time memerlukan sensor magnetik/kompas yang hanya tersedia di HP fisik (Android/iOS).",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      const SizedBox(height: 32),
+                      ElevatedButton.icon(
+                        onPressed: () => Navigator.pop(context),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF13A884),
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        icon: const Icon(Icons.arrow_back),
+                        label: const Text("Kembali ke Beranda"),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       body: FutureBuilder(
         future: _deviceSupport,
@@ -32,10 +135,62 @@ class _QiblaPageState extends State<QiblaPage> {
           if (snapshot.data!) {
             return const QiblahCompass();
           } else {
-            return const Center(
-              child: Text(
-                "Perangkat ini tidak memiliki sensor kompas.",
-                style: TextStyle(fontSize: 16),
+            return Scaffold(
+              backgroundColor: Colors.white,
+              body: Column(
+                children: [
+                  _buildSimpleHeader(context),
+                  Expanded(
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(24.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.explore_off_outlined,
+                              size: 80,
+                              color: Colors.redAccent,
+                            ),
+                            const SizedBox(height: 24),
+                            const Text(
+                              "Sensor Kompas Tidak Ditemukan",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF2D3436),
+                              ),
+                            ),
+                            const SizedBox(height: 12),
+                            const Text(
+                              "Perangkat ini tidak memiliki sensor magnetik (kompas) untuk mendeteksi arah kiblat secara real-time.",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            const SizedBox(height: 32),
+                            ElevatedButton.icon(
+                              onPressed: () => Navigator.pop(context),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF13A884),
+                                foregroundColor: Colors.white,
+                                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                              ),
+                              icon: const Icon(Icons.arrow_back),
+                              label: const Text("Kembali ke Beranda"),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             );
           }

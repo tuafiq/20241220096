@@ -230,20 +230,6 @@ class _CalendarPageState extends State<CalendarPage> {
               });
             },
           ),
-          PopupMenuButton<String>(
-            icon: const Icon(Icons.more_vert, color: Colors.white),
-            onSelected: (value) {
-              if (value == 'correction') {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Fitur Koreksi Hijriah Segera Hadir')));
-              } else if (value == 'export') {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Mengekspor ke Kalender Ponsel...')));
-              }
-            },
-            itemBuilder: (context) => [
-              const PopupMenuItem(value: 'correction', child: Text('Koreksi Hijriah')),
-              const PopupMenuItem(value: 'export', child: Text('Ekspor ke Ponsel')),
-            ],
-          ),
         ],
       ),
       body: SingleChildScrollView(

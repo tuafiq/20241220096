@@ -34,12 +34,6 @@ class WiridDetailPage extends StatelessWidget {
         backgroundColor: primaryColor,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.white),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.more_vert),
-            onPressed: () {},
-          )
-        ],
       ),
       body: Column(
         children: [

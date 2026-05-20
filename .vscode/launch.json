@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "uas (Chrome Web Bypass CORS)",
+      "program": "lib/main.dart",
+      "request": "launch",
+      "type": "dart",
+      "args": [
+        "--web-browser-flag",
+        "--disable-web-security"
+      ]
+    }
+  ]
+}

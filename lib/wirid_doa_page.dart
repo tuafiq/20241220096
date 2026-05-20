@@ -110,29 +110,23 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                           ],
                         ),
                       ),
-                      Row(
-                        children: [
-                          Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 1.5),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: IconButton(
-                              padding: EdgeInsets.zero,
-                              icon: const Icon(Icons.settings, color: Colors.white, size: 24),
-                              onPressed: () {
-                                _showSettingsModal(context);
-                              },
-                            ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white, width: 1.5),
+                            borderRadius: BorderRadius.circular(8),
                           ),
-                          const SizedBox(width: 12),
-                          const Padding(
-                            padding: EdgeInsets.only(right: 16.0),
-                            child: Icon(Icons.menu_book, color: Colors.white, size: 28),
+                          child: IconButton(
+                            padding: EdgeInsets.zero,
+                            icon: const Icon(Icons.settings, color: Colors.white, size: 24),
+                            onPressed: () {
+                              _showSettingsModal(context);
+                            },
                           ),
-                        ],
+                        ),
                       ),
                     ],
                   ),

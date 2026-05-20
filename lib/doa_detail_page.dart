@@ -108,31 +108,6 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
         backgroundColor: primaryColor,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.white),
-        actions: [
-          IconButton(
-            icon: Icon(
-              _isBookmarked ? Icons.bookmark : Icons.bookmark_border_outlined,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              setState(() {
-                _isBookmarked = !_isBookmarked;
-              });
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    _isBookmarked ? 'Doa disimpan ke favorit' : 'Doa dihapus dari favorit',
-                  ),
-                  duration: const Duration(seconds: 1),
-                ),
-              );
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.more_vert),
-            onPressed: () {},
-          )
-        ],
       ),
       body: Column(
         children: [
