@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'quran_data.dart';
 import 'quran_service.dart';
 import 'surah_detail_page.dart';
+import 'settings_page.dart';
 
 class JuzInfo {
   final int number;
@@ -91,6 +92,10 @@ class _QuranPageState extends State<QuranPage> {
   int _activeTab = 0;
   int? _expandedJuz; // Which Juz is expanded inline
 
+  // Bottom Navigation Index
+  int _bottomNavIndex = 0;
+  final FocusNode _searchFocusNode = FocusNode();
+
   // Formatting controls
   bool _showTranslation = false; // false = Lafal, true = Terjemahan
 
@@ -102,6 +107,12 @@ class _QuranPageState extends State<QuranPage> {
     super.initState();
     _fetchData();
     _loadFavorites();
+  }
+
+  @override
+  void dispose() {
+    _searchFocusNode.dispose();
+    super.dispose();
   }
 
   Future<void> _loadFavorites() async {
@@ -200,18 +211,21 @@ class _QuranPageState extends State<QuranPage> {
       backgroundColor: const Color(0xFFF9F9F9),
       body: Column(
         children: [
-          _buildPremiumHeader(),
+          _bottomNavIndex == 0 ? _buildPremiumHeader() : _buildBookmarkHeader(),
           Expanded(
-            child: _isLoading
-                ? const Center(child: CircularProgressIndicator(color: Color(0xFF13A884)))
-                : _errorMessage.isNotEmpty
-                    ? _buildErrorState()
-                    : _activeTab == 0
-                        ? _buildSurahTabContent()
-                        : _buildJuzTabContent(),
+            child: _bottomNavIndex == 0
+                ? (_isLoading
+                    ? const Center(child: CircularProgressIndicator(color: Color(0xFF13A884)))
+                    : _errorMessage.isNotEmpty
+                        ? _buildErrorState()
+                        : _activeTab == 0
+                            ? _buildSurahTabContent()
+                            : _buildJuzTabContent())
+                : _buildBookmarkTabContent(),
           ),
         ],
       ),
+      bottomNavigationBar: _buildCustomBottomNavBar(),
     );
   }
 
@@ -337,6 +351,7 @@ class _QuranPageState extends State<QuranPage> {
                 ],
               ),
               child: TextField(
+                focusNode: _searchFocusNode,
                 onChanged: _onSearch,
                 style: const TextStyle(color: Colors.black87),
                 decoration: InputDecoration(
@@ -914,6 +929,222 @@ class _QuranPageState extends State<QuranPage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildBookmarkHeader() {
+    return Container(
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(24),
+          bottomRight: Radius.circular(24),
+        ),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Color(0xFF0C5441), Color(0xFF13A884)],
+        ),
+      ),
+      child: SafeArea(
+        bottom: false,
+        child: Column(
+          children: [
+            const SizedBox(height: 12),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.white, size: 24),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        'Bookmark Saya',
+                        style: GoogleFonts.outfit(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        'Daftar Juz yang kamu favoritkan',
+                        style: GoogleFonts.outfit(
+                          color: Colors.white70,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.bookmark, color: Colors.white, size: 24),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBookmarkTabContent() {
+    final bookmarkedJuz = _juzList.where((juz) => _favoriteJuz.contains(juz.number.toString())).toList();
+
+    return ListView(
+      padding: const EdgeInsets.only(bottom: 24, top: 12),
+      children: [
+        if (bookmarkedJuz.isEmpty)
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 32),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.bookmark_border, size: 80, color: Colors.grey[300]),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Belum ada bookmark',
+                    style: TextStyle(
+                      color: Colors.grey[800],
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Tandai Juz favoritmu di tab Juz untuk menyimpannya di sini.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.grey[500],
+                      fontSize: 13,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        else
+          ListView.builder(
+            padding: EdgeInsets.zero,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: bookmarkedJuz.length,
+            itemBuilder: (context, index) {
+              return _buildJuzListItem(bookmarkedJuz[index]);
+            },
+          ),
+      ],
+    );
+  }
+
+  Widget _buildCustomBottomNavBar() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.04),
+            blurRadius: 10,
+            offset: const Offset(0, -4),
+          ),
+        ],
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
+      child: SafeArea(
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildBottomNavItem(
+                index: 0,
+                icon: Icons.menu_book,
+                label: 'Surah',
+              ),
+              _buildBottomNavItem(
+                index: 1,
+                icon: Icons.bookmark_border,
+                label: 'Bookmark',
+              ),
+              _buildBottomNavItem(
+                index: 2,
+                icon: Icons.search,
+                label: 'Cari',
+              ),
+              _buildBottomNavItem(
+                index: 3,
+                icon: Icons.settings_outlined,
+                label: 'Pengaturan',
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBottomNavItem({
+    required int index,
+    required IconData icon,
+    required String label,
+  }) {
+    final bool isSelected = _bottomNavIndex == index;
+    return GestureDetector(
+      onTap: () {
+        if (index == 2) {
+          setState(() {
+            _bottomNavIndex = 0;
+          });
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _searchFocusNode.requestFocus();
+          });
+        } else if (index == 3) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SettingsPage()),
+          );
+        } else {
+          setState(() {
+            _bottomNavIndex = index;
+          });
+        }
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
+            decoration: BoxDecoration(
+              color: isSelected ? const Color(0xFF0C5441) : Colors.transparent,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Icon(
+              icon,
+              color: isSelected ? Colors.white : Colors.grey.shade600,
+              size: 24,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: GoogleFonts.outfit(
+              fontSize: 12,
+              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+              color: isSelected ? const Color(0xFF0C5441) : Colors.grey.shade600,
+            ),
+          ),
+        ],
       ),
     );
   }
