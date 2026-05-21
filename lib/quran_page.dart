@@ -101,6 +101,7 @@ class _QuranPageState extends State<QuranPage> {
 
   // Favorites
   List<String> _favoriteJuz = [];
+  List<String> _favoriteSurahs = [];
 
   @override
   void initState() {
@@ -119,6 +120,7 @@ class _QuranPageState extends State<QuranPage> {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       _favoriteJuz = prefs.getStringList('favoriteJuz') ?? [];
+      _favoriteSurahs = prefs.getStringList('favoriteSurahs') ?? [];
     });
   }
 
@@ -864,14 +866,15 @@ class _QuranPageState extends State<QuranPage> {
           ),
         ],
       ),
-      onTap: () {
+      onTap: () async {
         // Navigate to Surah Detail page
-        Navigator.push(
+        await Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => SurahDetailPage(nomor: surah.nomor),
           ),
         );
+        _loadFavorites();
       },
     );
   }
@@ -996,41 +999,79 @@ class _QuranPageState extends State<QuranPage> {
 
   Widget _buildBookmarkTabContent() {
     final bookmarkedJuz = _juzList.where((juz) => _favoriteJuz.contains(juz.number.toString())).toList();
+    final allSurahs = widget.useApi ? _surahs : QuranData.listSurah;
+    final bookmarkedSurahs = allSurahs.where((surah) => _favoriteSurahs.contains(surah.nomor.toString())).toList();
+
+    if (bookmarkedJuz.isEmpty && bookmarkedSurahs.isEmpty) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 32),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.bookmark_border, size: 80, color: Colors.grey[300]),
+              const SizedBox(height: 16),
+              Text(
+                'Belum ada bookmark',
+                style: TextStyle(
+                  color: Colors.grey[800],
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Tandai Surah atau Juz favoritmu untuk menyimpannya di sini.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.grey[500],
+                  fontSize: 13,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
 
     return ListView(
       padding: const EdgeInsets.only(bottom: 24, top: 12),
       children: [
-        if (bookmarkedJuz.isEmpty)
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 32),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.bookmark_border, size: 80, color: Colors.grey[300]),
-                  const SizedBox(height: 16),
-                  Text(
-                    'Belum ada bookmark',
-                    style: TextStyle(
-                      color: Colors.grey[800],
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Tandai Juz favoritmu di tab Juz untuk menyimpannya di sini.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.grey[500],
-                      fontSize: 13,
-                    ),
-                  ),
-                ],
+        if (bookmarkedSurahs.isNotEmpty) ...[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+            child: Text(
+              'Surah Terbookmark',
+              style: GoogleFonts.outfit(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xFF0C5441),
               ),
             ),
-          )
-        else
+          ),
+          ListView.builder(
+            padding: EdgeInsets.zero,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: bookmarkedSurahs.length,
+            itemBuilder: (context, index) {
+              return _buildSurahItem(bookmarkedSurahs[index]);
+            },
+          ),
+          const SizedBox(height: 16),
+        ],
+        if (bookmarkedJuz.isNotEmpty) ...[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+            child: Text(
+              'Juz Terbookmark',
+              style: GoogleFonts.outfit(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xFF0C5441),
+              ),
+            ),
+          ),
           ListView.builder(
             padding: EdgeInsets.zero,
             shrinkWrap: true,
@@ -1040,6 +1081,7 @@ class _QuranPageState extends State<QuranPage> {
               return _buildJuzListItem(bookmarkedJuz[index]);
             },
           ),
+        ],
       ],
     );
   }

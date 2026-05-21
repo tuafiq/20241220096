@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'dart:math';
 import 'dart:ui';
+import 'package:google_fonts/google_fonts.dart';
 import 'wirid_doa_page.dart';
 import 'prayer_schedule_page.dart';
 import 'quran_page.dart';
@@ -85,6 +86,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  int _currentHeaderIndex = 0;
+  late PageController _headerPageController;
   String _currentLocation = 'Pamekasan, Kabupaten Pamekasan';
   Map<String, String> _todaySchedule = {
     'Subuh': '04:25',
@@ -108,17 +111,29 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    _headerPageController = PageController(initialPage: 0);
     _updateTime();
     _fetchPrayerTimes(_currentLocation);
     _loadHomeArticles();
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       _updateTime();
+      if (mounted && timer.tick % 2 == 0) {
+        if (_headerPageController.hasClients) {
+          final nextPage = (_currentHeaderIndex + 1) % 2;
+          _headerPageController.animateToPage(
+            nextPage,
+            duration: const Duration(milliseconds: 600),
+            curve: Curves.easeInOutCubic,
+          );
+        }
+      }
     });
   }
 
   @override
   void dispose() {
     _timer?.cancel();
+    _headerPageController.dispose();
     super.dispose();
   }
 
@@ -352,10 +367,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildLocationHeader() {
+  Widget _buildLocationHeader({Key? key}) {
     const primaryGreen = Color(0xFF13A884);
     return Container(
+      key: key,
       width: double.infinity,
+      height: 200,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(24),
@@ -389,12 +406,14 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // Top Row: Title and Location (Combined to save vertical space)
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.asset(
                           'assets/images/logo_el_maqam.png',
@@ -412,29 +431,37 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    GestureDetector(
-                      onTap: _showLocationPicker,
-                      behavior: HitTestBehavior.opaque,
-                      child: Row(
-                        children: [
-                          const Icon(Icons.location_on, color: primaryGreen, size: 14),
-                          const SizedBox(width: 4),
-                          Text(
-                            _currentLocation.split(',').first.trim(),
-                            style: const TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF2D3436),
+                    const SizedBox(width: 8),
+                    Flexible(
+                      child: GestureDetector(
+                        onTap: _showLocationPicker,
+                        behavior: HitTestBehavior.opaque,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            const Icon(Icons.location_on, color: primaryGreen, size: 14),
+                            const SizedBox(width: 4),
+                            Flexible(
+                              child: Text(
+                                _currentLocation.split(',').first.trim(),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF2D3436),
+                                ),
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 4),
-                          Icon(Icons.keyboard_arrow_down_rounded, color: Colors.grey[400], size: 14),
-                        ],
+                            const SizedBox(width: 4),
+                            Icon(Icons.keyboard_arrow_down_rounded, color: Colors.grey[400], size: 14),
+                          ],
+                        ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 15),
                 // Center Divider with Icon (Compact)
                 Row(
                   children: [
@@ -446,7 +473,6 @@ class _HomePageState extends State<HomePage> {
                     Expanded(child: Divider(color: Colors.grey[150], thickness: 1)),
                   ],
                 ),
-                const SizedBox(height: 15),
                 // Prayer Time Section (More landscape-oriented)
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -535,6 +561,270 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget _buildQuranHeaderCard({Key? key}) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selectedIndex = 1; // Directs user to the Al-Quran Page
+        });
+      },
+      child: Container(
+        key: key,
+        width: double.infinity,
+        height: 200,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(24),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.08),
+              blurRadius: 15,
+              offset: const Offset(0, 8),
+            ),
+          ],
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // 1. Top White Bar
+            Container(
+              height: 46,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        width: 32,
+                        height: 32,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFF0C5441),
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(
+                          Icons.menu_book,
+                          color: Colors.white,
+                          size: 16,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      const Text(
+                        'Al-Quran',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF2C3E50),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Icon(
+                    Icons.more_vert,
+                    color: Colors.grey[750],
+                    size: 20,
+                  ),
+                ],
+              ),
+            ),
+            // 2. Middle Green Section (Inset Card)
+            Container(
+              height: 82,
+              margin: const EdgeInsets.symmetric(horizontal: 12),
+              decoration: BoxDecoration(
+                color: const Color(0xFF0C5441),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Stack(
+                children: [
+                  // Mosque/Islamic pattern background image for depth
+                  Positioned.fill(
+                    child: Opacity(
+                      opacity: 0.15,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Image.asset(
+                          'assets/images/islamic_pattern_bg.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  // Content
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Surah Favorit',
+                              style: TextStyle(
+                                color: Colors.white.withOpacity(0.9),
+                                fontSize: 10,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              'Ar-Rahman',
+                              style: GoogleFonts.outfit(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 1),
+                            Text(
+                              'Surah 55',
+                              style: TextStyle(
+                                color: Colors.white.withOpacity(0.8),
+                                fontSize: 10,
+                              ),
+                            ),
+                          ],
+                        ),
+                        // Rehal image
+                        Image.asset(
+                          'assets/images/quran_rehal.png',
+                          fit: BoxFit.contain,
+                          height: 62,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // 3. Bottom White Bar
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.only(left: 16, right: 16, top: 6, bottom: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Ayat Terakhir Dibaca',
+                      style: TextStyle(
+                        color: Colors.grey[600],
+                        fontSize: 10,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Row(
+                              children: [
+                                // Islamic 8-pointed star (Rub el Hizb) Verse Badge
+                                Container(
+                                  width: 32,
+                                  height: 32,
+                                  alignment: Alignment.center,
+                                  child: Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      Transform.rotate(
+                                        angle: pi / 4,
+                                        child: Container(
+                                          width: 22,
+                                          height: 22,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(color: Colors.grey[400]!, width: 1.5),
+                                            borderRadius: BorderRadius.circular(3),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 22,
+                                        height: 22,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(color: Colors.grey[400]!, width: 1.5),
+                                          borderRadius: BorderRadius.circular(3),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 1.0),
+                                        child: Text(
+                                          '١٣',
+                                          style: GoogleFonts.scheherazadeNew(
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black87,
+                                            height: 1.0,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(width: 10),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ',
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: GoogleFonts.scheherazadeNew(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: const Color(0xFF2C3E50),
+                                          height: 1.1,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 1),
+                                      Text(
+                                        'Ar-Rahman • Ayat 13',
+                                        style: TextStyle(
+                                          color: Colors.grey[500],
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          // Circle bookmark button with light grey/mint background
+                          Container(
+                            width: 38,
+                            height: 38,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFFF1F3F2),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.bookmark,
+                              color: Color(0xFF0C5441),
+                              size: 18,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -568,10 +858,99 @@ class _HomePageState extends State<HomePage> {
                         const SizedBox(height: 15),
                         // Widget Hari Ini Header
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: _buildLocationHeader(),
+                          padding: const EdgeInsets.symmetric(horizontal: 14),
+                          child: SizedBox(
+                            height: 200,
+                            child: PageView(
+                              controller: _headerPageController,
+                              onPageChanged: (index) {
+                                setState(() {
+                                  _currentHeaderIndex = index;
+                                });
+                              },
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 6),
+                                  child: _buildLocationHeader(key: const ValueKey('location_header')),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 6),
+                                  child: _buildQuranHeaderCard(key: const ValueKey('quran_header')),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                        const SizedBox(height: 60),
+                        const SizedBox(height: 12),
+                        // Indicator Panel (Chevron arrows + active dot indicators)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                if (_headerPageController.hasClients) {
+                                  final prevPage = (_currentHeaderIndex - 1 + 2) % 2;
+                                  _headerPageController.animateToPage(
+                                    prevPage,
+                                    duration: const Duration(milliseconds: 600),
+                                    curve: Curves.easeInOutCubic,
+                                  );
+                                }
+                              },
+                              behavior: HitTestBehavior.opaque,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                child: Icon(
+                                  Icons.arrow_back_ios_new_rounded,
+                                  size: 14,
+                                  color: Colors.grey[400],
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: List.generate(2, (index) {
+                                final isActive = _currentHeaderIndex == index;
+                                return AnimatedContainer(
+                                  duration: const Duration(milliseconds: 300),
+                                  margin: const EdgeInsets.symmetric(horizontal: 4),
+                                  width: 8,
+                                  height: 8,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: isActive
+                                        ? const Color(0xFF13A884)
+                                        : const Color(0xFF13A884).withOpacity(0.2),
+                                  ),
+                                );
+                              }),
+                            ),
+                            const SizedBox(width: 8),
+                            GestureDetector(
+                              onTap: () {
+                                if (_headerPageController.hasClients) {
+                                  final nextPage = (_currentHeaderIndex + 1) % 2;
+                                  _headerPageController.animateToPage(
+                                    nextPage,
+                                    duration: const Duration(milliseconds: 600),
+                                    curve: Curves.easeInOutCubic,
+                                  );
+                                }
+                              },
+                              behavior: HitTestBehavior.opaque,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                child: Icon(
+                                  Icons.arrow_forward_ios_rounded,
+                                  size: 14,
+                                  color: Colors.grey[400],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 18),
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 16),
                           width: double.infinity,
@@ -647,7 +1026,12 @@ class _HomePageState extends State<HomePage> {
       final articles = await _articleService.getNews('cnn-news');
       if (mounted) {
         setState(() {
-          _homeArticles = articles.take(5).toList();
+          final filtered = articles.where((article) {
+            final title = article.title.toLowerCase();
+            return !title.contains('menjaga keistiqamahan') &&
+                   !title.contains('istiqomah dalam ketaatan');
+          }).toList();
+          _homeArticles = filtered.take(3).toList();
           _isArticlesLoading = false;
         });
       }
