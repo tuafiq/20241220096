@@ -18,6 +18,12 @@ class SettingsProvider with ChangeNotifier {
   String _reminderTime = '04:00';
   List<String> _doaOrder = []; // List of Doa Titles in order
 
+  // Dzikir Harian State Counts
+  int _countSubhanallah = 33;
+  int _countAlhamdulillah = 33;
+  int _countAllahuAkbar = 33;
+  int _countAstaghfirullah = 1;
+
   String get saveLocation => _saveLocation;
   String get fontSize => _fontSize;
   String get fontFamily => _fontFamily;
@@ -26,6 +32,11 @@ class SettingsProvider with ChangeNotifier {
   bool get reminderEnabled => _reminderEnabled;
   String get reminderTime => _reminderTime;
   List<String> get doaOrder => _doaOrder;
+
+  int get countSubhanallah => _countSubhanallah;
+  int get countAlhamdulillah => _countAlhamdulillah;
+  int get countAllahuAkbar => _countAllahuAkbar;
+  int get countAstaghfirullah => _countAstaghfirullah;
 
   Locale get locale {
     switch (_language) {
@@ -208,6 +219,27 @@ class SettingsProvider with ChangeNotifier {
   Future<void> setDoaOrder(List<String> order) async {
     _doaOrder = order;
     await _prefs?.setStringList('doaOrder', order);
+    notifyListeners();
+  }
+
+  void incrementDzikir(String type) {
+    if (type == 'subhanallah') {
+      _countSubhanallah = (_countSubhanallah + 1) > 33 ? 0 : _countSubhanallah + 1;
+    } else if (type == 'alhamdulillah') {
+      _countAlhamdulillah = (_countAlhamdulillah + 1) > 33 ? 0 : _countAlhamdulillah + 1;
+    } else if (type == 'allahu_akbar') {
+      _countAllahuAkbar = (_countAllahuAkbar + 1) > 33 ? 0 : _countAllahuAkbar + 1;
+    } else if (type == 'astaghfirullah') {
+      _countAstaghfirullah = (_countAstaghfirullah + 1) > 33 ? 0 : _countAstaghfirullah + 1;
+    }
+    notifyListeners();
+  }
+
+  void resetDzikirCounts() {
+    _countSubhanallah = 0;
+    _countAlhamdulillah = 0;
+    _countAllahuAkbar = 0;
+    _countAstaghfirullah = 0;
     notifyListeners();
   }
 
