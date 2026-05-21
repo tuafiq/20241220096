@@ -167,67 +167,136 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
   Widget _buildSurahHeader(SurahDetailModel surah) {
     return Container(
       margin: const EdgeInsets.all(16),
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
+            color: Colors.black.withOpacity(0.04),
+            blurRadius: 15,
+            offset: const Offset(0, 6),
           ),
         ],
+        border: Border.all(color: Colors.grey.shade100),
       ),
-      child: Column(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            surah.arti,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey[600],
-              fontWeight: FontWeight.w500,
+          // Quran Rehal Image on the left
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset(
+              'assets/images/quran_rehal.png',
+              width: 80,
+              height: 80,
+              fit: BoxFit.contain,
+              errorBuilder: (context, error, stackTrace) => Container(
+                width: 80,
+                height: 80,
+                color: Colors.teal.shade50,
+                child: const Icon(Icons.menu_book, color: Color(0xFF13A884), size: 36),
+              ),
             ),
           ),
-          const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _buildBadge(surah.tempatTurun),
-              const SizedBox(width: 8),
-              _buildBadge('${surah.jumlahAyat} Ayat'),
-            ],
-          ),
-          const SizedBox(height: 24),
-          const Divider(),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              StreamBuilder<PlayerState>(
-                stream: _player.playerStateStream,
-                builder: (context, snapshot) {
-                  final playerState = snapshot.data;
-                  final playing = playerState?.playing ?? false;
-                  final processingState = playerState?.processingState;
-                  
-                  bool isThisPlaying = playing && _isFullSurahPlaying;
-                  
-                  return _buildActionButton(
-                    icon: isThisPlaying ? Icons.stop_circle : Icons.play_circle_fill,
-                    label: isThisPlaying ? 'Stop Full' : 'Play Full',
-                    onTap: () => _playAudio(surah.audio),
-                    color: const Color(0xFF13A884),
-                  );
-                },
-              ),
-              _buildActionButton(
-                icon: Icons.info_outline,
-                label: 'Info',
-                onTap: () => _showInfo(surah),
-                color: Colors.blueAccent,
-              ),
-            ],
+          const SizedBox(width: 16),
+          // Info on the right
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  surah.namaLatin,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF0C5441),
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  surah.arti,
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: Colors.grey.shade600,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Row(
+                  children: [
+                    _buildBadge(surah.tempatTurun),
+                    const SizedBox(width: 8),
+                    _buildBadge('${surah.jumlahAyat} Ayat'),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                Row(
+                  children: [
+                    StreamBuilder<PlayerState>(
+                      stream: _player.playerStateStream,
+                      builder: (context, snapshot) {
+                        final playerState = snapshot.data;
+                        final playing = playerState?.playing ?? false;
+                        
+                        bool isThisPlaying = playing && _isFullSurahPlaying;
+                        
+                        return TextButton.icon(
+                          onPressed: () => _playAudio(surah.audio),
+                          icon: Icon(
+                            isThisPlaying ? Icons.stop_circle : Icons.play_circle_fill,
+                            color: const Color(0xFF13A884),
+                            size: 16,
+                          ),
+                          label: Text(
+                            isThisPlaying ? 'Stop Full' : 'Play Full',
+                            style: const TextStyle(
+                              color: Color(0xFF13A884),
+                              fontSize: 11,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                            backgroundColor: const Color(0xFFE8F5F1),
+                            minimumSize: Size.zero,
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    const SizedBox(width: 8),
+                    TextButton.icon(
+                      onPressed: () => _showInfo(surah),
+                      icon: const Icon(
+                        Icons.info_outline,
+                        color: Colors.blueAccent,
+                        size: 16,
+                      ),
+                      label: const Text(
+                        'Info',
+                        style: TextStyle(
+                          color: Colors.blueAccent,
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                        backgroundColor: Colors.blue.shade50,
+                        minimumSize: Size.zero,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -247,31 +316,6 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
           color: Color(0xFF13A884),
           fontSize: 11,
           fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildActionButton({
-    required IconData icon,
-    required String label,
-    required VoidCallback onTap,
-    required Color color,
-  }) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Column(
-          children: [
-            Icon(icon, color: color, size: 32),
-            const SizedBox(height: 4),
-            Text(
-              label,
-              style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.bold),
-            ),
-          ],
         ),
       ),
     );
