@@ -167,9 +167,88 @@ class _RamadhanPageState extends State<RamadhanPage> with SingleTickerProviderSt
         }
       ]
     },
-    {'title': 'Doa Kamilin Bakda Tarawih', 'arabic': '', 'latin': '', 'translation': ''},
-    {'title': 'Niat Shalat Witir', 'arabic': '', 'latin': '', 'translation': ''},
-    {'title': 'Wirid dan Doa Bakda Witir', 'arabic': '', 'latin': '', 'translation': ''},
+    {
+      'title': 'Doa Kamilin Bakda Tarawih',
+      'arabic': 'اَللّٰهُمَّ اجْعَلْنَا بِالْإِيْمَانِ كَامِلِيْنَ، وَلِلْفَرَائِضِ مُؤَدِّيْنَ، وَلِلصَّلَاةِ حَافِظِيْنَ، وَلِلزَّكَاةِ فَاعِلِيْنَ، وَلِمَا عِنْدَكَ طَالِبِيْنَ، وَلِعَفْوِكَ رَاجِيْنَ، وَبِالْهُدَى مُتَمَسِّكِيْنَ، وَعَنِ اللَّغْوِ مُعْرِضِيْنَ، وَفِي الدُّنْيَا زَاهِدِيْنَ، وَفِي الْآخِرَةِ رَاغِبِيْنَ، وَبِالْقَضَاءِ رَاضِيْنَ، وَلِلنَّعْمَاءِ شَاكِرِيْنَ، وَعَلَى الْبَلَاءِ صَابِرِيْنَ، وَتَحْتَ لِوَاءِ مُحَمَّدٍ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ يَوْمَ الْقِيَامَةِ سَائِرِيْنَ، وَعَلَى الْحَوْضِ وَارِدِيْنَ، وَإِلَى الْجَنَّةِ دَاخِلِيْنَ، وَمِنَ النَّارِ نَاجِيْنَ، وَعَلَى سَرِيْرِ الْكَرَامَةِ قَاعِدِيْنَ، وَبِحُوْرِ عِيْنٍ مُتَزَوِّجِيْنَ، وَمِنْ سُنْدُسٍ وَإِسْتَبْرَقٍ وَدِيْبَاجٍ مُتَلَبِّسِيْنَ، وَمِنْ طَعَامِ الْجَنَّةِ آكِلِيْنَ، وَمِنْ لَبَنٍ وَعَسَلٍ مُصَفًّى شَارِبِيْنَ، بِأَكْوَابٍ وَأَبَارِيْقَ وَكَأْسٍ مِنْ مَعِيْنٍ مَعَ الَّذِيْنَ أَنْعَمْتَ عَلَيْهِمْ مِنَ النَّبِيِّيْنَ وَالصِّدِّيْقِيْنَ وَالشُّهَدَاءِ وَالصَّالِحِيْنَ وَحَسُنَ أُولٰئِكَ رَفِيْقًا، ذٰلِكَ الْفَضْلُ مِنَ اللّٰهِ وَكَفَى بِاللّٰهِ عَلِيْمًا، اَللّٰهُمَّ اجْعَلْنَا فِي هٰذِهِ لَيْلَةِ الشَّهْرِ الشَّرِيْفَةِ الْمُبَارَكَةِ مِنَ السُّعَدَاءِ الْمَقْبُوْلِيْنَ، وَلَا تَجْعَلْنَا مِنَ الْأَشْقِيَاءِ الْمَرْدُوْدِيْنَ، وَصَلَّى اللّٰهُ عَلَى سَيِّدِنَا مُحَمَّدٍ وَاٰلِهِ وَصَحْبِهِ أَجْمَعِيْنَ، بِرَحْمَتِكَ يَا أَرْحَمَ الرَّاحِمِيْنَ، وَالْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِيْنَ',
+      'latin': 'Allâhummaj\'alnâ bil îmâni kâmilîn. Wa lil farâidli muaddîn. Wa lish-shalâti hâfidhîn. Wa liz-zakâti fâ\'ilîn. Wa lima \'indaka thâlibîn. Wa li \'afwika râjîn. Wa bil-hudâ mutamassikîn. Wa \'anil laghwi mu\'ridlîn. Wa fid-dunyâ zâhidîn. Wa fil \'âkhirati râghibîn. Wa bil-qadlâ\'i râdlîn. Wa lin na\'mâ\'i syâkirîn. Wa \'alal balâ\'i shâbirîn. Wa tahta liwâ\'i muhammadin shallallâhu \'alaihi wasallam yaumal qiyâmati sâ\'irîna wa \'alal haudli wâridîn. Wa ilal jannati dâkhilîn. Wa minan nâri nâjîn. Wa \'alâ sarîril karâmati qâ\'idîn. Wa bi hûrun \'in mutazawwijîn. Wa min sundusin wa istabraqîn wadîbâjin mutalabbisîn. Wa min tha\'âmil jannati âkilîn. Wa min labanin wa \'asalin mushaffan syâribîn. Bi akwâbin wa abârîqa wa ka\'sin min ma\'în. Ma\'al ladzîna an\'amta \'alaihim minan nabiyyîna wash shiddîqîna wasy syuhadâ\'i wash shâlihîna wa hasuna ulâ\'ika rafîqan. Dzâlikal fadl-lu minallâhi wa kafâ billâhi \'alîman. Allâhummaj\'alnâ fî hâdzhihi lailatisy syahrisy syarîfatil mubârakah minas su\'adâ\'il maqbûlîn. Wa lâ taj\'alnâ minal asyqiyâ\'il mardûdîn. Wa shallallâhu \'alâ sayyidinâ muhammadin wa âlihi wa shahbihi ajma\'în. Birahmatika yâ arhamar râhimîn wal hamdulillâhi rabbil \'âlamîn.',
+      'translation': 'Yaa Allah, jadikanlah kami orang-orang yang sempurna imannya, yang memenuhi kewajiban-kewajiban, yang memelihara shalat, yang mengeluarkan zakat, yang mencari apa yang ada di sisi-Mu, yang mengharapkan ampunan-Mu, yang berpegang pada petunjuk, yang berpaling dari kebatilan, yang zuhud di dunia, yang menyenangi akhirat, yang ridha dengan qadla-Mu (ketentuan-Mu), yang bersyukur atas nikmat-nikmat-Mu, yang sabar atas segala musibah, yang berada di bawah bendera junjungan kami Nabi Muhammad, pada hari kiamat, yang mengunjungi telaga (Nabi Muhammad), yang masuk ke dalam surga, yang selamat dari api neraka, yang duduk di atas ranjang kemuliaan, yang menikah dengan para bidadari, yang mengenakan berbagai sutra, yang makan makanan surga, yang minum susu dan madu murni dengan gelas, cangkir, dan cawan bersama orang-orang yang Engkau beri nikmat dari kalangan para nabi, shiddiqin, syuhada dan orang-orang shalih. Mereka itulah teman yang terbaik. Itulah keutamaan (anugerah) dari Allah, dan cukuplah bahwa Allah Maha Mengetahui. Ya Allah, jadikanlah kami pada malam yang mulia dan diberkahi ini termasuk orang-orang yang bahagia dan diterima amalnya, dan janganlah Engkau jadikan kami tergolong orang-orang yang celaka dan ditolak amalnya. Semoga Allah mencurahkan rahmat kepada junjungan kami Nabi Muhammad, serta seluruh keluarga dan sahabat beliau. Berkat rahmat-Mu, wahai Yang Paling Penyayang di antara yang penyayang. Segala puji bagi Allah Tuhan semesta alam.',
+    },
+    {
+      'title': 'Niat Shalat Witir',
+      'arabic': '',
+      'latin': '',
+      'translation': '',
+      'sections': [
+        {
+          'subtitle': 'Satu Rakaat',
+          'arabic': 'أُصَلِّيْ سُنَّةَ الْوِتْرِ رَكْعَةً مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً (إِمَامًا/مَأْمُوْمًا) لِلّٰهِ تَعَالَى',
+          'latin': 'Ushallî sunnatal witri rak\'atan mustaqbilal qiblati adâ\'an (imâman/ma\'mûman) lillâhhi ta\'âlâ.',
+          'translation': 'Aku niat shalat sunnah witir satu rakaat menghadap kiblat (sebagai imam/makmum) karena Allah ta\'ala.',
+        },
+        {
+          'subtitle': 'Tiga Rakaat Sekaligus',
+          'arabic': 'أُصَلِّيْ سُنَّةَ الْوِتْرِ ثَلَاثَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً (إِمَامًا/مَأْمُوْمًا) لِلّٰهِ تَعَالَى',
+          'latin': 'Ushallî sunnatal-witri tsalâtsa raka\'âtin mustaqbilal qiblati adâ\'an (imâman/ma\'mûman) lillâhhi ta\'âlâ.',
+          'translation': 'Aku niat shalat sunnah witir tiga rakaat menghadap kiblat (sebagai imam/makmum) karena Allah ta\'ala.',
+        },
+        {
+          'subtitle': 'Ketika Didahului Dua Rakaat',
+          'arabic': 'أُصَلِّيْ سُنَّةَ مِنَ الْوِتْرِ رَكْعَتَيْنِ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً (إِمَامًا/مَأْمُوْمًا) لِلّٰهِ تَعَالَى',
+          'latin': 'Ushallî sunnatan minal witri rak\'ataini mustaqbilal qiblati adâ\'an (imâman/ma\'mûman) lillâhhi ta\'âlâ.',
+          'translation': 'Aku niat shalat sunnah dua rakaat yang menjadi bagian dari witir, menghadap kiblat (sebagai imam/makmum) karena Allah ta\'ala.',
+        }
+      ]
+    },
+    {
+      'title': 'Wirid dan Doa Bakda Witir',
+      'arabic': '',
+      'latin': '',
+      'translation': '',
+      'sections': [
+        {
+          'subtitle': '',
+          'arabic': 'سُبْحَانَ الْمَلِكِ الْقُدُّوْسِ ٣×',
+          'latin': 'Subhânal malikil quddûs. (3x)',
+          'translation': '"Mahasuci Tuhan yang kudus," (HR An-Nasa\'i dan Ibnu Majah). (3x)',
+        },
+        {
+          'subtitle': '',
+          'arabic': 'سُبُّوْحٌ قُدُّوْسٌ رَبُّنَا وَرَبُّ الْمَلَائِكَةِ وَالرُّوْحِ',
+          'latin': 'Subbûhun, quddûsun, rabbunâ wa rabbul malâ\'ikati war rûh.',
+          'translation': '"Suci dan qudus Tuhan kami, Tuhan para malaikat dan Jibril," (HR Al-Baihaqi dan Ad-Daruqutni).',
+        },
+        {
+          'subtitle': '',
+          'arabic': 'أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللّٰهُ، أَسْتَغْفِرُ اللّٰهَ، نَسْأَلُكَ رِضَاكَ وَالْجَنَّةَ وَنَعُوْذُ بِكَ مِنْ سَخَطِكَ وَالنَّارِ ٣×',
+          'latin': 'Asyhadu an lâ ilâha illallââh. Astaghfirullâh. Nas\'aluka ridhâka wal jannah, wa na\'ûdzu bika min sakhathika wan nâr. (3x)',
+          'translation': 'Aku bersaksi bahwa tiada tuhan selain Allah. Aku memohon ampunan Allah. Kami memohon ridha dan surga-Mu. Kami juga berlindung kepada (rahmat)-Mu dari murka dan neraka-Mu. (3x)',
+        },
+        {
+          'subtitle': '',
+          'arabic': 'اَللّٰهُمَّ إِنَّكَ عَفُوٌّ كَرِيْمٌ تُحِبُّ الْعَفْوَ فَاعْفُ عَنَّا ٣×',
+          'latin': 'Allâhumma innaka \'afuwwun karîmun tuhibbul \'afwa, fa\'fu \'annâ. (3x)',
+          'translation': '"Tuhanku, sungguh Kau maha pengampun lagi pemurah. Kau menyukai ampunan, oleh karenanya ampunilah kami." (3x)',
+        },
+        {
+          'subtitle': '',
+          'arabic': 'يَا كَرِيْمُ بِرَحْمَتِكَ يَا أَرْحَمَ الرَّاحِمِيْنَ',
+          'latin': 'Yâ karîmu, bi rahmatika yâ arhamar râhimîna.',
+          'translation': 'Wahai Dzat yang maha pemurah, (aku memohon) atas berkat rahmat-Mu, wahai Dzat yang paling penyayang dari segenap penyayang.',
+        },
+        {
+          'subtitle': '',
+          'arabic': 'اَللّٰهُمَّ إِنَّا نَعُوْذُ بِرِضَاكَ مِنْ سَخَطِكَ وَبِمُعَافَاتِكَ مِنْ عُقُوْبَتِكَ وَنَعُوْذُ بِكَ مِنْكَ لَا نُحْصِيْ ثَنَاءً عَلَيْكَ أَنْتَ كَمَا أَثْنَيْتَ عَلَى نَفْسِكَ',
+          'latin': 'Allâhumma inâ na\'ûdzu bi ridhâka min sakhathika, wa bi mu\'âfâtika min \'uqûbatika. Wa na\'ûdzu bika minka, lâ nuhshî tsanâ\'an alayka anta kamâ atsnayta \'alâ nafsika.',
+          'translation': '"Tuhanku, kami berlindung kepada ridha-Mu dari murka-Mu dan kepada afiat-Mu dari siksa-Mu. Kami meminta perlindungan-Mu dari murka-Mu. Kami tidak (sanggup) membilang pujian-Mu sebanyak Kau memuji diri-Mu sendiri," (HR Abu Dawud, Tirmidzi, An-Nasa\'i, dan Ibnu Majah).',
+        },
+        {
+          'subtitle': 'الدعاء\nDoa',
+          'arabic': 'اَللّٰهُمَّ إِنَّا نَسْأَلُكَ إِيْمَانًا دَائِمًا وَنَسْأَلُكَ قَلْبًا خَاشِعًا وَنَسْأَلُكَ عِلْمًا نَافِعًا وَنَسْأَلُكَ يَقِيْنًا صَادِقًا وَنَسْأَلُكَ عَمَلًا صَالِحًا وَنَسْأَلُكَ دِيْنًا قَيِّمًا وَنَسْأَلُكَ خَيْرًا كَثِيْرًا وَنَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ وَنَسْأَلُكَ تَمَامَ الْعَافِيَةِ وَنَسْأَلُكَ الشُّكْرَ عَلَى الْعَافِيَةِ وَنَسْأَلُكَ الْغِنَى عَنِ النَّاسِ. اَللّٰهُمَّ رَبَّنَا تَقَبَّلْ مِنَّا صَلَاتَنَا وَصِيَامَنَا وَقِيَامَنَا وَتَخَشُّعَنَا وَتَضَرُّعَنَا وَتَعَبُّدَنَا وَتَمِّمْ تَقْصِيْرَنَا يَا اَللّٰهُ يَا أَرْحَمَ الرَّاحِمِيْنَ وَصَلَّى اللّٰهُ عَلَى خَيْرِ خَلْقِهِ سَيِّدِنَا مُحَمَّدٍ وَعَلَى اٰلِهِ وَأَصْحَابِهِ أَجْمَعِيْنَ وَالْحَمْدُ لِلّٰهِ رَبِّ الْعَالَمِيْنَ',
+          'latin': 'Allâhumma innâ nasaluka îmânan dâiman wa nas-aluka qalban khâsyi\'an wan as-aluka \'ilman nâfi\'an wan as-aluka yaqînan shâdiqan wan as-aluka \'amalan shâlihan wan as-aluka dînan qayyiman wan as-aluka khairan katsîran wan as-aluka-l-\'afwa wal \'âfiyata wan as-aluka tamâmal \'âfiyati wan as-aluka-sy-syukra \'alal \'âfiyati wan as-aluka-l-ghinâ \'anin nâs. Allâhumma rabbanâ taqabbal minnâ shalâtanâ wa shiyâmanâ wa qiyâmanâ wa takhasyu\'anâ wa tadlarru\'anâ wa ta\'abbudanâ wa tammim taqshîranâ. Yâ Allâh yâ arhamar râhimîn wa shallallâhu \'alâ khairi khalqihi sayyidinâ Muhammadin wa \'alâ âlihî wa ash-hâbihî ajma\'în wal hamdulillâhi rabbil \'âlamîn',
+          'translation': 'Ya Allah, kami mohon pada-Mu, iman yang langgeng, hati yang khusyuk, ilmu yang bermanfaat, keyakinan yang benar, amal yang saleh, agama yang lurus, kebaikan yang banyak. kami mohon kepada-Mu ampunan dan kesehatan, kesehatan yang sempurna, kami mohon kepada-Mu bersyukur atas karunia kesehatan, kami mohon kepada-Mu kecukupan terhadap sesama manusia. Ya Allah, tuhan kami terimalah dari kami: shalat, puasa, ibadah, kekhusyukan, rendah diri dan ibadah kami, dan sempurnakanlah segala kekurangan kami. Ya Allah, Tuhan yang Maha Pengasih dari segala yang pengasih. Dan semoga kesejahteraan dilimpahkan kepada makhluk-Nya yang terbaik, Nabi Muhammad, demikian pula keluarga dan para sahabatnya secara keseluruhan. Serta segala puji milik Allah Tuhan semesta alam.',
+        }
+      ]
+    },
     {'title': 'Doa ketika Sahur', 'arabic': '', 'latin': '', 'translation': ''},
     {'title': 'Bacaan Lailatul Qadar', 'arabic': '', 'latin': '', 'translation': ''},
     {'title': 'Niat Zakat Fitrah', 'arabic': '', 'latin': '', 'translation': ''},
