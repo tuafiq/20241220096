@@ -19,20 +19,23 @@ import 'article_service.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'hadith_page.dart';
 import 'tutorial_ibadah_page.dart';
+import 'ramadhan_page.dart';
 
 
 import 'package:provider/provider.dart';
 import 'settings_provider.dart';
 import 'notification_service.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await NotificationService().init();
+  final prefs = await SharedPreferences.getInstance();
 
   runApp(
     ChangeNotifierProvider(
-      create: (context) => SettingsProvider(),
+      create: (context) => SettingsProvider(prefs: prefs),
       child: const MyApp(),
     ),
   );
@@ -87,7 +90,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  int _currentHeaderIndex = 0;
+  int _currentHeaderIndex = 999;
+  bool _isHoldingHeader = false;
   late PageController _headerPageController;
   String _currentLocation = 'Pamekasan, Kabupaten Pamekasan';
   Map<String, String> _todaySchedule = {
@@ -108,18 +112,21 @@ class _HomePageState extends State<HomePage> {
   final ArticleService _articleService = ArticleService();
   List<Article> _homeArticles = [];
   bool _isArticlesLoading = true;
+  String? _homeArticlesError;
   @override
   void initState() {
     super.initState();
-    _headerPageController = PageController(initialPage: 0);
+    final settings = Provider.of<SettingsProvider>(context, listen: false);
+    _currentHeaderIndex = 999 + settings.lastHeaderIndex;
+    _headerPageController = PageController(initialPage: _currentHeaderIndex);
     _updateTime();
     _fetchPrayerTimes(_currentLocation);
     _loadHomeArticles();
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       _updateTime();
-      if (mounted && timer.tick % 2 == 0) {
+      if (mounted && timer.tick % 2 == 0 && !_isHoldingHeader) {
         if (_headerPageController.hasClients) {
-          final nextPage = (_currentHeaderIndex + 1) % 3;
+          final nextPage = _currentHeaderIndex + 1;
           _headerPageController.animateToPage(
             nextPage,
             duration: const Duration(milliseconds: 600),
@@ -403,7 +410,7 @@ class _HomePageState extends State<HomePage> {
           ),
           // Content
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -700,120 +707,28 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            // 3. Bottom White Bar
+            // 3. Bottom White Bar (3 Progress Indicators Row)
             Expanded(
               child: Container(
-                padding: const EdgeInsets.only(left: 16, right: 16, top: 6, bottom: 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                alignment: Alignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(
-                      'Ayat Terakhir Dibaca',
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: 10,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    _buildProgressIndicatorItem(
+                      Icons.school_rounded,
+                      '12',
+                      'Surah Selesai',
                     ),
-                    const SizedBox(height: 4),
-                    Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: Row(
-                              children: [
-                                // Islamic 8-pointed star (Rub el Hizb) Verse Badge
-                                Container(
-                                  width: 32,
-                                  height: 32,
-                                  alignment: Alignment.center,
-                                  child: Stack(
-                                    alignment: Alignment.center,
-                                    children: [
-                                      Transform.rotate(
-                                        angle: pi / 4,
-                                        child: Container(
-                                          width: 22,
-                                          height: 22,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(color: Colors.grey[400]!, width: 1.5),
-                                            borderRadius: BorderRadius.circular(3),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        width: 22,
-                                        height: 22,
-                                        decoration: BoxDecoration(
-                                          border: Border.all(color: Colors.grey[400]!, width: 1.5),
-                                          borderRadius: BorderRadius.circular(3),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 1.0),
-                                        child: Text(
-                                          '١٣',
-                                          style: GoogleFonts.scheherazadeNew(
-                                            fontSize: 11,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black87,
-                                            height: 1.0,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ',
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: GoogleFonts.scheherazadeNew(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                          color: const Color(0xFF2C3E50),
-                                          height: 1.1,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 1),
-                                      Text(
-                                        'Ar-Rahman • Ayat 13',
-                                        style: TextStyle(
-                                          color: Colors.grey[500],
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          // Circle bookmark button with light grey/mint background
-                          Container(
-                            width: 38,
-                            height: 38,
-                            decoration: const BoxDecoration(
-                              color: Color(0xFFF1F3F2),
-                              shape: BoxShape.circle,
-                            ),
-                            child: const Icon(
-                              Icons.bookmark,
-                              color: Color(0xFF0C5441),
-                              size: 18,
-                            ),
-                          ),
-                        ],
-                      ),
+                    _buildProgressIndicatorItem(
+                      Icons.star_rounded,
+                      '86',
+                      'Ayat Dihafal',
+                    ),
+                    _buildProgressIndicatorItem(
+                      Icons.bookmark_rounded,
+                      '5',
+                      'Juz Dipelajari',
                     ),
                   ],
                 ),
@@ -822,6 +737,52 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildProgressIndicatorItem(IconData icon, String value, String label) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          width: 32,
+          height: 32,
+          decoration: const BoxDecoration(
+            color: Color(0xFF0C5441),
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            icon,
+            color: Colors.white,
+            size: 16,
+          ),
+        ),
+        const SizedBox(width: 6),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              value,
+              style: GoogleFonts.outfit(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xFF0C5441),
+                height: 1.1,
+              ),
+            ),
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 9,
+                fontWeight: FontWeight.w500,
+                color: Color(0xFF7F8C8D),
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 
@@ -861,40 +822,65 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.symmetric(horizontal: 14),
                           child: SizedBox(
                             height: 200,
-                            child: PageView(
-                              controller: _headerPageController,
-                              onPageChanged: (index) {
+                            child: Listener(
+                              onPointerDown: (_) {
                                 setState(() {
-                                  _currentHeaderIndex = index;
+                                  _isHoldingHeader = true;
                                 });
                               },
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 6),
-                                  child: _buildLocationHeader(key: const ValueKey('location_header')),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 6),
-                                  child: _buildQuranHeaderCard(key: const ValueKey('quran_header')),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 6),
-                                  child: DzikirCard(
-                                    key: const ValueKey('dzikir_header'),
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => const WiridDoaPage(initialIndex: 0),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ],
+                              onPointerUp: (_) {
+                                setState(() {
+                                  _isHoldingHeader = false;
+                                });
+                              },
+                              onPointerCancel: (_) {
+                                setState(() {
+                                  _isHoldingHeader = false;
+                                });
+                              },
+                              child: PageView.builder(
+                                controller: _headerPageController,
+                                onPageChanged: (index) {
+                                  setState(() {
+                                    _currentHeaderIndex = index;
+                                  });
+                                  context.read<SettingsProvider>().setLastHeaderIndex(index % 3);
+                                },
+                              itemBuilder: (context, index) {
+                                final pageIndex = index % 3;
+                                switch (pageIndex) {
+                                  case 0:
+                                    return Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                                      child: _buildLocationHeader(key: const ValueKey('location_header')),
+                                    );
+                                  case 1:
+                                    return Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                                      child: _buildQuranHeaderCard(key: const ValueKey('quran_header')),
+                                    );
+                                  case 2:
+                                  default:
+                                    return Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                                      child: DzikirCard(
+                                        key: const ValueKey('dzikir_header'),
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => const WiridDoaPage(initialIndex: 0),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    );
+                                }
+                              },
                             ),
                           ),
                         ),
+                      ),
                         const SizedBox(height: 12),
                         // Indicator Panel (Chevron arrows + active dot indicators)
                         Row(
@@ -903,9 +889,8 @@ class _HomePageState extends State<HomePage> {
                             GestureDetector(
                               onTap: () {
                                 if (_headerPageController.hasClients) {
-                                  final prevPage = (_currentHeaderIndex - 1 + 3) % 3;
                                   _headerPageController.animateToPage(
-                                    prevPage,
+                                    _currentHeaderIndex - 1,
                                     duration: const Duration(milliseconds: 600),
                                     curve: Curves.easeInOutCubic,
                                   );
@@ -925,7 +910,7 @@ class _HomePageState extends State<HomePage> {
                             Row(
                               mainAxisSize: MainAxisSize.min,
                               children: List.generate(3, (index) {
-                                final isActive = _currentHeaderIndex == index;
+                                final isActive = (_currentHeaderIndex % 3) == index;
                                 return AnimatedContainer(
                                   duration: const Duration(milliseconds: 300),
                                   margin: const EdgeInsets.symmetric(horizontal: 4),
@@ -944,9 +929,8 @@ class _HomePageState extends State<HomePage> {
                             GestureDetector(
                               onTap: () {
                                 if (_headerPageController.hasClients) {
-                                  final nextPage = (_currentHeaderIndex + 1) % 3;
                                   _headerPageController.animateToPage(
-                                    nextPage,
+                                    _currentHeaderIndex + 1,
                                     duration: const Duration(milliseconds: 600),
                                     curve: Curves.easeInOutCubic,
                                   );
@@ -1036,22 +1020,44 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _loadHomeArticles() async {
+    if (mounted) {
+      setState(() {
+        _isArticlesLoading = true;
+        _homeArticlesError = null;
+      });
+    }
     try {
-      final articles = await _articleService.getNews('cnn-news');
+      // Try Firanda first
+      var result = await _articleService.getArticles('fir', page: 1);
+      
+      // Fallback to Konsultasi Syariah if fir fails or returns empty list
+      if (result['success'] == false || (result['articles'] as List).isEmpty) {
+        result = await _articleService.getArticles('ks', page: 1);
+      }
+
       if (mounted) {
         setState(() {
+          final List<Article> articles = result['articles'] ?? [];
           final filtered = articles.where((article) {
             final title = article.title.toLowerCase();
             return !title.contains('menjaga keistiqamahan') &&
                    !title.contains('istiqomah dalam ketaatan');
           }).toList();
           _homeArticles = filtered.take(3).toList();
+          if (_homeArticles.isEmpty) {
+            _homeArticlesError = result['error'] ?? 'Gagal memuat berita';
+          } else {
+            _homeArticlesError = null;
+          }
           _isArticlesLoading = false;
         });
       }
     } catch (e) {
       if (mounted) {
-        setState(() => _isArticlesLoading = false);
+        setState(() {
+          _homeArticlesError = 'Terjadi kesalahan: $e';
+          _isArticlesLoading = false;
+        });
       }
     }
   }
@@ -1082,9 +1088,41 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         if (_isArticlesLoading)
-          const Center(child: CircularProgressIndicator(color: primaryGreen))
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 24),
+            child: Center(child: CircularProgressIndicator(color: primaryGreen)),
+          )
         else if (_homeArticles.isEmpty)
-          const Center(child: Text('Gagal memuat berita'))
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    _homeArticlesError ?? 'Gagal memuat berita',
+                    style: TextStyle(color: Colors.grey[600], fontSize: 14),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 12),
+                  ElevatedButton.icon(
+                    onPressed: _loadHomeArticles,
+                    icon: const Icon(Icons.refresh, size: 16, color: Colors.white),
+                    label: const Text('Coba Lagi', style: TextStyle(color: Colors.white, fontSize: 12)),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: primaryGreen,
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      minimumSize: Size.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
         else
           ListView.separated(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -1156,7 +1194,7 @@ class _HomePageState extends State<HomePage> {
         TahlilIcon(),
         MaulidIcon(),
         TutorialIbadahIcon(),
-        LainnyaIcon(),
+        RamadhanIcon(),
       ],
     );
   }
@@ -1553,39 +1591,47 @@ class TutorialIbadahIcon extends StatelessWidget {
 // ICON 8: KHUTBAH (Previously Lainnya)
 // Mosque icons created by BZZRINCANTATION - Flaticon (https://www.flaticon.com/free-icons/mosque)
 // ─────────────────────────────────────────────────────────────
-class LainnyaIcon extends StatelessWidget {
-  const LainnyaIcon({super.key});
+class RamadhanIcon extends StatelessWidget {
+  const RamadhanIcon({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: 52,
-          height: 52,
-          decoration: const BoxDecoration(
-            color: Color(0xFFE8F5F1),
-            shape: BoxShape.circle,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const RamadhanPage()),
+        );
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 52,
+            height: 52,
+            decoration: const BoxDecoration(
+              color: Color(0xFFE8F5F1),
+              shape: BoxShape.circle,
+            ),
+            padding: const EdgeInsets.all(8),
+            child: Image.asset(
+              'assets/images/ramadhan_icon.png',
+              fit: BoxFit.contain,
+            ),
           ),
-          padding: const EdgeInsets.all(8),
-          child: Image.asset(
-            'assets/images/khutbah_icon.png',
-            fit: BoxFit.contain,
+          const SizedBox(height: 5),
+          const Text(
+            'Ramadhan',
+            style: TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF333333),
+            ),
+            textAlign: TextAlign.center,
           ),
-        ),
-        const SizedBox(height: 5),
-        const Text(
-          'Khutbah',
-          style: TextStyle(
-            fontSize: 10,
-            fontWeight: FontWeight.w500,
-            color: Color(0xFF333333),
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

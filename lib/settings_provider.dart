@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'notification_service.dart';
 
 class SettingsProvider with ChangeNotifier {
-  SharedPreferences? _prefs;
+  final SharedPreferences _prefs;
 
   // Defaults
   String _saveLocation = '';
@@ -24,6 +24,8 @@ class SettingsProvider with ChangeNotifier {
   int _countAllahuAkbar = 33;
   int _countAstaghfirullah = 1;
 
+  int _lastHeaderIndex = 0; // 0: Location, 1: Quran, 2: Dzikir
+
   String get saveLocation => _saveLocation;
   String get fontSize => _fontSize;
   String get fontFamily => _fontFamily;
@@ -37,6 +39,7 @@ class SettingsProvider with ChangeNotifier {
   int get countAlhamdulillah => _countAlhamdulillah;
   int get countAllahuAkbar => _countAllahuAkbar;
   int get countAstaghfirullah => _countAstaghfirullah;
+  int get lastHeaderIndex => _lastHeaderIndex;
 
   Locale get locale {
     switch (_language) {
@@ -50,21 +53,28 @@ class SettingsProvider with ChangeNotifier {
     }
   }
 
-  SettingsProvider() {
+  SettingsProvider({required SharedPreferences prefs}) : _prefs = prefs {
     _loadSettings();
   }
 
-  Future<void> _loadSettings() async {
-    _prefs = await SharedPreferences.getInstance();
-    _saveLocation = _prefs?.getString('saveLocation') ?? '';
-    _fontSize = _prefs?.getString('fontSize') ?? 'Sedang';
-    _fontFamily = _prefs?.getString('fontFamily') ?? 'Poppins';
-    _themeModeStr = _prefs?.getString('themeModeStr') ?? 'Hijau';
-    _language = _prefs?.getString('language') ?? 'Indonesia';
-    _reminderEnabled = _prefs?.getBool('reminderEnabled') ?? false;
-    _reminderTime = _prefs?.getString('reminderTime') ?? '04:00';
-    _doaOrder = _prefs?.getStringList('doaOrder') ?? [];
-    notifyListeners();
+  void _loadSettings() {
+    _saveLocation = _prefs.getString('saveLocation') ?? '';
+    _fontSize = _prefs.getString('fontSize') ?? 'Sedang';
+    _fontFamily = _prefs.getString('fontFamily') ?? 'Poppins';
+    _themeModeStr = _prefs.getString('themeModeStr') ?? 'Hijau';
+    _language = _prefs.getString('language') ?? 'Indonesia';
+    _reminderEnabled = _prefs.getBool('reminderEnabled') ?? false;
+    _reminderTime = _prefs.getString('reminderTime') ?? '04:00';
+    _doaOrder = _prefs.getStringList('doaOrder') ?? [];
+    
+    // Load persisted Dzikir Harian counts
+    _countSubhanallah = _prefs.getInt('countSubhanallah') ?? 33;
+    _countAlhamdulillah = _prefs.getInt('countAlhamdulillah') ?? 33;
+    _countAllahuAkbar = _prefs.getInt('countAllahuAkbar') ?? 33;
+    _countAstaghfirullah = _prefs.getInt('countAstaghfirullah') ?? 1;
+
+    _lastHeaderIndex = _prefs.getInt('lastHeaderIndex') ?? 0;
+    
     _updateNotification();
   }
 
@@ -155,44 +165,44 @@ class SettingsProvider with ChangeNotifier {
 
   Future<void> setSaveLocation(String path) async {
     _saveLocation = path;
-    await _prefs?.setString('saveLocation', path);
+    await _prefs.setString('saveLocation', path);
     notifyListeners();
   }
 
   Future<void> setFontSize(String size) async {
     _fontSize = size;
-    await _prefs?.setString('fontSize', size);
+    await _prefs.setString('fontSize', size);
     notifyListeners();
   }
 
   Future<void> setFontFamily(String font) async {
     _fontFamily = font;
-    await _prefs?.setString('fontFamily', font);
+    await _prefs.setString('fontFamily', font);
     notifyListeners();
   }
 
   Future<void> setThemeModeStr(String theme) async {
     _themeModeStr = theme;
-    await _prefs?.setString('themeModeStr', theme);
+    await _prefs.setString('themeModeStr', theme);
     notifyListeners();
   }
 
   Future<void> setLanguage(String lang) async {
     _language = lang;
-    await _prefs?.setString('language', lang);
+    await _prefs.setString('language', lang);
     notifyListeners();
   }
 
   Future<void> setReminderEnabled(bool enabled) async {
     _reminderEnabled = enabled;
-    await _prefs?.setBool('reminderEnabled', enabled);
+    await _prefs.setBool('reminderEnabled', enabled);
     notifyListeners();
     _updateNotification();
   }
 
   Future<void> setReminderTime(String time) async {
     _reminderTime = time;
-    await _prefs?.setString('reminderTime', time);
+    await _prefs.setString('reminderTime', time);
     notifyListeners();
     _updateNotification();
   }
@@ -218,28 +228,42 @@ class SettingsProvider with ChangeNotifier {
 
   Future<void> setDoaOrder(List<String> order) async {
     _doaOrder = order;
-    await _prefs?.setStringList('doaOrder', order);
+    await _prefs.setStringList('doaOrder', order);
     notifyListeners();
   }
 
-  void incrementDzikir(String type) {
+  Future<void> setLastHeaderIndex(int index) async {
+    _lastHeaderIndex = index;
+    await _prefs.setInt('lastHeaderIndex', index);
+    notifyListeners();
+  }
+
+  Future<void> incrementDzikir(String type) async {
     if (type == 'subhanallah') {
       _countSubhanallah = (_countSubhanallah + 1) > 33 ? 0 : _countSubhanallah + 1;
+      await _prefs.setInt('countSubhanallah', _countSubhanallah);
     } else if (type == 'alhamdulillah') {
       _countAlhamdulillah = (_countAlhamdulillah + 1) > 33 ? 0 : _countAlhamdulillah + 1;
+      await _prefs.setInt('countAlhamdulillah', _countAlhamdulillah);
     } else if (type == 'allahu_akbar') {
       _countAllahuAkbar = (_countAllahuAkbar + 1) > 33 ? 0 : _countAllahuAkbar + 1;
+      await _prefs.setInt('countAllahuAkbar', _countAllahuAkbar);
     } else if (type == 'astaghfirullah') {
       _countAstaghfirullah = (_countAstaghfirullah + 1) > 33 ? 0 : _countAstaghfirullah + 1;
+      await _prefs.setInt('countAstaghfirullah', _countAstaghfirullah);
     }
     notifyListeners();
   }
 
-  void resetDzikirCounts() {
+  Future<void> resetDzikirCounts() async {
     _countSubhanallah = 0;
     _countAlhamdulillah = 0;
     _countAllahuAkbar = 0;
     _countAstaghfirullah = 0;
+    await _prefs.setInt('countSubhanallah', 0);
+    await _prefs.setInt('countAlhamdulillah', 0);
+    await _prefs.setInt('countAllahuAkbar', 0);
+    await _prefs.setInt('countAstaghfirullah', 0);
     notifyListeners();
   }
 

@@ -7,51 +7,77 @@ class ArticleService {
 
   /// Fetch articles for a specific portal, with optional pagination and search query.
   Future<Map<String, dynamic>> getArticles(String portal, {int page = 1, String query = ''}) async {
-    try {
-      final queryParams = <String, String>{
-        'page': page.toString(),
-      };
-      if (query.trim().isNotEmpty) {
-        queryParams['s'] = query.trim();
-      }
-      
-      final uri = Uri.parse('$baseUrl/$portal').replace(queryParameters: queryParams);
-      final response = await http.get(uri).timeout(const Duration(seconds: 15));
+    const int maxRetries = 2;
+    const int retryDelaySeconds = 1;
+    
+    for (int attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        final queryParams = <String, String>{
+          'page': page.toString(),
+        };
+        if (query.trim().isNotEmpty) {
+          queryParams['s'] = query.trim();
+        }
+        
+        final uri = Uri.parse('$baseUrl/$portal').replace(queryParameters: queryParams);
+        final response = await http.get(uri).timeout(const Duration(seconds: 25));
 
-      if (response.statusCode == 200) {
-        final body = json.decode(response.body);
-        if (body['success'] == true && body['data'] != null) {
-          final dataObj = body['data'];
-          final List<dynamic> listData = dataObj['data'] ?? [];
-          final List<Article> articles = listData.map((item) => Article.fromJson(item)).toList();
-          
-          // Get pagination total page
-          int totalPages = 1;
-          if (dataObj['pagination'] != null && dataObj['pagination']['total_page'] != null) {
-            totalPages = int.tryParse(dataObj['pagination']['total_page'].toString()) ?? 1;
+        if (response.statusCode == 200) {
+          final body = json.decode(response.body);
+          if (body['success'] == true && body['data'] != null) {
+            final dataObj = body['data'];
+            final List<dynamic> listData = dataObj['data'] ?? [];
+            final List<Article> articles = listData.map((item) => Article.fromJson(item)).toList();
+            
+            // Get pagination total page
+            int totalPages = 1;
+            if (dataObj['pagination'] != null && dataObj['pagination']['total_page'] != null) {
+              totalPages = int.tryParse(dataObj['pagination']['total_page'].toString()) ?? 1;
+            }
+            
+            return {
+              'articles': articles,
+              'totalPages': totalPages,
+              'success': true,
+            };
           }
-          
+        }
+        
+        if (attempt == maxRetries) {
           return {
-            'articles': articles,
-            'totalPages': totalPages,
-            'success': true,
+            'articles': <Article>[],
+            'totalPages': 1,
+            'success': false,
+            'error': 'Gagal memuat artikel: Status Code ${response.statusCode}'
+          };
+        }
+      } catch (e) {
+        if (attempt == maxRetries) {
+          String errorMsg = e.toString();
+          if (errorMsg.contains('TimeoutException')) {
+            errorMsg = 'Koneksi lambat / Timeout (25 detik)';
+          } else if (errorMsg.contains('SocketException')) {
+            errorMsg = 'Tidak ada koneksi internet';
+          }
+          return {
+            'articles': <Article>[],
+            'totalPages': 1,
+            'success': false,
+            'error': 'Gagal memuat artikel: $errorMsg'
           };
         }
       }
-      return {
-        'articles': <Article>[],
-        'totalPages': 1,
-        'success': false,
-        'error': 'Gagal memuat artikel: Status Code ${response.statusCode}'
-      };
-    } catch (e) {
-      return {
-        'articles': <Article>[],
-        'totalPages': 1,
-        'success': false,
-        'error': 'Terjadi kesalahan: $e'
-      };
+      
+      // Wait before retrying
+      await Future.delayed(Duration(seconds: retryDelaySeconds * attempt));
     }
+    
+    return {
+      'articles': <Article>[],
+      'totalPages': 1,
+      'success': false,
+      'error': 'Gagal memuat artikel setelah beberapa percobaan'
+    };
   }
 
   // Detail cache map to store loaded article details (HTML content, thumbnails, etc.)
@@ -64,22 +90,28 @@ class ArticleService {
       return detailCache[articleId];
     }
 
-    try {
-      final url = '$baseUrl/$portal/detail/$articleId';
-      final response = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 20));
+    const int maxRetries = 2;
+    for (int attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        final url = '$baseUrl/$portal/detail/$articleId';
+        final response = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 25));
 
-      if (response.statusCode == 200) {
-        final body = json.decode(response.body);
-        if (body['success'] == true && body['data'] != null) {
-          final data = body['data'] as Map<String, dynamic>;
-          detailCache[articleId] = data; // Save to cache
-          return data;
+        if (response.statusCode == 200) {
+          final body = json.decode(response.body);
+          if (body['success'] == true && body['data'] != null) {
+            final data = body['data'] as Map<String, dynamic>;
+            detailCache[articleId] = data; // Save to cache
+            return data;
+          }
+        }
+      } catch (e) {
+        if (attempt == maxRetries) {
+          return null;
         }
       }
-      return null;
-    } catch (e) {
-      return null;
+      await Future.delayed(Duration(seconds: 1 * attempt));
     }
+    return null;
   }
 
   /// Compatibility wrapper for older code using getNews.
