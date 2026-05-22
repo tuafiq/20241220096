@@ -355,8 +355,64 @@ class _RamadhanPageState extends State<RamadhanPage> with SingleTickerProviderSt
         }
       ]
     },
-    {'title': 'Niat Shalat Idul Fitri', 'arabic': '', 'latin': '', 'translation': ''},
-    {'title': 'Bacaan Bilal Shalat Idul Fitri', 'arabic': '', 'latin': '', 'translation': ''},
+    {
+      'title': 'Niat Shalat Idul Fitri',
+      'arabic': '',
+      'latin': '',
+      'translation': '',
+      'sections': [
+        {
+          'subtitle': 'Sebagai Imam',
+          'arabic': 'أُصَلِّيْ سُنَّةً لِعِيْدِ الْفِطْرِ رَكْعَتَيْنِ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً إِمَامًا لِلّٰهِ تَعَالَى',
+          'latin': 'Ushallî sunnatan li \'îdil fithri rak\'atayni mustaqbilal qiblati adâ\'an imâman lillâhi ta\'âlâ',
+          'translation': 'Aku menyengaja sembahyang sunnah Idul Fitri dua rakaat dengan menghadap kiblat, tunai sebagai imam karena Allah ta\'ala.',
+        },
+        {
+          'subtitle': 'Sebagai Makmum',
+          'arabic': 'أُصَلِّيْ سُنَّةً لِعِيْدِ الْفِطْرِ رَكْعَتَيْنِ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً مَأْمُوْمًا لِلّٰهِ تَعَالَى',
+          'latin': 'Ushallî sunnatan li \'îdil fithri rak\'atayni mustaqbilal qiblati adâ\'an ma\'mûman lillâhi ta\'âlâ.',
+          'translation': 'Aku menyengaja sembahyang sunnah Idul Fitri dua rakaat dengan menghadap kiblat, tunai sebagai makmum karena Allah ta\'ala.',
+        }
+      ]
+    },
+    {
+      'title': 'Bacaan Bilal Shalat Idul Fitri',
+      'arabic': '',
+      'latin': '',
+      'translation': '',
+      'sections': [
+        {
+          'subtitle': 'Bilal Mengajak Shalat Id',
+          'arabic': 'صَلُّوْاسُنَّةً لِعِيْدِ الْفِطْرِ رَكْعَتَيْنِ جَامِعَةً رَحِمَكُمُ اللّٰهُ ٢×',
+          'latin': 'Shallû sunnata-l-li\'îdil fithri rak\'atauni jâmi\'atan rahimakumullâh (dibaca dua kali)',
+          'translation': 'Mari shalat sunnah Idul Fitri dua rakaat secara berjamaah. Semoga Allah merahmati kalian.',
+        },
+        {
+          'subtitle': 'Usai Shalat Id sebelum Khutbah',
+          'arabic': 'مَعَاشِرَ الْمُسْلِمِيْنَ وَزُمْرَةَ الْمُؤْمِنِيْنَ رَحِمَكُمُ اللّٰهُ، اِعْلَمُوْا أَنَّ يَوْمَكُمْ هٰذَا يَوْمُ عِيْدِ الْفِطْرِ وَيَوْمُ السُّرُوْرِ وَيَوْمُ الْمَغْفُوْرِ يَوْمٌ أَحَلَّ اللّٰهُ لَكُمْ فِيْهِ الطَّعَامَ وَحَرَّمَ عَلَيْكُمْ فِيْهِ الصِّيَامَ\n\nإِذَا صَعِدَ الْخَطِيْبُ عَلَى الْمِنْبَرِ، أَنْصِتُوْا أَثَابَكُمُ اللّٰهُ، وَاسْمَعُوْا أَجَارَكُمُ اللّٰهُ، وَأَطِيْعُوْا رَحِمَكُمُ اللّٰهُ',
+          'latin': 'Ma\'âsyiral muslimîna wa zumratal mu\'minîna rahimakumullâh(u), i\'lamû anna yaumakum hâdzâ yaumu \'îdil fithri wa yaumus surûr wa yaumul maghfûr wa yaumu ahallallâhu lakum fîhi-th tha\'âma wa harrama \'alaikum fîhish shiyâm(a)\n\nIdzâ sha\'idal khathîbu \'alâl minbar, anshitû atsâbakumullâh(u), wasma\'û ajârakumullâh(u), wa athî\'û rahimakumullâh(u)',
+          'translation': 'Wahai kaum muslimin dan mukminin (semoga Allah merahmati kalian semua). Ketahuilah bahwa hari ini adalah hari Idul Fitri, hari kegembiraan, hari penuh ampunan, hari dihalalkan bagi kalian makan dan diharamkan bagi kalian puasa.\n\nKetika khatib naik mimbar, bersikaplah tenang dan simaklah baik-baik. Semoga Allah mengganjar kalian dengan pahala. Taatlah kalian (kepada Allah). Semoga Allah merahmati kalian semua.',
+        },
+        {
+          'subtitle': 'Saat Khatib di Mimbar Sebelum Khutbah',
+          'arabic': 'اَللّٰهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ، اَللّٰهُمَّ صَلِّ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ، اَللّٰهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ وَعَلَى اٰلِ سَيِّدِنَا مُحَمَّدٍ\n\nاَللّٰهُمَّ قَوِّ الْإِسْلَامَ مِنَ الْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ، وَالْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ، وَانْصُرْهُمْ عَلَى مُعَانِدِي الدِّيْنِ رَبِّ اخْتِمْ لَنَا مِنْكَ بِالْخَيْرِ ، يَـاخَيْرَ النَّاصِرِيْنَ بِرَحْمَتِكَ يَا أَرْحَمَ الرَّاحِمِيْنَ',
+          'latin': 'Allâhumma shalli \'alâ sayyidinâ muhammad(in). Allâhumma shalli \'alâ sayyidinâ wa maulânâ muhammad(in). Allâhumma shalli wa sallim \'alâ sayyidinâ wa maulânâ muhammadin wa \'alâ âli sayyidinâ muhammad(in)\n\nAllâhumma qawwil islâma minal muslimîna wal muslimât wal mu\'minîna wal mu\'minât(i), wa-nshurhum \'alâ mu\'ândjid dîn rabbikhtim lanâ minka bil khairi, yâ khairan nâshirîna bi rahmatika yâ arhamar râhimîn',
+          'translation': 'Semoga Allah melimpahkan rahmat kepada junjungan kami Muhammad. Semoga Allah melimpahkan rahmat kepada junjungan dan tuan kami Muhammad. Semoga Allah melimpahkan rahmat dan keselamatan kepada junjungan dan tuan kami Muhammad, beserta keluarga junjungan kami Muhammad.\n\nYa Allah kuatkanlah Islam kaum muslimin dan muslimat, kaum mukminin dan mukminat. Tolonglah mereka menghadapi para pendurhaka agama. Ya Tuhan, akhiri hidup kami dengan kebaikan, wahai sebaik-baik Penolong, dengan rahmat-Mu, wahai sebaik-baik Pemberi rahmat.',
+        },
+        {
+          'subtitle': 'Saat Khatib Duduk Usai Ucap Salam',
+          'arabic': 'اَللّٰهُ أَكْبَرُ اَللّٰهُ أَكْبَرُ اَللّٰهُ أَكْبَرُ، لَا إِلٰهَ إِلَّا اللّٰهُ وَاللّٰهُ أَكْبَرُ، اَللّٰهُ أَكْبَرُ وَلِلّٰهِ الْحَمْدُ',
+          'latin': 'Allâhu akbar, Allâhu akbar, Allâhu akbar. Lâ ilâha illallâhu wallâhu akbar. Allâhu akbar wa lillâhil hamd(u)',
+          'translation': 'Allah Mahabesar, Allah Mahabesar, Allah Mahabesar. Tiada tuhan yang patut disembah kecuali Allah. Allahu Mahabesar. Segala puji bagi Allah.',
+        },
+        {
+          'subtitle': 'Saat Khatib Duduk di Antara 2 Khutbah',
+          'arabic': 'اَللّٰهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ وَعَلَى اٰلِ سَيِّدِنَا مُحَمَّدٍ. اَللّٰهُمَّ صَلِّ وَسَلِّمْ، وَزِدْ وَأَنْعِمْ وَتَفَضَّلْ وَبَارِكْ، بِجَلَالِكَ وَكَمَالِكَ عَلَى زَيْنِ عِبَادِكَ وَأَشْرَفِ عِبَادِكَ، سَيِّدِ الْعَرَبِ وَالْعَجَمِ، وَإِمَامِ طَيْبَةَ وَالْحَرَمِ، سَيِّدِنَا وَمَوْلَانَا مُحَمَّدٍ وَعَلَى اٰلِهِ وَصَحْبِهِ وَسَلِّمْ وَرَضِيَ اللّٰهُ تَبَارَكَ وَتَعَالَى عَنْ كُلِّ صَحَابَةِ رَسُوْلِ اللّٰهِ أَجْمَعِيْنَ',
+          'latin': 'Allâhumma shalli wa sallim \'alâ sayyidinâ wa maulânâ muhammad(in) wa \'alâ âli sayyidinâ muhammad(in). Allâhumma shalli wa sallim wa zid wa an\'im wa tafadl-dlal wa bârik bi jalâlika wa kamâlika \'alâ zaini \'ibâdika wa asyrafi \'ibâdika sayyidil \'arabi wal \'ajami wa imâmi thaibata wal harami, sayyidinâ wa maulânâ muhammadin wa \'alâ âlihi wa shahbihi wa sallim radliyallâhu tabâraka wa ta\'âlâ \'an kulli shahâbati rasûlillâhi ajma\'în(a)',
+          'translation': 'Semoga Allah melimpahkan rahmat dan keselamatan kepada junjungan dan tuan kami Muhammad, juga kepada keluarga junjungan kami Muhammad. Ya Allah, limpahkanlah rahmat dan keselamatan, tambahlah, berilah kenikmatan, anugerahilah keutamaan, karunialah keberkahan lantaran keagungan-Mu dan kesempurnaan-Mu, kepada hamba terbaik dan termulia, tua kaum Arab dan non-Arab, pemimpin Makkah dan Madinah, junjungan dan tuan kami Muhammad. Semoga Allah juga merahmati dan meridhai seluruh sahabat Rasulullah.',
+        }
+      ]
+    },
   ];
 
   String _searchQuery = '';
