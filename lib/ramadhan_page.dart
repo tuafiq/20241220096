@@ -305,9 +305,56 @@ class _RamadhanPageState extends State<RamadhanPage> with SingleTickerProviderSt
         }
       ]
     },
-    {'title': 'Doa Menerima Zakat Fitrah', 'arabic': '', 'latin': '', 'translation': ''},
-    {'title': 'Doa Malam Idul Fitri', 'arabic': '', 'latin': '', 'translation': ''},
-    {'title': 'Lafal Takbiran Idul Fitri', 'arabic': '', 'latin': '', 'translation': ''},
+    {
+      'title': 'Doa Menerima Zakat Fitrah',
+      'arabic': 'طَهَّرَ اللّٰهُ قَلْبَكَ فِيْ قُلُوْبِ الْأَبْرَارِ وَزَكَّى عَمَلَكَ فِيْ عَمَلِ الْأَخْيَارِ وَصَلَّى عَلَى رُوْحِكَ فِيْ أَرْوَاحِ الشُّهَدَاءِ',
+      'latin': 'Thahharallâhu qalbaka fî qulûbil abrâr, wa zakkâ \'amalaka fî \'amalil akhyâr, wa shallâ \'alâ rûhika fî arwâhis syuhadâ\'',
+      'translation': 'Semoga Allah menyucikan hatimu ke dalam hati para hamba-Nya yang gemar berbuat kebajikan. Semoga Allah membersihkan amalmu ke dalam amal para hamba-Nya yang terpilih. Semoga Allah melimpahkan kasih sayang untuk rohmu ke dalam roh para hamba-Nya yang syahid.',
+    },
+    {
+      'title': 'Doa Malam Idul Fitri',
+      'arabic': 'اَللّٰهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَاٰلِهِ مَصَابِيْحِ الْحِكْمَةِ وَمَوَالِي النِّعْمَةِ، وَمَعَادِنِ الْعِصْمَةِ، وَاعْصِمْنِيْ بِهِمْ مِنْ كُلِّ سُوْءٍ. وَلَا تَأْخُذْنِيْ عَلَى غِرَّةٍ وَلَا عَلَى غَفْلَةٍ، وَلَا تَجْعَلْ عَوَاقِبَ أَمْرِيْ حَسْرَةً وَنَدَامَةً، وَارْضَ عَنِّيْ، فَإِنَّ مَغْفِرَتَكَ لِلظَّالِمِيْنَ، وَأَنَا مِنَ الظَّالِمِيْنَ، اَللّٰهُمَّ اغْفِرْ لِيْ مَا لَا يَضُرُّكَ، وَأَعْطِنِيْ مَا لَا يَنْفَعُكَ، فَإِنَّكَ الْوَاسِعَةُ رَحْمَتُهُ، الْبَدِيْعَةُ حِكْمَتُهُ، فَأَعْطِنِي السَّعَةَ وَالدَّعَةَ، وَالْأَمْنَ وَالصِّحَّةَ وَالشُّكْرَ وَالْمُعَافَاةَ وَالتَّقْوَى، وَأَفْرِغِ الصَّبْرَ وَالصِّدْقَ عَلَيَّ، وَعَلَى أَوْلِيَائِيْ فِيْكَ، وَأَعْطِنِي الْيُسْرَ، وَلَا تَجْعَلْ مَعَهُ الْعُسْرَ، وَأَعِمَّ بِذٰلِكَ أَهْلِيْ وَوَلَدِيْ وَإِخْوَانِيْ فِيْكَ، وَمَنْ وَلَدَنِيْ مِنَ الْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ',
+      'latin': 'Allâhumma shalli \'alâ Muhammadin wa âlihi, mashâbîhil hikmati wa mawâlin ni\'amti, wa ma\'âdinil \'ishmati, wa\'shimnî bihim min kulli sû\'in, wa lâ ta\'khudznî \'alâ ghirratin wa lâ \'ala ghaflatin, wa lâ taj\'al \'awâqiba amri hasratan wa nadâmatan, wardlâ \'annî, fa-inna maghfirataka lidh-dhâlimîn, wa anâ minadh dhâlimina, allâhumma ighfirl lî mâ lâ yadlurruka, wa a\'thinî ma la yanfa\'uka, fainnaka al-wâsi\'ata rahmatuhu, al-badî\'ata hikmatuhu, fa a\'thinî as-sa\'ata wad da\'ata, wal amna wash shihhata wasy syukra wal mu\'âfata wattaqwâ, wa afrigh ash-shabra wash shidqa \'alayya, wa \'alâ auliyâi fîka, wa a\'thinî al-yusra, walâ taj\'al ma\'ahu al-\'usrâ, wa a\'imma bidzâlika ahli wa waladî wa ikhwâni fika, wa man waladanî minal muslimîna wal muslimâti wal mu\'minîna wal mu\'minâti',
+      'translation': '"Ya Allah limpahkan rahmat ta\'zhim-Mu kepada Nabi Muhammad dan keluarganya, lampu-lampu hikmah, tuan-tuan nikmat, sumber-sumber penjagaan. Jagalah aku dari segala keburukan lantaran mereka, janganlah engkau hukum aku atas kelengahan dan kelalaian, janganlah engkau jadikan akhir urusanku suatu kerugian dan penyesalan, ridhailah aku, sesungguhnya ampunan-Mu untuk orang-orang zalim dan aku termasuk dari mereka, ya Allah ampunilah bagiku dosa yang tidak merugikan-Mu, berilah aku anugerah yang tidak memberi manfaat kepada-Mu, sesungguhnya rahmat-Mu luas, hikmah-Mu indah, berilah aku kelapangan, ketenangan, keamanan, kesehatan, syukur, perlindungan (dari segala penyakit) dan ketakwaan. Tuangkanlah kesabaran dan kejujuran kepadaku, kepada kekasih-kekasihku karenaMu, berilah aku kemudahan dan janganlah jadikan bersamanya kesulitan, liputilah dengan karunia-karunia tersebut kepada keluargaku, anaku, saudar-saudaraku karena-Mu dan para orang tua yang melahirkanku dari kaum muslimin muslimat, serta kaum mukiminin mukminat."',
+    },
+    {
+      'title': 'Lafal Takbiran Idul Fitri',
+      'arabic': '',
+      'latin': '',
+      'translation': '',
+      'sections': [
+        {
+          'subtitle': '',
+          'arabic': 'اَللّٰهُ أَكْبَرُ اَللّٰهُ أَكْبَرُ اَللّٰهُ أَكْبَرُ',
+          'latin': 'Allâhu akbar, Allâhu akbar, Allâhu akbar.',
+          'translation': 'Allah Mahabesar, Allah Mahabesar, Allah Mahabesar.',
+        },
+        {
+          'subtitle': '',
+          'arabic': 'لَا إِلٰهَ إِلَّا اللّٰهُ وَاللّٰهُ أَكْبَرُ، اَللّٰهُ أَكْبَرُ وَلِلّٰهِ الْحَمْدُ',
+          'latin': 'Lâ ilâha illallâhu wallâhu akbar. Allâhu akbar wa lillâhil hamdu.',
+          'translation': 'Tiada tuhan selain Allah. Allah Mahabesar. Segala puji bagi-Nya.',
+        },
+        {
+          'subtitle': '',
+          'arabic': 'اَللّٰهُ أَكْبَرُ كَبِيْرًا وَالْحَمْدُ لِلّٰهِ كَثِيْرًا وَسُبْحَانَ اللّٰهِ بُكْرَةً وَأَصِيْلًا لَا إِلٰهَ إِلَّا اللّٰهُ وَلَا نَعْبُدُ إِلَّا إِيَّاهُ مُخْلِصِيْنَ لَهُ الدِّيْنَ وَلَوْ كَرِهَ الْكَافِرُوْنَ',
+          'latin': 'Allâhu akbar kabîrâ, walhamdu lillâhi katsîrâ, wa subhânallâhi bukratan wa ashîlâ, lâ ilâha illallâhu wa lâ na\'budu illâ iyyâhu mukhlishîna lahud dîna wa law karihal kâfirûn',
+          'translation': 'Allah Mahabesar. Segala puji yang banyak bagi Allah. Maha suci Allah pagi dan sore. Tiada tuhan selain Allah. Kami tidak menyembah kecuali kepada-Nya, memurnikan bagi-Nya sebuah agama meski orang kafir tidak menyukainya.',
+        },
+        {
+          'subtitle': '',
+          'arabic': 'لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ صَدَقَ وَعْدَهُ وَنَصَرَ عَبْدَهُ وَأَعَزَّ جُنْدَهُ وَهَزَمَ الْأَحْزَابَ وَحْدَهُ',
+          'latin': 'Lâ ilâha illallâhu wahdah, shadaqa wa\'dah, wa nashara \'abdah, wa a-\'azza jundahu wa hazamal ahzâba wahdah,',
+          'translation': 'Tiada tuhan selain Allah yang esa, yang menepati janji-Nya, membela hamba-Nya, memuliakan tentara-Nya, dan sendiri memorak-porandakan pasukan musuh',
+        },
+        {
+          'subtitle': '',
+          'arabic': 'لَا إِلٰهَ إِلَّا اللّٰهُ وَاللّٰهُ أَكْبَرُ، اَللّٰهُ أَكْبَرُ وَلِلّٰهِ الْحَمْدُ',
+          'latin': 'Lâ ilâha illallâhu wallâhu akbar. Allâhu akbar wa lillâhil hamdu.',
+          'translation': 'Tiada tuhan selain Allah. Allah Mahabesar. Segala puji bagi-Nya.',
+        }
+      ]
+    },
     {'title': 'Niat Shalat Idul Fitri', 'arabic': '', 'latin': '', 'translation': ''},
     {'title': 'Bacaan Bilal Shalat Idul Fitri', 'arabic': '', 'latin': '', 'translation': ''},
   ];
