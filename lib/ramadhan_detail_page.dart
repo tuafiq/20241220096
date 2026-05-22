@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RamadhanDetailPage extends StatefulWidget {
-  final List<Map<String, String>> menuList;
+  final List<Map<String, dynamic>> menuList;
   final int initialIndex;
 
   const RamadhanDetailPage({
@@ -136,40 +136,101 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  if (currentMenu['arabic']!.isNotEmpty) ...[
-                    Text(
-                      currentMenu['arabic']!,
-                      textAlign: TextAlign.right,
-                      textDirection: TextDirection.rtl,
-                      style: GoogleFonts.amiri(
-                        fontSize: 26 * _fontSizeMultiplier,
-                        height: 2.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+                  if (currentMenu.containsKey('sections') && currentMenu['sections'] != null)
+                    ...List.generate(currentMenu['sections'].length, (index) {
+                      final section = currentMenu['sections'][index];
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          if (index > 0)
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 16),
+                              child: Divider(color: Colors.black12, height: 1),
+                            ),
+                          Text(
+                            section['subtitle'] ?? '',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF8D6E63), // Brownish color as in image
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          if (section['arabic']?.isNotEmpty == true) ...[
+                            Text(
+                              section['arabic'],
+                              textAlign: TextAlign.right,
+                              textDirection: TextDirection.rtl,
+                              style: GoogleFonts.amiri(
+                                fontSize: 26 * _fontSizeMultiplier,
+                                height: 2.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            const SizedBox(height: 24),
+                          ],
+                          if (section['latin']?.isNotEmpty == true) ...[
+                            Text(
+                              section['latin'],
+                              style: TextStyle(
+                                fontSize: 14 * _fontSizeMultiplier,
+                                color: primaryTeal,
+                                height: 1.5,
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                          ],
+                          if (section['translation']?.isNotEmpty == true) ...[
+                            Text(
+                              section['translation'],
+                              style: TextStyle(
+                                fontSize: 14 * _fontSizeMultiplier,
+                                color: Colors.grey.shade800,
+                                height: 1.5,
+                              ),
+                            ),
+                          ],
+                        ],
+                      );
+                    })
+                  else ...[
+                    if (currentMenu['arabic']?.isNotEmpty == true) ...[
+                      Text(
+                        currentMenu['arabic'],
+                        textAlign: TextAlign.right,
+                        textDirection: TextDirection.rtl,
+                        style: GoogleFonts.amiri(
+                          fontSize: 26 * _fontSizeMultiplier,
+                          height: 2.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 24),
-                  ],
-                  if (currentMenu['latin']!.isNotEmpty) ...[
-                    Text(
-                      currentMenu['latin']!,
-                      style: TextStyle(
-                        fontSize: 14 * _fontSizeMultiplier,
-                        color: primaryTeal,
-                        height: 1.5,
+                      const SizedBox(height: 24),
+                    ],
+                    if (currentMenu['latin']?.isNotEmpty == true) ...[
+                      Text(
+                        currentMenu['latin'],
+                        style: TextStyle(
+                          fontSize: 14 * _fontSizeMultiplier,
+                          color: primaryTeal,
+                          height: 1.5,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                  ],
-                  if (currentMenu['translation']!.isNotEmpty) ...[
-                    Text(
-                      currentMenu['translation']!,
-                      style: TextStyle(
-                        fontSize: 14 * _fontSizeMultiplier,
-                        color: Colors.grey.shade800,
-                        height: 1.5,
+                      const SizedBox(height: 20),
+                    ],
+                    if (currentMenu['translation']?.isNotEmpty == true) ...[
+                      Text(
+                        currentMenu['translation'],
+                        style: TextStyle(
+                          fontSize: 14 * _fontSizeMultiplier,
+                          color: Colors.grey.shade800,
+                          height: 1.5,
+                        ),
                       ),
-                    ),
+                    ],
                   ],
                 ],
               ),
