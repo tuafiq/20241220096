@@ -249,9 +249,62 @@ class _RamadhanPageState extends State<RamadhanPage> with SingleTickerProviderSt
         }
       ]
     },
-    {'title': 'Doa ketika Sahur', 'arabic': '', 'latin': '', 'translation': ''},
-    {'title': 'Bacaan Lailatul Qadar', 'arabic': '', 'latin': '', 'translation': ''},
-    {'title': 'Niat Zakat Fitrah', 'arabic': '', 'latin': '', 'translation': ''},
+    {
+      'title': 'Doa ketika Sahur',
+      'arabic': 'يَرْحَمُ اللّٰهُ الْمُتَسَحِّرِيْنَ',
+      'latin': 'Yarhamullâhul mutasahhirîn.',
+      'translation': '"Semoga Allah merahmati mereka yang bersahur."',
+    },
+    {
+      'title': 'Bacaan Lailatul Qadar',
+      'arabic': 'اَللّٰهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّيْ',
+      'latin': 'Allâhumma innaka \'afuwwun tuhibbul \'afwa fa\'fu \'annî',
+      'translation': 'Wahai Tuhan, Engkau Maha Pengampun, menyukai orang yang minta ampunan, ampunilah aku.',
+    },
+    {
+      'title': 'Niat Zakat Fitrah',
+      'arabic': '',
+      'latin': '',
+      'translation': '',
+      'sections': [
+        {
+          'subtitle': 'Untuk Diri Sendiri',
+          'arabic': 'نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ الْفِطْرِ عَنْ نَفْسِيْ فَرْضًا لِلّٰهِ تَعَالَى',
+          'latin': 'Nawaitu an ukhrija zakâtal fithri \'an nafsî fardlan li-Llâhi ta\'âlâ',
+          'translation': 'Aku niat mengeluarkan zakat fitrah untuk diriku sendiri, fardu karena Allah ta\'âlâ.',
+        },
+        {
+          'subtitle': 'Untuk Istri',
+          'arabic': 'نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ الْفِطْرِ عَنْ زَوْجَتِيْ فَرْضًا لِلّٰهِ تَعَالَى',
+          'latin': 'Nawaitu an ukhrija zakâtal fithri \'an zaujatî fardlan li-Llâhi ta\'âlâ',
+          'translation': 'Aku niat mengeluarkan zakat fitrah untuk istriku, fardu karena Allah ta\'âlâ.',
+        },
+        {
+          'subtitle': 'Untuk Anak Laki-laki',
+          'arabic': 'نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ الْفِطْرِ عَنْ وَلَدِيْ فَرْضًا لِلّٰهِ تَعَالَى',
+          'latin': 'Nawaitu an ukhrija zakâtal fithri \'an waladî fardlan li-Llâhi ta\'âlâ',
+          'translation': 'Aku niat mengeluarkan zakat fitrah untuk anak laki-lakiku.... (sebutkan nama), fardu karena Allah ta\'âlâ.',
+        },
+        {
+          'subtitle': 'Untuk Anak Perempuan',
+          'arabic': 'نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ الْفِطْرِ عَنْ بِنْتِيْ فَرْضًا لِلّٰهِ تَعَالَى',
+          'latin': 'Nawaitu an ukhrija zakâtal fithri \'an bintî fardlan li-Llâhi ta\'âlâ',
+          'translation': 'Aku niat mengeluarkan zakat fitrah untuk anak perempuanku.... (sebutkan nama), fardu karena Allah ta\'âlâ.',
+        },
+        {
+          'subtitle': 'Untuk Diri Sendiri dan Keluarga',
+          'arabic': 'نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ الْفِطْرِ عَنِّيْ وَعَنْ جَمِيْعِ مَا يَلْزَمُنِيْ نَفَقَاتُهُمْ شَرْعًا فَرْضًا لِلّٰهِ تَعَالَى',
+          'latin': 'Nawaitu an ukhrija zakâtal fithri \'anî wa \'an jamî\'i mâ yalzamunî nafaqâtuhum syar\'an fardlan li-Llâhi ta\'âlâ',
+          'translation': 'Aku niat mengeluarkan zakat fitrah untuk diriku dan seluruh orang yang nafkahnya menjadi tanggunganku, fardu karena Allah ta\'âlâ.',
+        },
+        {
+          'subtitle': 'Untuk Orang yang Diwakilkan',
+          'arabic': 'نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ الْفِطْرِ عَنْ (.....) فَرْضًا لِلّٰهِ تَعَالَى',
+          'latin': 'Nawaitu an ukhrija zakâtal fithri \'an (......) fardlan li-Llâhi ta\'âlâ',
+          'translation': 'Aku niat mengeluarkan zakat fitrah untuk... (sebutkan nama spesifik), fardu karena Allah ta\'âlâ.',
+        }
+      ]
+    },
     {'title': 'Doa Menerima Zakat Fitrah', 'arabic': '', 'latin': '', 'translation': ''},
     {'title': 'Doa Malam Idul Fitri', 'arabic': '', 'latin': '', 'translation': ''},
     {'title': 'Lafal Takbiran Idul Fitri', 'arabic': '', 'latin': '', 'translation': ''},
