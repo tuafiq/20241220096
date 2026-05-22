@@ -236,30 +236,7 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
               ),
             ),
           ),
-          
-          // Footer Support Button
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              border: Border(top: BorderSide(color: Colors.black12)),
-            ),
-            child: OutlinedButton.icon(
-              onPressed: () {},
-              icon: const Icon(Icons.volunteer_activism, color: primaryTeal),
-              label: const Text(
-                'Dukung kami untuk terus berkembang',
-                style: TextStyle(color: primaryTeal, fontWeight: FontWeight.w600),
-              ),
-              style: OutlinedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                side: BorderSide(color: Colors.grey.shade300),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-            ),
-          ),
+
         ],
       ),
     );
