@@ -3,11 +3,11 @@ import re
 from bs4 import BeautifulSoup
 
 urls = [
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-bangun-kepedulian-eratkan-ikatan-kerabat-UiMuD",
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-kesabaran-adalah-jalan-menuju-kemenangan-WHLhz",
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-lebih-baik-sedikit-tapi-istiqamah-xqOdB",
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-makna-keberkahan-sahur-cC7UR",
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-keutamaan-tarawih-dan-witir-Vk4Zg"
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-puasa-dan-spirit-perlawanan-terhadap-korupsi-JTz1s",
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-menjaga-lisan-menjaga-keberkahan-puasa-Xlfye",
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-menjaga-mata-menjaga-pahala-puasa-qfRF8",
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-puasa-ramadhan-perekat-solidaritas-dan-kerukunan-warga-qjfNE",
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-bulan-puasa-dan-semangat-amal-yang-berkesinambungan-CTGl9"
 ]
 
 def clean_text(text):
@@ -32,8 +32,6 @@ for url in urls:
         title_tag = soup.find('h1')
         title = title_tag.get_text().strip() if title_tag else "Kultum"
         
-        # NU online article content is typically in a div with id 'article-content' or class 'detail-content' or similar
-        # If we just grab all paragraphs, we might get too much. Let's find the main article div.
         body = soup.find('div', class_='article-content') 
         if not body:
             body = soup.find('div', id='article-content')
@@ -58,14 +56,12 @@ for url in urls:
                 continue
                 
             if is_arabic(text):
-                # Arabic
                 sections.append({
                     'type': 'arabic',
                     'content': text,
                     'translation': ''
                 })
             else:
-                # Check if this might be a translation
                 if (text.lower().startswith('artinya') or text.lower().startswith('maknanya')) and len(sections) > 0 and sections[-1]['type'] == 'arabic':
                     sections[-1]['translation'] = text
                 else:
@@ -82,7 +78,7 @@ for url in urls:
     except Exception as e:
         print(f"Error fetching {url}: {e}")
 
-dart_code = "  final List<Map<String, dynamic>> _kultumMenu = [\n"
+dart_code = ""
 for item in results:
     dart_code += "    {\n"
     dart_code += f"      'title': '{item['title']}',\n"
@@ -105,8 +101,7 @@ for item in results:
         dart_code += "        },\n"
     dart_code += "      ]\n"
     dart_code += "    },\n"
-dart_code += "  ];\n"
 
-with open('kultum_parsed.txt', 'w', encoding='utf-8') as f:
+with open('kultum_parsed2.txt', 'w', encoding='utf-8') as f:
     f.write(dart_code)
 print("Parsing complete")

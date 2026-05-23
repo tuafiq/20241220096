@@ -285,6 +285,261 @@ class _RamadhanPageState extends State<RamadhanPage> with SingleTickerProviderSt
         },
       ]
     },
+    {
+      'title': 'Kultum Ramadhan: Puasa dan Spirit Perlawanan terhadap Korupsi',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Korupsi merupakan tindakan kriminal yang dampaknya sangat merugikan bagi orang banyak. tidak hanya menyangkut soal hak yang dirampas, korupsi juga dapat menimbulkan ketidakadilan sosial yang masif, meningkatkan kemiskinan dan kesenjangan serta merusak masa depan suatu bangsa. Karenanya, korupsi dapat dikategorikan sebagai kejahatan luar biasa, baik dari sudut pandang negara maupun agama, yang harus kita perangi bersama.\n\nUpaya pencegahan dan pemberantasan sudah atau sedang dilakukan. Namun, kita perlu memahami bahwa sumber dari tindakan korupsi, begitu pula kejahatan yang lain, adalah nafsu. Orang-orang melakukan korupsi karena ia terdorong oleh keinginan untuk memuaskan hawa nafsu. Sehingga untuk mencerabut mental korupsi dalam diri adalah dengan menempa dan mendidik hawa nafsu.\n\nDi sinilah peran agama. Ia mengajarkan kepada manusia untuk mengendalikan hawa nafsu agar tidak terjerumus dalam tindakan nista yang dapat merugikan diri sendiri dan orang lain. Upaya mengendalikan nafsu adalah jihad yang terbesar, sehingga perang melawan korupsi juga adalah bagian dari perjuangan keagamaan. Dalam Islam sendiri, salah satu ajaran yang tujuannya adalah untuk menempa hawa nafsu adalah puasa.\n\nHakikat Ibadah Puasa\n\nSebagai salah satu rukun Islam, ibadah puasa menempati posisi yang sangat penting dalam keberislaman seseorang. Ia menjadi salah satu representasi dari ketundukan dan kepatuhan seorang hamba kepada tuhannya. Bahkan, dapat dikatakan bahwa puasa merupakan ibadah spesial karena merupakan medan rahasia yang hanya Allah dan hamba tersebutlah yang tahu.\n\nNamun, puasa bukan hanya tentang menahan lapar dan dahaga karena menjalankan perintah Allah semata. Lebih dari itu, ibadah puasa juga mengandung tujuan untuk menciptakan tenggang rasa dan empati kepada sesama. Ketika kita menahan rasa lapar dan dahaga selama seharian, di saat itulah kita dituntut untuk merasakan kondisi saudara-saudara kita yang sering dilanda kelaparan, dan kemudian akan tercipta perasaan empati yang berujung pada tindakan untuk menyejahterakan kehidupan sosial.\n\nPuasa dan Misi Menciptakan Manusia Bertakwa\n\nIbadah puasa diproyeksikan untuk menciptakan manusia-manusia yang bukan hanya saleh secara ritual, tapi juga saleh secara sosial. Inilah makna dari takwa yang menjadi tujuan utama dari disyariatkannya ibadah puasa. Sebab ketakwaan seseorang belum sempurna apabila ia hanya rajin melakukan ibadah ritual saja, tetapi kerap kali melakukan tindakan-tindakan yang merugikan dan menyakiti orang lain.\n\nDalam Q.S. Al-Baqarah ayat 183, Allah SWT berfirman,',
+        },
+        {
+          'type': 'arabic',
+          'content': 'يَاأَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ',
+          'latin': '',
+          'translation': 'Artinya, "Wahai orang-orang yang beriman, diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang-orang sebelum kamu agar kamu bertakwa." (Q.S. Al-Baqarah [02]: 183)',
+        },
+        {
+          'type': 'text',
+          'content': 'Dalam kalimat terakhir dalam ayat di atas, Allah SWT menegaskan bahwa kewajiban puasa bertujuan untuk menciptakan manusia-manusia yang bertakwa. Imam Fakhruddin al-Razi dalam kitab tafsirnya menjelaskan bagaimana korelasi antara takwa dengan ibadah puasa. Beliau mengatakan:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'أنه سبحانه بين بهذا الكلام أن الصوم يورث التقوى لما فيه من انكسار الشهوة وانقماع الهوى فإنه يردع عن الأشر والبطر والفواحش ويهون لذات الدنيا ورئاستها، وذلك لأن الصوم يكسر شهوة البطن والفرج، وإنما يسعى الناس لهذين، كما قيل في المثل السائر: المرء يسعى لعارية بطنه وفرجه، فمن أكثر الصوم هان عليه أمر هذين وخفت عليه مؤنتهما، فكان ذلك رادعا له عن ارتكاب المحارم والفواحش، ومهونا عليه أمر الرياسة في الدنيا وذلك جامع لأسباب التقوى',
+          'latin': '',
+          'translation': 'Artinya: "Dalam firman tersebut, Allah SWT menjelaskan bahwa puasa dapat melahirkan ketakwaan, karena puasa dapat melemahkan syahwat dan menundukkan hawa nafsu. Puasa mencegah sikap angkuh, sombong, dan perbuatan keji, serta menjadikan kenikmatan dunia dan ambisi terhadapnya terasa remeh. Hal itu karena puasa melemahkan syahwat perut dan kemaluan yang memang menjadi tujuan utama setiap upaya yang dilakukan manusia pada umumnya. Sebagaimana dikatakan dalam peribahasa yang masyhur: \'Seseorang berjuang demi kebutuhan perut dan kemaluannya.\'',
+        },
+        {
+          'type': 'text',
+          'content': 'Maka siapa yang banyak berpuasa, akan menjadi ringan baginya urusan kedua hal itu dan berkurang bebannya. Hal itu dapat menjadi penghalang baginya untuk melakukan hal-hal yang haram dan perbuatan keji, serta memudahkan baginya untuk tidak terobsesi pada kepemimpinan dan kedudukan duniawi. Semua itu merupakan sebab-sebab ketakwaan." (Fakhruddin ar-Razi, Mafatihul Ghaib, [Beirut: Dar ihyaut Turats al-\'Arabi, 1420 H.], juz V, hal. 240)\n\nPenjelasan di atas menunjukkan bahwa puasa merupakan sarana yang tepat untuk mendidik nafsu dan keserakahan yang sering kali menjadi sumber tindakan korupsi. Puasa bukan hanya tentang menahan makan dan minum seharian, tetapi ia juga melatih lidah agar tidak membicarakan hal-hal yang haram, melatih telinga untuk tidak mendengarkan pembicaraan yang dilarang, melatih tangan untuk tidak mengambil sesuatu yang bukan haknya dan melatih seluruh anggota badan untuk tidak melakukan tindakan-tindakan yang dilarang agama.\n\nPuasa Sebagai Pendidikan Karakter\n\nDalam Kitab Lathaiful Ma\'arif, dijelaskan bahwa orang yang masih sering melakukan maksiat, melakukan tindakan semena-mena dan mengambil hak orang lain, maka puasanya sia-sia. Sebab, puasa yang sempurna adalah ketika ia mampu menahan diri bukan hanya dari hal-hal yang membatalkan puasa secara zahir, tetapi juga meninggalkan perkara-perkara haram yang dapat menghilangkan pahala puasa.\n\nImam Ibnu Rajab al-Hanbali berkata',
+        },
+        {
+          'type': 'arabic',
+          'content': 'واعلم أنه لا يتم التقرب إلى الله تعالى بترك هذه الشهوات المباحة في غير حالة الصيام إلا بعد التقرب إليه بترك ما حرم الله في كل حال من الكذب والظلم والعدوان على الناس في دمائهم وأموالهم وأعراضهم',
+          'latin': '',
+          'translation': 'Artinya: "Ketahuilah bahwa upaya untuk mendekatkan diri kepada Allah dengan meninggalkan syahwat-syahwat yang mubah di luar keadaan berpuasa tidak akan sempurna kecuali setelah terlebih dahulu mendekatkan diri kepada-Nya dengan cara meninggalkan segala yang diharamkan dalam setiap keadaan, seperti dusta, berbuat zalim, dan tindakan melampaui batas terhadap manusia dalam darah (jiwa), harta, dan kehormatan mereka." (Ibnu Rajab al-Hanbali, Lathaiful Ma\'arif, [t.t.: Dar Ibn Hazm, 2002], hal. 155)',
+        },
+        {
+          'type': 'text',
+          'content': 'Maka dari itu, ibadah puasa merupakan sarana yang tepat untuk memperbaiki diri dan tatanan hidup berbangsa dan bernegara. Orang yang menjalankan ibadah puasa dengan baik dan benar akan menjadi individu yang saleh secara ritual maupun sosial. Orang yang mampu meresapi makna puasa tidak mengambil yang bukan hak miliknya, tidak menyalahgunakan waktu kerja, tidak memanipulasi laporan, dan akan selalu menjaga amanah sekecil apa pun.\n\nMuhammad Zainul Mujahid, Alumnus Ma\'had Aly Salafiyah Syafi\'iyah Situbondo, kini mengabdi di Pondok Pesantren Manhalul Ma\'arif Lombok Tengah.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Menjaga Lisan, Menjaga Keberkahan Puasa',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Alhamdulillah, hingga saat ini, semoga kita senantiasa masih diberikan kekuatan dan kemudahan oleh Allah SWT untuk menjalankan berbagai ibadah di bulan Ramadhan ini. Semoga dengan kita melaksanakan perintah ibadah wajib berpuasa ini, dapat menjadikan kita termasuk ke dalam orang-orang yang bertakwa, sebagaimana firman Allah SWT di dalam Al-Qur\'an:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ',
+          'latin': '',
+          'translation': 'Artinya, "Wahai orang-orang yang beriman, diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang-orang sebelum kamu agar kamu bertakwa." (QS. Al-Baqarah: 183).',
+        },
+        {
+          'type': 'text',
+          'content': 'Ketakwaan ini hanya dapat terwujud dengan menjalankan perintah Allah dan menjauhi larangannya. Menjalankan perintah ibadah puasa di bulan Ramadhan, menjadi salah satu upaya kita untuk meraih predikat ketakwaan ini.\n\nPada saat menjalankan ibadah puasa, tentu tidak hanya perkara rukun atau wajib yang perlu kita perhatikan, tetapi termasuk juga di dalamnya kesunnahan serta hal-hal yang akan menjaga keberkahan puasa kita. Salah satu hal yang penting yang dapat menjaga keberkahan puasa kita, yakni menjaga lisan.\n\nPerintah untuk menjaga lisan ini sebetulnya tidak hanya terbatas pada saat kita sedang berpuasa, tetapi mestinya dilakukan pada saat kapan saja. Nabi Muhammad SAW bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'مَنْ كَانَ يُؤْمِنُ بِاللّٰه وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْلِيَصْمُتْ',
+          'latin': '',
+          'translation': 'Artinya, "Barangsiapa yang beriman kepada Allah dan Hari Akhir, maka hendaklah dia berkata baik atau diam." (HR. Al-Bukhari dan Muslim)',
+        },
+        {
+          'type': 'text',
+          'content': 'Sedangkan di dalam konteks berpuasa, orang yang menjaga lisan akan mendapat keberkahan serta terhindar daripada beberapa perkara yang dapat menggugurkan pahala puasa. Rasulullah SAW bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'خَمْسٌ يُفْطِرْنَ الصَّائِمَ: الْغِيْبَةُ، وَالنَّمِيْمَةُ، وَالْكَذِبُ، وَالنَّظَرُ بِالشَّهْوَةِ، وَالْيَمِيْنُ الْكَاذِبَةُ',
+          'latin': '',
+          'translation': 'Artinya: "Lima hal yang bisa menggugurkan pahala orang berpuasa; membicarakan orang lain, mengadu domba, berbohong, melihat dengan syahwat, dan sumpah palsu." (HR Ad-Dailami)',
+        },
+        {
+          'type': 'text',
+          'content': 'Jangan sampai pahala ibadah puasa kita menjadi gugur, hanya karena kita tidak mampu menjaga lisan. Lebih dari itu, tentu juga akan mendapatkan balasan dosa dari kejelekan-kejelekan yang keluar dari lisan, seperti membicarakan orang lain, berbohong, dan lain sebagainya.\n\nLantas bagaimana agar kita terhindar dari perkara-perkara tidak baik dari lisan kita? Tentu cara terbaik adalah dengan menyibukkan lisan kita dengan berbagai hal kebaikan, seperti membaca Al-Qur\'an, berdzikir, berdoa, dan lain sebagainya. Dalam istilah lain, kita pergunakan lisan sesuai dengan tujuan Allah menciptakan lisan. Hal tersebut diterangkan oleh Imam Al-Ghazali dalam kitab Bidayatul Hidayah:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَاَمَّا اللِّسَانُ فَإِنَّمَا خُلِقَ لَكَ لِتُكَثِّرَ بِهٖ ذِكْرَ اللّٰهِ تَعَالَى وَتِلَاوَةَ كِتَابِهِ ... الخ',
+          'latin': '',
+          'translation': 'Artinya, "Adapun lisan, sesungguhnya diciptakan untukmu (agar digunakan) untuk memperbanyak berdzikir kepada Allah SWT, membaca kitab Allah (Al-Qur\'an) dan lain-lain... "  (Al-Imam Abu Hamid Muhammad bin Muhammad al-Ghazali, Bidayatul Hidayah, [Beirut, Darul Minhaj: 2004 M/1425 H], hal 180-181)',
+        },
+        {
+          'type': 'text',
+          'content': 'Sesuai dengan keterangan dari Imam Al-Ghazali tersebut, kita dapat mempergunakan lisan untuk berbagai kebaikan. Pertama, memperbanyak dzikir, ingat kepada Allah SWT. Hal ini merupakan bentuk kita bersyukur kepada-Nya yang telah memberikan begitu banyak nikmat.\n\nBanyaknya menyebut asma-Nya dan mengingat-Nya dengan berdzikir juga merupakan wujud cinta kita kepada-Nya. Sebab salah satu tanda dari mencintai, adalah dengan semakin mengingat atau menyebut yang dicintai.\n\nKedua, dengan memperbanyak membaca Al-Qur\'an. Hal ini penting untuk dapat menuntun kita ke jalan agama Allah SWT, yakni agama Islam. Membaca Al-Qur\'an juga memberikan kita begitu banyak pahala, meskipun kita tidak memahami kandungan dari ayat-ayat yang kita baca. Memperbanyak membaca Al-Qur\'an juga akan memberikan kita syafaat kelak di hari kiamat.\n\nPada bulan Ramadhan, dengan kita membaca, mempelajari, dan mengajarkan Al-Qur\'an akan menambah pahala serta meneladani apa yang dilakukan oleh Rasulullah SAW. Sebagaimana diterangkan di dalam hadits riwayat Ibnu \'Abbas RA:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'عَنْ ابْنِ عَبَّاسٍ قَالَ كَانَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ أَجْوَدَ النَّاسِ وَكَانَ أَجْوَدُ مَا يَكُونُ فِي رَمَضَانَ حِينَ يَلْقَاهُ جِبْرِيلُ وَكَانَ يَلْقَاهُ فِي كُلِّ لَيْلَةٍ مِنْ رَمَضَانَ فَيُدَارِسُهُ الْقُرْآنَ فَلَرَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ أَجْوَدُ بِالْخَيْرِ مِنْ الرِّيحِ الْمُرْسَلَةِ',
+          'latin': '',
+          'translation': 'Artinya, "Dari Ibnu Abbas berkata: Rasulullah SAW adalah manusia yang paling lembut terutama pada bulan Ramadhan ketika malaikat Jibril as menemuinya, dan Jibril mendatanginya setiap malam di bulan Ramadhan, di mana Jibril mengajarkannya Al-Qur\'an. Sungguh Rasulullah saw orang yang paling lembut daripada angin yang berhembus," (HR Bukhari).',
+        },
+        {
+          'type': 'text',
+          'content': 'Ketiga, memberikan petunjuk bagi makhluk Allah SWT mengenai agamanya yang benar, yang dijalankan oleh Rasulullah dan para sahabatnya, yakni agama Islam.\n\nKeempat, kita perlu memenuhi kebutuhan agama dan kebutuhan dunia secara seimbang. Artinya, kita belajar dan melakukan urusan dunia sebagai sarana untuk menunjang ibadah kepada Allah. Termasuk dalam hal pekerjaan, kita bekerja untuk mendapatkan rezeki dan memenuhi kebutuhan hidup, agar tubuh kita kuat dan mampu menjalankan ibadah dengan baik.\n\nJika lisan tidak digunakan untuk selain empat hal tersebut, maka tidak ada pilihan lain kecuali diam. Sebab jika lisan tidak digunakan sesuai dengan tujuan penciptaannya, maka hal tersebut merupakan bentuk kufur nikmat.\n\nTerlebih jika lisan kita justru digunakan untuk kejelekan seperti berdusta. Nabi Muhammad SAW bersabda dalam sebuah hadits:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'مَنْ لَمْ يَدَعْ قَوْلَ الزُّورِ وَالْعَمَلَ بِهِ فَلَيْسَ لِلَّهِ حَاجَةٌ فِى أَنْ يَدَعَ طَعَامَهُ وَشَرَابَهُ',
+          'latin': '',
+          'translation': 'Artinya, "Siapa yang tidak meninggalkan perkataan dusta malah mengamalkannya, maka Allah tidak butuh dari rasa lapar dan haus yang dia tahan." (HR. Bukhari)',
+        },
+        {
+          'type': 'text',
+          'content': 'Oleh karena itu, marilah kita senantiasa menjaga lisan kita dari perkara-perkara yang dibenci oleh Allah, sebaliknya, kita pergunakan lisan kita untuk hal-hal yang dicintai oleh Allah SWT. Terlebih di bulan Ramadhan ini, agar ibadah puasa yang kita laksanakan menjadi semakin berkah dan sempurna.\n\nDemikianlah kultum Ramadhan tentang menjaga lisan, menjaga keberkahan puasa. Semoga kita dapat mengamalkannya. Amin ya Rabbal \'alamin.\n\nAjie Najmuddin, Pengurus MWCNU Banyudono Boyolali.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Menjaga Mata, Menjaga Pahala Puasa',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Puasa sering kali kita maknai secara sempit hanya sebagai aktivitas "pindah jam makan". Jika biasanya aktivitas makan dilakukan di siang hari, saat puasa berpindah menjadi malam hari. Selebihnya, tidak ada usaha untuk menjaga pancaindra, terutama mata, dari memandang hal-hal yang tidak pantas dan mengandung kemaksiatan.\n\nPadahal, jika kita merujuk pada klasifikasi Hujjatul Islam al-Ghazali dalam kitab Ihya\' Ulumiddin (Semarang: Karya Thaha Putra, t.th) juz I, halaman 325, puasa model ini hanyalah puasanya orang awam (shaumul umum). Level yang lebih tinggi dari itu adalah puasa khusus (shaumul khusus), yakni puasa pancaindra, termasuk di dalamnya menjaga pandangan.\n\nAl-Ghazali menjelaskan bahwa tingkatan puasa ada tiga, yaitu puasa umum, puasa khusus, dan puasa khususul khusus.\n\nHakikat Puasa Pancaindra\n\nDalam kitab Bidayatul Hidayah, Imam Al-Ghazali menyampaikan: Janganlah engkau mengira bahwa puasa itu hanyalah sekadar meninggalkan makan, minum, dan hubungan suami istri saja. Rasulullah SAW telah bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'كَمْ مِنْ صَائِمٍ لَيْسَ لَهُ مِنْ صِيَامِهِ إِلَّا الْجُوْعَ وَالْعَطَشَ',
+          'latin': '',
+          'translation': 'Artinya, "Banyak orang yang berpuasa namun tidak mendapatkan apa-apa dari puasanya kecuali rasa lapar dan dahaga." (HR. An-Nasa\'i dan Ibnu Majah).',
+        },
+        {
+          'type': 'text',
+          'content': 'Sebaliknya, kesempurnaan puasa adalah dengan menahan seluruh anggota tubuh dari segala sesuatu yang dibenci oleh Allah SWT. Hendaknya engkau menjaga mata dari memandang hal-hal yang buruk, menjaga lisan dari mengucapkan hal-hal yang tidak bermanfaat bagimu, serta menjaga telinga dari mendengarkan apa yang diharamkan Allah.\n\nDemikian pula, engkau harus menahan seluruh anggota tubuhmu dari dosa sebagaimana engkau menahan perut dan kemaluanmu dari hal-hal yang membatalkan puasa. Disebutkan dalam sebuah riwayat, Rasulullah SAW bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'خَمْسٌ يُفْطِرْنَ الصَّائِمَ الْكَذِبُ وَالْغِيبَةُ وَالنَّمِيمَةُ وَالْيَمِينُ الْكَاذِبَةُ وَالنَّظَرُ بِشَهْوَةٍ',
+          'latin': '',
+          'translation': 'Artinya, "Lima hal yang dapat membatalkan (pahala) orang yang berpuasa: berdusta, ghibah (menggunjing), namimah (adu domba), sumpah palsu, dan memandang dengan syahwat." (Bidayatul Hidayah Hamisy Maraqil Ubudiyah, [Beirut: Darul Kutub Al-Ilmiyah, 2012], halaman 155).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dalam syarahnya, Syekh Nawawi al-Bantani menjelaskan bahwa kesempurnaan puasa itu adalah dengan menahan seluruh anggota tubuh mulai dari pendengaran, penglihatan, lisan, tangan, kaki, dan selainnya dari segala sesuatu yang dibenci oleh Allah SWT berupa dosa-dosa. Itulah yang disebut dengan puasa orang-orang saleh (Shoum al-Khusus).\n\nBeliau juga menambahkan, hendaknya kita harus menjaga mata dari meluaskan pandangan melihat hal-hal yang dibenci Allah swt serta segala hal yang dapat memalingkan hati dari mengingat Allah SWT. Rasulullah SAW bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'النَّظَرَ سَهْمٌ مَسْمُومٌ مِنْ سِهَامِ إِبْلِيسَ لَعَنَهُ اللَّهُ فَمَنْ تَرَكَهُ خَوْفاً مِنَ اللهِ عَزَّ وَجَلَّ آتَاهُ اللَّهُ إِيْمَاناً يَجِدُ حَلَاوَتَهُ فِي قلبه',
+          'latin': '',
+          'translation': 'Artinya "Pandangan (haram) adalah salah satu anak panah beracun dari anak panah iblis. Barangsiapa meninggalkannya karena takut kepada Allah, maka Allah akan memberinya keimanan yang kemanisannya dapat ia rasakan di dalam hatinya." (Maraqi al-Ubudiyyah, [Beirut: Darul Kutub Al-Ilmiyah, 2012] halaman 155)',
+        },
+        {
+          'type': 'text',
+          'content': 'Syekh Muhammad Mahfudh At-Tarmasi menjelaskan bahwa sudah semestinya orang yang berpuasa menjaga anggota tubuhnya dari hal-hal yang diharamkan, karena itu semua dapat menghilangkan pahala puasa.\n\nBeliau juga mengutip penjelasan al-Mutawalli: \'Wajib bagi orang yang berpuasa untuk berpuasa dengan matanya, maka ia tidak melihat hal yang tidak halal; dengan pendengarannya, maka ia tidak mendengarkan hal yang tidak halal; dan dengan lisannya, maka ia tidak mengucapkan perkataan keji, tidak mencaci maki, tidak berdusta, dan tidak menggunjing (ghibah).\'" (Hasyiyah at-Tarmasyi, [Beirut: Darul Kutub Al-Ilmiyah, 2023] juz V, halaman 561)\n\nPenjelasan para ulama di atas secara tegas mendorong kita agar tidak terjerumus dalam puasa lahiriyah saja. Karena jika kita hanya menahan diri dari makanan, minuman, dan hubungan suami istri, anggota tubuh kita tetap melakukan dosa, maka yang kita dapatkan hanyalah lapar dan dahaga, bukan pahala.\n\nApalagi di era scroll media sosial saat ini, menjaga pandangan menjadi usaha yang jauh lebih berat. Karena godaan bukan lagi sekadar orang yang lewat di depan kita, melainkan algoritma yang menawarkan konten-konten negatif yang memancing syahwat.\n\nOleh karena itu, puasa di zaman ini menuntut kita untuk memiliki "puasa digital". Menahan diri untuk tidak mengklik atau memandangi hal-hal yang tidak bermanfaat adalah jihad besar di atas meja makan saat berbuka.\n\nMari kita jadikan Ramadhan kali ini sebagai momentum untuk melatih mata agar hanya melihat kebaikan. Sebagaimana pesan Rasulullah SAW di atas, "Barangsiapa yang menundukkan pandangannya karena Allah, maka Allah akan memberikan cahaya manisnya iman dalam hatinya."\n\nMari kita jadikan puasa kita tahun ini bukan sekadar menahan diri dari makanan, melainkan latihan bagi seluruh anggota tubuh, terutama pandangan, untuk tunduk kepada aturan Allah. Semoga kita tidak termasuk golongan yang hanya mendapatkan lapar dan haus semata.\n\nMuhammad Zainul Millah, Wakil Katib PCNU Kab. Blitar',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Puasa Ramadhan, Perekat Solidaritas dan Kerukunan Warga',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Puasa Ramadhan dalam kehidupan sosial menghadirkan pengaruh yang nyata, karena melalui pengalaman lapar, haus, dan pengendalian hawa nafsu, seseorang dilatih untuk lebih peka terhadap penderitaan dan keterbatasan orang lain. Ibadah puasa menumbuhkan rasa kebersamaan, kesetiakawanan, solidaritas, serta kepedulian sosial yang bermula dari lingkungan terdekat, terutama relasi bertetangga.\n\nDengan fondasi etika sosial yang dibentuk melalui puasa, sikap saling membantu dan menjaga kerukunan dapat tumbuh secara alami dalam kehidupan masyarakat, sejalan dengan ajaran Islam yang menekankan kepedulian dan tanggung jawab sosial terhadap sesama, terkhusus dengan tetangga. Allah berfirman dalam Al-Qur\'an Surat An-Nisa ayat 36.',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَاعْبُدُوا اللّٰهَ وَلَا تُشْرِكُوْا بِهٖ شَيْـًٔا وَّبِالْوَالِدَيْنِ اِحْسَانًا وَّبِذِى الْقُرْبٰى وَالْيَتٰمٰى وَالْمَسٰكِيْنِ وَالْجَارِ ذِى الْقُرْبٰى وَالْجَارِ الْجُنُبِ وَالصَّاحِبِ بِالْجَنْۢبِ وَابْنِ السَّبِيْلِۙ وَمَا مَلَكَتْ اَيْمَانُكُمْۗ اِنَّ اللّٰهَ لَا يُحِبُّ مَنْ كَانَ مُخْتَالًا فَخُوْرًا',
+          'latin': '',
+          'translation': 'Artinya, "Sembahlah Allah dan janganlah kamu mempersekutukan-Nya dengan sesuatu apa pun. Berbuat baiklah kepada kedua orang tua, karib kerabat, anak-anak yatim, orang-orang miskin, tetangga dekat dan tetangga jauh, teman sejawat, ibnu sabil, serta hamba sahaya yang kamu miliki. Sesungguhnya Allah tidak menyukai orang yang sombong lagi sangat membanggakan diri." (QS. An-Nisa ayat 36)',
+        },
+        {
+          'type': 'text',
+          'content': 'Imam Al-Qurthubi menjelaskan bahwa menunaikan hak tetangga adalah hal yang diperintahkan dan disunahkan kepada orang Muslim maupun kafir, dan ini adalah pandangan yang besar, sedangkan lhsan terkadang diartikan sebagai persamaan, terkadang juga bermakna mempergauli dengan baik, tidak mencela dan tidak menyakiti serta menjaga kehormatan mereka dan lainnya. (Imam Al-Qurthubi, Al-Jami\' li Ahkam al-Quran, [Beirut: Ar-Risalah, t.t], Jilid VI, hlm. 304).\n\nDi bulan Ramadhan misi sosial dalam membangun solidaritas dengan masyarakat merupakan kesadaran untuk memberi kelapangan kepada keluarga, berbuat baik kepada kerabat, tetangga, dan memperbanyak sedekah kepada kaum fakir miskin. Salah satu cara sederhana untuk membangun hubungan baik dengan tetangga adalah dengan berbagi. Tidak perlu mewah, cukup dengan membagikan takjil. Mengenai hal ini, Rasulullah SAW pernah bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'مَنْ فَطَّرَ صَائِمًا كَانَ لَهُ مِثْلُ أَجْرِهِ غَيْرَ أَنَّهُ لاَ يَنْقُصُ مِنْ أَجْرِ الصَّائِمِ شَيْئًا',
+          'latin': '',
+          'translation': 'Artinya: "Siapa yang memberi makan orang yang berpuasa, maka baginya pahala seperti orang yang berpuasa tersebut, tanpa mengurangi pahala orang yang berpuasa itu sedikitpun pun juga." (HR. Tirmidzi)',
+        },
+        {
+          'type': 'text',
+          'content': 'Memberi menu takjil kepada orang lain merupakan ajaran Islam yang dianjurkan oleh Rasulullah SAW dan ulama. Hal ini menjadi bukti bahwa pengalaman spiritual seorang dalam berpuasa akan menumbuhkan empati yang mendorong lahirnya tindakan nyata dalam bulan Ramadhan Dan itu mengandung hikmah tersendiri bagi orang yang berpuasa, Syekh Wahbah az-Zuhaili dalam Kitab Al-Fiqhul Islami memberi penjelasan:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَالْحِكْمْةُ فِي ذٰلِكَ تَفْرِيْغُ قُلُوْبِ الصَّائِمِيْنَ لِلْعِبَادَةِ بِدَفْعِ حَاجَاتِهِم',
+          'latin': '',
+          'translation': 'Artinya, "Hikmahnya adalah untuk memfokuskan hati orang-orang yang berpuasa dan para pelaksana qiyamul lail untuk ibadah semata, dengan cara memenuhi kebutuhan-kebutuhan mereka," (Syekh Wahbah Az-Zuhaili, Fiqhul Islami wa Adillatuhu, [Damaskus: Darul Fikri, t.t.], Juz II. hlm. 635).',
+        },
+        {
+          'type': 'text',
+          'content': 'Selain itu, kegiatan berbuka puasa bersama, tadarus berjamaah, menyalurkan zakat fitrah, serta pelaksanaan salat tarawih di masjid berfungsi sebagai ruang perjumpaan sosial yang menguatkan ikatan kebersamaan, baik di lingkungan keluarga, antartetangga, maupun dalam komunitas masyarakat yang lebih luas.\n\nDi sisi lain, dalam konteks bertetangga, puasa juga merupakan penahan lidah dan anggota tubuh lainnya dari perkataan sia-sia dan perbuatan-perbuatan yang tiada dosanya. Hal ini merupakan upaya mencegah konflik sosial dengan tetangga yang hanya dimulai dari hal-hal seperti ucapan yang kasar, amarah yang tidak bisa ditahan, dan sikap tidak peduli. Rasulullah SAW bersabda.',
+        },
+        {
+          'type': 'arabic',
+          'content': 'حَدَّثَنِي زُهَيْرُ بْنُ حَرْبِ حدَّثَنَا سُفْيَانُ بْنُ عُيَيْنَةَ، عَنْ أَبِي الزِّنَادِ عَنِ اْلأَعْرَجِ عَنْ أَبِي هُرَيرَةَ رَضِيَ الله عَنهُ رِوَايَةً، قَالَ إِذَ أَصْبَحَ أَحَدُكُمْ يَومًا صَائِمَا فَلاَ يَرْفُثْ وَلاَ يَجْهَلْ، فَإِنْ امْرُؤٌ شَاتَمَهُ أَوْ قَاتَلَهُ فَلْيَقُلْ إِنِّي صَائِمٌ إِنِّي صَائِمٌ',
+          'latin': '',
+          'translation': 'Artinya, "Zuhair bin Harb telah memberitahukan kepadaku, Sufyan bin Uyainah telah memberitahukan kepada kami dari Abu Az-Zinad, dari Al-A\'raj, dari Abu Hurairah RA sebuah riwayat dari Nabi SAW, beliau bersabda,\'Apabila salah seorang dari kalian dalam keadaan berpuasa pada suatu hari, maka janganlah ia berbuat keji dan jangan pula berbuat hal yang sia-sia. Lalu apabila ada yang mancelanya atau menantangnya, maka hendaklah ia mengatalan, "sesungguhnya aku sedang berpuasa, sesungguhnya aku sedang berpuasa," (HR. Muslim).',
+        },
+        {
+          'type': 'arabic',
+          'content': 'Kemudian, Imam an-Nawawi dalam Syarh Shahih Muslim menjelaskan di antaranya larangan bagi orang yang berpuasa untuk melakukan rafats, yakni perbuatan keji dan berkata-kata kotor. Lafaz رَفَثَ dibaca rafatsa, sedangkan يَرْفُثُ dibaca yarfutsu atau yarfitsu. Boleh juga dibaca rafitsa–yarfatsu–rafṡan. Ada pula yang membacanya dengan bentuk أَرْفَثَ. Adapun kata الجَهْل (al-jahl) hampir semakna dengan الرَّفَث, yaitu perbuatan dan ucapan yang sia-sia serta tidak benar. (Imam an-Nawawi, Al-Minhaj Syarh Shahih Muslim ibn al-Hajjaj, [Mesir: Dar al-Hadits, t.t.], hlm. 28).',
+          'latin': '',
+        },
+        {
+          'type': 'text',
+          'content': 'Kemudian, Imam An-Nawawi juga menegaskan bahwa larangan untuk berbuat keji, sia-sia, permusuhan dan saling mencela tidak khusus untuk orang yang berpuasa saja, akan tetapi berlaku untuk setiap pribadi berdasarkan hukum asal dalam larangan tersebut, hanya saja untuk orang yang berpuasa lebih ditekankan.\n\nDengan demikian, marilah kita memaknai puasa Ramadhan tidak hanya sebagai peningkatan ibadah ritual, tetapi juga sebagai sarana menumbuhkan sikap sosial yang lebih ramah dan peduli. Jadikan puasa sebagai jalan menghadirkan rasa aman, saling menghargai, dan kepedulian terhadap tetangga, sehingga ibadah ini berujung pada terbentuknya solidaritas sosial, bukan sekadar pengalaman menahan kelaparan secara pribadi. Wallahu a\'lam.\n\nMuhammad Syaf\'ul Iktafi, Alumni Pondok Pesantren Tarbiyatul Islam Al-Falah Salatiga.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Bulan Puasa dan Semangat Amal yang Berkesinambungan',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Bulan Ramadhan adalah bulan menjarah ibadah dan kebaikan sebanyak-banyaknya. Di bulan inilah pahala amal ibadah dan kebaikan berkali-lipat ganda dan jauh lebih besar dibandingkan dengan bulan-bulan lainnya. Ramadhan laksana musim panen bagi kaum mukmin.\n\nOleh karena itu, tidak selayaknya seorang Muslim menyia-nyiakan bulan yang mulia ini tanpa memaksimalkan diri dalam kebaikan. Ramadhan bukan sekadar bulan menahan lapar dan dahaga, tetapi momentum untuk memperbanyak amal, memperbaiki diri, dan membiasakan kebaikan secara berkesinambungan. Setiap kali satu kebaikan selesai dikerjakan, hendaknya disambung dengan kebaikan lainnya, agar Ramadhan benar-benar menjadi bulan yang mengubah ritme hidup menuju ketaatan yang hakiki.\n\nAllah SWT dalam surat As-Syarh Ayat 7 dan 8 berfirman:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'فَإِذَا فَرَغْتَ فَٱنصَبْ * وَإِلَىٰ رَبِّكَ فَٱرْغَب',
+          'latin': '',
+          'translation': 'Artinya: (7) "Maka apabila kamu telah selesai (dari sesuatu urusan), kerjakanlah dengan sungguh-sungguh (urusan) yang lain. (8) Dan hanya kepada Tuhanmu berharaplah."',
+        },
+        {
+          'type': 'text',
+          'content': 'Syekh Nawawi Banten menafsirkan ayat "Faidza faraghta fanshab" dengan "apabila engkau telah selesai dari ibadah, maka susulkan ibadah lain dengan saling berkesinambungan antara sebagian ibadah dengan bagian yang lain dan dengan tidak mengosongkan satu waktu dari ibadah".\n\nKemudian beliau menyebutkan sebuah riwayat dari Ali bin Abi Thalhah dan riwayat Umar bin al-Khattab sebagai berikut.',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَقَالَ عَلِيُّ بْنُ أَبِي طَلْحَةَ: إِذَا كُنْتَ صَحِيحًا فَاجْعَلْ فَرَاغَكَ تَعَبًا فِي الْعِبَادَةِ',
+          'latin': '',
+          'translation': 'Artinya, "Ali bin Abi Thalhah berkata: "jika kamu dalam keadaan sehat, jadikan waktu luangmu untuk lelah dalam beribadah\'."',
+        },
+        {
+          'type': 'text',
+          'content': 'Ungkapan sahabat Ali bin Abi Thalhah tersebut menunjukkan pentingnya memaksimalkan kondisi sehat untuk terus beribadah. Kesehatan dan waktu luang adalah nikmat besar yang sering kali tidak disadari. Karena itu, jangan sampai rasa lelah yang kita rasakan berlalu tanpa bernilai ibadah.\n\nSejalan dengan ungkapan tersebut, Umar bin Khattab juga memberikan motivasi agar seorang Muslim tidak membiarkan waktunya kosong tanpa manfaat. Beliau tidak menyukai seseorang yang menganggur, tidak produktif dalam urusan dunia dan tidak pula dalam amal akhirat. Ini mengingatkan bahwa setiap detik kehidupan seharusnya diisi dengan hal yang bernilai, baik untuk kemaslahatan dunia maupun akhirat.',
+        },
+        {
+          'type': 'arabic',
+          'content': 'قَالَ عُمَرُ بْنُ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ: إِنِّي أَكْرَهُ أَنْ أَرَى أَحَدَكُمْ فَارِغًا لَا فِي عَمَلِ الدُّنْيَا وَلَا فِي عَمَلِ الْآخِرَةِ',
+          'latin': '',
+          'translation': 'Artinya: Umar bin Khattab berkata, "Sungguh aku membenci melihat satu dari kalian semua seorang yang menganggur; tidak dari urusan dunia maupun akhirat".',
+        },
+        {
+          'type': 'text',
+          'content': 'Selanjutnya, Syekh Nawawi menafsirkan "wa ila rabbika farghab" dengan "ajukan kebutuhan-kebutuhanmu kepada Tuhanmu, jadikan harapanmu hanya kepada Allah, dan jangan meminta kecuali kemurahan (fadlh) Nya dengan bertawakal atau berserah diri kepada-Nya. (Muhammad Nawawi Al-Jawi, At-Tafsirul Munir li Ma\'alimit Tanzil, [Surabaya, al-Hidayah], juz II halaman 453).\n\nDari penafsiran surat as-Syarh atau al-Insyirah di atas dapat dipahami bahwa Islam tidak mengajarkan seorang mukmin untuk mengosongkan diri dan bermalas-malasan dalam hidup. Setiap kali satu ibadah atau urusan selesai, hendaknya segera disusul dengan amal dan ibadah lainnya secara berkesinambungan, sehingga tidak ada satu pun waktu yang berlalu tanpa nilai kebaikan, baik dalam urusan dunia maupun akhirat.\n\nBersamaan dengan hal tersebut, seluruh aktivitas dan kesungguhan tersebut harus dilandasi dengan ketergantungan kepada Allah semata. Harapan, kebutuhan, dan tujuan akhir seorang hamba hanya kepada-Nya dengan penuh tawakal.\n\nSyekh Wahbah az-Zuhaili dalam tafsirnya menjelaskan bahwa Surah al-Insyirah ayat 7 merupakan dalil untuk senantiasa berkesinambungan atau terus-menerus dalam melakukan amal saleh dan kebaikan. Hal ini karena memanfaatkan waktu dengan sebaik-baiknya merupakan tuntutan syariat, dan Allah tidak menyukai hamba-Nya yang menyia-nyiakan waktu dengan bermalas-malasan, menganggur, atau tidak melakukan aktivitas yang bernilai kebaikan. Berikut penjelasan beliau selengkapnya:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَهَذَا دَلِيلٌ عَلَى طَلَبِ الِاسْتِمْرَارِ فِي الْعَمَلِ الصَّالِحِ وَالْخَيْرِ وَالْمُثَابَرَةِ عَلَى الطَّاعَةِ؛ لِأَنَّ اسْتِغْلَالَ الْوَقْتِ مَطْلُوبٌ شَرْعًا، وَإِنَّ اللَّهَ يَكْرَهُ الْعَبْدَ الْبَطَّالَ',
+          'latin': '',
+          'translation': 'Artinya: "Ayat ini merupakan dalil tentang tuntutan untuk terus-menerus melakukan amal saleh dan kebaikan serta bersungguh-sungguh dalam ketaatan; karena memanfaatkan waktu adalah sesuatu yang dituntut oleh syariat, dan Allah membenci hamba yang malas dan suka menganggur." (Wahbah bin Musthafa az-Zuhaili, At-Tafsir Munir, [Damaskus, Darul Fikr: 1418 H], juz XXX, halaman 298).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dengan demikian, seorang Muslim hendaknya senantiasa istiqamah dalam melakukan amal saleh dan kebaikan secara berkelanjutan. Setiap kali satu kebaikan selesai ditunaikan, janganlah berhenti, tetapi segera lanjutkan dengan kebaikan berikutnya. Jangan biarkan waktu berlalu kosong tanpa amal yang bernilai dan bermanfaat.\n\nTerlebih lagi pada momentum Ramadhan, bulan yang penuh keberkahan, ketika pahala dilipatgandakan dan amal sunnah diberi ganjaran seperti pahala amal wajib. Maka sungguh merugi orang yang menyia-nyiakan kesempatan emas ini tanpa memperbanyak ibadah dan amal kebajikan untuk mengapai ridha Allah.\n\nUstadz Muhamad Hanif Rahman, Dosen Ma\'had Aly Al-Iman Bulus dan Pengurus LBM NU Purworejo.',
+        },
+      ]
+    },
   ];
 
   final List<Map<String, dynamic>> _khutbahIdulFitriMenu = [];
