@@ -17,6 +17,12 @@ def clean_arabic(text):
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
+def clean_text(text):
+    text = text.replace("namعng", "namung")
+    text = text.replace("Allah SAW.", "Allah SWT.")
+    text = text.replace("Allah SAW ", "Allah SWT ")
+    return text
+
 def parse_html_file(file_path, fixed_date):
     with open(file_path, "r", encoding="utf-8") as f:
         html = f.read()
@@ -48,7 +54,7 @@ def parse_html_file(file_path, fixed_date):
             if text:
                 sections.append({
                     "type": "text",
-                    "content": text
+                    "content": clean_text(text)
                 })
             current_text_block = []
 
@@ -93,18 +99,18 @@ def parse_html_file(file_path, fixed_date):
             if is_translation:
                 # Attach to last Arabic block if available
                 if sections and sections[-1]["type"] == "arabic" and not sections[-1]["translation"]:
-                    sections[-1]["translation"] = text_content
+                    sections[-1]["translation"] = clean_text(text_content)
                 else:
                     flush_text_block()
                     sections.append({
                         "type": "text",
-                        "content": text_content
+                        "content": clean_text(text_content)
                     })
             elif child.name in ["h2", "h3"]:
                 flush_text_block()
                 sections.append({
                     "type": "text",
-                    "content": text_content
+                    "content": clean_text(text_content)
                 })
             else:
                 current_text_block.append(text_content)
@@ -143,25 +149,26 @@ def format_to_dart(khutbah):
     dart.append("    },")
     return "\n".join(dart)
 
-step_dirs = [
-    ("57", "1 Syawal 1444 H"),
-    ("59", "1 Syawal 1444 H"),
-    ("61", "1 Syawal 1444 H"),
-    ("63", "1 Syawal 1444 H")
+files = [
+    ("khutbah_6.html", "1 Syawal 1444 H"),
+    ("khutbah_7.html", "1 Syawal 1444 H"),
+    ("khutbah_8.html", "1 Syawal 1444 H"),
+    ("khutbah_9.html", "1 Syawal 1444 H"),
+    ("khutbah_10.html", "1 Syawal 1444 H")
 ]
-base_dir = r"C:\Users\HP\.gemini\antigravity-ide\brain\5f2941fc-4aef-4190-95ae-4e7f05ca7110\.system_generated\steps"
+base_dir = r"d:\uas\scratch\raw_html"
 
 all_dart_blocks = []
 
-for s, date in step_dirs:
-    path = os.path.join(base_dir, s, "content.md")
+for filename, date in files:
+    path = os.path.join(base_dir, filename)
     res = parse_html_file(path, date)
     if res:
         dart_code = format_to_dart(res)
         all_dart_blocks.append(dart_code)
 
-output_path = r"d:\uas\scratch\dart_output.txt"
+output_path = r"d:\uas\scratch\dart_output_2.txt"
 with open(output_path, "w", encoding="utf-8") as out:
     out.write("\n".join(all_dart_blocks))
 
-print("Successfully generated Dart output in:", output_path)
+print("Successfully generated Dart output 2 in:", output_path)

@@ -2011,6 +2011,806 @@ Mugi-mugi ngibadah kito saklebetipun wulan Ramadhan lan dinten riyoyo Idul Fitri
         },
       ]
     },
+    {
+      'title': 'Khutbah Idul Fitri Bahasa Jawa: Ganjaran Kamulyan Ngapuran-Ngapuranan​​​​​​​ lan​​​​​​​ Nepung Paseduluran',
+      'date': '1 Syawal 1444 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Khutbah Idul Fitri 1444 H kali ini mengingatkan seluruh umat Islam untuk kembali merenungkan makna Idul Fitri sebagai momentum untuk mempererat tali silaturahim dan saling memaafkan satu sama lain. Meminta dan memberikan maaf tidak akan merendahkan derajat kita di mata Allah, justru akan menambah kemuliaan.
+
+Teks khutbah Idul Fitri berikut ini berjudul " Khutbah Idul Fitri Bahasa Jawa: Khutbah Idul Fitri Bahasa Jawa: Ganjaran Kamulyan Ngapuran-Ngapuranan lan​​​​​​​ Nepung Paseduluran​​​​​​​". Untuk mengunduh dan mencetak naskah khutbah Idul Fitri ini dalam format PDF, silakan klik di kolom download. Semoga bermanfaat! (Redaksi).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''‎اللهُ أَكْبَرُ (×٣) اللهُ أَكْبَرُ (×٣) اللهُ أَكْبَرُ (×٣) وَلِلّٰهِ اْلحَمْدُ اللهُ أَكْبَرُ كَبِيْرًا، وَالحَمْدُ لِلّٰهِ كَثِيْرًا وَسُبْحَانَ اللهِ بُكْرَةً وَأَصِيْلًا لاَ إِلٰهَ إِلَّا اللهُ وَحْدَهُ صَدَقَ وَعْدَهُ وَنَصَرَ عَبْدَهُ وَأَعَزَّ جُنْدَهُ وَهَزَمَ الأَحْزَابَ وَحْدَهُ لَاإِلٰهَ إِلَّا اللهُ وَلَا نَعْبُدُ إِلاَّ إِيّاَهُ مُخْلِصِيْنَ لَهُ الدِّيْنَ وَلَوْكَرِهَ الكاَفِرُوْنَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الحَمْدُ لِلّٰهِ الَّذِيْ حَرَّمَ الصِّياَمَ أَيّاَمَ الأَعْياَدِ ضِيَافَةً لِعِباَدِهِ الصَّالِحِيْنَ. أَشْهَدُ أَنْ لاَإِلٰهَ إِلاَّاللهُ وَحْدَهُ لاَشَرِيْكَ لَهُ الَّذِيْ جَعَلَ الجَّنَّةَ لِلْمُتَّقِيْنَ وَأَشْهَدُ أَنَّ سَيِّدَنَا وَمَوْلاَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ االدَّاعِيْ إِلىَ الصِّرَاطِ المُسْتَقِيْمِ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللّٰهُمَّ صَلِّ وَسَلِّمْ وَباَرِكْ عَلىَ سَيِّدِنَا مُحَمَّـدٍ وَعَلَى آلِهِ وَأَصْحاَبِهِ وَمَنْ تَبِعَهُمْ بِإِحْسَانٍ إِلىَ يَوْمِ الدِّيْنَ أَمَّا بَعْدُ، فَيَآ أَيُّهَا المُؤْمِنُوْنَ أُوْصِيْكُمْ وَنَفْسِيْ بِتَقْوَى اللهِ فَقَدْ فَازَ المُتَّقُوْنَ. وَاتَّقُوْا اللهَ حَقَّ تُقاَتِهِ وَلاَتَمُوْتُنَّ إِلَّا وَأَنْتُمْ مُسْلِمُوْنَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''قال الله تعالى: خُذِ ٱلْعَفْوَ وَأْمُرْ بِٱلْعُرْفِ وَأَعْرِضْ عَنِ ٱلْجَٰهِلِينَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Idul Fitri ingkang dipunrahmati Allah
+
+Sedaya puji namung kagunganipun Allah ta’ala, ingkang sampun maringi kita kathah kanugrahan, ngantos mboten saget kita etung peparingan saking Allah ingkang sampun kita tampi. Langkung-langkung wonten ing dinten menika, kita saget makempal sareng-sareng keluarga, sedherek, ugi umat Muslim kanthi awak ingkang sehat lan ati kang bungah, sebab dinten menika kita sami ngrayaake Idul Fitri utawi dinten riyaya, dinten ingkang kebak berkah saha rasa bungah.
+
+Pramila, sedaya nikmat punika mangga kita syukuri kelawan lisan, ati, saha tumindhak becik. Mugi-mugi kita sedaya kalebet tiyang ingkang syukur dhateng Allah ta’ala.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُ أَكْبَرُ اللهُ أَكْبَرُ اللهُ أَكْبَرُ لاَ إِلهَ إِلاَّ اللهُ، وَاللهُ أَكْبَرُ، اللهُ أَكْبَرُ وَلِلّٰهِ اْلحَمْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Idul Fitri rahimakumullah
+
+Gusti Allah ta’ala nyiptaake makhluk termasuk menungsa kang gadahi sifat kang beda-beda. Wonten ing Al-Qur’an Surat Al-Hujurat ayat 13:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يٰٓاَيُّهَا النَّاسُ اِنَّا خَلَقْنٰكُمْ مِّنْ ذَكَرٍ وَّاُنْثٰى وَجَعَلْنٰكُمْ شُعُوْبًا وَّقَبَاۤىِٕلَ لِتَعَارَفُوْاۚ اِنَّ اَكْرَمَكُمْ عِنْدَ اللّٰهِ اَتْقٰىكُمْۗ اِنَّ اللّٰهَ عَلِيْمٌ خَبِيْرٌ''',
+          'latin': '''''',
+          'translation': '''Artosipun: “Hei para manungsa, saktemene Ingsun (Allah) iku nitahake sira kabeh saking wong lanang (Nabi Adam as) lan wong wadon (Siti Hawa). Lan Ingsun ndadeake sira kabeh, dadi pirang-pirang bangsa lan kabilah (suku), supaya sira kabeh padha kenal-mengenal. Sejatine kang luwih mulya saking sira kabeh mungguhe Allah, yaiku wong kang luwih takwa. Saktemene Allah iku Maha Pirsa saha Maha Waspada.”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Wonten ing ayat punika dipuntegesaken bilih Allah ta’ala ndadosaken macem-macem menungsa, mboten namung beda fisik kados dene rambut, warna kulit, utawi gedhe cilike awak. Nanging ugi beda ing dalem pemikiran, pendapat, lan pemahaman.
+
+Kados dene, ing dalem memahami teks agama wonten ing Al-Qur’an lan sunahe Kanjeng Nabi Muhammad saw. Ugi beda pandangan ing dalem nafsiraken dalil saha tata cara nentuaken awal saha akhir bulan Hijriah. Beda pendapat ingkang kados mekaten, kedah kita sikapi kanthi manah lan ilmu pemahaman ingkang jembar.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُ أَكْبَرُ اللهُ أَكْبَرُ اللهُ أَكْبَرُ لاَ إِلهَ إِلاَّ اللهُ، وَاللهُ أَكْبَرُ، اللهُ أَكْبَرُ، وَلِلّٰهِ اْلحَمْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Idul Fitri rahimakumullah
+
+Wonten ing Dinten Riyaya punika, lumrahipun dados dinten kangge makempal, silaturahim nepung paseduluran. Nepung paseduluran utawi silaturahim punika perkawis ingkang sahe, ingkang sampun didhawuhake Kanjeng Nabi Muhammad saw:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''مَنْ أَحَبَّ أَنْ يُبْسَطَ لَهُ فِي رِزْقِهِ وَ يُنْسَأَ لَهُ فِي أَثَرِهِ فَلْيَصِلْ رَحِمَهُ''',
+          'latin': '''''',
+          'translation': '''Artosipun: “Sinten tiyang ingkang remen dijembarke rizkine lan didawake umure, mangka prayogane padha silaturahim (nepung paseduluran).”​​​​​​​''',
+        },
+        {
+          'type': 'text',
+          'content': '''Nepungke paseduluran, ateges mboten namung sedulur kandung utawi tunggal trah, ananging ugi sedulur ing dalem tunggal agama (ukhuwah Islamiyah), tunggal bangsa (ukhuwah wathoniyah), lan tunggal utawi padha menungsane (ukhuwah basyariah). Paseduluran ingkang guyub, akhire ndadosake keluarga rukun, ndadosake warga rukun, ndadosake umat rukun, lan ndadosake negara rukun.
+
+Jamaah shalat Idul Fitri rahimakumullah
+
+Idul Fitri menika ugi dados wekdal ingkang sahe kangge kita padha nyuwun pangapura. Sak sampune kita ngresiki awak kita saking dosa, kelawan nindhaake ibadah pasa saha amalan-amalan sanese wonten ing Wulan Ramadhan, kita sampurnaaken kanthi lebure dosa kita marang sepadha. Dhawuhipun Allah ta’ala wonten ing Surat Al-A’raf ayat 199:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''خُذِ ٱلْعَفْوَ وَأْمُرْ بِٱلْعُرْفِ وَأَعْرِضْ عَنِ ٱلْجَٰهِلِينَ''',
+          'latin': '''''',
+          'translation': '''Artosipun: “Dadio sliramu (Muhammad) wong sing (seneng) ngapura lan supaya nglakoni perkara kang becik ugi mengoho saka wong-wong kang bodho.” ​​​​​​​''',
+        },
+        {
+          'type': 'text',
+          'content': '''Nalika kita nyuwun ngapura, mboten ateges kita kalah utawi lemah. Ugi menawi kita caos ngapura, mboten ateges kita ingkang langkung sahe. Dhawuhipun Kanjeng Nabi ingkang sanese:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَمَا زَادَ اللهُ عَبْدًا بِعَفْوٍ إِلاَّ عِزًّا''',
+          'latin': '''''',
+          'translation': '''Artosipun: “Ora bakal ana tambahan (ganjaran) liya saking Gusti Allah dhateng tiyang ingkang pangapura, kejaba namung kamulyan. ​​​​​​​''',
+        },
+        {
+          'type': 'text',
+          'content': '''Mekaten atur khutbah wonten ing kesempatan menika. Mugi-mugi kita sedaya didadosaken Allah ta’ala, kalebet tiyang ingkang begja dunya lan akhirat. Dingapura sedaya dosa kita. Ditampi sedaya amal ibadah kita. Lan mugi-mugi kita dikempalke Allah sareng keluarga, guru-guru kita, lan Kanjeng Nabi Muhammad saw wonten ing Suwarganipun Allah ta’ala. Amin, allahumma amin.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''جَعَلَنَا اللهُ وَاِيَّاكُمْ مِنَ اْلعَائِدِيْنَ وَاْلفَائِزِيْنَ وَاْلمَقْبُوْلِيْنَ، وَاَدْخَلَنَا وَاِيَّاكُمْ فِى زُمْرَةِ عِبَادِهِ الصَّالِحِيْنَ، اَقُوْلُ قَوْلِى هَذَا وَاسْتَغْفِرُ الله لِى وَلَكُمْ، وَلِوَالِدَيْنَا وَلِسَائِرِ اْلمُسْلِمِيْنَ وَاْلمُسْلِمَاتِ، فَاسْتَغْفِرهُ اِنَّهُ هُوَاْلغَفُوْرُ الرَّحِيْمُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُ اَكْبَرُ (٣×) اللهُ اَكْبَرُ (٤×) اللهُ اَكْبَرُ كبيرًا وَاْلحَمْدُ للهِ كَثِيْرًا وَسُبْحَانَ الله بُكْرَةً وَ أَصْيْلاً لاَ اِلَهَ اِلاَّ اللهُ وَاللهُ اَكْبَرْ اللهُ اَكْبَرْ وَللهِ اْلحَمْدُ اَلْحَمْدُ لِلّٰهِ الَّذي وَكَفَى، وَأُصَلِّيْ وَأُسَلِّمُ عَلَى سَيِّدِنَا مُحَمَّدٍ الْمُصْطَفَى، وَعَلَى آلِهِ وَأَصْحَابِهِ أَهْلِ الصِّدْقِ الْوَفَا. أَشْهَدُ أَنْ لَّا إلٰهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ أَمَّا بَعْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''فَيَا أَيُّهَا الْمُسْلِمُوْنَ، أُوْصِيْكُمْ وَنَفْسِيْ بِتَقْوَى اللهِ الْعَلِيِّ الْعَظِيْمِ وَاعْلَمُوْا أَنَّ اللهَ أَمَرَكُمْ بِأَمْرٍ عَظِيْمٍ، أَمَرَكُمْ بِالصَّلَاةِ وَالسَّلَامِ عَلَى نَبِيِّهِ الْكَرِيْمِ فَقَالَ: إِنَّ اللهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ، يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا، اَللّٰهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيْمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيْمَ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى سَيِّدِنَا إِبْرَاهِيْمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيْمَ، فِيْ الْعَالَمِيْنَ إِنَّكَ حَمِيْدٌ مَجِيْدٌ اَللّٰهُمَّ اغْفِرْ لِلْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ والْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ الْأَحْيَاءِ مِنْهُمْ وَالْأَمْوَاتِ، اللهم ادْفَعْ عَنَّا الْبَلَاءَ وَالْغَلَاءَ وَالْوَبَاءَ وَالْفَحْشَاءَ وَالْمُنْكَرَ وَالْبَغْيَ وَالسُّيُوْفَ الْمُخْتَلِفَةَ وَالشَّدَائِدَ وَالْمِحَنَ، مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ، مِنْ بَلَدِنَا هَذَا خَاصَّةً وَمِنْ بُلْدَانِ الْمُسْلِمِيْنَ عَامَّةً، إِنَّكَ عَلَى كُلِّ شَيْءٍ قَدِيْرٌ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عِبَادَ اللهِ إنَّ اللهَ يَأْمُرُ بِالْعَدْلِ وَالْإحْسَانِ وَإِيْتَاءِ ذِي الْقُرْبَى ويَنْهَى عَنِ الفَحْشَاءِ وَالْمُنْكَرِ وَالبَغْيِ، يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ. فَاذكُرُوا اللهَ الْعَظِيْمَ يَذْكُرْكُمْ ​​​​​​​وَلَذِكْرُ اللهِ أَكْبَرُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz Ajie Najmuddin, Pengurus MWCNU Banyudono Boyolali''',
+        },
+      ]
+    },
+    {
+      'title': 'Khutbah Idul Fitri Bahasa Arab 1444 H',
+      'date': '1 Syawal 1444 H',
+      'sections': [
+        {
+          'type': 'arabic',
+          'content': '''الخطبة الأولى''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللَّه أَكْبَرُ ٣×. اللَّه أَكْبَرُ ٣×. اللهُ أَكْبَرُ ٣×. اَللهُ أَكْبَرُ كَبِيْرًا وَالْحَمْدُ للهِ كَثِيْرًا، وَسُبْحَانَ اللهِ بُكْرَةً وَأَصِيْلاً. لاَ إِلهَ إِلاَّ اللهُ. وَاللهُ أَكْبَرُ. اللهُ أَكْبَرُ وَللهِ الْحَمْد الْحَمْدُ لله رَبِّ كُلِّ شَيْءٍ، الَّذِيْ جَعَلَ لَنَا عِيْدًا حَرَّمَ فِيْهِ الصِّيَامَ وَأَحَلَّ فِيْهِ الطَّعَامَ، بَعْدَ أَنْ فَرَضَ عَلَيْنَا الصِّيَامَ وَحَثَّنَا عَلَى الْقِيَامِ. صَلَاتُهُ وَسَلَامُهُ عَلَى سَيِّدِنَا وَحَبِيْبِنَا مُحَمَّدٍ خَيْرِ الْأَنَامِ، الَّذِيْ لِمَجِيْئِهِ انْزَاحَ الظَّلَامُ، وَعَلَى آلِهِ وَأَصْحَابِهِ مَدَى الْأَيَّامِ أمَّا بَعْدُ، فَيَا عِبَادَ اللهِ أُوْصِيْكُمْ وَنَفْسِيْ بِتَقْوَى اللهِ فَقَدْ فَازَ الْمُتَّقُوْنَ. وقالَ اللهُ سبحانه تَعَالىَ فِيْ كِتَابِهِ الكَرِيْمِ يَا أَيُّهاَ الَّذِيْنَ ءَامَنُوا اتَّقُوا اللهَ حَقَّ تُقَاتِهِ وَلاَ تَمُوْتُنَّ إِلاَّ وَأَنتُمْ مُّسْلِمُوْنَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُ أَكْبَرُ ٣× لاَ إِلهَ إِلاَّ اللهُ، وَاللهُ أَكْبَرُ، اللهُ أَكْبَرُ وَللهِ الْحَمْدُ أَيُّهَا الْحَاضِرُوْنَ الْأَعِزَّاءُ، إِنَّا لَا نَجْتَمِعُ هُنَا إِلَّا لِأَمْرٍ وَحَّدَنَا، الْأَمْرُ الَّذِيْ شَرَّفَنَا وَرَفَعَنَا وَأَنْقَذَنَا. أَلَا وَهُوَ الْإِيْمَانُ، الْيَقِيْنُ الَّذِيْ حَلَّ فِيْ صُدُوْرِنَا وَامْتَزَجَ بِدِمَائِنَا. فَكَانَ اجْتِمَاعُنَا هَذَا اجْتِمَاعًا مَرْضِيًّا إِنْ شَاءَ اللهُ تَعَالَى. إِخْوَانَنَا الْكُرَمَاءَ، رَمَضَانُنَا قَدْ مَضَى وَانْقَضَى، وَقَدْ فَازَ مَنْ شَاءَ اللهُ بِنَيْلِ رِضَاهُ، وَصَعِدَ إِلَى مَعَالِيْ الدَّرَجَاتِ مَنْ سَبَقَتْ الْمَشِيْئَةُ بِرَفْعِهِ. وَعَسَى اللهَ أَنْ يَجْعَلَنَا مِنْهُمْ أَوْ مَعَ زُمْرَتِهِمْ. وَنَحْنُ قَدْ عَرَفْنَا حَقِيْقَةَ أَحْوَالِ أَنْفُسِنَا طِوَالَ ذَاكَ الشَّهْرِ بِمُلَاحَظَةِ أَفْعَالِنَا، هَلْ انْقَادَتْ تِلْكَ النُّفُوْسُ لِطَاعَةِ الْمَوْلَى، أَوْ زَاغَتْ بِعِصْيَانِ رَبِّ الْعُلَا''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَذَلِكَ لِمَا صَحَّ عَنْ رَسُوْلِ اللهِ صلى الله عليه وآله وسلم مِنْ حَدِيْثِ أَبِيْ هُرَيْرَةَ رضي الله عنه: إِذَا جَاءَ رَمَضَانُ فُتِحَتْ أَبْوَابُ الْجَنَّةِ وَغُلِّقَتْ أَبْوَابُ النَّارِ وَصُفِّدَتْ الشَّيَاطِيْنُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''هَذَا رَسُوْلُ اللهِ صلى الله عليه وآله وسلم أَخْبَرَنَا بِتَصْفِيْدِ الشَّيَاطِيْنِ فِي رَمَضَانَ. فَلَا يَحِلُّ لَنَا الْاِعْتِذَارُ بِوَسَاوِسِهِمْ لِمَعْصِيَّةٍ ارْتَكَبْنَاهَا خِلَالَ رَمَضَانَ. لِأَنَّ الْمَعْصِيَّةَ إِمَّا أَنْ تَكُوْنَ مِنْ وَسَاوِسِ الشَّيَاطِيْنِ أَوْ مِنَ النَّفْسِ الْأَمَّارَةِ بِالسُّوْءِ. فَالْمَعَاصِي الَّتِيْ ارْتَكَبَهَا النَّاسُ فِي رَمَضَانَ -عَلَى أَحَدِ الْأَقْوَالِ- إِنَّمَا تَوَلَّدَتْ مِنَ السَّبَبِ الثَّانِي. لِأَنَّ الشَّياَطِيْنَ بِتَصْفَيْدِهِمْ لَا طَاقَةَ لَهُمْ فِي إِغْوَاءِ النَّاسِ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''تَعَالَ نُلَاحِظُ أَعْمَالَنَا فِي رَمَضَانَ الْخَالِيْ وَنُحَاسِبُ أَنْفُسَنَا. هَلْ نَعْمَلُ فِيْهِ سُوْءًا أَمْ غَلَبَ السُّوْءُ عَلَى أَعْمَالِنَا. فَإِنْ كَانَتْ أَنْفُسُنَا قَدْ امْتَلَأَتْ هَوًى وَشَهْوَةً، فَحَتْمٌ عَلَيْنَا زَجْرُهَا بِالسُّرْعَةِ. وَاعْلَمْ أَنَّ تَهْذِيْبَ النَّفْسِ أَمْرٌ لَابُدَّ مِنْهُ لِكُلِّ مُسْلِمٍ، لِأَنَّهُ أَصْلُ كُلِّ سَعَادَتِهِ وَمَنْبَعُ كُلِّ خَيْرَاتِهِ وَمِفْتَاحُ نَجَاتِهِ. فَقَدْ قَالَ جَلَّ مِنْ قَائِلٍ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِ وَنَهَى النَّفْسَ عَنِ الْهَوَىٰ (٤٠) فَإِنَّ الْجَنَّةَ هِيَ الْمَأْوَىٰ (٤١)''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَقَدْ قِيْلَ: طُوْبَى لِمَنْ كَانَ عَقْلُهُ أَمِيْرًا وَكَانَ هَوَاهُ أَسِيْرًا، وَوَيْلٌ لِمَنْ كَانَ هَوَاهُ أَمِيْرًا وَكَانَ عَقْلُهُ أَسِيْرًا. ذَلِكَ لِأَنَّ الْعَقْلَ لَا يَأْمُرُ إِلَّا الْخَيْرَ وَالْهَوَى لَا يَأْتِيْ إِلَّا بِالشَّرِّ. وَتَهْذِيْبُ النَّفْسِ لَا يُمْكِنُ إِلَّا بِإِدَامَةِ قَهْرِهَا وَمُلَازَمَةِ كَسْرِهَا وَإِعْرَاضِهَا عَنْ هَوَاهَا. وَهُوَ عَمَلٌ صَعْبٌ، كَيْفَ لَا وَقَدْ سَمَّاهُ رَسُوْلُ اللهِ صلى الله عليه وآله وسلم بِالْجِهَادِ الْأَكْبَرِ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَإِذَا كَانَ جِهَادُ اْلأَعْدَاءِ يَنْتَهِيْ بِانْتِهَاءِ الْقِتَالِ فَإِنَّ جِهَادَ النَّفْسِ لَا يَنْتَهِيْ إِلَّا بِانْقِضَاءِ أَجَلِهَا بِمَوْتِ صَاحِبِهَا، فَجِهَادُ النَّفْسِ هُوَ جِهَادٌ طُوْلَ الْحَيَاةِ. أَيُّهَا الْحَاضِرُوْنَ، وَفَّقَنَا اللهُ وَإِيَّاكُمْ لِمَا يُحِبُّ وَيَرْضَى''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''تَقَبَّلَ اللهُ مِنَّا وَمِنْكُمْ. اللَّهُمَّ بَارِكْ لَنَا فِيْ عِيْدِنَا، وَأَعِدْهُ عَلَينَا أَعْوَامًا عَدِيْدَةً أَعُوْذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ: وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا وَلَا تَفَرَّقُوا ۚ وَاذْكُرُوا نِعْمَتَ اللَّهِ عَلَيْكُمْ إِذْ كُنتُمْ أَعْدَاءً فَأَلَّفَ بَيْنَ قُلُوبِكُمْ فَأَصْبَحْتُم بِنِعْمَتِهِ إِخْوَانًا وَكُنتُمْ عَلَىٰ شَفَا حُفْرَةٍ مِّنَ النَّارِ فَأَنقَذَكُم مِّنْهَا ۗ كَذَٰلِكَ يُبَيِّنُ اللَّهُ لَكُمْ آيَاتِهِ لَعَلَّكُمْ تَهْتَدُونَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الخطبة الثانية''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُ اَكْبَرْ ٣× اللهُ اَكْبَرْ ٤ ×. اللهُ اَكْبَرْ كَبِيْرًا وَاْلحَمْدُ للهِ كَثِيْرًا وَسُبْحَانَ الله بُكْرَةً وَ أَصْيْلاً لاَ اِلَهَ اِلاَّ اللهُ وَاللهُ اَكْبَرْ اللهُ اَكْبَرْ وَللهِ اْلحَمْدُ. الْحَمْدُ للهِ حَمْدًا كَثِيْرًا كَمَا أَمَرَ. وَأَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ اِقْرَارًا بِرُبُوْبِيَّتِهِ وَاِرْغَامًا لِمَنْ جَحَدَ بِهِ وَكَفَرَ. وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ سَيِّدُ الْبَشَرِ. اللّهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى أَلِهِ وَأَصْحَابِهِ الْمَصَابِيْحِ الْغَرَرِ. مَا اتَّصَلَتْ عَيْنٌ بِنَظَرٍ وَاُذُنٌ بِخَبَرٍ. مِنْ يَوْمِنَا هَذَا إِلَى يَوْمِ الْمَحْشَرِ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَمَّا بَعْدُ، فَيَا أَيُّهَا النَّاسُ اتَّقُوْا اللهَ فِيْمَا أَمَرَ. وَانْتَهُوْا عَمَّا نَهَى عَنْهُ وَحَذَّرَ. وَاعْلَمُوْا أَنَّ اللهَ تَبَارَكَ وَتَعَالَى اَمَرَكُمْ بِأَمْرٍ بَدَأَ فِيْهِ بِنَفْسِهِ وَثَنَّى بِمَلَا ئِكَتِهِ الْمُسَبِّحَةِ بِقُدْسِهِ. فَقَالَ تَعَالَى وَلَمْ يَزَلْ قَائِلًا عَلِيْمًا. إِنَّ اللهَ وَمَلَائِكَتَهُ يُصَلُّوْنَ عَلَى النَّبِيِّ. يَا أَيُّهَا الَّذِيْنَ أَمَنُوْا صَلُّوْا عَلَيْهِ وَسَلِّمُوْا تَسْلِيْمًا. اللّهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ جَدِّ الْحَسَنِ وَالْحُسَيْنِ وَعَلَى أَلِهِ وِأَصْحَابِهِ خَيْرِ أَهْلِ الدَّارَيْنِ خُصُوْصًا عَلَى أَوَّلِ الرَّفِيْقِ سَيِّدِنَا أَبِى بَكْرٍ الصِّدِّيْق. وَعَلَى الصَّادِقِ الْمَصْدُوْق سَيِّدِنَا أَبِي حَفْصٍ عُمَرَ الْفَارُوْقِ. وَعَلَى زَوْجِ الْبِنْتَيْنِ سَيِّدِنَا عُثْمَانِ ذِيْ النُّوْرَيْنِ. وَعَلَى ابْنِ عَمِّهِ الْغَالِبِ سَيِّدِنَا عَلِيِّ بْن أَبِيْ طَالِب. وَعَلَى السِّتَّةِ الْبَاقِيْنَ رَضِيَ اللهُ عَنْهُمْ أَجْمَعِيْنَ. وَعَلَى الشَّرِيْفَيْنِ سَيِّدَيْ شَبَابِ أَهْلِ الدَّارَيْنِ أَبِيْ مُحَمَّد الْحَسَنِ وَأَبِيْ عَبْدِ اللهِ الْحُسَيْنِ. وَعَلَى عَمَّيْهِ الْفَاضِلَيْنِ عَلَى النَّاسِ سَيِّدِنَا حَمْزَة وَسَيِّدِنَا الْعَبَّاسِ. وَعَلَى بَقِيَّةِ الصَّحَابَةِ أَجْمَعِيْنَ. وَعَلَى التَّابِعِيْنَ وَتَابِعِ التَّابِعِيْنَ لَهُمْ بِإِحْسَانٍ إِلَى يَوْمِ الدِّيْنِ. وَعَلَيْنَا مَعَهُمْ بِرَحْمَتِكَ يَاأَرْحَمَ الرَّاحِمَيْنَ اَللّهُمَّ اغْفِرْ لِلْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ وَالْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ اَلاَحْيآءِ مِنْهُمْ وَاْلاَمْوَاتِ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُمَّ أَعِزَّ اْلاِسْلاَمَ وَالْمُسْلِمِيْنَ وَأَذِلَّ الشِّرْكَ وَالْمُشْرِكِيْنَ وَانْصُرْ عِبَادَكَ الْمُوَحِّدِيْن وَانْصُرْ مََنْ نَصَرَ الدِّيْنَ. وَاخْذُلْ مَنْ خَذَلَ الْمُسْلِمِيْنَ وَ دَمِّرْ أَعْدَاءَ الدِّيْنِ وَاعْلِ كَلِمَاتِكَ اِلَى يَوْمِ الدِّيْنِ. اللّهُمَّ ادْفَعْ عَنَّا اْلبَلاَءَ وَاْلوَبَاءَ وَالزَّلاَزِلَ وَاْلمِحَنَ وَسُوْءَ اْلفِتْنَةِ وَاْلمِحَنَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ عَنْ بَلَدِنَا اِنْدُونِيْسِيَّا خآصَّةً وَسَائِرِ اْلبُلْدَانِ الْمُسْلِمِيْنَ عآمَّةً يَا رَبَّ اْلعَالَمِيْنَ. اللَّهُمَّ أَصْلِحْ لَنا دِيْنَنَا الَّذِيْ هُوَ عِصْمَةُ أَمْرِنَا وَأَصْلِحْ لَنَا دُنْيَانَا الَّتِيْ فِيْهَا مَعَاشُنَا وَأَصْلِحْ لَنَا آخِرَتَنَا الَّتِيْ فِيْهَا مَعَادُنَا وَاجْعَلِ الْحَيَاةَ زِيَادَةً لَنَا فِيْ كُلِّ خَيْرٍ وَاجْعَلِ الْمَوْتَ رَاحَةً لَنَا مِنْ كُلِّ شَرٍّ اللَّهُمَّ أَلِّفْ بَيْنَ قُلُوبِنَا، وَأَصْلِحْ ذَاتَ بَيْنِنَا، وَاهْدِنَا سُبُلَ السَّلَامِ، وَنَجِّنَا مِنَ الظُّلُمَاتِ إِلَى النُّورِ، وَجَنِّبْنَا الْفَوَاحِشَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ، وَبَارِكْ لَنَا فِي أَسْمَاعِنَا وَأَبْصَارِنَا وَقُلُوبِنَا وَأَزْوَاجِنَا وَذُرِّيَّاتِنَا، وَتُبْ عَلَيْنَا، إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ. اللّهمَّ حَبِّبْ إلَيْنَا الإيمَانَ وَزَيِّنْهُ فِي قُلُوْبِنَا وَكَرِّهْ إلَيْنَا الْكُفْرَ وَالْفُسُوْقَ وَالْعِصْيَانَ. وَاجْعَلْنَا مِنَ الرَّاشِدِيْنَ اللّهُمَّ ارْزُقْنَا الصَّبْرَ عَلى الحَقِّ وَالثَّبَاتَ عَلَى الأَمْرِ والعَاقِبَةَ الحَسَنَةَ والعَافِيَةَ مِنْ كُلِّ بَلِيَّةٍ والسَّلاَمَةَ مِنْ كلِّ إِثْمٍ والغَنِيْمَةَ مِنْ كل بِرٍّ والفَوْزَ بِالجَنَّةِ والنَّجَاةَ مِنَ النَّارِ يَا أَرْحَمَ الرَّاحِمِيْنَ. رَبَّنا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الاخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّار''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عِبَادَاللهِ، اِنَّ اللهَ يَأْمُرُ بِاْلعَدْلِ وَاْلاِحْسَانِ وَإِيْتآءِ ذِى اْلقُرْبىَ وَيَنْهَى عَنِ اْلفَحْشآءِ وَالْمُنْكَرِ وَاْلبَغْي يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ وَاذْكُرُوااللهَ اْلعَظِيْمَ يَذْكُرْكُمْ وَاشْكُرُوْهُ عَلىَ نِعَمِهِ يَزِدْكُمْ وَلَذِكْرُ اللهِ اَكْبَر''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz Rif'an Haqiqi, Pengajar di Pondok Pesantren Ash-Shiddiqiyyah Berjan Purworejo''',
+        },
+      ]
+    },
+    {
+      'title': 'Khutbah Idul Fitri: Membangun Peradaban Melalui Persatuan dan Solidaritas',
+      'date': '1 Syawal 1444 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Belakangan ini kita sering menyimak perbedaan masalah-masalah yang bukan bersifat prinsip dalam agama. Namun karena selalu diperuncing membuat keretakan sosial tidak terhindarkan. Sentimen negatif menjadi dampak selanjutnya yang menjadikan antarsesama umat tampak mudah bersitegang.
+
+
+Khutbah Idul Fitri kali ini berjudul: “Khutbah Idul Fitri: Membangun Peradaban Melalui Persatuan dan Solidaritas.” Untuk mencetak naskah khutbah, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''(x 9) اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهْ. اَللهُ أَكْبَرْ الْحَمْدُ لِلّهِ الَّذِيْ بِنِعْمَتِهِ تَتِمُّ الصَّالِحَاتُ، وَبِعَفْوِهِ تُغْفَرُ الذُّنُوْبُ وَالسَّيِّئَاتُ، وَبِكَرَمِهِ تُقْبَلُ الْعَطَايَا وَالْعِبَادَاتُ. اَللّهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ خَاتَمِ النَّبِيِّيْنَ، الْمَبْعُوْثِ رَحْمَةً لِّلْعَالَمِيْنَ، الْمُرْسَلِ إِلَى كَافَّةِ الْمَخْلُوْقِيْنَ، وَعَلَى آلِهِ وَذُرِّيَتِهِ الْأَطْهَارِ، وَصَحَابَتِهِ الْأَخْيَارِ، وَمَنْ تَبِعَهُمْ بِالْاِبْتِعَادِ مِنَ الْأَشْرَارِ. أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا الله وَحْدَهُ لَاشَرِيْكَ لَهُ الْمَلِكُ الْحَقُّ اْلمُبِيْن. وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَـمَّدًا عَبْدُهُ وَرَسُوْلُهُ صَادِقُ الْوَعْدِ اْلأَمِيْنُ. أَمَّا بَعْدُ فَيَا عِبَادَ اللهِ، أُوْصِي نَفْسِي وَإِيَّاكُمْ بِتَقْوَى اللهِ وَطَاعَتِهِ، فَمَنِ اتَّبَعَ الْهُدَى وَاتَّقَى فَقَدْ أَفْلَحَ وَفَازَ، إِنَّ اللهَ لَايُخْلِفُ الْمِيْعَادَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Para hadirin yang dimuliakan Allah
+
+Segala pujian yang kita terima selama ini pada hakikatnya adalah milik Allah. Maka sudah sepatutnya kita kembalikan seluruh pujian kepada pemilik aslinya, yakni Dzat Tuhan semesta alam. Shalawat dan salam selalu kita doakan bagi baginda Nabi Muhammad saw, keluarga serta para sahabatnya, yang telah memberikan kontribusi tidak ternilai bagi agama. Semoga pujian dan doa ini menjadikan ketakwaan kita senantiasa dijaga dan ditingkatkan, sehingga kelak kita layak berjumpa dengan mereka. Amin.
+
+Para jamaah shalat Idul Fitri hafidzakumullah
+
+Islam lebih menyukai persatuan daripada perpecahan. Islam lebih mencintai perdamaian ketimbang pertengkaran. Islam mengakui perbedaan adalah keniscayaan yang tidak akan pernah bisa dihindarkan. Hal ini sebagaimana dipertegas dalam surat Hud ayat 118:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَلَوْ شَاءَ رَبُّكَ لَجَعَلَ النَّاسَ أُمَّةً وَاحِدَةً ۖ وَلَا يَزَالُونَ مُخْتَلِفِينَ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Dan seandainya Tuhanmu mengkehendaki niscaya akan menjadikan manusia sebagai satu umat. Dan (ternyata) mereka selalu berada dalam perbedaan.” (QS Hud: 118).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Berdasarkan ayat ini menjadi jelas bahwa perbedaan yang terjadi di tengah-tengah kita pada hakikatnya berdasarkan kehendak Allah. Karena itu sudah seyogianya kita menjadi sadar atas realita ini, sehingga bisa memaklumi atas perbedaan-perbedaan yang terjadi.
+
+Perbedaan di sini mencakup banyak aspek. Seperti lintas keyakinan dan berbagai perbedaan pendapat dalam internal agama kita sendiri.
+
+Berdasarkan kesadaran seperti ini, orientasi kita tidak lagi sibuk mencari perbedaan dan kesalahan orang lain, melainkan kita fokus mencari titik temu demi menciptakan keakraban dan kerukunan di tengah-tengah perbedaan.
+
+Hal inilah yang dilakukan Nabi Muhammad dulu saat awal-awal tiba di Madinah. Beliau berinisiatif merangkul seluruh elemen sosial masyarakat dengan membuat kesepakatan yang dikenal dengan Piagam Madinah.
+
+Pada pasal pertama disebutkan bahwa masyarakat Madinah dengan bermacam-macam agama dan suku merupakan satu komunitas yang berbeda dengan komunitas manusia yang lain:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''إِنَّهُمْ أُمَّةٌ وَاحِدَةٌ مِّنْ دُوْنِ النَّاسِ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Sesungguhnya mereka (masyarakat Madinah) merupakan satu umat yang berbeda dari umat manusia yang lain.”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Gagasan genius Nabi sa diterima oleh seluruh petinggi masyarakat Madinah. Tujuan Nabi pun bukan semata-mata ingin mengunggulkan kelompok muslim. Lebih dari itu, beliau hendak membangun sebuah komunitas sosial yang lebih beradab dan solid tanpa mepersoalkan perbedaan agama dan suku. Tujuan ini hanya bisa dicapai bila masyarakatnya menyatu dan kompak satu sama lain.
+
+Para hadirin yang dirahmati Allah
+
+Berdasarkan sejarah singkat tersebut, ada kesesuaian antara kondisi Madinah saat Nabi saw baru hijrah dengan kondisi Indonesia saat ini. Yaitu beragamnya keyakinan dan suku. Nabi pada saat itu masih menjadi bagian minoritas, namun mampu menjadi komando untuk menyatukan seluruh pihak. Apalagi kita di sini selaku mayoritas, sudah sepatutnya memberikan teladan dalam persatuan dan perdamaian.
+
+Kita juga menyadari di dalam internal kita sendiri banyak perbedaan. Namun jangan sampai hal ini menjadi aral untuk tidak bersatu dan berdamai satu sama lain. Pada zaman yang semakin canggih ini, kita harus berfikir maju dan progresif demi membangun peradaban yang lebih baik daripada sebelumnya. Kita tidak boleh lagi disibukkan dengan hal-hal kontra produktif sehingga umat tidak kunjung berkembang.
+
+Tentu goal semacam ini membutuhkan waktu yang panjang. Namun tidak boleh pesimis, hal itu bisa dimulai dari hal-hal terkecil seperti saling membantu sama lain. Meskipun ada perbedaan dalam berbagai masalah keagamaan, namun tolong-menolong dan memberikan bantuan tidak boleh terhambat hanya disebabkan perbedaan.
+
+Terlebih dalam masalah kebaikan dan ketakwaan, kita harus berlomba-lomba untuk mengingatkan dan membantu saudara kita untuk melakukannya. Dalam surat Al-Maidah ayat 2 Allah berfirman:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَى وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ وَاتَّقُوا اللَّهَ إِنَّ اللَّهَ شَدِيدُ الْعِقَابِ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Dan kalian hendaklah tolong-menolong dalam kebaikan dan ketakwaan, dan janganlah kalian tolong-menolong dalam perbuatan dosa dan permusuhan. Dan hendaklah kalian bertakwa kepada Allah, sesungguhnya Allah (bersifat) sangat pedih siksaan-Nya.”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kalau kita mencermati ayat tersebut, redaksi yang digunakan bersifat perintah dan larangan. Kita diperintahkan saling membantu dalam kebaikan dan ketakwaan, dan pada saat yang sama kita dilarang untuk saling membantu dalam berbuat maksiat dan permusuhan, sebab kedua perbuatan tersebut akan menjadikan Allah murka. Ketika Allah murka maka akan menyiksa dengan siksaan yang pedih.
+
+Selain itu, kalau kita mencermati, ayat tersebut tidak membeda-bedakan umat Islam berdasarkan mazhab dan ormasnya. Selama statusnya sebagai muslim maka wajib hukumnya untuk diingatkan agar melakukan berbagai kebaikan dan hal-hal yang dapat meningkatkan ketakwaan.
+
+Sufyan bin ‘Uyainah saat ditanya perihal ayat tadi mengatakan: "Kita mengamalkan kebaikan dan ketakwaan, kemudian mengajaknya, membantunya, dan menunjukkan jalan terhadapnya." Artinya, kita harus mulai dari diri kita sendiri terlebih dahulu, setelah itu baru kita mengajak dan membantu orang lain untuk melakukan perbuatan tersebut.
+
+Jamaah shalat Idul Fitri hafizakumullah
+
+Kebaikan yang disebutkan di dalam ayat bersifat umum, sehingga mencakup dalam berbagai sektor kehidupan, seperti memberi bantuan terhadap korban bencana, sedekah kepada fakir miskin, dan menolong orang kecelakaan. Bahkan sekadar membuang barang membahayakan yang ada di jalan. Ini semua termasuk kebaikan, apalagi yang terakhir tadi biasa disebut sebagai tingkat iman paling bawah.
+
+Lebih dari itu, berbuat kebaikan tidak mesti menunggu momentum. Makanya dalam agama kita ada istilah infaq, sedekah, dan hadiah yang dapat diberikan kapan pun dan kepada siapa pun, termasuk orang kaya. Semua perbuatan ini akan bernilai ibadah karena ada unsur kebaikan berupa membahagiakan si penerimanya.
+
+Begitu juga ketakwaan dalam ayat tidak mesti melakukan ibadah mahdlah seperti shalat dan puasa. Ketakwaan bisa diwujudkan dengan tidak melakukan maksiat dan dosa, serta tidak bertikai satu sama lain.
+
+Meskipun jurang perbedaan cukup lebar, tapi selama tidak terjadi permusuhan antarsatu sama lain maka itu juga termasuk dari ketakwaan.
+
+Selain itu, termasuk juga tolong-menolong dalam kebaikan adalah memudahkan urusan dan menutup aib orang lain. Dalam hadis riwayat Muslim disebutkan:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَمَن يَسَّرَ علَى مُعْسِرٍ يَسَّرَ اللَّهُ عَلَيْهِ فِي الدُّنْيَا وَالآخِرَةِ، وَمَن سَتَرَ مُسْلِمًا سَتَرَهُ اللَّهُ في الدُّنْيَا وَالآخِرَةِ، وَاللَّهُ في عَوْنِ العَبْدِ مَا كَانَ العَبْدُ في عَوْنِ أَخِيهِ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Siapa saja yang memudahkan (urusan) orang yang sedang kesulitan maka Allah akan memudahkan urusannya di dunia dan akhirat. Siapa saja yang menutup aib seorang muslim maka Allah akan menutup aibnya di dunia dan akhirat. Dan sejatinya Allah berada dalam pertolongan seorang hamba selama hamba tersebut menolong saudaranya.” (HR Muslim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Para hadirin yang dimuliakan Allah
+
+Saling tolong-menolong merupakan simbol persatuan sebuah umat, yang akan berdampak pada menciptakan solidaritas sosial yang sangat kuat. Selaku umat mayoritas di negeri ini, kita mempunyai beban moral yang cukup berat dalam masalah sosial semacam ini. Karenanya kita harus satu suara dalam persoalan ini.
+
+Kita harus menjadikan anugerah mayoritas sebagai ajang untuk berkontribusi dalam membangun peradaban. Kita ambil peran kita masing-masing sesuai potensi yang kita miliki, kita gali dan asah lalu mengembangkannya. Pada momen Idul Fitri ini, marilah kita bertekad untuk tidak lagi mengotak-otakkan diri atau masyarakat. Kita harus berada di bawah satu naungan umat Islam, memberikan bantuan dan kontribusi sesuai kemampuan, sehingga terciptalah komunitas Islam yang kompak dan saling peduli satu sama lain.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''بَارَكَ الله لِي وَلَكُمْ فِي اْلقُرْآنِ اْلعَظِيْمِ وَنَفَعَنِي وَإِيَّاكُمْ بِمَا فِيْهِ مِنَ اْلآيَاتِ وَذِكْرِ الْحَكِيْمِ. أَقُوْلُ قَوْلِي هَذَا فَأسْتَغْفِرُ اللهَ العَظِيْمَ إِنَّهُ هُوَ الغَفُوْرُ الرَّحِيْمِ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَلِلَّهِ الْحَمْدُ ،(x 7) اَللهُ أكْبَرُ اَللهُ أكْبَرُ مَا ذَكَرَهُ الذَّاكِرُوْنَ، اَللهُ أكْبَرُ مَا حَمِدَهُ الْحَامِدُوْنَ، اَللهُ أكْبَرُ مَا تَقَلَّبَ اللَّيْلُ وَالنَّهَارُ،اَللهُ أكْبَرُ فِي كُلِّ حَالٍ وَفِي سَائِرِ الظُّرُوْفِ وَالْأَحْوَالِ، اَللهُ أكْبَرُ مَا أَقْبَلَ التَّائِبُوْنَ إِلَى رَبِّهِمْ مُسْتَغْفِرِيْنَ، اَللهُ أكْبَرُ مَا تَجَلَّى اللهُ عَلَى عِبَادِهِ فِي هَذَا الشَّهْرِ الْمُبَارَكِ وَفِي سَائِرِ الشُّهُوْرِ وَالْأَيَّامِ بِالرَّحْمَةِ وَالْغُفْرَانِ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلّٰهِ حَمْدًا كَثِيْرًا كَمَا اَمَرَ، اَشْهَدُ اَنْ لَا اِلَهَ اِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ اِرْغَامًا لِمَنْ جَحَدَ بِهِ وَ كَفَرَ، وَاَشْهَدُ اَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ سَيِّدُ الْخَلَاِئِقَ وَالْبَشَرِ. اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى اَلِهِ وَاَصْحَابِهِ وَ سَلِّمْ تَسْلِيْمًا كَثِيْراً۰ اَمَّا بَعْدُ ۰ فَيَاعِبَادَ ﷲ ... اتَّقُوا اللّٰهَ حَقَّ تُقٰىتِهٖ وَلَا تَمُوْتُنَّ اِلَّا وَاَنْتُمْ مُّسْلِمُوْنَ. قَالَ اللهُ تَعَالى فِيْ الْقُرْآنِ ﺍﻟْﻌَﻈِﻴْﻢِ: ﺇِﻥَّ ﺍﻟﻠّٰﻪَ ﻭَﻣَﻼَﺋِﻜَﺘَﻪُ ﻳُﺼَﻠُّﻮْﻥَ ﻋَﻠَﻰ ﺍﻟﻨَّﺒِﻲِّ، ﻳَﺎ ﺃَﻳُّﻬﺎَ ﺍﻟَّﺬِﻳْﻦَ ﺀَﺍﻣَﻨُﻮْﺍ ﺻَﻠُّﻮْﺍ ﻋَﻠَﻴْﻪِ ﻭَﺳَﻠِّﻤُﻮْﺍ ﺗَﺴْﻠِﻴْﻤًﺎ ... ﺍَﻟﻠَّﻬُﻢَّ ﺻَﻞِّ ﻋَﻠَﻰ سَيِّدِنَا ﻣُﺤَﻤَّﺪٍ ﻭَﻋَﻠَﻰ ﺁلهِ وَصَحْبِهِ اَجْمَعِيْن اللَّهُمَّ اغْفِرْ لِلْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ، وَتَجَاوَزْ عَنْهُمْ السَيِّئَاتِ وَارْفَعْ لَهُمُ الدَّرَجَاتِ. اللَّهُمَّ أَصْلِحْنَا وَأَصْلِحْ أَحْوَالَنَا، وَأَصْلِحْ مَنْ فِي صَلَاحِهِمْ صَلَاحُنَا وَصَلَاحُ الْمُسْلِمِيْنَ، وَأَهْلِكْ مَنْ فِي هَلَاكِهِمْ صَلَاحُنَا وَصَلَاحُ الْمُسْلِمِيْنَ. اللَّهُمَّ وَحِّدْ صُفُوْفَ الْمُسْلِمِيْنَ، وَارْزُقْنَا وَإِيَّاهُمْ زِيَادَةَ التَّقْوَى وَالْإِيْمَانِ. اللَّهُمَّ ارْزُقْنَا حُبَّكَ وُحُبَّ نَبِيِّكَ، وَحُبَّ مَنْ أَحَبَّكَ وَأَحَبَّ نَبِيَّكَ. اللَّهُمَّ ارْزُقْنَا مُتَابَعَةَ نَبِيِّكَ وَالتَّمَسُّكَ بِكِتَابِكَ وَبِسُنَّةِ نَبِيِّكَ، وَلَا تَجْعَلْ مُصِيْبَتَنَا فِي دِيْنِنَا، وَلَا تَجْعَلْ الدُنْيَا أَكْبَرَ هَمِّنَا وَلَا مَبْلَغَ عِلْمِنَا، وَاجْعَلْ الجَنَّةَ هِيَ دَارُنَا وَقَرَارُنَا، وَلَا إِلَى النَّارِ مَصِيْرُنَا. اَللهُ أكْبَرُ، اَللهُ أكْبَرُ،اَللهُ أكْبَرُ، لَا إِلهَ إِِلَّا اللهُ وَاللهُ أكْبَرُ، اَللهُ أكْبَرُ وَللهِ الْحَمْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz M Syarofuddin Firdaus''',
+        },
+      ]
+    },
+    {
+      'title': 'Khutbah Idul Fitri: Hari Raya Fitri dan Sikap Memaafkan',
+      'date': '1 Syawal 1444 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Naskah khutbah Idul Fitri ini mengajak jamaah untuk membangun sikap memaafkan terutama dalam momentum lebaran. Khutbah ini berjudul: "Khutbah Idul Fitri: Hari Raya Fitri dan Sikap Memaafkan".
+
+Untuk mencetak naskah Khutbah Idul Fitri, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan dekstop). Semoga bermanfaat! (Redaksi).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهْ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''(x 9)بِسْمِ اللهِ الرّحْمنِ الرَّحِيمِ. اَللهُ أَكْبَرْ اَللهُ أَكْبَرْ كَبِيرًا وَالْحَمْدُ للهِ كَثِيرًا وَسُبْحَانَ اللهِ بُكْرَةً وَأَصِيلًا. لَا إِلهَ إِلَّا اللهُ وَحْدَهْ، صَدَقَ وَعْدَهْ، وَنَصَرَ عَبْدَهْ، وَأَعَزَّ جُنْدَهْ، وَهَزَمَ الْأَحْزَابَ وَحْدَهْ. لَا إِلهَ إِلَّا اللهُ وَاللهُ أَكْبَرْ. اَللهُ أَكْبَرُ وَللهِ الْحَمْدُ اَلْحَمْدُ للهِ الَّذِي جَعَلَ الْعِيدَ مِنْ أَكْبَرِ شَعَائِرِ الْإِسْلَامِ، وَأَشْهَدُ أَنْ لَا إِلهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ الْمُلْكُ الْعَلَّامِ، رَبَّنَا الَّذِي يَنْبُعُ مِنْهُ السَّلَامُ وَإِلَيْهِ يَعُودُ السَّلَامُ، فَحَيِّنَا رَبَّنَا بِالسَّلَامِ وَأَدْخِلْنَا الْجَنَّةَ دَارَ السَّلَامِ، تَبَارَكْتَ رَبَّنَا وَتَعَالَيْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ. وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ الَّذِي أَمَرَ أُمَّتَهُ بِالصَّلَاةِ وَالسَّلَامِ عَلَى مَنْ دَعَا لِهُدَى الْإِسْلَامٍ. اَللّهُمَّ فَصَلِّ وَسَلِّمْ وَبَارِكْ عَلَى نَبِىِّ الْإِِسْلَامِ وَرَسُولِ السَّلَامِ مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ الْكِرَامِ وَمَنْ تَبِعَهُ بَإِيمَانٍ وَإِسْلَامٍ وَإِحْسَانٍ إِلَى دَارِ السَّلَامِ أَمَّا بَعْدُ، فَيَا أَيُّهَا الْمُسْلِمُونَ رَحِمَكُمُ اللهِ: أُوصِينِيْ وَإِيَّاكُمْ بِتَقْوَى اللهِ وَطَاعَتِهِ لَعَلَّكُمْ تُفْلِحُونَ، وَاعْلَمُوا أَنَّ أَكْرَمَكُمْ عِنْدَ اللهِ أَتْقَاكُمْ قَالَ اللهُ تَعَالَى: خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ وَأَعْرِضْ عَنِ الْجَاهِلِينَ. وَقَالَ: الَّذِينَ يُنْفِقُونَ فِي السَّرَّاءِ وَالضَّرَّاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ وَاللهُ أَكْبَرْ،وَاللهُ أَكْبَرْ،وَاللهُ أَكْبَرْ، وَللهِ الْحَمْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah Idul Fitri yang dimuliakan oleh Allah
+
+Hari Raya Idul Fitri dikenal juga sebagai hari saling memaafkan. Dalam momentum hari raya Idul Fitri yang mulia dan suci, kita sama-sama menyucikan diri dari segala kesalahan kepada Allah swt dan kepada manusia.
+
+Hal ini kita lakukan agar menjadikan amal ibadah Ramadan kita lebih bermakna untuk diri kita. Karena sebagai manusia biasa. kita tidak dapat lepas dari segala kesalahan. Terkadang, kita tidak sengaja melukai orang lain dengan ucapan kita. Kita juga tidak menyadari perbuatan kita dapat menyakiti orang lain, meskipun tidak disengaja. Karena itu, meminta maaf dan memaafkan adalah salah satu hal yang penting untuk dilakukan pada momentum Idul Fitri.
+
+Kita tidak ingin menjadi hamba yang merugi hanya karena kesalahan-kesalahan kepada sesama manusia belum dimaafkan oleh orang lain. Seperti gambaran yang diceritakan Nabi Muhammad saw yang diriwayatkan oleh Imam Muslim:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''قَالَ: أَتَدْرُونَ مَا الْمُفْلِسُ؟ قَالُوا: الْمُفْلِسُ فِينَا مَنْ لَا دِرْهَمَ لَهُ وَلَا مَتَاعَ، فَقَالَ: إِنَّ الْمُفْلِسَ مِنْ أُمَّتِي يَأْتِي يَوْمَ الْقِيَامَةِ بِصَلَاةٍ، وَصِيَامٍ، وَزَكَاةٍ، وَيَأْتِي قَدْ شَتَمَ هَذَا، وَقَذَفَ هَذَا، وَأَكَلَ مَالَ هَذَا، وَسَفَكَ دَمَ هَذَا، وَضَرَبَ هَذَا، فَيُعْطَى هَذَا مِنْ حَسَنَاتِهِ، وَهَذَا مِنْ حَسَنَاتِهِ، فَإِنْ فَنِيَتْ حَسَنَاتُهُ قَبْلَ أَنْ يُقْضَى مَا عَلَيْهِ أُخِذَ مِنْ خَطَايَاهُمْ فَطُرِحَتْ عَلَيْهِ، ثُمَّ طُرِحَ فِي النَّارِ''',
+          'latin': '''''',
+          'translation': '''Artinya, "Nabi berkata: "Tahukah kamu siapa orang bangkrut?" Sahabat berkata: "Wahai Rasulullah, orang yang bangkrut menurut kami adalah orang yang tidak punya dirham dan harta benda."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kemudian Nabi berkata: "Orang yang bangkrut dari umatku adalah orang yang datang pada hari kiamat dengan membawa pahala shalat, zakat, puasa, dan haji. Selain itu ia juga membawa dosa karena memaki, memukul, dan mengambil harta benda orang lain.
+
+Kemudian kebaikannya diambil dan diberikan kepada orang yang dizaliminya. Ketika kebaikannya habis padahal kezalimannya belum dibayarkan semua, maka dosa orang-orang yang dizaliminya akan diberikan kepadanya, dan kemudian ia dihempaskan ke dalam neraka." (HR Muslim).
+
+Syekh Mula ‘Ali Al-Qari dalam kitab Mirqatul Mafatih juz IX halaman 314 menjelaskan hadits ini dengan ungkapan:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَفِيهِ إِشْعَارٌ بِأَنَّهُ لَا عَفْوَ وَلَا شَفَاعَةَ فِي حُقُوقِ الْعِبَادِ إِلَّا أَنْ يَشَاءَ اللَّهُ يَرْضَى خَصْمُهُ بِمَا أَرَادَ''',
+          'latin': '''''',
+          'translation': '''Artinya, "Dalam hadis ini terdapat petunjuk bahwa kesalahan terkait hak manusia tidak akan diberikan ampunan dan pertolongan, kecuali Allah menghendaki membuat orang lain yang bermasalah dengannya menjadi rela dengan cara yang Allah kehendaki."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kesalahan seseorang kepada orang lain tidak bisa diampuni oleh Allah seara langsung karena hal ini terkait dengan hak manusia. Hak manusia harus diselesaikan di antara sesama manusia di dunia atau di akhirat. Di dunia, diselesaikan dengan saling memaafkan, sedangkan di akhirat, diselesaikan dengan perhitungan amal baik dan amal buruk masing-masing manusia.
+
+Jamaah Idul Fitri yang dimuliakan oleh Allah
+
+Dengan menyadari potensi perbuatan kesalahan manusia dan dampak berat yang akan ditanggung di akhirat jika kesalahan tersebut belum diselesaikan di dunia, maka sudah sepatutnya kita saling memaafkan satu sama lain.
+
+Perilaku ini sangat dianjurkan oleh Rasulullah saw  Bahkan Rasulullah saw memberikan batasan waktu selama tiga hari untuk kita memberikan maaf kepada orang lain yang berbuat salah kepada kita.
+
+Tiga hari adalah angka yang merupakan simbol dari pengertian bahwa jangankan satu tahun, tiga hari saja memendam rasa buruk kepada saudara sudah tidak diperbolehkan. Hadis ini diriwayatkan oleh Imam Al-Bukhari dan Imam Muslim meriwayatkan:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''لاَ يَحِلُّ لِرَجُلٍ أَنْ يَهْجُرَ أَخَاهُ فَوْقَ ثَلاَثِ لَيَالٍ، يَلْتَقِيَانِ: فَيُعْرِضُ هَذَا وَيُعْرِضُ هَذَا، وَخَيْرُهُمَا الَّذِي يَبْدَأُ بِالسَّلاَمِ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Seorang muslim tidak boleh mendiamkan saudaranya melebihi tiga malam (hari), kemudian keduanya bertemu dan saling memalingkan wajah mereka. Sesungguhnya yang terbaik di antara keduanya adalah yang mau memulai menegur dengan salam.” (Muttafaqun 'alaih).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sebagian ulama mengatakan bahwa batasan tiga hari ini adalah kelonggaran yang diberikan Nabi saw untuk seorang Muslim sebagai manusia biasa yang sedang dikuasai rasa marah kepada saudaranya. Imam Al-Qasthalani mengutip pendapat ini dalam kitab Irsyadus Sari juz XIII halaman 93 ketika menjelaskan hadis Shahih Al-Bukhari sebagai berikut:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَيُبَاحُ فِي الثَّلَاثِ بِالْمَفْهُوْمِ وَإِنَّمَا عُفِيَ عَنْهُ فِي ذلِكَ لِأَنَّ الآدَمِيَّ مَجْبُوْلٌ عَلَى الْغَضَبِ فَسُوْمِحَ بِذلِكَ الْقَدَرِ لِيَرْجِعَ وَيَزُوْلَ ذلِكَ الْعَارِضُ عَنْهُ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Diperbolehkan mendiamkan orang lain selama tiga hari sesuai pemahaman hadis ini. Kebolehan menjauhi saudara adalah karena manusia adalah makhluk yang dikuasai oleh rasa marah, maka hal ini ditolerir dengan batasan tiga hari, agar rasa marah itu bisa dihilangkan dari dirinya”.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Di sisi lain, hadits tidak berarti kita boleh melakukan permusuhan dan memendam rasa buruk kepada orang lain selama tidak melewati tiga hari. Akan tetapi hadits menjelaskan bahwa perilaku tersebut tidak pantas dilakukan oleh seorang Muslim, meskipun hanya dalam waktu sebentar saja. Seharusnya seorang Muslim tidak memiliki rasa permusuhan dengan saudaranya.
+
+Hal ini ditegaskan oleh Syekh Mula ‘Ali Al-Qari dalam kitab Mirqatul Mafatih juz IX halaman 230:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَنَّ مُطْلَقَ الْغَضَبِ الْمُؤَدِّي إِلَى مُطْلَقِ الْهِجْرَانِ يَكُونُ حَرَامًا''',
+          'latin': '''''',
+          'translation': '''Artinya, “Sungguh kemarahan mutlak yang mengakibatkan seseorang mendiamkan saudaranya secara mutlak hukumnya haram.”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Nabi saw menjelaskan di akhir hadits bahwa jika terjadi permusuhan dan jarak antara kedua orang Muslim, maka yang terbaik dari keduanya bukan orang yang memberikan maaf, akan tetapi orang yang meminta maaf pertama kali.
+
+Jamaah Idul Fitri yang dimuliakan oleh Allah
+
+Memberi maaf juga merupakan karakter sangat mulia di dalam Islam. Keutamaannya tidak kalah tinggi dari meminta maaf. Sifat ini menunjukan karakter keindahan, kekuatan, dan kerendahan hati seseorang adalah memaafkan kesalahan orang lain.
+
+Dengan memaafkan dan tidak memendam rasa, seseorang akan mendapatkan ketenangan jiwa sebagai buah proses pendewasaan hati dalam menghadapi segala macam kondisi buruk yang ada di hadapannya. Karakter memaafkan juga akan melahirkan kedermawanan, kepedulian sosial, dan hubungan baik antar anggota masyarakat.
+
+Jalaluddin Abdurrahman mengatakan bahwa setiap ajaran Islam yang tertuang dalam teks suci Al-Quran dan hadits mengandung kemaslahatan, baik dari segi agama, keturunan, jiwa, akal, maupun harta. Nabi saw bersabda sebagaimana diriwayatkan Imam At-Thabarani dalam kitab Al-Mu'jamul Kabir juz XVII halaman 269:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يَا عُقْبَةُ أَلَا أُخْبِرُكَ بِأَفْضَلِ أَهْلِ الدُّنْيَا وَأَهْلِ الْآخِرَةِ: تَصِلُ مَنْ قَطَعَكَ، وَتُعْطِي مَنْ حَرَمَكَ، وَتَعْفُو عَمَّنْ ظَلَمَكَ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Wahai ‘Uqbah, aku kabarkan kepadamu akhlak terbaik penghuni dunia dan akhirat: saat kamu mau menyambung hubungan orang yang memutuskannya, memberikan sesuatu orang yang menjauhkanmu, dan memaafkan kesalahan orang yang menzalimimu”. (HR At-Thabarani).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadis ini disampaikan Nabi saw ketika turun ayat 199 surat Al-A’raf yang berbunyi:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ وَأَعْرِضْ عَنِ الْجَاهِلِينَ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Maafkanlah dan suruhlah orang mengerjakan yang makruf, serta jangan pedulikan orang-orang yang bodoh.”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dalam hadits lain disebutkan, ketiga karakter ini akan memberikan kemudahan dalam perhitungan amal dan masuk surga. Nabi saw bersabda dalam hadits yang diriwayatkan oleh Imam Al-Hakim dalam kitab Al-Mustadrak juz I halaman 563:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''ثَلَاثٌ مَنْ كُنَّ فِيهِ حَاسَبَهُ اللَّهُ حِسَابًا يَسِيرًا وَأَدْخَلَهُ الْجَنَّةَ بِرَحْمَتِهِ. قَالُوا: لِمَنْ يَا رَسُولَ اللَّهِ؟ قَالَ: تُعْطِي مَنْ حَرَمَكَ، وَتَعْفُو عَمَّنْ ظَلَمَكَ، وَتَصِلُ مَنْ قَطَعَكَ. قَالَ: فَإِذَا فَعَلْتُ ذَلِكَ، فَمَا لِي يَا رَسُولَ اللَّهِ؟ قَالَ: أَنْ تُحَاسَبَ حِسَابًا يَسِيرًا وَيُدْخِلَكَ اللَّهُ الْجَنَّةَ بِرَحْمَتِهِ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Tiga hal yang menjadikan seseorang akan dihisab oleh Allah dengan mudah dan akan dimasukkan ke dalam surga dengan Rahmat-Nya. Para sahabat bertanya, bagi siapa ya Rasulullah?"''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jawabnya, "Engkau memberi orang yang menghalangimu, engkau memaafkan orang yang mendzalimimu, dan engkau menjalin persaudaraan dengan orang yang memutuskan silaturahim denganmu.
+
+Lalu ditanyakan: "Jika saya melakukannya, apa yang saya dapat ya Rasulullah?" Jawabnya: "Engkau akan dihisab dengan hisab yang ringan dan Allah akan memasukkanmu ke dalam surga dengan rahmat-Nya”.
+
+Jamaah Idul Fitri yang dimuliakan oleh Allah
+
+Sikap memberi maaf bukan berarti seseorang menjadi kalah. Sikap memberi maaf juga bukan berarti seseorang menjadi lebih hina dan rendah karena harga dirinya diinjak-injak, tanpa adanya perlawanan. Hal ini yang masih menjadi permasalahan di sebagian manusia yang menganggap bahwa harga dirinya harus dijaga dengan cara tidak memberikan maaf kepada orang yang berbuat salah kepadanya. Rasulullah saw bersabda dalam hadis yang dikutip oleh Imam Muslim dalam kitab Shahih Muslim:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''مَا نَقَصَتْ صَدَقَةٌ مِنْ مَالٍ، وَمَا زادَ اللهُ عَبْداً بعَفْوٍ إِلاَّ عِزّاً، وَمَا تَوَاضَعَ أحَدٌ للهِ إِلاَّ رَفَعَهُ اللهُ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Tidaklah sedekah mengurangi harta, dan tidaklah Allah menambah bagi seorang hamba dengan pemberian maafnya (kepada saudaranya) kecuali kemuliaan. Tidaklah seseorang merendahkan diri karena Allah kecuali Dia akan meninggikan derajatnya”. (HR Muslim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Keutamaan orang yang memberi maaf kepada orang lain adalah dicintai, disukai, dan dimuliakan oleh orang-orang sekitarnya karena dengan karakter tersebut, dia akan disegani oleh orang lain. Di dalam hati orang lain, ia menempati tempat yang terhormat. Imam At-Thibi berkata:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''فَإِنَّهُ إِذَا عُرِفَ بِالْعَفْوِ سَادَ وَعَظُمَ فِي الْقُلُوبِ وَزَادَ عِزُّهُ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Jika seseorang dikenal dengan karakter pemaaf, maka dia akan menjadi mulia di dalam hati orang lain, serta kehormatannya akan bertambah”.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Karena itu, salah besar jika memberi maaf berarti kalah dan menjadi hina.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah Idul Fitri yang dimuliakan oleh Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Memberi maaf memang perilaku yang sangat mulia, akan tetapi ada hal yang jauh lebih mulia lagi untuk bisa dilakukan ketika ada orang yang berbuat salah, yaitu membalas kesalahan orang lain dengan kebaikan.
+
+Memberi maaf adalah satu kemuliaan, tetapi membalas kesalahan orang dengan kebaikan adalah kemuliaan tersendiri yang berada di puncak kesempurnaan seorang manusia. Dalam hal ini, Allah swt memerintahkan kita untuk memiliki karakter seperti ini dalam surat Al-Mu’minun ayat 96:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اِدْفَعْ بِالَّتِيْ هِيَ اَحْسَنُ السَّيِّئَةَۗ نَحْنُ اَعْلَمُ بِمَا يَصِفُوْنَ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Balaslah keburukan (mereka) dengan (perbuatan) yang lebih baik. Kami lebih mengetahui apa yang mereka sifatkan”.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Karakter ini dahulu hidup di zaman Nabi saw dan para sahabat, sampai para ulama berhasil mewariskan dan mengamalkan karakter ini.
+
+Dahulu, dikisahkan ada seorang lelaki tua yang sedang duduk santai di tepi danau. Tiba-tiba, ia melihat kalajengking terjatuh di danau. Ia mengambil sebatang kayu untuk menolong kalajengking. Setelah berhasil meraih kalajengking dengan sebatang kayu, ternyata kelajengking menyengatnya dan ia melepaskan kayu tersebut karena rasa sakit.
+
+Hal itu tidak membuatnya menyerah untuk menolong kalajengking, hingga ia lakukan sampai tiga kali. Ketika ia mencoba menolong ketiga kali, muncul seorang pemuda yang berkata kepadanya: "Kenapa anda tidak jera setelah disengat oleh kalajengking yang pertama dan kedua, dan anda masih mau menolong untuk ketiga kalinya?" 
+
+
+Orang tua tersebut kemudian berkata kepada pemuda:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يَا بُنَيَّ، مِنْ طَبْعِ الْعَقْرَبِ أَنْ يَلْسَعَ، وَمِنْ طَبْعِي أَنْ أُحِبَّ وَأَعْطَفَ. فَلِمَاذَا تُرِيدُنِي أَنْ أَسْمَحَ لِطَبْعِهِ أَنْ يَتَغَّلَبِ عَلَى طَبْعِي؟ عِامِلِ النَّاسَ بِطَبْعِكْ، لَا بِأَطْبَاعِهِمْ، مَهْمَا كَانَتْ تَعَامُلَاتُهُمْ وَتَصَرُّفَاتُهُمْ جَارِحَةً وَمُؤْلِمَةً، وَلَا تَأْبَهْ لِتِِلْكَ التَّصَرُّفَاتِ السَّيِّئَةِ. وَاحْذَرْ أَنْ تَجْعَلَكَ تَتْرُكَ صِفَاتِكَ النَّبِيلَةَ''',
+          'latin': '''''',
+          'translation': '''Artinya , “Wahai pemuda, karakter kalajengking memang menyengat kepada siapa saja, sedangkan karekterku adalah pencinta dan penyayang. Kenapa anda meminta saya untuk merubah karakter saya menjadi karakter kalajengking?''',
+        },
+        {
+          'type': 'text',
+          'content': '''Berinteraksilah dengan orang lain dengan karakter anda sendiri, bukan dengan karakter mereka, meskipun cara mereka memperlakukanmu tidak baik dan menyakitimu. Jangan terpengaruh dengan perilaku orang lain dan hati-hati jangan sampai hal itu membuat anda kehilangan karakter mulia anda”.
+
+Kisah ini sangat inspiratif bagi orang-orang yang sudah terlanjur disakiti oleh orang lain, bahwa perilaku orang lain tersebut tidak boleh menjadi cerminan diri. Bercerminlah dengan diri sendiri, sehingga tidak dipengaruhi dengan kondisi lingkungan apapun. Tetaplah menjadi cahaya di dalam kegelapan. Tetaplah menjadi orang pemaaf dan baik hati, meskipun di tengah lingkungan yang buruk karena bisa jadi hal ini akan mengubah lingkungan di sekitar.
+
+Jamaah Idul Fitri yang dimuliakan oleh Allah
+
+Di hari yang indah dan mulia ini, di antara perilaku terbaik yang perlu disebarluaskan adalah saling memaafkan sebagai pertanda kesucian hati setelah ditempa selama satu bulan lamanya untuk mengambil hikmah yang tersimpan dalam berpuasa. Nabi bersabda sebagaimana yang diriwayatkan Imam Abu Dawud:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''مَا مِنْ مُسْلِمَيْنِ يَلْتَقِيَانِ، فَيَتَصَافَحَانِ إِلَّا غُفِرَ لَهُمَا قَبْلَ أَنْ يَفْتَرِقَا''',
+          'latin': '''''',
+          'translation': '''Artinya, “Tidaklah kedua muslim bertemu dan saling berjabat tangan, kecuali diampuni dosa keduanya sebelum keduanya berpisah.” (HR Abu Dawud).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Berjabat tangan dengan untaian kata selamat, doa, dan saling memaafkan adalah aktivitas sederhana yang jika dilakukan dengan maksimal dan kolektif akan menumbuhkan kesalehan spiritual personal dan sosial.
+
+Semoga kita dapat menangkap pesan mulia Idul Fitri di hari yang agung ini. Amin.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَقُولُ قَوْلِي هَذَا وَأَسْتَغْفِرُ اللهَ الْعَظِيمُ لِي وَلَكُمْ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''(x 7) ،اللهُ أكْبَرُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الْحَمدُ للهِ حَمْداً كَثِيْراً طَيِّباً مُبَاركَاً فِيْهِ كَمَا يُحِبُّ رَبُّنَا وَيَرْضَى، وَأَشْهَدُ أنْ لاَ إلَهَ إلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، وَأَشْهَدُ أنَّ مُحَمَّداً عَبْدُهُ وَرَسُوْلُهُ، أمَّا بَعْدُ: فَيَا أيُّهَا النَّاسُ، اِتَّقُوا اللهَ تَعَالَى حَقَّ التَّقْوَى. وَاعْلَمُوْا أنَّ اللهَ أمَرَكُمْ بَدَأَ فِيْهِ بِنَفْسِهِ وَثَنَّى بِمَلاَئِكَتِهِ الْمُسَبِّحَةِ بِقُدْسِهِ وَقَالَ تَعَالى: إنَّ اللهَ وَمَلائِكَتِهِ يُصَلُّوْنَ عَلىَ النَّبِيِّ يَا أيُّها الَّذِيْنَ آمَنُوْا صَلُوْا عَلَيْهِ وَسَلِّمُوْا تَسْلِيْمًا''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''،اَللّهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا وَشَفِيْعِنَا مُحَمَّدٍ وَعَلىَ آلِهِ وَأصْحَابِهِ أجْمَعِيْنَ وَارْضَ اللّهُمَّ عَنِ الْخُلَفَاءِ الرَّاشِدِيْنَ سَيِّدِنَا أَبِي بَكْرٍ الصِّدِّيْقِ وَعُمَرَ وَعُثْمَانَ وَعَلِيٍّ وَعَنْ كُلِّ الصَّحَابَةِ وَالتَّابِعِيْنَ وَتَابِعِي التَّابِعِيْنَ وَمَنْ تَبِعَهُمْ إلىَ يَوْمِ الدِّيْنِ، وَعَلَيْنَا مَعَهُمْ بِرَحْمَتِكَ يَا أرْحَمَ الرَّاحِمِيْنَ. اَللّهُمَّ اغْفِرْ لِلْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ الأحْيَاءِ مِنْهُمْ وَالأمْوَاتِ إنَّكَ سَمِيْعٌ قَرِيْبٌ مُجِيْبُ الدَّعَوَاتِ يَا قَاضِيَ الحْاَجَاتِ بِرَحْمَتِكَ يَا أرْحَمَ الرَّاحِمِيْنَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dr. Fatihunnada, Lc., M.A., Dosen Fakultas Dirasat Islamiyah UIN Syarif Hidayatullah Jakarta, Komisi Fatwa MUI Pusat, dan Pengurus Lembaga Bahtsul Masail PCNU Kab. Bekasi''',
+        },
+      ]
+    },
+    {
+      'title': 'Khutbah Idul Fitri: Merajut Tali Persaudaraan di Hari Raya Idul Fitri',
+      'date': '1 Syawal 1444 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Naskah khutbah Idul Fitri ini mengajak jamaah untuk merajut dan menjaga tali persaudaraan sesama bangsa Indonesia, di antaranya adalah dengan cara tetap menjaga silaturahim dan juga menjaga lisan.
+
+Khutbah Idul Fitri ini berjudul, “Khutbah Idul Fitri: Merajut Tali Persaudaraan di Hari Raya Idul Fitri”. Untuk mencetaknya, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat!''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُ أَكْبَرُ اللهُ أَكْبَرُ اللهُ أَكْبَرُ، اللهُ أَكْبَرُ اللهُ أَكْبَرُ اللهُ أَكْبَرُ، اللهُ أَكْبَرُ اللهُ أَكْبَرُ اللهُ أَكْبَرُ، وَلِلّٰهِ الْحَمْدُ، اللهُ أَكْبَرُ كَبِيرًا، وَالْحَمْدُ لِلَّهِ كَثِيرًا، وَسُبْحَانَ اللهِ وَبِحَمْدِهِ بُكْرَةً وَأَصِيْلًا، وَنَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ، وَلَا نَعْبُدُ إِلَّا إِيَّاهُ، وَنَشْهَدُ أَنَّ سَيِّدَنَا وَنَبِيَّنَا مُحَمَّدًا رَسُوْلُ اللهِ، وَرَحْمَتُهُ الْمُهْدَاةُ، صَلَّى اللهُ وَسَلَّمَ وَبَارَكَ عَلَى سَيِّدِنَا مُحَمَّدٍ، وَعَلَى آلِهِ وَأَصْحَابِهِ الطَّيِّبِيْنَ الطَّاهِرِيْنَ. أمَّا بَعْدُ، فَأُوصِيْكُمْ وَنَفْسِي بِتَقْوَى اللّٰهِ، قَالَ تَعَالَى: إِنَّمَا ٱلْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا۟ بَيْنَ أَخَوَيْكُمْ وَٱتَّقُوا۟ ٱللَّهَ لَعَلَّكُمْ تُرْحَمُونَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma’asyiral Muslimin Jamaah ‘Id yang Berbahagia
+
+Marilah dalam kesempatan mengawali bulan Syawal 1445 H/2024 M ini, kita bersama-sama meningkatkan ketakwaan kita kepada Allah SWT. dengan senantiasa melaksanakan segala perintah-Nya dan berusaha secara maksimal meninggalkan segala larangan-Nya.
+
+Limpahan rasa syukur kita panjatkan kepada Allah SWT. yang telah memberikan nikmat-Nya kepada kita sehingga pada kesempatan idul fitri kali kita bisa merasakan nikmatnya hidup, sehat dan konsisten dalam keimanan dan keislaman kita. Syukur pula kita panjatkan kepada-Nya yang telah menakdirkan kita hidup di Indonesia, negeri yang aman, damai, sentausa dengan bangsanya yang murah senyum, penuh kasih, toleran dan mengutamakan persatuan serta persaudaraan.
+
+Salawat beserta salam semoga terlimpahkan kepada Nabi Muhammad SAW. yang telah mengajari kita bahwa kita semua, sesama muslim adalah bersaudara.
+
+Allahu Akbar Allahu Akbar Allahu Akbar
+
+Ma’asyiral Muslimin Jamaah ‘Id Rahimakumullah
+
+Syawal adalah bulan bahagia, gembira, dan bersama. Ketiga hal tersebut hanya akan terwujud apabila kita mengutamakan rasa persaudaraan, kekeluargaan dan saling peduli. Setelah selama bulan Ramadhan kita dilatih untuk menahan diri, maka Idul Fitri menjadi identitas kemenangan umat Islam setelah berhasil lulus dari ujian pengekangan hawa nafsu.
+
+Sungguh Maha Benar Allah yang telah mensyariatkan zakat fitrah di penghujung bulan Ramadhan sebagai bentuk amalan sosial kita setelah sebulan kita berfokus beribadah kepada Allah SWT. ini tentunya merupakan pelajaran berharga bahwa persaudaraan merupakan hal yang teramat penting bagi setiap pribadi muslim.
+
+Allah SWT. telah memberikan peringatan yang cukup tegas dalam Surat al-Hujurat ayat 10, sebagaimana berikut:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ ۚ وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُرْحَمُونَ''',
+          'latin': '''''',
+          'translation': '''Artinya: "Orang-orang beriman itu sesungguhnya bersaudara. Sebab itu damaikanlah (perbaikilah hubungan) antara kedua saudaramu itu dan takutlah terhadap Allah, supaya kamu mendapat rahmat,"''',
+        },
+        {
+          'type': 'text',
+          'content': '''Imam Asy Syaukani dalam kitab Tafsir Fathul Qadir, menjelaskan bahwa ayat ini mengajarkan pada kita pentingnya hidup damai yang dititikberatkan pada asal usul keimanan. Jika pun ada perselisihan, maka harus dicari solusi terbaik mendamaikan keduanya. Jangan sampai ada darah yang mengalir atau pembunuhan, sebab akan dihukumi kafir jika ada orang Islam yang membunuh orang Islam lainnya.
+
+Lebih lanjut, dalam kitab Tafsir Mafatihul Ghaib, Imam Fahruddin Ar Razi juga memberikan penjelasan bahwa ayat di atas merupakan petunjuk tentang pentingnya kehidupan damai.
+
+Hal yang paling utama dalam hidup adalah persaudaraan, bukan dengan saling membunuh dan perang. Sebab awal mula dari perang adalah fitnah dan tidak saling memahami perbedaan. Maka kehidupan damai itu menjadi sebuah jalan hidup yang paling baik.
+
+Allahu Akbar Allahu Akbar Allahu Akbar,
+
+Ma’asyiral Muslimin Jamaah ‘Id Rahimakumullah
+
+Ajaran Islam menitikberatkan pada persoalan persatuan umat. Hal ini bisa kita simak dalam teladan yang sudah diberikan oleh Nabi Muhammad SAW. ketika tiba di Madinah, selain membangun masjid, beliau juga ‎mempersaudarakan kaum Muhajirin dan Anshar, dan mendamaikan suku Aus ‎dan Khazraj. ‎
+
+Dalam bahasa Arab, persaudaraan disebut dengan istilah ukhuwah yang berasal dari kata “akh” yang artinya ialah kebersamaan. Dari sini kita pahami bahwa sebagai sesama manusia, tentu kita dituntut hidup di bumi ini untuk saling memahami satu dan lainnya dalam semangat kebersamaan.
+
+Sepanjang kita masih tinggal di bumi yang sama, menghirup oksigen yang sama, maka wajib bagi kita untuk memiliki kepedulian dalam ikatan persaudaraan dan kebersamaan.
+
+Dalam Al-Qur’an, kata ukhuwah yang semakna dengannya seringkali diulang untuk mengingatkan kepada kita bahwa jalan tebaik untuk mengarungi kehidupan ini ‎adalah dengan memperkokoh persaudaraan.
+
+Hikmah dari Hari Raya Idul Fitri ini tentunya dapat dijadikan sebuah pengingat bersama tentang pentingnya persaudaraan. Saat takbir berkumandang, manusia sadar betul bahwa dirinya tidak berdaya. Manusia mengakui bahwa dirinya maha kecil dan hanya Allah yang Maha Besar. Takbir dapat menghapus kesombongan dan keangkuhan manusia.
+
+Allahu Akbar Allahu Akbar Allahu Akbar,
+
+Ma’asyiral Muslimin Jamaah ‘Id Rahimakumullah
+
+Salah satu unsur terpenting dalam menjaga persaudaraan ialah dengan mempererat tali silaturahim. Hal ini bisa kitra simak dalam pesan Rasulullah SAW melalui hadis:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''من كان يؤمن بالله واليوم الآخر فَلْيُكْرِمْ ضَيْفَهُ وَمَنْ كانَ يُؤْمِنُ بِاللَّهِ والْيوم الآخِر فَلْيصلْ رَحِمَهُ وَمَنْ كانَ يُؤْمِنُ بِاللَّهِ والْيوم الآخِر فليقل خيراً أوْ لِيَصْمُتْ''',
+          'latin': '''''',
+          'translation': '''Artinya: “Barangsiapa beriman kepada Allah dan hari akhir, maka hendaknya ia memuliakan tamunya, dan barangsiapa yang beriman kepada Allah dan hari akhir, maka sambunglah tali persaudaraan, dan barangsiapa beriman kepada Allah dan hari akhir, maka hendaknya ia berkata baik atau diam!”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dari hadits itu dapat diambil pelajaran bahwa untuk menjadi hamba Allah yang beriman membutuhkan tiga komitmen hidup: menghormati keluarga, menyambung tali silaturrahim dan selalu berbicara baik (atau lebih baik diam).
+
+Upaya untuk mempererat tali silaturrahim ini pada dasarnya adalah untuk menyatukan perbedaan yang niscaya ada dalam kehidupan manusia. Manusia diajari untuk tidak hanya menjadikan kesamaan sebagai titik kumpul silaturrahim, namun bahkan menjadikan perbedaan sebagai alasan untuk hal tersebut, karena pada ujungnya, kita adalah sama. Sama manusia, sama makhluk Allah SWT.
+
+Allah melalui Surat Al-Hujurat: 13 mengajarkan kepada kita untuk menjadikan perbedaan sebagai alasan bagi kita agar saling mengenal:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يَٰٓأَيُّهَا ٱلنَّاسُ إِنَّا خَلَقْنَٰكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَٰكُمْ شُعُوبًا وَقَبَآئِلَ لِتَعَارَفُوٓا۟ ۚ إِنَّ أَكْرَمَكُمْ عِندَ ٱللَّهِ أَتْقَىٰكُمْ ۚ إِنَّ ٱللَّهَ عَلِيمٌ خَبِيرٌ''',
+          'latin': '''''',
+          'translation': '''Artinya: “Hai manusia, sesungguhnya Kami menciptakan kamu dari seorang laki-laki dan seorang perempuan dan menjadikan kamu berbangsa-bangsa dan bersuku-suku supaya kamu saling kenal-mengenal. Sesungguhnya orang yang paling mulia di antara kamu di sisi Allah ialah orang yang paling takwa di antara kamu. Sesungguhnya Allah Maha Mengetahui lagi Maha Mengenal.”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Allahu Akbar Allahu Akbar Allahu Akbar,
+
+Ma’asyiral Muslimin Jamaah ‘Id Rahimakumullah
+
+Dalam rangka menguatkan hidup saling bersaudara, Islam mengingatkan sebuah metode kehidupan sosial dengan menghormati lingkar masyarakat terdekat, yaitu tetangga. Jika bulan Syawal seperti ini, sudah tentu meminta maaf dan saling memberi maaf terpenting adalah kepada tetangga. Kemudian dilanjutkan dengan menyambung persaudaraan kepada semua lapisan masyarakat.
+
+Dan indahnya, pesan Rasulullah saw ditambahkan dengan perlunya menjaga lisan agar selalu bertutur kata yang baik, agar tidak membuat orang lain sakit hati. Ini senada dengan sebuah pesan akhlak:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''سَلَامَةُ اْلإنْسَانِ فِي حِفْظِ اللِّسَانِ''',
+          'latin': '''''',
+          'translation': '''Artinya: “Keselamatan seseorang itu ada pada lisannya”.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ini menjadi penting, terlebih jika kita melihat kondisi bangsa pada saat ini. Kita baru saja melewati sebuah hajat besar yaitu Pemilu 2024. Kita baru saja memilih anggota parlemen dan pemimpin kita yakni presiden dan wakil presiden. Ada sebagian dari kita yang pilihannya menang, dan ada yang kalah.
+
+Masih hangat di ingatan kita betapa seru dan menariknya perselisihan terkait hal ini yang seolah menjadi bumbu langganan tiap lima tahun sekali. Namun, itu sudah lewat, sudah menjadi masa lalu. Mari kita tatap masa depan.
+
+Perbedaan pandangan politik kita hendaknya tidak kemudian menjadikan alasan bagi kita untuk berpecah belah. Kepentingan bangsa ini jauh lebih tinggi ketimbang kepentingan elektoral seseorang atau sebagian kelompok.
+
+Marilah kita kembali lagi kepada fitrah kita sebagai sebuah bangsa, yakni Bhinneka Tunggal Ika, meski berbeda, namun tetap satu jua.
+
+Allahu Akbar Allahu Akbar Allahu Akbar,
+
+Ma’asyiral Muslimin Jamaah ‘Id Rahimakumullah
+
+Di akhir khutbah ini, marilah kita bersama memahami pentingnya penguatan hidup dengan saling bersaudara. Indonesia hari ini butuh persaudaraan sejati yang dimulai dari lingkup tetangga hingga bernegara.
+
+Dunia juga butuh persaudaraan dan perdamaian. Umat Islam perlu menjadi duta-duta damai setelah sukses dari ujian Ramadhan. Bulan Syawal juga menjadi waktu yang tepat untuk mengawali perbaikan diri kita agar semakin bertakwa dan baik terhadap sesama manusia. Amin.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَقُوْلُ قَوْلِيْ هٰذَا وَأَسْتَغْفِرُ اللهَ لِيْ وَلَكُمْ، فَاسْتَغْفِرُوْهُ، إِنَّهُ هُوَ الْغَفُوْرُ الرَّحِيْم''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُ أَكْبَرُ اللهُ أَكْبَرُ اللهُ أَكْبَرُ، اللهُ أَكْبَرُ اللهُ أَكْبَرُ اللهُ أَكْبَرُ، اللهُ أَكْبَرُ وَلِلَّهِ الْحَمْدُ،''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَأَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، وَأَشْهَدُ أَنَّ سَيِّدَنَا وَنَبِيَّنَا مُحَمَّدًا عَبْدُ اللّٰهِ وَرَسُولُهُ،''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''فَاللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا وَنَبِيِّنَا مُحَمَّدٍ، وَعَلَى آلِهِ وَأَصْحَابِهِ المَيَامِيْنَ، وَالتَّابِعِينَ لَهُمْ بِإِحْسَانٍ إِلَى يَوْمِ الدِّيْنِ. أمَّا بَعْدُ فَأُوصِيكُمْ وَنَفْسِي بِتَقْوَى اللَّهِ عَزَّ وَجَلَّ وَاتَّقُوا اللَّهَ تَعَالَى فِي هَذَا الْيَوْمِ الْعَظِيمِ، وَاشْكُرُوهُ عَلَى تَمَامِ الصِّيَامِ وَالْقِيَامِ، وَأَتْبِعُوا رَمَضَانَ بِصِيَامِ سِتٍّ مِنْ شَوَّالٍ، لِيَكُونَ لَكُمْ كَصِيَامِ الدَّهْرِ وَصَلِّ اللّٰهُمَّ وَسَلِّمْ عَلَى سَيِّدِنَا وَنَبِيِّنَا مُحَمَّدٍ، كَمَا أَمَرْتَنَا، فَقُلْتَ وَقَوْلُكَ الْحَقُّ: إِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ، يَا أَيُّهَا الَّذِينَ آمَنُوْا صَلُّوْا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا، اللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا وَنَبِيِّنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ، وَارْضَ اللّٰهُمَّ عَنِ الْخُلَفَاءِ الرَّاشِدِينَ، أَبِي بَكْرٍ وَعُمَرَ وَعُثْمَانَ وَعَلِيٍّ، وَعَنْ سَائِرِ الصَّحَابَةِ الصَّالحينَ، اللّٰهُمَّ اغْفِرْ لِلْمُسْلِمِينَ وَالْمُسْلِمَاتِ، وَالْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ، الْأَحْيَاءِ مِنْهُمْ وَالْأَمْوَاتِ، إِنَّكَ سَمِيْعٌ قَرِيْبٌ مُجِيْبُ الدَّعَوَاتِ، اللّٰهُمَّ اجْعَلْ عِيْدَنَا هَذَا سَعَادَةً وَتَلاَحُمًا، وَمَسَرَّةً وَتَرَاحُمًا، وَزِدْنَا فِيهِ طُمَأْنِينَةً وَأُلْفَةً، وَهَنَاءً وَمَحَبَّةً، وَأَعِدْهُ عَلَيْنَا بِالْخَيْرِ وَالرَّحَمَاتِ، وَالْيُمْنِ وَالْبَرَكَاتِ، اللّٰهُمَّ اجْعَلِ الْمَوَدَّةَ شِيمَتَنَا، وَبَذْلَ الْخَيْرِ لِلنَّاسِ دَأْبَنَا، اللّٰهُمَّ أَدِمِ السَّعَادَةَ عَلَى وَطَنِنَا، وَانْشُرِ الْبَهْجَةَ فِي بُيُوتِنَا، وَاحْفَظْنَا فِي أَهْلِينَا وَأَرْحَامِنَا، وَأَكْرِمْنَا بِكَرَمِكَ فِي الدُّنْيَا وَالْآخِرَةِ،''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً، وَفِي الْآخِرَةِ حَسَنَةً، وَقِنَا عَذَابَ النَّارِ، وَأَدْخِلْنَا الْجَنَّةَ مَعَ الْأَبْرَارِ، يَا عَزِيْزُ يَا غَفَّارُ. عِبَادَ اللهِ، إنَّ اللهَ يَأْمُرُ بِالْعَدْلِ وَالْإحْسَانِ، وَإِيْتَاءِ ذِي الْقُرْبَى ويَنْهَى عَنِ الفَحْشَاءِ وَالْمُنْكَرِ وَالبَغْيِ، يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ. فَاذكُرُوا اللهَ الْعَظِيْمَ يَذْكُرْكُمْ وَلَذِكْرُ اللهِ أَكْبَرُ، عِيْدٌ سَعِيْدٌ وَكُلُّ عَامٍ وَأَنْتُمْ بِخَيْرٍ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz Idris Mas'udi, Dosen Fakultas Islam Nusantara Universitas Nahdlatul Ulama Indonesia (Unusia) Jakarta''',
+        },
+      ]
+    },
   ];
 
   final List<Map<String, dynamic>> _artikelMenu = [
