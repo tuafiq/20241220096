@@ -1146,6 +1146,691 @@ Demikian adanya khutbah Jumat kali ini, yang membahas tentang bulan Ramadhan seb
         },
       ]
     },
+    {
+      'title': 'Khutbah Jumat Sunda: Ngengingkeun Lailatul Qadar di Panungtung Ramadhan',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Lailatul Qadar merupakan malam mulia dan istimewa. Salah satu keutamaannya lebih baik dari 1000 bulan, bahkan Al-Qur\'an pun turun pada malam tersebut. Sungguh luar biasa bagi siapa pun yang mendapatkannya. Dan menurut pendapat yang unggul, waktu terjadinya adalah 10 malam terakhir di bulan Ramadan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Maka khutbah Jumat bahasa Sunda ini berjudul, "Khutbah Jumat Sunda: Ngengingkeun Lailatul Qadar di Panungtung Ramadhan". Untuk mencetak khutbah ini, silakan klik fitur download berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat!''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلّٰهِ الَّذِيْ أَنْزَلَ عَلَى عَبْدِهِ الْكِتَابَ وَلَمْ يَجْعَلْ لَهُ عِوَجًا، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، شَهَادَةً تَرْفَعُ الصَّادِقِيْنَ إِلَى مَنَازِلِ الْمُقَرَّبِيْنَ دَرَجًا. وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ الَّذِيْ وَضَعَ اللهُ بِرِسَالَتِهِ عَنِ الْمُكَلَّفِيْنَ حَرَجًا. اَللَّهُمَّ صَلِّ عَلَى عَبْدِكَ وَرَسُوْلِكَ مُحَمَّدٍ وَعَلَى آلِهِ وَأَصْحَابِهِ خَيْرِ الْأَنَامِ طَرِيْقَةً وَأَهْدَاهُمْ مَنْهَجًا، وَسَلِّمْ تَسْلِيْمًا كَثِيْرًا''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَمَّا بَعْدُ، فَيَا أَيُّهَا النَّاسُ، اِتَّقُوا اللهَ حَقَّ تَقْوَاهُ، وَسَارِعُوا إِلَى مَغْفِرَتِهِ وَرِضَاهُ. قَالَ اللهُ تَعَالَى فِي الْقُرْآنِ الْعَظِيْمِ وَهُوَ أَصْدَقُ الْقَائِلِيْنَ ، أَعُوْذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ ، بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ، إِنَّا أَنْزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ، وَمَا أَدْرَاكَ مَا لَيْلَةُ الْقَدْرِ، لَيْلَةُ الْقَدْرِ خَيْرٌ مِنْ أَلْفِ شَهْرٍ، صَدَقَ اللهُ الْعَظِيْمُ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sidang Jumah anu mulya 
+Tipayun, hayu urang sami-sami manjatkeun puji kalih syukur ka Alloh swt. Sholawat miwah salam mugia salamina sing dilimpahkeun ka jungjunan Alam, ya\'ne Kangjeng Nabi Muhammad saw. Sholawat kalih salam oge mugia dikucurkeun ka kulawargina miwah para sahabatna, tabi\'in kalih tabia\'atna, dugika ka urang sadayana salaku umatna.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sateuacan ngalajengkeun khutbah, sakumaha biasa khotib seja ngadugikeun wasiat takwa khusus ka diri khotib pribadi, umum ka ahli jum\'ah sadayana. Sabab, ukur katakwaan sareng kaimanan anu janten ukuran kamulyaan hiji hamba di payuneun Pangerannana.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sidang Jumah anu mulya''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dina waktos ieu urang tos lebet kana 10 dinten terakhir sasih Ramadhan. Numutkeun sababaraha katerangan, 10 wengi terakhir teh mangrupikeun waktos anu utama dibanding waktos sanesna. Salah sawiosna jalaran aya wengi anu kalintang istimewana nyaeta anu disebat Lailatul Qadar. Hal ieu dumasar kana dawuhan Kangjeng Rosul:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''تَحَرَّوْا ‌لَيْلَةَ ‌الْقَدْرِ فِي الْعَشْرِ الأَوَاخِرِ مِنْ رَمَضَانَ''',
+          'translation': '''Hartosna, "Pilari ku aranjeun malem Lailatul Qadar dina sapuluh dinten terakhir sasih Romadhon," (HR Imam Bukhari).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sareng deui Lailatul Qadar teh wengi anu langkung mulya tibatan sarebu sasih. Di lebet ning eta wengi para malaikat kalebet malaikat Jibril lalungsur kalayan widi nu Maha Suci ngatur sagala rupi urusan. Maka kasalametan teh lungsur dugika meletek fajar. Kitu pisan numutkeun penjelasan surah Al-Qadr:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''إِنَّآ أَنزَلۡنَٰهُ فِي لَيۡلَةِ ٱلۡقَدۡرِ ، وَمَآ أَدۡرَىٰكَ مَا لَيۡلَةُ ٱلۡقَدۡرِ ، لَيۡلَةُ ٱلۡقَدۡرِ خَيۡرٞ مِّنۡ أَلۡفِ شَهۡرٍ''',
+          'translation': '''Hartosna, "Saenya-enyana Kaula tos nurunkeun (Al-Quran) dina Lailatul Qadar. Naha anjeun terang naon ari Lailatul Qadar.? Lailatul Qadar  teh leuwih hade tibatan sarebu bulan," (QS Al-Qadr [97]: 1-3).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Upami nitenan kana kautamian wengi Lailatul Qadar anu neme, 1000 sasih teh sami sareng 83 taun 4 sasih. Hal ieu kalintang poharana kaunggulan anu tiasa dihontal ku urang salaku umatna Kangjeng Rosul. Leres-leres ieu janten kadeudeuh Alloh swt. Sanaos yuswa Kangjeng Rosul parondok, tapi masalah dina kautamian mah tiasa ngabanding ka umat kapungkur anu yuswana paranjang.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sidang Jumah anu mulya''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sajabi ti eta, Lailatul Qadar teh dilebetkeun wengi istimewa margi janten wengian dilungsurkeun Al-Quran ti Lauhul Mahfudz ka Baitul \'Izzah (langit dunya), nu janten pituduh keur sadaya manusa, ngandung rupi-rupi penjelasan, oge janten pangbeda antawis hak sareng batil. Hal ieu saluyu sareng dawuhan Alloh swt:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''شَهْرُ رَمَضَانَ الَّذِي أُنْزِلَ فِيْهِ الْقُرْآنُ هُدًى لِلنَّاسِ وَبَيِّنَاتٍ مِنَ الْهُدَى وَالْفُرْقَانِ''',
+          'translation': '''Hartosna, "Bulan Romadhon, nyaeta bulan anu di jerona diturunkeun Al-Qur\'an salaku pituduh keur manusa sareng penjelasan-penjelasan perkawis pituduh eta sarta pangbeda (antara perkara hak sareng batil)," (QS Al-Baqarah [2]: 185).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sidang Jumah anu mulya''',
+        },
+        {
+          'type': 'text',
+          'content': '''Keutamaan sanesna dina wengian Lailatul Qadar teh dihapuntenna dosa-dosa anu tos ti payun salami urang ngama\'murkeunna ku mangrupi-rupi ibadah, sapertos netepan, i\'tikaf, dzikir, sareng sajabina.  Kitu di antawisna sakumaha anu didugikeun ku Kangjeng Rosul.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''مَنْ قَامَ لَيْلَةَ الْقَدْرِ إِيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ''',
+          'translation': '''Hartosna, "Sing saha jalma anu ngadeg (ibadah) dina wengian Lailatulqoadar karana arah-arah iman sareng miharep pahala, maka dihampura dosa-dosana anu tos kaliwat," (HR Imam Bukhari).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Salajengna iraha ari waktos anu tangtos kajantenan Lailatul Qadar?  Ibnu Hajar dina kitab Fathul Bari juz 5 kaca 569 nyebatkeun waktos Lailatul Qadar teh dina 10 dinten terakhir Romadhon.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kaol ieu didukung ku hadits riwayat Imam Ahmad anu ngawinciik, yen hadirna Lailatul Qadar teh 10 wengi terakhir, tepatna dina wengi-wengi anu ganjil:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''هِيَ فِي شَهْرِ رَمَضَانَ، فَالْتَمِسُوهَا ‌فِي ‌الْعَشْرِ ‌الْأَوَاخِرِ، فَإِنَّهَا وَتْرٌ''',
+          'translation': '''Hartosna, "Lailatul Qadar teh dina sasih Romadhon tepatna dina sapuluh wengi terakhir, eta teh wengi ganjil," (HR Imam Ahmad).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Aya oge kaol anu ngetang kajantenan waktos Lailatul Qadar ku ningal dinten kahiji Romadhon. Syaikh Ahmad bin Muhammad As-Showi dina kitab Tafsir Shawi, jilid 4, kaca 337 nguningakeun, upami ngawitan Romadhon dina dintena Saptu, sakumaha dina Romadhon ayeuna, maka Lailatul Qadarna gubrag dina wengi 23.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Teras dina kitab Bajuri jilid I, kaca 304 disebatkeun, upami ngawitan Romadhon dinten Saptu, maka Lailatul Qadarna dina wengi ka 21. Nanging perbentenan ieu teh teu leupas tina pangalaman para ulama anu ngalamannana.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Aya deui kaol anu nguningakeun, yen Lailaul Qodar mah dirahasiakeun ku Alloh. Pokona mah dina salami sasih Romadhon. Hal ieu oge teu leupas tina hikmah anu ageung. Salah sawiosna supados sadayana jalmi mu\'min leres-leres ngama\'murkeun sadayana wengi dina sasih Romadhon.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Nanging anu paling kiat di antawis sababaraha kaol anu neme, numutkeun Ibnu Hajar, nyaeta kaol anu nyebatkeun Lailatul Qadar teh tumiba dina wengi ganjil 10 wengi terakhir Ramadhan. Anapon gubragna Lailatul Qadar dina satiap taun teh benten-benten.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah Jumah anu mulya''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ningal kana kautamian Lailatul Qadar anu luar biasa, maka tos sakedahna urang leres-leres milari sareng ngengingkeunnana. Urang sing kabita ku kaistimewaannana. Mugia urang sadayana janten jalmi anu dipilih ku Alloh ngengingkeun kautamian eta wengi. Amin.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''بَارَكَ اللهُ لِيْ وَلَكُمْ فِي الْقُرْآنِ الْعَظِيْمِ، وَنَفَعَنِيْ وَإِيَّاكُمْ بِمَا فِيْهِ مِنَ اْلآيَاتِ وَالذِّكْرِ الْحَكِيْمِ، وَتَقَبَّلَ اللهُ مِنِّيْ وَمِنْكُمْ تِلاَوَتَهُ، إِنَّهُ هُوَ السَّمِيْعُ الْعَلِيْمُ، أَقُوْلُ قَوْلِيْ هَذَا وَأَسْتَغْفِرُ اللهَ الْعَظِيْمَ لِيْ وَلَكُمْ وَلِسَائِرِ الْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ فَاسْتَغْفِرُوْهُ إِنّهُ هُوَ الْغَفُوْرُ الرّحِيْمُ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلّٰهِ الَّذِيْ أَمَرَنَا بِاْلاِتِّحَادِ وَاْلاِعْتِصَامِ بِحَبْلِ اللهِ الْمَتِيْنِ، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَاشَرِيْكَ لَهُ، إِيَّاهُ نَعْبُدُ وَإِيَّاهُ نَسْتَعِيْنُ. وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ، اَلْمَبْعُوْثُ رَحْمَةً لِلْعَالَمِيْنَ. اِتَّقُوا اللهَ مَا اسْتَطَعْتُمْ وَسَارِعُوْا إِلَى مَغْفِرَةِ رَبِّ الْعَالَمِيْنَ. إِنَّ اللهَ وَمَلاَئِكَتَهُ يُصَلُّوْنَ عَلَى النَّبِيِّ، يَاأَيُّهَا الَّذِيْنَ ءَامَنُوْا صَلُّوْا عَلَيْهِ وَسَلِّمُوْا تَسْلِيْمًا ، اللّٰهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ، وَعَلَى اٰلِهِ وَصَحْبِهِ أَجْمَعِيْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللَّهُمَّ اغْفِرْ لِلْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ وَالْمُسْلِمِيْنَ وَ الْمُسْلِمَاتِ اَلاَحْيَاءِ مِنْهُمْ وَالْاَمْوَاتِ إِنَّكَ سَمِيْعٌ قَرِيْبٌ مُجِيْبُ الدَّعَوَاتِ وَيَا قَاضِيَ الْحَاجَاتِ بِرَحْمَتِكَ يَا اَرْحَمَ الرَّحِمِيْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّهُمَّ إِنَّا نَسْأَلُكَ إِيْمَانًا كَامِلًا وَيَقِيْنًا صَادِقًا وَرِزْقًا وَاسِعًا وَقَلْبًا خَاشِعًا وَلِسَانًا ذَاكِرًا وَحَلَالًا طَيِّبًا وَتَوْبَةً نَصُوْحًا. رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عِبَادَ اللهِ، إِنَّ اللهَ يَأْمُرُ بِالْعَدْلِ وَاْلإِحْسَانِ وَإِيتَآئِ ذِي الْقُرْبَى وَيَنْهَى عَنِ الْفَحْشَآءِ وَالْمُنكَرِ وَالْبَغْيِ يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ، فَاذْكُرُوا اللهَ الْعَظِيْمَ يَذْكُرْكُمْ وَادْعُوْهُ يَسْتَجِبْ لَكُمْ وَلَذِكْرُ اللهِ أَكْبَرُ''',
+        },
+        {
+          'type': 'text',
+          'content': '''M. Tatam Wijaya, Penyuluh dan Petugas KUA Sukanagara-Cianjur, Jawa Barat.''',
+        }
+      ]
+    },
+    {
+      'title': 'Khutbah Jumat Bahasa Jawa: Kautaman Maos Al-Quran ing Wulan Ramadhan',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Di Bulan Ramadhan, kita banyak menjumpai kegiatan membaca Al-Qur\'an secara berkelompok, baik di masjid, mushola, dan rumah-rumah. Orang-orang sering menyebut kegiatan tersebut dengan istilah tadarusan. Selain karena ingin mengharapkan keberkahan pahala di Bulan Ramadhan, tadarusan memiliki banyak keutamaan. Apa saja keutamaannya?''',
+        },
+        {
+          'type': 'text',
+          'content': '''Teks Khutbah Bahasa Jawa berikut ini berjudul "Khutbah Jumat Bahasa Jawa: Kautaman Maos Al-Quran ing Wulan Ramadhan". Untuk mencetak naskah khutbah Jumat ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat!''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلّٰهِ. اَلْحَمْدُ لِلّٰهِ الَّذِيْ حَمْدًا يُوَافِيْ نِعَمَهُ وَيُكَافِئُ مَزِيْدَهُ، يَا رَبَّنَا لَكَ الْحَمْدُ كَمَا يَنْبَغِيْ لِجَلَالِ وَجْهِكَ وَلِعَظِيْمِ سُلْطَانِكَ، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ وَصَفِيُّهُ وَخَلِيْلُهُ، خَيْرُ نَبِيٍّ أَرْسَلَهُ اللّٰهُ إِلَى الْعَالَمِ كُلِّهِ بَشِيْرًا وَنَذِيْرًا. اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى أَلِ سَيِّدِنَا مُحَمَّدٍ صَلَاةً وَسَلَامًا مُتَلَازِمَيْنِ إِلَى يَوْمِ الدِّيْنِ. أَمَّا بَعْدُ، فَيَا أَيُّهَا الْحَاضِرُوْنَ، اِتَّقُوا اللّٰهَ حَقَّ تُقَاتِهِ وَلَا تَمُوْتُنَّ اِلَّا وَأَنْتُمْ مُسْلِمُوْنَ.  قَالَ اللّٰهُ تَعَالَى فِي الْقُرْاٰنِ الْعَظِيْمِ، أَعُوْذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ، بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ:  شَهْرُ رَمَضَانَ الَّذِيْٓ اُنْزِلَ فِيْهِ الْقُرْاٰنُ هُدًى لِّلنَّاسِ وَبَيِّنٰتٍ مِّنَ الْهُدٰى وَالْفُرْقَانِۚ فَمَنْ شَهِدَ مِنْكُمُ الشَّهْرَ فَلْيَصُمْهُۗ وَمَنْ كَانَ مَرِيْضًا اَوْ عَلٰى سَفَرٍ فَعِدَّةٌ مِّنْ اَيَّامٍ اُخَرَۗ يُرِيْدُ اللّٰهُ بِكُمُ الْيُسْرَ وَلَا يُرِيْدُ بِكُمُ الْعُسْرَۖ وَلِتُكْمِلُوا الْعِدَّةَ وَلِتُكَبِّرُوا اللّٰهَ عَلٰى مَا هَدٰىكُمْ وَلَعَلَّكُمْ تَشْكُرُوْنَ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma\'asyiral Muslimin rahimakumullah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Wonten ing pambuka sidang khutbah ingkang minulya punika, kepareng khatib ngaturaken pepeling kagem kita sedaya. Manggaha kita tansah ningkataken takwa kita, kelawan nindaake perintahe Gusti saha nebihi sedaya awisane. Mugi-mugi kita kalebet golongan ingkang angsal Ridha saking Gusti Allah ta\'ala.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَى وَاتَّقُونِ يَا أُولِي الأَلْبَابِ''',
+          'translation': '''Artosipun, "Pada (gawa) sanguha sira kabeh, mangka setuhune luwih bagus-baguse sangu, yaiku takwa marang Allah. Lan padha takwaha sira kabeh ing Ingsun (Allah), hei wong kang padha duweni akal," (QS Al Baqarah: 197).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah sidang Jumat ingkang minulya''',
+        },
+        {
+          'type': 'text',
+          'content': '''Alhamdulillah, wonten ing wekdal menika kita taksih pinaringan kenikmatan saking Gusti, saget kepanggih kalian wulan Ramadhan. Mugi-mugi ing wulan punika kita pinaringan sehat wal afiat saget nglampahi sedaya amal ibadah kanthi raos bungah lan istiqamah.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Salah setunggale amal ibadah ingkang kathah ketingal ing wulan Ramadhan, inggih punika tadarus Al-Qur\'an, utawi kegiatan maos Al-Qur\'an, sahe niku dilampahi piyambakan utawi sesarengan kalian para warga. Wonten ing masjid, langgar, lan mushala, ten pundi-pundi sami ngawontenaken tadarus Al-Qur\'an.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sedaya punika, kajaba kepengin angsal berkah lan ganjaran ing wulan Ramadhan, pancen antarane Al-Qur\'an lan Ramadhan punika dados perkawis ingkang sampun gathuk. Sampun kita mangertosi, bilih Nabi kita, Kanjeng Nabi Muhammad saw, pikantuk mu\'jizat ingkang ageng saking Allah ta\'ala, inggih punika kitab suci Al-Qur\'an.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kitab Al-Qur\'an dipunturunaken Allah ta\'ala datheng Kanjeng Nabi, kanthi perantara Malaikat Jibril, nalika Kanjeng Nabi khalwat ten Gua Hira, wonten ing Wulan Ramadhan. Pramila Wulan Ramadhan punika dipunsebutaken dados wulan ingkang dipunwajibaken ibadah pasa, ugi dados wulan tumurune Al-Qur\'an. Gusti Allah sampun paring dhawuh ing Al-Qur\'an Surat Al-Baqarah ayat 185:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''شَهْرُ رَمَضَانَ الَّذِيْٓ اُنْزِلَ فِيْهِ الْقُرْاٰنُ هُدًى لِّلنَّاسِ وَبَيِّنٰتٍ مِّنَ الْهُدٰى وَالْفُرْقَانِۚ فَمَنْ شَهِدَ مِنْكُمُ الشَّهْرَ فَلْيَصُمْهُ''',
+          'translation': '''Artosipun, "Ibadah pasa iku ana ing wulan Ramadhan, ingkang sakjerone wulan mau Al-Qur\'an diturunaken (saking Lauhil Mahfudh). Kanggo nudhuhaken marang menungsa, lan dadi tandha terang saking pitudhuhe Allah ta\'ala. Lan saking kang ambeda\'ake (antarane haq lan bathil). Mangka sapa wonge hadlir (tinemu) ana ing wulan Ramadhan, dheweke kudu pasa …" (QS Al-Baqarah: 185).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah sidang Jumat ingkang minulya''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kegiatan tadarusan punika kathah sanget kautamanipun. Dipun terangaken Kanjeng Nabi Muhammad saw ing salah setunggale hadits ingkang dipun riwayataken saking sahabat Abu Hurairah ra:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَمَا اجْتَمَعَ قَوْمٌ فِي بَيْتٍ مِنْ بُيُوْتِ اللهِ يَتْلُوْنَ كِتَابَ اللهِ وَيتَدَارَسُوْنَهَ بَيْنَهُمْ إِلاَّ نَزَلَتْ عَلَيْهِمُ السَّكِيْنَةُ وَغَشِيَتْهُمُ الرَّحْمَةُ''',
+          'translation': '''Artosipun, "Ora ana (ganjaran liya) kanggo wong kang padha kumpul ana ing omah-omahe Gusti Allah kanthi maca utawi nyinauni Al-Qur\'an, kejaba bakal dipunturunaken katentreman lan rahmat." (HR Muslim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Saking hadits punika, kautaman tumrape kaum kang padha tadarus Al-Qur\'an inggih punika, ingkang pertama Gusti Allah bakal maringi sakinah (rasa tentrem) saha rahmat. Bilih rahmat utawi welas asihipun Gusti menika jembar sanget.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Contonipun saking penjelasan sifat welas asihe Gusti Allah inggih punika Ar-Rahman lan Ar-Rahim. Wonten ing Tafsir Al-Ibriz dipun terangake ana ing surat Al-Fatihah ayat 3, bilih Gusti Allah iku persifatan welas asih maring sekabehane makhluk, luwih-luwih marang menungsa kang wis nyata diparingi nikmat wujud kanthi akal lan anggota badan kang sampurna lan nikmat liya-liyane meneh kang gedhe lan lembut.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الرَّحْمٰنِ الرَّحِيْمِۙ''',
+          'translation': '''Artosipun, "Kang Maha Welas ana ing (dunya lan akhirat) tur Maha Asih (ana ing akhirat blaka)," (QS Al-Fatihah: 3).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat rahimakumullah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Lajeng kautaman tumrape kaum kang kersa tadarus Al-Qur\'an, saking hadist riwayat Imam Muslim, inggih punika:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَحَفَّتْهُمُ الْمَلاَئِكَةُ وَذَكَرَهُمُ اللهُ فِيْمَنْ عِنْدَهُ''',
+          'translation': '''Artosipun, "Lan bakal padha dikepung dening para malaikat lan Gusti Allah bakal ngalembana marang dhéwéké ana satengahé para malaikat kang mapan ing sakiwa tengené."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Pramila, mangga kita sedaya ampun nilar ngamalke tadarus Al-Qur\'an, langkung-langkung ing wulan Ramadhan punika, sedaya amal ibadah bakal diganjar kanthi matikel-tikel.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kangge mungkasi khutbah punika, mangga kita tansah dedunga mugi kita sedaya lan keluarga kita, saget nglampahi ibadah ing wulan Ramadhan kanthi iman kang jejeg, awak kang sehat wal afiat, saha raos bungah lan istiqamah. Amin ya Rabbal Alamin.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''بَارَكَ اللّٰهُ لِيْ وَلَكُمْ فِيْ الْقُرْآنِ الْكَرِيْمِ، وَنَفَعَنِيْ وَإِيَّاكُمْ بِمَا فِيْهِ مِنَ الذِّكْرِ الْحَكِيْمِ، وَتَقَبَّلَ مِنِّيْ وَمِنْكُمْ تِلَاوَتَهُ إِنَّهُ هُوَ الْغَفُوْرُ الرَّحِيْمُ، فَاعْتَبِرُوْا يَآ أُوْلِى اْلأَلْبَابِ لَعَلَّكُمْ تُفْلِحُوْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلّٰهِ الَّذِي هَدَانَا لِهَذَا وَمَا كُنَّا لِنَهْتَدِيَ لَوْلَا أَنْ هَدَانَا اللّٰهُ. أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، وَأَشْهَدُ أَنْ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ لَا نَبِيَّ بَعْدَهُ. اَللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ المُجَاهِدِيْنَ الطَّاهِرِيْنَ. أَمَّا بَعْدُ، فَيَا آيُّهَا الحَاضِرُوْنَ، أُوْصِيْكُمْ وَإِيَّايَ بِتَقْوَى اللّٰهِ وَطَاعَتِهِ لَعَلَّكُمْ تُفْلِحُوْنَ. يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ حَقَّ تُقَاتِهِ وَلَا تَمُوتُنَّ إِلَّا وَأَنْتُمْ مُسْلِمُونَ، وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَى. فَقَدْ قَالَ اللّٰهُ تَعَالَى فِي كِتَابِهِ الْكَرِيْمِ، أَعُوْذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ، بِسْمِ اللّٰهِ الرَّحْمَنِ الرَّحِيْمِ: وَالْعَصْرِ. إِنَّ الْإِنْسَانَ لَفِي خُسْرٍ. إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْر. إِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا. اللّٰهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ، وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ، فِى الْعَالَمِينَ إِنَّكَ حَمِيدٌ مَجِيدٌ. اَللّٰهُمَّ اغْفِرْ لِلْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ. اَللّٰهُمَّ ادْفَعْ عَنَّا الْغَلَاءَ وَالْوَبَاءَ وَالطَّاعُوْنَ وَالْاَمْرَاضَ وَالْفِتَنَ مَا لَا يَدْفَعُهُ غَيْرُكَ عَنْ بَلَدِنَا هٰذَا اِنْدُوْنِيْسِيَّا خَاصَّةً وَعَنْ سَائِرِ بِلَادِ الْمُسْلِمِيْنَ عَامَّةً يَا رَبَّ الْعَالَمِيْنَ. رَبَّنَا اٰتِنَا فِي الدُّنْيَا حَسَنَةً وَ فِي الْاٰخِرَةِ حَسَنَةً وَ قِنَا عَذَابَ النَّارِ
+
+عٍبَادَ اللّٰهِ، إِنَّ اللّٰهَ يَأْمُرُ بِاْلعَدْلِ وَاْلإِحْسَانِ وَإِيْتاءِ ذِي اْلقُرْبىَ وَيَنْهَى عَنِ اْلفَحْشاءِ وَاْلمُنْكَرِ وَاْلبَغْيِ يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ، وَاذْكُرُوا اللّٰهَ اْلعَظِيْمَ يَذْكُرْكُمْ، وَاشْكُرُوْهُ عَلىَ نِعَمِهِ يَزِدْكُمْ، وَلَذِكْرُ اللّٰهِ أَكْبَرْ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz Ajie Najmuddin, Pengurus MWCNU Banyudono Boyolali''',
+        }
+      ]
+    },
+    {
+      'title': 'Khutbah Jumat: Nuzulul Qur\'an dan Anjuran Memperbanyak Tadarus',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Bulan Ramadhan merupakan bulan yang memiliki banyak keistimewaan di dalamnya. Pada bulan yang mulia ini, tercatat banyak peristiwa bersejarah dalam Islam terjadi. Salah satunya ialah peristiwa turunnya Al-Qur\'an secara global dari Lauhul Mahfudz menuju Baitul Izzah di langit dunia sebagai bentuk pengagungan terhadap Al-Qur\'an. Momen turunnya Al-Qur\'an pada bulan ini menjadikan bulan Ramadhan memiliki nama lain yaitu Bulan Al-Qur\'an.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Naskah khutbah Jumat berikut ini dengan judul, "Nuzulul Qur\'an dan Anjuran Memperbanyak Tadarus." Untuk mencetak naskah khutbah Jumat ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat!''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الْحَمْدُ للهِ. الْحَمْدُ للهِ الَّذِيْ حَمْدًا يُوَافِيْ نِعَمَهُ وَيُكَافِئُ مَزِيْدَهُ, يَا رَبَّنَا لَكَ الْحَمْدُ كَمَا يَنْبَغِيْ لِجَلَالِ وَجْهِكَ وَلِعَظِيْمِ سُلْطَانِكَ سُبْحَانَكَ اَللّٰهُمَّ لَا أُحْصِيْ ثَنَاءَكَ عَلَيْكَ أَنْتَ كَمَا أَثْنَيْتَ عَلَى نَفْسِكَ، وَأَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ وَصَفِيُّهُ وَخَلِيْلُهُ، خَيْرُ نَبِيٍّ أَرْسَلَهُ اللهُ إِلَى الْعَالَمِ كُلِّهِ بَشِيْرًا وَنَذِيْرًا. اَللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى أَلِ سَيِّدِنَا مُحَمَّدٍ صَلَاةً وَسَلَامًا مُتَلَازِمَيْنِ إِلَى يَوْمِ الدِّيْنِ أَمَّا بَعْدُ, فَيَاأَيُّهَا الْحَاضِرُوْنَ اِتَّقُوا اللهَ حَقَّ تُقَاتِهِ وَلَا تَمُوْتُنَّ اِلَّا وَأَنْتُمْ مُسْلِمُوْنَ 
+قَالَ اللهُ تَعَالَى فِي الْقُرْاٰنِ الْعَظِيْمِ. أَعُوْذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ: شَهْرُ رَمَضَانَ الَّذِيْٓ اُنْزِلَ فِيْهِ الْقُرْاٰنُ هُدًى لِّلنَّاسِ وَبَيِّنٰتٍ مِّنَ الْهُدٰى وَالْفُرْقَانِۚ فَمَنْ شَهِدَ مِنْكُمُ الشَّهْرَ فَلْيَصُمْهُۗ وَمَنْ كَانَ مَرِيْضًا اَوْ عَلٰى سَفَرٍ فَعِدَّةٌ مِّنْ اَيَّامٍ اُخَرَۗ يُرِيْدُ اللّٰهُ بِكُمُ الْيُسْرَ وَلَا يُرِيْدُ بِكُمُ الْعُسْرَۖ وَلِتُكْمِلُوا الْعِدَّةَ وَلِتُكَبِّرُوا اللّٰهَ عَلٰى مَا هَدٰىكُمْ وَلَعَلَّكُمْ تَشْكُرُوْنَ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat yang dimuliakan Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Segala puji bagi Allah yang telah memberikan kita berbagai macam kenikmatan sehingga kita dapat memenuhi panggilan-Nya untuk menunaikan shalat Jumat. Nikmat yang harus digunakan dalam rangka memenuhi syariat yang telah ditetapkan-Nya.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Shalawat beserta salam, mari kita haturkan bersama kepada Nabi Muhammad SAW, juga kepada para keluarganya, sahabatnya, dan semoga melimpah kepada kita semua selaku umatnya. Amin ya Rabbal \'alamin.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat yang dimuliakan Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Bulan Ramadhan merupakan bulan mulia, penuh rahmat dan ampunan. Pada bulan yang mulia ini, tercatat banyak peristiwa bersejarah dalam Islam terjadi. Salah satu peristiwa yang tercatat dalam sejarah Islam di antaranya ialah bulan Ramadhan merupakan bulan diturunkannya Al-Qur\'an. Allah berfirman dalam surat Al-Baqarah ayat 185:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''شَهْرُ رَمَضَانَ الَّذِيْٓ اُنْزِلَ فِيْهِ الْقُرْاٰنُ هُدًى لِّلنَّاسِ وَبَيِّنٰتٍ مِّنَ الْهُدٰى وَالْفُرْقَانِۚ''',
+          'translation': '''Artinya, "Bulan Ramadan adalah (bulan) yang di dalamnya diturunkan Al-Qur\'an sebagai petunjuk bagi manusia dan penjelasan-penjelasan mengenai petunjuk itu serta pembeda (antara yang hak dan yang batil)." (QS Al-Baqarah: 185)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat yang dimuliakan Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Syekh Nawawi al-Bantani dalam tafsirnya Marah Labid (juz I, halaman 61) menjelaskan bahwa ayat ini menerangkan fase pertama turunnya Al-Qur\'an.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Saat itu, Jibril membawa Al-Qur\'an secara keseluruhan pada malam Lailatul Qadar, tanggal 24 Ramadhan, dari Lauhul Mahfudz ke langit dunia. Lalu, Jibril menyerahkannya kepada malaikat safarah (pencatat), yang kemudian menuliskannya di lembaran-lembaran. Lembaran-lembaran itu lalu disimpan di satu tempat di langit yang disebut Baitul Izzah.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Setelah itu, Jibril menurunkan Al-Qur\'an kepada Rasulullah SAW secara bertahap selama 23 tahun, sepanjang masa kenabian. Turunnya ayat-ayat ini sesuai dengan kebutuhan, kadang satu ayat, dua ayat, tiga ayat, atau bahkan satu surat utuh.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat yang dimuliakan Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Al-Qur\'an adalah kitab suci yang diturunkan kepada Nabi Muhammad SAW sebagai petunjuk bagi umat manusia. Kitab ini memiliki banyak keistimewaan. Selain menjadi kitab samawi terakhir, Al-Qur\'an juga merupakan satu-satunya kitab yang turun dalam dua fase.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Syekh Manna Al-Qathan dalam kitabnya Mabahits fi Ulumil Qur\'an (halaman 96) menjelaskan bahwa, sebagaimana dituturkan oleh Ibnu Abbas dan disepakati mayoritas ulama, Al-Qur\'an mengalami dua fase turunnya.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Fase pertama disebut fase inzali, yaitu turunnya Al-Qur\'an secara global dari Lauhul Mahfudz ke Baitul Izzah di langit dunia sebagai bentuk pengagungan terhadap Al-Qur\'an.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Fase kedua disebut tanzili, yaitu turunnya Al-Qur\'an secara bertahap kepada Nabi Muhammad SAW selama 23 tahun, sesuai dengan peristiwa yang terjadi dan mempertimbangkan sebab turunnya ayat.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat yang dimuliakan Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dalam riwayat lain disebutkan bahwa bulan Ramadhan juga menjadi waktu di mana Nabi Muhammad SAW mendaras Al-Qur\'an bersama Malaikat Jibril. Karena itu, umat Islam sangat dianjurkan untuk memperbanyak membaca Al-Qur\'an di bulan yang mulia ini, dengan niat meneladani Nabi Muhammad SAW.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Momen turunnya Al-Qur\'an serta semangat Nabi dalam mendarasnya inilah yang kemudian membuat Ramadhan juga disebut sebagai Syahru Nuzulil Qur\'an wa Tilawatih (bulan turunnya Al-Qur\'an dan bulan membacanya).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dalam sebuah hadits dijelaskan bahwa di bulan Ramadhan, Nabi Muhammad SAW menjadi lebih dermawan, dan setiap hari bertemu Jibril untuk membaca Al-Qur\'an. Seperti halnya puasa, Al-Qur\'an juga akan memberikan syafaat di hari kiamat. Salah satunya dalam hadits riwayat Ibnu Abbas yang artinya sebagai berikut:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عَنِ ابْنِ عَبَّاسٍ رَضِيَ اللَّهُ عَنْهُمَا، قَالَ: كَانَ رَسُولُ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ ‌أَجْوَدَ ‌النَّاسِ، وَكَانَ أَجْوَدُ مَا يَكُونُ فِي رَمَضَانَ حِينَ يَلْقَاهُ جِبْرِيلُ، وَكَانَ جِبْرِيلُ يَلْقَاهُ فِي كُلِّ لَيْلَةٍ مِنْ رَمَضَانَ، فَيُدَارِسُهُ القُرْآنَ، فَلَرَسُولُ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ حِينَ يَلْقَاهُ جِبْرِيلُ أَجْوَدُ بِالخَيْرِ مِنَ الرِّيحِ المُرْسَلَةِ''',
+          'translation': '''Artinya: "Dari Ibnu Abbas RA, berkata, \'Rasulullah saw merupakan orang yang paling dermawan dan ia sangat dermawan saat bertemu malaikat Jibril. Jibril menemuinya setiap malam pada bulan Ramadhan dan membaca Al-Qur\'an dengan Nabi Muhammad SAW. Sungguh Rasulullah saw ketika bertemu Jibril sangat dermawan dengan kebaikan dibandingkan angin yang berhembus\'." (HR. Bukhari).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kesimpulannya, di bulan Ramadhan kali ini, mari kita tingkatkan kualitas ibadah kita kepada Allah SWT, salah satunya dengan memperbanyak tadarus Al-Qur\'an. Kita bisa menjalankan program one day one juz (satu hari satu juz) atau program lain yang membantu kita membiasakan diri membaca Al-Qur\'an. Semoga ini menjadi langkah awal untuk terus membaca Al-Qur\'an, bahkan setelah Ramadhan berakhir.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dengan begitu, kita telah memanfaatkan bulan Ramadhan sebaik mungkin untuk memperbaiki diri dan mempererat hubungan kita sebagai hamba dengan Allah SWT. Semoga kita termasuk orang-orang yang benar-benar memanfaatkan bulan suci ini dan menjadi bagian dari mereka yang disebut dalam firman-Nya sebagai orang-orang yang bertakwa.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''بَارَكَ اللهُ لِيْ وَلَكُمْ فِي الْقُرْاٰنِ الْعَظِيْمِ وَنَفَعَنِي وَاِيَّاكُمْ بِمَا فِيْهِ مِنَ الْاٰيَاتِ وَالذِّكْرِ الْحَكِيْمِ وَتَقَبَّلَ مِنِّيْ وَمِنْكُمْ تِلَاوَتَهُ اِنَّهُ هُوَ السَّمِيْعُ الْعَلِيْمُ. وَأَسْتَغْفِرُ اللهَ الْعَظِيْمَ لِيْ وَلَكُمْ وَلِسَائِرِ الْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ فَيَا فَوْزَ الْمُسْتَغْفِرِيْنَ وَيَا نَجَاةَ التَّائِبِيْنَ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الْحَمْدُ للهِ الَّذِيْ أَنْعَمَنَا بِنِعْمَةِ الْاِيْمَانِ وَالْاِسْلَامِ. وَالصَّلَاةُ وَالسَّلَامُ عَلٰى سَيِّدِنَا مُحَمَّدٍ خَيْرِ الْأَنَامِ. وَعَلٰى اٰلِهِ وَأَصْحَابِهِ الْكِرَامِ. أَشْهَدُ اَنْ لَا اِلٰهَ اِلَّا اللهُ الْمَلِكُ الْقُدُّوْسُ السَّلَامُ وَأَشْهَدُ اَنَّ سَيِّدَنَا وَحَبِيْبَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ صَاحِبُ الشَّرَفِ وَالْإِحْتِرَامِ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَمَّا بَعْدُ. فَيَاأَيُّهَا النَّاسُ أُوْصِيْكُمْ وَنَفْسِيْ بِتَقْوَى اللهِ فَقَدْ فَازَ الْمُتَّقُوْنَ. فَقَالَ اللهُ تَعَالَى اِنَّ اللهَ وَ مَلَائِكَتَهُ يُصَلُّوْنَ عَلَى النَّبِيِّ يٰأَيُّهَا الَّذِيْنَ أٰمَنُوْا صَلُّوْا عَلَيْهِ وَ سَلِّمُوْا تَسْلِيْمًا''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّٰهُمَّ صَلِّ وَسَلِّمْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَ عَلٰى أٰلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلٰى سَيِّدِنَا اِبْرَاهِيْمَ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى أٰلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلٰى سَيِّدِنَا اِبْرَاهِيْمَ وَعَلٰى أٰلِ سَيِّدِنَا اِبْرَاهِيْمَ فْي الْعَالَمِيْنَ اِنَّكَ حَمِيْدٌ مَجِيْدٌ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّٰهُمَّ وَارْضَ عَنِ الْخُلَفَاءِ الرَّاشِدِيْنَ. وَعَنْ اَصْحَابِ نَبِيِّكَ اَجْمَعِيْنَ. وَالتَّابِعِبْنَ وَتَابِعِ التَّابِعِيْنَ وَ تَابِعِهِمْ اِلٰى يَوْمِ الدِّيْنِ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّٰهُمَّ اغْفِرْ لِلْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ. اَللّٰهُمَّ ادْفَعْ عَنَّا الْغَلَاءَ وَالْوَبَاءَ وَالطَّاعُوْنَ وَالْاَمْرَاضَ وَالْفِتَنَ مَا لَا يَدْفَعُهُ غَيْرُكَ عَنْ بَلَدِنَا هٰذَا اِنْدُوْنِيْسِيَّا خَاصَّةً وَعَنْ سَائِرِ بِلَادِ الْمُسْلِمِيْنَ عَامَّةً يَا رَبَّ الْعَالَمِيْنَ. رَبَّنَا اٰتِنَا فِي الدُّنْيَا حَسَنَةً وَ فِي الْاٰخِرَةِ حَسَنَةً وَ قِنَا عَذَابَ النَّارِ. عِبَادَ اللهِ اِنَّ اللهَ يَأْمُرُ بِالْعَدْلِ وَالْاِحْسَانِ وَيَنْهَى عَنِ الْفَحْشَاءِ وَالْمُنْكَرِ. يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ. فَاذْكُرُوا اللهَ الْعَظِيْمَ يَذْكُرْكُمْ. وَ اشْكُرُوْهُ عَلٰى نِعَمِهِ يَزِدْكُمْ. وَلَذِكْرُ اللهِ اَكْبَرُ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Alwi Jamalulel Ubab, Alumni Khas Kempek Cirebon dan Mahad Aly Jakarta''',
+        }
+      ]
+    },
+    {
+      'title': 'Khutbah Jumat: Nuzulul Qur\'an dan Perintah Membaca',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Al-Qur\'an turun kepada Nabi Muhammad Saw dengan misi untuk memperbaiki tatanan kehidupan manusia. Bukan tanpa sebab, ternyata reformasi tersebut dimulai dengan memperkuat literasi umat. Hal ini dibuktikan dengan diturunkannya QS. Al-\'Alaq ayat 1-5 yang secara umum mengajak semua orang untuk membaca.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Naskah Khutbah Jumat yang berjudul, "Khutbah Jumat: Nuzulul Qur\'an dan Perintah Membaca" ini mengajak kaum muslimin untuk mengingat dan mendalami makna di balik turunnya Al-Qur\'an untuk yang pertama kalinya.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''‌اَلْحَمْدُ ‌لِلّٰهِ ‌الَّذِيْ أَنْزَلَ عَلَى عَبْدِهِ الْكِتَابَ وَلَمْ يَجْعَلْ لَهُ عِوَجًا قَيِّمًا لِيُنْذِرَ بَأْسًا شَدِيْدًا مِنْ لَدُنْهُ وَيُبَشِّرَ الْمُؤْمِنِيْنَ، وَأَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ، اَللّٰهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى اٰلِهِ وَصَحْبِهِ أَجْمَعِيْنَ اَمَّا بَعْدُ، فَيَااَيُّهَا الْمُسْلِمُوْنَ، اِتَّقُوْا اللّٰهَ وَاعْلَمُوْٓا اَنَّكُمْ اِلَيْهِ تُحْشَرُوْنَ فَقَدْ قَالَ اللّٰهُ تَعَالَى  فِي كِتَابِهِ الْكَرِيْمِ اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِيْ خَلَقَۚ، خَلَقَ الْاِنْسَانَ مِنْ عَلَقٍۚ، اِقْرَأْ وَرَبُّكَ الْاَكْرَمُۙ، الَّذِيْ عَلَّمَ بِالْقَلَمِۙ، عَلَّمَ الْاِنْسَانَ مَا لَمْ يَعْلَمْۗ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah kaum muslimin yang dirahmati Allah
+Puji dan syukur mari kita panjatkan ke hadirat Allah SWT yang tak henti-hentinya melimpahkan berbagai karunia dan kenikmatan kepada kita semua. Shalawat dan salam semoga selalu tercurahkan kepada Baginda Nabi Muhammad SAW, juga kepada para sahabat, para tabiin, tabi\' tabiin-nya, hingga kepada kita semua selaku umatnya.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khatib berpesan bagi diri sendiri dan jamaah sekalian, mari bersama-sama kita tingkatkan ketakwaan kepada Allah Swt. Sebab kelak di hari kiamat, kita akan dikumpulkan dalam keadaan menghadap-Nya. Sebagaimana dalam Al-Qur\'an Surat Al-Baqarah ayat 203 disebutkan:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَاتَّقُوْا اللّٰهَ وَاعْلَمُوْٓا اَنَّكُمْ اِلَيْهِ تُحْشَرُوْنَ''',
+          'translation': '''Artinya: "Bertakwalah kepada Allah dan ketahuilah bahwa hanya kepada-Nya kamu akan dikumpulkan."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah kaum muslimin yang dirahmati Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kita tentu masih mengingat peristiwa bersejarah ketika Nabi Muhammad Saw. menerima wahyu pertama dari Tuhannya. Peristiwa ini memberikan pelajaran yang sangat berharga. Saat itu, Nabi yang sedang beruzlah tiba-tiba didatangi malaikat Jibril yang membawa risalah dari Allah Swt.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kita tentu masih mengingat peristiwa bersejarah ketika Nabi Muhammad Saw menerima wahyu pertama dari Tuhannya. Peristiwa ini tentu memberikan pelajaran berharga. Saat itu, Nabi yang sedang uzlah tiba-tiba didatangi malaikat Jibril yang membawa risalah dari Allah Swt.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Tiba-tiba Jibril berkata, "Bacalah!" sedangkan Nabi Muhammad Saw yang sedang tertidur menjadi bangun dan bingung dibuatnya. Sehingga Nabi menjawab seruan tersebut dengan berkata, "Apa yang akan aku baca?" dialog ini berlangsung lama dengan beberapa kali pengulangan kalimat yang sama. Sampai pada akhirnya, Jibril membacakan QS. Al-Alaq ayat 1-5.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sebagaimana hal ini diabadikan oleh Ibnu Hisyam dalam kitab Sirahnya, jilid 1, halaman 220-221:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''قَالَ رَسُولُ اللّٰهِ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ: فَجَاءَنِي جِبْرِيْلُ وَأَنَا نَائِمٌ بِنَمَطِ مِنْ دِيبَاجٍ فِيْهِ كِتَابٌ فَقَالَ اِقْرَأْ قَالَ قُلْتُ: مَا أَقْرَأُ؟ قَالَ ‌فَغَتَّنِي ‌بِهِ ‌حَتَّى ‌ظَنَنْتُ ‌أَنَّهُ ‌الْمَوْتُ ثُمَّ أَرْسَلَنِيْ، فَقَالَ اِقْرَأْ قَالَ قُلْتُ: مَا أَقْرَأُ؟ قَالَ ‌فَغَتَّنِيْ ‌بِهِ ‌حَتَّى ‌ظَنَنْتُ ‌أَنَّهُ ‌الْمَوْتُ. ثُمَّ أَرْسَلَنِي، فَقَالَ اِقْرَأْ قَالَ قُلْتُ: مَاذَا أَقْرَأُ؟ قَالَ ‌فَغَتَّنِيْ ‌بِهِ ‌حَتَّى ‌ظَنَنْتُ ‌أَنَّهُ ‌الْمَوْتُ ثُمَّ أَرْسَلَنِي، فَقَالَ اِقْرَأْ قَالَ فَقُلْتُ: مَاذَا أَقْرَأُ؟ مَا أَقُوْلُ ذَلِكَ إِلَّا افْتِدَاءً مِنْهُ أَنْ يَعُودَ لِي بِمِثْلِ مَا صَنَعَ بِي، فَقَالَ {اقْرَأْ بِاسْمِ رَبّكَ الَّذِي خَلَقَ خَلَقَ الْإِنْسَانَ مِنْ عَلَقٍ اِقْرَأْ وَرَبُّكَ الْأَكْرَمُ الَّذِيْ عَلَّمَ بِالْقَلَمِ عَلَّمَ الْإِنْسَانَ مَا لَمْ يَعْلَمْ} [العلق: 1 – 5] قَالَ فَقَرَأَتُهَا ثُمّ انْتَهَى، فَانْصَرَفَ''',
+          'translation': '''Artinya: "Rasulullah Saw bersabda: Jibril mendatangiku saat aku sedang tertidur dengan selimut yang terbuat dari sutera. Jibril tiba-tiba berkata, "Bacalah!", aku menjawab, "Apa yang akan aku baca?" Ketika itu Jibril memelukku sehingga aku mengira bahwa ia adalah malaikat maut, setelah itu dia melepasku.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Selanjutnya Jibril kembali berkata, "Bacalah!" Nabi melanjutkan ceritanya, aku menjawab, "Apa yang akan aku baca?" Jibril memelukku lagi sehingga aku mengira bahwa ia adalah malaikat maut, setelah itu dia melepasku.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Setelahnya Jibril mengulangi perkataannya, "Bacalah!" Nabi melanjutkan, aku menjawab, "Apa yang akan aku baca?" Jibril memelukku lagi untuk yang sekian kalinya sehingga aku mengira bahwa ia adalah malaikat maut, setelah itu dia melepasku kembali.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kemudian Jibril mengulang perkataannya untuk yang keempat kalinya, "Bacalah!" Nabi melanjutkan kisahnya dengan berkata, aku menjawab, "Apa yang akan aku baca?" Nabi berkata lagi, "Tidaklah aku mengatakan hal demikian, kecuali semata-mata untuk merespons apa yang Jibril lakukan kepadaku."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sehingga pada akhirnya Jibril berkata, "Bacalah dengan (menyebut) nama Tuhanmu yang menciptakan! Dia menciptakan manusia dari segumpal darah. Bacalah! Tuhanmu-lah Yang Maha mulia, yang mengajar (manusia) dengan pena. Dia mengajarkan manusia apa yang tidak diketahuinya." (QS. Al-\'Alaq [96]: 1-5) Nabi bercerita, lalu aku mengikuti bacaan tersebut dan Setelahnya Jibril pergi.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah kaum muslimin yang dirahmati Allah
+Bukan tanpa sebab, ternyata Allah Swt menurunkan wahyu pertama berupa perintah sebagai landasan utama dalam membangun aspek fundamental yang diperlukan untuk mewujudkan reformasi masyarakat. Salah satu caranya ialah dengan menanamkan kesadaran tentang keberadaan Tuhan yang dapat dicapai melalui proses membaca.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Melalui penguatan literasi dan peningkatan spiritual dapat mengantarkan peradaban manusia yang semula berada dalam kehidupan jahiliah, berkembang, dan berubah menjadi zaman pencerahan dengan datangnya cahaya Islam.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dengan sering membaca, manusia diharapkan bisa bertransformasi menjadi makhluk yang lebih baik. Nasiruddin al-Baidhawi dalam kitab Anwaruttanzil wa Asrarutta\'wil, jilid 5, halaman 325, menjelaskan bahwa QS. Al-Alaq ayat 1-2 menggambarkan tentang perintah Allah Swt kepada Nabi Muhammad Saw dan manusia  secara umum untuk membaca Al-Qur\'an, berupaya menyebut nama Allah saat memulai membacanya serta menampilkan hikmah luar biasa tentang proses penciptaan manusia yang berasal dari segumpal darah.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Selanjutnya, dalam ayat 3-5 menggambarkan tentang keistimewaan Allah Swt yang telah memerintahkan hambanya untuk membaca, memberikan ilmu pengetahuan dan mengajarkan apa yang tidak mereka ketahui.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah kaum muslimin yang dirahmati Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Tidak ada yang kebetulan di dunia ini, semua peristiwa yang terjadi merupakan ketetapan Allah yang dihiasi dengan pelajaran berharga untuk kehidupan manusia yang lebih baik.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Berkenaan dengan sejarah turunnya wahyu pertama dalam Nuzulul Qur\'an, mengajarkan kita tentang urgensi membaca sebagai wasilah awal untuk mengubah peradaban umat manusia.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Oleh karenanya, mari mengalokasikan waktu agar bisa menyempatkan diri untuk membaca guna menambah ilmu, pahala dan kedekatan bersama tuhan, khususnya dengan membaca Al-Qur\'an.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''بَارَكَ اللّٰهُ لِيْ وَلَكُمْ فِي الْقُرْآنِ الْعَظِيْمِ، وَنَفَعَنِيْ وَإِيَّاكُمْ بِمَا فِيْهِ مِنَ اْلآيَاتِ وَالذِّكْرِ الْحَكِيْمِ. أَقُوْلُ قَوْلِيْ هَذَا وَأَسْتَغْفِرُ اللّٰهَ لِيْ وَلَكُمْ وَلِلْمُسْلِمِيْنَ فَاسْتَغْفِرُوْهُ إِنَّهُ هُوَ الْغَفُوْرُ الرَّحِيْمُ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلّٰهِ عَلَى إِحْسَانِهِ وَالشُّكْرُ لَهُ عَلَى تَوْفِيْقِهِ وَامْتِنَانِهِ، وَأَشْهَدُ أَنْ لَا اِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ الدَّاعِى إلَى رِضْوَانِهِ، اَللّٰهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى اٰلِهِ وَاَصْحَابِهِ وَسَلِّمْ تَسْلِيْمًا كَثِيْرًا أَمَّا بَعْدُ فَيَا أَيُّهَا المُسْلِمُوْنَ اِتَّقُوْا اللّٰهَ فِيْمَا أَمَرَ وَانْتَهُوْا عَمَّا نَهَى''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَاعْلَمُوْا أَنَّ اللّٰهَ أَمَرَكُمْ بِأَمْرٍ بَدَأَ فِيْهِ بِنَفْسِهِ وَثَـنَّى بِمَلآئِكَتِهِ بِقُدْسِهِ، وَقَالَ تَعَالَى إِنَّ اللّٰهَ وَمَلآئِكَتَهُ يُصَلُّوْنَ عَلَى النَّبِيِّ يَآ اَيُّهَا الَّذِيْنَ آمَنُوْا صَلُّوْا عَلَيْهِ وَسَلِّمُوْا تَسْلِيْمًا، اَللّٰهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ وَعَلَى اٰلِ سَيِّدِنَا مُحَمَّدٍ وَعَلَى اَنْبِيَآئِكَ وَرُسُلِكَ وَمَلَآئِكَةِ المُقَرَّبِيْنَ وَارْضَ اللّٰهُمَّ عَنِ اْلخُلَفَاءِ الرَّاشِدِيْنَ أَبِى بَكْرٍ وَعُمَرَ وَعُثْمَانَ وَعَلِيِّ وَعَنْ بَقِيَّةِ الصَّحَابَةِ وَالتَّابِعِيْنَ وَتَابِعِيْ التَّابِعِيْنَ لَهُمْ بِاِحْسَانٍ اِلَى يَوْمِ الدِّيْنِ وَارْضَ عَنَّا مَعَهُمْ بِرَحْمَتِكَ يَا اَرْحَمَ الرَّاحِمِيْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّٰهُمَّ اغْفِرْ لِلْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ وَاْلمُسْلِمِيْنَ وَالْمُسْلِمَاتِ اَلاَحْيَآءِ مِنْهُمْ وَاْلاَمْوَاتِ اَللّٰهُمَّ أَعِزَّ الْإِسْلَامَ وَاْلمُسْلِمِيْنَ وَأَذِلَّ الشِّرْكَ وَاْلمُشْرِكِيْنَ وَانْصُرْ عِبَادَكَ الْمُوَحِّدِيَّةَ وَانْصُرْ مَنْ نَصَرَ الدِّيْنَ وَاخْذُلْ مَنْ خَذَلَ اْلمُسْلِمِيْنَ وَ دَمِّرْ أَعْدَاءَ الدِّيْنِ وَاعْلِ كَلِمَاتِكَ إِلَى يَوْمِ الدِّيْنِ. اَللّٰهُمَّ ادْفَعْ عَنَّا الْبَلَاءَ وَالْوَبَاءَ وَالزَّلاَزِلَ وَالْمِحَنَ وَسُوْءَ الْفِتَنِ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ عَنْ بَلَدِنَا اِنْدُوْنِيْسِيَّا خَآصَّةً وَسَائِرِ الْبُلْدَانِ الْمُسْلِمِيْنَ عَآمَّةً يَا رَبَّ الْعَالَمِيْنَ. رَبَّنَا ظَلَمْنَا اَنْفُسَنَا وَ اِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُوْنَنَّ مِنَ الْخَاسِرِيْنَ. رَبَّنَا آتِنَا فِى الدُّنْيَا حَسَنَةً وَفِى الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عِبَادَ اللّٰهِ، إِنَّ اللّٰهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ وَإِيْتآءِ ذِيْ اْلقُرْبٰى وَيَنْهَى عَنِ اْلفَحْشَآءِ وَالْمُنْكَرِ وَالْبَغْيِ يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ وَاذْكُرُوْا اللّٰهَ اْلعَظِيْمَ يَذْكُرْكُمْ وَاشْكُرُوْهُ عَلَى نِعَمِهِ يَزِدْكُمْ وَلَذِكْرُ اللّٰهِ أَكْبَرُ وَ اللّٰهُ يَعْلَمُ مَا تَصْنَعُوْنَ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Muhaimin Yasin, Alumnus Pondok Pesantren Ishlahul Muslimin Lombok Barat dan Pegiat Kajian Keislaman''',
+        }
+      ]
+    },
+    {
+      'title': 'Khutbah Jumat: Ramadhan, Bulan Peduli Lingkungan dan Sosial',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Bulan Ramadhan merupakan momentum spesial untuk peningkatan kualitas pribadi di antaranya adalah kepedulian terhadap lingkungan dan orang lain. Pada momentum Ramadhan kali ini banyak sekali hal yang bisa kita jadikan pemicu untuk terus menguatkan kepedulian terhadap lingkungan di antaranya adalah bencana banjir dan meningkatkan kesalehan sosial dengan membantu mereka yang terdampak.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Teks Khutbah Jumat berikut ini berjudul "Khutbah Jumat: Ramadhan, Bulan Peduli Lingkungan dan Sosial". Untuk mencetak naskah khutbah Jumat ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat!''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلّٰهِ. اَلْحَمْدُ لِلّٰهِ الَّذِيْ حَمْدًا يُوَافِيْ نِعَمَهُ وَيُكَافِئُ مَزِيْدَهُ، يَا رَبَّنَا لَكَ الْحَمْدُ كَمَا يَنْبَغِيْ لِجَلَالِ وَجْهِكَ وَلِعَظِيْمِ سُلْطَانِكَ، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ وَصَفِيُّهُ وَخَلِيْلُهُ، خَيْرُ نَبِيٍّ أَرْسَلَهُ اللّٰهُ إِلَى الْعَالَمِ كُلِّهِ بَشِيْرًا وَنَذِيْرًا. اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى اَلِ سَيِّدِنَا مُحَمَّدٍ صَلَاةً وَسَلَامًا مُتَلَازِمَيْنِ إِلَى يَوْمِ الدِّيْنِ. أَمَّا بَعْدُ، فَيَا أَيُّهَا الْحَاضِرُوْنَ، اِتَّقُوا اللّٰهَ حَقَّ تُقَاتِهِ وَلَا تَمُوْتُنَّ اِلَّا وَأَنْتُمْ مُسْلِمُوْنَ  قَالَ اللّٰهُ تَعَالَى فِي الْقُرْاٰنِ الْعَظِيْمِ، أَعُوْذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ، بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ: ظَهَرَ الْفَسَادُ فِى الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ اَيْدِى النَّاسِ لِيُذِيْقَهُمْ بَعْضَ الَّذِيْ عَمِلُوْا لَعَلَّهُمْ يَرْجِعُوْنَ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma\'asyiral Muslimin rahimakumullah,''',
+        },
+        {
+          'type': 'text',
+          'content': '''Marilah kita senantiasa meningkatkan ketakwaan kita kepada Allah SWT dengan menjalankan segala perintah-Nya dan menjauhi segala larangan-Nya. Salah satu bentuk ketakwaan yang sering kita abaikan adalah kepedulian terhadap lingkungan hidup. Padahal, Islam mengajarkan kita untuk menjaga alam sebagai bentuk amanah dari Allah.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Di bulan Ramadhan ini, kita bukan hanya dilatih untuk menahan lapar dan dahaga, tetapi juga melatih diri untuk menjadi pribadi yang shaleh secara personal dan soleh secara sosial. Kesolehan kita harus bisa terwujudkan dalam wujud mampu memberi kemaslahatan bagi diri dan lingkungan. Tidak merusak lingkungan setelah Allah menciptakannya dengan sangat sempurna. Allah SWT berfirman dalam Al-Qur\'an:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَلَا تُفْسِدُوْا فِى الْاَرْضِ بَعْدَ اِصْلَاحِهَا وَادْعُوْهُ خَوْفًا وَّطَمَعًاۗ اِنَّ رَحْمَتَ اللّٰهِ قَرِيْبٌ مِّنَ الْمُحْسِنِيْنَ ۝٥٦''',
+          'translation': '''Artinya: "Dan janganlah kamu membuat kerusakan di muka bumi setelah Allah memperbaikinya." (QS. Al-A\'raf: 56)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma\'asyiral Muslimin rahimakumullah,''',
+        },
+        {
+          'type': 'text',
+          'content': '''Saat ini, kita melihat dan merasakan sendiri bahwa intensitas hujan tinggi terjadi di bulan Ramadhan. Kondisi ini telah menyebabkan bencana banjir terjadi di berbagai daerah di negeri kita. Banyak saudara kita yang terdampak, kehilangan tempat tinggal, harta benda, bahkan nyawa. Ini menjadi pengingat bagi kita semua bahwa menjaga lingkungan adalah bagian dari ibadah dan amanah yang harus kita laksanakan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Banyak faktor yang menyebabkan bencana ini, salah satunya adalah ulah kita sendiri yang tidak menjaga alam dengan baik. Penebangan pohon secara liar, pembuangan sampah sembarangan, serta pembangunan yang tidak memperhatikan keseimbangan ekosistem menjadi penyebab utama bencana banjir dan longsor.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Padahal Rasulullah SAW telah mengingatkan dalam sabdanya untuk benar-benar merawat lingkungan dengan contoh menanam pohon. Selain sebagai penjaga kelestarian lingkungan melalui resapan airnya dan oksigen yang bermanfaat bagi udara di bumi, menanam pohon juga merupakan ibadah yang masuk dalam kategori sedekah. Rasulullah SAW bersabda:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عَنْ جَابِرٍ، قَالَ: قَالَ رَسُولُ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ: مَا مِنْ مُسْلِمٍ يَغْرِسُ غَرْسًا إِلَّا كَانَ مَا أُكِلَ مِنْهُ لَهُ صَدَقَةً، وَمَا سُرِقَ مِنْهُ لَهُ صَدَقَةٌ، وَمَا أَكَلَ السَّبُعُ مِنْهُ فَهُوَ لَهُ صَدَقَةٌ، وَمَا أَكَلَتِ الطَّيْرُ فَهُوَ لَهُ صَدَقَةٌ، وَلَا يَرْزَؤُهُ أَحَدٌ إِلَّا كَانَ لَهُ صَدَقَةٌ''',
+          'translation': '''Artinya: "Jabir berkata bahwa Rasulullah Saw bersabda, Tidaklah seorang muslim menanam pohon kecuali buah yang dimakannya menjadi sedekah, yang dicuri menjadi sedekah, yang dimakan binatang buas adalah sedekah, yang dimakan burung adalah sedekah, dan tidak diambil seseorang kecuali menjadi sedekah," (HR. Muslim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Maka, bulan Ramadhan ini mengingatkan kita untuk menjadikannya momentum lebih peduli terhadap lingkungan. Puasa mengajarkan kita untuk menahan diri dari tindakan yang merugikan, termasuk dalam merusak lingkungan. Mari kita mulai dari hal-hal kecil seperti membuang sampah pada tempatnya, mengurangi penggunaan plastik, serta menanam pohon untuk menjaga keseimbangan alam.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma\'asyiral Muslimin rahimakumullah,''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kelestarian alam yang terjaga pun akan menambah keindahan dan memberikan nilai estetika yang ternilai harganya. Pegunungan, hutan, dan lautan memberikan tempat untuk relaksasi dan rekreasi. Memelihara keindahan alam adalah investasi dalam kesejahteraan manusia secara keseluruhan.
+
+Sehingga, menjaga lingkungan juga bagian berkontribusi periodik dalam upaya mengatasi perubahan iklim global. Konservasi energi, penggunaan sumber daya terbarukan, dan pengurangan emisi gas rumah kaca adalah langkah-langkah penting untuk menciptakan lingkungan yang berkelanjutan.
+ 
+Dengan merawat dan menjaga lingkungan, kita membangun masa depan yang berkelanjutan, sehat, dan harmonis bagi manusia dan seluruh makhluk hidup. Tindakan kecil dari setiap individu dapat memiliki dampak besar jika dilakukan secara kolektif dengan penuh kesadaran.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma\'asyiral Muslimin rahimakumullah,''',
+        },
+        {
+          'type': 'text',
+          'content': '''Di bulan yang penuh berkah ini, kita juga diajarkan untuk meningkatkan kepedulian sosial terhadap sesama. Bagi saudara-saudara kita yang terdampak bencana banjir, ini adalah ujian kesabaran. Allah berfirman:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَلَنَبْلُوَنَّكُمْ بِشَيْءٍ مِّنَ الْخَوْفِ وَالْجُوْعِ وَنَقْصٍ مِّنَ الْاَمْوَالِ وَالْاَنْفُسِ وَالثَّمَرٰتِۗ وَبَشِّرِ الصّٰبِرِيْنَ ۝١٥٥''',
+          'translation': '''Artinya, "Dan sungguh akan Kami berikan cobaan kepadamu, dengan sedikit ketakutan, kelaparan, kekurangan harta, jiwa dan buah-buahan. Dan berilah kabar gembira kepada orang-orang yang sabar." (QS. Al-Baqarah: 155)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Bagi kita yang tidak terdampak langsung, sudah seharusnya kita meningkatkan kepedulian dengan memberikan bantuan, baik berupa tenaga, harta, maupun doa. Sikap peduli pada penderitaan orang lain bisa menjadi barometer tingkat keimanan dan ketakwaan kita. Semakin beriman dan bertakwa kita, maka semakin tinggi tingkat sensitifnya terhadap masalah-masalah yang dihadapi oleh orang lain.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Syekh Abdul Qadir Jailani dalam Fathur Rabbani wal Faydur Rahmani mengatakan: "Jika kamu menyukai makanan enak, pakaian bagus, rumah mewah, wanita cantik, dan harta yang berlimpah, sementara pada saat yang sama kamu menginginkan agar saudara seimanmu mendapatkan kebalikannya, maka sungguh bohong bila kamu mengaku memiliki iman yang sempurna. Wahai orang kurang akal! Kamu berdampingan dengan tetangga yang fakir dan mempunyai sanak-saudara miskin, sedangkan kamu memiliki harta yang sudah layak dizakati, keuntunganmu berlipat ganda setiap hari, dan kamu memiliki kekayaan lebih. Jika kamu enggan memberi dan menolong mereka, berarti kamu rela dengan kefakiran mereka."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Inilah gambaran bagaimana Allah, Rasulullah, dan para ulama mengingatkan kita semua untuk memiliki kebersamaan yang tinggi dan kepedulian kolektif. Kita perlu ingat, keimanan tidak selamanya diukur berdasarkan jumlah ibadah mahdhoh seperti shalat, zikir, haji dan sebagainya. Walaupun kita rajin ibadah ritual dan percaya pada Allah jika kita tak memperkuat ibadah sosial atau tak peka pada lingkungan maka keimanan kita pun sangat layak dipertanyakan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma\'asyiral Muslimin rahimakumullah,''',
+        },
+        {
+          'type': 'text',
+          'content': '''Marilah kita jadikan bulan Ramadhan ini sebagai momen untuk meningkatkan kepedulian, tidak hanya kepada sesama manusia, tetapi juga kepada alam sekitar. Semoga Allah SWT menjadikan kita hamba-hamba-Nya yang bertakwa dan mencintai lingkungan sebagai bagian dari ibadah kita. Amin.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''بَارَكَ اللّٰهُ لِيْ وَلَكُمْ فِيْ الْقُرْآنِ الْكَرِيْمِ وَنَفَعَنِيْ وَإِيَّاكُمْ بِمَا فِيْهِ مِنَ الذِّكْرِ الْحَكِيْمِ وَتَقَبَّلَ مِنِّيْ وَمِنْكُمْ تِلَاوَتَهُ إِنَّهُ هُوَ الْغَفُوْرُ الرَّحِيْمُ، فَاعْتَبِرُوْا يَآ أُوْلِى اْلأَلْبَابِ لَعَلَّكُمْ تُفْلِحُوْنَ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلّٰهِ الَّذِي هَدَانَا لِهَذَا وَمَا كُنَّا لِنَهْتَدِيَ لَوْلَا أَنْ هَدَانَا اللّٰهُ. أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، وَأَشْهَدُ أَنْ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ لَا نَبِيَّ بَعْدَهُ. اَللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ المُجَاهِدِيْنَ الطَّاهِرِيْنَ.  أَمَّا بَعْدُ، فَيَا آيُّهَا الحَاضِرُوْنَ، أُوْصِيْكُمْ وَإِيَّايَ بِتَقْوَى اللّٰهِ وَطَاعَتِهِ لَعَلَّكُمْ تُفْلِحُوْنَ. يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ حَقَّ تُقَاتِهِ وَلَا تَمُوتُنَّ إِلَّا وَأَنْتُمْ مُسْلِمُونَ، وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَى. فَقَدْ قَالَ اللّٰهُ تَعَالَى فِي كِتَابِهِ الْكَرِيْمِ أَعُوْذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ، بِسْمِ اللّٰهِ الرَّحْمَنِ الرَّحِيْمِ: وَالْعَصْرِ. إِنَّ الْإِنْسَانَ لَفِي خُسْرٍ. إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْر. إِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللّٰهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ، وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى سَيِّدِنَا إِبْرَاهِيمَ وَعَلَى آلِ سَيِّدِنَا إِبْرَاهِيمَ، فِى الْعَالَمِينَ إِنَّكَ حَمِيدٌ مَجِيدٌ   اَللّٰهُمَّ اغْفِرْ لِلْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ. اَللّٰهُمَّ ادْفَعْ عَنَّا الْغَلَاءَ وَالْوَبَاءَ وَالطَّاعُوْنَ وَالْاَمْرَاضَ وَالْفِتَنَ مَا لَا يَدْفَعُهُ غَيْرُكَ عَنْ بَلَدِنَا هٰذَا اِنْدُوْنِيْسِيَّا خَاصَّةً وَعَنْ سَائِرِ بِلَادِ الْمُسْلِمِيْنَ عَامَّةً يَا رَبَّ الْعَالَمِيْنَ. رَبَّنَا اٰتِنَا فِي الدُّنْيَا حَسَنَةً وَ فِي الْاٰخِرَةِ حَسَنَةً وَ قِنَا عَذَابَ النَّارِ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عٍبَادَ اللّٰهِ، إِنَّ اللّٰهَ يَأْمُرُ بِاْلعَدْلِ وَاْلإِحْسَانِ وَإِيْتاءِ ذِي اْلقُرْبىَ وَيَنْهَى عَنِ اْلفَحْشاءِ وَاْلمُنْكَرِ وَاْلبَغْيِ يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ، وَاذْكُرُوا اللّٰهَ اْلعَظِيْمَ يَذْكُرْكُمْ، وَاشْكُرُوْهُ عَلىَ نِعَمِهِ يَزِدْكُمْ، وَلَذِكْرُ اللّٰهِ أَكْبَرْ''',
+        },
+        {
+          'type': 'text',
+          'content': '''H Muhammad Faizin, Ketua PCNU Pringsewu, Lampung''',
+        }
+      ]
+    }
   ];
 
   final List<Map<String, dynamic>> _ramadhanMenu = [
