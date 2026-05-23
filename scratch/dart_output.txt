@@ -1,0 +1,568 @@
+    {
+      'title': 'Khutbah Idul Fitri: Evaluasi Capaian Ibadah di Bulan Ramadhan',
+      'date': '1 Syawal 1444 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Naskah khutbah Idul Fitri 1444 H berikut ini mengajak kepada para jamaah untuk kembali melakukan evaluasi dan koreksi terhadap ibadah-ibadah yang dilakukan selama bulan Ramadhan. Sebab manusi terbaik adalah mereka yang hendak mengoreksi semua perbuatan-perbuatan yang pernah dia lakukan, untuk membenahi atau lebih menyempurnakan di hari-hari berikutnya.
+
+Teks khutbah berikut ini dengan judul, “Khutbah Idul Fitri 1444 H: Evaluasi Capaian Ibadah di Bulan Ramadhan”. Untuk mencetak naskah khutbah Idul Fitri ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat! (Redaksi).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللهُ أَكْبَرُ ، اَللهُ أَكْبَرُ ، اَللهُ أَكْبَرُ . اَللهُ أَكْبَرُ ، اَللهُ أَكْبَرُ ، اَللهُ أَكْبَرُ . اَللهُ أَكْبَرُ ، اَللهُ أَكْبَرُ ، اَللهُ أَكْبَرُ ، وَلِلهِ الْحَمْدُ. اَللهُ أَكْبَرُ كَبِيرًا وَالْحَمْدُ لِلهِ كَثِيرًا وَسُبْحَانَ اللهِ بُكْرَةً وَأَصِيلًا. لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ، صَدَقَ وَعْدَهُ، وَنَصَرَ عَبْدَهُ، وَهَزَمَ الْأَحْزَابَ وَحْدَهُ. لَا إِلَهَ إِلَّا اللهُ وَلَا نَعْبُدُ إِلَّا إِيَّاهُ مُخْلِصِيْنَ لَهُ الدِّيْنَ وَلَوْ كَرِهَ الْكَافِرُوْنَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلهِ الَّذِيْ جَعَلَ شَهْرَ الصِّيَامَ غُزَّةَ وَجْهِ الْعَامِّ، وَأَجْزَلَ فِيْهِ الْفَضَائَلَ وَالْاِنْعَامِ، وَفَضَّلَ أَيَّامَهُ عَلَى سَائِرِ الْأَيَّامِ. وَالصَّلَاةُ وَالسَّلَامُ عَلَى سَيِّدِنَا مُحَمَّدٍ اَلْمَبْعُوْثِ عَلَى جَمِيْعِ الْأَنَامِ، وَعَلَى أَلِهِ وَأَصْحَابِهِ هُدَاةِ الْأَنَامِ وَمَصَابِيْحِ الظَّلَامِ. أَشْهَدُ أَنْ لَااِلَهَ اِلَّا الله وَحْدَهُ لَا شَرِيْكَ لَهُ اِلَهٌ تَفَرَّدَ بِالْكَمَالِ وَالتَّمَامِ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ أَفْضَلُ مَنْ صَلَّى وَصَامَ. اَللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلىَ أَلِهِ وَصَحْبِهِ الَّذِيْ شُبِّهُوْا بِالْأَنْجَامِ، فَمَنْ تَبِعَهُ فَقَدْ نَالَ سُبُلَ التَّامِّ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَمَّا بَعْدُ، فَيآ أَيُّهَا الْمُؤْمِنُوْنَ رَحِمَكُمْ اللهُ، أُوْصِيْكُمْ وَاِيَايَ بِتَقْوَى اللهِ وَطَاعَتِهِ، بِامْتِثَالِ أَوَامِرِهِ وَاجْتِنَابِ نَوَاهِيْهِ. قَالَ اللهُ تَعَالَى فِيْ كِتَابِهِ الْكَرِيْمِ: يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ حَقَّ تُقَاتِهِ وَلا تَمُوتُنَّ إِلاَّ وَأَنْتُمْ مُسْلِمُونَ. وَقَالَ أَيْضًا: وَلِتُكْمِلُوا الْعِدَّةَ وَلِتُكَبِّرُوا اللهِ عَلَى مَا هَدَاكُمْ وَلَعَلَّكُمْ تَشْكُرُونَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma’asyiral Muslimin jamaah shalat idul Fitri yang dirahmati Allah
+Alhamdulillah merupakan kata kunci pertama yang harus kita tanamkan dalam jiwa kita sebagai bentuk syukur dan terimakasih kepada Allah swt, yang masih berkenan memberikan kita semua kenikmatan-kenikmatan yang tidak terhitung jumlahnya. Di antaranya adalah memberikan kita kesempatan untuk bisa berpuasa di bulan Ramadhan, dan menunaikan ibadah shalat sunnah hari raya bersama-sama. Shalawat dan salam mari kita mohonkan  agar terlimpah kepada junjungan kita Nabi Muhammad saw beserta para sahabat dan pengikutnya.
+
+Melalui mimbar yang mulia ini, khatib mengajak kepada diri khatib sendiri, keluarga, dan semua jamaah yang turut hadir pada pelaksanaan shalat idul fitri ini, untuk kembali melakukan evaluasi terkait ibadah-ibadah dan tanggungjawab di bulan Ramadhan. Sudahkah semua hak-hak bulan Ramadhan kita penuhi dengan tepat dan benar. Harapannya bisa menjadi perantara untuk kembali menyadarkan kita semua perihal pentingnya menjadi manusia bertakwa, yang selalu mengerjakan kewajiban dan tanggungjawabnya.
+
+Saat ini kita semua baru saja berpisah dengan bulan Ramadhan. Ia telah pergi, dan kita tidak tahu apakah masih diberi kesempatan oleh Allah untuk berjumpa kembali dengannya di tahun berikutnya atau tidak, sebab kematian tidak ada yang tahun kapan waktunya. Bisa saja, ia lebih dahulu menjemput kita semua sebelum datangnya bulan Ramadhan.
+
+Ma’asyiral Muslimin jamaah shalat idul Fitri yang dirahmati Allah
+Dalam melakukan evaluasi capaian di bulan Ramadhan, setidaknya ada dua golongan yang bisa kita renungi.
+
+Pertama, yaitu orang-orang yang mengerti dan memenuhi hak-hak Ramadhan sebagaimana mestinya. Orang-orang ini menjalankan puasa di siang harinya, beribadah di malam harinya, makan dari harta yang halal, menjauhi larangan-larangan Allah. Mereka melakukan ibadah dengan sungguh-sunguh untuk mendapatkan ridha dari Allah swt, dan tentu akan mendapatkan balasan dari-Nya.
+
+Kelompok pertama ini merupakan golongan yang sangat beruntung. Mereka akan menjadi orang istimewa di sisi Allah dengan mendapatkan balasan dan pahala yang sangat banyak dari-Nya. Ibaratnya, mereka akan memanen hasilnya di akhirat dari tanaman yang pernah ia tanam di dunia. Peluh keringat ibadah yang mereka lakukan di dunia, akan dibayar gajinya dengan bayaran yang berlipat ganda oleh Allah swt. Hal ini sebagaimana ditegaskan dalam firma-Nya, yaitu:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَإِنَّمَا تُوَفَّوْنَ أُجُورَكُمْ يَوْمَ الْقِيَامَةِ فَمَنْ زُحْزِحَ عَنِ النَّارِ وَأُدْخِلَ الْجَنَّةَ فَقَدْ فَازَ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Dan hanya pada hari kiamat sajalah diberikan dengan sempurna balasanmu. Barangsiapa dijauhkan dari neraka dan dimasukkan ke dalam surga, sungguh, dia memperoleh kemenangan.” (QS Ali ‘Imran: 185).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Merujuk pendapat Imam Fakhruddin Ar-Razi dalam kitab Tafsir Mafatihul Ghaib, puncak balasan atas ibadah yang dilakukan oleh setiap manusia adalah akhirat. Mereka akan mendapatkan balasan yang sangat istimewa dari Allah atas capaiannya selama di dunia, berupa surga yang dipenuhi dengan kenikmatan di dalamnya. Mereka akan mendapatkan kebahagiaan tanpa kesedihan, aman tanpa rasa takut, dan kesenangan tanpa rasa takut hilangnya nikmat tersebut.
+
+Semua ini akan diberikan kepada kelompok pertama, yaitu orang-orang yang mengerti dan memenuhi hak-hak Ramadhan dengan tepat dan benar. Mereka menjalankan puasa di siang harinya, beribadah di malam harinya, makan dari harta yang halal, dan menjauhi larangan-larangan Allah.
+
+Ma’asyiral Muslimin jamaah shalat idul Fitri yang dirahmati Allah
+Kedua adalah kelompok orang-orang yang tidak menghormati bulan Ramadhan dan tidak memenuhi hak-haknya. Mereka tidak memenuhi hak-haknya dan tidak mengindahkan perintah Allah karena sombong. Mereka tidak menunaikan puasa dan lain sebagainya karena tidak percaya kepada perintah-Nya dan faktor keangkuhan mereka. Kelompok seperti ini sebagaimana difirmankan dalam Al-Qur’an, yaitu:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''إِنَّ الَّذِينَ كَذَّبُوا بِآيَاتِنَا وَاسْتَكْبَرُوا عَنْهَا لَا تُفَتَّحُ لَهُمْ أَبْوَابُ السَّمَاءِ وَلَا يَدْخُلُونَ الْجَنَّةَ حَتَّى يَلِجَ الْجَمَلُ فِي سَمِّ الْخِيَاطِ وَكَذَلِكَ نَجْزِي الْمُجْرِمِينَ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Sesungguhnya orang-orang yang mendustakan ayat-ayat Kami dan menyombongkan diri terhadapnya, tidak akan dibukakan pintu-pintu langit bagi mereka, dan mereka tidak akan masuk surga, sebelum unta masuk ke dalam lubang jarum. Demikianlah Kami memberi balasan kepada orang-orang yang berbuat jahat.” (QS Al-A’raf: 40).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Mengutip Syekh Mutawalli Asy-Sya’rawi dalam tafsirnya, Tafsir wa Khawatirul Umam, orang-orang yang tidak mengindahkan perintah Allah, tidak menjalankan perintah-Nya karena sombong dan tidak percaya pada ayat-ayat-Nya, maka mereka akan mendapatkan siksa yang sangat pedih. Mereka tidak akan merasakan surga dan segala kenikmatannya, bahkan dimasukkan ke dalam neraka yang penuh siksa.
+
+Mudah-mudahan kita semua digolongkan oleh Allah swt sebagai golongan pertama, yaitu orang-orang yang benar-benar memenuhi semua hak-hak Ramadhan, sehingga bisa mendapatkan balasan yang istimewa dari-Nya, dan dihjauhkan dari golongan yang kedua, yaitu orang-orang yang tidak memenuhi kewajibannya dan menyombongkan diri pada ayat-ayat-Nya.
+
+Sebab, bulan Ramadhan merupakan madrasah bagi kita untuk memperbaiki diri sendiri. Jika pada bulan ini kita tidak berhasil memperbaiki diri, lantas di bulan manakah kita bisa melakukannya? Jika di bulan Ramadhan tidak kita dapatkan rahmat dan anugerah dari Allah, lantas di bulan manakah semua itu akan diberikan dengan mudah kepada kita semua? Jika di bulan Ramadhan tidak kita raih ampunan dari-Nya, lantas di bulan apakah ampunan itu bisa kita dapatkan dengan gampang?
+
+Ma’asyiral Muslimin jamaah shalat Idul Fitri rahimakumullah
+Itulah dua golongan yang bisa kita jadikan cerminan dalam melakukan evaluasi capaian ibadah selama bulan Ramadhan. Lantas, kita ada di bagian yang mana? Jawaban dari pertanyaan tersebut ada dalam diri kita sendiri.
+
+Demikian khutbah hari raya Idul Fitri pada pagi hari ini. Semoga bermanfaat dan membawa keberkahan kepada kita semua, serta menjadi penyebab diterimanya semua amal ibadah yang kita lakukan selama bulan Ramadhan.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''جَعَلَنَا اللهُ وَاِيَّاكُمْ مِنَ الْعَائِدِيْنَ وَالْفَائِزِيْنَ وَالْمَقْبُوْلِيْنَ كُلَّ عَامٍ وَأَنْتُمْ بِخَيْرٍ. بَارَكَ اللهُ لِيْ وَلَكُمْ فِيْ هَذَا الْيَوْمِ الْكَرِيْمِ، وَنَفَعَنِيْ وَاِيَاكُمْ بِمَا فِيْهِ مِنَ الصَّلَاةِ وَالزَّكَاةِ وَالصَّدَقَةِ وَتِلَاوَةِ الْقُرْاَنِ وَجَمِيْعِ الطَّاعَاتِ، وَتَقَبَّلَ مِنِّيْ وَمِنْكُمْ جَمِيْعَ أَعْمَالِنَا إِنَّهُ هُوَ الْحَكِيْمُ الْعَلِيْمُ، أَقُوْلُ قَوْلِيْ هَذَا وَأَسْتَغْفِرُ اللهَ لِيْ وَلَكُمْ، فَاسْتَغْفِرُوْهُ، اِنَّهُ هُوَ الْغَفُوْرُ الرَّحِيْمُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللهُ أَكْبَرُ، اَللهُ أَكْبَرُ، اَللهُ أَكْبَرُ. اَللهُ أَكْبَرُ، اَللهُ أَكْبَرُ، اَللهُ أَكْبَرُ. اَللهُ أَكْبَرُ وَلِلهِ الْحَمْدُ. اَللَّهُ أَكْبَرُ كَبِيرًا، وَالْحَمْدُ لِلَّهِ كَثِيرًا، وَسُبْحَانَ اللَّهِ بُكْرَةً وَأَصِيلًا. أَشْهَدُ أَنْ لَااِلَهَ اِلَّا الله وَحْدَهُ لَا شَرِيْكَ لَهُ، اِلَهٌ لَمْ يَزَلْ عَلَى كُلِّ شَيْءٍ وَكِيْلًا. وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ وَحَبِيْبُهُ وَخَلِيْلُهُ، أَكْرَمِ الْأَوَّلِيْنَ وَالْأَخِرِيْنَ، اَلْمَبْعُوْثِ رَحْمَةً لِلْعَالَمِيْنَ. اللهم صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلىَ أَلِهِ وَأَصْحَابِهِ وَمَنْ كَانَ لَهُمْ مِنَ التَّابِعِيْنَ، صَلَاةً دَائِمَةً بِدَوَامِ السَّمَوَاتِ وَالْأَرْضِيْنَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَمَّا بَعْدُ: فَيَا أَيُّهَا الْحَاضِرُوْنَ اتَّقُوا اللَّهَ حَقَّ تُقَاتِهِ وَذَرُوْا الْفَوَاحِشَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ. وَحَافِظُوْا عَلَى الطَّاعَةِ وَحُضُوْرِ الْجُمْعَةِ وَالْجَمَاعَةِ وَالصَّوْمِ وَجَمِيْعِ الْمَأْمُوْرَاتِ وَالْوَاجِبَاتِ. وَاعْلَمُوْا أَنَّ اللهَ أَمَرَكُمْ بِأَمْرٍ بَدَأَ بِنَفْسِهِ. وَثَنَى بِمَلَائِكَةِ الْمُسَبِّحَةِ بِقُدْسِهِ. اللهم اغْفِرْ لِلْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ اَلْأَحْيَاءِ مِنْهُمْ وِالْأَمْوَاتِ. اللهم ادْفَعْ عَنَّا الْبَلَاءَ وَالْغَلَاءَ وَالْوَبَاءَ وَالْفَحْشَاءَ وَالْمُنْكَرَ وَالْبَغْيَ وَالسُّيُوْفَ الْمُخْتَلِفَةَ وَالشَّدَائِدَ وَالْمِحَنَ، مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ، مِنْ بَلَدِنَا هَذَا خَاصَةً وَمِنْ بُلْدَانِ الْمُسْلِمِيْنَ عَامَةً، اِنَّكَ عَلَى كُلِّ شَيْءٍ قَدِيْرٌ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عِبَادَ اللهِ، اِنَّ اللهَ يَأْمُرُكُمْ بِالْعَدْلِ وَالْاِحْسَانِ وَاِيْتَاءِ ذِيْ الْقُرْبَى وَيَنْهَى عَنِ الْفَحْشَاءِ وَالْمُنْكَرِ وَالْبَغْيِ، يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ. فَاذْكُرُوْا اللهَ الْعَظِيْمَ يَذْكُرُكُمْ وَلَذِكْرُ اللهِ أَكْبَرُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''​​​​​​​
+
+Ustadz Sunnatullah, Pengajar di Pondok Pesantren Al-Hikmah Darussalam Durjan Kokop Bangkalan Jawa Timur''',
+        },
+      ]
+    },
+    {
+      'title': 'Khutbah Idul Fitri: Mudik Ke Surga',
+      'date': '1 Syawal 1444 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Naskah khutbah Idul Fitri kali ini mengajak kepada khalayak untuk bersikap baik, tidak maksiat, dan banyak mengingat Allah swt sebagai modal penting untuk dapat mudik kembali ke surga, tempat asal manusia diciptakan pertama kali.
+
+Untuk mencetak naskah khutbah Idul Fitri ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan dekstop). Semoga bermanfaat! (Redaksi).''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ. اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ. اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ. لَا اِلٰهَ اِلَّا اللهُ وَاللهُ أَكْبَرُ وَ لِلّٰهِ الْحَمْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الْحَمْدُ لِلّٰهِ الَّذِيْ جَعَلَ لِلصَّائِمِيْنَ يَوْمَ عِيْدِ الْفِطْرِ مَغْفُوْراً عَنِ الذُّنُوْبِ. وَأَشْهَدُ أَنْ لَا اِلٰهَ اِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ الَّذِيْ رَحْمَتُهُ الْمَطْلُوْبُ. وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَرَسُوْلُهُ سَيِّدُ الْعَجَمِ وَالْعُرْبِ. أَللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ الشَّافِعِ فِي الْيَوْمِ الْمَوْعُوْدِ, وَعَلَى اٰلِهِ وَأَصْحَابِهِ الْوَدُوْدِ. اَللهُ أَكْبَرُ. اَمَّا بَعْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''فَيَا أَيُّهَا النَّاسُ اِتَّقُوا اللهَ فِيْ مَا أَمَرَ وَانْتَهُوْا عَمَّا نَهَى اللهُ عَنْهُ وَحَذَّرَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah yang dimuliakan Allah swt,
+Marilah kita panjatkan puji dan syukur kita kepada Allah swt yang telah memberikan kita nikmat iman, Islam, dan sehat wal afiat sehingga kita dapat melaksanakan shalat Idul Fitri pada pagi hari ini.
+
+Shalawat dan salam, mari kita haturkan kepada Nabi Muhammad saw, juga kepada keluarganya, dan sahabatnya. Semoga, kita semua selaku umatnya mendapatkan berkah dan syafaatnya.
+
+Tak lupa, khatib mengajak jamaah sekalian untuk dapat meningkatkan takwa kita semua kepada Allah swt. Sebab, hanya ketakwaanlah yang menjadi jaminan kita di sisi Allah swt. Ketakwaan kita juga yang menjadi kunci untuk memuluskan kita agar mendapat Rahmat-Nya sehingga kita bisa masuk ke dalam surga-Nya yang penuh kenikmatan.
+
+Hadirin hadirat yang dimuliakan Allah swt,
+Idul Fitri yang kita rayakan hari ini sejatinya merupakan momentum yang sangat tepat bagi kita untuk dapat kembali ke jalur yang benar untuk mudik ke tempat tinggal kita sesungguhnya, yaitu surga. Sebagaimana diketahui bersama, pada mulanya, manusia kali pertama diciptakan tinggal di surga, yaitu Nabi Adam as. Kemudian, Nabi Adam diturunkan ke bumi sampai lahir kita saat ini. Turunnya manusia ke muka bumi itu dijadikan oleh Allah swt sebagai khalifah, sebagaimana disebutkan dalam Al-Qur’an surat Al-Baqarah ayat 30 berikut.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَاِذْ قَالَ رَبُّكَ لِلْمَلٰۤىِٕكَةِ ِانِّيْ جَاعِلٌ فِى الْاَرْضِ خَلِيْفَةًۗ قَالُوْٓا اَتَجْعَلُ فِيْهَا مَنْ يُّفْسِدُ فِيْهَا وَيَسْفِكُ الدِّمَاۤءَۚ وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَۗ قَالَ اِنِّيْٓ اَعْلَمُ مَا لَا تَعْلَمُوْنَ''',
+          'latin': '''''',
+          'translation': '''Artinya, “(Ingatlah) ketika Tuhanmu berfirman kepada para malaikat, “Aku hendak menjadikan khalifah di bumi.” Mereka berkata, “Apakah Engkau hendak menjadikan orang yang merusak dan menumpahkan darah di sana, sedangkan kami bertasbih memuji-Mu dan menyucikan nama-Mu?” Dia berfirman, “Sesungguhnya Aku mengetahui apa yang tidak kamu ketahui.”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Idul Fitri yang berbahagia,
+Apa itu yang dimaksud khalifah? Imam Ibnu Katsir dalam kitab tafsirnya menjelaskan, bahwa khalifah yang dimaksud adalah manusia merupakan pengganti Allah swt di muka bumi untuk berlaku adil terhadap makhluk-makhluk ciptaan Allah swt yang lainnya. Mengutip Muhammad bin Ishaq, Imam Ibnu Katsir mengungkapkan makna lain dari khalifah, yaitu orang yang tinggal dan memakmurkan bumi.
+
+Namun, ketika Allah swt menciptakan sosok manusia yang dijadikan sebagai khalifah, malaikat tidak ada yang percaya. Menurut mereka, nantinya makhluk yang diciptakan ini justru merusak dan menumpahkan darah. Dalam kitab Tafsir Jalalain, disebutkan bahwa merusak yang dimaksud adalah dengan melakukan berbagai maksiat. Lebih terang, Imam al-Shawi menegaskan bahwa merusak yang dimaksud adalah dengan keputusan kekuatan syahwat, sedangkan menumpahkan darah merupakan ekspresi dari keputusan kekuatan amarahnya.
+
+Mendengar protes malaikat itu, Allah swt menegaskan bahwa Dia lebih mengetahui atas keputusan-Nya itu. Dijelaskan lebih lanjut oleh Imam al-Shawi, bahwa ada satu potensi manusia yang tidak dilihat malaikat, yaitu keputusan akalnya yang melahirkan keutamaan dan kesempurnaan. Imam Jalaluddin al-Suyuthi menambahkan bahwa hal yang tidak diketahui malaikat itu adalah kemaslahatan yang dilahirkan dari Nabi Adam.
+
+Jamaah shalat Idul Fitri yang dimuliakan Allah swt,
+Oleh karena itu, kita sebagai anak cucunya, harus dapat menjadi khalifah dari Nabi Adam, penggantinya yang meneruskan dan menjaga bumi sebagai langkah untuk mudik kembali ke surga, tempat kita berpulang. Sebab, hanya orang-orang yang dapat menjaga nafsunya yang dapat kembali mudik ke tempat asalnya, dalam hal ini surga. Yaitu orang yang tidak merusak bumi, baik secara lahir dengan membuang sampah sembarangan, menebang pohon seenaknya, dan lainnya, ataupun dengan perilaku maksiat. Juga orang yang tidak menumpahkan darah, baik secara lahir dengan seenaknya menumpahkan darah orang lain, ataupun secara yang lebih sederhana, yaitu mudah mengeluarkan amarahnya.
+
+Allah swt dalam Al-Qur’an surat Al-Fajr ayat 27-30 telah menegaskan siapa yang dipersilahkan untuk memasuki surga-Nya.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يٰٓاَيَّتُهَا النَّفْسُ الْمُطْمَىِٕنَّةُۙ ارْجِعِيْٓ اِلٰى رَبِّكِ رَاضِيَةً مَّرْضِيَّةًۚ فَادْخُلِيْ فِيْ عِبٰدِيْۙ وَادْخُلِيْ جَنَّتِيْࣖ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Wahai jiwa yang tenang, kembalilah kepada Tuhanmu dengan rida dan diridai. Lalu, masuklah ke dalam golongan hamba-hamba-Ku. Dan masuklah ke dalam surga-Ku!”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Pertanyaannya, apa yang dimaksud dengan jiwa yang tenang? Siapa pemilik jiwa yang tenang? Lalu, siapa hamba-hamba-Ku yang dimaksud pada ayat tersebut? Imam Jalaluddin al-Mahalli dalam Tafsir Jalalain menegaskan bahwa pemilik jiwa yang tenang ialah orang yang beriman. Diperjelas dalam kitab Hasyiyah al-Shawi, bahwa jiwa yang tenang itu bukan saja orang yang beriman, melainkan ada juga yang menyebutnya orang yang rida atas ketetapan Allah swt ataupun orang yang selalu menenangkan jiwanya dengan berdzikir atau menyebut asma-Nya.
+
+Rasulullah saw bersabda''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''ذِكْرُ اللّٰهِ عَلَمُ الْإِيْمَانِ وَبَرَاءَةٌ مِنَ النِّفَاقِ وَحِصْنٌ مِنَ الشِّيْطَانِ وَحِرْزٌ مِنَ النِّيْرَانِ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Dzikir kepada Allah merupakan tanda iman, pembebas dari kemunafikan, benteng dari setan, dan penjaga dari neraka.”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Adapun yang dimaksud dari hamba-hamba-Ku yang disebut akan membersamai orang berjiwa tenang adalah orang-orang saleh, sebagaimana yang disebutkan dalam kitab Tafsir Jalalain dan Tafsir Marah Labid.
+
+Oleh karena itu, jamaah shalat Idul Fitri sekalian, mari kita memperbanyak dzikir, mengurangi maksiat, meminimalkan perilaku merusak bumi, dan membatasi amarah kita. Itulah sesungguhnya pelajaran yang harus diterapkan kita selepas menuntaskan berpuasa penuh di dalam bulan Ramadhan. Dengan begitu, inyaallah, semoga kita semua menjadi bagian dari pemilik jiwa yang tenang, yang dipanggil Allah swt dan dipersilakan untuk memasuki surga-Nya bersama hamba-hamba-Nya yang saleh.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ نَفْسًا مُطْمَئِنَّةً ، تُؤْمِنُ بلِقائِكَ ، وتَرْضَى بِقَضَائِكَ ، وتَقْنَعُ بعَطائِكَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ. لَا اِلٰهَ اِلَّا اللهُ وَاللهُ أَكْبَرُ. اَللهُ أَكْبَرُ وَ لِلّٰهِ الْحَمْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ. اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ. اَللهُ أَكْبَرُ. الْحَمْدُ لِلّٰهِ الَّذِيْ أَعَادَ الْاَعْيَادَ وَكَرَّرَ. وَأَشْهَدُ أَنْ لَا اِلٰهَ اِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ الْمَلِكُ الْأَكْبَرُ. وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ خَيْرُ الْخَلَائِقِ وَالْبَشَرِ. أَللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ الشَّافِعِ فِي الْمَحْشَرِ, وَعَلَى اٰلِهِ وَأَصْحَابِهِ الْأَطْهَرِ. اَللهُ أَكْبَرُ. اَمَّا بَعْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''فَيَاأَيُّهَا النَّاسُ أُوْصِيْكُمْ وَنَفْسِيْ بِتَقْوَى اللهِ فَقَدْ فَازَ الْمُتَّقُوْنَ. فَقَالَ اللهُ تَعَالَى اِنَّ اللهَ وَ مَلَائِكَتَهُ يُصَلُّوْنَ عَلَى النَّبِيِّ يٰأَيُّهَا الَّذِيْنَ أٰمَنُوْا صَلُّوْا عَلَيْهِ وَ سَلِّمُوْا تَسْلِيْمًا. اَللّٰهُمَّ صَلِّ وَسَلِّمْ عَلٰى سَيِّدِنَا مُحَمَّدٍ حَبِيْبِكَ صَاحِبِ الْوَجْهِ الْاَنْوَرِ وَ عَلٰى أٰلِهِ وَارْضَ اَللّٰهُمَّ عَنِ الْخُلَفَاءِ الرَّاشِدِيْنَ. وَعَنْ اَصْحَابِ نَبِيِّكَ اَجْمَعِيْنَ. وَالتَّابِعِبْنَ وَتَابِعِ التَّابِعِيْنَ وَ تَابِعِهِمْ اِلٰى يَوْمِ الدِّيْنِ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّٰهُمَّ أَعِزَّ الْاِسْلَامَ وَ الْمُسْلِمِيْنَ وَأَصْلِحْ جَمِيْعَ وُلَاةَ الْمُسْلِمِيْنَ وَأَعْلِ كَلِمَتَكَ اِلَى يَوْمِ الدِّيْنِ. اَللّٰهُمَّ اغْفِرْ لِلْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ. اَللّٰهُمَّ ادْفَعْ عَنَّا الْغَلَاءَ وَالْوَبَاءَ وَالطَّاعُوْنَ وَالْاَمْرَاضَ وَالْفِتَنَ مَا لَا يَدْفَعُهُ غَيْرُكَ عَنْ بَلَدِنَا هٰذَا اِنْدُوْنِيْسِيَّا خَاصَّةً وَعَنْ سَائِرِ بِلَادِ الْمُسْلِمِيْنَ عَامَّةً يَا رَبَّ الْعَالَمِيْنَ. رَبَّنَا اٰتِنَا فِي الدُّنْيَا حَسَنَةً وَ فِي الْاٰخِرَةِ حَسَنَةً وَ قِنَا عَذَابَ النَّارِ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ اَللهُ أَكْبَرُ. لَا اِلٰهَ اِلَّا اللهُ وَاللهُ أَكْبَرُ. اَللهُ أَكْبَرُ وَ لِلّٰهِ الْحَمْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz Syakir NF, Imam Masjid Baitul Maqdis, Padabeunghar, Pasawahan, Kuningan, Jawa Barat''',
+        },
+      ]
+    },
+    {
+      'title': 'Khutbah Idul Fitri: Memaknai Hari Kemenangan yang Sesungguhnya',
+      'date': '1 Syawal 1444 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Khutbah ini mengingatkan kita bahwa Idul Fitri yang selalu disebut sebagai hari kemenangan bukan saja karena kita telah melewati satu bulan berpuasa, tetapi karena seharusnya kita telah mencapai  kematangan spiritual dan sosial.
+
+Khutbah Idul Fitri kali ini berjudul: “Khutbah Idul Fitri: Memaknai Hari Kemenangan yang Sesungguhnya". Untuk mengunduh dan mencetak naskah khutbah Idul Fitri ini silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللَّه أَكْبَرُ ٣×. اللَّه أَكْبَرُ ٣×. اللهُ أَكْبَرُ ٣×. اَللهُ أَكْبَرُ كَبِيْرًا وَالْحَمْدُ للهِ كَثِيْرًا، وَسُبْحَانَ اللهِ بُكْرَةً وَأَصِيْلاً. لاَ إِلهَ إِلاَّ اللهُ. وَاللهُ أَكْبَرُ. اللهُ أَكْبَرُ وَللهِ الْحَمْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ للهِ الَّذِى جَعَلَ لِلْمُسْلِمِيْنَ عِيْدَ اْلفِطْرِ بَعْدَ صِياَمِ رَمَضَانَ. أَشْهَدُ أَنْ لاَ اِلَهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ لَهُ الْمُلْكُ اْلعَظِيْمُ اْلاَكْبَرْ. وَأَشْهَدُ أَنَّ سَيِّدَناَ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ الشَّافِعُ فِي الْمَحْشَرْ. نَبِيٌّ قَدْ غَفَرَ اللهُ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ وَمَا تَأَخَّرَ. اللهُمَّ صَلِّ عَلىَ سَيِّدِنَا مُحَمَّدٍ وَعَلَى اَلِهِ وَاَصْحَابِهِ الَّذِيْنَ أَذْهَبَ عَنْهُمُ الرِّجْسَ وَطَهَّرْ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَمَّا بَعْدُ. فَيَا عِبَادَاللهِ اِتَّقُوااللهَ حَقَّ تُقَاتِهِ وَلاَ تَمُوْتُنَّ إِلاَّ وَاَنْتُمْ مُسْلِمُوْنَ. قالَ اللهُ تَعَالىَ فِيْ كِتَابِهِ الكَرِيْمِ أَعُوْذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ. يَا أَيُّهاَ الَّذِيْنَ ءَامَنُوا اتَّقُوا اللهَ حَقَّ تُقَاتِهِ وَلاَ تَمُوْتُنَّ إِلاَّ وَأَنتُمْ مُّسْلِمُوْنَ. يَا أَيُّهَا الَّذِيْنَ ءَامَنُوا اتَّقُوا اللهَ وَقُوْلُوْا قَوْلاً سَدِيْدًا. يُصْلِحْ لَكُمْ أَعْمَالَكُمْ، وَيَغْفِرْ لَكُمْ ذُنُوْبَكُمْ، وَمَنْ يُطِعِ اللهَ وَرَسُوْلَهُ فَقَدْ فَازَ فَوْزًا عَظِيمًا''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُ أَكْبَرُ ٣× لاَ إِلهَ إِلاَّ اللهُ، وَاللهُ أَكْبَرُ، اللهُ أَكْبَرُ وَللهِ الْحَمْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma’asyiral muslimin wal muslimat, jama’ah shalat Idul Fitri yang dimuliakan Allah
+
+Alhamdulillah, pada hari ini kita telah merampungkan ibadah rukun Islam yang keempat, yaitu satu bulan berpuasa berikut rangkaian ibadah-ibadah sunah di dalamnya. Lalu, setelah kita meraih momen kemenangan ini, apa yang harus kita perbuat? Apakah berbangga diri dengan pencapaian spiritual yang telah dicapai? Atau merayakannya dengan penuh suka cita? Atau apa?
+
+Idul Fitri bukan seperti turnamen sepak bola atau kompetisi lomba yang kemenangannya harus dirayakan dengan euforia dan penuh kebanggaan. Kemenangan Idul Fitri adalah ketika kita berhasil meraih kematangan spiritual dan sosial setelah satu bulan penuh digembleng dan dididik di madrasah Ramadhan.
+
+Secara spiritual, selama Ramadhan umat Muslim telah melakukan serangkaian ibadah. Mulai dari puasanya sendiri maupun ibadah-ibadah sunnah di dalamnya seperti shalat tarawih, tadarus Al-Qur’an, beri’tikaf di masjid, dan sebagainya. Sudah seharusnya jika melalui bulan suci ini dengan maksimal dan melaksanakan beragam amalan di dalamnya, kita akan merasakan sentuhan dan pencapaian spiritual setelah bulan suci ini berlalu. Terkait puasanya sendiri, Allah swt menegaskan:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يٰٓـاَيُّهَا الَّذِيۡنَ اٰمَنُوۡا كُتِبَ عَلَيۡکُمُ الصِّيَامُ کَمَا كُتِبَ عَلَى الَّذِيۡنَ مِنۡ قَبۡلِکُمۡ لَعَلَّكُمۡ تَتَّقُوۡنَ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Wahai orang-orang yang beriman, diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang sebelum kamu agar kamu bertakwa.” (QS Al-Baqarah: 183).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Coba kita cermati ayat ini. Allah swt menyampaikan bahwa tujuan melaksanakan puasa adalah untuk melahirkan hamba-hamba yang takwa, yaitu orang yang mematuhi segala bentuk perintah agama dan menjauhi semua larangannya. Itu baru dengan puasanya saja, bagaimana jika kita mengamalkan beragam ibadah sunnah di dalamnya? Tentu kita akan menyentuh titik kematangan spiritual yang matang. Inilah yang dimaksud dengan sebuah pencapaian spiritual.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُ أَكْبَرُ ٣×، لاَ إِلهَ إِلاَّ اللهُ، وَاللهُ أَكْبَرُ، اللهُ أَكْبَرُ وَللهِ الْحَمْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma’asyiral muslimin wal muslimat, jama’ah shalat Idul Fitri yang dimuliakan Allah
+
+Lalu, apakah jika kita sudah melakukan banyak ibadah selama Ramadhan sudah selesai begitu saja? Tidak, kita harus menanamkan prinsip khauf dan rajā’. Khauf adalah kekhawatiran apakah ibadah kita diterima oleh Allah swt atau tidak, sehingga kita tidak terlalu puas dan berbangga diri dengan pencapaian ibadah yang telah dilakukan. Sementara rajā’ adalah sikap optimisme bahwa Allah dengan sifat kasih sayang-Nya pasti mau menerima amal ibadah yang kita lakukan.
+
+Saat Ramadhan berlalu, kita pun harus menerapkan dua sikap ini secara proporsional atau berimbang. Orang yang ibadahnya tidak didasari sifat khauf akan terlalu percaya diri dengan ibadah yang telah dilakukannya sehingga dikhawatirkan merasa cukup dengan amal yang telah dilakukan. Sementara sifat rajā’ diperlukan agar kita tidak putus asa kepada Allah swt. Sifat raja’ ini dilakukan dengan rasa optimis bahwa Allah menerima ibadah yang telah kita perbuat. Sebab, Allah sesuai perasangka hamba-Nya.
+
+Imam Al-Ghazali dalam Iḥya’ ‘Ulūmiddīn menyampaikan:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَنْ يَكُوْنَ قَلْبُهُ بَعْدَ الإِفْطَارِ مُعَلَّقاً مُضْطَرِبًا بَيْنَ الْخَوْفِ وَالرَّجَاءِ إِذْ لَيْسَ يَدْرِي أَيُقْبَلُ صَوْمُهُ فَهُوَ مِنَ الْمُقَرَّبِينَ أَوْ يُرَدُّ عَلَيْهِ فَهُوَ مِنَ الْمَمْقُوتِينَ وَلْيَكُنْ كَذَلِكَ فِي آخِرِ كُلِّ عِبَادَةٍ يَفْرَغُ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Setiap selesai berbuka puasa, seyogyanya kita merasa khawatir sekaligus menaruh harap kepada Allah. Khawatir jangan-jangan ibadah kita tidak diterima, juga berharap bahwa Allah menerimanya. Sebab, kita tidak tahu apakah puasa kita diterima sehingga termasuk hamba yang dekat di sisi Allah, atau sebaliknya ditolak sehingga kita termasuk hamba yang mendapat murka-Nya. Sikap seperti ini harus diterapkan setiap selesai melakukan ibadah apapun.” (Al-Ghazali, Ihya ‘Ulumiddin, [2016], juz I, halaman 319).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Imam Al-Ghazali berpesan agar setiap selesai berbuka puasa kita menerapkan sikap khauf dan rajā’ terhadap puasa yang sudah kita laksanakan. Untuk satu ibadah berupa puasa saja perlu ditanamkan prinsip ini apalagi setelah selesai selesai satu bulan dengan segala amalan sunah di dalamnya.
+
+Bayangkan, orang yang sudah beribadah maksimal saja tidak boleh berbangga diri dan terlalu percaya diri dengan amalnya, apalagi mereka yang ibadahnya biasa-biasa saja.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُ أَكْبَرُ ٣× لاَ إِلهَ إِلاَّ اللهُ، وَاللهُ أَكْبَرُ، اللهُ أَكْبَرُ وَللهِ الْحَمْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma’asyiral muslimin wal muslimat, jama’ah shalat Idul Fitri yang dimuliakan Allah
+
+Puasa tidak saja ibadah yang memiliki spiritual, tetapi juga ritual keagamaan yang mendidik kepekaan sosial pengamalnya. Saat kita berpuasa, sebagaimana ditegaskan Syekh ‘Izzuddin bin ‘Abdissalam, sejatinya kita sedang digembleng agar memiliki rasa empati tinggi. Sebab, orang yang berpuasa akan merasakan betapa payahnya menahan lapar dan haus selama kurang lebih tiga belas jam dalam kurun waktu satu bulan.
+
+Dengan pengalaman demikian kita akan sadar bahwa seperti inilah nasib saudara-saudara kita yang hidupnya berkekurangan yang untuk mencari sesuap nasi saja harus memeras keringat di bawah sengatan terik matahari. Barangkali lapar dan haus kita akan berakhir di waktu magrib, tetapi saudara kita yang hidup dengan ekonomi sangat rendah boleh jadi merasakan lapar sepanjang hayat masih dikandung badan, bahkan untuk makan esok harinya saja masih bingung harus mencari kemana lagi.
+
+Saat Idul Fitri sudah tiba, sudah seharusnya kita mencapai titik empati sedemikian rupa karena sudah melalui hari-hari berpuasa selama satu bulan. Namun sayang, kadang kita sendiri justru terlalu larut dalam kegembiraan yang kita sebut sebagai ‘hari kemenangan’. Berasyik-ria menerima THR, memakai baju baru, menikmati hidangan spesial Idul Fitri, berkumpul dengan sanak saudara yang masih utuh, dan sejumlah momen keceriaan lainnya.
+
+Namun, kita lupa bahwa di hari kemenangan ini boleh jadi masih ada saudara yang jangankan menerima THR, pekerjaan dengan gajih tetap saja tidak punya. Jangankan menikmati hidangan ketupat dan sedap opor ayam, untuk makan sehari-hari saja masih harus mengetuk pintu dari satu tetangga ke tetangga yang lain. Juga mereka yang sudah tidak memiliki keluarga karena tertimpa bencana, umpamanya. Jangankan berkumpul dengan keluarga lengkap, sosok ibu dan ayahnya saja telah tiada.
+
+Mari kita renungi kembali pada momen suci ini. Sudahkah kita merasakan hari kemenangan dengan meraih nilai-nilai kemenangan yang seharusnya? Kemenangan yang bukan karena kita telah finish melewati jalan terjal Ramadhan, tetapi kemenangan sesungguhnya yang tidak saja berupa kematangan spiritual, melainkan juga pencapaian kepekaan sosial yang seharusnya diraih.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُ أَكْبَرُ ٣× لاَ إِلهَ إِلاَّ اللهُ، وَاللهُ أَكْبَرُ، اللهُ أَكْبَرُ وَللهِ الْحَمْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma’asyiral muslimin wal muslimat, jama’ah shalat Idul Fitri yang dimuliakan Allah
+
+Puasa sendiri sejatinya representasi dari sejumlah ibadah yang ada. Sebab, sebagaimana puasa, ibadah-ibadah lain juga memiliki semangat spiritual dan sosial yang harus kita raih kedua-duanya. Sibuk mencari pencapaian spiritual saja tapi mengabaikan aspek sosialnya hanya akan membuat kita buta terhadap lingkungan kita hidup. Sebaliknya, terlalu sibuk dengan aspek sosial tapi mengabaikan sisi ritualnya hanya akan membuat kita jauh dari Allah swt. Dalam satu hadits diriwayatkan:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عَنْ أَبِي هُرَيْرَةَ قَالَ : قَالُوا : يَا رَسُولَ اللَّهِ ، فُلَانَةُ تَصُومُ النهار ، وتقوم اللَّيْلَ ، وَتُؤْذِي جِيرَانَهَا . قَالَ : هِيَ فِي النَّارِ . قَالُوا : فُلَانَةُ تُصَلِّي الْمَكْتُوبَاتِ ، وَتَصَدَّقُ بِالْأَثْوَارِ مِنَ الْأَقِطِ ، وَلَا تُؤْذِي جِيرَانَهَا ؟ قَالَ : هِيَ فِي الْجَنَّةِ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Diriwayatkan dari Abu Hurairah, dia berkata, ‘Sekalompok sahabat bertanya, ‘Wahai Rasulullah, ada seorang perempuan ahli puasa dan ahli ibadah malam, tapi dia masih suka menyakiti tetangganya. Bagaimana pendapatmu?’ Rasul menjawab, ‘Dia akan masuk neraka.’ Mereka bertanya lagi, ‘Ada pula seorang perempuan yang hanya menunaikan shalat lima waktu, bersedekah dengan sepotong keju, dan tidak menyakiti tetangganya. Bagaimana pendapatmu?’ Rasul menjawab, ‘Dia akan masuk surga.’” (HR Al-Hakim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dari hadits ini dapat dipahami bahwa shalat yang merupakan tiang agama saja tidak menjamin kita masuk surga jika kita masih berbuat buruk kepada sesama manusia.
+
+Demikianlah khutbah Idul Fitri yang khatib sampaikan. Semoga di momen kemenangan ini membuat kita merasakan kemenangan yang hakiki. Kemenangan yang tidak saja menandai kita telah merampungkan satu bulan berpuasa, tetapi juga telah mencapai kematangan spiritual dan sosial yang sesungguhnya.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''تقَبَّلَ اللهُ مِنَّا وَمِنْكُمْ اَللَّهُمَّ بَارِكْ لَنَا فِيْ عِيْدِنَا، وَأَعِدْهُ عَلَينَا أَعْوَامًا عَدِيْدَةً أَعُوْذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ: وَٱعۡتَصِمُواْ بِحَبۡلِ ٱللَّهِ جَمِيعًا وَلَا تَفَرَّقُواْۚ وَٱذۡكُرُواْ نِعۡمَتَ ٱللَّهِ عَلَيۡكُمۡ إِذۡ كُنتُمۡ أَعۡدَآءً فَأَلَّفَ بَيۡنَ قُلُوبِكُمۡ فَأَصۡبَحۡتُم بِنِعۡمَتِهِۦٓ إِخۡوَٰنًا وَكُنتُمۡ عَلَىٰ شَفَا حُفۡرَةٍ مِّنَ ٱلنَّارِ فَأَنقَذَكُم مِّنۡهَاۗ كَذَٰلِكَ يُبَيِّنُ ٱللَّهُ لَكُمۡ ءَايَٰتِهِۦ لَعَلَّكُمۡ تَهۡتَدُونَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُ اَكْبَرْ ٣× اللهُ اَكْبَرْ ٤ ×. اللهُ اَكْبَرْ كَبِيْرًا وَاْلحَمْدُ للهِ كَثِيْرًا وَسُبْحَانَ الله بُكْرَةً وَ أَصْيْلاً لاَ اِلَهَ اِلاَّ اللهُ وَاللهُ اَكْبَرْ اللهُ اَكْبَرْ وَللهِ اْلحَمْدُ. الْحَمْدُ للهِ حَمْدًا كَثِيْرًا كَمَا أَمَرَ. وَأَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ اِقْرَارًا بِرُبُوْبِيَّتِهِ وَاِرْغَامًا لِمَنْ جَحَدَ بِهِ وَكَفَرَ. وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ سَيِّدُ الْبَشَرِ. اللّهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى أَلِهِ وَأَصْحَابِهِ الْمَصَابِيْحِ الْغَرَرِ. مَا اتَّصَلَتْ عَيْنٌ بِنَظَرٍ وَاُذُنٌ بِخَبَرٍ. مِنْ يَوْمِنَا هَذَا إِلَى يَوْمِ الْمَحْشَرِ. أَمَّا بَعْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''فَيَاأَيُّهَا النَّاسُ اتَّقُوْا اللهَ فِيْمَا أَمَرَ. وَانْتَهُوْا عَمَّا نَهَى عَنْهُ وَحَذَّرَ. وَاعْلَمُوْا أَنَّ اللهَ تَبَارَكَ وَتَعَالَى اَمَرَكُمْ بِأَمْرٍ بَدَأَ فِيْهِ بِنَفْسِهِ وَثَنَّى بِمَلَا ئِكَتِهِ الْمُسَبِّحَةِ بِقُدْسِهِ. فَقَالَ تَعَالَى وَلَمْ يَزَلْ قَائِلًا عَلِيْمًا. إِنَّ اللهَ وَمَلَائِكَتَهُ يُصَلُّوْنَ عَلَى النَّبِيِّ. يَا أَيُّهَا الَّذِيْنَ أَمَنُوْا صَلُّوْا عَلَيْهِ وَسَلِّمُوْا تَسْلِيْمًا. اللّهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ جَدِّ الْحَسَنِ وَالْحُسَيْنِ وَعَلَى أَلِهِ وِأَصْحَابِهِ خَيْرِ أَهْلِ الدَّارَيْنِ خُصُوْصًا عَلَى أَوَّلِ الرَّفِيْقِ سَيِّدِنَا أَبِى بَكْرٍ الصِّدِّيْق. وَعَلَى الصَّادِقِ الْمَصْدُوْق سَيِّدِنَا أَبِي حَفْصٍ عُمَرَ الْفَارُوْقِ. وَعَلَى زَوْجِ الْبِنْتَيْنِ سَيِّدِنَا عُثْمَانِ ذِيْ النُّوْرَيْنِ. وَعَلَى ابْنِ عَمِّهِ الْغَالِبِ سَيِّدِنَا عَلِيِّ بْن أَبِيْ طَالِب. وَعَلَى السِّتَّةِ الْبَاقِيْنَ رَضِيَ اللهُ عَنْهُمْ أَجْمَعِيْنَ. وَعَلَى الشَّرِيْفَيْنِ سَيِّدَيْ شَبَابِ أَهْلِ الدَّارَيْنِ أَبِيْ مُحَمَّد الْحَسَنِ وَأَبِيْ عَبْدِ اللهِ الْحُسَيْنِ. وَعَلَى عَمَّيْهِ الْفَاضِلَيْنِ عَلَى النَّاسِ سَيِّدِنَا حَمْزَة وَسَيِّدِنَا الْعَبَّاسِ. وَعَلَى بَقِيَّةِ الصَّحَابَةِ أَجْمَعِيْنَ. وَعَلَى التَّابِعِيْنَ وَتَابِعِ التَّابِعِيْنَ لَهُمْ بِإِحْسَانٍ إِلَى يَوْمِ الدِّيْنِ. وَعَلَيْنَا مَعَهُمْ بِرَحْمَتِكَ يَاأَرْحَمَ الرَّاحِمَيْنَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّهُمَّ اغْفِرْ لِلْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ وَالْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ اَلاَحْيآءِ مِنْهُمْ وَاْلاَمْوَاتِ. اللهُمَّ أَعِزَّ اْلاِسْلاَمَ وَالْمُسْلِمِيْنَ وَأَذِلَّ الشِّرْكَ وَالْمُشْرِكِيْنَ وَانْصُرْ عِبَادَكَ الْمُوَحِّدِيْن وَانْصُرْ مََنْ نَصَرَ الدِّيْنَ. وَاخْذُلْ مَنْ خَذَلَ الْمُسْلِمِيْنَ وَ دَمِّرْ أَعْدَاءَ الدِّيْنِ وَاعْلِ كَلِمَاتِكَ اِلَى يَوْمِ الدِّيْنِ. اللّهُمَّ ادْفَعْ عَنَّا اْلبَلاَءَ وَاْلوَبَاءَ وَالزَّلاَزِلَ وَاْلمِحَنَ وَسُوْءَ اْلفِتْنَةِ وَاْلمِحَنَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ عَنْ بَلَدِنَا اِنْدُونِيْسِيَّا خآصَّةً وَسَائِرِ اْلبُلْدَانِ الْمُسْلِمِيْنَ عآمَّةً يَا رَبَّ اْلعَالَمِيْنَ. اللَّهُمَّ أَصْلِحْ لَنا دِيْنَنَا الَّذِيْ هُوَ عِصْمَةُ أَمْرِنَا وَأَصْلِحْ لَنَا دُنْيَانَا الَّتِيْ فِيْهَا مَعَاشُنَا وَأَصْلِحْ لَنَا آخِرَتَنَا الَّتِيْ فِيْهَا مَعَادُنَا وَاجْعَلِ الْحَيَاةَ زِيَادَةً لَنَا فِيْ كُلِّ خَيْرٍ وَاجْعَلِ الْمَوْتَ رَاحَةً لَنَا مِنْ كُلِّ شَرٍّ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللَّهُمَّ أَلِّفْ بَيْنَ قُلُوبِنَا، وَأَصْلِحْ ذَاتَ بَيْنِنَا، وَاهْدِنَا سُبُلَ السَّلَامِ، وَنَجِّنَا مِنَ الظُّلُمَاتِ إِلَى النُّورِ، وَجَنِّبْنَا الْفَوَاحِشَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ، وَبَارِكْ لَنَا فِي أَسْمَاعِنَا وَأَبْصَارِنَا وَقُلُوبِنَا وَأَزْوَاجِنَا وَذُرِّيَّاتِنَا، وَتُبْ عَلَيْنَا، إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ. اللّهمَّ حَبِّبْ إلَيْنَا الإيمَانَ وَزَيِّنْهُ فِي قُلُوْبِنَا وَكَرِّهْ إلَيْنَا الْكُفْرَ وَالْفُسُوْقَ وَالْعِصْيَانَ. وَاجْعَلْنَا مِنَ الرَّاشِدِيْنَ اللّهُمَّ ارْزُقْنَا الصَّبْرَ عَلى الحَقِّ وَالثَّبَاتَ عَلَى الأَمْرِ والعَاقِبَةَ الحَسَنَةَ والعَافِيَةَ مِنْ كُلِّ بَلِيَّةٍ والسَّلاَمَةَ مِنْ كلِّ إِثْمٍ والغَنِيْمَةَ مِنْ كل بِرٍّ والفَوْزَ بِالجَنَّةِ والنَّجَاةَ مِنَ النَّارِ يَا أَرْحَمَ الرَّاحِمِيْنَ. رَبَّنا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الاخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّار''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عِبَادَاللهِ. اِنَّ اللهَ يَأْمُرُ بِاْلعَدْلِ وَاْلاِحْسَانِ وَإِيْتآءِ ذِى اْلقُرْبىَ وَيَنْهَى عَنِ اْلفَحْشآءِ وَالْمُنْكَرِ وَاْلبَغْي يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ وَاذْكُرُوااللهَ اْلعَظِيْمَ يَذْكُرْكُمْ وَاشْكُرُوْهُ عَلىَ نِعَمِهِ يَزِدْكُمْ وَلَذِكْرُ اللهِ اَكْبَرْ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz Muhamad Abror, penulis buku 'Ramadhan Terakhir', alumnus Pondok Pesantren KHAS Kempek Cirebon dan Ma'had Aly Saidusshiddiqiyah Jakarta.''',
+        },
+      ]
+    },
+    {
+      'title': 'Khutbah Idul Fitri Bahasa Jawa: Berkah Riyoyo Langgeng Dumugi Setahun Ngajeng',
+      'date': '1 Syawal 1444 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللهُ أَكْبَرُ، اَللهُ أَكْبَرُ، اَللهُ أَكْبَرُ … اَللهُ أَكْبَرُ، اَللهُ أَكْبَرُ، اَللهُ أَكْبَرُ … اَللهُ أَكْبَرُ، اَللهُ أَكْبَرُ، اَللهُ أَكْبَرُ. كَبِيْرًا وَالْحَمْدُ لِلّهِ كَثِيرًا وَسُبْحَانَ اللهِ بُكْرَةً وَأَصِيلًا. لآ إِلهَ إِلَّا اللهُ وَحْدَهُ، صَدَقَ وَعْدَهُ، وَنَصَرَ عَبْدَهُ، وَأَعَزَّ جُنْدَهُ، وَهَزَمَ الْأَحْزَابَ وَحْدَهُ. لآ إِلهَ إِلَّا اللهُ وَلَا نَعْبُدُ إِلَّا إِيَّاهُ، مُخْلِصِينَ لَهُ الدِّينِ وَلَوْ كَرِهَ الْكَافِرُونَ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلَّهِ. أَشْهَدُ أَنْ لآ إِلهَ إلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ. اَللّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ وَعَلَى أَصْحَابِ سَيِّدِنَا مُحَمَّدٍ. أَمَّا بَعْدُ، فَيآ أَيُّهَا النَّاسُ، أُوصِيكُمْ وَإِيَّايَ بِتَقْوَى اللهِ. إِنَّ لِلْمُتَّقِينَ فِي جَنَّاتٍ وَعُيُونٍ، أُدْخُلُوهَا بِسَلَامٍ آمِنِينَ. أَمَّا بَعْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin hadirot jamaah shalat Idul Fitri ingkang minulyo,
+
+Wonten pepanggihan injing puniko, monggo kito ngaturaken puji lan syukur dumateng Allah subhanahu wa ta'ala, Pengeran ingkang sampun paring kesempatan dumateng kito sedoyo ngibadah poso Ramadhan sak wulan nutuk, jamaah tarawih lan witir, soho tadarusan ugi sak wulan. Kasyukuran kita sedoyo sampun sak prayoginipun kito lahiraken kanti waosan tahmid sesarengan, alhamdulillahi rabbil alamin.
+
+Wonten awal khutbah puniko mboten kasupen, monggo kito sareng-sareng ningkataken, ngukuhaken, lan nguwataken ketakwaan dumateng gusti Allah, langkung-langkung sak sampunipun ngelampai ngibadah wonten saklebetipun wulan Ramadhan. Ketakwaan kito wonten wulan Ramadhan ingkang sekedik katah sampun meningkat, posonipun katah; sholatipun tambah katah; sedekahipun mundak; nafkah lan perhatianipun dumateng keluarga ugi tambah longgar; seserawunganipun dumateng sederek, tetanggi lan rencang ugi tambah sae; monggo wonten pepanggihan riyoyo injing punika, kito niati, kito tingkataken malih dumugi Ramadhan tahun ngajeng.
+
+Ampun ngantos prestasi ngibadah ritual lan ngibadah sosial ingkang sae puniko, mandek mak jegrek, sesarengan telasipun wulan Ramadhan lan ngincik wulan Syawal wonten injing puniko. Kito sareng-sareng iling dawuhipun Imam Al-Ghazali wonten Kitab Ihya Ulumiddin, juz IV koco 382:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''لَا خَيْرَ فِيْ خَيْرٍ لَا يَدُوْمُ، بَلْ شَرٌّ لَا يَدُوْمُ خَيْرٌ مِنْ خَيْرٍ لَا يَدُوْمُ''',
+          'latin': '''''',
+          'translation': '''Artosipun, “Mboten wonten kesaenan ingdalem kesaenan ingkang mboten langgeng. Malah perkawis awon ingkang mboten langgeng, langkung sae tinimbang kesaenan ingkang mboten langgeng.”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ngibadah niku sae, poso sae, shalat sae, shodaqoh sae, srawung niku sae, nyekapi kebutuhan, paring kalonggaran, lan perhatian kasih sayang dumateng keluargo niku sae. Ananging menawi ngantos mandek mak jegrek, mboten dilampahi maleh, mboten diajegi, sedoyo wau dados blas mboten wonten saenipun.
+
+Sakwangsulipun, nekat mboten poso niku awon; nekat mboten shalat, nekat nglarani rencang, nekat mboten ngopeni keluargo, niku babar blas mboten sae. Tapi menawi kok mandek mak jegrek, kapok mboten mangsuli malih perkawis-perkawis awon puniko, sedoyo dados sae.
+
+Ingkang nekat mboten poso Ramadhan enggal-enggal nyaur utang poso mulai tanggal kalih (2) Syawal. Ingkang tasih glang-gling shalatipun mulai kerso sinahu mbiasaaken sholat, langkung-langkung mulai nyicil nyaur utang sholat ingkang kadung dipun tilar. Ingkang wonten perkawis kalih rencang, tetanggi utawi sederek, kerso ngerintis solusi ingkang paling memungkinkan. Ingkang wekdal-wekdal kepengker tasih kirang anggenipun paring nafkah lan perhatian dumateng keluargo, mulai kerso usaha pados nafkah ingkang halal lan langkung cekap, saha kerso paring perhatian ingkang lebih dumateng garwo lan poro putro.
+
+Sedoyo perkawis awon kolo wau, menawi mboten dipun lampahi malih, menawi dipun kapoki, mandek mak jegrek, sedoyo dados sae. Malah langkung sae tinimbang ngibadah lan kesaenan ingkang mandek mboten berlanjut.
+
+Sedoyo puniko, keranten keawonan ingkang mboten langgeng, menawi mandek mak jegrek, puniko mbeto kebungahan. Sakwangsulipun, kesaenan ingkang mboten langgeng, menawi mandek mak jegrek, punika bade ndugeaken kesusahan.
+
+Penyair agung asal Kufah Irak, Abut Thoyyib Al-Mutanabbi (ingkang sedo tahun 354 H), ndawuhaken wonten salah setunggal syairipun:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَشَدُّ الغَمِّ عِنْدِيْ فِي سُرُورٍ * تَيَقَّنَ عَنْهُ صَاحِبُهُ انْتِقَالًا''',
+          'latin': '''''',
+          'translation': '''Artosipun, “Kesusahan ingkang paling abot, inggih kesusahan ingdalem kebungahan ingkang enggal sirno.”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kebungahan kito anggenipun mandek nglampahi kesaenan, sakyektosipun bade enggal sirno. Kebungahan kito anggenipun mandek nglampahi ngibadah, bade dumugeaken kesusahan. Kebungahan kito anggenipun mandek nglampahi amal sholeh, bade dados kesusahan ingkang langgeng. Na'udzubillahi, naudzubillahi min dzalik.
+
+Hadirin hadirot jamaah shalat Idul Fitri ingkang minulyo,
+
+Sinaoso amal sholeh punika sae, tapi kedah dipun ukur lan wonten istirahatipun. Islam ngajaraken poso, tarawih, lan darusan sak wulan nutuk; ananging Islam ugi ngajaraken istirahat saking poso, sholat, lan darusan. Malah Islam ngaromaken poso wonten dinten riyoyo Idul Fitri puniko.
+
+Sepindah wekdal, Sayyidina Abu Bakar wonten dinten riyoyo nuweni putrinipun, injih puniko Sayyidah Aisyah, garwo Kanjeng Agung Nabi Muhammad shallalahu 'alaihi wasallam. Abu Bakar tratapan sanget, kranten wonten ngajeng Aisyah, wonten saklebetipun griyo Nabi Muhammad shallalahu 'alaihi wasallam, wonten lare estri kalih nyanyeaken lagon-lagon.
+
+Mboten sronto ningali kahanan puniko, Abu Bakar duko sak duko-dukonipun:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَبِمُزْمُورِ الشَّيْطَانِ فِى بَيْتِ رَسُولِ اللَّهِ صلى الله عليه وسلم''',
+          'latin': '''''',
+          'translation': '''Artosipun, “Onoto lagon-lagon setan dinyanyeake ono griyone Rasulullah shallalahu 'alaihi wasallam?”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ningali moro sepuh duko-duko mekaten, Rasulullah shallalahu 'alaihi wasallam dawuh:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يَا أَبَا بَكْرٍ، إِنَّ لِكُلِّ قَوْمٍ عِيْدًا وَهَذَا عِيْدُنَا''',
+          'latin': '''''',
+          'translation': '''Artosipun, “Abu Bakar, temen saestu angger-angger masyarakat gadah riyoyo piyambak-piyambak; lan dinten niki, dinten riyoyo kito umat Islam.” (Hadits riwayat Imam Al-Bukhari lan Muslim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Maksudipun punopo dawuh Kanjeng Nabi Muhammad shallalahu 'alaihi wasallam puniko?
+
+Mboten lintu, maksudipun inggih sampun sakwajaripun, menawi wonten saklebetipun dinten riyoyo, umat Islam ngelahiraken kebungahan. Saget kanti nyanyeaken lagon-lagon kanthi tetap njogo perilaku lan akhlak ingkang sae, ngobrol-ngobrol ringan, dahar-dahar, utawi hiburan lintu-lintu nipun. Semisal photo-photo lan mendet video sareng-sareng, utawi pelesir wonten panggenan-panggenan ingkang ngremenaken manah.
+
+Catetanipun namung setunggal, pokok mboten maksiat lan nyarak kesopanan, wujud kebungahan kados puniko angsal-angsal mawon.
+
+Hadirin hadirot jamaah shalat Idul Fitri ingkang minulyo,
+
+Monggo dinten riyoyo puniko kito manfaataken sak sae-saenipun. Kangge silaturrahim, nepung pasederean, saling berkunjung, lan pados hiburan ingkang ngremenaken manah.
+
+Mangke, menawi sampun cekap seminggu kalih minggu, kito wangsul malih wonten pendamelan piyambak-piyambak. Ingkang sekolah utawi mondok, wangsul sekolah lan mondok malih. Ingkang nyambut damel, wangsul nyambut damel malih, wonten sabin, pasar, sekolah, kantor utawi pabrik. Ingkang sakmeniko wangsul mudik, mangke wangsul wonten kuthonipun piyambak-piyambak.
+
+Sedoyo wangsul nyambut damel malih kanthi mbeto kebungahan, kebahagiaan, lan tentunipun mbeto peningkatan keimanan lan ketakwaan dumateng Allah subhanahu wa ta'ala.
+
+Mugi-mugi ngibadah kito saklebetipun wulan Ramadhan lan dinten riyoyo Idul Fitri puniko, ugi silaturahim lan ngapuran-ngapuranan kito sedoyo, nitisaken berkah kangge kito, berkah kangge keluargo kito, berkah kangge bondo kito, berkah kangge ngamal kito, lan berkah kangge gesang kito sedoyo. Syukur-syukur kito waget manggihi Ramadhan lan riyoyo tahun ngajeng, kanti kesarasan, kesuksesan, lan karaharjan. Amin, amin, amin, ya rabbal 'alamin.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''بسم الله الرحمن الرحيم. وَالْعَصْرِ (1) إِنَّ الْإِنْسَانَ لَفِي خُسْرٍ (2) إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ (3). بَارَكَ اللهُ لِيْ وَلَكُمْ بِالْقُرْآنِ الْعَظِيْمِ، وَنَفَعَنِيْ وَإِيَّاكُمْ بِالْآيَاتِ وَالذِّكْرِ الْحَكِيمِ، وَاسْتَغْفِرُوْا رَبَّكُمْ، إِِنَّهُ هُوَ التَّوَّابُ الرَّحِيْمُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللهُ أَكْبَرُ، اَللهُ أَكْبَرُ، اَللهُ أَكْبَرُ، … اَللهُ أَكْبَرُ، اللهُ أَكْبَرُ، اللهُ أَكْبَرُ، … اَللهُ أَكْبَرُ وَلِلّهِ الْحَمْدُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ. أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ. اَللّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ، وَعَلَى آلِهِ وَأَصْحَابِهِ أَجْمَعِينَ، وَالتَّابِعِينَ لَهُمْ بِإِحْسَانٍ إِلَى يَوْمِ الدِّينِ. أَمَّا بَعْدُ. فَأُوصِيكُمْ وَنَفْسِي بِتَقْوَى اللهِ عَزَّ وَجَلَّ. وَاتَّقُوا اللهَ تَعَالَى فِي هَذَا الْيَوْمِ الْعَظِيمِ، وَاشْكُرُوهُ عَلَى تَمَامِ الصِّيَامِ وَالْقِيَامِ، وَأَتْبِعُوا رَمَضَانَ بِصِيَامِ سِتٍّ مِنْ شَوَّالٍ، لِيَكُونَ لَكُمْ كَصِيَامِ الدَّهْرِ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَصَلِّ اللّهُمَّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ كَمَا أَمَرْتَنَا، فَقُلْتَ وَقَوْلُكَ الْحَقُّ: إِنَّ اللهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ، يَا أَيُّهَا الَّذِينَ آمَنُوْا صَلُّوْا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا. اَللّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ، وَارْضَ اللّهُمَّ عَنِ الْخُلَفَاءِ الرَّاشِدِينَ، أَبِي بَكْرٍ وَعُمَرَ وَعُثْمَانَ وَعَلِيٍّ، وَعَنْ سَائِرِ الصَّحَابَةِ أَجْمَعِيْنَ. اَللّهُمَّ اغْفِرْ لِلْمُسْلِمِينَ وَالْمُسْلِمَاتِ، وَالْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ، اَلْأَحْيَاءِ مِنْهُمْ وَالْأَمْوَاتِ، إِنَّكَ سَمِيْعٌ قَرِيْبٌ مُجِيْبُ الدَّعَوَاتِ. اَللّهُمَّ اجْعَلْ عِيْدَنَا هَذَا سَعَادَةً وَتَلاَحُمًا، وَمَسَرَّةً وَتَرَاحُمًا، وَزِدْنَا فِيهِ طُمَأْنِينَةً وَأُلْفَةً، وَهَنَاءً وَمَحَبَّةً، وَأَعِدْهُ عَلَيْنَا بِالْخَيْرِ وَالرَّحَمَاتِ، وَالْيُمْنِ وَالْبَرَكَاتِ. اَللّهُمَّ اجْعَلِ الْمَوَدَّةَ شِيْمَتَنَا، وَبَذْلَ الْخَيْرِ لِلنَّاسِ دَأْبَنَا. اَللّهُمَّ أَدِمِ السَّعَادَةَ عَلَى وَطَنِنَا، وَانْشُرِ الْبَهْجَةَ فِي بُيُوتِنَا، وَاحْفَظْنَا فِي أَهْلِنَا وَأَرْحَامِنَا، وَأَكْرِمْنَا بِكَرَمِكَ فِي الدُّنْيَا وَالْآخِرَةِ. رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً، وَفِي الْآخِرَةِ حَسَنَةً، وَقِنَا عَذَابَ النَّارِ، وَأَدْخِلْنَا الْجَنَّةَ مَعَ الْأَبْرَارِ، يَا عَزِيزُ يَا غَفَّارُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عِبَادَ اللهِ، إِنَّ اللهَ يَأْمُرُ بِالْعَدْلِ وَالْإحْسَانِ، وَإِيْتَاءِ ذِي الْقُرْبَى ويَنْهَى عَنِ الفَحْشَاءِ وَالْمُنْكَرِ وَالبَغْيِ، يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ. فَاذكُرُوا اللهَ الْعَظِيْمَ يَذْكُرْكُمْ، وَلَذِكْرُ اللهِ أَكْبَرُ. عِيْدٌ سَعِيْدٌ. وَكُلُّ عَامٍ وَأَنْتُمْ بِخَيْرٍ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz Ahmad Muntaha AM, Wakil Ketua Tanfidziyah MWCNU Kecamatan Salaman Kabupaten Magelang Jawa Tengah''',
+        },
+      ]
+    },
