@@ -3,11 +3,11 @@ import re
 from bs4 import BeautifulSoup
 
 urls = [
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-puasa-sebagai-terapi-jiwa-di-bulan-ramadhan-TudKc",
-    "https://islam.nu.or.id/khutbah/kultum-ramadhan-selagi-masih-ada-berbaktilah-kepada-orang-tua-n4UYu",
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-allah-selalu-bersama-orang-orang-yang-sabar-T5nKP",
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-memprioritaskan-kebahagiaan-keluarga-SyZV0",
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-menjemput-pertolongan-allah-lewat-kesabaran-di-ramadhan-59oul"
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-2-tanda-puasa-ramadhan-diterima-oleh-allah-skifL",
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-adab-dan-sunnah-di-hari-idul-fitri-9evNh",
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-merawat-semangat-ibadah-setelah-ramadhan-z8hpU",
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-mari-perkuat-kesalehan-sosial-lewat-puasa-jtpRD",
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-menghidupkan-hati-dengan-tadarus-al-qur-an-0OLjX"
 ]
 
 def clean_text(text):
@@ -15,7 +15,6 @@ def clean_text(text):
     return text.strip()
 
 def is_arabic(text):
-    # Check if a significant portion of characters are Arabic
     arabic_chars = len(re.findall(r'[\u0600-\u06FF]', text))
     if arabic_chars > 5:
         return True
@@ -102,6 +101,6 @@ for item in results:
     dart_code += "      ]\n"
     dart_code += "    },\n"
 
-with open('kultum_parsed3.txt', 'w', encoding='utf-8') as f:
+with open('kultum_parsed4.txt', 'w', encoding='utf-8') as f:
     f.write(dart_code)
 print("Parsing complete")
