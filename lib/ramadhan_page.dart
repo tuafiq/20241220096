@@ -2571,6 +2571,709 @@ Dengan merawat dan menjaga lingkungan, kita membangun masa depan yang berkelanju
           'content': '''Ustadz Ajie Najmuddin, Pengurus MWCNU Banyudono Boyolali''',
         }
       ]
+    },
+    {
+      'title': 'Khutbah Jumat Bahasa Jawa: Nggayuh Rahmate Gusti ing Wulan Ramadhan Suci',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Dikatakan, keutamaan dalam bulan Ramadhan dibagi menjadi tiga. Pertama, yakni pada awal bulan rahmat, pertengahannya ampunan, dan di akhir terbebas dari neraka. Maka di awal bulan Ramadhan ini, mari kita senantiasa berupaya agar kita mendapat rahmat dari Allah swt.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Materi khutbah Jumat berikut ini dengan judul: "Khutbah Jumat Bahasa Jawa: Nggayuh Rahmate Gusti ing Wulan Ramadhan Suci." Untuk mencetak naskah khutbah Jumat ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلّٰهِ الَّذِيْ جَعَلَ شَهْرَ رَمَضَانَ غُرَّةَ وَجْهِ الْعَامِ. وَشَرَّفَ أَوْقَاتَهُ عَلَى سَائِرِالأَوْقَاتِ، وَفَضَّلَ أَيَّامَهُ عَلَى سَائِرِ الْأَيَّامِ، أَشْهَدُ أَنْ لاَ إِلٰهَ إِلاَّ اللّٰهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، شهادَةَ مَنْ قَالَ رَبِّيَ اللّٰهُ ثُمَّ اسْتَقَامَ، وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ، أَفْضَلُ مَنْ صَلَّى وَصَامَ. اللّٰهُمَّ صَلِّ وسَلِّمْ علَى عَبْدِكَ وَرَسُوْلِكَ مُحَمّدٍ وعَلٓى آلِهِ وأَصْحَابِهِ هُدَاةِ الأَنَامِ وَمَصَابِيْحِ الظُّلاَمِ. أَمَّا بَعْدُ، فَيَا أَيُّهَا النَّاسُ اتَّقُوا اللّٰهَ تَعَالَى بِفِعْلِ الطَّاعَاتِ وَتَرْكِ الْأَثَامِ. فَقَالَ اللّٰهُ تَعَالٰى فِيْ كِتَابِهِ الْكَرِيْمِ: أَعُوْذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ، بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ يَاۤ أَيُّهَا الَّذِيْنَ آمَنُواْ كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِيْنَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُوْنَ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat ingkang minulya,''',
+        },
+        {
+          'type': 'text',
+          'content': '''Wonten ing pambuka sidang khutbah ingkang minulya punika, kepareng khatib ngaturaken pepeling kagem kita sedaya. Manggaha kita tansah ningkataken takwa kita, kelawan nindaake perintahe Gusti saha nebihi sedaya awisane. Mugi-mugi kita kalebet golongan ingkang angsal ridha saking Gusti Allah ta\'ala.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَتَزَوَّدُوا فَإِنَّ خَيْرَ الزَّادِ التَّقْوَى وَاتَّقُونِ يَا أُولِي الأَلْبَابِ''',
+          'translation': '''Artosipun: "Pada (gawa) sanguha sira kabeh, mangka setuhune luwih bagus-baguse sangu, yaiku takwa marang Allah. Lan padha takwaha sira kabeh ing Ingsun (Allah), hei wong kang padha duweni akal," (QS. Al Baqarah: 197)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat rahimakumullah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Wonten salah satunggale keterangan, kaitanipun kalian kautamaan ing wulan Ramadhan. Bilih wulan Pasa menika dibagi ing tiga kautamaan. Ing awal wulan, Gusti Allah nurunke rahmat, lajeng ing pertengahan maringi pangapura, lan ing akhir wulan dipun bebasake saking neraka.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Pramila, ing kesempatan awal Ramadhan menika, mangga kita sami berupaya, supados kita angsal kautamaan angsal rahmatipun Gusti Allah swt. Bilih rahmat utawi welas asihipun Gusti menika jembar sanget.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Contonipun saking penjelasan sifat welas asihe Gusti Allah inggih punika Ar-Rahman lan Ar-Rahim. Wonten ing tafsir Al Ibriz dipun terangake ana ing surat Al-Fatihah ayat 3, bilih Gusti Allah iku persifatan welas asih maring sekabehane makhluk, luwih-luwih marang menungsa kang wis nyata diparingi nikmat wujud kanthi akal lan anggota badan kang sampurna lan nikmat liya-liyane meneh kang gedhe lan lembut.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الرَّحْمٰنِ الرَّحِيْمِۙ''',
+          'translation': '''Artosipun: "Kang Maha Welas ana ing (dunya lan akhirat) tur Maha Asih (ana ing akhirat blaka)," (QS Al-Fatihah: 3)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat rahimakumullah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Rahmat saking Gusti Allah menika, dados pengarep-arep sedaya makhluke. Supados angsal gesang ingkang sahe. Langkung-langkung, benjang ten akhirat, mestinipun kepengin mlebet swargane Gusti Allah.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kanjeng Nabi nate ngendikan ugi paring tuladha datheng kita umatipun, bilih piyambakipun mawon saget mlebet swarga, mboten kerana amale, nanging sebab rahmat lan fadhilah saking Gusti Allah.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''لَنْ يُدْخِلَ أَحَداً عَمَلُهُ الْجَنَّةَ ...  قَالُوا وَلاَ أَنْتَ يَا رَسُولَ اللَّهِ؟ قَالَ لاَ وَلاَ أَنَا إِلاَّ أَنْ يَتَغَمَّدَنِي اللَّهُ بِفَضْلٍ وَرَحْمَةٍ''',
+          'translation': '''Artosipun: "Ora bakal mlebu ing suwarga sapa wong, sebab amale... lajeng para sahabat wonten ingkang tanglet:  termasuk panjenengan Ya Rasulullah? Lajeng Kanjeng Nabi ngendikan: Ya, aku iya ora (mlebet suwarga sebab amal), kajaba namung sebab rahmat lan fadhilah saking Gusti," (HR Bukhari Muslim)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Wonten ing hadist menika, mboten kok nglarang kita ngamal, ananging wonten ing kelanjutan hadits menika, Kanjeng Nabi ugi maringi tambahan keterangan, supados kita mendet ing dalan tengah utawi ingkang seimbang antarane kita ngamal kalian kita gadah pengarep-arep dhateng rahmate Gusti.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ugi supaya kita, ati-ati ing dalem tingkah kita, sebab mboten wonten ingkang mangertos perkawis ingkang saget dados sebab tumurune rahmate Gusti. Ugi ingkang paling penting, supados kita mboten pedhot pengarep-arep marang rahmate Gusti.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَمَن يَقْنَطُ مِن رَّحْمَةِ رَبِّهِ إِلاَّ الضَّآلُّونَ''',
+          'translation': '''Artosipun: "Mboten wonten tiyang ingkang putus harapan, saking rahmatipun Pengeran, kejawi namung tiyang-tiyang ingkang sasar," (Al-Hijr: 56)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Para jamaah ingkang minulya,''',
+        },
+        {
+          'type': 'text',
+          'content': '''Pramila, wulan Ramadhan menika wekdal ingkang pas, kangge kita ningkatake amal sahe kita. Nglampahi ibadah pasa, shalat tarawih lan sunah sanese, maos Al-Qur\'an, sedekah lan liya-liyane. Sinambi kita tansah gadah pengarep-arep, mugi-mugi Gusti Allah nurunake rahmate maring kita sedaya. Amin ya Rabbal Alamin.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَعُوذُ بِاللهِ مِن الشَّيْطانِ الرَّجِيْمِ. بِسْمِ اللهِ الرَّحمن الرّحيم. يَا أَيُّهَا الَّذِينَ آمَنُواْ كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ أَيَّامًا مَّعْدُودَاتٍ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَى سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ وَأَن تَصُومُواْ خَيْرٌ لَّكُمْ إِن كُنتُمْ تَعْلَمُونَ
+
+ باَرَكَ اللهُ لِيْ وَلكمْ فِي القُرْآنِ العَظِيْمِ, وَنَفَعَنِيْ وَإِيّاكُمْ بِالآياتِ والذِّكْرِ الحَكِيْمِ. إنّهُ تَعَالَى جَوّادٌ كَرِيْمٌ مَلِكٌ بَرٌّ رَؤُوْفٌ رَحِيْمٌ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ للهِ عَلىَ اِحْسَانِهِ وَالشُّكْرُ لَهُ عَلىَ تَوْفِيْقِهِ وَامْتِنَانِهِ. اَشْهَدُ اَنْ لاَ اِلَهَ اِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ وَاَشْهَدُ اَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ الدَّاعِي اِلىَ رِضْوَانِهِ. اللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وِعَلَى اَلِهِ وَاَصْحَابِهِ وَسَلِّمْ تَسْلِيْمًا كِثيْرًا   اَمَّا بَعْدُ فَياَ اَيُّهَا النَّاسُ، اِتَّقُوااللهَ فِيْمَا اَمَرَ وَانْتَهُوْا عَمَّا نَهَى. وَاعْلَمُوْا اَنَّ اللّٰهَ اَمَرَكُمْ بِاَمْرٍ بَدَأَ فِيْهِ بِنَفْسِهِ وَثَـنَى بِمَلآ ئِكَتِهِ بِقُدْسِهِ وَقَالَ تَعاَلَى اِنَّ اللهَ وَمَلآ ئِكَتَهُ يُصَلُّوْنَ عَلىَ النَّبِى يآ اَيُّهَا الَّذِيْنَ آمَنُوْا صَلُّوْا عَلَيْهِ وَسَلِّمُوْا تَسْلِيْمًا. اللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلِّمْ وَعَلَى آلِ سَيِّدِناَ مُحَمَّدٍ وَعَلَى اَنْبِيآئِكَ وَرُسُلِكَ وَمَلآئِكَةِ اْلمُقَرَّبِيْنَ، وَارْضَ اللّٰهُمَّ عَنِ اْلخُلَفَاءِ الرَّاشِدِيْنَ اَبِى بَكْرٍ وَعُمَر وَعُثْمَان وَعَلِى وَعَنْ بَقِيَّةِ الصَّحَابَةِ وَالتَّابِعِيْنَ وَتَابِعِي التَّابِعِيْنَ لَهُمْ بِاِحْسَانٍ اِلَى يَوْمِ الدِّيْنِ، وَارْضَ عَنَّا مَعَهُمْ بِرَحْمَتِكَ يَا اَرْحَمَ الرَّاحِمِيْنَ.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللهُمَّ اغْفِرْ لِلْمُؤْمِنِيْنَ وَاْلمُؤْمِنَاتِ وَاْلمُسْلِمِيْنَ وَاْلمُسْلِمَاتِ اَلْاَحْيآءِ مِنْهُمْ وَاْلاَمْوَاتِ. اللهُمَّ اَعِزَّ اْلاِسْلاَمَ وَاْلمُسْلِمِيْنَ وَأَذِلَّ الشِّرْكَ وَاْلمُشْرِكِيْنَ وَانْصُرْ عِبَادَكَ اْلمُوَحِّدِيَّةَ وَانْصُرْ مَنْ نَصَرَ الدِّيْنَ وَاخْذُلْ مَنْ خَذَلَ اْلمُسْلِمِيْنَ وَدَمِّرْ اَعْدَاءَ الدِّيْنِ وَأَعْلِ كَلِمَاتِكَ اِلَى يَوْمَ الدِّيْنِ. اللهُمَّ ادْفَعْ عَنَّا اْلبَلاَءَ وَاْلوَبَاءَ وَالزَّلاَزِلَ وَاْلمِحَنَ وَسُوْءَ اْلفِتْنَةِ وَاْلمِحَنَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ عَنْ بَلَدِنَا اِنْدُونِيْسِيَّا خآصَّةً وَسَائِرِبُلْدَانِ اْلمُسْلِمِيْنَ عآمَّةً يَا رَبَّ اْلعَالَمِيْنَ. رَبَّنَا آتِناَ فِى الدُّنْيَا حَسَنَةً وَفِى اْلآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ. رَبَّنَا ظَلَمْنَا اَنْفُسَنَاوَاِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُوْنَنَّ مِنَ اْلخَاسِرِيْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عِبَادَ اللهِ، اِنَّ اللهَ يَأْمُرُبِاْلعَدْلِ وَاْلاِحْسَانِ وَإِيْتآءِ ذِى اْلقُرْبىَ وَيَنْهَى عَنِ اْلفَحْشآءِ وَاْلمُنْكَرِ وَاْلبَغْي يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ وَاذْكُرُوااللهَ اْلعَظِيْمَ يَذْكُرْكُمْ وَاشْكُرُوْهُ عَلىَ نِعَمِهِ يَزِدْكُمْ وَلَذِكْرُ اللهِ اَكْبَرْ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz Ajie Najmuddin, Sekretaris MWCNU Banyudono Boyolali''',
+        }
+      ]
+    },
+    {
+      'title': 'Khutbah Jumat: Menjaga Kualitas Puasa di Bulan Ramadhan',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Khutbah Jumat ini mengajak jamaah untuk menjaga dan meningkatkan kualitas puasa di bulan Ramadhan, tidak hanya dengan menjaga perut dari makan dan minum tapi juga menjaga telinga, mata, lisan, tangan, kaki, dan segenap anggota badan dari berbuat dosa.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah Jumat ini berjudul: "Khutbah Jumat: Menjaga Kualitas Puasa di Bulan Ramadhan". Untuk mencetak naskah khutbah Jumat ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat! (Redaksi).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اْلحَمْدُ ِللهِ اْلحَمْدُ ِللهِ الَّذِي هَدَانَا سُبُلَ السّلاَمِ، وَأَفْهَمَنَا بِشَرِيْعَةِ النَّبِيّ الكَريمِ، أَشْهَدُ أَنْ لَا اِلٰهَ إِلَّا الله وَحْدَهُ لا شَرِيكَ لَه، ذُو اْلجَلَالِ وَالإكْرَام، وَأَشْهَدُ أَنَّ سَيِّدَنَا وَنَبِيَّنَا مُحَمَّدًا عَبْدُهُ وَ رَسُوْلُه، اَللّٰهُمَّ صَلِّ و سَلِّمْ وَبارِكْ عَلَى سَيِّدِنَا مُحَمّدٍ وَعَلَى اٰلِهِ وَأصْحَابِهِ وَالتَّابِعِيْنَ بِإحْسَانٍ إلَى يَوْمِ الدِّيْن، أَمَّا بَعْدُ: فَيَايُّهَا الإِخْوَان، أوْصِيْكُمْ وَ نَفْسِيْ بِتَقْوَى اللهِ وَطَاعَتِهِ لَعَلَّكُمْ تُفْلِحُوْنْ، قَالَ اللهُ تَعَالىَ فِي اْلقُرْانِ اْلكَرِيمْ: أَعُوْذُ بِاللهِ مِنَ الَّشَيْطَانِ الرَّجِيْم، بِسْمِ اللهِ الرَّحْمَانِ الرَّحِيْمْ: يَا أَيُّهَا الَّذِينَ آَمَنُوا اتَّقُوا الله وَقُولُوا قَوْلًا سَدِيْدًا، يُصْلِحْ لَكُمْ أَعْمَالَكُمْ وَيَغْفِرْ لَكُمْ ذُنُوبَكُمْ وَمَنْ يُطِعِ الله وَرَسُولَهُ فَقَدْ فَازَ فَوْزًا عَظِيمًا وَقَالَ تَعَالى يَا اَيُّهَا الَّذِيْنَ آمَنُوْا اتَّقُوْا اللهَ حَقَّ تُقَاتِهِ وَلاَ تَمُوْتُنَّ إِلاَّ وَأَنْتُمْ مُسْلِمُوْنَ. صَدَقَ اللهُ العَظِيمْ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat rahimakumullah.
+Alhamdulillah pada hari ini kita berada di bulan yang penuh rahmat, anugerah, dan ampunan Allah, yaitu bulan suci Ramadhan. Pada bulan ini kita diwajibkan oleh Allah SWT untuk menjalankan ibadah puasa, yaitu menahan diri dari makan, minum, dan hal yang membatalkannya mulai terbitnya fajar hingga tenggelamnya Matahari dengan niat yang telah ditentukan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Tujuan utama dari berpuasa adalah menjadi manusia yang bertaqwa kepada Allah SWT. Sebagaimana firman Allah SWT dalam surat Al-Baqarah: 183:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِنْ قَبْلِكُمْ ‌لَعَلَّكُمْ ‌تَتَّقُونَ (البقرة:183)''',
+          'translation': '''Artinya: "Hai orang-orang yang beriman, diwajibkan atas kalian berpuasa sebagaimana diwajibkan atas orang-orang sebelum kalian agar kalian bertakwa."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Manusia yang bertakwa merupakan harapan utama yang diperoleh seseorang setelah menjalankan ibadah puasa, maka Nabi memerintahkan bagi orang yang berpuasa untuk menghindari ucapan kotor dan tindakan yang bodoh, sebagaimana sabda Nabi yang diriwayatkan oleh Imam Malik dalam Kitab Al-Muwatha\'. Nabi bersabda:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الصِّيَامُ جُنَّةٌ، فَإِذَا كَانَ أَحَدُكُمْ صَائِمًا: فَلَا يَرْفُثْ، وَلَا يَجْهَلْ، فَإِنِ امْرُؤٌ قَاتَلَهُ، أَوْ شَاتَمَهُ، فَلْيَقُلْ: إِنِّي صَائِمٌ، إِنِّي صَائِمٌ''',
+          'translation': '''Artinya: "Puasa itu adalah perisai, jika salah satu dari kalian sedang berpuasa, maka jangan sampai berkata kotor dan jangan pula bertingkah laku jahil (sombong, suka mengejek, atau bertengkar). Jika ada orang lain yang mengajaknya berkelahi atau menghinanya maka hendaklah dia mengatakan: aku sedang puasa, aku sedang puasa" (HR. Imam Malik).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadis di atas menjelaskan bahwa seseorang yang berpuasa diperintahkan Nabi untuk tidak mengucapkan kalimat yang kotor dan bertindak bodoh, bahkan jika ada seseorang yang mengajak berkelahi atau memusuhi, ia cukup mengucapkan saya sedang berpuasa. Hal ini bertujuan untuk menjaga kesempurnaan pahala puasa, terutama menjaga ketakwaannya kepada Allah SWT.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat rahimakumullah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Bagaimana cara agar puasa kita memiliki kualitas yang baik? Imam Al-Ghazali dalam kitabnya Ihya Ulumuddin Juz 1 halaman 234 menjelaskan tentang kualitas puasanya orang-orang saleh, orang-orang yang berada pada tingkatan khusus, yaitu puasa dengan menjaga telinga, mata, lisan, tangan, kaki, dan segenap anggota badan dari dosa. Puasa ini dapat dicapai dengan enam hal:''',
+        },
+        {
+          'type': 'text',
+          'content': '''Pertama, menjaga mata dari memandang hal yang tercela, serta tidak memandang hal yang melalaikan hati dari dzikir kepada Allah. Bulan puasa menjadi momentum yang baik untuk menyibukkan pandangan kita dengan membaca Al-Qur\'an, mengaji kitab kuning, dan mempelajari ilmu pengetahuan. Agar puasa kita berkah dan berkualitas sebagaimana puasanya orang-orang yang saleh.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kedua, menjaga lisan dari ujaran kebohongan, menggunjing, memaki, menghina dan segala bentuk permusuhan. Bulan puasa merupakan momentum untuk membiasakan diri dengan berdzikir kepada Allah, membaca Qur\'an, dan lebih baik diam daripada mengucapkan yang tidak baik, hal ini merupakan bentuk dari puasa lisan. Imam Sufyan mengingatkan bahwa menggunjing dapat merusak terhadap pahala puasa.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ketiga, menjaga telinga dari mendengarkan hal yang diharamkan Allah. Sesuatu yang haram diucapkan, maka haram juga untuk didengarkan. Mumpung ini puasa, mari kita gunakan telinga kita untuk mendengarkan hal yang bermanfaat, seperti mendengarkan lantunan Al-Qur\'an, pengajian, maupun nasehat keagamaan. Agar puasa kita berkah dan mendapatkan pahala yang sempurna dari Allah SWT.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Keempat, menjaga segenap anggota badan, mulai dari tangan, kaki, dan anggota tubuh lainnya dari melakukan hal-hal yang dilarang syariat agama, mari kita gunakan anggota badan kita untuk pergi ke masjid, musholla, madrasah, agar anggota tubuh kita terhindar perbuatan yang tercela.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kelima, tidak makan berlebihan ketika berbuka puasa, karena Allah membenci terhadap perut yang berisi makanan halal secara berlebihan. Makan berlebihan kontradiktif dengan tujuan puasa, yaitu melemahkan godaan syaitan dan hawa nafsu, tujuan ini tidak dapat terwujud tanpa mengurangi porsi makan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Keenam, ketika berbuka puasa, sebaiknya perasaan hati memuat dua hal, yaitu takut terhadap siksa Allah dan selalu mengharapkan rahmat-Nya. Harapannya agar seseorang selalu menjaga semangat ibadahnya, dan selalu istiqomah beribadah kepada Allah sehingga ia menjadi orang yang beruntung, orang yang bertaqwa kepada Allah SWT.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat rahimakumullah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Mengapa penting untuk menjaga kualitas berpuasa? Karena manusia yang cerdas adalah manusia yang dapat menundukkan hawa nafsunya dan beramal untuk kehidupan setelah kematian. Sebagaimana hadis yang diriwayatkan oleh Imam Hakim dalam kitabnya Mustadrok \'ala Shahihain, juz 1, hlm 125:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''‌الْكَيِّسُ ‌مَنْ ‌دَانَ ‌نَفْسَهُ ‌وَعَمِلَ ‌لِمَا ‌بَعْدَ ‌الْمَوْتِ، وَالْعَاجِزُ مَنْ أَتْبَعَ نَفْسَهُ هَوَاهَا، وَتَمَنَّى عَلَى اللَّهِ''',
+          'translation': '''Artinya: "Orang yang cerdas adalah yang menundukkan nafsunya dan beramal untuk kehidupan setelah kematian, sedangkan orang yang lemah adalah yang mengikuti hawa nafsunya tapi banyak berangan-angan atas (karunia) Allah." (HR. Hakim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Selain itu, Imam Al Ghazali dalam kitab Ihya\' Ulumuddin juz 1 halaman 236 menjelaskan bahwa derajat manusia itu di bawah malaikat dan di atas binatang. Ketika manusia terlena dengan syahwatnya, ia turun kasta menyusul kelompok binatang. Sebaliknya ketika manusia mampu menahan syahwatnya, menjaga kualitas puasanya, ia naik di atas derajat tertinggi menyusul wilayah para malaikat.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Oleh karena itu, bulan puasa ini merupakan momentum terbaik bagi kita semua untuk menjaga kualitas puasa dengan berperilaku seperti malaikat dengan memperbanyak amal kebaikan dan dapat menahan diri dari hawa nafsu yang tercela. Semoga puasa kita diterima Allah SWT. Aamiin.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''جَعَلَنا اللهُ وَإيَّاكم مِنَ الفَائِزِين الآمِنِين، وَأدْخَلَنَا وإِيَّاكم فِي زُمْرَةِ عِبَادِهِ المُؤْمِنِيْنَ : أعُوذُ بِاللهِ مِنَ الشَّيْطانِ الرَّجِيمْ، بِسْمِ اللهِ الرَّحْمانِ الرَّحِيمْ: يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَقُولُوا قَوْلًا سَدِيدًا''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''باَرَكَ اللهُ لِيْ وَلكمْ فِي القُرْآنِ العَظِيْمِ، وَنَفَعَنِيْ وَإِيّاكُمْ بِالآياتِ وذِكْرِ الحَكِيْمِ.  إنّهُ تَعاَلَى جَوّادٌ كَرِيْمٌ مَلِكٌ بَرٌّ رَؤُوْفٌ رَحِيْمٌ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ للهِ عَلىَ إِحْسَانِهِ وَالشُّكْرُ لَهُ عَلىَ تَوْفِيْقِهِ وَاِمْتِنَانِهِ. وَأَشْهَدُ أَنْ لاَ اِلَهَ إِلاَّ اللهُ وَاللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ وَأَشْهَدُ أنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ الدَّاعِى إلىَ رِضْوَانِهِ. اللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وِعَلَى اَلِهِ وَأَصْحَابِهِ وَسَلِّمْ تَسْلِيْمًا كِثيْرًا''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَمَّا بَعْدُ فَياَ اَيُّهَا النَّاسُ اِتَّقُوااللهَ فِيْمَا أَمَرَ وَانْتَهُوْا عَمَّا نَهَى وَاعْلَمُوْا أَنَّ اللهَ أَمَرَكُمْ بِأَمْرٍ بَدَأَ فِيْهِ بِنَفْسِهِ وَثَـنَى بِمَلآ ئِكَتِهِ بِقُدْسِهِ وَقَالَ تَعاَلَى إِنَّ اللهَ وَمَلآئِكَتَهُ يُصَلُّوْنَ عَلىَ النَّبِى يآ اَيُّهَا الَّذِيْنَ آمَنُوْا صَلُّوْا عَلَيْهِ وَسَلِّمُوْا تَسْلِيْمًا. اللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلِّمْ وَعَلَى آلِ سَيِّدِناَ مُحَمَّدٍ وَعَلَى اَنْبِيآئِكَ وَرُسُلِكَ وَمَلآئِكَةِ اْلمُقَرَّبِيْنَ وَارْضَ اللّهُمَّ عَنِ اْلخُلَفَاءِ الرَّاشِدِيْنَ أَبِى بَكْرٍ وَعُمَر وَعُثْمَان وَعَلِى وَعَنْ بَقِيَّةِ الصَّحَابَةِ وَالتَّابِعِيْنَ وَتَابِعِي التَّابِعِيْنَ لَهُمْ بِاِحْسَانٍ اِلَىيَوْمِ الدِّيْنِ وَارْضَ عَنَّا مَعَهُمْ بِرَحْمَتِكَ يَا أَرْحَمَ الرَّاحِمِيْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللهُمَّ اغْفِرْ لِلْمُؤْمِنِيْنَ وَاْلمُؤْمِنَاتِ وَاْلمُسْلِمِيْنَ وَاْلمُسْلِمَاتِ اَلاَحْيآءُ مِنْهُمْ وَاْلاَمْوَاتِ اللهُمَّ أَعِزَّ اْلإِسْلاَمَ وَاْلمُسْلِمِيْنَ وَأَذِلَّ الشِّرْكَ وَاْلمُشْرِكِيْنَ وَانْصُرْ عِبَادَكَ اْلمُوَحِّدِيَّةَ وَانْصُرْ مَنْ نَصَرَ الدِّيْنَ وَاخْذُلْ مَنْ خَذَلَ اْلمُسْلِمِيْنَ وَ دَمِّرْ أَعْدَاءَ الدِّيْنِ وَاعْلِ كَلِمَاتِكَ إِلَى يَوْمَ الدِّيْنِ. اللهُمَّ ادْفَعْ عَنَّا اْلبَلاَءَ وَاْلوَبَاءَ وَالزَّلاَزِلَ وَاْلمِحَنَ وَسُوْءَ اْلفِتْنَةِ وَاْلمِحَنَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ عَنْ بَلَدِنَا اِنْدُونِيْسِيَّا خآصَّةً وَسَائِرِ اْلبُلْدَانِ اْلمُسْلِمِيْنَ عآمَّةً يَا رَبَّ اْلعَالَمِيْنَ. رَبَّنَا آتِناَ فِى الدُّنْيَا حَسَنَةً وَفِى اْلآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ. رَبَّنَا ظَلَمْنَا اَنْفُسَنَا وَاإنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُوْنَنَّ مِنَ اْلخَاسِرِيْنَ. عِبَادَاللهِ ! إِنَّ اللهَ يَأْمُرُنَا بِاْلعَدْلِ وَاْلإِحْسَانِ وَإِيْتآءِ ذِي اْلقُرْبىَ وَيَنْهَى عَنِ اْلفَحْشآءِ وَاْلمُنْكَرِ وَاْلبَغْي يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ وَاذْكُرُوا اللهَ اْلعَظِيْمَ يَذْكُرْكُمْ وَاشْكُرُوْهُ عَلىَ نِعَمِهِ يَزِدْكُمْ وَلَذِكْرُ اللهِ أَكْبَرْ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dr. Rustam Ibrahim, Dosen UIN Raden Mas Said Surakarta.''',
+        }
+      ]
+    },
+    {
+      'title': 'Khutbah Jumat: Ramadhan Momentum Tumbuhkan Jiwa Kepedulian',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Bulan Ramadhan merupakan bulan penuh berkah dan ampunan yang dinanti-nanti oleh umat Islam di seluruh dunia. Di bulan ini, umat Islam diwajibkan untuk berpuasa dari terbit hingga terbenam matahari. Selain itu, Ramadhan juga menjadi momen untuk meningkatkan rasa peduli dan kedermawanan terhadap sesama.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Naskah Khutbah Jumat ini berjudul: "Khutbah Jumat: Ramadhan Momentum Tumbuhkan Jiwa Kepedulian dan Kedermawanan". Untuk mencetak naskah khutbah Jumat ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat! (Redaksi)''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ للهِ. اَلْحَمْدُ للهِ الَّذِيْ يَحْشُرُنَا فِي الْمَحْشَرِ. أَشْهَدُ اَنْ لَا اِلٰهَ اِلَّا اللهُ الْمَلِكُ الْجَبَّارُ وَأَشْهَدُ اَنَّ حَبِيْبَنَا وَ نَبِيَّنّا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ سَيِّدُ الْاِنْسِ وَالْبَشَرِ. اَللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى اٰلِهِ وَاَصْحَابِهِ اَجْمَعِيْنَ اَمَّا بَعْدُ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''فَيَا أَيُّهَا الْحَاضِرُوْنَ. اِتَّقُوا اللهَ حَقَّ تُقَاتِهِ وَلَا تَمُوْتُنَّ اِلَّا وَأَنْتُمْ مُسْلِمُوْنَ. قَالَ اللهُ تَعَالَى فِي الْقُرْاٰنِ الْعَظِيْمِ. أَعُوْذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ، بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ: وَالْعَصْرِۙ اِنَّ الْاِنْسَانَ لَفِيْ خُسْرٍۙ اِلَّا الَّذِيْنَ اٰمَنُوْا وَعَمِلُوا الصّٰلِحٰتِ وَتَوَاصَوْا بِالْحَقِّ ەۙ وَتَوَاصَوْا بِالصَّبْرِ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin sidang Jumat yang berbahagia''',
+        },
+        {
+          'type': 'text',
+          'content': '''Di awal khutbah siang Ramadhan ini mari kita tingkatkan kesadaran untuk meneguhkan ketakwaan kepada Alllah subhanahu wata\'ala.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Puasa selama sebulan penuh merupakan salah satu dari rukun Islam yang wajib dijalankan oleh umat Muslim yang baligh dan mampu untuk melaksanakan puasa Ramadhan. Ibadah puasa ini dilaksanakan pada bulan suci Ramadan, yang penuh dengan keberkahan dan ampunan. Menjalankan ibadah puasa mengajarkan kita tentang arti kesabaran, keikhlasan, dan empati terhadap kaum yang kurang mampu.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hal ini sebagaimana dijelaskan dalam firman Allah swt, Al-Quran surat Al-Baqarah ayat 183:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِيْنَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُوْنَۙ''',
+          'translation': '''Artinya, "Wahai orang-orang yang beriman, diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang-orang sebelum kamu agar kamu bertakwa."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin sidang Jumat yang berbahagia
+Puasa Ramadan bukan hanya tentang menahan lapar dan dahaga, tetapi juga merupakan kesempatan untuk meningkatkan ketakwaan sosial. Ketakwaan sosial berarti memiliki rasa peduli dan tanggung jawab terhadap sesama manusia. Salah satu cara untuk meningkatkan ketakwaan sosial selama Ramadhan adalah dengan berbagi rezeki kepada orang lain. Hal ini dapat dilakukan dengan berbagai cara, seperti zakat, infak, sedekah, dan memberikan makanan buka puasa.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dalam hadis riwayat Imam Al-Bukhari dan Muslim dijelaskan, Nabi saw senantiasa memperbanyak sedekah dan berbagi pada yang tidak mampu di bulan Ramadhan.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''كَانَ رَسُولُ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ أَجْوَدَ النَّاسِ وَكَانَ أَجْوَدُ (أَجْوَدَ) مَا يَكُونُ فِي رَمَضَانَ''',
+          'translation': '''Artinya, "Rasulullah  saw adalah orang paling murah hati. Ia semakin murah hati di bulan Ramadhan."  (HR Al-Bukhari dan Muslim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin sidang Jumat yang berbahagia''',
+        },
+        {
+          'type': 'text',
+          'content': '''Bulan Ramadhan identik dengan bulan penuh berkah dan ampunan. Di bulan ini, umat Islam dianjurkan untuk memperbanyak amalan ibadah, salah satunya adalah sedekah. Bersedekah di bulan Ramadhan memiliki keutamaan yang berlipat ganda dibandingkan dengan bulan lainnya. Hal ini sebagaimana dijelaskan dalam sebuah hadits yang diriwayatkan dari Abu Hurairah ra, bahwa Rasulullah saw bersabda:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عن أَبي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قال : قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ : قَالَ اللَّهُ : كُلُّ عَمَلِ ابْنِ آدَمَ لَهُ إِلا الصِّيَامَ فَإِنَّهُ لِي وَأَنَا أَجْزِي بِهِ''',
+          'translation': '''Artinya, "Dari Abu Hurairah radhiyallahu \'anhu, ia berkata: Rasulullah shallallahu \'alaihi wa sallam bersabda: Allah berfirman: "Setiap amal anak Adam (manusia) untuknya, kecuali puasa. Puasa itu untuk-Ku dan Aku-lah yang akan membalasnya." (HR Al-Bukhari dan Muslim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin sidang Jumat yang berbahagia''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''Pada hadis lain, Nabi menerangkan tentang keutamaan dari bersedekah di bulan Ramadhan, yakni dapat menjadi penolak bala dan menghapus dosa. Dalam hadits riwayat ِ At-Tirmidzi, Nabi bersabda:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الصَّدَقَةُ تُطْفِئُ الْخَطَايَا كَمَا يُطْفِىءُ الْمَاءُ النَّارَ''',
+          'translation': '''Artinya, "Sedekah itu menghapus kesalahan seperti air memadamkan api." (HR At-Tirmidzi).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin sidang Jumat yang berbahagia''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dalam kitab Hasyiyatul Baijuri, Syekh Ibrahim Al-Baijuri mengungkapkan bahwa terdapat banyak keutamaan dalam berbagi pada bulan Ramadhan. Salah satu keutamaan yang paling utama adalah ganjaran pahala yang berlipat ganda dibandingkan dengan bulan lainnya.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Untuk itu, setiap amalan kebaikan di bulan Ramadhan, termasuk berbagi, akan dibalas dengan pahala yang berlipat ganda. Hal ini tentu menjadi motivasi bagi umat Islam untuk meningkatkan amalan kebaikannya, khususnya dalam berbagi kepada sesama.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَمُبَادَرَتُهُ لِإِكْثَارِ الصَّدَقَةِ لأَنَّهُ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ كَانَ أَجْوَدَ مَا يَكُونُ فِي رَمَضَانَ، وَبِالْجُمْلَةِ فَيَكْثُرُ فِيهِ مِنْ أَعْمَالِ الْخَيْرِ لأَنَّ الْعَمَلَ يُضَاعَفُ فِيهِ عَلَى الْعَمَلِ فِي غَيْرِهِ مِنْ بَقِيَّةِ الشُّهُورِ''',
+          'translation': '''Artinya, "Dan segera memperbanyak sedekah karena beliau shallallahu \'alaihi wa sallam adalah orang yang paling dermawan di bulan Ramadhan, dan secara umum dia memperbanyak amal kebaikan di bulan Ramadhan karena amal di bulan Ramadhan dilipatgandakan pahalanya dibandingkan dengan amal di bulan-bulan lainnya. (Syekh Ibrahim Al-Baijuri, Hasyiyatul Baijuri, [Beirut, Darul Kutub Al-Ilmiyyah: 1999 M/1420 H], juz I, halaman 562)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dengan demikian, puasa Ramadan bukan hanya tentang menahan lapar dan dahaga, tetapi juga merupakan kesempatan untuk meningkatkan ketakwaan sosial. Ketakwaan sosial berarti memiliki rasa peduli dan tanggung jawab terhadap sesama manusia.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin sidang Jumat yang berbahagia''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dengan meningkatkan ketakwaan sosial, kita dapat menciptakan masyarakat yang lebih adil, sejahtera, dan harmonis. Ramadan adalah waktu yang tepat untuk memulai dan menumbuhkan kebiasaan-kebiasaan positif yang dapat bermanfaat bagi diri sendiri dan orang lain.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Banyak orang memahami takwa sebagai "Menjalani perintah Allah dan menjauhi larangan Allah". Pemahaman ini, meskipun benar, terkesan vertikal dan satu arah, berfokus pada hubungan manusia dengan Tuhan. Namun, makna takwa dalam Al-Qur\'an lebih luas dari itu. Takwa juga memiliki dimensi horizontal, yang disebut sebagai "takwa sosial". Konsep ini lebih membumi dan berfokus pada hubungan manusia dengan sesama.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Takwa sosial mendorong manusia untuk berbuat baik, adil, dan bertanggung jawab kepada sesama. Orang yang bertakwa sosial tidak hanya mementingkan diri sendiri, tetapi juga memperhatikan kesejahteraan orang lain.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dalam Al-Quran surat Ali Imran ayat 133-134 menegaskan bahwa konsep takwa tidak hanya terbatas pada hubungan individu dengan Allah swt, tetapi juga memiliki dimensi sosial yang penting. Ayat ini menekankan bahwa orang yang bertakwa adalah mereka yang senantiasa berlomba-lomba dalam kebaikan, saling mengingatkan untuk menegakkan kebenaran dan kesabaran, dan saling membantu dalam kesulitan.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَسَارِعُوا إِلَى مَغْفِرَةٍ مِنْ رَبِّكُمْ وَجَنَّةٍ عَرْضُهَا السَّمَاوَاتُ وَالأرْضُ أُعِدَّتْ لِلْمُتَّقِينَ (١٣٣) الَّذِينَ يُنْفِقُونَ فِي السَّرَّاءِ وَالضَّرَّاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ''',
+          'translation': '''Artinya, "Bersegeralah menuju ampunan dari Tuhanmu dan surga (yang) luasnya (seperti) langit dan bumi yang disediakan bagi orang-orang yang bertakwa,(yaitu) orang-orang yang selalu berinfak, baik di waktu lapang maupun sempit, orang-orang yang mengendalikan kemurkaannya, dan orang-orang yang memaafkan (kesalahan) orang lain. Allah mencintai orang-orang yang berbuat kebaikan." (QS Ali Imran: 133-134​​).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin sidang Jumat yang berbahagia''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ayat ini menjelaskan bahwa orang yang bertakwa adalah mereka yang tidak terlena dalam kesenangan duniawi, tetapi selalu ingat untuk bersedekah dan membantu orang lain, bahkan ketika mereka sendiri sedang dalam kesulitan. Mereka juga senantiasa memohon ampunan atas dosa-dosa mereka dan berusaha untuk tidak mengulanginya lagi.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Mari kita renungkan, saat kita berpuasa, kita akan merasakan lapar dan haus. Rasa ini dialami juga oleh fakir miskin yang mungkin  setiap harinya mereka kekurangan  makanan dan minuman.  Dengan merasakan lapar dan haus saat puasa, hati kita akan tergerak untuk lebih peduli dan  berbagi kepada mereka yang membutuhkan.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''بَارَكَ اللهُ لِيْ وَلَكُمْ فِي الْقُرْاٰنِ الْعَظِيْمِ، وَنَفَعَنِي وَاِيَّاكُمْ بِمَا فِيْهِ مِنَ الْاٰيَاتِ وَالذِّكْرِ الْحَكِيْمِ، وَتَقَبَّلَ مِنِّيْ وَمِنْكُمْ تِلَاوَتَهُ اِنَّهُ هُوَ السَّمِيْعُ الْعَلِيْمُ. وَأَسْتَغْفِرُ اللهَ الْعَظِيْمَ لِيْ وَلَكُمْ وَلِسَائِرِ الْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ فَيَا فَوْزَ الْمُسْتَغْفِرِيْنَ وَيَا نَجَاةَ التَّائِبِيْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ للهِ الَّذِيْ أَنْعَمَنَا بِنِعْمَةِ الْاِيْمَانِ وَالْاِسْلَامِ. وَالصَّلَاةُ وَالسَّلَامُ عَلٰى سَيِّدِنَا مُحَمَّدٍ خَيْرِ الْأَنَامِ وَعَلٰى اٰلِهِ وَأَصْحَابِهِ الْكِرَامِ. أَشْهَدُ اَنْ لَا اِلٰهَ اِلَّا اللهُ الْمَلِكُ الْقُدُّوْسُ السَّلَامُ وَأَشْهَدُ اَنَّ سَيِّدَنَا وَحَبِيْبَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ صَاحِبُ الشَّرَفِ وَالْإِحْتِرَامِ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَمَّا بَعْدُ. فَيَا أَيُّهَا النَّاسُ أُوْصِيْكُمْ وَنَفْسِيْ بِتَقْوَى اللهِ فَقَدْ فَازَ الْمُتَّقُوْنَ. فَقَالَ اللهُ تَعَالَى اِنَّ اللهَ وَ مَلَائِكَتَهُ يُصَلُّوْنَ عَلَى النَّبِيِّ يٰأَيُّهَا الَّذِيْنَ أٰمَنُوْا صَلُّوْا عَلَيْهِ وَ سَلِّمُوْا تَسْلِيْمًا. اَللّٰهُمَّ صَلِّ وَسَلِّمْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَ عَلٰى أٰلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلٰى سَيِّدِنَا اِبْرَاهِيْمَ وَعَلٰى اٰلِ سَيِّدِنَا اِبْرَاهِيْمَ  وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى اٰلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلٰى سَيِّدِنَا اِبْرَاهِيْمَ وَعَلٰى اٰلِ سَيِّدِنَا اِبْرَاهِيْمَ فْي الْعَالَمِيْنَ اِنَّكَ حَمِيْدٌ مَجِيْدٌ اَللّٰهُمَّ وَارْضَ عَنِ الْخُلَفَاءِ الرَّاشِدِيْنَ. وَعَنْ اَصْحَابِ نَبِيِّكَ اَجْمَعِيْنَ. وَالتَّابِعِبْنَ وَتَابِعِ التَّابِعِيْنَ وَ تَابِعِهِمْ اِلٰى يَوْمِ الدِّيْنِ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّٰهُمَّ اغْفِرْ لِلْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ. اَللّٰهُمَّ ادْفَعْ عَنَّا الْغَلَاءَ وَالْوَبَاءَ وَالطَّاعُوْنَ وَالْاَمْرَاضَ وَالْفِتَنَ مَا لَا يَدْفَعُهُ غَيْرُكَ عَنْ بَلَدِنَا هٰذَا اِنْدُوْنِيْسِيَّا خَاصَّةً وَعَنْ سَائِرِ بِلَادِ الْمُسْلِمِيْنَ عَامَّةً يَا رَبَّ الْعَالَمِيْنَ. رَبَّنَا اٰتِنَا فِي الدُّنْيَا حَسَنَةً وَ فِي الْاٰخِرَةِ حَسَنَةً وَ قِنَا عَذَابَ النَّارِ. عِبَادَ اللهِ! إِنَّ اللهَ يَأْمُرُ بِاْلعَدْلِ وَاْلإِحْسَانِ وَإِيْتآءِ ذِي اْلقُرْبىَ وَيَنْهَى عَنِ اْلفَحْشآءِ وَاْلمُنْكَرِ وَاْلبَغْي يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ وَاذْكُرُوا اللهَ اْلعَظِيْمَ يَذْكُرْكُمْ وَاشْكُرُوْهُ عَلىَ نِعَمِهِ يَزِدْكُمْ وَلَذِكْرُ اللهِ أَكْبَرْ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz Masrur Irsyadi, Pengajar di Ma\'had Ali UIN Jakarta''',
+        }
+      ]
+    },
+    {
+      'title': 'Khutbah Jumat: Hidupkan Malam Ramadhan dengan Amal Saleh',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Bulan Ramadhan merupakan momen tahunan yang tidak seharusnya dilewatkan oleh umat Islam untuk berlomba memperbanyak amal saleh. Terutama dengan menghidupkan malamnya yang dipenuhi keberkahan dengan melakukan aktivitas positif.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Naskah khutbah Jumat berikut ini dengan judul, "Hidupkan Malam Ramadhan dengan Amal Saleh." Untuk mencetak naskah khutbah Jumat ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat!''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الْحَمْدُ للهِ. الْحَمْدُ للهِ الَّذِيْ حَمْدًا يُوَافِيْ نِعَمَهُ وَيُكَافِئُ مَزِيْدَهُ, يَا رَبَّنَا لَكَ الْحَمْدُ كَمَا يَنْبَغِيْ لِجَلَالِ وَجْهِكَ وَلِعَظِيْمِ سُلْطَانِكَ سُبْحَانَكَ اَللّٰهُمَّ لَا أُحْصِيْ ثَنَاءَكَ عَلَيْكَ أَنْتَ كَمَا أَثْنَيْتَ عَلَى نَفْسِكَ, وَأَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ, وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ وَصَفِيُّهُ وَخَلِيْلُهُ، خَيْرُ نَبِيٍّ أَرْسَلَهُ اللهُ إِلَى الْعَالَمِ كُلِّهِ بَشِيْرًا وَنَذِيْرًا. اَللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى أَلِ سَيِّدِنَا مُحَمَّدٍ صَلَاةً وَسَلَامًا مُتَلَازِمَيْنِ إِلَى يَوْمِ الدِّيْنِ أَمَّا بَعْدُ، فَيَاأَيُّهَا الْحَاضِرُوْنَ اِتَّقُوا اللهَ حَقَّ تُقَاتِهِ وَلَا تَمُوْتُنَّ اِلَّا وَأَنْتُمْ مُسْلِمُوْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''قَالَ اللهُ تَعَالَى فِي الْقُرْاٰنِ الْعَظِيْمِ. أَعُوْذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ: يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِيْنَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُوْنَۙ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat yang dimuliakan Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Segala puji bagi Allah yang telah memberikan kita berbagai macam kenikmatan sehingga kita dapat memenuhi panggilan-Nya untuk menunaikan shalat Jumat. Nikmat yang harus digunakan dalam rangka memenuhi syariat yang telah ditetapkan-Nya.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Shalawat beserta salam, mari kita haturkan bersama kepada Nabi Muhammad saw, juga kepada para keluarganya, sahabatnya, dan semoga melimpah kepada kita semua selaku umatnya. Aamiiin ya Rabbal \'alamin.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat yang dimuliakan Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Saat ini kita berada di dalam bulan Ramadhan. Bulan Ramadhan merupakan bulan yang mulia. Pada bulan ini Al-Qur\'an turun, juga pada bulan ini malam lailatul qadar berada. Pada bulan ini pula umat Islam seluruh dunia diwajibkan melaksanakan puasa selama satu bulan penuh. Allah berfirman dalam surat Al-Baqarah ayat 183:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِيْنَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُوْنَۙ''',
+          'translation': '''Artinya, "Wahai orang-orang yang beriman, diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang-orang sebelum kamu agar kamu bertakwa." (QS. Al-Baqarah: 183).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat yang dimuliakan Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Banyak riwayat hadits yang menjelaskan keutamaan bulan Ramadhan. Termasuk keutamaan menghidupkan malam Ramadhan dengan berbagai macam ibadah untuk mendekatkan diri kepada Allah ta\'ala. Kita simak hadits yang diriwayatkan oleh Imam Bukhari berikut:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عَنْ أَبِي هُرَيْرَةَ أَنَّ رَسُولَ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ قَالَ: ‌مَنْ ‌قَامَ ‌رَمَضَانَ إِيمَانًا وَاحْتِسَابًا، غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ''',
+          'translation': '''Artinya, "Dari Abu Hurairah bahwa Rasulullah saw bersabda: "Barangsiapa beribadah di bulan Ramadhan dalam keadaan beriman dan mencari pahala, maka dosa-dosanya yang telah lalu akan diampuni." (HR. Bukhari).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadits di atas menjelaskan keutamaan beribadah di bulan Ramadhan. Pada hadits tersebut dijelaskan bahwa orang-orang yang memurnikan diri beribadah kepada Allah di bulan Ramadhan dengan niat yang tulus dan mengharapkan pahala dari-Nya akan diampuni dosa-dosanya yang telah berlalu.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Imam Al-Qasthalani dalam kitabnya Irsyadus Sari juz I, hal 178 menjelaskan bahwa arti hadits di atas ialah, "Siapa pun yang menghidupkan malam bulan Ramadhan dengan melaksanakan ketaatan, seperti shalat tarawih, dalam keadaan beriman kepada Allah dan dengan niat yang tulus, akan diampuni dosa-dosanya yang telah berlalu. Ini mencakup dosa-dosa kecil, dan dengan anugerah serta rahmat-Nya, juga bisa mencakup dosa-dosa besar, sebagaimana tercermin dalam lafadz hadits tersebut."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat yang dimuliakan Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Salah satu tujuan menghidupkan malam bulan Ramadhan dengan berbagai ibadah adalah untuk meraih malam Lailatul Qadar, yang lebih baik dari seribu bulan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Pada malam ini, seluruh Al-Qur\'an diturunkan secara keseluruhan dari Lauhul Mahfudz ke langit dunia, sebelum diturunkan secara bertahap kepada Nabi Muhammad SAW selama 23 tahun. Lailatul Qadar adalah malam penuh berkah yang disembunyikan oleh Allah dalam bulan Ramadhan setiap tahunnya, dan tidak ada yang mengetahui dengan pasti kapan terjadinya. Rasulullah SAW bersabda:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ، عَنِ النَّبِيِّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ، قَالَ: مَنْ قَامَ لَيْلَةَ القَدْرِ إِيمَانًا وَاحْتِسَابًا، غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ، وَمَنْ صَامَ رَمَضَانَ إِيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ''',
+          'translation': '''Artinya, "Dari Abi Hurairah ra, dari Nabi Muhammad saw bersabda: "Siapa saja yang menghidupkan malam lailatul qadar dengan keimanan dan mengharapkan pahala dari-Nya, maka dosa-dosanya yang telah berlalu akan diampuni, barangsiapa yang berpuasa di bulan Ramadhan dalam keadaan iman dan mengharapkan pahala dari-Nya maka dosanya yang telah berlalu akan diampuni". (HR. Bukhari).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dalam hal ini menghidupkan malam Ramadhan dengan berbagai macam ibadah sangat dianjurkan dalam Islam. Terlebih pada 10 malam terakhir bulan Ramadhan. Pada malam-malam tersebut Rasulullah SAW akan lebih giat lagi menghidupkan malamnya untuk beribadah kepada Allah. Rasulullah SAW bersabda:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عَنْ عَائِشَةَ رَضِيَ اللَّهُ عَنْهَا، قَالَتْ: كَانَ النَّبِيُّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ إِذَا دَخَلَ العَشْرُ شَدَّ مِئْزَرَهُ، وَأَحْيَا لَيْلَهُ، وَأَيْقَظَ أَهْلَهُ''',
+          'translation': '''Artinya, "Dari Aisyah ra, berkata: Rasululullah saw ketika memasuki 10 malam terakhir akan mengencangkan sabuknya, menghidupkan malamnya dan membangunkan keluarganya." (HR. Bukhari).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat yang dimuliakan Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ada banyak cara yang dapat dilakukan untuk menghidupkan malam bulan Ramadhan, di antaranya:''',
+        },
+        {
+          'type': 'text',
+          'content': '''Pertama, mari kita lakukan shalat Isya berjamaah, lalu dilanjutkan dengan shalat Tarawih, Witir, dan shalat malam lainnya. Lakukan semua ini dengan niat ikhlas, mengharapkan ridha Allah SWT. Seperti yang dijelaskan dalam syarah hadits, salah satu makna "qama ramadhana" adalah melaksanakan shalat Tarawih.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kedua, bacalah Al-Qur\'an dengan niat mengikuti jejak Nabi Muhammad SAW. Dalam sebuah hadits, disebutkan bahwa selama bulan Ramadhan, Nabi Muhammad SAW menjadi lebih dermawan dan setiap hari bertemu Jibril untuk membaca Al-Qur\'an.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ketiga, mari kita beri\'tikaf di masjid, terutama pada 10 hari terakhir bulan Ramadhan, seperti yang dilakukan oleh Rasulullah SAW dalam hadits berikut:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عَنْ عَبْدِ اللَّهِ بْنِ عُمَرَ رَضِيَ اللَّهُ عَنْهُمَا، قَالَ: كَانَ رَسُولُ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ يَعْتَكِفُ العَشْرَ الأَوَاخِرَ مِنْ رَمَضَانَ''',
+          'translation': '''Artinya, "Dari Abdullah bin Umar ra berkata, \'Rasulullah saw rutin melakukan i\'tikaf pada 10 hari terakhir dari Ramadhan\'." (HR. Bukhari).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kesimpulannya, bulan Ramadhan adalah momen sekali dalam setahun umat Islam mendapatkan banyak ruang untuk meningkatkan kualitas ibadah. Oleh karenanya, selayaknya bagi kita untuk memanfaatkannya sebaik mungkin untuk beribadah kepada Allah. Terlebih di malam hari dengan harapan mendapatkan keutamaan malam lailatul qadar.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''بَارَكَ اللهُ لِيْ وَلَكُمْ فِي الْقُرْاٰنِ الْعَظِيْمِ وَنَفَعَنِي وَاِيَّاكُمْ بِمَا فِيْهِ مِنَ الْاٰيَاتِ وَالذِّكْرِ الْحَكِيْمِ وَتَقَبَّلَ مِنِّيْ وَمِنْكُمْ تِلَاوَتَهُ اِنَّهُ هُوَ السَّمِيْعُ الْعَلِيْمُ. وَأَسْتَغْفِرُ اللهَ الْعَظِيْمَ لِيْ وَلَكُمْ وَلِسَائِرِ الْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ فَيَا فَوْزَ الْمُسْتَغْفِرِيْنَ وَيَا نَجَاةَ التَّائِبِيْنَ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الْحَمْدُ للهِ الَّذِيْ أَنْعَمَنَا بِنِعْمَةِ الْاِيْمَانِ وَالْاِسْلَامِ. وَالصَّلَاةُ وَالسَّلَامُ عَلٰى سَيِّدِنَا مُحَمَّدٍ خَيْرِ الْأَنَامِ. وَعَلٰى اٰلِهِ وَأَصْحَابِهِ الْكِرَامِ. أَشْهَدُ اَنْ لَا اِلٰهَ اِلَّا اللهُ الْمَلِكُ الْقُدُّوْسُ السَّلَامُ وَأَشْهَدُ اَنَّ سَيِّدَنَا وَحَبِيْبَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ صَاحِبُ الشَّرَفِ وَالْإِحْتِرَامِ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَمَّا بَعْدُ. فَيَاأَيُّهَا النَّاسُ أُوْصِيْكُمْ وَنَفْسِيْ بِتَقْوَى اللهِ فَقَدْ فَازَ الْمُتَّقُوْنَ. فَقَالَ اللهُ تَعَالَى اِنَّ اللهَ وَ مَلَائِكَتَهُ يُصَلُّوْنَ عَلَى النَّبِيِّ يٰأَيُّهَا الَّذِيْنَ أٰمَنُوْا صَلُّوْا عَلَيْهِ وَ سَلِّمُوْا تَسْلِيْمًا''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّٰهُمَّ صَلِّ وَسَلِّمْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَ عَلٰى أٰلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلٰى سَيِّدِنَا اِبْرَاهِيْمَ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى اٰلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلٰى سَيِّدِنَا اِبْرَاهِيْمَ وَعَلٰى اٰلِ سَيِّدِنَا اِبْرَاهِيْمَ فْي الْعَالَمِيْنَ اِنَّكَ حَمِيْدٌ مَجِيْدٌ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّٰهُمَّ وَارْضَ عَنِ الْخُلَفَاءِ الرَّاشِدِيْنَ. وَعَنْ اَصْحَابِ نَبِيِّكَ اَجْمَعِيْنَ. وَالتَّابِعِبْنَ وَتَابِعِ التَّابِعِيْنَ وَ تَابِعِهِمْ اِلٰى يَوْمِ الدِّيْنِ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّٰهُمَّ اغْفِرْ لِلْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ. اَللّٰهُمَّ ادْفَعْ عَنَّا الْغَلَاءَ وَالْوَبَاءَ وَالطَّاعُوْنَ وَالْاَمْرَاضَ وَالْفِتَنَ مَا لَا يَدْفَعُهُ غَيْرُكَ عَنْ بَلَدِنَا هٰذَا اِنْدُوْنِيْسِيَّا خَاصَّةً وَعَنْ سَائِرِ بِلَادِ الْمُسْلِمِيْنَ عَامَّةً يَا رَبَّ الْعَالَمِيْنَ. رَبَّنَا اٰتِنَا فِي الدُّنْيَا حَسَنَةً وَ فِي الْاٰخِرَةِ حَسَنَةً وَ قِنَا عَذَابَ النَّارِ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عِبَادَ اللهِ اِنَّ اللهَ يَأْمُرُ بِالْعَدْلِ وَالْاِحْسَانِ وَيَنْهَى عَنِ الْفَحْشَاءِ وَالْمُنْكَرِ. يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ. فَاذْكُرُوا اللهَ الْعَظِيْمَ يَذْكُرْكُمْ. وَ اشْكُرُوْهُ عَلٰى نِعَمِهِ يَزِدْكُمْ. وَلَذِكْرُ اللهِ اَكْبَرُ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz Alwi Jamalulel Ubab, Alumni Khas Kempek Cirebon dan Mahad Aly Jakarta''',
+        }
+      ]
+    },
+    {
+      'title': 'Khutbah Jumat: Menjadikan Ramadhan sebagai Madrasah Ketakwaan',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Menjadikan Ramadhan sebagai madrasah ketakwaan merupakan langkah bijak untuk meraih peningkatan spiritual selama bulan suci. Orang yang memanfaatkan Ramadhan sebagai ajang mendidik diri akan lebih disiplin dalam beribadah, lebih terkendali dalam berbicara dan bertindak, serta lebih peka terhadap nilai-nilai kebaikan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Naskah khutbah Jumat berikut ini dengan judul, "Khutbah Jumat: Menjadikan Ramadhan sebagai Madrasah Ketakwaan". Untuk mencetak naskah khutbah Jumat ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat!''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الْحَمْدُ لِلّٰهِ الَّذِي أَنْزَلَ الْأَحْكَامَ لِإِمْضَاءِ عِلْمِهِ الْقَدِيمِ، وَأَجْزَلَ الْإِنْعَامَ لِشَاكِرِ فَضْلِهِ الْعَمِيمِ. وَأَشْهَدُ أَنْ لَا إِلٰهَ إلَّا اللّٰهُ وَحْدَهُ لَا شَرِيكَ لَهُ الْبَرُّ الرَّحِيمُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ الْمَبْعُوثُ بِالدِّيْنِ الْقَوِيمِ، الْمَنْعُوتُ بِالْخُلُقِ الْعَظِيمِ. صَلَّى اللَّهُ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمَ أَفْضَلَ الصَّلَاةِ وَالتَّسْلِيمِ. أَمَّا بَعْدُ: فَيَا عِبَادَ الْكَرِيْمِ، فَإِنِّي أُوْصِيكُمْ بِتَقْوَى اللَّهِ الْحَكِيْمِ، الْقَائِلِ فِي كِتَابِهِ الْقُرْآنِ الْعَظِيْمِ: يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma\'asyiral Muslimin jamaah Jumat yang dirahmati Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Alhamdulillahi rabbil alamin, kalimat syukur yang harus senantiasa kita lafalkan melalui lisan, atas segala nikmat dan karunia yang telah Allah berikan, terkhusus nikmat agung dipertemukannya kembali dengan bulan yang sangat mulia, yaitu bulan Ramadhan. Semoga di bulan yang sangat singkat ini, kita bisa benar-benar meraih manfaat, keutamaan, dan keberkahan yang ada di dalamnya.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Shalawat dan salam tak henti-hetinya kita curahkan kepada junjungan kita, Nabi Muhammad saw, allahumma shalli wa sallim \'ala sayyidina Muhammad wa \'ala alih wa shahbih. Sosok teladan yang sempurna, insan yang jujur, sabar, dan bijaksana. Semoga kita semua yang hadir pada pelaksanaan shalat Jumat ini termasuk golongan umatnya yang mendapatkan syafaat darinya kelak di hari kiamat. Amin ya rabbal alamin.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Selanjutnya, sudah menjadi kewajiban bagi kami selaku khatib, untuk senantiasa mengajak dan mengingatkan kepada kami sendiri dan keluarga, serta semua jamaah yang hadir pada pelaksanaan shalat Jumat ini, untuk senantiasa meningkatkan keimanan dan ketakwaan kepada Allah, yaitu dengan terus istiqamah mengerjakan ketaatan, kebaikan, dan kedisiplinan, terkhusus di bulan Ramadhan yang mulia ini, di mana semua amal kebajikan akan dilipatgandakan pahalanya oleh Allah.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma\'asyiral Muslimin jamaah Jumat yang dirahmati Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ramadhan adalah bulan penuh berkah yang sejatinya berfungsi sebagai madrasah ketakwaan bagi kita Semua sebagai umat Islam. Selama sebulan penuh, kita diajarkan untuk menahan diri dari segala hal yang membatalkan puasa, tidak hanya sebatas makan dan minum saja, namun juga dari perkataan dan perbuatan yang sia-sia.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dengan berpuasa, kita diajarkan tentang kesabaran dan pengendalian diri. Dengan shalat tarawih, kita diajarkan tentang kesabaran dan kedisiplinan. Dengan sedekah dan zakat fitrah, kita diajarkan untuk menumbuhkan kepekaan sosial kepada sesama. Begitu juga dengan membaca Al-Qur\'an, kita diajarkan untuk memperdalam kandungan yang ada dalam firman Allah. Semua ibadah ini, menjadi bukti nyata bagi kita Semua bahwa kehadiran bulan Ramadhan menjadi tempat belajar atau madrasah untuk memperkukuh ketakwaan kita semua.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Oleh sebab itu, Allah swt berfirman dalam Al-Qur\'an bahwa tujuan diwajibkannya puasa adalah untuk meningkatkan ketakwaan. Maka sangat tepat jika kita menjadikan Ramadhan sebagai madrasah untuk meningkatkan ketakwaan kepada-Nya. Dalam Al-Qur\'an Allah berfirman:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ''',
+          'translation': '''Artinya, "Wahai orang-orang yang beriman! Diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang-orang sebelum kamu agar kamu bertakwa." (QS Al-Baqarah [2]: 183).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ayat ini dengan jelas mengingatkan kita Semua tentang tujuan utama dari puasa di bulan Ramadhan, yaitu untuk mencapai ketakwaan kepada Allah. Karenanya, puasa tidak hanya sekadar ritual ibadah yang dalam praktiknya hanya dengan menahan lapar dan dahaga saja, namun juga untuk membentuk pribadi yang lebih taat kepada-Nya, membentuk pribadi yang bisa menjaga pandangan, perkataan, dan perbuatan, serta menjauhkan diri dari segala perbuatan yang tidak diridhai oleh Allah.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Imam Ibnu Katsir dalam kitab Tafsir Al-Qur\'anil Adzim, jilid I, halaman 497 menjelaskan alasan kenapa Allah menjadikan takwa sebagai puncak dan tujuan dari ibadah puasa, karena dengannya kita akan berusaha untuk membersihkan diri dari segala kejelekan, dan dengan berpuasa pula kita akan mempersempit jalur-jalur setan. Artinya, hawa nafsu akan melemah sehingga setan akan lebih sulit menggoda manusia,''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''لَعَلَّكُمْ تَتَّقُونَ. لِأَنَّ الصَّوْمَ فِيْهِ تَزْكِيَةٌ لِلْبَدَنِ وَتَضْيِيْقٌ لِمَسَالِكِ الشَّيْطَانِ''',
+          'translation': '''Artinya, "Agar kamu bertakwa. Karena di dalam puasa terdapat penyucian bagi tubuh dan penyempitan jalan-jalan setan."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma\'asyiral Muslimin jamaah Jumat yang dirahmati Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Menjadikan Ramadhan sebagai madrasah ketakwaan artinya kita tidak hanya sekadar menjalani ibadah di bulan Ramadhan saja tanpa memperhatikan hal-hal yang bisa merusak pahala ibadah tersebut, namun juga harus menjaga sakralitasnya, agar kita bisa beribadah sekaligus mendapatkan pahala dari ibadah yang kita kerjakan, alias diterima oleh Allah.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Caranya adalah dengan meninggalkan segala perbuatan-perbuatan jelek yang biasa kita lakukan sebelum puasa, seperti membicarakan keburukan orang lain, berbohong, mengadu domba, berbohong, memandang hal-hal yang dilarang alam Islam dengan syahwat, dan lainnya. Semua perbuatan ini sejatinya sekalipun tidak membatalkan puasa, namun bisa menghanguskan pahala ibadah tersebut.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Berkaitan dengan penjelasan dia atas, Syekh Hasan al-Massyath dalam kitab Is\'afu Ahlil Iman bi Wadza\'if Syahri Ramadhan, halaman 45 mengatakan:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''إِذَا لَم يَكُنْ فِي السَّمْعِ مِنِّي تَصَاوُنٌ * وَفِي بَصَرِي غَضٌّ وَفِي مَنْطِقِي صَمْتٌ * فَحَظِّي إِذَنْ مِنْ صَومِيَ الجُوعُ وَ الظَّما ** فَإِنْ قُلْتُ إِنِّي صُمْتُ يَومِي فَمَا صُمْتُ''',
+          'translation': '''Artinya, "(Jika saat puasa) pendengaranku tidak dijaga, tidak menundukkan pandanganku, dan tidak mendiamkan ucapanku. Maka tidak ada yang aku peroleh dari puasaku kecuali lapar dan dahaga. Sekalipun aku mengatakan "aku puasa", padahal kenyataannya tidak."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma\'asyiral Muslimin jamaah Jumat yang dirahmati Allah''',
+        },
+        {
+          'type': 'text',
+          'content': '''Oleh sebab itu, mari kita jadikan bulan Ramadhan ini sebagai madrasah, tempat belajar untuk meningkatkan keimanan dan ketakwaan kepada Allah swt, sehingga kita akan terbiasa melakukan kebaikan-kebaikan dan istiqamah dalam melakukan ketaatan, sekalipun setelah selesainya bulan Ramadhan nanti, sebab kita sudah terdidik dan terbiasa melakukannya selama bulan Ramadhan ini.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Demikian adanya khutbah Jumat, perihal menjadikan bulan Ramadhan sebagai . Semoga menjadi khutbah yang membawa berkah dan manfaat bagi kita semua. Amin ya rabbal alamin.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''بَارَكَ اللهُ لِيْ وَلَكُمْ، وَنَفَعَنِيْ وَاِيَاكُمْ بِمَا فِيْهِ مِنَ اْلآيَاتِ وَالذِّكْرِ الْحَكِيْمِ، وَتَقَبَّلَ مِنِّيْ وَمِنْكُمْ جَمِيْعَ أَعْمَالِنَا إِنَّهُ هُوَ الْحَكِيْمُ الْعَلِيْمُ. أَقُوْلُ قَوْلِيْ هَذَا وَأَسْتَغْفِرُ اللهَ لِيْ وَلَكُمْ وَلِلْمُسْلِمِيْنَ فَاسْتَغْفِرُوْهُ اِنَّهُ هُوَ الْغَفُوْرُ الرَّحِيْمُ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ للهِ حَمْدًا كَمَا أَمَرَ. أَشْهَدُ أَنْ لَا إِلٰهَ اِلَّا الله وَحْدَهُ لَا شَرِيْكَ لَهُ، اِلَهٌ لَمْ يَزَلْ عَلَى كُلِّ شَيْءٍ وَكِيْلًا. وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ وَحَبِيْبُهُ وَخَلِيْلُهُ، أَكْرَمُ الْأَوَّلِيْنَ وَالْأَخِرِيْنَ، اَلْمَبْعُوْثُ رَحْمَةً لِلْعَالَمِيْنَ. اَللّٰهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلىَ أَلِهِ وَأَصْحَابِهِ وَمَنْ كَانَ لَهُمْ مِنَ التَّابِعِيْنَ، صَلَاةً دَائِمَةً بِدَوَامِ السَّمَوَاتِ وَالْأَرْضِيْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَمَّا بَعْدُ: فَيَا أَيُّهَا الْحَاضِرُوْنَ اتَّقُوا اللهَ حَقَّ تُقَاتِهِ وَذَرُوْا الْفَوَاحِشَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ. وَحَافِظُوْا عَلَى الطَّاعَةِ وَحُضُوْرِ الْجُمْعَةِ وَالْجَمَاعَةِ وَالصَّوْمِ وَجَمِيْعِ الْمَأْمُوْرَاتِ وَالْوَاجِبَاتِ. وَاعْلَمُوْا أَنَّ اللهَ أَمَرَكُمْ بِأَمْرٍ بَدَأَ بِنَفْسِهِ. وَثَنَى بِمَلَائِكَةِ الْمُسَبِّحَةِ بِقُدْسِهِ. إِنَّ اللهَ وَمَلائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيماً''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّٰهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى سَيِّدِنَا اِبْرَاهِيْمَ وَعَلَى آلِ سَيِّدِنَا اِبْرَاهِيْمَ وَبَارِكْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى سَيِّدِنَا اِبْرَاهِيْمَ وَعَلَى آلِ سَيِّدِنَا اِبْرَاهِيْمَ فِيْ العَالَمِيْنَ اِنَّكَ حَمِيْدٌ مَجِيْدٌ. اَللّٰهُمَّ  اغْفِرْ لِلْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِيْنَ وَالْمُؤْمِنَاتِ اَلْأَحْيَاءِ مِنْهُمْ وِالْأَمْوَاتِ. اَللّٰهُمَّ  ادْفَعْ عَنَّا الْبَلَاءَ وَالْغَلَاءَ وَالْوَبَاءَ وَالْفَحْشَاءَ وَالْمُنْكَرَ وَالْبَغْيَ وَالسُّيُوْفَ الْمُخْتَلِفَةَ وَالشَّدَائِدَ وَالْمِحَنَ، مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ، مِنْ بَلَدِنَا هَذَا خَاصَةً وَمِنْ بُلْدَانِ الْمُسْلِمِيْنَ عَامَةً، اِنَّكَ عَلَى كُلِّ شَيْءٍ قَدِيْرٌ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عِبَادَ اللهِ، اِنَّ اللهَ يَأْمُرُ بِالْعَدْلِ وَالْاِحْسَانِ وَاِيْتَاءِ ذِيْ الْقُرْبَى وَيَنْهَى عَنِ الْفَحْشَاءِ وَالْمُنْكَرِ وَالْبَغْيِ، يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ. فَاذْكُرُوْا اللهَ الْعَظِيْمَ يَذْكُرُكُمْ وَلَذِكْرُ اللهِ أَكْبَرُ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz Sunnatullah, Pengajar di Pondok Pesantren Al-Hikmah Darussalam Durjan Kokop Bangkalan Jawa Timur, dan alumnus Program Kepenulisan Turots Ilmiah Maroko.''',
+        }
+      ]
     }
   ];
 
