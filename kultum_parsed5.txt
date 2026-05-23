@@ -1,0 +1,190 @@
+    {
+      'title': 'Kultum Ramadhan: Agar Puasa Tak Hanya Menjadi Rutinitas Tahunan',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Coba kita renungkan sejenak, sudah berapa kali Ramadhan datang lalu pergi meninggalkan kita? Setiap tahun kita menjalani puasa, menahan lapar dan dahaga sejak terbit fajar hingga terbenam matahari. Namun, pertanyaannya, apa hasil yang benar-benar kita peroleh dari puasa tersebut?\n\nApakah ia telah membentuk kita menjadi pribadi yang lebih baik, lebih taat, dan lebih bertakwa, ataukah ia berlalu begitu saja tanpa meninggalkan bekas yang berarti dalam sikap dan perilaku kita?\n\nJangan-jangan, puasa yang selama ini kita laksanakan hanyalah rutinitas tahunan yang dikerjakan berulang-ulang, tetapi belum sungguh-sungguh menghadirkan nilai dan perubahan nyata dalam kehidupan kita.\n\nBahkan bisa jadi, yang kita peroleh dari puasa tersebut hanyalah rasa lapar dan dahaga semata, sebagaimana peringatan Rasulullah SAW:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'كَمْ مِنْ صَائِمٍ لَيْسَ لَهُ مِنْ صِيَامِهِ إِلَّا الْجُوعُ',
+          'latin': '',
+          'translation': 'Artinya: "Betapa banyak orang yang berpuasa, namun tidak ada yang ia peroleh dari puasanya selain rasa lapar." (HR. Ahmad)',
+        },
+        {
+          'type': 'text',
+          'content': 'Padahal, tujuan utama puasa bukan sekadar menahan diri dari makan dan minum, melainkan untuk menumbuhkan ketakwaan. Hal ini ditegaskan langsung oleh Allah Subhanahu wa ta\'ala dalam firman-Nya:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِيْنَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُوْنَۙ',
+          'latin': '',
+          'translation': 'Artinya: "Wahai orang-orang yang beriman, diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang-orang sebelum kamu agar kamu bertakwa." (QS. Al-Baqarah [2]: 183).',
+        },
+        {
+          'type': 'text',
+          'content': 'Ayat tersebut bukan sekadar ayat perintah puasa Ramadhan, akan tetapi juga menjelaskan tujuan atau hikmah di balik disyariatkannya puasa. Sebagaimana dijelaskan oleh Ibnu Asyur dalam tafsirnya, at-Tahrir Wat Tanwir.',
+        },
+        {
+          'type': 'arabic',
+          'content': 'Menurut beliau frasa  (لعل) pada kalimat (لَعَلَّكُمْ تَتَّقُوْنَۙ) "agar kamu bertakwa" merupakan mus\'taarah yang mempunyai makna (كَي / agar) sebagai isti\'arah tabi\'iyyah, dan adakalanya merupakan tamtsiliyyah (penyerupaan), yaitu dengan menyerupakan keadaan Allah dalam menghendaki terwujudnya ketakwaan melalui pensyariatan puasa seperti orang yang berharap kepada orang lain agar melakukan suatu perbuatan.',
+          'latin': '',
+        },
+        {
+          'type': 'text',
+          'content': 'Pengertian takwa menurut syariat adalah menjauhi perbuatan maksiat. Puasa menjadi sebab terhindar dari maksiat karena maksiat itu terbagi menjadi dua macam: Pertama, maksiat yang  efektif dapat ditinggalkan dengan tafakur atau perenungan, seperti meminum khamar, judi, mencurian, dan merampas. Meninggalkannya dapat terwujud dengan merenungkan janji pahala bagi yang meninggalkannya, ancaman siksa bagi pelakunya, serta nasihat untuk mengambil ibrah atau pelajaran dari keadaan orang lain.\n\nKedua, maksiat yang bersumber dari dorongan-dorongan tabiat, seperti perbuatan yang timbul dari amarah dan syahwat , yang terkadang sulit ditinggalkan hanya dengan perenungan atau tafakur semata. Maka puasa sebagai sarana untuk menghindarinya, karena puasa menyeimbangkan kekuatan-kekuatan tabi\'at yang menjadi pendorong terjadinya maksiat-maksiat tersebut.\n\nDengan puasa, seorang Muslim derajatnya akan naik dari jurang keterjerumusan materi menuju puncak alam ruhani. Puasa menjadi sarana latihan diri dengan sifat-sifat malaikat dan kebangkitan dari debu kekeruhan sifat-sifat kebinatangan .(Muhammad at-Thahir Asyur, At-Tahrir wa At-Tanwir, [Tunis, Dar-At-Tunisia: 1984 M], juz II, halaman 158).\n\nOleh karena itu, dapat kita pahami bahwa nilai puasa sejatinya terletak pada sejauh mana puasa tersebut mampu melahirkan ketakwaan dan membentuk perubahan akhlak, sehingga mengantarkan seorang Muslim menjadi pribadi yang lebih baik, lebih bertakwa, dan semakin dekat kepada Allah.\n\nTujuan mulia ini tidak akan terwujud apabila puasa hanya dikerjakan sebatas sah menurut fikih semata. Lebih dari itu, puasa perlu dihayati dan diamalkan secara menyeluruh dengan menjaga lahir dan batin. Dalam hal ini, al-Imam al-Ghazali memberikan enam tuntunan penting agar puasa benar-benar bernilai dan membekas. Berikut kami ringkaskan enam poin tersebut sebagaimana termaktub dalam kitab Mauizhatul Mu\'minin min Ihya\' \'Ulumid Din:\n\nPertama, menundukkan pandangan dan menahannya dari memandang segala sesuatu yang tercela dan dibenci, serta dari segala hal yang dapat menyibukkan hati dan melalaikan dari mengingat Allah Ta\'ala.\n\nKedua, menjaga lisan dari perkataan sia-sia, dusta, ghibah, adu domba, ucapan keji, sikap kasar, pertengkaran, dan perdebatan.\n\nKetiga, menjaga pendengaran dari mendengarkan segala hal yang dibenci, karena setiap sesuatu yang diharamkan untuk diucapkan, haram pula untuk didengarkan.\n\nKeempat, menahan seluruh anggota tubuh seperti tangan dan kaki dari perbuatan dosa dan hal-hal yang dibenci, serta menjaga perut dari perkara syubhat ketika berbuka. Tidak ada artinya puasa, menahan diri dari makanan halal, lalu berbuka dengan yang haram. Perumpamaan orang yang seperti ini adalah orang yang membangun istana tetapi meruntuhkan sebuah kota.\n\nKelima, tidak berlebihan dalam mengonsumsi makanan halal saat berbuka hingga perut menjadi penuh. Bagaimana mungkin tujuan puasa yaitu menundukkan musuh Allah  dan mematahkan syahwat dapat terwujud, jika seorang yang berpuasa justru mengganti seluruh kekurangan makannya di siang hari saat berbuka, bahkan menambahnya dengan beragam jenis hidangan? Padahal tujuan puasa adalah mengosongkan perut dan melemahkan hawa nafsu, agar jiwa menjadi kuat dalam ketakwaan.\n\nKeenam, setelah berbuka, hendaknya hatinya berada dalam keadaan gelisah, harap-harap cemas karena ia tidak mengetahui apakah puasanya diterima sehingga ia termasuk orang-orang yang didekatkan kepada Allah, ataukah ditolak sehingga ia termasuk orang-orang yang dimurkai. Sikap seperti ini seharusnya menyertai setiap ibadah yang telah ia selesaikan. (Muhammad Jamaluddin al-Qasimi, Mauizhatul Mu\'minin min Ihya\' \'Ulumid Din, [Beirut, Darul Kutub al-Ilmiyah: 1995] halaman 61-62).\n\nDengan demikian, apabila puasa dilaksanakan dengan memenuhi syarat dan rukunnya serta disempurnakan dengan adab-adabnya, maka tujuan puasa yang hakiki, yaitu melahirkan ketakwaan, akan benar-benar terwujud. Puasa menjadi sarana transformasi diri yang melatih manusia untuk mengendalikan nafsu terhadap perkara yang halal, agar lebih mampu menahan diri dari yang haram. Dari sinilah tumbuh kemampuan mengontrol diri dan bersikap lurus meskipun tanpa pengawasan manusia, lebih menjaga lisan dan emosi, serta hidup sederhana dalam konsumsi tanpa berlebih-lebihan.\n\nUstadz Muhamad Hanif Rahman, Dosen Ma\'had Aly Al-Iman Bulus dan Pengurus LBM NU Purworejo.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Mengenal Hikmah Disyariatkannya Puasa',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Salah satu ciri khas keutamaan bulan Ramadhan yang dapat kita rasakan bersama adalah keberadaannya yang selalu menjadi istimewa bagi umat Islam. Pada bulan mulia ini, kita bisa melihat masjid seolah menjadi lebih hidup, Al-Qur\'an lebih sering dibaca dan terdengar di mana-mana, dan ibadah ditunaikan dengan lebih khusuk.\n\nDan dari sekian banyak ibadah yang kita lakukan di dalamnya, puasa menjadi ibadah yang paling menonjol dan lebih terasa daripada ibadah-ibadah yang lain. Mengapa demikian? Karena puasa tidak hanya tentang menahan diri dari makan dan minum saja, tetapi juga melibatkan pengendalian diri secara menyeluruh, baik fisik maupun mental.\n\nKarena itu, penting bagi kita untuk mengetahui lebih lanjut perihal hikmah-hikmah diwajibkannya puasa. Sehingga kita tidak hanya merasakan lapar dan dahaga, tetapi benar-benar meresapi makna puasa dengan sebenar-benarnya.\n\nHikmah Disyariatkannya Puasa\n\nSebagaimana kita ketahui bersama, puasa memiliki hikmah yang sangat luar biasa. Ia merupakan sarana untuk membersihkan diri dari dosa, meningkatkan ketakwaan, dan mendekatkan diri kepada Allah swt. Puasa melatih kita untuk bersabar, jujur, dan peduli terhadap sesama. Ia juga menjadi momentum untuk introspeksi diri, memperbaiki diri, dan meningkatkan kualitas ibadah kita.\n\nSetidaknya ada empat hikmah luar biasa di balik disyariatkannya puasa yang penting untuk kita ketahui bersama, sebagaimana disampaikan oleh Syekh Muhammad Ali as-Shabuni dalam kitab Rawai\'ul Bayan fi Tafsiri Ayatil Ahkam halaman 93, yaitu:\n\n1. Bentuk Penghambaan\n\nHikmah pertama dari puasa adalah wujud penghambaan diri kepada Allah SWT. Puasa mengajarkan kita untuk tunduk dan patuh sepenuhnya terhadap perintah-Nya, serta menjauhi segala larangan-Nya. Dalam puasa, seseorang harus meninggalkan makan, minum, dan berbagai kenikmatan yang sebenarnya halal bukan karena tidak mampu, tetapi semata-mata karena ketaatan kepada Allah. Hal ini berdasarkan salah satu hadits Rasulullah, yaitu:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ اللَّهُ عَزَّ وَجَلَّ الصَّوْمُ لِي وَأَنَا أَجْزِي بِهِ يَدَعُ طَعَامَهُ وَشَرَابَهُ وَشَهْوَتَهُ مِنْ أَجْلِي',
+          'latin': '',
+          'translation': 'Artinya, "Rasulullah SAW bersabda: Allah Azza wa Jalla berfirman: \'Puasa itu untuk-Ku, dan Aku sendiri yang akan membalasnya. Dia meninggalkan makanan, minuman, dan syahwatnya karena Aku\'." (HR. Ahmad).',
+        },
+        {
+          'type': 'text',
+          'content': 'Melalui puasa, manusia dilatih untuk benar-benar merasakan dirinya sebagai hamba yang senantiasa berserah diri kepada keputusan dan ketetapan Allah. Dan inilah puncak tujuan dari semua ibadah, yaitu menumbuhkan sikap tunduk, patuh, dan pasrah kepada Rabb semesta alam.\n\n2. Mendidik Jiwa dan Melatih Kesabaran\n\nHikmah kedua dari disyariatkannya puasa adalah untuk mendidik jiwa dan melatihnya agar terbiasa bersabar serta tabah dalam menghadapi kesulitan di jalan Allah. Puasa menumbuhkan kekuatan tekad dan kemauan, serta menjadikan manusia mampu mengendalikan hawa nafsu dan keinginannya. Dengan berpuasa, kita tidak menjadi budak jasmani atau tawanan syahwat, tetapi mampu berjalan di atas petunjuk syariat Islam dan akal sehat.\n\n3. Menumbuhkan Rasa Cinta, Kasih Sayang, dan Empati\n\nHikmah ketiga dari disyariatkannya puasa adalah menumbuhkan rasa cinta, kasih sayang, dan kepekaan sosial dalam diri manusia. Puasa menjadikan hati lebih lembut, jiwa lebih peka, dan perasaan lebih halus terhadap penderitaan orang lain. Karena rasa lapar dan haus yang kita rasakan tidak hanya bentuk pengekangan diri, melainkan sarana untuk membangkitkan energi spiritual agar kita mampu merasakan apa yang dirasakan oleh saudara-saudara kita yang kekurangan.\n\nDari sinilah tumbuh dorongan untuk berbagi, mengulurkan bantuan, menghapus air mata orang-orang yang lemah, serta meringankan beban mereka yang tertimpa kesusahan. Dengan puasa pula, ia akan menjadi pribadi yang dermawan dan penuh empati, karena hati yang telah ditempa oleh ibadah puasa tidak akan tega berpaling dari penderitaan sesama.\n\nDemikianlah salah satu contoh yang pernah dilakukan oleh Nabi Yusuf alaihissalam. Meski ia pernah memegang perbendaharaan negaranya, namun ia tidak pernah makan hingga sangat kenyang dan senantiasa merasakan lapar, hingga suatu saat ia ditanya perihal alasan dari perbuatan itu, maka ia menjawab:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'أَخْشَى إِنْ أَنَا شَبعْتُ أَنْ أَنْسَى الْجَائِعَ',
+          'latin': '',
+          'translation': 'Artinya, "Aku khawatir jika aku kenyang, aku akan melupakan orang yang kelaparan."',
+        },
+        {
+          'type': 'text',
+          'content': '4. Menyucikan Jiwa dan Mencapai Derajat Takwa\n\nHikmah keempat dari disyariatkannya puasa adalah untuk menyucikan jiwa manusia dengan menanamkan rasa takut kepada Allah, serta kesadaran akan pengawasan-Nya baik dalam keadaan tersembunyi maupun terang-terangan, puncaknya adalah menjadikan orang-orang yang berpuasa menjadi hamba yang benar-benar bertakwa kepada Allah, sebagaimana ditegaskan dalam Al-Qur\'an, Allah berfirman:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ',
+          'latin': '',
+          'translation': 'Artinya, "Wahai orang-orang yang beriman, diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang-orang sebelum kamu agar kamu bertakwa." (QS. Al-Baqarah: 183).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dan ini pula alasan mengapa Allah SWT pada ayat di atas menegaskan bahwa tujuan puasa adalah agar manusia meraih derajat takwa, bukan agar manusia merasakan lapar, dahaga, atau sekadar memperoleh manfaat jasmani, yaitu agar tumbuh dalam dirinya sikap takwa yang sejati. Dan inilah manfaat terbesar yaitu kesiapan jiwa untuk kembali menjadi hamba Allah yang senantiasa berkomitmen untuk menjalani perintah-Nya, dan konsisten menjauhi larangan-Nya.\n\nDemikianlah kultum Ramadhan tentang hikmah disyariatkannya puasa. Semoga apa yang telah dijelaskan ini tidak hanya berhenti sebagai pengetahuan dan nasihat di lisan saja, tetapi benar-benar meresap ke dalam hati dan terwujud dalam perilaku keseharian kita. Aamiin ya Rabbal \'alamin.\n\nSunnatullah, Pengajar di Pondok Pesantren Al-Hikmah Darussalam Durjan Kokop Bangkalan Jawa Timur.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Puasa dan Transformasi Spiritual Seorang Mukmin',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Puasa dalam Islam bukan sekadar ibadah fisik, melainkan menjadi suatu bentuk komunikasi spiritual dengan Allah SWT serta alat untuk mempererat hubungan sosial antarsesama. Puasa menjadi ibadah yang memiliki makna spiritual yang sangat dalam, terutama sebagaimana dijelaskan dalam Al-Qur\'an dan dicontohkan oleh Rasulullah SAW. Jika dirincikan, ada beberapa aspek peningkatan spiritualitas melalui puasa:\n\n1. Meningkatkan Ketakwaan\n\nDalam Surah Al-Baqarah/2: 183. Allah berfirman:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِيْنَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُوْنَۙ ۝١٨٣',
+          'latin': '',
+          'translation': 'Artinya, "Wahai orang-orang yang beriman, diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang-orang sebelum kamu agar kamu bertakwa."',
+        },
+        {
+          'type': 'text',
+          'content': 'Allah mewajibkan puasa kepada kalian sebagaimana puasa telah diwajibkan kepada orang-orang beriman terdahulu, yaitu para pemeluk agama-agama sejak zaman Nabi Adam a.s. Puasa melatih hubungan batin dengan Allah, menguatkan kontrol diri, dan menumbuhkan kepekaan sosial secara bersamaan. Puasa disebut sebagai ibadah yang khusus diperuntukkan bagi Allah, meskipun pada dasarnya semua ibadah dilakukan untuk-Nya.\n\nMenurut Imam Al-Qurthubi, hal ini karena dua alasan. Pertama, puasa lebih efektif dalam menahan dan mengendalikan hawa nafsu dibandingkan dengan ibadah lainnya. Kedua, puasa merupakan rahasia antara seorang hamba dan Tuhannya. Tidak ada yang benar-benar mengetahui seseorang berpuasa atau tidak selain Allah.\n\nKarena sifatnya yang tersembunyi inilah, puasa menjadi ibadah yang sangat khusus bagi-Nya, berbeda dengan ibadah lain yang tampak secara lahiriah dan terkadang dapat disusupi oleh riya. (Wahbah az-Zuhaili, Tafsir Al-Munir, [Jakarta: Gema Insani, 2013], hlm. 383).\n\n2. Membersihkan Hati dan Jiwa\n\nAllah SWT menyerukan untuk berpuasa karena puasa mengandung penyucian, pembersihan, dan penjernihan diri dari kebiasaan-kebiasaan yang jelek dan akhlak tercela. (Ibnu Katsir, Tafsir Ibnu Katsir, terj. M. Abdul Ghoffar, (Jakarta: Pustaka Imam Asy-Syafi\'i, 2004), jil. 1, hlm. 343).\n\nPuasa melatih kesabaran, keikhlasan, dan kejujuran dalam diri seorang hamba. Sebab puasa adalah ibadah yang tersembunyi; hanya diri sendiri dan Allah yang benar-benar mengetahui kualitasnya. Mereka yang menjalankannya dengan sungguh-sungguh sesuai tuntunan syariat akan secara bertahap membentuk pribadi yang jujur, berintegritas, percaya diri, dan berakhlak mulia.\n\nJika kita menyadari bahwa kita sedang berada di bawah pengawasan Allah sebagai orang yang berusaha mencapai derajat muttaqin, kita dapat secara otomatis menghilangkan sifat-sifat yang tidak baik.\n\n3. Melatih Empati dan Kepedulian\n\nDengan merasakan lapar dan dahaga, seseorang lebih mampu memahami penderitaan orang lain. Ini mendorong tumbuhnya rasa syukur dan kepedulian sosial. Orang-orang yang rajin berpuasa akan menumbuhkan kepedulian sosial yang mendalam dan selalu membantu orang-orang miskin.\n\nKondisi seperti ini mendorong kita untuk mengingat puasa sebagai contoh sifat penyayang dan pengasih Allah Ta\'ala. Puasa memunculkan perasaan yang peka dan melahirkan rasa kasih sayang yang mendorong seseorang untuk memberi.\n\nKetika lapar, ia akan teringat kepada orang-orang yang sengsara yang tidak punya makanan, sehingga puasa mendorongnya untuk membantu mereka, dan ini adalah salah satu ciri orang-orang beriman. Puasa merealisasikan konsep persamaan antara si kaya dan si miskin, antara orang terpandang dan rakyat biasa, dalam pelaksanaan satu kewajiban yang sama. (Wahbah az-Zuhaili, Tafsir Al-Munir, hlm. 379-380).\n\n4. Mendekatkan Diri kepada Allah\n\nPuasa sering disertai dengan peningkatan ibadah lain seperti shalat malam, membaca Al-Qur\'an, dan dzikir. Menjaga lidah dari ucapan yang sia-sia, dusta, gunjingan, fitnah, menyinggung perasaan orang lain, menimbulkan pertengkaran dan perdebatan yang berlarut-larut. Sebagai gantinya, hendaknya seseorang memaksa lidahnya agar diam serta menyibukkannya dengan dzikir. (Al-Ghazali, Ihya\' Ulum al-din, diterjemahkan Muhammad Al-Baqir, Rahasia Puasa dan Zakat: Mencapai Kesempurnaan Ibadah, Jakarta Selatan: Mizan, 2015, hlm. 30)\n\nTerutama pada bulan Ramadhan, suasana spiritual menjadi lebih kuat dan mendalam. Kepada Allah dan tilawah Al-Qur\'an. Demikian itulah puasanya lidah. Bisyr bin Harits meriwayatkan ucapan Sufyan, "Gunjingan merusak puasa." Ketika berpuasa, seseorang menyadari nikmat Allah swt yang telah diberikan kepadanya, berupa nikmat kenyang dan hilangnya dahaga. Sesungguhnya suatu nikmat tidak dapat diketahui kadar dan nilainya kecuali setelah merasakan kehilangan. (Izzuddin bin Abdissalam, Maqashid As-Shaum, [Beirut: Darul Kutub Ilmiyah. Cet. 1, tt], hlm. 17).\n\nRasulullah SAW bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'إِنَّمَا الصَّوْمُ جُنَّةٌ، فَإِذَا كَانَ أَحَدُكُمْ صَائِمًا فَلَا يَرْفُثْ وَلَا يَجْهَلْ، وَإِنِ امْرُؤٌ قَاتَلَهُ أَوْ شَاتَمَهُ فَلْيَقُلْ: إِنِّي صَائِمٌ، إِنِّي صَائِمٌ',
+          'latin': '',
+          'translation': 'Artinya, "Sesungguhnya puasa adalah tabir penghalang (dari perbuatan dosa). Maka, apabila seseorang dari kamu sedang berpuasa, janganlah dia mengucapkan sesuatu yang keji dan janganlah dia berbuat jahil. Dan, seandainya ada orang lain yang mengajaknya berkelahi ataupun menunjukkan cercaan kepadanya, hendaknya dia berkata, \'Aku dengan berpuasa. Aku sedang berpuasa." (HR Imam Malik dalam Muwaththa).',
+        },
+        {
+          'type': 'text',
+          'content': '5. Menguatkan Disiplin dan Pengendalian Diri\n\nPuasa melatih kita untuk hidup lebih disiplin, mengendalikan keinginan, dan menata diri sejak waktu sahur hingga berbuka. Ia bukan sekadar menahan lapar dan dahaga, tetapi juga latihan menahan hawa nafsu dan menjaga hati. Betapa banyak orang berpuasa, namun tidak mendapatkan apa-apa selain rasa haus dan lapar, karena mereka hanya menahan diri secara fisik, bukan secara lahir dan batin.\n\nMenjauhi hal-hal yang membatalkan puasa secara kasatmata harus disertai dengan meninggalkan hal-hal yang merusak nilai puasa secara batin, seperti berkata dusta, bergunjing, dan berbuat maksiat. Puasa hanya berlangsung dalam waktu yang terbatas, satu bulan dalam setahun, dan sering terasa begitu cepat berlalu. Karena itu, jangan sampai bulan yang penuh berkah, kebaikan, dan rahmat ini berlalu tanpa meninggalkan bekas kebaikan dalam diri kita. Wallahu a\'lam.\n\nBesse Herlina Taha, Pembina Pondok Pesantren Al-Ikhlas Ujung Bone.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Hikmah Puasa dalam Membentuk Kesadaran Sosial',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Kita semua mengetahui dan menyaksikan dengan mata kepala sendiri bahwa kehidupan ini tidak pernah berjalan di atas garis yang sama rata. Ada di antara kita  yang sejak lahir hidup dalam kelapangan, rezekinya mengalir, makan dan minumnya terjamin, bahkan tidak pernah mengenal bagaimana rasanya lapar dan dahaga.\n\nNamun di sisi lain, ada pula hamba Allah yang sejak kecil harus berjibaku dengan kekurangan, bersahabat akrab dengan lapar dan dahaga. Kelompok masyarakat terpinggirkan mereka adalah orang-orang yang mengalami keterbatasan akses terhadap sumber daya, pendidikan, layanan kesehatan, pekerjaan layak, serta perlindungan sosial. Kondisi ini membuat mereka rentan terhadap kemiskinan struktural, ketidakadilan, dan diskriminasi sosial.\n\nSyariat Islam tidak membedakan hamba-hamba-Nya dengan pilih kasih. Yang kaya tidak diberi keringanan hanya karena hartanya, dan yang miskin tidak dibebaskan hanya karena keadaannya.\n\nSeperti perintah puasa Ramadhan yang mewajibkan seluruh lapisan umat. Kaya atau miskin, kuat atau lemah, terbiasa kenyang ataupun akrab dengan lapar, semuanya diwajibkan berpuasa.\n\nKewajiban puasa yang menyeluruh ini mengandung hikmah sebab-sebab ketakwaan, yaitu menjalankan perintahnya dan menjauhi larangannya. Ibnu Sa\'di dalam tafsirnya saat menjelaskan ayat perintah puasa Ramadhan yakni firman Allah surat Al-Baqarah ayat 183.',
+        },
+        {
+          'type': 'arabic',
+          'content': 'يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِيْنَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُوْنَۙ',
+          'latin': '',
+          'translation': 'Artinya: "Wahai orang-orang yang beriman, diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang-orang sebelum kamu agar kamu bertakwa." (Al-Baqarah:183)',
+        },
+        {
+          'type': 'arabic',
+          'content': 'Beliau mengatakan bahwa kalimat (لَعَلَّكُمْ تَتَّقُونَ) "agar kamu bertakwa" merupakan hikmah disyariatkannya puasa, sebab puasa merupakan lebih besar-besarnya ketakwaan, karena di dalam mengerjakan puasa termuat melaksanakan perintah-Nya dan menjauhi larangannya, di antaranya orang kaya dapat ikut merasakan pedihnya yang dirasakan oleh orang-orang miskin, dan dari itu akan menimbulkan empati dan keprihatinannya terhadap orang miskin. Berikut selengkapnya:',
+          'latin': '',
+        },
+        {
+          'type': 'arabic',
+          'content': 'ومنها: أن الغني إذا ذاق ألم الجوع، أوجب له ذلك، مواساة الفقراء المعدمين، وهذا من خصال التقوى',
+          'latin': '',
+          'translation': 'Artinya: "Di antara sebab-sebab ketakwaan adalah ketika orang kaya merasakan pedihnya rasa lapar, hal itu akan mendorongnya untuk ikut merasakan dan menghibur penderitaan kaum fakir yang serba kekurangan. Dan sikap seperti ini termasuk bagian dari sifat ketakwaan." (Abdurrahman As-Sa\'di, Tafsir as-Sa\'di, [Muassasah Ar-Risalah: 2000] juz I halaman 87).',
+        },
+        {
+          'type': 'text',
+          'content': 'Puasa adalah sarana terbaik untuk menumbuhkan pada diri orang kaya perasaan seperti yang dirasakan orang miskin dan paling efektif untuk membangkitkan dorongan kasih sayang, rahmat, dan kepedulian sosial pada orang kaya. Dengan demikian, kasih sayang dan empati di antara kaum Muslimin akan benar-benar terwujud dan inilah pilar tegaknya masyarakat Islam. Berikut keterangan kitab Fiqih Manhaji:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'إن من أهم المبادئ التي ينهض عليها المجتمع الإسلامي تراحم المسلمين وتعاطفهم، وهيهات أن يرحم الغني الفقير رحمة صادقة من غير أن يتخلله شعور بآلام الفقر وشدته، ومرارة الجوع وضراوته. وشهر الصيام خير ما يكسب الغني شعور الفقير، ويجعله يعيش معه في آلامه وحرمانه، ومن ثم كان الصوم خير ما يثير في نفس الأغنياء دوافع العطف والرحمة والمواساة',
+          'latin': '',
+          'translation': 'Artinya: "Di antara prinsip paling penting yang menjadi pilar tegaknya masyarakat Islam adalah adanya kasih sayang dan empati di antara kaum Muslimin. Dan mustahil orang kaya dapat benar-benar mengasihi orang miskin dengan tulus, tanpa ikut merasakan penderitaan kemiskinan dan beratnya hidup, pahitnya rasa lapar dan kerasnya tekanannya. Bulan puasa adalah sarana terbaik untuk menumbuhkan pada diri orang kaya perasaan seperti yang dirasakan orang miskin, membuatnya seakan hidup bersama mereka dalam penderitaan dan kekurangan. Oleh karena itu, puasa menjadi ibadah yang paling efektif dalam membangkitkan dorongan kasih sayang, rahmat, dan kepedulian sosial pada orang-orang kaya." (Musthafa al-Khin, Musthafa al-Bugha dan Ali As-Syarbini, Al-Fiqh al-Manhaji [Damaskus, Darul Qalam, cetakan ketiga: 1992] juz II, halaman 76).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dalam Kitab Shiyam karya Darul Ifta al-Mishriyyah yang diterbitkan pada 1426 H, halaman 18, dijelaskan bahwa puasa merupakan sarana untuk menumbuhkan rasa syukur. Dengan menahan diri dari berbagai nikmat yang Allah anugerahkan, seperti makan, minum, dan seluruh syahwat yang dibolehkan, seseorang menjadi lebih sadar akan nilai besar nikmat-nikmat tersebut.\n\nMelalui pengalaman menahan diri itu, manusia menyadari betapa ia sangat membutuhkan nikmat Allah serta memahami beratnya penderitaan orang-orang yang terhalang dari kenikmatan tersebut. Puasa menghadirkan kesadaran batin bahwa apa yang selama ini dinikmati bukanlah sesuatu yang sepele.\n\nDari sinilah jiwa terdorong untuk mensyukuri Sang Pemberi nikmat Yang Maha Besar lagi Maha Kaya, yang memberi tanpa mengharap balasan. Hati pun dipenuhi rasa rahmat, kasih sayang, dan empati terhadap kaum fakir, miskin, dan mereka yang membutuhkan.\n\nDan makna-makna inilah yang ditunjukkan oleh firman Allah Ta\'ala di penutup ayat-ayat tentang puasa:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَلَعَلَّكُمْ تَشْكُرُون',
+          'latin': '',
+          'translation': 'Artinya, "Agar kamu bersyukur," (QS. Al-Baqarah: 185).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dari uraian tersebut dapat dipahami bahwa puasa Ramadhan bukan sekadar ibadah individual yang berdimensi ritual, melainkan ibadah sosial yang memiliki daya besar dalam membangun empati dan kepedulian terhadap kelompok masyarakat terpinggirkan, terutama kaum fakir dan miskin.\n\nMelalui rasa lapar dan dahaga yang dirasakan bersama, orang-orang yang hidup dalam kelapangan diajak untuk merasakan sekelumit penderitaan yang setiap hari dialami oleh mereka yang kekurangan.\n\nDari sinilah tumbuh rasa iba, kasih sayang, dan dorongan untuk berbagi sebagai bagian dari manifestasi ketakwaan yang hakiki. Selain itu, puasa dapat juga melahirkan rasa syukur kepada Allah atas nikmat-Nya, sekaligus menggerakkan hati untuk lebih peduli terhadap sesama.\n\nUstadz Muhamad Hanif Rahman, Dosen Ma\'had Aly Al-Iman Bulus dan Pengurus LBM NU Purworejo.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Puasa sebagai Rem Pengendali Tabdzir',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Salah satu pelajaran penting dari puasa adalah kemampuan membedakan antara kebutuhan dan sekadar keinginan. Saat lapar dan dahaga terasa, kita tidak hanya belajar menahan diri, tetapi juga diajak merasakan bagaimana saudara-saudara kita yang hidup dalam keterbatasan menjalani hari-harinya. Dalam bahasa Arab, puasa disebut ash-shiyam, yang berarti menahan diri dari sesuatu dan meninggalkannya (Wahbah az-Zuhaili, Tafsir Al-Munir, Jakarta: Gema Insani, 2013, hlm. 377).\n\nNamun, realitasnya, Ramadhan kadang justru identik dengan lonjakan konsumsi. Hidangan berbuka berlimpah, makanan tersisa dan terbuang. Fenomena ini tentu tidak sejalan dengan ruh puasa yang mengajarkan kesederhanaan dan pengendalian diri. Dalam ajaran Islam, perilaku seperti ini dikenal dengan istilah tabdzir. Islam tidak melarang menikmati rezeki yang halal, tetapi melarang sikap berlebihan dan menghambur-hamburkan.\n\nSecara bahasa, tabdzir berarti menghamburkan atau menyia-nyiakan harta. Secara etimologis, ia bermakna membelanjakan harta secara boros dan tidak tepat guna. Dalam Islam, pengelolaan harta diatur dengan prinsip keseimbangan, tidak kikir, tidak pula berlebihan (Wahbah az-Zuhaili, Tafsir Al-Munir, [Jakarta: Gema Insani, 2013], hlm. 76).\n\nAllah SWT menegaskan dalam Surah Al-Isra\' ayat 26–27:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَاٰتِ ذَا الْقُرْبٰى حَقَّهٗ وَالْمِسْكِيْنَ وَابْنَ السَّبِيْلِ وَلَا تُبَذِّرْ تَبْذِيْرًا ۝٢٦ اِنَّ الْمُبَذِّرِيْنَ كَانُوْٓا اِخْوَانَ الشَّيٰطِيْنِۗ وَكَانَ الشَّيْطٰنُ لِرَبِّهٖ كَفُوْرًا ۝٢٧',
+          'latin': '',
+          'translation': 'Artinya, "Berikanlah kepada kerabat dekat haknya, (juga kepada) orang miskin, dan orang yang dalam perjalanan. Janganlah kamu menghambur-hamburkan (hartamu) secara boros. Sesungguhnya para pemboros itu adalah saudara-saudara setan dan setan itu sangat ingkar kepada Tuhannya."',
+        },
+        {
+          'type': 'text',
+          'content': 'Ibnu Mas\'ud RA menjelaskan bahwa tabdzir adalah menggunakan harta untuk hal yang tidak benar. Mujahid berkata, "Jika seseorang menggunakan seluruh hartanya untuk kebaikan, maka ia bukan mubadzir. Namun, jika ia menggunakan satu mud saja untuk hal yang tidak benar, maka ia termasuk mubadzir." Diriwayatkan pula dari Ali RA, bahwa harta yang digunakan secara wajar untuk diri dan keluarga serta untuk sedekah adalah milik kita; sedangkan yang dipakai untuk pamer adalah bagian setan (Wahbah az-Zuhaili, Tafsir Al-Munir, hlm. 77).\n\nDalam hadits riwayat Ibnu Mas\'ud RA, Rasulullah SAW bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'حَدَّثَنَا عَبْد اللَّهِ قَالَ قَرَأْتُ عَلَى أَبِي حَدَّثَنَا أَبُو عُبَيْدَةَ الْحَدَّادُ قَالَ حَدَّثَنَا سُكَيْنُ بْنُ عَبْدِ الْعَزِيزِ الْعَبْدِيُّ حَدَّثَنَا إِبْرَاهِيمُ الْهَجَرِيُّ عَنْ أَبِي الْأَحْوَصِ عَنْ عَبْدِ اللَّهِ بْنِ مَسْعُودٍ قَالَ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ مَا عَالَ مَنْ اقْتَصَدَ',
+          'latin': '',
+          'translation': 'Maknanya, harta yang digunakan secara proporsional, terencana, dan tidak mengikuti hawa nafsu akan menjaga seseorang dari kemiskinan akibat pemborosan.',
+        },
+        {
+          'type': 'text',
+          'content': 'Prof. Quraish Shihab menjelaskan bahwa tabdzir dipahami sebagai pengeluaran yang bukan pada tempatnya. Jika seluruh harta dibelanjakan untuk kebaikan, itu bukan pemborosan. Abu Bakar RA menyerahkan seluruh hartanya untuk jihad, dan \'Utsman RA membelanjakan separuh hartanya; keduanya tidak dinilai sebagai mubadzir. Sebaliknya, membasuh wajah lebih dari tiga kali saat wudhu dinilai pemborosan, walau airnya dari sungai yang mengalir. Jadi, pemborosan lebih terkait ketidaktepatan penggunaan, bukan sekadar jumlah (Muhammad Quraish Shihab, Tafsir Al-Mishbah, Vol. 7, 2005, hlm. 451–452).\n\nDi sinilah puasa menjadi sarana koreksi diri. Dengan menahan diri secara sadar, kita belajar bahwa keinginan bisa dikendalikan. Pengendalian diri dibutuhkan oleh siapa pun, kaya atau miskin, tua atau muda, lelaki atau perempuan, dalam setiap zaman (Muhammad Quraish Shihab, Tafsir Al-Mishbah, Vol. 1, 2005, hlm. 401).\n\nNilai ini seharusnya tidak berhenti pada bulan Ramadhan. Membelanjakan harta sesuai prioritas, tidak menyia-nyiakan makanan, dan berbagi kepada sesama adalah wujud nyata dari puasa yang membentuk karakter. Dengan demikian, Ramadhan tidak hanya mengubah pola makan, tetapi juga menata pola hidup. Wallahu a\'lam.\n\nUstadzah Besse Herlina Taha, Pembina Pondok Pesantren Al-Ikhlas Ujung Bone.',
+        },
+      ]
+    },

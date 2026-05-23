@@ -3,11 +3,11 @@ import re
 from bs4 import BeautifulSoup
 
 urls = [
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-2-tanda-puasa-ramadhan-diterima-oleh-allah-skifL",
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-adab-dan-sunnah-di-hari-idul-fitri-9evNh",
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-merawat-semangat-ibadah-setelah-ramadhan-z8hpU",
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-mari-perkuat-kesalehan-sosial-lewat-puasa-jtpRD",
-    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-menghidupkan-hati-dengan-tadarus-al-qur-an-0OLjX"
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-agar-puasa-tak-hanya-menjadi-rutinitas-tahunan-m5MTl",
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-mengenal-hikmah-disyariatkannya-puasa-ANKia",
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-puasa-dan-transformasi-spiritual-seorang-mukmin-p4XxX",
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-hikmah-puasa-dalam-membentuk-kesadaran-sosial-Yqu3P",
+    "https://islam.nu.or.id/ramadhan/kultum-ramadhan-puasa-sebagai-rem-pengendali-tabdzir-1ZXpt"
 ]
 
 def clean_text(text):
@@ -101,6 +101,6 @@ for item in results:
     dart_code += "      ]\n"
     dart_code += "    },\n"
 
-with open('kultum_parsed4.txt', 'w', encoding='utf-8') as f:
+with open('kultum_parsed5.txt', 'w', encoding='utf-8') as f:
     f.write(dart_code)
 print("Parsing complete")
