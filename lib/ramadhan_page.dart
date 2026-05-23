@@ -44,6 +44,251 @@ class _RamadhanPageState extends State<RamadhanPage> with SingleTickerProviderSt
     'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
   ];
 
+  final List<Map<String, dynamic>> _kultumMenu = [
+    {
+      'title': 'Kultum Ramadhan: Bangun Kepedulian, Eratkan Ikatan Kerabat',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Bulan Ramadhan tidak melulu soal puasa menahan lapar dan haus. Pun bukan hanya soal menahan hawa nafsu dari kemaksiatan zahir dan batin. Di bulan suci ini, bisa juga kita manfaatkan untuk menumbuhkan dan meningkatkan kepedulian kepada kerabat.\n\nDengan memadukan menahan lapar-haus, mengendalikan hawa nafsu, dan meningkatkan kepedulian terhadap kerabat, ibadah kita akan semakin sempurna di sisi Allah SWT. Pun kualitas kehidupan kita akan semakin meningkat, baik dari sisi kesalehan spiritual maupun kesalehan sosial.\n\nAllah SWT berfirman dalam surat Al-Baqarah ayat 183:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِيْنَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُوْنَۙ',
+          'latin': '',
+          'translation': 'Artinya: "Wahai orang-orang yang beriman, diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang-orang sebelum kamu agar kamu bertakwa." (QS. Al-Baqarah [2]: 183).',
+        },
+        {
+          'type': 'text',
+          'content': 'Ayat ini menegaskan bahwa diwajibkan puasa agar kita senantiasa bertakwa kepada Allah SWT. Tentu banyak sekali cara bertakwa, termasuk peduli terhadap sesama, terutama kepada para kerabat terdekat kita. Hal ini merupakan bagian dari peningkatan ketakwaan seseorang. Dalam konteks kaitan bulan Ramadhan dan kepedulian sosial, Rasulullah SAW bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'عَنِ ابْنِ عَبَّاسٍ قَالَ: كَانَ رَسُولُ اللَّهِ صَلَّى الله عَلَيْهِ وَسَلَّمَ أَجْوَدَ النَّاسِ، وَكَانَ أَجْوَدُ ‌مَا ‌يَكُونُ ‌فِي ‌رَمَضَانَ حِينَ يَلْقَاهُ جِبْرِيلُ، وَكَانَ يَلْقَاهُ فِي كُلِّ لَيْلَةٍ مِنْ رَمَضَانَ فَيُدَارِسُهُ الْقُرْآنَ، فَلَرَسُولُ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ أَجْوَدُ بِالْخَيْرِ مِنَ الرِّيحِ الْمُرْسَلَةِ',
+          'latin': '',
+          'translation': 'Artinya: "Diriwayatkan dari Sahabat Ibnu Abbas RA, ia berkata: \'Rasulullah SAW merupakan manusia yang paling dermawan.\' Sifat dermawannya yang paling menonjol itu tampak ketika bulan suci Ramadhan, saat bertemu dengan malaikat Jibril. Jibril menemui Rasulullah Saw pada setiap malam di bulan tersebut dan mengajarkan beliau Al-Qur\'an. Sungguh kedermawanan Rasulullah terhadap kebaikan itu laksana angin yang berhembus." (HR Imam Bukhari).',
+        },
+        {
+          'type': 'text',
+          'content': 'Hadits ini mengisyaratkan bagaimana bulan suci Ramadhan sangat berkaitan erat dengan kepedulian terhadap sesama. Rasulullah SAW yang merupakan manusia paling dermawan dan pada bulan Ramadhan sampai meningkatkan kualitas kedermawanannya. Hal tersebut jelas menunjukkan bahwa bulan Ramadhan adalah momen tepat untuk meningkatkan kepedulian kita terhadap sesama manusia, terutama kepada kerabat terdekat kita.\n\nDi samping itu, dalam hadits lain Rasulullah SAW juga menegaskan pentingnya kepedulian terhadap sesama. Beliau bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'عَنْ أَبِيْ هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ عَنِ النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ مَنْ نَـفَّسَ عَنْ مُؤْمِنٍ كُـرْبَةً مِنْ كُرَبِ الدُّنْيَا، نَـفَّسَ اللهُ عَنْهُ كُـرْبَةً مِنْ كُـرَبِ يَوْمِ الْقِيَامَةِ، وَمَنْ يَسَّرَ عَلَـى مُـعْسِرٍ، يَسَّـرَ اللهُ عَلَيْهِ فِـي الدُّنْيَا وَالْآخِرَة، وَمَنْ سَتَـرَ مُسْلِمًـا، سَتَـرَهُ اللهُ فِـي الدُّنْيَا وَالْآخِرَةِ ، وَاللهُ فِـي عَوْنِ الْعَبْدِ مَا كَانَ الْعَبْدُ فِي عَوْنِ أَخِيهِ',
+          'latin': '',
+          'translation': 'Artinya: "Diriwayatkan dari Sahabat Abu Hurairah RA, Nabi Muhammad SAW bersabda: \'Siapa saja yang melapangkan satu kesusahan dunia dari seorang Mukmin, maka Allah melapangkan darinya satu kesusahan di hari kiamat.',
+        },
+        {
+          'type': 'text',
+          'content': '"Siapa saja memudahkan urusan orang yang sedang dalam kesulitan, niscaya Allah memudahkan baginya dari kesulitan di dunia dan akhirat. Siapa menutupi aib seorang Muslim, maka Allah akan menutup aibnya di dunia dan akhirat. Allah senantiasa menolong seorang hamba selama hamba tersebut menolong saudaranya." (HR Imam Muslim).\n\nSementara itu, jika kita merujuk pada beberapa literatur kitab klasik, kepedulian terhadap kerabat, misalnya bersedekah kepadanya, melebihi keutamaan kepada orang lain yang bukan kerabat. Imam an-Nawawi dalam salah satu karyanya menulis:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'أَجْمَعَتْ الْأُمَّةُ عَلَى أَنَّ الصَّدَقَةَ عَلَى الْأَقَارِبِ أَفْضَلُ مِنْ الْأَجَانِبِ وَالْأَحَادِيثُ فِي الْمَسْأَلَةِ كَثِيرَةٌ مَشْهُورَةٌ',
+          'latin': '',
+          'translation': 'Artinya: "Ulama sepakat bahwa sedekah kepada sanak kerabat lebih utama daripada sedekah kepada orang lain. Hadits-hadits yang menyebutkan hal tersebut sangat banyak dan masyhur." (Imam an-Nawawi, Al-Majmu\' Syarhul Muhaddzab, [Beirut: Darul Fiqr, t.t.] jilid VI, hal. 238).',
+        },
+        {
+          'type': 'text',
+          'content': 'Nilai lebih dari kepedulian terhadap kerabat dibandingkan dengan orang lain non-kerabat ini tidak hanya dalam soal sedekah, tapi setiap hal kebaikan, sebagaimana kelanjutan dari penjelasan Imam an-Nawawi berikut:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'ويستحب تخصيص الاقارب على الاجانب بالزكاة حيت يَجُوزُ دَفْعُهَا إلَيْهِمْ كَمَا قُلْنَا فِي صَدَقَةِ التَّطَوُّعِ وَلَا فَرْقَ بَيْنَهُمَا وَهَكَذَا الْكَفَّارَاتُ وَالنُّذُورُ وَالْوَصَايَا وَالْأَوْقَافُ وَسَائِرُ جِهَاتِ الْبِرِّ يُسْتَحَبُّ تَقْدِيمُ الْأَقَارِبِ فِيهَا حَيْثُ يَكُونُونَ بِصِفَةِ الِاسْتِحْقَاقِ وَاَللَّهُ تعالي أَعْلَمُ',
+          'latin': '',
+          'translation': 'Artinya: "Disunnahkan mengkhususkan para kerabat atas orang lain dalam pengalokasian zakat, yakni kerabat yang boleh diberi zakat, sebagaimana penjelasan yang saya jelaskan dalam bab sedekah sunnah dan tidak ada perbedaan antara keduanya. Begitu juga dalam hal (pengalokasian) kafarat, nazah, wasiat, wakaf, dan seluruh urusan kebaikan, disunnahkan mendahulukan kerabat yang berhak menerimanya. Wallahu Ta\'ala A\'lam," (Imam an-Nawawi/jilid VI, hal. 238—238).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dari semua pemaparan di muka bisa dipahami bahwa bulan suci Ramadhan bisa kita manfaatkan sebagai peningkatan kualitas kesalehan spiritual dengan cara berpuasa, menahan haus dan lapar, mengendalikan hawa nafsu yang sifat tercela, memperbanyak amal kebaikan, dan sekaligus meningkatkan kesalehan sosial dengan menumbuhkan dan meningkatkan kepedulian kita terhadap sesama manusia, terutama kepada kerabat terdekat kita.\n\nCara meningkatkannya bagaimana? Cara paling efektif untuk meningkatkan kepedulian terhadap kerabat adalah dengan memulainya. Kita harus memerhatikan dan peka terhadap kerabat yang layak dibantu yang hidup di lingkungan kita, di setiap atau mungkin di satu daerah. Sederhananya, dimulai dengan yang paling memungkinkan untuk kita bantu.\n\nKarena kita sedang di bulan Ramadhan, jangan sampai kita berbuka puasa dengan menu melimpah, tapi ada kerabat kita yang kekurangan makanan untuk berbuka. Perhatikan juga apakah masih ada kerabat kita yang tidak bersahur karena tidak memiliki bahan pokok untuk memasak, tapi di kulkas kita ada bahan yang sampai hampir busuk karena tidak terpakai.\n\nInilah contoh sederhana yang bisa kita implementasikan dari kepedulian terhadap kerabat. Dan kepedulian ini juga bisa diwujudkan dalam bentuk apa pun, tidak harus dalam bentuk makanan saja. Bisa dalam bentuk menghilangkan kesusahan, menutup aib, dan lain-lain sebagaimana dijelaskan dalam hadits di atas.\n\nSemoga pada bulan suci Ramadhan ini, kita bisa memaksimalkan dan memanfaatkan waktu sebaik mungkin sehingga bisa mengamalkan setiap hal yang bisa meningkatkan kualitas kehidupan spiritual maupun sosial. Semoga bermanfaat. Wallahu a\'lam.\n\nSyifaul Qulub Amin, Alumnus PP Nurul Cholil Bangkalan dan Pengajar di PP Putri Al-Masyhuriyah Kebonan Bangkalan.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Kesabaran adalah Jalan Menuju Kemenangan',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Dalam menjalani kehidupan, kita sering sekali tersandung oleh pahitnya takdir. Kita dihadapkan dengan kesulitan, kegagalan, dan kehilangan yang membuat kita merasa lemah dan tak berdaya. Namun, putus asa dan menyerah bukanlah solusi. Sebaliknya, kita harus menghadapi kesulitan itu dengan kepala tegak dan hati yang kuat.\n\nDalam Islam, menghadapi kesulitan hidup diistilahkan dengan sabar. Sabar dalam menghadapi pahitnya takdir bukanlah tanda kelemahan, tapi sebaliknya, sabar dalam menghadapi pahitnya takdir merupakan tanda kekuatan sejati. Allah Ta\'ala berfirman:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوا اسْتَعِيْنُوْا بِالصَّبْرِ وَالصَّلٰوةِۗ اِنَّ اللّٰهَ مَعَ الصّٰبِرِيْنَ',
+          'latin': '',
+          'translation': 'Artinya, "Wahai orang-orang yang beriman, mohonlah pertolongan (kepada Allah) dengan sabar dan salat. Sesungguhnya Allah beserta orang-orang yang sabar," (QS. Al-Baqarah. Ayat 153).',
+        },
+        {
+          'type': 'text',
+          'content': 'Ayat ini menegaskan bahwa sabar merupakan sarana penolong bagi orang-orang beriman dalam menghadapi setiap cobaan yang sedang dihadapi. Yang artinya sabar memungkinkan kita untuk menerima apa yang telah terjadi, dan mempercayai bahwa Allah SWT memiliki rencana yang lebih baik untuk kita. Dengan sabar, kita dapat mengatasi kesulitan, belajar dari kesalahan, dan tumbuh menjadi pribadi yang lebih kuat dan bijak.\n\nPenggalan ayat terakhir tersebut juga merupakan satu keistimewaan dari Allah Ta\'ala bagi hamba-hamba-Nya yang bersabar. Bahwa Allah akan selalu membersamai orang-orang yang sabar dalam menjalani segala ketentuan yang Allah berikan kepada mereka.\n\nMaka, sabar di sini menjadi salah satu jalan yang paling istimewa untuk mendapat kemenangan sejati, yaitu kebersamaan dengan Tuhan semesta alam yang mengatur seluruh jalan takdir yang kita lalui.\n\nMaka, tidaklah mengherankan apabila Sayyidina Ali bin Abi Thalib R.A pernah mengatakan:',
+        },
+        {
+          'type': 'arabic',
+          'content': '‎وَاعْلَمُوا أَنَّ الصَّبْرَ مِنَ الْأُمُورِ بِمَنْزِلَةِ الرَّأْسِ مِنَ الْجَسَدِ فَإِذَا فَارَقَ الرَّأْسُ الْجَسَدَ فَسَدَ الْجَسَدُ، وَإِذَا فَارَقَ الصَّبْرُ الْأُمُورَ فَسَدَتِ الْأُمُورُ',
+          'latin': '',
+          'translation': 'Artinya, "Ketahuilah bahwa kesabaran atas berbagai urusan (kehidupan) seperti halnya kepala bagi tubuh. Jika kepala terpisah dari tubuh, maka tubuh akan rusak. Begitu pula, jika kesabaran terpisah dari urusan (kehidupan), maka urusan (kehidupan) akan menjadi rusak". (Tanbih Al-Ghafilin halaman 90)',
+        },
+        {
+          'type': 'text',
+          'content': 'Maksudnya, kesabaran adalah kunci untuk menjaga kestabilan dan keselarasan mental dalam menjalani kehidupan. Tanpa kesabaran, mental dalam menjalani kehidupan akan menjadi tidak seimbang dan rusak, karena kehidupan ini tidak mungkin selalu sesuai dengan keinginan kita.\n\nMaka, salah satu upaya yang paling efektif untuk membangun mental kita dan generasi selanjutnya adalah dengan mengkaji tentang ilmu akhlak, khususnya sabar, sebab dengan sabar inilah semua hal yang terjadi dalam kehidupan akan dilalui dengan ketenangan dan keyakinan akan berlalunya badai kehidupan.\n\nTidak hanya sebagai kunci menuju kemenangan sejati, orang-orang yang sabar juga dijanjikan pahala yang agung dari Allah Ta\'ala. Hal ini tertuang dalam firman-Nya:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُمْ بِغَيْرِ حِسَابٍ',
+          'latin': '',
+          'translation': 'Artinya: "Sesungguhnya orang-orang yang bersabar akan dipenuhi pahala mereka tanpa hitungan."(QS. Az-Zumar. Ayat 10)',
+        },
+        {
+          'type': 'text',
+          'content': 'Bayangkan saja, dalam Al-Qur\'an pahala orang-orang yang bersabar diungkapkan dengan "Bighoiri Hisab" yang dalam terjemahan bahasa Indonesia dapat diartikan "tanpa hitungan". Hal ini sejatinya merupakan isyarat bahwa sabar adalah satu sifat yang tidak bisa diukur keutamaannya.\n\nTidak hanya sebagai kunci kemenangan sejati atau pahala yang amat agung yang dijanjikan kepada orang-orang yang bersabar, sikap sabar juga menjadi cerminan seorang hamba yang mendapatkan cinta dari Allah Ta\'ala. Baginda Nabi Muhammad SAW bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': '‎عِظَمُ الْجَزَاءِ مَعَ عِظَمِ الْبَلَاءِ وَإِنَّ اللَّهَ إِذَا أَحَبَّ قَوْمًا ابْتَلَاهُمْ فَمَنْ رَضِيَ فَلَهُ الرِّضَا وَمَنْ سَخِطَ فَلَهُ السُّخْطُ',
+          'latin': '',
+          'translation': 'Artinya, "Besarnya pahala sesuai dengan besarnya cobaan, dan sesungguhnya apabila Allah mencintai suatu kaum maka Dia akan menguji mereka. Oleh karena itu, barangsiapa ridha (menerima cobaan tersebut) maka baginya keridhaan, dan barangsiapa murka maka baginya kemurkaan." (HR Ibnu Majah)',
+        },
+        {
+          'type': 'text',
+          'content': 'Terlebih saat ini kita berada di bulan suci Ramadhan, bulan yang begitu mulia. Mari kita manfaatkan bulan yang mulia ini, dengan menumbuhkan akhlak yang mulia juga yakni sabar.\n\nAbdul Karim Malik, alumni Al-Falah Ploso Kediri, pengurus LBM PCNU Kabupaten Bekasi.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Lebih Baik Sedikit tapi Istiqamah',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Bulan Ramadhan sebagai bulan istimewa penuh berkah dan ampunan sering kali hanya menjadi euforia sesaat saja. Di awal Ramadhan, semangat ibadah kita menggebu-gebu. Masjid penuh, tadarus Al-Qur\'an terdengar di mana-mana, sedekah mengalir dengan lancar, ibadah sunnah terlaksana dengan lengkap, dan kebaikan-kebaikan lainnya.\n\nNamun, ironisnya, ketika Ramadhan sudah sampai pada pertengahan, semangat itu mulai hilang. Amalan ibadah dan kebaikan yang awalnya terlaksana dengan rutin sudah mulai terlupakan, ibadah sunnah dan sedekah mulai terabaikan, dan semangat tadarus Al-Qur\'an mulai terasa seperti beban sehingga ditinggalkan.\n\nAtau ada juga sebagian orang yang berhasil menjaga konsistensinya selama bulan Ramadhan dalam menjalankan ibadah dan melakukan kebajikan, tetapi setelah Ramadhan selesai? Konsistensi itu tiba-tiba hilang, dan yang tersisa hanyalah kenangan-kenangan yang pernah dilakukan selama bulan puasa.\n\nDalam kondisi seperti inilah, menjadi penting bagi kita untuk kembali membahas hakikat istiqamah dalam beragama. Perlu kita ketahui bahwa istiqamah bukanlah tentang menjaga semangat tinggi di saat-saat tertentu saja, tetapi tentang senantiasa mempertahankan ketaatan dalam kondisi dan keadaan apa pun.\n\nLantas, apa yang akan didapatkan oleh orang-orang yang mampu istiqamah? Allah SWT telah menjanjikan balasan yang sangat istimewa bagi mereka, yaitu surga yang penuh dengan kenikmatan abadi di dalamnya. Hal ini sebagaimana ditegaskan dalam Al-Qur\'an, Allah SWT berfirman:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا تَتَنَزَّلُ عَلَيْهِمُ الْمَلائِكَةُ أَلَّا تَخَافُوا وَلا تَحْزَنُوا وَأَبْشِرُوا بِالْجَنَّةِ الَّتِي كُنْتُمْ تُوعَدُونَ',
+          'latin': '',
+          'translation': 'Artinya, "Sesungguhnya orang-orang yang berkata, \'Tuhan kami adalah Allah,\' kemudian tetap (dalam pendiriannya), akan turun malaikat-malaikat kepada mereka (seraya berkata), \'Janganlah kamu takut dan bersedih hati serta bergembiralah dengan (memperoleh) surga yang telah dijanjikan kepadamu\'." (QS. Fushshilat: 30).',
+        },
+        {
+          'type': 'text',
+          'content': 'Ayat di atas menjelaskan bahwa orang-orang yang beriman kepada Allah kemudian beristiqamah akan mendapatkan jaminan keamanan dan kebahagiaan dari Allah SWT. Istiqamah secara sederhana dapat diartikan sebagai keteguhan hati dalam beriman dan berislam, serta konsisten dalam menjalankan perintah Allah dan menjauhi larangan-Nya dalam kondisi apa pun.\n\nLantas, apakah istiqamah itu harus diwujudkan dengan perbuatan dan amal yang banyak, sehingga kita harus memaksakan diri untuk melakukan berbagai macam ibadah dan kebaikan sekaligus? Ataukah istiqamah itu bisa diwujudkan dengan amalan-amalan kecil saja, asalkan dilakukan secara terus-menerus dan konsisten? Mari kita bahas.\n\nLebih Baik Sedikit tapi Istiqamah\n\nPerlu kita ketahui bersama bahwa hakikat istiqamah tidak terletak pada sedikit atau banyaknya suatu amal ibadah, melainkan pada konsistensi dalam menjaganya. Dalam Islam, amal yang kecil tidak menjadi hina selama ia dilakukan secara terus-menerus. Sebaliknya, amal yang besar dan banyak bisa kehilangan nilainya jika hanya dilakukan sesaat lalu ditinggalkan. Berkaitan dengan hal ini, Rasulullah SAW bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'أَحَبُّ الأَعْمَالِ إِلَى اللَّهِ تَعَالَى أَدْوَمُهَا وَإِنْ قَلَّ',
+          'latin': '',
+          'translation': 'Artinya, "Perbuatan baik yang paling dicintai Allah Ta\'ala adalah yang paling konsisten (istiqamah) meskipun sedikit." (HR Muslim).',
+        },
+        {
+          'type': 'text',
+          'content': 'Alasan mengapa amal yang dilakukan secara istiqamah itu lebih utama dibandingkan ibadah yang banyak tetapi tidak istiqamah adalah karena dengan amal yang terus dijaga, ketaatan kepada Allah tetap hidup dari hari ke hari. Berbeda dengan amal yang banyak tetapi dilakukan sesekali, sering kali ia justru melelahkan, memberatkan jiwa, dan pada akhirnya ditinggalkan.\n\nSelain itu, amal yang sedikit namun istiqamah akan terus tumbuh, berkembang, dan bertambah nilainya, hingga pada akhirnya ia bisa mengalahkan amal besar yang terputus-putus berkali-kali lipat. Penjelasan ini sebagaimana disampaikan oleh Imam Jalaluddin as-Suyuthi, dalam salah satu karyanya ia berkata:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'لِأَنَّ بِدَوَامِ الْقَلِيلِ يَسْتَمِرُّ الطَّاعَةُ بِالذِّكْرِ وَالْمُرَاقَبَةِ وَالْإِخْلَاصِ وَالْإِقْبَالِ عَلَى اللهِ بِخِلَافِ الْكَثِيرِ الشَّاقِّ حَتَّى يَنْمُو الْقَلِيلُ الدَّائِمُ بِحَيْثُ يَزِيدُ عَلَى الْكَثِيرِ الْمُنْقَطِعِ أَضْعَافًا كَثِيرَةً',
+          'latin': '',
+          'translation': 'Artinya, "Karena dengan terus-menerus melakukan amal yang sedikit, ketaatan akan tetap berlangsung melalui zikir, rasa diawasi oleh Allah (muraqabah), keikhlasan, dan kesungguhan menghadap kepada Allah. Berbeda dengan amal yang banyak namun terasa berat, amalan yang sedikit namun terus-menerus itu akan tumbuh hingga berlipat ganda melebihi amalan yang banyak namun terputus." (Hasyiyatus Suyuthi \'ala Sunan an-Nasai, [Aleppo: Maktabah al-Islamiyyah, 1986 M], jilid II, halaman 42).',
+        },
+        {
+          'type': 'text',
+          'content': 'Ada banyak sekali amal kecil yang dilakukan secara rutin dan dapat kita rasakan manfaatnya dalam kehidupan sehari-hari dan dapat membawa dampak yang besar. Misalnya, disiplin membuang sampah pada tempatnya, membayar gaji karyawan tepat waktu tanpa menunda-nunda tanpa alasan yang dibenarkan, selalu tersenyum dan bersikap ramah kepada orang lain, dan masih banyak contoh lainnya.\n\nOleh karena itu, marilah kita tata kembali ibadah kita. Tidak perlu memaksakan diri dengan amalan yang berat dan sulit dipertahankan. Cukup pilih amalan-amalan kecil yang realistis dan mampu kita jaga secara konsisten. Membaca Al-Qur\'an meski hanya beberapa ayat setiap hari, bersedekah meski dengan nominal yang kecil, atau menjaga shalat sunnah meski hanya satu atau dua rakaat, selama itu dilakukan dengan istiqamah, maka nilainya sangat besar di sisi Allah SWT.\n\nDemikianlah kultum Ramadhan tentang keutamaan amal yang sedikit tapi istiqamah. Semoga apa yang telah kita bahas bersama dapat menjadi pengingat bagi kita semua untuk senantiasa menjaga konsistensi dalam beribadah dan berbuat baik, tidak hanya di bulan Ramadhan saja, tetapi juga di bulan-bulan lainnya.\n\nSemoga Allah SWT memberikan kita kekuatan dan kemudahan untuk meraih istiqamah, sehingga kita termasuk ke dalam golongan orang-orang yang dicintai dan diridhai oleh-Nya. Amin ya Rabbal \'alamin.\n\nSunnatullah, Pengajar di Pondok Pesantren Al-Hikmah Darussalam Durjan Kokop Bangkalan Jawa Timur.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Makna Keberkahan Sahur',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Sahur sejatinya adalah salah satu anugerah indah yang dititipkan Allah bagi umat Islam dalam menjalankan ibadah puasa. Lebih dari sekadar aktivitas makan untuk mengisi cadangan energi sebelum berpuasa seharian, sahur merupakan manifestasi kecintaan kita terhadap sunnah Rasulullah SAW.\n\nDengan menyantap hidangan sahur, kita tidak hanya mempersiapkan fisik, tetapi juga menghidupkan anjuran Nabi Muhammad SAW yang sangat menekankan agar keberkahan dalam momentum ini tidak dilewatkan begitu saja.\n\nKeutamaan Waktu Sahur\n\nRasulullah SAW memberikan penekanan yang sangat kuat agar setiap Muslim menyempatkan diri untuk bersahur dan sebisa mungkin tidak mengabaikannya. Hal ini dikarenakan sahur memegang peran ganda dalam ibadah puasa: sebagai penopang stamina fisik agar tetap bugar, sekaligus sebagai wadah bagi turunnya keberkahan Ilahi. Berkaitan dengan pentingnya momentum ini, Nabi Muhammad SAW memberikan pesan melalui sabdanya:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'تَسَحَّرُوا فَإِنَّ فِي السُّحُورِ بَرَكَةً',
+          'latin': '',
+          'translation': 'Artinya: "Sahurlah kalian, karena sesungguhnya dalam sahur itu terdapat keberkahan." (HR. Bukhari Muslim)',
+        },
+        {
+          'type': 'text',
+          'content': 'Mengenai keberkahan dalam sahur yang dimaksud dari hadits di atas, Syekh Hasan al-Masyath dalam kitab Is\'afu Ahlil Iman bi Wadza\'ifi Syahri Ramadhan, mengatakan,',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَفِي مَعْنَى كَوْنِهِ بَرَكَةً وُجُوهٌ، مِنْهَا أَنْ يُبَارَكَ فِي الْقَلِيلِ مِنْهُ بِحَيْثُ يَحْصُلُ بِهِ الْإِعَانَةُ عَلَى الصَّوْمِ. وَمِنْهَا أَنَّ الْمُرَادَ بِالْبَرَكَةِ نَفْيُ التَّبِعَةِ وَالْمُحَاسَبَةِ. وَمِنْهَا أَنَّ الْمُرَادَ التَّقَوِّي عَلَى الصِّيَامِ وَغَيْرِهِ مِنْ أَعْمَالِ النَّهَارِ. وَمِنْهَا أَنَّ الْمُرَادَ بِالْبَرَكَةِ الْأُمُورُ الْأُخْرَوِيَّةُ؛ فَإِنَّ إِقَامَةَ السُّنَّةِ تُوجِبُ الْأَجْرَ وَالزِّيَادَةَ',
+          'latin': '',
+          'translation': 'Artinya: "Mengenai makna bahwa sahur itu mengandung keberkahan, terdapat beberapa sudut pandang (penjelasan), di antaranya: 1) diberikannya keberkahan pada makanan yang sedikit, sehingga makanan tersebut cukup untuk membantu seseorang dalam menjalankan ibadah puasa; 2) ditiadakannya konsekuensi dosa (tabi\'ah) dan hisab (pertanggungjawaban yang memberatkan) atas apa yang dimakan saat sahur; 3) memberikan kekuatan fisik untuk menjalankan puasa serta amal-amal siang hari lainnya; 4) perkara-perkara ukhrawi (akhirat); karena menjalankan sunnah akan mendatangkan pahala dan tambahan kebaikan." (Is\'afu Ahlil Iman bi Wadza\'ifi Syahri Ramadhan, hal. 60-61).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dari paparan di atas, dapat kita ketahui bahwa ada beberapa makna mengenai keberkahan sahur, yaitu:\n\nWalhasil, sahur merupakan titik temu yang indah antara pemenuhan kebutuhan fisik dan pendakian derajat spiritual. Di balik aktivitas santap sahur, terdapat hakikat yang lebih dalam: kita tidak sekadar mengonsumsi nutrisi, melainkan sedang memanifestasikan keberkahan melalui hidangan. Ia berperan sebagai benteng yang menjaga stamina raga, sekaligus menjadi wasilah untuk menjemput kasih sayang Allah di waktu dini hari, sebuah fase paling mustajab di mana doa-doa lebih mudah menembus langit. Wallahu a\'lam.\n\nMuhammad Ryan Romadhon, Alumni Ma\'had Aly Al-Iman Bulus, Purworejo, Jawa Tengah.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Keutamaan Tarawih dan Witir',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Sepanjang bulan Ramadhan, umat Islam berbondong-bondong merajut berbagai kebajikan demi menjemput kemuliaan di bulan yang penuh berkah ini. Di antara rangkaian ibadah yang paling dinanti adalah pelaksanaan shalat Tarawih dan Witir yang menghidupkan malam-malam suci.\n\nKeutamaan Shalat Tarawih\n\nShalat Tarawih menempati kedudukan yang sangat istimewa sebagai ibadah sunnah yang sangat ditekankan sepanjang bulan Ramadhan. Ibadah ini membawa janji pengampunan yang luar biasa; setiap sujud dan rukuknya menjadi wasilah bagi terhapusnya dosa-dosa masa lalu. Mengenai keutamaan besar ini, Rasulullah SAW memberikan penegasannya dalam sebuah hadits:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'مَنْ قَامَ رَمَضَانَ إيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ',
+          'latin': '',
+          'translation': 'Artinya, "Barang siapa yang menghidupkan malam Ramadhan dengan iman dan ikhlas (karena Allah ta\'ala) maka diampuni dosa-dosanya yang telah berlalu." (HR Muslim).',
+        },
+        {
+          'type': 'text',
+          'content': 'Mengacu pada penjelasan Imam An-Nawawi, beliau menegaskan bahwa terminologi \'menghidupkan malam Ramadhan\' dalam hadis riwayat Imam Muslim tersebut secara spesifik merujuk pada pelaksanaan Shalat Tarawih. Dalam kitabnya, Imam An-Nawawi menguraikan:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَالْمُرَادُ بِقِيَامِ رَمَضَانَ صَلاَةُ التَّرَاوِيْحِ، وَاتَّفَقَ الْعُلَمَاءُ عَلىَ اسْتِحْبَابِهَا',
+          'latin': '',
+          'translation': 'Artinya, "Yang dimaksud dengan menghidupkan malam Ramadhan (qiyam Ramadhan) adalah shalat Tarawih. Para ulama telah sepakat tentang kesunnahannya." (Syarhun Nawawi \'alal Muslim, [Beirut, Daru Ihyait Turats: tt], jilid VI, halaman 39).',
+        },
+        {
+          'type': 'text',
+          'content': 'Para ulama memiliki pandangan yang berbeda mengenai cakupan dosa yang diampuni dalam hadits tersebut, sebagaimana dinamika ikhtilaf yang kerap muncul pada teks-teks serupa. Imam al-Haramain berpendapat bahwa pengampunan tersebut secara spesifik menyasar dosa-dosa kecil, mengingat dosa besar memerlukan mekanisme tobat khusus untuk dapat terhapuskan.\n\nDi sisi lain, Imam Ibnu al-Mundzir menawarkan perspektif yang lebih luas; beliau memandang redaksi \'mâ\' (dosa) sebagai bentuk lafaz \'âm (terminologi umum) yang menyapu bersih segala jenis dosa, baik itu kesalahan kecil maupun dosa besar.\n\nImam Syamsuddin Ar-Ramli mengatakan:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'قَالَ الْإِمَامُ: (وَالْمُكَفَّرُ الصَّغَائِرُ دُونَ الْكَبَائِرِ) . قَالَ صَاحِبُ الذَّخَائِرِ: وَهَذَا مِنْهُ تَحَكُّمٌ يَحْتَاجُ إلَى دَلِيلٍ وَالْحَدِيثُ عَامٌّ وَفَضْلُ اللَّهِ وَاسِعٌ لَا يُحْجَرُ. قَالَ ابْنُ الْمُنْذِرِ فِي قَوْلِهِ - ﷺ - «مَنْ قَامَ رَمَضَانَ إيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ»: هَذَا قَوْلٌ عَامٌّ يُرْجَى أَنَّهُ يُغْفَرُ لَهُ جَمِيعُ ذُنُوبِهِ صَغِيرُهَا وَكَبِيرُهَا.',
+          'latin': '',
+          'translation': 'Artinya: "Imam (Al-Haramain) berpendapat: \'(Yang dihapuskan) adalah dosa-dosa kecil, bukan dosa besar\'. Namun, penulis kitab Adz-Dzakha\'ir menyanggah: \'Pendapat ini adalah klaim sepihak (tahakkum) yang butuh dalil, padahal haditsnya bersifat umum dan karunia Allah itu luas, tidak terbatas\'.',
+        },
+        {
+          'type': 'text',
+          'content': 'Ibnu Mundzir juga berkomentar mengenai sabda Nabi ﷺ (Barangsiapa shalat malam di bulan Ramadhan karena iman dan mengharap pahala, maka diampuni dosa-dosanya yang telah lalu): \'Ini adalah pernyataan umum, sehingga diharapkan (dengan amal tersebut) seluruh dosanya diampuni, baik yang kecil maupun yang besar\'." (Nihayatul Muhtaj, [Beirut, Darul Fikr: 1404 H], jilid. III, hal. 206).\n\nKeutamaan Shalat Witir\n\nMelengkapi keindahan malam Ramadhan, pengerjaan Shalat Witir juga menjadi amalan yang sangat ditekankan bagi setiap Muslim. Mengenai keistimewaan Shalat Witir, Rasulullah SAW memberikan gambaran yang sangat memukau bagi seluruh umat manusia.\n\nBeliau menegaskan bahwa shalat sunnah ini memiliki nilai yang sangat agung di hadapan Allah SWT, bahkan melampaui kemewahan unta merah, simbol harta paling prestisius dan tak ternilai pada zaman tersebut. Untuk memahami betapa berharganya posisi Witir dalam timbangan amal, mari kita renungkan sabda Baginda Nabi SAW berikut ini:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'إِنَّ اللَّهَ قَدْ أَمَدَّكُمْ بِصَلَاةٍ هِيَ خَيْرٌ لَكُمْ مِنْ حُمْرِ النَّعَمِ: الْوِتْرُ، جَعَلَهُ اللَّهُ لَكُمْ فِيمَا بَيْنَ صَلَاةِ الْعِشَاءِ إِلَىٰ أَنْ يَطْلُعَ الْفَجْرُ',
+          'latin': '',
+          'translation': 'Artinya, "Sesungguhnya Allah telah memberi kalian suatu shalat yang lebih baik bagi kalian daripada unta merah, yaitu Shalat Witir. Allah menjadikannya untuk kalian antara waktu shalat Isya hingga terbit fajar." (HR Ahmad dan Abu Dawud).',
+        },
+        {
+          'type': 'text',
+          'content': 'Imam Ash-Shan\'ani dalam kitabnya, At-Tanwir Syarah Al-Jami\' Ash-Shaghir memberikan interpretasi mengenai hadits tersebut sebagai berikut,',
+        },
+        {
+          'type': 'arabic',
+          'content': 'فَإِنَّ الْعَرَبَ كَانَتْ تُحِبُّ حُمْرَ النَّعَمِ وَتَرَاهَا أَشْرَفَ مَا يُعْطَى',
+          'latin': '',
+          'translation': 'Artinya: "Sebab orang-orang Arab dahulu sangat menyukai unta merah dan menganggapnya sebagai pemberian yang paling mulia/berharga." (At-Tanwir Syarah Al-Jami\' Ash-Shaghir , [Riyadh, Maktabah Darussalam: 1432 H], jilid. III, hal. 317).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dari keterangan tersebut, kita dapat mengetahui bahwa pada zaman Rasulullah SAW, unta merah bukan sekadar hewan ternak, melainkan simbol kemakmuran tertinggi dan harta yang paling didambakan.\n\nMelalui perumpamaan yang sangat kuat ini, Baginda Nabi ingin menyentuh kesadaran kita bahwa Shalat Witir memiliki nilai intrinsik yang jauh melampaui segala kemewahan duniawi. Terlebih di bulan Ramadhan, saat setiap ketaatan mendapat apresiasi pahala yang berlipat ganda, Witir bertransformasi menjadi investasi akhirat yang tak ternilai harganya.\n\nDari paparan di atas, dapat kita simpulkan bahwa menunaikan kedua shalat ini bukan sekadar rutinitas ibadah fisik semata, melainkan sebuah upaya untuk meniupkan ruh ke dalam malam-malam Ramadhan.\n\nDengan mengerjakannya, kita tidak hanya sedang memenuhi kewajiban sunnah, tetapi juga sedang merawat nyala spiritual agar malam-malam suci ini tetap hidup dan penuh makna di hadapan Sang Pencipta, sehingga kita akan mendapatkan ampunan-Nya seraya menyiapkan investasi akhirat yang tak ternilai harganya. Wallahu a\'lam.\n\nMuhammad Ryan Romadhon, Alumni Ma\'had Aly Al-Iman Bulus, Purworejo, Jawa Tengah.',
+        },
+      ]
+    },
+  ];
+
+  final List<Map<String, dynamic>> _khutbahIdulFitriMenu = [];
+
   final List<Map<String, dynamic>> _artikelMenu = [
     {
       'title': 'Waktu Sahur dalam Lintas Mazhab',
@@ -3274,6 +3519,724 @@ Puasa Ramadan bukan hanya tentang menahan lapar dan dahaga, tetapi juga merupaka
           'content': '''Ustadz Sunnatullah, Pengajar di Pondok Pesantren Al-Hikmah Darussalam Durjan Kokop Bangkalan Jawa Timur, dan alumnus Program Kepenulisan Turots Ilmiah Maroko.''',
         }
       ]
+    },
+    {
+      'title': 'Khutbah Jumat: Mempererat Silaturahim dalam Menyambut Ramadhan',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Naskah Khutbah Jumat ini berjudul: "Khutbah Jumat: Mempererat Silaturahim dalam Menyambut Ramadhan". Untuk mencetak naskah khutbah Jumat ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat! (Redaksi).''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اْلحَمْدُ للهِ اْلحَمْدُ للهِ الّذي هَدَانَا سُبُلَ السّلاَمِ، وَأَفْهَمَنَا بِشَرِيْعَةِ النَّبِيّ الكَريمِ، أَشْهَدُ أَنْ لَا اِلَهَ إِلَّا الله وَحْدَهُ لا شَرِيك لَه، ذُو اْلجَلالِ وَالإكْرام، وَأَشْهَدُ أَنّ سَيِّدَنَا وَنَبِيَّنَا مُحَمَّدًا عَبْدُهُ وَ رَسولُه، اللّهُمَّ صَلِّ و سَلِّمْ وَبارِكْ عَلَى سَيِّدِنا مُحَمّدٍ وَعَلَى الِه وَأصْحابِهِ وَالتَّابِعينَ بِإحْسانِ إلَى يَوْمِ الدِّين، أَمَّا بَعْدُ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''فَيَآأَيُّهَا الإِخْوَان، أُوْصِيْكُمْ وَنَفْسِيْ بِتَقْوَى اللهِ وَطَاعَتِهِ لَعَلَّكُمْ تُفْلِحُوْنْ، قَالَ اللهُ تَعَالىَ فِي اْلقُرْانِ اْلكَرِيمْ: أَعُوْذُ بِاللهِ مِنَ الَّشيْطَانِ الرَّجِيْم، بِسْمِ اللهِ الرَّحْمنِ الرَّحِيْمْ: يَا أَيُّهَا الَّذِينَ آَمَنُوا اتَّقُوا الله وَقُولُوا قَوْلًا سَدِيدًا، يُصْلِحْ لَكُمْ أَعْمَالَكُمْ وَيَغْفِرْ لَكُمْ ذُنُوبَكُمْ وَمَنْ يُطِعِ الله وَرَسُولَهُ فَقَدْ فَازَ فَوْزًا عَظِيمًا. وقال تعالى: يَا اَيُّهَا الَّذِيْنَ آمَنُوْا اتَّقُوْا اللهَ حَقَّ تُقَاتِهِ وَلاَ تَمُوْتُنَّ إِلاَّ وَأَنْتُمْ مُسْلِمُوْنَ. صَدَقَ اللهُ العَظِيمْ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat rahimakumullah.
+Alhamdulilah saat ini kita berada di akhir bulan Sya\'ban, dan sebentar lagi kita menjumpai bulan yang  penuh berkah, ampunan, dan rahmat Allah, yaitu bulan suci Ramadhan. Bulan suci Ramadhan merupakan bulan dimana umat Islam diwajibkan untuk menjalankan ibadah puasa selama sehari penuh, dengan meninggalkan suatu hal yang membatalkannya, seperti makan, minum, dan lainnya.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Tidak hanya itu, umat Islam juga diperintahkan untuk menjauhi hal-hal yang tercela, seperti menggunjing, menghasut, dan saling bermusuhan. Sebagaimana hadis Nabi yang diriwayatkan oleh Imam Malik dalam Kitab Al-Muwatha\'nya. Nabi saw bersabda:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلصِّيَامُ جُنَّةٌ، فَإِذَا كَانَ أَحَدُكُمْ صَائِمًا: فَلَا يَرْفُثْ، وَلَا يَجْهَلْ، فَإِنِ امْرُؤٌ قَاتَلَهُ، أَوْ شَاتَمَهُ، فَلْيَقُلْ: إِنِّي صَائِمٌ، إِنِّي صَائِمٌ''',
+          'translation': '''Artinya, "Puasa itu adalah perisai, jika salah satu dari kalian sedang berpuasa, maka jangan sampai berkata rafats (kotor) dan jangan pula bertingkah laku jahil (sombong, suka mengejek, atau bertengkar). Jika ada orang lain yang mengajaknya berkelahi atau menghinanya maka hendaklah dia mengatakan "Aku sedang puasa, Aku sedang puasa." (HR Imam Malik).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Imam Ibnu Asyur dalam kitab Kasyful Mughattha menjelaskan, puasa merupakan perisai dari berbagai marabahaya. Puasa menjadi tameng dari setiap bahaya yang akan menerpa. Puasa menjadi tameng dari melakukan perbuatan tercela, sebagai perisai dari nafsu yang hina agar kita menjadi bersih hatinya.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Karena itu, orang yang berpuasa dilarang berkata kotor, dilarang berbuat jahil, dilarang bersikap sombong, dan dilarang saling bermusuhan. Orang yang berpuasa dilarang bermusuhan, dengan tujuan agar puasanya berkah dan sempurna, naik derajatnya menjadi manusia yang memiliki perilaku malaikat, dan bertakwa kepada Allah.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat rahimakumullah.
+Menjadi jelas, ibadah puasa mengajarkan kepada kita untuk menjauhi permusuhan. Untuk menghentikan permusuhan, mari kita sambut bulan suci Ramadhan dengan mempererat silaturrahim, menguatkan jalinan persaudaraan. Sebagaimana hadis Nabi yang diriwayatkan oleh Imam Al-Bukhari dalam kitabnya Shahihul Bukhari:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''مَنْ أَحَبَّ أَنْ يُبْسَطَ لَهُ فِي رِزْقِهِ وَيُنْسَأَ لَهُ فِي أَثَرِهِ ‌فَلْيَصِلْ ‌رَحِمَهُ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Artinnya, "Barangsiapa yang ingin dilapangkan rezekinya dan dipanjangkan umurnya maka hendaknya ia menyambung silaturrahminya." (HR Al-Bukhari).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Imam Alauddin Ali dalam kitabnya Tafsir Al-Khazin menjelaskan, silaturrahim adalah berbuat baik kepada keluarga dan kerabat, agar keluarga saling akrab dan saling menyayangi antara satu dengan yang lainnya. Silaturrahim ini penting, orang yang sering silaturrahim, akan ditambahkan umurnya dan diluaskan rezekinya.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat rahimakumullah.
+Dalam mengamalkan ajaran Nabi dalam bersilaturrahim, menjelang datangnya bulan Ramadhan, sebagian masyarakat ada yang memiliki tradisi silaturrahim, yang biasa disebut dengan sadranan atau ruwahan, yaitu dengan mengundang keluarga, tetangga, mengumpulkan jama\'ah, baik di rumah, mushalla, maupun masjid untuk merekatkan persaudaraan, memanjatkan doa bersama kepada leluhur, membaca tahlil, yasin, mendengarkan pengajian, dan berziarah ke makam orang tua dan leluhur.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Tradisi ini sangat baik karena menguatkan jalinan tali silaturrahim, mempererat persaudaraan, berbakti kepada orang tua, saling guyup rukun, saling membantu satu dengan yang lain, saling menyapa, dan tumbuhlah kerukunan, persatuan dan persaudaraan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat rahimakumullah.
+Mengapa kita perlu melakukan silaturrahim? Karena kebersamaan adalah rahmat dan perpecahan adalah azab, sebagaimana petikan hadis Nabi yang diriwayatkan oleh Imam Ahmad dalam kitabnya Musnad Ahmad yang berbunyi:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''‌وَالْجَمَاعَةُ ‌رَحْمَةٌ، ‌وَالْفُرْقَةُ ‌عَذَابٌ''',
+          'translation': '''Artinya, "Kebersamaan adalah rahmat, sedangkan perpecahan adalah azab."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Syekh Abdurrauf Al-Munawi dalam kitabnya Faidhul Qadir menjelaskan, kebersamaan akan menghantarkan pada rahmat dan kasih sayang Allah swt. Kebersamaan menunjukkan citra Islam yang elegan, kerukunan, akhlak terpuji, ketakwaan, kebaikan dan menjunjung derajat kebaikan pendahulu.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sebaliknya perpecahan dan permusuhan akan menghantarkan kepada azab Allah, karena mudah bagi setan untuk menebarkan kebencian, permusuhan dan menghantarkannya pada siksa neraka. Orang yang memutuskan tali silaturrahim, memutuskan jalinan persaudaraan, menebarkan permusuhan, tidak akan dapat merasakan surga Allah swt, sebagaimana hadis Nabi yang diriwayatkan oleh Imam Muslim dalam kitabnya Shahih Muslim. Nabi saw bersabda:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''لَا يَدْخُلُ الْجَنَّةَ ‌قَاطِعُ رَحِمٍ''',
+          'translation': '''Artinya, "Tidak akan masuk surga orang yang memutuskan tali persaudaraan." (HR. Muslim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Bulan Ramadhan sudah ada di depan kita, mari kita sambut bulan suci ini dengan merekatkan tali persaudaraan, menjalin kebersamaan, dan menghentikan permusuhan. Agar kehidupan kita semakin berkah dan selalu mendapatkan rahmat dan kasih sayang Allah swt. Bulan Ramadhan menjadi bulan yang penuh berkah, ampunan, dan rahmat Allah bagi kita semua. Semoga kita semua mendapatkan ampunan dan ridha dari Allah swt. Amin Ya Rabbal \'alamiin.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''جَعَلَنَا اللهُ وَإيَّاكُمْ مِنَ الفَائِزِين الآمِنِين، وَأدْخَلَنَا وإِيَّاكم فِي زُمْرَةِ عِبَادِهِ المُؤْمِنِيْنَ. أعُوذُ بِاللهِ مِنَ الشَّيْطانِ الرَّجِيمْ، بِسْمِ اللهِ الرَّحْمانِ الرَّحِيمْ: يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَقُولُوا قَوْلًا سَدِيدًا''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''باَرَكَ اللهُ لِيْ وَلكمْ فِي القُرْآنِ العَظِيْمِ، وَنَفَعَنِيْ وَإِيّاكُمْ بِالآياتِ وذِكْرِ الحَكِيْمِ،  إنّهُ تَعاَلَى جَوّادٌ كَرِيْمٌ مَلِكٌ بَرٌّ رَؤُوْفٌ رَحِيْمٌ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ للهِ عَلىَ إِحْسَانِهِ وَالشُّكْرُ لَهُ عَلىَ تَوْفِيْقِهِ وَاِمْتِنَانِهِ. وَأَشْهَدُ أَنْ لاَ اِلَهَ إِلاَّ اللهُ وَاللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ وَأَشْهَدُ أنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ الدَّاعِى إلىَ رِضْوَانِهِ. اللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وِعَلَى اَلِهِ وَأَصْحَابِهِ وَسَلِّمْ تَسْلِيْمًا كِثيْرًا''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَمَّا بَعْدُ فَياَ اَيُّهَا النَّاسُ، اِتَّقُوااللهَ فِيْمَا أَمَرَ وَانْتَهُوْا عَمَّا نَهَى، وَاعْلَمُوْا أَنَّ اللهَ أَمَرَكُمْ بِأَمْرٍ بَدَأَ فِيْهِ بِنَفْسِهِ وَثَـنَى بِمَلآ ئِكَتِهِ بِقُدْسِهِ وَقَالَ تَعاَلَى: إِنَّ اللهَ وَمَلآئِكَتَهُ يُصَلُّوْنَ عَلىَ النَّبِى يآ اَيُّهَا الَّذِيْنَ آمَنُوْا صَلُّوْا عَلَيْهِ وَسَلِّمُوْا تَسْلِيْمًا. اللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلِّمْ وَعَلَى آلِ سَيِّدِناَ مُحَمَّدٍ وَعَلَى اَنْبِيآئِكَ وَرُسُلِكَ وَمَلآئِكَةِ اْلمُقَرَّبِيْنَ وَارْضَ اللّهُمَّ عَنِ اْلخُلَفَاءِ الرَّاشِدِيْنَ أَبِى بَكْرٍ وَعُمَر وَعُثْمَان وَعَلِى وَعَنْ بَقِيَّةِ الصَّحَابَةِ وَالتَّابِعِيْنَ وَتَابِعِي التَّابِعِيْنَ لَهُمْ بِاِحْسَانٍ اِلَىيَوْمِ الدِّيْنِ وَارْضَ عَنَّا مَعَهُمْ بِرَحْمَتِكَ يَا أَرْحَمَ الرَّاحِمِيْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللهُمَّ اغْفِرْ لِلْمُؤْمِنِيْنَ وَاْلمُؤْمِنَاتِ وَاْلمُسْلِمِيْنَ وَاْلمُسْلِمَاتِ اَلاَحْيآءُ مِنْهُمْ وَاْلاَمْوَاتِ اللهُمَّ أَعِزَّ اْلإِسْلاَمَ وَاْلمُسْلِمِيْنَ وَأَذِلَّ الشِّرْكَ وَاْلمُشْرِكِيْنَ وَانْصُرْ عِبَادَكَ اْلمُوَحِّدِيَّةَ وَانْصُرْ مَنْ نَصَرَ الدِّيْنَ وَاخْذُلْ مَنْ خَذَلَ اْلمُسْلِمِيْنَ وَ دَمِّرْ أَعْدَاءَ الدِّيْنِ وَاعْلِ كَلِمَاتِكَ إِلَى يَوْمَ الدِّيْنِ. اللهُمَّ ادْفَعْ عَنَّا اْلبَلاَءَ وَاْلوَبَاءَ وَالزَّلاَزِلَ وَاْلمِحَنَ وَسُوْءَ اْلفِتْنَةِ وَاْلمِحَنَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ عَنْ بَلَدِنَا اِنْدُونِيْسِيَّا خآصَّةً وَسَائِرِ اْلبُلْدَانِ اْلمُسْلِمِيْنَ عآمَّةً يَا رَبَّ اْلعَالَمِيْنَ. رَبَّنَا آتِناَ فِى الدُّنْيَا حَسَنَةً وَفِى اْلآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ. رَبَّنَا ظَلَمْنَا اَنْفُسَنَا وَاإنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُوْنَنَّ مِنَ اْلخَاسِرِيْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عِبَادَاللهِ! إِنَّ اللهَ يَأْمُرُنَا بِاْلعَدْلِ وَاْلإِحْسَانِ وَإِيْتآءِ ذِي اْلقُرْبىَ وَيَنْهَى عَنِ اْلفَحْشآءِ وَاْلمُنْكَرِ وَاْلبَغْي يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ. وَاذْكُرُوا اللهَ اْلعَظِيْمَ يَذْكُرْكُمْ وَاشْكُرُوْهُ عَلىَ نِعَمِهِ يَزِدْكُمْ وَلَذِكْرُ اللهِ أَكْبَرْ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dr Rustam Ibrahim, Dosen UIN Raden Mas Said Surakarta.''',
+        }
+      ]
+    },
+    {
+      'title': 'Khutbah Jumat Bahasa Jawa: Ndadosaken Masjid Pusat Ibadah ing wulan Romadhon',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Bulan Ramadhan segera tiba. Aktivitas dan semangat ibadah umat Islam pun akan bertambah. Berbagai kegiatan religi digelar dengan ragamnya masing-masing di berbagai tempat. Masjid menjadi tempat favorit dan strategis untuk menggelar kegiatan Ramadhan. Hal ini pun harus terus dipertahankan dan ditingkatkan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Materi khutbah Jumat Bahasa Jawa ini berjudul: "Khutbah Jumat Bahasa Jawa: Ndadosaken Masjid Pusat Ibadah ing wulan Romadhon". Untuk mencetak naskah khutbah Jumat ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلّٰهِ الَّذِيْ جَعَلَ شَهْرَ رَمَضَانَ غُرَّةَ وَجْهِ الْعَامِ. وَشَرَّفَ أَوْقَاتَهُ عَلَى سَائِرِ الأَوْقَاتِ، وَفَضَّلَ أَيَّامَهُ عَلَى سَائِرِ الْأَيَّامِ، أَشْهَدُ أَنْ لاَ إِلٰهَ إِلاَّ اللّٰهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، شهادَةَ مَنْ قَالَ رَبِّيَ اللّٰهُ ثُمَّ اسْتَقَامَ، وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ، أَفْضَلُ مَنْ صَلَّى وَصَامَ. اللّٰهُمَّ صَلِّ وسَلِّمْ علَى عَبْدِكَ وَرَسُوْلِكَ مُحَمّدٍ وعَلٓى آلِهِ وأَصْحَابِهِ هُدَاةِ الأَنَامِ وَمَصَابِيْحِ الظُّلاَمِ. أَمَّا بَعْدُ، فَيَا أَيُّهَا النَّاسُ اتَّقُوا اللّٰهَ تَعَالَى بِفِعْلِ الطَّاعَاتِ وَتَرْكِ الْأَثَامِ. فَقَالَ اللّٰهُ تَعَالٰى فِيْ كِتَابِهِ الْكَرِيْمِ: أَعُوْذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ، بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ يَاۤ أَيُّهَا الَّذِيْنَ آمَنُواْ كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِيْنَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُوْنَ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat ingkang minulyo.
+Ngawiti khutbah Jumat meniko monggo sami nguataken raos syukur dateng Allah swt ing sampun maringi katah kenikmatan dateng kito sedoyo ing dunyo meniko. Sedoyo meniko kedah kito syukuri biqauli: "Alhamdulillahirabbil \'alamin", kito tancepaken wonten ing ati sak kenceng-kencengipun, lan dipun wujudaken wonten ing amal kito tiap wayahipun.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Salah setunggalipun wujud syukur inggih puniko tansah nglampahi sedoyo perintahipun Gusti Allah lan nebihi dateng sedoyo ingkang dipun larang deneng Allah swt. Menikolah ingkang dipun sebut kalian takwa. Pramilo ing wedal meniko monggo kito ngiataken takwa dateng Allah swt, luwih-luwih ngajengaken wulan Ramadhan ingkang penuh kalian keberkahan. Ningkataken takwa meniko saget kito lakoni kelawan ningkataken ibadah piyambak-piyambak utowo ibadah berjamaah.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat ingkang minulyo.
+ibadah-Ibadah ing wulan Ramadhan meniko saget kito tambahi berkah lan keutamaanipun wonten ing masjid. Katah sanget ibadah ingkang saged kito lakoaken wonten ing masjid kados ingkang sampun dados tradisi ing lingkungan kito. Meniko kedah kito uri-uri kranten katah manfangatipun kados dados syiar, nguataken silaturahmi dateng tiyang lintu, makmuraken masjid, lan ningkataken semangat ibadah.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Allah swt sampun dawuh wonten ing Qur\'an surat At-Taubah ayat 18:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اِنَّمَا يَعْمُرُ مَسٰجِدَ اللّٰهِ مَنْ اٰمَنَ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِ وَاَقَامَ الصَّلٰوةَ وَاٰتَى الزَّكٰوةَ وَلَمْ يَخْشَ اِلَّا اللّٰهَ ۗفَعَسٰٓى اُولٰۤىِٕكَ اَنْ يَّكُوْنُوْا مِنَ الْمُهْتَدِيْنَ''',
+          'translation': '''Artosipun,"Temen setuhune ingkang makmuraken masjid Allah namung tiyang ingkang iman kalian Allah lan dinten kiamat, ngelaksanaaken sholat, mbayar zakat lan mboten wedi kejobo marang Allah. Tiyang menikolah ingkang dipun arepaken dados golongan ingkang angsal pituduh"''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ing ayat meniko dipun sebataken rupi ibadah ingkang saged dipun lakoaken inggih puniko shalat. Meniko saged kito dadosaken motivasi lan semangat ndadosaken masjid pusat ibadah wonten ing wulan Romadhon arupi ibadah sholat berjamaah. Mestinipun mboten anamung ibadah sholat, anangin ibadah lintunipun ugi saged kito amalaken wonten ing masjid.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Wonten ing masyarakat, kito saged tingali sampun katah tradisi ibadah ingkang dipun lakoaken wonten ing masjid ngarepi lan saklebete Romadhon. Ngawiti saking tradisi punggahan utawi dungo sareng-sareng ing awal Romadhon, resik-resik masjid utowo mushola, lan lintunipun. Meniko kedah kito uri-uri dipun lajengaken kalian ibadah sholat jamaah lan tentunipun sholat Tarawih ingkang dados kesunahan wonten ing wulan Romadhon.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat ingkang minulyo.
+Kito ugi saged ngadaaken ibadah teng masjid kanthi macem-macem ibadah arupi tadarus Al-Qur\'an, pengajian, buko puoso sareng, i\'tikaf, lan lintu-lintunipun. Mboten anamung ibadah ingkang hubunganipun kalian Allah (hablun minallah), ibadah lintu ingkang nggadahi hubungan kalian menungso (hablun minannas) ugi saged kito laksanaaken wonten ing masjid. Kados ingkang sampun disebut wonten ing surat At-Taubah ayat 18 ingkang sampun kulo sebat inggih puniko ibadah zakat.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ibadah zakat, sedekah, infak, lan ibadah-ibadah sosial lintunipun saged kito laksanaaken wonten ing masjid kangge ndadosaken masjid pusat ibadah lan ugi ngalap berkah Romadhon. Sedoyo ibadah meniko kedah dipun biasaken wonten ing masjid. Rasulullah ngendiko:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''إِذَا رَأَيْتُمُ الرَّجُلَ يَعْتَادُ الْمَسَاجِدَ فَاشْهَدُوْا لَهُ بِاْلإِيْمَانِ''',
+          'translation': '''Artosipun, "Nalikone siro nemu wongkang bioso ibadah wonten ing masjid, moko nyeksenono siro dene wong mau iku wongkang beriman." (HR Riwayat Ahmad, At-Tirmidi, Ibnu Majah lan Al-Hakim saking Abi Sa\'id Al-Khudri).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Jamaah shalat Jumat ingkang minulyo.
+Pramilo, monggo kito sami ndadosaken masjid pusat ibadah kito khususipun wonten ing wulan Romadhon. Mboten anamung ibadah-ibadah mahdhoh ingkang sampun dipun tetapaken totocoronipun, nanging ibadah ghairu mahdoh ingkang mboten dipun sukani totocoronipun ugi saged dipun kito lakoaken wonten ing masjid.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Mugi-mugi kito sedoyo tetep dipun paringi taufik lan hidayah ugi kekiatan saged ibadah kelawan mempeng wonten ing wulan Romadhon lan saget pikantuk predikat tiyang-tiyang ingkang bertakwa ingkang dados tujuan ibadah puoso. Amin ya Rabbal \'alamin.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَعُوذُ بِاللهِ مِن الشَّيْطانِ الرَّجِيْمِ. بِسْمِ اللهِ الرَّحمن الرّحيم. يَا أَيُّهَا الَّذِينَ آمَنُواْ كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ. أَيَّامًا مَّعْدُودَاتٍ، فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَى سَفَرٍ فَعِدَّةٌ مِّنْ أَيَّامٍ أُخَرَ، وَعَلَى الَّذِينَ يُطِيقُونَهُ فِدْيَةٌ طَعَامُ مِسْكِينٍ، فَمَن تَطَوَّعَ خَيْرًا فَهُوَ خَيْرٌ لَّهُ، وَأَن تَصُومُواْ خَيْرٌ لَّكُمْ إِن كُنتُمْ تَعْلَمُونَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''باَرَكَ اللهُ لِيْ وَلكمْ فِي القُرْآنِ العَظِيْمِ، وَنَفَعَنِيْ وَإِيّاكُمْ بِالآياتِ والذِّكْرِ الحَكِيْمِ، إنّهُ تَعَالَى جَوّادٌ كَرِيْمٌ مَلِكٌ بَرٌّ رَؤُوْفٌ رَحِيْمٌ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''َاَلْحَمْدُ للهِ عَلىَ اِحْسَانِهِ وَالشُّكْرُ لَهُ عَلىَ تَوْفِيْقِهِ وَامْتِنَانِهِ. وَاَشْهَدُ اَنْ لاَ اِلَهَ اِلاَّ اللهُ وَاللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ وَاَشْهَدُ اَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ الدَّاعِي اِلىَ رِضْوَانِهِ. اللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وِعَلَى اَلِهِ وَاَصْحَابِهِ وَسَلِّمْ تَسْلِيْمًا كِثيْرًا. اَمَّا بَعْدُ فَياَ اَيُّهَا النَّاسُ، اِتَّقُوااللهَ فِيْمَا اَمَرَ وَانْتَهُوْا عَمَّا نَهَى. وَاعْلَمُوْا اَنَّ اللّٰهَ اَمَرَكُمْ بِاَمْرٍ بَدَأَ فِيْهِ بِنَفْسِهِ وَثَـنَى بِمَلآ ئِكَتِهِ بِقُدْسِهِ. وَقَالَ تَعاَلَى: اِنَّ اللهَ وَمَلآ ئِكَتَهُ يُصَلُّوْنَ عَلىَ النَّبِى، يآ اَيُّهَا الَّذِيْنَ آمَنُوْا صَلُّوْا عَلَيْهِ وَسَلِّمُوْا تَسْلِيْمًا''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلِّمْ وَعَلَى آلِ سَيِّدِناَ مُحَمَّدٍ وَعَلَى اَنْبِيآئِكَ وَرُسُلِكَ وَمَلآئِكَةِ اْلمُقَرَّبِيْنَ، وَارْضَ اللّٰهُمَّ عَنِ اْلخُلَفَاءِ الرَّاشِدِيْنَ اَبِى بَكْرٍ وَعُمَر وَعُثْمَان وَعَلِى وَعَنْ بَقِيَّةِ الصَّحَابَةِ وَالتَّابِعِيْنَ وَتَابِعِي التَّابِعِيْنَ لَهُمْ بِاِحْسَانٍ اِلَى يَوْمِ الدِّيْنِ، وَارْضَ عَنَّا مَعَهُمْ بِرَحْمَتِكَ يَا اَرْحَمَ الرَّاحِمِيْنَ
+اَللهُمَّ اغْفِرْ لِلْمُؤْمِنِيْنَ وَاْلمُؤْمِنَاتِ وَاْلمُسْلِمِيْنَ وَاْلمُسْلِمَاتِ اَلْاَحْيآءِ مِنْهُمْ وَاْلاَمْوَاتِ. اللهُمَّ اَعِزَّ اْلاِسْلاَمَ وَاْلمُسْلِمِيْنَ وَأَذِلَّ الشِّرْكَ وَاْلمُشْرِكِيْنَ وَانْصُرْ عِبَادَكَ اْلمُوَحِّدِيَّةَ وَانْصُرْ مَنْ نَصَرَ الدِّيْنَ وَاخْذُلْ مَنْ خَذَلَ اْلمُسْلِمِيْنَ وَدَمِّرْ اَعْدَاءَ الدِّيْنِ وَأَعْلِ كَلِمَاتِكَ اِلَى يَوْمَ الدِّيْنِ. اللهُمَّ ادْفَعْ عَنَّا اْلبَلاَءَ وَاْلوَبَاءَ وَالزَّلاَزِلَ وَاْلمِحَنَ وَسُوْءَ اْلفِتْنَةِ وَاْلمِحَنَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ عَنْ بَلَدِنَا اِنْدُونِيْسِيَّا خآصَّةً وَسَائِرِ اْلبُلْدَانِ اْلمُسْلِمِيْنَ عآمَّةً يَا رَبَّ اْلعَالَمِيْنَ. رَبَّنَا آتِناَ فِى الدُّنْيَا حَسَنَةً وَفِى اْلآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ. رَبَّنَا ظَلَمْنَا اَنْفُسَنَاوَاِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُوْنَنَّ مِنَ اْلخَاسِرِيْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عِبَادَ اللهِ، اِنَّ اللهَ يَأْمُرُنَا بِاْلعَدْلِ وَاْلاِحْسَانِ وَإِيْتآءِ ذِى اْلقُرْبىَ وَيَنْهَى عَنِ اْلفَحْشآءِ وَاْلمُنْكَرِ وَاْلبَغْي يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ وَاذْكُرُوااللهَ اْلعَظِيْمَ يَذْكُرْكُمْ وَاشْكُرُوْهُ عَلىَ نِعَمِهِ يَزِدْكُمْ وَلَذِكْرُ اللهِ اَكْبَرْ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz H Muhammad Faizin, Ketua Bidang Humas Data dan Informasi Badan Kesejahteraan Masjid (BKM) Provinsi Lampung.''',
+        }
+      ]
+    },
+    {
+      'title': 'Khutbah Jumat: Makna dan Keutamaan Bulan Ramadhan',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Bulan Ramadhan merupakan bulan paling mulia dari sekian bulan dalam kalender Islam. Banyak dalil dan faktor eksternal lainnya yang menunjukkan kemuliaan bulan ini. Meskipun bulan Ramadhan tidak termasuk dalam tiga bulan mulia (asyhurul hurum), namun secara hirarki ketiga bulan tersebut masih berada di bawah level bulan Ramadhan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah Jumat ini berjudul: "Khutbah Jumat: Makna dan Keutamaan Bulan Ramadhan". Untuk mencetak naskah khutbah Jumat ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat! (Redaksi)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الحَمْدُ لِلّهِ رَبِّ العَالَمِيْنَ. القَائِلِ فِي كِتَابِهِ الكَرِيْمِ: يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِيْنَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُوْنَۙ. وَالصَّلَاةُ وَالسَّلَامُ عَلَى أَشْرَفِ اْلأَنْبِيَاءِ وَالْمُرْسَلِيْنَ، نَبِيِّنَا مُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ وَعَلَى اٰلِهِ وَأَصْحَابِهِ وَالتَّابِعِيْنَ. أَشْهَدُ أَنْ لَّا إِلهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ، لَا نَبِيَّ بَعْدَهُ. أَمَّا بَعْدُ فَيَا أَيُّهَا الْحَاضِرُوْنَ المُصَلُّونَ. اِتَّقُوا اللهَ حَقَّ تُقَاتِهِ وَلَا تَمُوْتُنَّ إِلَّا وَأَنْتُمْ مُسْلِمُوْنَ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin shalat Jumat yang dimuliakan Allah,''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sebagaimana diketahui bersama, bulan ini merupakan bulan yang agung dan penuh berkah. Sebab pada bulan ini ampunan dan rahmat-Nya sangat mudah didapatkan, bukankah kelak kita bisa masuk sorga-Nya hanya melalui rahmat-Nya?''',
+        },
+        {
+          'type': 'text',
+          'content': '''Begitu juga adanya bulan Ramadhan membuat seluruh umat Islam diwajibkan berpuasa dengan tujuan menjadi pribadi yang bertakwa. Hal ini sebagaimana dijelaskan dalam ayat:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ''',
+          'translation': '''Artinya: "Wahai orang-orang beriman telah diwajibkan puasa atas kalian sebagaimana telah diwajibkan (juga) atas orang-orang sebelum kalian agar kalian menjadi orang bertakwa." (QS. al-Baqarah: 183)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Tujuan disyariatkannya berpuasa untuk menjadi orang bertakwa merupakan cara Allah mengajak kita untuk meningkatkan kualitas ketakwaan kita. Ibadah sehari-hari seperti shalat lima waktu, sedekah, berbuat baik kepada sesama, dan lain sebagainya dirasa belum cukup untuk meningkatkan ketakwaan kita. Oleh karenanya Allah menambahkan jalan lain untuk mencapai hal tersebut, yaitu dengan berpuasa.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kendati demikian, patut diakui bahwa puasa tidak hanya bisa dilaksanakan pada bulan Ramadhan saja. Namun puasa yang dilakukan pada bulan ini mempunyai keutamaan yang lebih dibandingkan puasa pada bulan-bulan lainnya. Keutamaan ini disebabkan puasa tersebut dilakukan pada bulan Ramadhan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dengan kata lain, ibadah puasa memiliki keutamaan yang berbeda-beda dengan bergantung pada bulan apa dikerjakannya. Lantas, mengapa ketika puasa dikerjakan pada bulan Ramadhan memiliki nilai lebih tinggi di sisi Allah dibandingkan puasa pada bulan yang lain?''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin shalat Jumat yang dimuliakan Allah,.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''Pertanyaan tadi akan bisa dijawab bila kita mulai dari mengetahui apa arti kata Ramadhan. Dalam kamus al-Mu\'jam al-Wasith, Ramadhan berasal dari رَمَضَ yang memiliki makna \'membakar.\' Makna ini sepadan substansinya dengan kata lain seperti melenyapkan, menghanguskan, bahkan meluluhlantakkan. Termasuk sifat membakar yang lain adalah meniadakan, menghabisi, dan menundukkan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dalam konteks Ramadhan, sesuatu yang dibakar adalah penyakit hati yang ada dalam diri kita masing-masing. Imam al-Ghazali secara terperinci menjelaskan apa saja macam-macam penyakit hati di dalam kitabnya yang fenomenal, Ihya Ulumuddin. Di antaranya adalah ego, iri dengki, sombong, ujub, dan nafsu hewani.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Penyakit-penyakit seperti inilah yang mesti ditundukkan bahkan dibakar selama bulan Ramadhan. Ibadah pada bulan ini seperti puasa, tarawih, mengaji al-Quran, dan berbagai macam dzikir memiliki tujuan untuk melenyapkan berbagai penyakit hati tersebut. Seolah-olah Allah hendak menegaskan bahwa penyakit hati itu bisa dilatih, dilunakkan, serta dihilangkan dengan cara memperbanyak ibadah pada bulan Ramadhan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sebab penyakit hati merupakan faktor paling dasar yang memicu berbagai konflik sosial dan politik yang terjadi selama ini. Bahkan Imam al-Ghazali juga menegaskan bahwa penyakit hati bisa mengidap kepada siapa saja, termasuk para ulama, pejabat, dan tokoh macam lainnya. Penyakit hati ini memang tidak memandang bulu dan hanya bisa dihilangkan dengan memperbanyak proses dan latihan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Oleh karena itu, dengan beragam ibadah dan ganjaran yang dikhususkan hanya bisa diperoleh pada bulan ini, diharapkan dapat meluluhlantakkan penyakit-penyakit hati yang ada di dalam diri kita. Sesuai makna asalnya, Ramadhan menjadi momentum pembakaran berbagai penyakit hati, dan tentunya termasuk berbagai dosa juga.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin shalat Jumat yang dimuliakan Allah,''',
+        },
+        {
+          'type': 'text',
+          'content': '''Perlu dipertegas di sini bahwa maksud dosa di sini hanyalah dosa antara hamba dengan Tuhannya. Artinya, dosa yang bisa dibakar atas ibadah-ibadah yang dikerjakan selama Ramadhan hanya terbatas pada dosa kepada Tuhan. Sedangkan dosa kepada sesama manusia maka harus meminta maaf kepada yang bersangkutan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Namun, Nabi Muhammad Saw di dalam sabdanya menyebutkan sebuah ibadah secara spesifik yang dapat menghanguskan dosa-dosa tersebut, yaitu berpuasa. Di dalam riwayat Bukhari – Muslim disebutkan:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''مَنْ صَامَ رَمَضَانَ إِيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ''',
+          'translation': '''Artinya: "Siapa saja yang berpuasa pada bulan Ramadhan atas dasar beriman dan mengharapkan pahala maka dosa-dosanya di masa lalu akan diampuni."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Berdasarkan hadits ini cukup jelas kiranya bahwa puasa yang dilaksanakan pada bulan Ramadhan dapat menghapus dosa-dosa masa lalu seorang hamba. Dengan syarat, puasa yang dikerjakannya berdasarkan keimanan dan harapan mendapatkan pahala. Jadi puasa Ramadhan yang dikerjakan bukan karena ikut-ikutan lingkungan, atau bahkan tren media sosial.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Imam Muslim saat menjelaskan hadits-hadits tentang sebuah ibadah yang secara otomatis dapat menghapus dosa-dosa seseorang menegaskan bahwa dosa-dosa di sini terbatas hanya pada dosa kecil saja, bukan dosa besar. Sebab bila melakukan dosa besar maka cara melenyapkannya bukan hanya dengan beribadah saja, melainkan harus memohon ampun dan bertaubat dengan sungguh-sungguh.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hal ini masuk akal kiranya, sebab setiap kita pasti memiliki dosa kecil, entah sengaja maupun tidak. Maka untuk menghapusnya cukup dengan memperbanyak ibadah yang biasa kita lakukan. Terlebih lagi bila ibadah tersebut dilakukan pada bulan Ramadhan, maka peluang ampunan yang akan diperoleh menjadi lebih besar.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin shalat Jumat yang dimuliakan Allah,''',
+        },
+        {
+          'type': 'text',
+          'content': '''Selain itu, uraian terkait keutamaan bulan Ramadhan di atas diperkuat juga dengan hadis riwayat Bukhari Muslim yang berbunyi:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''إِذَا جَاءَ رَمَضَانُ فُتِّحَتْ أَبْوَابُ الْجَنَّةِ وَغُلِّقَتْ أَبْوَابُ النَّارِ وَصُفِّدَتِ الشَّيَاطِينُ''',
+          'translation': '''Artinya: "Apabila bulan Ramadhan tiba maka pintu-pintu sorga dibuka, pintu-pintu neraka ditutup, dan setan-setan dikerangkeng."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadits ini hendak menegaskan dari saking mulianya bulan Ramadhan membuat tempat mulia seperti surga dibuka lebar-lebar, sedangkan tempat dan makhluk yang hina ditutup dan dirantai agar tidak bisa mengganggu kekhidmatan ibadah pada bulan ini.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ibadah yang dikerjakan pada bulan ini akan memudahkan kita diantarkan pada tempat yang indah sebagaimana dijanjikan bagi orang beriman, begitu juga jalan menuju tempat yang buruk ditutup, termasuk mahluk yang terlibat di dalamnya, yakni para setan dikurung agar tidak menggoda umat Islam dalam beribadah selama Ramadhan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Semoga kita mendapatkan kemuliaan dan keberkahan bulan ini, sehingga nanti setelah Ramadhan usai kita menjadi pribadi-pribadi yang lebih bertakwa dan semakin semangat beribadahnya.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''بَارَكَ الله لِي وَلَكُمْ فِي اْلقُرْآنِ اْلعَظِيْمِ وَنَفَعَنِي وَإِيَّاكُمْ بِمَا فِيْهِ مِنَ اْلآيَاتِ وَذِكْرِ الْحَكِيْمِ. أَقُوْلُ قَوْلِي هَذَا فَأسْتَغْفِرُ اللهَ العَظِيْمَ إِنَّهُ هُوَ الغَفُوْرُ الرَّحِيْمِ.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الْحَمْدُ لِلّٰهِ. وَالصَّلَاةُ وَالسَّلَامُ عَلَى نَبِيِّنَا مُحَمَّدٍ بنِ عَبدِ الله وَعَلَى اٰلِهِ وَأَصْحَابِهِ وَمَنْ تَبِعَهُمْ بِإِحْسَانٍ إِلَى يَوْمِ القِيَامَة. أَشْهَدُ أَنْ لَّا إِلهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ، لَا نَبِيَّ بَعْدَهُ. أَمَّا بَعْدُ فَيَا أَيُّهَا الْحَاضِرُوْنَ المُسلِمُونَ. اِتَّقُوا اللهَ حَقَّ تُقَاتِهِ وَاعلَمُوا إِنَّ ٱللَّهَ مَعَ ٱلَّذِينَ ٱتَّقَواْ وَّٱلَّذِينَ هُم مُّحْسِنُونَ. قَالَ تَعاَلَى إِنَّ اللهَ وَمَلآئِكَتَهُ يُصَلُّوْنَ عَلىَ النَّبِى يآ اَيُّهَا الَّذِيْنَ آمَنُوْا صَلُّوْا عَلَيْهِ وَسَلِّمُوْا تَسْلِيْمًا
+اَللهُمَّ اغْفِرْ لِلْمُؤْمِنِيْنَ وَاْلمُؤْمِنَاتِ وَاْلمُسْلِمِيْنَ وَاْلمُسْلِمَاتِ اَلاَحْيآءُ مِنْهُمْ وَاْلاَمْوَاتِ اللهُمَّ أَعِزَّ اْلإِسْلاَمَ وَاْلمُسْلِمِيْنَ وَأَذِلَّ الشِّرْكَ وَاْلمُشْرِكِيْنَ. اللهُمَّ ادْفَعْ عَنَّا اْلبَلاَءَ وَاْلوَبَاءَ وَالزَّلاَزِلَ وَاْلمِحَنَ وَسُوْءَ اْلفِتْنَةِ وَاْلمِحَنَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ عَنْ بَلَدِنَا اِنْدُونِيْسِيَّا خآصَّةً وَسَائِرِ بُلْدَانِ اْلمُسْلِمِيْنَ عآمَّةً يَا رَبَّ اْلعَالَمِيْنَ. رَبَّنَا آتِناَ فِى الدُّنْيَا حَسَنَةً وَفِى اْلآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ. رَبَّنَا ظَلَمْنَا اَنْفُسَنَا وَإنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُوْنَنَّ مِنَ اْلخَاسِرِيْنَ
+عِبَادَاللهِ! إِنَّ اللهَ يَأْمُرُكُم بِاْلعَدْلِ وَاْلإِحْسَانِ وَإِيْتآءِ ذِي اْلقُرْبىَ وَيَنْهَى عَنِ اْلفَحْشآءِ وَاْلمُنْكَرِ وَاْلبَغْي يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ وَاذْكُرُوا اللهَ اْلعَظِيْمَ يَذْكُرْكُمْ وَاشْكُرُوْهُ عَلىَ نِعَمِهِ يَزِدْكُمْ وَلَذِكْرُ اللهِ أَكْبَر''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz M. Syarofuddin Firdaus, Dosen Pesantren Luhur Ilmu Hadits Darus-Sunnah Ciputat''',
+        }
+      ]
+    },
+    {
+      'title': 'Khutbah Jumat: Puasa Sebagai Sistem Perlindungan Diri',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Khutbah Jumat ini mengingatkan kepada pembaca tentang fungsi strategis puasa sebagai sistem perlindungan diri manusia, utamanya dari serangan setan yang terus mengalir bersamaan aliran darah manusia.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah Jumat ini berjudul: "Khutbah Jumat: Puasa Sebagai Sistem Perlindungan Diri". Untuk mencetak naskah khutbah Jumat ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat! (Redaksi).''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ للهِ رَبِّ الْعَالَمِيْنَ. اَللَّهُمَّ لَكَ الْحَمْدُ كَمَا يَنْبَغِيْ لِجَلَالِ وَجْهِكَ وَعَظِيْمِ سُلْطَانِكَ. وَأَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيْكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ. اَللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَيْهِ وَعَلَى آلِهِ وَأَصْحَابِهِ أَجْمَعِيْنَ. أما بعد''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''فَإِنِّيْ أُوْصِيْ نَفْسِيْ وَإِيَّاكُمْ بِتَقْوَى اللهِ فَقَدْ فَازَ الْمُتَّقُوْن. قَالَ اللهُ تعالى: يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ (سورة البقرة: 183)
+وَقَالَ النَّبِيُّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ: الصَّوْمُ جُنَّةٌ (متفق عليه)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma\'asyiral muslimin rakhimakumullah.
+Dengan didasari rasa syukur yang kita buka dengan memperbanyak kalimat alhamdulillahi Rabbil \'alamin, serta dengan shalawat kepada Baginda Rasulullah, kami mengingatkan diri kami pribadi sekaligus mengajak segenap jamaah kaum Muslimin seluruhnya untuk meningkatkan komitmen kita dalam bertakwa kepada Allah.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dalam ayat yang telah kami bacakan tadi, kita telah diberikan petunjuk oleh Allah bahwa supaya kita selalu bertakwa, selalu terjaga dari hal-hal yang membahayakan diri kita di dunia maupun di akhirat, maka kita diwajibkan untuk berpuasa.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''Kemudian Rasulullah saw menjelaskan dalam sebuah hadis yang telah kami sampaikan tadi, bahwa puasa adalah sebagai benteng, perisai, perlindungan diri. Itulah simbol ketakwaan, keterjagaan, keterlindungan yang terkandung dalam ayat: لَعَلَّكُمْ تَتَّقُونَ.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hari ini, kita tengah berada di  bulan Ramadan. Bulan bagi kita untuk menyempurnakan rukun Islam, yaitu puasa. Tanpa puasa Ramadan, keislaman kita tidak sempurna.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dalam sebuah hadis, Rasulullah mengibaratkan Islam seperti bangunan. Rukun Islam adalah tiang-tiang utama yang menegakkan bangunan. Sedangkan tiang bangunan ibarat kaki pada struktur tubuh kita. Jika salah satu tiang utama ini tidak ada, maka bangunan ini menjadi rawan roboh, minimal menjadi bangunan yang doyong. Bahkan, bangunan keislaman bisa roboh jika sampai tiang puasa ini diingkari, dikufuri, tidak dipercaya sebagai syariat Islam.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''Ma\'asyiral muslimin rakhimakumullah.
+Di antara makna ayat: لَعَلَّكُمْ تَتَّقُونَ dan hadis اَلصَّوْمُ جُنَّةٌ adalah puasa melindungi dan menjaga kita dari godaan setan yang selalu menjauhkan kita dari Allah. Puasa menjadi benteng yang melindungi kita dari masuknya setan ke dalam jiwa kita.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Puasa, sebagai salah satu rukun Islam, memiliki hikmah dan tujuan yang mendalam yang harus kita pahami. Sebagaimana yang disebutkan dalam hadis yang mulia, bahwa puasa memiliki maqashid (tujuan-tujuan) yang mulia. Salah satu tujuan puasa adalah untuk membentengi diri kita dari godaan setan.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عَنْ صَفِيَّةَ أُمِّ الْمُؤْمِنِيْنَ رَضِيَ اللهُ عَنْهَا، أَنَّ النَّبِيَّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ قَالَ: إِنَّ الشَّيْطَانَ يَجْرِيْ مِنِ ابْنِ آدَمَ مَجْرَى الدَّمِ. (أخرجه البخاري ومسلم)''',
+          'translation': '''Artinya, "Diriwayatkan oleh Ibunda Shafiyyah ra, sungguh Rasulullah saw bersabda, "Sesungguhnya setan mengalir dalam tubuh anak Adam seperti mengalirnya darah." Atau bisa juga kita terjemahkan "Sesungguhnya setan itu masuk ke dalam jiwa manusia melalui aliran darah." (HR Al-Bukhari dan Muslim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hikmah yang terkandung dalam sabda Rasulullah saw adalah untuk mengingatkan kita bahwa setan masuk ke dalam tubuh manusia melalui jalan peredaran darah. Alat peredaran darah ini tergantung pada bahan bakarnya, yaitu makanan dan minuman yang kita konsumsi. Karena itu, pintu masuk utama setan ke dalam tubuh manusia adalah melalui mulut.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Setan menggunakan dua jalur utama untuk masuk ke dalam tubuh manusia, yaitu melalui konsumsi makanan dan komunikasi. Pertama, melalui makanan dan minuman yang haram, kotor, tidak halal, dan tidak thayyib. Kedua, melalui kata-kata yang keluar dari mulut kita setelah mengonsumsi makanan tersebut.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''Ma\'asyiral muslimin rakhimakumullah.
+Berkali-kali Al-Quran menegaskan bahwa setan adalah musuh yang nyata: عَدُوٌّ مُبِيْنٌ bagi kita. Kita pun wajib mengimaninya. Rasulullah pun menjelaskan bagaimana setan bekerja memusuhi kita, sangat lembut, sangat halus.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Karena itu pulalah, Imam Al-Ghazali menyatakan, salah satu pilar menghidupkan ilmu-ilmu agama yang Allah berikan kepada kita adalah mengenali musuh-musuh diri dan memahami strateginya serta menguasai cara untuk mengalahkannya. Itulah yang disebut oleh beliau sebagai lubbul quran (intinya inti dari ajaran Al-Quran), jauharul quran (permata Al-Quran). Ini semua dapat kita temukan dalam karya beliau, Jawahirul Quran.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Puasa mengajarkan kita untuk mengendalikan hawa nafsu dan mengontrol konsumsi makanan dan minuman kita. Dengan membatasi makan dan minum selama puasa, kita dapat mempersempit jalan masuk setan ke dalam tubuh kita. Ini adalah salah satu dari banyak hikmah puasa yang harus kita hayati.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Itulah yang oleh Imam Izzuddin bin Abdissalam tegaskan dalam kitabnya, Maqashidus Shaum:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلصَّوْمُ قَهْرٌ لِلشَّيْطَانِ. فَإِنَّ وَسِيْلَتَهُ إِلَى الْإضْلَالِ وَاْلإِغْوَاءِ: الشَّهَوَاتُ، وَإِنَّـمَا تَقْوَى الشَّهَوَاتُ بِاْلأَكْلِ وَالشًّرْبِ. وَالصَّوْمُ يُضَيِّقُ مَجَارِي الدَّمِ، فَتَضِيْقُ مَجَارِي الشَّيْطَانِ، فَيُقْهَرَ بِذَلِكَ''',
+          'translation': '''Artinya, "Puasa adalah penaklukan (qahrun) terhadap setan. Karena, jalan bagi setan untuk menyesatkan dan menggoda adalah hawa nafsu, dan hawa nafsu dikuatkan dengan makan dan minum. Puasa mempersempit aliran darah, sehingga jalan-jalan masuknya setan dalam tubuh kita pun menyempit. Dengan demikian, setan pun bisa dikalahkan."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dari sinilah, kita bisa memahami bahwa puasa itu membentengi kita dari serangan setan yang menyelinap ke dalam jiwa kita melalui makanan. Dengan puasa, kita juga membentengi keislaman kita, karena rukun-rukun atau tiang-tiang penyangga bangunan keislaman kita menjadi sempurna dan kokoh.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dengan puasa pula, nafsu dan syahwat kita terkendali sehingga kita tidak mengabdi kepada nafsu yang tidak pernah memberikan kepuasan dan ketenangan, melainkan kita bisa lebih maksimal dan totalitas dalam mengabdi kepada Allah semata.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Sebagai umat Islam, kita harus memahami bahwa puasa bukan hanya sekadar menahan lapar dan haus, tetapi juga merupakan latihan spiritual untuk membentengi diri kita dari godaan setan dan mendekatkan diri kita kepada Allah.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Karena itulah, Rasulullah sangat ketat dalam hal manajemen makan dan minum kita. Beliau ingin sekali memastikan bahwa makanan dan minuman yang masuk ke dalam tubuh kita bebas dari setan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Karena itu, beliau sering menegur orang yang makan dan minum menggunakan tangan kiri karena cara tersebut adalah cara makan setan. Itulah petunjuk beliau. Beliau juga menegur keras anak-anak hingga orang dewasa yang kedapatan makan secara terburu-buru sehingga tidak menyebut nama Allah dalam makanannya itu. Beliau pun tertawa lepas Ketika melihat setan memuntahkan kembali makanan yang dibacakan nama Allah di suapan terakhirnya.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Begitulah sistem penjagaan dan perlindungan yang Allah berikan kepada orang-orang yang berpuasa. Terlihat sederhana, melalui manajemen makanan, bukan sekedar soal pola makan, kandungan gizi, melainkan juga kehalalan, kethayyiban, dan juga spiritualitas makanan dan minuman.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ma\'asyiral muslimin rakhimakumullah.
+Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan lidah kita dalam berkomunikasi. Dengan menahan diri dari berkata-kata yang tidak bermanfaat atau menyakiti orang lain, kita dapat menjaga diri kita dari godaan setan yang masuk melalui komunikasi.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Setan akan masuk melalui komunikasi buruk seperti penghinaan, caci maki, kata-kata kotor, hasud, adu domba, ghibah, menyebarkan isu yang tidak jelas kebenarannya. Semua itu adalah bersumber dari lisan, melalui komunikasi.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dengan puasa, keselamatan kita pun terjaga. Kita ingat bahwa puasa itu mengajarkan kita untuk menata komunikasi kita supaya selalu positif.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Karena, puasa tidak hanya mengajarkan diri untuk menahan diri dari makan dan minum saja, melainkan juga menahan diri dari omongan-omongan yang tidak berguna. Sedangkan, omongan yang tidak berguna berpotensi besar mengganggu diri dan orang lain. Sebagaimana Rasulullah tegaskan bahwa:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُوْنَ مِنْ لِسَانِهِ (رواه مسلم)''',
+          'translation': '''Artinya, "Disebut Muslim sejati adalah ketika orang-orang muslim lain selamat dari lisannya." (HR Muslim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Para ulama juga selalu mengingatkan kita:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''سَلَامَةُ الْإِنْسَانِ فِيْ حِفْظِ اللِّسَانِ''',
+          'translation': '''Artinya, "Keselamatan manusia itu tergantung pada kemampuannya menjaga lisan."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kita bisa melihat puasa komunikasi seperti ini dalam Al-Quran dicontohkan oleh Sayyidah Maryam binti Imran, ibunda Nabi Isa as:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''فَكُلِي وَاشْرَبِي وَقَرِّي عَيْنًا ۖ فَإِمَّا تَرَيِنَّ مِنَ الْبَشَرِ أَحَدًا فَقُولِي إِنِّي نَذَرْتُ لِلرَّحْمَٰنِ صَوْمًا فَلَنْ أُكَلِّمَ الْيَوْمَ إِنْسِيًّا''',
+          'translation': '''Artinya, "Maka makan, minum, dan bersenang hatilah kamu. Jika kamu melihat seorang manusia, maka katakanlah: "Sesungguhnya aku telah bernazar berpuasa untuk Tuhan Yang Maha Pemurah, maka aku tidak akan berbicara dengan seorang manusiapun pada hari ini". (QS Maryam: 26).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Inilah puasa yang Istimewa, yaitu disebut dengan istilah shaum. Menahan diri dari komunikasi yang tidak berguna. Ia bukan sekedar disebut shiyam yang secara praktiknya adalah menahan diri dari makan dan minum.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Bahkan dalam ayat ini disebutkan bahwa Sayyidah Maryam diperintahkan untuk makan dan minum. Namun, berliau justru diperintah Allah untuk berpuasa dari omongan-omongan yang tidak berdampak positif.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''Demikian itu pulalah sistem yang Allah buatkan untuk kita dalam rangka melindungi keselamatan kita sendiri. Itulah salah satu makna perlindungan, penjagaan dalam ayat: لَعَلَّكُمْ تَتَّقُونَ dan dalam benteng pertahanan atau tameng dalam hadis: اَلصَّوْمُ جُنَّةٌ.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Marilah kita manfaatkan bulan Ramadan sebagai kesempatan untuk meningkatkan kualitas ibadah dan memperkuat pertahanan diri dari godaan setan. Semoga Allah memberikan kita kekuatan dan kesabaran untuk menjalankan puasa dengan ikhlas dan penuh keikhlasan. Amin.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''بَارَكَ الله لِي وَلَكُمْ فِي اْلقُرْآنِ اْلعَظِيْمِ وَنَفَعَنِي وَإِيَّاكُمْ بِمَا فِيْهِ مِنْ الآيَاتِ وَالذِّكْرِ الْحَكِيْمِ. أَقُوْلُ قَوْلِي هَذَا فَأسْتَغْفِرُ اللهَ العَظِيْمَ لِيْ وَلَكُمْ وَلِسَائِرِ الْمُسْلِمِيْنَ وَالْمُسْلِمَاتِ، إِنَّهُ هُوَ الغَفُوْرُ الرَّحِيْم''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah Kedua''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ لِلَّهِ حَمْدًا كَثِيْرًا كَمَا أَمَرَ، أَشْهَدُ أَنْ لَا اِلَهَ اِلَّا الله وَحْدَهُ لَا شَرِيْكَ لَهُ إِرْغَامًا لِمَنْ جَحَدَ بِهِ وَكَفَرَ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ سَيِّدُ الْخَلَائِقِ وَالْبَشَرِ. اَللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى أَلِهِ وَصَحْبِهِ وَمَنْ تَبِعَهُمْ بِإِحْسَانٍ إِلَى يَوْمِ الْمَحْشَرِ، أَمَّا بَعْدُ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''فَيَا أَيُّهَا النَّاسُ أُوْصِيْكُمْ وَنَفْسِيْ بِتَقْوَى اللهِ فَقَدْ فَازَ الْمُتَّقُوْنَ. فَقَالَ اللهُ تَعَالَى: إِنَّ اللهَ وَمَلَائِكَتَهُ يُصَلُّوْنَ عَلَى النَّبِيِّ، يٰأَيُّها الَّذِيْنَ آمَنُوْا صَلُّوْا عَلَيْهِ وَسَلِّمُوْا تَسْلِيْمًا. اَللَّهُمَّ صَلِّ عَلَى سَيِّدَنَا مُحَمَّدٍ وَعَلَى أَلِ سَيِّدَنَا مُحَمَّدٍ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللّهُمَّ اغْفِرْ لِلْمُؤْمِنِيْنَ وَاْلمُؤْمِنَاتِ وَاْلمُسْلِمِيْنَ وَاْلمُسْلِمَاتِ، اَلْأَحْياءِ مِنْهُمْ وَاْلاَمْوَاتِ. اللهُمَّ كَمَا شَرَّفْتَنَا بِاْلإِيْمَانِ بِكَ، وَكَرَّمْتَنَا فِيْ أَرْكَانِ الإِسْلَامِ بِالصِّيَامِ لَكَ، أَعِنَّا عَلَى طَاعَتِكَ فِيْهِ، وَاجْعَلِ اللَّهُمَّ صَفَاءَ أَرْوَاحِنَا فِي اسْتِقْبَالِهِ وَسِيْلَةً لِلْإِجَابَةِ فِي كُلِّ مَا نَسْأَلُ مِمَّا عَلَّمْتَنَا أَنْ نَدْعُوَكَ بِهِ فِي قَوْلِكَ فِيْ كِتَابِكَ الْكَرِيْمِ. اَلَّلهُمَّ أَعِنَّا عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ. اَللَّهُمَّ حَبِّبْ إِلَيْنَا اْلإِيْمَانَ وَزَيِّنْهُ فِيْ قُلُوْبِنَا وَكَرِّهْ إِلَيْنَا الْكُفْرَ وَالْفُسُوْقَ وَالْعِصْيَانَ وَاجْعَلْنَا مِنَ الرَّاشِدِيْنَ. اَللَّهُمَّ إِنَّا نَسْأَلُكَ رِضَاكَ وَالْجَنَّةَ وَنَعُوْذُ بِكَ مِنْ سَخَطِكَ وَالنَّارِ. اَللَّهُمَّ إِنَّكَ عَفُوٌّ كَرِيْمٌ، تُحِبُّ الْعَفْوَ فَاعْفُ عَنَّا. اللهُمَّ ادْفَعْ عَنَّا اْلبَلاَءَ وَاْلوَبَاءَ وَالزَّلاَزِلَ وَاْلمِحَنَ وَسُوْءَ اْلفِتَنِ وَاْلمِحَنَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ عَنْ بَلَدِنَا إِنْدُونِيْسِيَّا خآصَّةً وَسَائِرِ بُلْدَانِ اْلمُسْلِمِيْنَ عامَّةً يَا رَبَّ اْلعَالَمِيْنَ. اللَّهُمَّ أَرِنَا الْحَقَّ حَقًّا وَارْزُقْنَا اتِّبَاعَهُ وَأَرِنَا الْبَاطِلَ بَاطِلًا وَارْزُقْنَا اجْتِنَابَهُ. رَبَّنَا آتِناَ فِى الدُّنْيَا حَسَنَةً وَفِى اْلآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ. وَاَلْحَمْدُ لِلّٰهِ رَبِّ الْعٰلَمِيْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عٍبَادَ اللهِ، إِنَّ اللهَ يَأْمُرُ بِاْلعَدْلِ وَاْلإِحْسَانِ وَإِيْتاءِ ذِي اْلقُرْبىَ وَيَنْهَى عَنِ اْلفَحْشاءِ وَاْلمُنْكَرِ وَاْلبَغْيِ يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ، وَاذْكُرُوا اللهَ اْلعَظِيْمَ يَذْكُرْكُمْ، وَلَذِكْرُ اللهِ أَكْبَرْ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dr Ahmad \'Ubaydi Hasbillah, Pengasuh Ma\'had Al-Jami\'ah Universitas Hasyim Asy\'ari Tebuireng''',
+        }
+      ]
+    },
+    {
+      'title': 'Khutbah Jumat: Puasa Ramadhan dan Ketakwaan Sosial',
+      'date': '14 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Puasa Ramadhan merupakan sarana yang tepat untuk membentuk ketakwaan sosial. Orang yang bertakwa tidak hanya menjaga diri dari maksiat, tetapi juga peduli terhadap sesama. Bulan Ramadhan adalah momentum yang tepat untuk membentuk dimensi sosial itu.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Materi khutbah Jumat ini berjudul: "Khutbah Jumat Ramadhan: Puasa Ramadhan dan Ketakwaan Sosial" Untuk mencetak naskah khutbah Jumat ini, silakan klik ikon print berwarna merah di atas atau bawah artikel ini (pada tampilan desktop). Semoga bermanfaat.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah I''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ للهِ. اَلْحَمْدُ للهِ الَّذِيْ يَحْشُرُنَا فِي الْمَحْشَرِ. أَشْهَدُ اَنْ لَا اِلٰهَ اِلَّا اللهُ الْمَلِكُ الْجَبَّارُ وَأَشْهَدُ اَنَّ حَبِيْبَنَا وَ نَبِيَّنّا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ سَيِّدُ الْاِنْسِ وَالْبَشَرِ. اَللّٰهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى اٰلِهِ وَاَصْحَابِهِ اَجْمَعِيْنَ . اَمَّا بَعْدُ فَيَاأَيُّهَا الْحَاضِرُوْنَ, اِتَّقُوا اللهَ حَقَّ تُقَاتِهِ وَلَا تَمُوْتُنَّ اِلَّا وَأَنْتُمْ مُسْلِمُوْنَ. قَالَ اللهُ تَعَالَى فِي الْقُرْاٰنِ الْعَظِيْمِ. أَعُوْذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيْمِ بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ وَالْعَصْرِۙ اِنَّ الْاِنْسَانَ لَفِيْ خُسْرٍۙ اِلَّا الَّذِيْنَ اٰمَنُوْا وَعَمِلُوا الصّٰلِحٰتِ وَتَوَاصَوْا بِالْحَقِّ ەۙ وَتَوَاصَوْا بِالصَّبْرِ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin sidang Jumat yang berbahagia''',
+        },
+        {
+          'type': 'text',
+          'content': '''Pada khutbah singkat ini, khatib mengajak diri sendiri dan seluruh jamaah untuk meningkatkan ketakwaan kepada Allah swt, terutama di bulan Ramadan yang penuh berkah ini. Puasa Ramadan yang diwajibkan kepada kita bertujuan untuk mencapai ketakwaan. Oleh karena itu, marilah kita semua di bulan Ramadan ini meningkatkan ketakwaan kepada Allah swt dengan melaksanakan semua kewajiban dan meninggalkan segala larangan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin jamaah Jumat yang berbahagia''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ibadah puasa di bulan Ramadhan tidak hanya berdimensi spiritual semata. Lebih dari itu, puasa Ramadhan juga menjadi sarana efektif untuk membentuk ketakwaan sosial.  Konsep ketakwaan yang hakiki tidak berhenti pada hubungan vertikal antara manusia dengan Tuhannya, namun juga berwujud dalam hubungan horizontal antar sesama manusia.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Landasan ini ditegaskan dalam firman Allah SWT dalam QS. Al-Baqarah ayat 183:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِيْنَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُوْنَۙ''',
+          'translation': '''Artinya: "Wahai orang-orang yang beriman, diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang-orang sebelum kamu agar kamu bertakwa."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Syekh Nawawi Banten kitab Tafsir Marah Labid mengatakan bahwa ujung dari puasa adalah membentuk diri menjadi orang yang takwa. Keutamaan itu akan tercapai dengan berpuasa dan meninggalkan hawa nafsu. Puasa melatih diri untuk menahan diri dari berbagai godaan, termasuk makan dan minum, serta hawa nafsu lainnya. Hal ini tidak mudah, tetapi jika berhasil, maka akan lebih mudah untuk bertakwa kepada Allah dalam hal lain.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dalam Islam, takwa merupakan salah satu konsep fundamental yang menjadi kunci meraih derajat tinggi di sisi Allah swt. Takwa bukan hanya sebatas ritual keagamaan, namun merupakan sebuah komitmen menyeluruh untuk menjalankan seluruh perintah Allah dan menjauhi segala larangan-Nya.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Allah telah menjanjikan derajat tinggi bagi orang-orang yang bertakwa dalam ayat Al-Quran Surat Al-Hujurat ayat 13:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اِنَّ اَكْرَمَكُمْ عِنْدَ اللّٰهِ اَتْقٰىكُمْ ۗاِنَّ اللّٰهَ عَلِيْمٌ خَبِيْرٌ''',
+          'translation': '''Artinya: "Sesungguhnya yang paling mulia di antara kamu di sisi Allah adalah orang yang paling bertakwa. Sesungguhnya Allah Maha Mengetahui lagi Maha Teliti."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin jamaah Jumat yang berbahagia''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ayat ini menunjukkan bahwa ketakwaan merupakan tolak ukur kemuliaan seseorang di sisi Allah. Tidak peduli pangkat, jabatan, harta, ataupun keturunan, yang paling mulia di mata Allah adalah orang yang paling bertakwa.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dalam sebuah hadits Rasulullah saw bersabda bahwa Allah tidak menilai manusia berdasarkan rupa dan harta mereka, melainkan berdasarkan hati dan amal mereka. Manusia yang paling mulia di sisi Allah adalah yang paling bertakwa.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''إِنَّ اللَّهَ لاَ يَنْظُرُ إِلَى صُوَرِكُمْ، وَلاَ إِلَى أَمْوَالِكُمْ، وَلَكِنْ يَنْظُرُ إِلَى قُلُوبِكُمْ، وَأَعْمَالِكُمْ، وَإِنَّمَا أَنْتُمْ بَنُو آدَمَ أَكْرَمُكُمْ عِنْدَ اللَّهِ أَتْقَاكُمْ''',
+          'translation': '''Artinya: "Sesungguhnya Allah tidak melihat kepada rupa kalian dan harta kalian, tetapi Dia melihat kepada hati kalian dan amal kalian. Dan sesungguhnya yang paling mulia di sisi Allah di antara kalian adalah orang yang paling bertakwa." (HR Muslim)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin jamaah Jumat yang berbahagia''',
+        },
+        {
+          'type': 'text',
+          'content': '''Puasa bukan hanya tentang menahan lapar dan dahaga, tetapi juga melatih diri untuk menahan hawa nafsu. Hawa nafsu ini dapat mendorong kita untuk melakukan perbuatan yang tidak terpuji, seperti berkata-kata kasar, menipu, dan membicarakan kejelekan orang lain.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dengan berpuasa, kita belajar untuk mengendalikan hawa nafsu tersebut dan menggantinya dengan perilaku yang lebih baik. Kita belajar untuk lebih bersabar, menahan diri dari berkata kasar, dan menjaga lisan kita dari perkataan yang tidak baik. Rasulullah saw bersabda:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ رِوَايَةً قَالَ إِذَا أَصْبَحَ أَحَدُكُمْ يَوْمًا صَائِمًا فَلَا يَرْفُثْ وَلَا يَجْهَلْ فَإِنْ امْرُؤٌ شَاتَمَهُ أَوْ قَاتَلَهُ فَلْيَقُلْ إِنِّي صَائِمٌ إِنِّي صَائِمٌ''',
+          'translation': '''Artinya: "Dari Abu Hurairah ra, beliau berkata, "Jika salah seorang dari kalian berpuasa pada suatu hari, maka janganlah berkata-kata kotor dan janganlah berbuat jahil. Jika ada orang yang memakinya atau mengajaknya berkelahi, maka hendaklah dia berkata, \'Sesungguhnya aku sedang berpuasa, sesungguhnya aku sedang berpuasa." (HR. Muslim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Puasa juga membantu kita untuk lebih berempati terhadap orang lain yang kurang beruntung. Ketika kita merasakan lapar dan dahaga, kita akan lebih memahami bagaimana rasanya hidup dalam kekurangan. Hal ini dapat mendorong kita untuk lebih dermawan dan membantu orang lain yang membutuhkan.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin jamaah Jumat yang berbahagia''',
+        },
+        {
+          'type': 'text',
+          'content': '''Pada hadits lain, dijelaskan bahwa para sahabat menyaksikan Rasulullah orang yang paling dermawan di antara manusia lainnya. Kedermawanan beliau semakin terlihat jelas pada bulan Ramadhan.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''كَانَ رَسُولُ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ أَجْوَدَ النَّاسِ وَكَانَ أَجْوَدَ مَا يَكُونُ فِي رَمَضَانَ''',
+          'translation': '''Artinya: "Rasulullah saw adalah orang paling dermawan di antara manusia lainnya, dan ia semakin dermawan saat berada di bulan Ramadhan" (HR Bukhari dan Muslim).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadirin sidang Jumat yang berbahagia''',
+        },
+        {
+          'type': 'text',
+          'content': '''Untuk itu, dengan menjalankan puasa dengan benar, kita tidak hanya meningkatkan keimanan pribadi, tetapi juga berkontribusi positif pada lingkungan sekitar. Puasa menjadi sarana untuk membangun ketakwaan sosial dan menciptakan masyarakat yang lebih sejahtera dan harmonis. Bagaimana hal ini bisa terjadi?''',
+        },
+        {
+          'type': 'text',
+          'content': '''Pertama, puasa melatih kita untuk lebih peka terhadap kebutuhan orang lain. Rasa lapar dan dahaga yang kita rasakan selama berpuasa dapat membangkitkan empati terhadap mereka yang kekurangan. Hal ini mendorong kita untuk lebih dermawan dan membantu mereka yang membutuhkan, baik secara materi maupun non-materi.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Selanjutnya, puasa mendorong kita untuk menghindari perbuatan yang dapat merugikan orang lain. Berbohong, ghibah, dan perilaku negatif lainnya dapat membatalkan pahala puasa. Dengan menghindari perbuatan tersebut, kita menciptakan lingkungan yang lebih positif dan kondusif bagi semua orang.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''بَارَكَ اللهُ لِي وَلَكُمْ فِي الْقُرْآنِ الْعَظِيمِ، وَنَفَعَنِي وَإِيَّاكُمْ بِمَا فِيهِ مِنَ الآيَاتِ وَالذِّكْرِ الْحَكِيمِ. أَقُولُ قَوْلِي هَذَا وَأَسْتَغْفِرُ اللهَ لِي وَلَكُمْ، وَلِسَائِرِ الْمُسْلِمِينَ وَالْمُسْلِمَاتِ، وَالْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ، فَاسْتَغْفِرُوهُ. إِنَّهُ هُوَ الْغَفُورُ الرَّحِيمُ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Khutbah II''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَلْحَمْدُ ِللهِ الَّذِيْ أَمَرَنَا بِاْلاِعْتِصَامِ بِحَبْلِ اللهِ، أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ وَأَشْهَدُ أَنَّ سَيِّدَنَا مُحَمَّدًا عَبْدُهُ وَرَسُوْلُهُ لاَ نَبِيَّ بَعْدَهُ. اَللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ وَمَنْ تَبِعَ هُدَاهُ. أَمَّا بَعْدُ . فَيَا عِبَادَ اللهِ اِتَّقُوا اللهَ فِيْمَا اَمَرَ وَانْتَهُوْا عَمَّا نَهَى. قال تعالى: مَن جَاء بِالْحَسَنَةِ فَلَهُ عَشْرُ أَمْثَالِهَا وَمَن جَاء بِالسَّيِّئَةِ فَلاَ يُجْزَى إِلاَّ مِثْلَهَا وَهُمْ لاَ يُظْلَمُونَ
+
+وَاعْلَمُوْا اَنَّ اللهَ اَمَرَكُمْ بِاَمْرٍ بَدَأَ فِيْهِ بِنَفْسِهِ وَثَـنَّى بِمَلآ ئِكَتِهِ بِقُدْسِهِ وَقَالَ تَعاَلَى اِنَّ اللهَ وَمَلآ ئِكَتَهُ يُصَلُّوْنَ عَلىَ النَّبِى يآ اَيُّهَا الَّذِيْنَ آمَنُوْا صَلُّوْا عَلَيْهِ وَسَلِّمُوْا تَسْلِيْمًا. اللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمْ وَعَلَى آلِ سَيِّدِنَا مُحَمَّدٍ وَعَلَى اَنْبِيآئِكَ وَرُسُلِكَ وَمَلآئِكَةِ اْلمُقَرَّبِيْنَ وَارْضَ اللّهُمَّ عَنِ اْلخُلَفَاءِ الرَّاشِدِيْنَ اَبِى بَكْرٍ وَعُمَر وَعُثْمَان وَعَلِي وَعَنْ بَقِيَّةِ الصَّحَابَةِ وَالتَّابِعِيْنَ وَتَابِعِي التَّابِعِيْنَ لَهُمْ بِاِحْسَانٍ اِلَى يَوْمِ الدِّيْنِ وَارْضَ عَنَّا مَعَهُمْ بِرَحْمَتِكَ يَا اَرْحَمَ الرَّاحِمِيْنَ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اَللهُمَّ اغْفِرْ لِلْمُؤْمِنِيْنَ وَاْلمُؤْمِنَاتِ وَاْلمُسْلِمِيْنَ وَاْلمُسْلِمَاتِ اَلاَحْيآءِ مِنْهُمْ وَاْلاَمْوَاتِ اللهُمَّ ادْفَعْ عَنَّا اْلبَلاَءَ وَاْلوَبَاءَ وَالزَّلاَزِلَ وَاْلمِحَنَ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ عَنْ بَلَدِنَا اِنْدُونِيْسِيَّا خآصَّةً وَسَائِرِ بُلْدَانِ اْلمُسْلِمِيْنَ عآمَّةً يَا رَبَّ اْلعَالَمِيْنَ. اللَّهُمَّ بَارِكْ لَنَا فِي رَجَب وَشَعْبَانَ وَبَلِّغْنَا رَمَضَانَ. اللَّهُمَّ لَا تَدَعْ لَنَا فِي مَقَامِنَا هَذَا ذَنْبًا إِلَّا غَفَرْتَهُ، وَلَا هَمًّا إِلَّا فَرَّجْتَهُ، وَلَا حَاجَةً مِنْ حَوَائِجِ الدُّنْيَا وَالْآخِرَةِ إِلَّا قَضَيْتَهَا وَيَسَّرْتَهَا فَيَسِّرْ أَمُورَنَا وَنَوِّرْ قُلُوبَنَا بِنُورِ هدَايَتِكَ كَمَا نَوَّرْتَ الْأَرْضَ بِنُورِ شَمْسِكَ. رَبَّنَا آتِناَ فِى الدُّنْيَا حَسَنَةً وَفِى اْلآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''عِبَادَ اللهِ اِنَّ اللهَ يَأْمُرُ بِاْلعَدْلِ وَاْلاِحْسَانِ وَإِيْتآءِ ذِى اْلقُرْبىَ وَيَنْهَى عَنِ اْلفَحْشآءِ وَاْلمُنْكَرِ وَاْلبَغْي يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُوْنَ وَاذْكُرُوااللهَ اْلعَظِيْمَ يَذْكُرْكُمْ وَاشْكُرُوْهُ عَلىَ نِعَمِهِ يَزِدْكُمْ وَلَذِكْرُ اللهِ اَكْبَرْ''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ustadz Masrur Irsyadi, Pengajar Ma\'had Ali UIN Jakarta''',
+        }
+      ]
     }
   ];
 
@@ -4399,6 +5362,10 @@ Puasa Ramadan bukan hanya tentang menahan lapar dan dahaga, tetapi juga merupaka
               _buildChip('Artikel Ramadhan', Icons.article_outlined, _selectedCategory == 'Artikel Ramadhan', () => setState(() => _selectedCategory = 'Artikel Ramadhan')),
               const SizedBox(width: 8),
               _buildChip('Khutbah Ramadhan', Icons.menu_book, _selectedCategory == 'Khutbah Ramadhan', () => setState(() => _selectedCategory = 'Khutbah Ramadhan')),
+              const SizedBox(width: 8),
+              _buildChip('Kultum Ramadhan', Icons.chrome_reader_mode_outlined, _selectedCategory == 'Kultum Ramadhan', () => setState(() => _selectedCategory = 'Kultum Ramadhan')),
+              const SizedBox(width: 8),
+              _buildChip('Khutbah Idul Fitri', Icons.assignment_outlined, _selectedCategory == 'Khutbah Idul Fitri', () => setState(() => _selectedCategory = 'Khutbah Idul Fitri')),
             ],
           ),
         ),
@@ -4431,7 +5398,11 @@ Puasa Ramadan bukan hanya tentang menahan lapar dan dahaga, tetapi juga merupaka
                   ? _artikelMenu
                   : _selectedCategory == 'Khutbah Ramadhan'
                       ? _khutbahMenu
-                      : (_selectedCategory == 'Kumpulan Doa' ? _ramadhanMenu : []);
+                      : _selectedCategory == 'Kultum Ramadhan'
+                          ? _kultumMenu
+                          : _selectedCategory == 'Khutbah Idul Fitri'
+                              ? _khutbahIdulFitriMenu
+                              : (_selectedCategory == 'Kumpulan Doa' ? _ramadhanMenu : []);
 
               if (listData.isEmpty) {
                 return Center(
@@ -4458,7 +5429,10 @@ Puasa Ramadan bukan hanya tentang menahan lapar dan dahaga, tetapi juga merupaka
                   
                   return InkWell(
                     onTap: () {
-                      if (_selectedCategory == 'Artikel Ramadhan' || _selectedCategory == 'Khutbah Ramadhan') {
+                      if (_selectedCategory == 'Artikel Ramadhan' || 
+                          _selectedCategory == 'Khutbah Ramadhan' || 
+                          _selectedCategory == 'Kultum Ramadhan' || 
+                          _selectedCategory == 'Khutbah Idul Fitri') {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -4505,7 +5479,7 @@ Puasa Ramadan bukan hanya tentang menahan lapar dan dahaga, tetapi juga merupaka
                               ),
                             ),
                           ),
-                          if (_selectedCategory == 'Artikel Ramadhan')
+                          if (_selectedCategory == 'Artikel Ramadhan' || _selectedCategory == 'Khutbah Ramadhan' || _selectedCategory == 'Kultum Ramadhan' || _selectedCategory == 'Khutbah Idul Fitri')
                             const Icon(
                               Icons.menu_book_outlined,
                               size: 16,

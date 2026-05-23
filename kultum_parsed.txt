@@ -1,0 +1,242 @@
+  final List<Map<String, dynamic>> _kultumMenu = [
+    {
+      'title': 'Kultum Ramadhan: Bangun Kepedulian, Eratkan Ikatan Kerabat',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Bulan Ramadhan tidak melulu soal puasa menahan lapar dan haus. Pun bukan hanya soal menahan hawa nafsu dari kemaksiatan zahir dan batin. Di bulan suci ini, bisa juga kita manfaatkan untuk menumbuhkan dan meningkatkan kepedulian kepada kerabat.\n\nDengan memadukan menahan lapar-haus, mengendalikan hawa nafsu, dan meningkatkan kepedulian terhadap kerabat, ibadah kita akan semakin sempurna di sisi Allah SWT. Pun kualitas kehidupan kita akan semakin meningkat, baik dari sisi kesalehan spiritual maupun kesalehan sosial.\n\nAllah SWT berfirman dalam surat Al-Baqarah ayat 183:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِيْنَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُوْنَۙ',
+          'latin': '',
+          'translation': 'Artinya: "Wahai orang-orang yang beriman, diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang-orang sebelum kamu agar kamu bertakwa." (QS. Al-Baqarah [2]: 183).',
+        },
+        {
+          'type': 'text',
+          'content': 'Ayat ini menegaskan bahwa diwajibkan puasa agar kita senantiasa bertakwa kepada Allah SWT. Tentu banyak sekali cara bertakwa, termasuk peduli terhadap sesama, terutama kepada para kerabat terdekat kita. Hal ini merupakan bagian dari peningkatan ketakwaan seseorang. Dalam konteks kaitan bulan Ramadhan dan kepedulian sosial, Rasulullah SAW bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'عَنِ ابْنِ عَبَّاسٍ قَالَ: كَانَ رَسُولُ اللَّهِ صَلَّى الله عَلَيْهِ وَسَلَّمَ أَجْوَدَ النَّاسِ، وَكَانَ أَجْوَدُ ‌مَا ‌يَكُونُ ‌فِي ‌رَمَضَانَ حِينَ يَلْقَاهُ جِبْرِيلُ، وَكَانَ يَلْقَاهُ فِي كُلِّ لَيْلَةٍ مِنْ رَمَضَانَ فَيُدَارِسُهُ الْقُرْآنَ، فَلَرَسُولُ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ أَجْوَدُ بِالْخَيْرِ مِنَ الرِّيحِ الْمُرْسَلَةِ',
+          'latin': '',
+          'translation': 'Artinya: "Diriwayatkan dari Sahabat Ibnu Abbas RA, ia berkata: \'Rasulullah SAW merupakan manusia yang paling dermawan.\' Sifat dermawannya yang paling menonjol itu tampak ketika bulan suci Ramadhan, saat bertemu dengan malaikat Jibril. Jibril menemui Rasulullah Saw pada setiap malam di bulan tersebut dan mengajarkan beliau Al-Qur\'an. Sungguh kedermawanan Rasulullah terhadap kebaikan itu laksana angin yang berhembus." (HR Imam Bukhari).',
+        },
+        {
+          'type': 'text',
+          'content': 'Hadits ini mengisyaratkan bagaimana bulan suci Ramadhan sangat berkaitan erat dengan kepedulian terhadap sesama. Rasulullah SAW yang merupakan manusia paling dermawan dan pada bulan Ramadhan sampai meningkatkan kualitas kedermawanannya. Hal tersebut jelas menunjukkan bahwa bulan Ramadhan adalah momen tepat untuk meningkatkan kepedulian kita terhadap sesama manusia, terutama kepada kerabat terdekat kita.\n\nDi samping itu, dalam hadits lain Rasulullah SAW juga menegaskan pentingnya kepedulian terhadap sesama. Beliau bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'عَنْ أَبِيْ هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ عَنِ النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ مَنْ نَـفَّسَ عَنْ مُؤْمِنٍ كُـرْبَةً مِنْ كُرَبِ الدُّنْيَا، نَـفَّسَ اللهُ عَنْهُ كُـرْبَةً مِنْ كُـرَبِ يَوْمِ الْقِيَامَةِ، وَمَنْ يَسَّرَ عَلَـى مُـعْسِرٍ، يَسَّـرَ اللهُ عَلَيْهِ فِـي الدُّنْيَا وَالْآخِرَة، وَمَنْ سَتَـرَ مُسْلِمًـا، سَتَـرَهُ اللهُ فِـي الدُّنْيَا وَالْآخِرَةِ ، وَاللهُ فِـي عَوْنِ الْعَبْدِ مَا كَانَ الْعَبْدُ فِي عَوْنِ أَخِيهِ',
+          'latin': '',
+          'translation': 'Artinya: "Diriwayatkan dari Sahabat Abu Hurairah RA, Nabi Muhammad SAW bersabda: \'Siapa saja yang melapangkan satu kesusahan dunia dari seorang Mukmin, maka Allah melapangkan darinya satu kesusahan di hari kiamat.',
+        },
+        {
+          'type': 'text',
+          'content': '"Siapa saja memudahkan urusan orang yang sedang dalam kesulitan, niscaya Allah memudahkan baginya dari kesulitan di dunia dan akhirat. Siapa menutupi aib seorang Muslim, maka Allah akan menutup aibnya di dunia dan akhirat. Allah senantiasa menolong seorang hamba selama hamba tersebut menolong saudaranya." (HR Imam Muslim).\n\nSementara itu, jika kita merujuk pada beberapa literatur kitab klasik, kepedulian terhadap kerabat, misalnya bersedekah kepadanya, melebihi keutamaan kepada orang lain yang bukan kerabat. Imam an-Nawawi dalam salah satu karyanya menulis:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'أَجْمَعَتْ الْأُمَّةُ عَلَى أَنَّ الصَّدَقَةَ عَلَى الْأَقَارِبِ أَفْضَلُ مِنْ الْأَجَانِبِ وَالْأَحَادِيثُ فِي الْمَسْأَلَةِ كَثِيرَةٌ مَشْهُورَةٌ',
+          'latin': '',
+          'translation': 'Artinya: "Ulama sepakat bahwa sedekah kepada sanak kerabat lebih utama daripada sedekah kepada orang lain. Hadits-hadits yang menyebutkan hal tersebut sangat banyak dan masyhur." (Imam an-Nawawi, Al-Majmu\' Syarhul Muhaddzab, [Beirut: Darul Fiqr, t.t.] jilid VI, hal. 238).',
+        },
+        {
+          'type': 'text',
+          'content': 'Nilai lebih dari kepedulian terhadap kerabat dibandingkan dengan orang lain non-kerabat ini tidak hanya dalam soal sedekah, tapi setiap hal kebaikan, sebagaimana kelanjutan dari penjelasan Imam an-Nawawi berikut:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'ويستحب تخصيص الاقارب على الاجانب بالزكاة حيت يَجُوزُ دَفْعُهَا إلَيْهِمْ كَمَا قُلْنَا فِي صَدَقَةِ التَّطَوُّعِ وَلَا فَرْقَ بَيْنَهُمَا وَهَكَذَا الْكَفَّارَاتُ وَالنُّذُورُ وَالْوَصَايَا وَالْأَوْقَافُ وَسَائِرُ جِهَاتِ الْبِرِّ يُسْتَحَبُّ تَقْدِيمُ الْأَقَارِبِ فِيهَا حَيْثُ يَكُونُونَ بِصِفَةِ الِاسْتِحْقَاقِ وَاَللَّهُ تعالي أَعْلَمُ',
+          'latin': '',
+          'translation': 'Artinya: "Disunnahkan mengkhususkan para kerabat atas orang lain dalam pengalokasian zakat, yakni kerabat yang boleh diberi zakat, sebagaimana penjelasan yang saya jelaskan dalam bab sedekah sunnah dan tidak ada perbedaan antara keduanya. Begitu juga dalam hal (pengalokasian) kafarat, nazah, wasiat, wakaf, dan seluruh urusan kebaikan, disunnahkan mendahulukan kerabat yang berhak menerimanya. Wallahu Ta\'ala A\'lam," (Imam an-Nawawi/jilid VI, hal. 238—238).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dari semua pemaparan di muka bisa dipahami bahwa bulan suci Ramadhan bisa kita manfaatkan sebagai peningkatan kualitas kesalehan spiritual dengan cara berpuasa, menahan haus dan lapar, mengendalikan hawa nafsu yang sifat tercela, memperbanyak amal kebaikan, dan sekaligus meningkatkan kesalehan sosial dengan menumbuhkan dan meningkatkan kepedulian kita terhadap sesama manusia, terutama kepada kerabat terdekat kita.\n\nCara meningkatkannya bagaimana? Cara paling efektif untuk meningkatkan kepedulian terhadap kerabat adalah dengan memulainya. Kita harus memerhatikan dan peka terhadap kerabat yang layak dibantu yang hidup di lingkungan kita, di setiap atau mungkin di satu daerah. Sederhananya, dimulai dengan yang paling memungkinkan untuk kita bantu.\n\nKarena kita sedang di bulan Ramadhan, jangan sampai kita berbuka puasa dengan menu melimpah, tapi ada kerabat kita yang kekurangan makanan untuk berbuka. Perhatikan juga apakah masih ada kerabat kita yang tidak bersahur karena tidak memiliki bahan pokok untuk memasak, tapi di kulkas kita ada bahan yang sampai hampir busuk karena tidak terpakai.\n\nInilah contoh sederhana yang bisa kita implementasikan dari kepedulian terhadap kerabat. Dan kepedulian ini juga bisa diwujudkan dalam bentuk apa pun, tidak harus dalam bentuk makanan saja. Bisa dalam bentuk menghilangkan kesusahan, menutup aib, dan lain-lain sebagaimana dijelaskan dalam hadits di atas.\n\nSemoga pada bulan suci Ramadhan ini, kita bisa memaksimalkan dan memanfaatkan waktu sebaik mungkin sehingga bisa mengamalkan setiap hal yang bisa meningkatkan kualitas kehidupan spiritual maupun sosial. Semoga bermanfaat. Wallahu a\'lam.\n\nSyifaul Qulub Amin, Alumnus PP Nurul Cholil Bangkalan dan Pengajar di PP Putri Al-Masyhuriyah Kebonan Bangkalan.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Kesabaran adalah Jalan Menuju Kemenangan',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Dalam menjalani kehidupan, kita sering sekali tersandung oleh pahitnya takdir. Kita dihadapkan dengan kesulitan, kegagalan, dan kehilangan yang membuat kita merasa lemah dan tak berdaya. Namun, putus asa dan menyerah bukanlah solusi. Sebaliknya, kita harus menghadapi kesulitan itu dengan kepala tegak dan hati yang kuat.\n\nDalam Islam, menghadapi kesulitan hidup diistilahkan dengan sabar. Sabar dalam menghadapi pahitnya takdir bukanlah tanda kelemahan, tapi sebaliknya, sabar dalam menghadapi pahitnya takdir merupakan tanda kekuatan sejati. Allah Ta\'ala berfirman:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوا اسْتَعِيْنُوْا بِالصَّبْرِ وَالصَّلٰوةِۗ اِنَّ اللّٰهَ مَعَ الصّٰبِرِيْنَ',
+          'latin': '',
+          'translation': 'Artinya, "Wahai orang-orang yang beriman, mohonlah pertolongan (kepada Allah) dengan sabar dan salat. Sesungguhnya Allah beserta orang-orang yang sabar," (QS. Al-Baqarah. Ayat 153).',
+        },
+        {
+          'type': 'text',
+          'content': 'Ayat ini menegaskan bahwa sabar merupakan sarana penolong bagi orang-orang beriman dalam menghadapi setiap cobaan yang sedang dihadapi. Yang artinya sabar memungkinkan kita untuk menerima apa yang telah terjadi, dan mempercayai bahwa Allah SWT memiliki rencana yang lebih baik untuk kita. Dengan sabar, kita dapat mengatasi kesulitan, belajar dari kesalahan, dan tumbuh menjadi pribadi yang lebih kuat dan bijak.\n\nPenggalan ayat terakhir tersebut juga merupakan satu keistimewaan dari Allah Ta\'ala bagi hamba-hamba-Nya yang bersabar. Bahwa Allah akan selalu membersamai orang-orang yang sabar dalam menjalani segala ketentuan yang Allah berikan kepada mereka.\n\nMaka, sabar di sini menjadi salah satu jalan yang paling istimewa untuk mendapat kemenangan sejati, yaitu kebersamaan dengan Tuhan semesta alam yang mengatur seluruh jalan takdir yang kita lalui.\n\nMaka, tidaklah mengherankan apabila Sayyidina Ali bin Abi Thalib R.A pernah mengatakan:',
+        },
+        {
+          'type': 'arabic',
+          'content': '‎وَاعْلَمُوا أَنَّ الصَّبْرَ مِنَ الْأُمُورِ بِمَنْزِلَةِ الرَّأْسِ مِنَ الْجَسَدِ فَإِذَا فَارَقَ الرَّأْسُ الْجَسَدَ فَسَدَ الْجَسَدُ، وَإِذَا فَارَقَ الصَّبْرُ الْأُمُورَ فَسَدَتِ الْأُمُورُ',
+          'latin': '',
+          'translation': 'Artinya, "Ketahuilah bahwa kesabaran atas berbagai urusan (kehidupan) seperti halnya kepala bagi tubuh. Jika kepala terpisah dari tubuh, maka tubuh akan rusak. Begitu pula, jika kesabaran terpisah dari urusan (kehidupan), maka urusan (kehidupan) akan menjadi rusak". (Tanbih Al-Ghafilin halaman 90)',
+        },
+        {
+          'type': 'text',
+          'content': 'Maksudnya, kesabaran adalah kunci untuk menjaga kestabilan dan keselarasan mental dalam menjalani kehidupan. Tanpa kesabaran, mental dalam menjalani kehidupan akan menjadi tidak seimbang dan rusak, karena kehidupan ini tidak mungkin selalu sesuai dengan keinginan kita.\n\nMaka, salah satu upaya yang paling efektif untuk membangun mental kita dan generasi selanjutnya adalah dengan mengkaji tentang ilmu akhlak, khususnya sabar, sebab dengan sabar inilah semua hal yang terjadi dalam kehidupan akan dilalui dengan ketenangan dan keyakinan akan berlalunya badai kehidupan.\n\nTidak hanya sebagai kunci menuju kemenangan sejati, orang-orang yang sabar juga dijanjikan pahala yang agung dari Allah Ta\'ala. Hal ini tertuang dalam firman-Nya:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُمْ بِغَيْرِ حِسَابٍ',
+          'latin': '',
+          'translation': 'Artinya: "Sesungguhnya orang-orang yang bersabar akan dipenuhi pahala mereka tanpa hitungan."(QS. Az-Zumar. Ayat 10)',
+        },
+        {
+          'type': 'text',
+          'content': 'Bayangkan saja, dalam Al-Qur\'an pahala orang-orang yang bersabar diungkapkan dengan "Bighoiri Hisab" yang dalam terjemahan bahasa Indonesia dapat diartikan "tanpa hitungan". Hal ini sejatinya merupakan isyarat bahwa sabar adalah satu sifat yang tidak bisa diukur keutamaannya.\n\nTidak hanya sebagai kunci kemenangan sejati atau pahala yang amat agung yang dijanjikan kepada orang-orang yang bersabar, sikap sabar juga menjadi cerminan seorang hamba yang mendapatkan cinta dari Allah Ta\'ala. Baginda Nabi Muhammad SAW bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': '‎عِظَمُ الْجَزَاءِ مَعَ عِظَمِ الْبَلَاءِ وَإِنَّ اللَّهَ إِذَا أَحَبَّ قَوْمًا ابْتَلَاهُمْ فَمَنْ رَضِيَ فَلَهُ الرِّضَا وَمَنْ سَخِطَ فَلَهُ السُّخْطُ',
+          'latin': '',
+          'translation': 'Artinya, "Besarnya pahala sesuai dengan besarnya cobaan, dan sesungguhnya apabila Allah mencintai suatu kaum maka Dia akan menguji mereka. Oleh karena itu, barangsiapa ridha (menerima cobaan tersebut) maka baginya keridhaan, dan barangsiapa murka maka baginya kemurkaan." (HR Ibnu Majah)',
+        },
+        {
+          'type': 'text',
+          'content': 'Terlebih saat ini kita berada di bulan suci Ramadhan, bulan yang begitu mulia. Mari kita manfaatkan bulan yang mulia ini, dengan menumbuhkan akhlak yang mulia juga yakni sabar.\n\nAbdul Karim Malik, alumni Al-Falah Ploso Kediri, pengurus LBM PCNU Kabupaten Bekasi.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Lebih Baik Sedikit tapi Istiqamah',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Bulan Ramadhan sebagai bulan istimewa penuh berkah dan ampunan sering kali hanya menjadi euforia sesaat saja. Di awal Ramadhan, semangat ibadah kita menggebu-gebu. Masjid penuh, tadarus Al-Qur\'an terdengar di mana-mana, sedekah mengalir dengan lancar, ibadah sunnah terlaksana dengan lengkap, dan kebaikan-kebaikan lainnya.\n\nNamun, ironisnya, ketika Ramadhan sudah sampai pada pertengahan, semangat itu mulai hilang. Amalan ibadah dan kebaikan yang awalnya terlaksana dengan rutin sudah mulai terlupakan, ibadah sunnah dan sedekah mulai terabaikan, dan semangat tadarus Al-Qur\'an mulai terasa seperti beban sehingga ditinggalkan.\n\nAtau ada juga sebagian orang yang berhasil menjaga konsistensinya selama bulan Ramadhan dalam menjalankan ibadah dan melakukan kebajikan, tetapi setelah Ramadhan selesai? Konsistensi itu tiba-tiba hilang, dan yang tersisa hanyalah kenangan-kenangan yang pernah dilakukan selama bulan puasa.\n\nDalam kondisi seperti inilah, menjadi penting bagi kita untuk kembali membahas hakikat istiqamah dalam beragama. Perlu kita ketahui bahwa istiqamah bukanlah tentang menjaga semangat tinggi di saat-saat tertentu saja, tetapi tentang senantiasa mempertahankan ketaatan dalam kondisi dan keadaan apa pun.\n\nLantas, apa yang akan didapatkan oleh orang-orang yang mampu istiqamah? Allah SWT telah menjanjikan balasan yang sangat istimewa bagi mereka, yaitu surga yang penuh dengan kenikmatan abadi di dalamnya. Hal ini sebagaimana ditegaskan dalam Al-Qur\'an, Allah SWT berfirman:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا تَتَنَزَّلُ عَلَيْهِمُ الْمَلائِكَةُ أَلَّا تَخَافُوا وَلا تَحْزَنُوا وَأَبْشِرُوا بِالْجَنَّةِ الَّتِي كُنْتُمْ تُوعَدُونَ',
+          'latin': '',
+          'translation': 'Artinya, "Sesungguhnya orang-orang yang berkata, \'Tuhan kami adalah Allah,\' kemudian tetap (dalam pendiriannya), akan turun malaikat-malaikat kepada mereka (seraya berkata), \'Janganlah kamu takut dan bersedih hati serta bergembiralah dengan (memperoleh) surga yang telah dijanjikan kepadamu\'." (QS. Fushshilat: 30).',
+        },
+        {
+          'type': 'text',
+          'content': 'Ayat di atas menjelaskan bahwa orang-orang yang beriman kepada Allah kemudian beristiqamah akan mendapatkan jaminan keamanan dan kebahagiaan dari Allah SWT. Istiqamah secara sederhana dapat diartikan sebagai keteguhan hati dalam beriman dan berislam, serta konsisten dalam menjalankan perintah Allah dan menjauhi larangan-Nya dalam kondisi apa pun.\n\nLantas, apakah istiqamah itu harus diwujudkan dengan perbuatan dan amal yang banyak, sehingga kita harus memaksakan diri untuk melakukan berbagai macam ibadah dan kebaikan sekaligus? Ataukah istiqamah itu bisa diwujudkan dengan amalan-amalan kecil saja, asalkan dilakukan secara terus-menerus dan konsisten? Mari kita bahas.\n\nLebih Baik Sedikit tapi Istiqamah\n\nPerlu kita ketahui bersama bahwa hakikat istiqamah tidak terletak pada sedikit atau banyaknya suatu amal ibadah, melainkan pada konsistensi dalam menjaganya. Dalam Islam, amal yang kecil tidak menjadi hina selama ia dilakukan secara terus-menerus. Sebaliknya, amal yang besar dan banyak bisa kehilangan nilainya jika hanya dilakukan sesaat lalu ditinggalkan. Berkaitan dengan hal ini, Rasulullah SAW bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'أَحَبُّ الأَعْمَالِ إِلَى اللَّهِ تَعَالَى أَدْوَمُهَا وَإِنْ قَلَّ',
+          'latin': '',
+          'translation': 'Artinya, "Perbuatan baik yang paling dicintai Allah Ta\'ala adalah yang paling konsisten (istiqamah) meskipun sedikit." (HR Muslim).',
+        },
+        {
+          'type': 'text',
+          'content': 'Alasan mengapa amal yang dilakukan secara istiqamah itu lebih utama dibandingkan ibadah yang banyak tetapi tidak istiqamah adalah karena dengan amal yang terus dijaga, ketaatan kepada Allah tetap hidup dari hari ke hari. Berbeda dengan amal yang banyak tetapi dilakukan sesekali, sering kali ia justru melelahkan, memberatkan jiwa, dan pada akhirnya ditinggalkan.\n\nSelain itu, amal yang sedikit namun istiqamah akan terus tumbuh, berkembang, dan bertambah nilainya, hingga pada akhirnya ia bisa mengalahkan amal besar yang terputus-putus berkali-kali lipat. Penjelasan ini sebagaimana disampaikan oleh Imam Jalaluddin as-Suyuthi, dalam salah satu karyanya ia berkata:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'لِأَنَّ بِدَوَامِ الْقَلِيلِ يَسْتَمِرُّ الطَّاعَةُ بِالذِّكْرِ وَالْمُرَاقَبَةِ وَالْإِخْلَاصِ وَالْإِقْبَالِ عَلَى اللهِ بِخِلَافِ الْكَثِيرِ الشَّاقِّ حَتَّى يَنْمُو الْقَلِيلُ الدَّائِمُ بِحَيْثُ يَزِيدُ عَلَى الْكَثِيرِ الْمُنْقَطِعِ أَضْعَافًا كَثِيرَةً',
+          'latin': '',
+          'translation': 'Artinya, "Karena dengan terus-menerus melakukan amal yang sedikit, ketaatan akan tetap berlangsung melalui zikir, rasa diawasi oleh Allah (muraqabah), keikhlasan, dan kesungguhan menghadap kepada Allah. Berbeda dengan amal yang banyak namun terasa berat, amalan yang sedikit namun terus-menerus itu akan tumbuh hingga berlipat ganda melebihi amalan yang banyak namun terputus." (Hasyiyatus Suyuthi \'ala Sunan an-Nasai, [Aleppo: Maktabah al-Islamiyyah, 1986 M], jilid II, halaman 42).',
+        },
+        {
+          'type': 'text',
+          'content': 'Ada banyak sekali amal kecil yang dilakukan secara rutin dan dapat kita rasakan manfaatnya dalam kehidupan sehari-hari dan dapat membawa dampak yang besar. Misalnya, disiplin membuang sampah pada tempatnya, membayar gaji karyawan tepat waktu tanpa menunda-nunda tanpa alasan yang dibenarkan, selalu tersenyum dan bersikap ramah kepada orang lain, dan masih banyak contoh lainnya.\n\nOleh karena itu, marilah kita tata kembali ibadah kita. Tidak perlu memaksakan diri dengan amalan yang berat dan sulit dipertahankan. Cukup pilih amalan-amalan kecil yang realistis dan mampu kita jaga secara konsisten. Membaca Al-Qur\'an meski hanya beberapa ayat setiap hari, bersedekah meski dengan nominal yang kecil, atau menjaga shalat sunnah meski hanya satu atau dua rakaat, selama itu dilakukan dengan istiqamah, maka nilainya sangat besar di sisi Allah SWT.\n\nDemikianlah kultum Ramadhan tentang keutamaan amal yang sedikit tapi istiqamah. Semoga apa yang telah kita bahas bersama dapat menjadi pengingat bagi kita semua untuk senantiasa menjaga konsistensi dalam beribadah dan berbuat baik, tidak hanya di bulan Ramadhan saja, tetapi juga di bulan-bulan lainnya.\n\nSemoga Allah SWT memberikan kita kekuatan dan kemudahan untuk meraih istiqamah, sehingga kita termasuk ke dalam golongan orang-orang yang dicintai dan diridhai oleh-Nya. Amin ya Rabbal \'alamin.\n\nSunnatullah, Pengajar di Pondok Pesantren Al-Hikmah Darussalam Durjan Kokop Bangkalan Jawa Timur.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Makna Keberkahan Sahur',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Sahur sejatinya adalah salah satu anugerah indah yang dititipkan Allah bagi umat Islam dalam menjalankan ibadah puasa. Lebih dari sekadar aktivitas makan untuk mengisi cadangan energi sebelum berpuasa seharian, sahur merupakan manifestasi kecintaan kita terhadap sunnah Rasulullah SAW.\n\nDengan menyantap hidangan sahur, kita tidak hanya mempersiapkan fisik, tetapi juga menghidupkan anjuran Nabi Muhammad SAW yang sangat menekankan agar keberkahan dalam momentum ini tidak dilewatkan begitu saja.\n\nKeutamaan Waktu Sahur\n\nRasulullah SAW memberikan penekanan yang sangat kuat agar setiap Muslim menyempatkan diri untuk bersahur dan sebisa mungkin tidak mengabaikannya. Hal ini dikarenakan sahur memegang peran ganda dalam ibadah puasa: sebagai penopang stamina fisik agar tetap bugar, sekaligus sebagai wadah bagi turunnya keberkahan Ilahi. Berkaitan dengan pentingnya momentum ini, Nabi Muhammad SAW memberikan pesan melalui sabdanya:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'تَسَحَّرُوا فَإِنَّ فِي السُّحُورِ بَرَكَةً',
+          'latin': '',
+          'translation': 'Artinya: "Sahurlah kalian, karena sesungguhnya dalam sahur itu terdapat keberkahan." (HR. Bukhari Muslim)',
+        },
+        {
+          'type': 'text',
+          'content': 'Mengenai keberkahan dalam sahur yang dimaksud dari hadits di atas, Syekh Hasan al-Masyath dalam kitab Is\'afu Ahlil Iman bi Wadza\'ifi Syahri Ramadhan, mengatakan,',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَفِي مَعْنَى كَوْنِهِ بَرَكَةً وُجُوهٌ، مِنْهَا أَنْ يُبَارَكَ فِي الْقَلِيلِ مِنْهُ بِحَيْثُ يَحْصُلُ بِهِ الْإِعَانَةُ عَلَى الصَّوْمِ. وَمِنْهَا أَنَّ الْمُرَادَ بِالْبَرَكَةِ نَفْيُ التَّبِعَةِ وَالْمُحَاسَبَةِ. وَمِنْهَا أَنَّ الْمُرَادَ التَّقَوِّي عَلَى الصِّيَامِ وَغَيْرِهِ مِنْ أَعْمَالِ النَّهَارِ. وَمِنْهَا أَنَّ الْمُرَادَ بِالْبَرَكَةِ الْأُمُورُ الْأُخْرَوِيَّةُ؛ فَإِنَّ إِقَامَةَ السُّنَّةِ تُوجِبُ الْأَجْرَ وَالزِّيَادَةَ',
+          'latin': '',
+          'translation': 'Artinya: "Mengenai makna bahwa sahur itu mengandung keberkahan, terdapat beberapa sudut pandang (penjelasan), di antaranya: 1) diberikannya keberkahan pada makanan yang sedikit, sehingga makanan tersebut cukup untuk membantu seseorang dalam menjalankan ibadah puasa; 2) ditiadakannya konsekuensi dosa (tabi\'ah) dan hisab (pertanggungjawaban yang memberatkan) atas apa yang dimakan saat sahur; 3) memberikan kekuatan fisik untuk menjalankan puasa serta amal-amal siang hari lainnya; 4) perkara-perkara ukhrawi (akhirat); karena menjalankan sunnah akan mendatangkan pahala dan tambahan kebaikan." (Is\'afu Ahlil Iman bi Wadza\'ifi Syahri Ramadhan, hal. 60-61).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dari paparan di atas, dapat kita ketahui bahwa ada beberapa makna mengenai keberkahan sahur, yaitu:\n\nWalhasil, sahur merupakan titik temu yang indah antara pemenuhan kebutuhan fisik dan pendakian derajat spiritual. Di balik aktivitas santap sahur, terdapat hakikat yang lebih dalam: kita tidak sekadar mengonsumsi nutrisi, melainkan sedang memanifestasikan keberkahan melalui hidangan. Ia berperan sebagai benteng yang menjaga stamina raga, sekaligus menjadi wasilah untuk menjemput kasih sayang Allah di waktu dini hari, sebuah fase paling mustajab di mana doa-doa lebih mudah menembus langit. Wallahu a\'lam.\n\nMuhammad Ryan Romadhon, Alumni Ma\'had Aly Al-Iman Bulus, Purworejo, Jawa Tengah.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Keutamaan Tarawih dan Witir',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Sepanjang bulan Ramadhan, umat Islam berbondong-bondong merajut berbagai kebajikan demi menjemput kemuliaan di bulan yang penuh berkah ini. Di antara rangkaian ibadah yang paling dinanti adalah pelaksanaan shalat Tarawih dan Witir yang menghidupkan malam-malam suci.\n\nKeutamaan Shalat Tarawih\n\nShalat Tarawih menempati kedudukan yang sangat istimewa sebagai ibadah sunnah yang sangat ditekankan sepanjang bulan Ramadhan. Ibadah ini membawa janji pengampunan yang luar biasa; setiap sujud dan rukuknya menjadi wasilah bagi terhapusnya dosa-dosa masa lalu. Mengenai keutamaan besar ini, Rasulullah SAW memberikan penegasannya dalam sebuah hadits:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'مَنْ قَامَ رَمَضَانَ إيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ',
+          'latin': '',
+          'translation': 'Artinya, "Barang siapa yang menghidupkan malam Ramadhan dengan iman dan ikhlas (karena Allah ta\'ala) maka diampuni dosa-dosanya yang telah berlalu." (HR Muslim).',
+        },
+        {
+          'type': 'text',
+          'content': 'Mengacu pada penjelasan Imam An-Nawawi, beliau menegaskan bahwa terminologi \'menghidupkan malam Ramadhan\' dalam hadis riwayat Imam Muslim tersebut secara spesifik merujuk pada pelaksanaan Shalat Tarawih. Dalam kitabnya, Imam An-Nawawi menguraikan:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَالْمُرَادُ بِقِيَامِ رَمَضَانَ صَلاَةُ التَّرَاوِيْحِ، وَاتَّفَقَ الْعُلَمَاءُ عَلىَ اسْتِحْبَابِهَا',
+          'latin': '',
+          'translation': 'Artinya, "Yang dimaksud dengan menghidupkan malam Ramadhan (qiyam Ramadhan) adalah shalat Tarawih. Para ulama telah sepakat tentang kesunnahannya." (Syarhun Nawawi \'alal Muslim, [Beirut, Daru Ihyait Turats: tt], jilid VI, halaman 39).',
+        },
+        {
+          'type': 'text',
+          'content': 'Para ulama memiliki pandangan yang berbeda mengenai cakupan dosa yang diampuni dalam hadits tersebut, sebagaimana dinamika ikhtilaf yang kerap muncul pada teks-teks serupa. Imam al-Haramain berpendapat bahwa pengampunan tersebut secara spesifik menyasar dosa-dosa kecil, mengingat dosa besar memerlukan mekanisme tobat khusus untuk dapat terhapuskan.\n\nDi sisi lain, Imam Ibnu al-Mundzir menawarkan perspektif yang lebih luas; beliau memandang redaksi \'mâ\' (dosa) sebagai bentuk lafaz \'âm (terminologi umum) yang menyapu bersih segala jenis dosa, baik itu kesalahan kecil maupun dosa besar.\n\nImam Syamsuddin Ar-Ramli mengatakan:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'قَالَ الْإِمَامُ: (وَالْمُكَفَّرُ الصَّغَائِرُ دُونَ الْكَبَائِرِ) . قَالَ صَاحِبُ الذَّخَائِرِ: وَهَذَا مِنْهُ تَحَكُّمٌ يَحْتَاجُ إلَى دَلِيلٍ وَالْحَدِيثُ عَامٌّ وَفَضْلُ اللَّهِ وَاسِعٌ لَا يُحْجَرُ. قَالَ ابْنُ الْمُنْذِرِ فِي قَوْلِهِ - ﷺ - «مَنْ قَامَ رَمَضَانَ إيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ»: هَذَا قَوْلٌ عَامٌّ يُرْجَى أَنَّهُ يُغْفَرُ لَهُ جَمِيعُ ذُنُوبِهِ صَغِيرُهَا وَكَبِيرُهَا.',
+          'latin': '',
+          'translation': 'Artinya: "Imam (Al-Haramain) berpendapat: \'(Yang dihapuskan) adalah dosa-dosa kecil, bukan dosa besar\'. Namun, penulis kitab Adz-Dzakha\'ir menyanggah: \'Pendapat ini adalah klaim sepihak (tahakkum) yang butuh dalil, padahal haditsnya bersifat umum dan karunia Allah itu luas, tidak terbatas\'.',
+        },
+        {
+          'type': 'text',
+          'content': 'Ibnu Mundzir juga berkomentar mengenai sabda Nabi ﷺ (Barangsiapa shalat malam di bulan Ramadhan karena iman dan mengharap pahala, maka diampuni dosa-dosanya yang telah lalu): \'Ini adalah pernyataan umum, sehingga diharapkan (dengan amal tersebut) seluruh dosanya diampuni, baik yang kecil maupun yang besar\'." (Nihayatul Muhtaj, [Beirut, Darul Fikr: 1404 H], jilid. III, hal. 206).\n\nKeutamaan Shalat Witir\n\nMelengkapi keindahan malam Ramadhan, pengerjaan Shalat Witir juga menjadi amalan yang sangat ditekankan bagi setiap Muslim. Mengenai keistimewaan Shalat Witir, Rasulullah SAW memberikan gambaran yang sangat memukau bagi seluruh umat manusia.\n\nBeliau menegaskan bahwa shalat sunnah ini memiliki nilai yang sangat agung di hadapan Allah SWT, bahkan melampaui kemewahan unta merah, simbol harta paling prestisius dan tak ternilai pada zaman tersebut. Untuk memahami betapa berharganya posisi Witir dalam timbangan amal, mari kita renungkan sabda Baginda Nabi SAW berikut ini:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'إِنَّ اللَّهَ قَدْ أَمَدَّكُمْ بِصَلَاةٍ هِيَ خَيْرٌ لَكُمْ مِنْ حُمْرِ النَّعَمِ: الْوِتْرُ، جَعَلَهُ اللَّهُ لَكُمْ فِيمَا بَيْنَ صَلَاةِ الْعِشَاءِ إِلَىٰ أَنْ يَطْلُعَ الْفَجْرُ',
+          'latin': '',
+          'translation': 'Artinya, "Sesungguhnya Allah telah memberi kalian suatu shalat yang lebih baik bagi kalian daripada unta merah, yaitu Shalat Witir. Allah menjadikannya untuk kalian antara waktu shalat Isya hingga terbit fajar." (HR Ahmad dan Abu Dawud).',
+        },
+        {
+          'type': 'text',
+          'content': 'Imam Ash-Shan\'ani dalam kitabnya, At-Tanwir Syarah Al-Jami\' Ash-Shaghir memberikan interpretasi mengenai hadits tersebut sebagai berikut,',
+        },
+        {
+          'type': 'arabic',
+          'content': 'فَإِنَّ الْعَرَبَ كَانَتْ تُحِبُّ حُمْرَ النَّعَمِ وَتَرَاهَا أَشْرَفَ مَا يُعْطَى',
+          'latin': '',
+          'translation': 'Artinya: "Sebab orang-orang Arab dahulu sangat menyukai unta merah dan menganggapnya sebagai pemberian yang paling mulia/berharga." (At-Tanwir Syarah Al-Jami\' Ash-Shaghir , [Riyadh, Maktabah Darussalam: 1432 H], jilid. III, hal. 317).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dari keterangan tersebut, kita dapat mengetahui bahwa pada zaman Rasulullah SAW, unta merah bukan sekadar hewan ternak, melainkan simbol kemakmuran tertinggi dan harta yang paling didambakan.\n\nMelalui perumpamaan yang sangat kuat ini, Baginda Nabi ingin menyentuh kesadaran kita bahwa Shalat Witir memiliki nilai intrinsik yang jauh melampaui segala kemewahan duniawi. Terlebih di bulan Ramadhan, saat setiap ketaatan mendapat apresiasi pahala yang berlipat ganda, Witir bertransformasi menjadi investasi akhirat yang tak ternilai harganya.\n\nDari paparan di atas, dapat kita simpulkan bahwa menunaikan kedua shalat ini bukan sekadar rutinitas ibadah fisik semata, melainkan sebuah upaya untuk meniupkan ruh ke dalam malam-malam Ramadhan.\n\nDengan mengerjakannya, kita tidak hanya sedang memenuhi kewajiban sunnah, tetapi juga sedang merawat nyala spiritual agar malam-malam suci ini tetap hidup dan penuh makna di hadapan Sang Pencipta, sehingga kita akan mendapatkan ampunan-Nya seraya menyiapkan investasi akhirat yang tak ternilai harganya. Wallahu a\'lam.\n\nMuhammad Ryan Romadhon, Alumni Ma\'had Aly Al-Iman Bulus, Purworejo, Jawa Tengah.',
+        },
+      ]
+    },
+  ];
