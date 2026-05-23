@@ -1,0 +1,304 @@
+    {
+      'title': 'Kultum Ramadhan: Puasa sebagai Terapi Jiwa di Bulan Ramadhan',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Menjadi pribadi yang sehat secara fisik dan mental merupakan tujuan yang diharapkan setiap orang. Untuk mencapai tujuan tersebut, Islam menghadirkan tuntunan kehidupan melalui berbagai ibadah yang disyariatkan. Salah satu contohnya adalah puasa. Puasa merupakan kewajiban yang diperintahkan oleh Allah SWT. dengan tujuan membentuk derajat takwa, sebagaimana disebutkan dalam QS. Al-Baqarah: 183. Di samping nilai spiritual tersebut, puasa juga memiliki manfaat preventif terhadap berbagai gangguan fisik maupun mental.\n\nSelama berpuasa, tubuh mengalami perubahan dalam cara mengelola energi ketika berada dalam kondisi defisit kalori. Pada saat yang sama, jiwa dilatih untuk menumbuhkan kesabaran, mengendalikan hawa nafsu, serta mengatur emosi dan respons terhadap stres. Hal ini sebagaimana ditegaskan dalam sabda baginda Nabi SAW,',
+        },
+        {
+          'type': 'arabic',
+          'content': 'لَيْسَ الصِّيَامُ مِنَ الأَكْلِ وَالشُّرْبِ إِنَّمَا الصِّيَامُ مِنَ اللَّغْوِ وَالرَّفَثِ فَإِنْ سَابَّكَ أَحَدٌ أَوْ جَهِلَ عَلَيْكَ فَقُلْ إِنِّي صَائِمٌ إِنِّي صَائِمٌ (رَوَاهُ ابن خزيمة وابن حبان)',
+          'latin': '',
+          'translation': 'Artinya, "Puasa itu bukan sekadar (menahan) dari makan dan minum. Sesungguhnya puasa itu adalah menahan diri dari perkataan sia-sia dan rafats (ucapan/perbuatan keji). Maka jika ada seseorang mencacimu atau berbuat bodoh (kasar) kepadamu, katakanlah: \'Sesungguhnya aku sedang berpuasa, sesungguhnya aku sedang berpuasa," (HR. Ibnu Khuzaimah dan Ibnu Hibban).',
+        },
+        {
+          'type': 'text',
+          'content': 'Syekh Ash-Shan\'ani dalam At-Tanwir Syarh Al-Jami\' Ash-Shaghir menjelaskan bahwa orang yang meninggalkan makan dan minum tetapi tetap mengatakan atau melakukan hal yang sia-sia dan keji, maka ia pada hakikatnya tidak dianggap berpuasa secara sempurna karena rusak pahalanya dan berkurang ganjarannya, hingga seakan-akan ia tidak berpuasa. (Ash-Shan\'ani, At-Tanwir Syarhul Jami\' Ash-Shaghir, [Riyadh, Darussalam, 2011], jilid IX, hlm. 229).\n\nJabir bin Abdillah pun berkomentar,',
+        },
+        {
+          'type': 'arabic',
+          'content': 'إِذَا صُمْتَ فَلْيَصُمْ سَمْعُكَ وَبَصَرُكَ وَلِسَانُكَ عَنِ الْكَذِبِ وَالْمَحَارِمِ وَدَعْ أَذَى الْجَارِ، وَلْيَكُنْ عَلَيْكَ سَكِينَةٌ وَوَقَارٌ يَوْمَ صَوْمِكَ وَلَا تَجْعَلْ يَوْمَ صَوْمِكَ وَيَوْمَ فِطْرِكَ سَوَاءً',
+          'latin': '',
+        },
+        {
+          'type': 'text',
+          'content': '"Ketika engkau berpuasa, maka pendengaranmu, penglihatanmu, lisanmu juga harus puasa dari dusta dan hal-hal yang haram. Jangan mengganggu tetangga. Bersikap tenanglah ketika puasa. Jangan samakan antara hari puasa dan tidak puasamu." (Ibnu Rajab al-Hanbali, Lathoiful Ma\'arif, [Riyadh, Daar Ibnu Khuzaimah, 1428 H], hlm. 364)\n\nDari hadis dan penjelasan para ulama di atas, dapat dipahami bahwa puasa bukan sekadar menahan lapar dan dahaga, tetapi juga merupakan latihan pengendalian diri terhadap ucapan, perilaku, dan pengelolaan emosi yang berkaitan dengan mekanisme sistem saraf serta fungsi otak manusia.\n\nSebuah penelitian yang dilakukan oleh Bastani dkk. (2017) melaporkan bahwa individu yang menjalankan puasa Ramadhan mengalami peningkatan signifikan pada kadar brain-derived neurotrophic factor (BDNF), serotonin, dan nerve growth factor (NGF) dalam plasma darah. Ketiga zat ini berperan penting dalam fungsi kognitif, stabilitas suasana hati, serta kemampuan otak beradaptasi terhadap stres (Bastani et al, 2017, The Effects of Fasting During Ramadan on the Concentration of Serotonin, Dopamine, Brain-Derived Neurotrophic Factor and Nerve Growth Factor, [Neurology International, Vol. 9:7043], hlm. 29–32).\n\nBDNF merupakan protein yang berperan dalam pertumbuhan dan pemeliharaan sel saraf, proses belajar dan memori, serta regulasi suasana hati. Penurunan kadar BDNF diketahui berkaitan dengan meningkatnya gejala depresi. Stres kronis dan depresi dapat menyebabkan penurunan kadar BDNF, peningkatan kematian sel, serta berkurangnya pertumbuhan neuron baru di hipokampus. Sebaliknya, peningkatan kadar BDNF sering dikaitkan dengan perbaikan kondisi psikologis. (Correia, Ana Salomé et al. BDNF Unveiled: Exploring Its Role in Major Depression Disorder, Serotonergic Imbalance, and Associated Stress Conditions. [Pharmaceutics, Vol. 15,8 2081], hlm. 4).\n\nRespons biologis tubuh terhadap puasa dipengaruhi oleh berbagai faktor, seperti kondisi metabolik, durasi puasa, pola makan, serta karakteristik individu. Oleh karena itu, pola makan yang teratur, kendali emosi, serta ketenangan selama berpuasa sebagaimana dianjurkan Nabi SAW dalam haditsnya berpotensi memengaruhi keseimbangan neurokimia yang berkontribusi terhadap stabilitas emosional.\n\nSebab kondisi psikologis yang tidak stabil sering kali memicu ketidakteraturan pola makan yang dalam jangka panjang dapat berkontribusi terhadap gangguan metabolik. Oleh karena itu, puasa dapat menjadi salah satu bentuk terapi pengendalian diri yang membantu menata kembali pola hidup dan regulasi emosi.\n\nStabilitas jiwa yang diperoleh melalui peningkatan kualitas ibadah selama Ramadhan, seperti zikir, membaca Al-Qur\'an, bersedekah, dan menghindari perbuatan munkar, dapat mendorong terbentuknya pribadi yang lebih tenang sekaligus menebalkan dinding keimanan. Pada akhirnya, hal ini dapat mengarahkan energi tubuh dan jiwa untuk melakukan hal-hal yang positif dan bermanfaat.\n\nDengan demikian, puasa yang dilakukan sesuai dengan ajaran Nabi SAW bukan hanya ibadah wajib yang berdimensi spiritual, tetapi juga memiliki dampak positif bagi kesehatan psikologis dan neurobiologis manusia. Wallahu a\'lam.\n\nUstadzah Tuti Lutfiah Hidayah, Alumnus Pesantren Luhur Ilmu Hadis Darus-Sunnah Ciputat.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Selagi Masih Ada, Berbaktilah kepada Orang Tua',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Saat ini kita sedang berada di bulan Ramadhan. Bulan yang penuh berkah di mana seluruh umat Islam di seluruh dunia melaksanakan ibadah puasa satu bulan penuh. Dalam bulan yang penuh dengan keberkahan ini, umat Islam dianjurkan untuk memperbanyak amal saleh. Di antara amal saleh yang dianjurkan dalam Islam ialah berbakti kepada kedua orang tua.\n\nBerbakti kepada orang tua adalah bagian dari perintah agama dan merupakan kewajiban bagi umat Islam. Islam sangat mewajibkan bagi seorang anak untuk berbakti kepada kedua orang tua dengan menyayangi dan menghormati mereka. Sebab kedua orang tua merupakan sebab seorang anak ada di dunia dan mereka pula yang merawat, mendidik dan membesarkan anak hingga dewasa.\n\nDalam salah satu riwayat hadits, Nabi Muhammad SAW menyamakan derajat berbakti kepada kedua orang tua dengan berjihad.',
+        },
+        {
+          'type': 'arabic',
+          'content': 'عَنْ عَبْدِ اللهِ بْنِ عَمْرٍو، قَالَ: جَاءَ رَجُلٌ إِلَى النَّبِيِّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ، يَسْتَأْذِنُهُ فِي الْجِهَادِ فَقَالَ: أَحَيٌّ وَالِدَاكَ؟ قَالَ: نَعَمْ، قَالَ: ‌فَفِيهِمَا ‌فَجَاهِدْ',
+          'latin': '',
+          'translation': 'Artinya: "Dari Abdullah bin Amr, berkata: Seorang laki-laki mendatangi Nabi Muhammad Saw meminta izin untuk mengikuti perang. Nabi Muhammad Saw bertanya: "Apakah kedua orang tuamu masih hidup?" "Masih, Nabi," jawab laki-laki tersebut. Nabi Muhammad bersabda: "Maka berjihadlah dengan berbakti kepada kedua orang tuamu," (HR. Muslim).',
+        },
+        {
+          'type': 'text',
+          'content': 'Orang tua memiliki derajat yang tinggi di dalam Islam. Dalam Al-Qur\'an, Allah SWT menempatkan perintah bersyukur kepada orang tua setelah perintah bersyukur kepada-Nya.\n\nAllah Ta\'ala berfirman dalam surat Luqman ayat 14:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَوَصَّيْنَا الْاِنْسَانَ بِوَالِدَيْهِۚ حَمَلَتْهُ اُمُّهٗ وَهْنًا عَلٰى وَهْنٍ وَّفِصَالُهٗ فِيْ عَامَيْنِ اَنِ اشْكُرْ لِيْ وَلِوَالِدَيْكَۗ اِلَيَّ الْمَصِيْرُ',
+          'latin': '',
+          'translation': 'Artinya: "Kami mewasiatkan kepada manusia (agar berbuat baik) kepada kedua orang tuanya. Ibunya telah mengandungnya dalam keadaan lemah yang bertambah-tambah dan menyapihnya dalam dua tahun. (Wasiat Kami,) "Bersyukurlah kepada-Ku dan kepada kedua orang tuamu. Hanya kepada-Ku (kamu) kembali." (Qs. Luqman: 14).',
+        },
+        {
+          'type': 'text',
+          'content': 'Pada ayat di atas, Allah SWT memerintahkan kepada kita selaku umat Islam agar selalu berbakti kepada orang tua. Kedua orang tua, terutama ibu yang mengandung selama sembilan bulan dalam kepayahan, melahirkan dengan mempertaruhkan nyawa dan setelahnya dengan kasih sayang menyusui anaknya selama 2 tahun lamanya.\n\nDalam ayat ini, Allah juga menempatkan posisi bersyukur kepada kedua orang tua setelah bersyukur kepada-Nya yang menjadikan kedua orang tua memiliki derajat yang tinggi di sisi-Nya.\n\nSyekh Nawawi Al-Bantani dalam tafsirnya menjelaskan bahwa maksud dari perintah bersyukur kepada Allah pada ayat di atas ialah dengan menaati perintah-Nya sebab pada hakikatnya Allah yang memberikan nikmat. Sedangkan perintah bersyukur kepada kedua orang tua dengan berbakti, sebab keduanya merupakan sebab adanya anak.\n\nSyekh Nawawi berkata:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'أَنِ اشْكُرْ لِي بِالطَّاعَةِ لِأَنِّيْ الْمُنْعِمُ فِيْ الْحَقِيْقَةِ وَلِوَالِدَيْكَ بِالتَّرْبِيَّةِ، لِأَنَّهُمَا سَبَبٌ لِوُجُوْدِكَ',
+          'latin': '',
+          'translation': 'Artinya: "Bersyukurlah kepada-Ku sebab Aku yang memberikan nikmat, dan kepada orang tuamu dengan berbakti, sebab keduanya merupakan sebab adanya dirimu," (Nawawi Banten, Marah Labid, [Beirut, Darul Kutub Al-Ilmiyah, 1417 H], juz II hal 237).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dalam ayat setelahnya, bahkan Allah memerintahkan untuk tetap berbakti kepada orang tua meski berbeda keyakinan. Allah memerintahkan untuk membersamai keduanya dengan baik di dunia dengan menaati perintah keduanya selagi tidak bertentangan dengan perintah-Nya.\n\nAllah Ta\'ala berfirman:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَاِنْ جَاهَدٰكَ عَلٰٓى اَنْ تُشْرِكَ بِيْ مَا لَيْسَ لَكَ بِهٖ عِلْمٌ فَلَا تُطِعْهُمَا وَصَاحِبْهُمَا فِى الدُّنْيَا مَعْرُوْفًاۖ وَّاتَّبِعْ سَبِيْلَ مَنْ اَنَابَ اِلَيَّۚ  ثُمَّ اِلَيَّ مَرْجِعُكُمْ فَاُنَبِّئُكُمْ بِمَا كُنْتُمْ تَعْمَلُوْنَ',
+          'latin': '',
+          'translation': 'Artinya: "Jika keduanya memaksamu untuk mempersekutukan-Ku dengan sesuatu yang engkau tidak punya ilmu tentang itu, janganlah patuhi keduanya, (tetapi) pergaulilah keduanya di dunia dengan baik dan ikutilah jalan orang yang kembali kepada-Ku. Kemudian, hanya kepada-Ku kamu kembali, lalu Aku beri tahukan kepadamu apa yang biasa kamu kerjakan," (Qs. Luqman: 15).',
+        },
+        {
+          'type': 'text',
+          'content': 'Ayat 15 surat Luqman di atas mempertegas posisi kedua orang tua yang memiliki kedudukan tinggi di sisi Allah Swt. Allah SWT tetap memerintahkan untuk berbakti kepada orang tua dan menemaninya dengan baik meski orang tua mengajak bermaksiat kepada-Nya.\n\nSyekh Nawawi Al-Bantani berkata:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'أَنَّ خِدْمَتَهُمَا وَاجِبَةٌ وَطَاعَتَهُمَا لَازِمَةٌ مَا لَمْ يَكُنْ فِيْهَا تَرْكُ طَاعَةِ اللهِ، أَمَّا إِذَا أَفْضَى إِلَيْهِ فَلَا تُطِعْهُمَا وَصَاحِبْهُما فِي الدُّنْيا مَعْرُوفاً، أي صَحَابًا مَعْرُوْفًا يَرْتَضِيْهِ الشَّرْعُ وَتَقْتَضِيْهِ',
+          'latin': '',
+        },
+        {
+          'type': 'arabic',
+          'content': 'الْمُرُوْءَةُ',
+          'latin': '',
+          'translation': 'Artinya: "Berbakti dan menaati kedua orang tua dihukumi wajib selagi tidak ada unsur meninggalkan perintah taat kepada Allah. Adapun jika sampai menghantarkan kepada maksiat maka jangan mengikutinya. Namun tetaplah pergauli keduanya di dunia dengan baik yang sesuai dengan tuntunan syariat," (Marah Labid, hal. 237).',
+        },
+        {
+          'type': 'text',
+          'content': 'Beberapa ayat berbakti kepada orang tua seperti yang dicontohkan di atas memberikan penjelasan yang tegas bahwa berbakti kepada orang tua sangat diwajibkan dalam Islam selagi tidak memerintahkan kepada kemaksiatan.\n\nDalam konteks di zaman sekarang, berbakti kepada orang tua bisa dilakukan dengan berbagai macam cara. Misal secara ekonomi, dari uang penghasilan hasil kerja selama sebulan, kita bisa menyisihkannya untuk sedikit membantu meringankan ekonomi orang tua. Atau mungkin misal kita berbeda pandangan politik dengan orang tua, kita tetap menghormatinya dan tidak menjauhinya karena hal tersebut.\n\nKesimpulannya, berbakti kepada orang tua merupakan kewajiban dalam Islam. Pada momen Ramadhan yang dipenuhi keberkahan ini, bagi seorang anak yang masih memiliki kedua orang tua, hendaknya memanfaatkannya dengan baik, yaitu dengan berbakti dan membersamai keduanya selagi masih diberikan kesempatan. Dianjurkan pula bagi seorang anak untuk selalu mendoakan yang terbaik untuk kedua orang tuanya sebagaimana mereka selalu mendoakan yang terbaik untuk kita.\n\nAlwi Jamalulel Ubab, Penulis Tinggal di Indramayu.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Allah Selalu Bersama Orang-Orang yang Sabar',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Di dalam kehidupan ini, setiap manusia pasti tak luput dari ujian dan cobaan. Sikap kita ketika mendapatkan ujian dan cobaan ini, tiada lain, yakni harus menghadapinya dengan sabar. Sifat sabar merupakan salah satu karakter yang dimiliki oleh orang-orang yang beriman. Bahkan, Allah senantiasa beserta orang-orang yang sabar. Sebagaimana firman Allah SWT dalam Al-Qur\'an:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوا اسْتَعِيْنُوْا بِالصَّبْرِ وَالصَّلٰوةِۗ اِنَّ اللّٰهَ مَعَ الصّٰبِرِيْنَ',
+          'latin': '',
+          'translation': 'Artinya, "Wahai orang-orang yang beriman, mohonlah pertolongan (kepada Allah) dengan sabar dan salat. Sesungguhnya Allah beserta orang-orang yang sabar," (QS Al-Baqarah ayat 153).',
+        },
+        {
+          'type': 'text',
+          'content': 'Meski terlihat mudah dilaksanakan, tetapi pada kenyataannya banyak orang yang terkadang merasa tidak sabar, ketika ia tengah mendapatkan ujian atau cobaan dari Allah SWT. Hal tersebut dapat kita maklumi, sebab setiap manusia memiliki kadar atau tingkat kesabaran masing-masing. Imam Al-Ghazali dalam kitab Ihya Ulumiddin, membagi sabar dalam beberapa tingkatan:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَقَالَ بَعْضُ الْعَارِفِينَ: أَهْلُ الصَّبْرِ عَلَى ثَلَاثَةِ مَقَامَاتٍ',
+          'latin': '',
+          'translation': 'Artinya, "Sebagian ulama makrifat mengatakan: Orang sabar terdiri atas tiga tingkatan," (Imam Al-Ghazali, Ihya Ulumiddin, [Beirut, Darul Fikr: 2018 M/1439-1440 H], juz IV, halaman 72).',
+        },
+        {
+          'type': 'text',
+          'content': 'Tingkat sabar yang pertama yakni tingkatan bagi orang yang bertobat, yang ditandai dengan tarku syahwat atau sabar dalam meninggalkan syahwat. Sebagai contoh, pada bulan Ramadhan ini, kita melaksanakan perintah puasa, yang di dalamnya kita dilatih untuk bersabar atau menahan diri dari perkara-perkara yang membatalkan puasa, seperti makan, minum, dan lain-lain.\n\nMaka, bulan Ramadhan menjadi salah satu momen yang tepat bagi kita untuk melatih kesabaran. Selaras dengan hal tersebut, Nabi Muhammad SAW bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'الصَّوْمُ نِصْفُ الصَّبْرِ',
+          'latin': '',
+          'translation': 'Artinya, "Puasa adalah separuh kesabaran," (HR At-Tirmidzi dan Ahmad).',
+        },
+        {
+          'type': 'text',
+          'content': 'Pada saat berpuasa, kita juga dilatih untuk menahan diri dengan tidak melakukan hal-hal yang dapat menghilangkan keberkahan dan bahkan menggugurkan pahala puasa kita, semisal dengan menjaga lisan kita dari perkataan bohong, ghibah, fitnah, dan lain sebagainya.\n\nKemudian, tingkatan sabar yang kedua yakni ridha (menerima) atas takdir. Ini derajat sabar bagi orang-orang yang zuhud. Ridha atas takdir yang terkadang terasa menyakitkan seperti halnya musibah berupa bencana, penyakit, perlakuan buruk dari orang lain, kemiskinan, kecelakaan, kemalingan, kehilangan harta benda, kebakaran, dan lain sebagainya.\n\nMusibah ini jika dihadapi dengan sabar serta sikap ridha, akan meninggikan derajat atau menghapus dosa. Rasulullah shallallahu \'alaihi wa sallam bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'مَا يُصِيْبُ الْمُسْلِمَ مِنْ نَصَبٍ وَلَا وَصَبٍ وَلَا هَمٍّ وَلَا حَزَنٍ وَلَا أَذًى وَلَا غَمٍّ حَتَّى الشَّوْكَة يُشَاكُهَا، إِلَّا كَفَّرَ اللّٰهُ بِهَا مِنْ خَطَايَاهُ',
+          'latin': '',
+          'translation': 'Artinya, "Tidaklah seorang Muslim tertimpa keletihan dan penyakit, kekhawatiran dan kesedihan, gangguan dan kesusahan, bahkan duri yang melukainya, melainkan dengan sebab itu semua Allah akan menghapus dosa-dosanya." (HR al-Bukhari).',
+        },
+        {
+          'type': 'text',
+          'content': 'Kemudian, tingkatan sabar yang ketiga adalah mencintai apa yang dilakukan Allah terhadapnya. Ini derajat orang yang as-shiddiq. Seringkali, semakin Allah semakin mencintai seorang hamba dan begitu juga sebaliknya, maka ia juga akan memberikan ujian yang semakin berat kepada hamba-Nya tersebut. Dalam sebuah hadits, Rasulullah shallallahu \'alaihi wa sallam bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'مَنْ يُرِدِ اللّٰهُ بِهِ خَيْرًا يُصِبْ مِنْهُ',
+          'latin': '',
+          'translation': 'Artinya: "Siapa saja yang Allah kehendaki kebaikan pada dirinya, maka Allah akan menimpakan musibah kepadanya," (HR al-Bukhari).',
+        },
+        {
+          'type': 'text',
+          'content': 'Jadi, orang yang dikehendaki baik oleh Allah akan ditimpa musibah dan diberi kekuatan oleh Allah untuk bersikap sabar dalam menanggung dan menghadapi musibah yang menimpanya. Seberapa kuat dan sabar, seorang hamba ketika mendapatkan ujian dan musibah dari Allah SWT. Dan seperti yang telah kita tahu, mereka yang paling berat mendapatkan ujian dari Allah adalah para nabi. Rasulullah shallallahu \'alaihi wa sallam bersabda:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'أَشَدُّ النَّاسِ بَلَاءً الأَنْبِيَاءُ ثُمَّ الْأَمْثَلُ فَالْأَمْثَلُ، يُبْتَلَى الرَّجُلُ عَلَى حَسَبِ دِيْنِهِ',
+          'latin': '',
+          'translation': 'Artinya, "Manusia yang paling berat ujian dan musibahnya adalah para nabi, kemudian orang-orang yang di bawah derajat mereka, kemudian orang-orang yang di bawah derajat mereka. Seseorang diuji berdasarkan sekuat apa ia pegangteguh agamanya," (HR at-Tirmidzi, Ahmad dan lainnya).',
+        },
+        {
+          'type': 'text',
+          'content': 'Oleh karena itu, marilah kita jadikan puasa ini sebagai saat yang tepat bagi kita untuk melatih kesabaran kita. Dengan bersabar, insyaAllah kita akan tergolong ke dalam orang-orang yang beruntung dan mendapatkan pahala yang besar, bahkan tak terhitung. Sebagaimana janji Allah SWT bagi orang yang sabar:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'إِنَّمَا يُوَفَّى الصَّابِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ',
+          'latin': '',
+          'translation': 'Artinya, "Orang-orang yang sabar akan digenapi ganjarannya dengan tak terhitung," (Surat Az-Zumar ayat 10).',
+        },
+        {
+          'type': 'text',
+          'content': 'Demikianlah kultum Ramadhan tentang sikap sabar dan khususnya dalam konteks kita selama melaksanakan ibadah di bulan Ramadhan ini. Semoga kita semua termasuk ke dalam golongan orang-orang yang sabar dan dicintai oleh Allah SWT. Amin ya Rabbal \'alamin.\n\nAjie Najmuddin, Pengurus MWCNU Banyudono Boyolali.',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Memprioritaskan Kebahagiaan Keluarga',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Pernahkah kita selalu merasa senang ketika sering berbuat baik kepada orang lain, namun dalam melakukan hal yang sama kepada keluarga, khususnya anak dan istri di rumah, merasa biasa-biasa saja?\n\nMemang tidak ada yang salah dengan perilaku yang hampir menjadi kebiasaan kita itu. Justru berbuat baik kepada orang lain merupakan pekerjaan yang sangat mulia.\n\nAkan tetapi, di sisi lain, kita dianjurkan oleh Allah swt untuk memberi perlakuan spesial kepada orang-orang terdekat, bahkan penting sekali untuk kita prioritaskan. Kemudian, setelah itu berbuat baik kepada orang lain yang tidak memiliki ikatan kekerabatan dengan kita.\n\nDi dalam Al-Qur\'an urutan ini dijelaskan secara langsung pada surat An-Nisa ayat 36:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَاعْبُدُوا اللّٰهَ وَلَا تُشْرِكُوْا بِهٖ شَيْـًٔا وَّبِالْوَالِدَيْنِ اِحْسَانًا وَّبِذِى الْقُرْبٰى وَالْيَتٰمٰى وَالْمَسٰكِيْنِ وَالْجَارِ ذِى الْقُرْبٰى وَالْجَارِ الْجُنُبِ وَالصَّاحِبِ بِالْجَنْۢبِ وَابْنِ السَّبِيْلِۙ وَمَا مَلَكَتْ اَيْمَانُكُمْ ۗ اِنَّ اللّٰهَ لَا يُحِبُّ مَنْ كَانَ مُخْتَالًا فَخُوْرًاۙ',
+          'latin': '',
+          'translation': 'Artinya: "Sembahlah Allah dan janganlah kamu mempersekutukan-Nya dengan sesuatu apa pun. Berbuat baiklah kepada kedua orang tua, karib kerabat, anak-anak yatim, orang-orang miskin, tetangga dekat dan tetangga jauh, teman sejawat, ibnu sabil, serta hamba sahaya yang kamu miliki. Sesungguhnya Allah tidak menyukai orang yang sombong lagi sangat membanggakan diri."',
+        },
+        {
+          'type': 'text',
+          'content': 'Ayat 36 menyebutkan bahwa urutan berbuat baik yang harus kita dahulukan ialah kedua orang tua dan kerabat atau keluarga. Baru setelahnya kita diperintahkan untuk melakukan kebaikan kepada anak-anak yatim, orang-orang miskin, tetangga, teman dan orang lain yang membutuhkan.\n\nIni dilandasi sabda Rasulullah saw riwayat Al-Baihaqi, bersumber dari Jabir bin Abdillah:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'عَنْ جَابِرِ بْنِ عَبْدِ اللّٰهِ، قَالَ: قَالَ رَسُولُ اللّٰهِ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ: ‌ابْدَءُوْا ‌بِمَا ‌بَدَأَ ‌اللّٰهُ عَزَّ وَجَلَّ بِهِ',
+          'latin': '',
+          'translation': 'Artinya: "Dari Jabir bin Abdillah, ia berkata, bahwa Rasulullah Saw bersabda: "Mulailah (mengerjakan sesuatu) sesuai dengan apa yang dimulai (atau yang diurutkan) oleh Allah dengannya."',
+        },
+        {
+          'type': 'text',
+          'content': 'Meskipun hadits menjelaskan tentang urutan pelaksanaan Sa\'i yang harus mulai dari bukit Shafa ke bukit Marwah, sebagaimana petunjuk yang diberikan oleh Allah dalam Al-Baqarah ayat 158, namun, hadits tersebut juga dipakai oleh ulama untuk menetapkan urutan berwudhu, dimulai dengan membasuh wajah hingga membasuh kaki, seperti yang dijelaskan Al--Maidah ayat 6.\n\nKaitannya dengan An-Nisa ayat 36 yang menjelaskan urutan orang-orang yang harus diperlakukan secara spesial, dimulai dari orang yang paling terdekat terlebih dahulu, yakni: dari orang tua, lalu karib kerabat atau keluarga, anak-anak yatim, orang-orang miskin, tetangga, teman sejawat, dan siapa saja yang membutuhkan.\n\nMengutamakan berbuat baik kepada keluarga juga disebutkan oleh Nabi Muhammad saw dengan narasi bahwa pemberian yang terbaik, ialah sesuatu yang diserahkan kepada keluarga terlebih dahulu.\n\nDirincikan dalam hadits yang diriwayatkan oleh Imam Muslim, bersumber dari Tsauban:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'قَالَ رَسُولُ اللّٰهِ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ: ‌أَفْضَلُ ‌دِينَارٍ ‌يُنْفِقُهُ الرَّجُلُ دِينَارٌ يُنْفِقُهُ عَلَى عِيَالِهِ، وَدِينَارٌ يُنْفِقُهُ الرَّجُلُ عَلَى دَابَّتِهِ فِي سَبِيلِ اللّٰهِ، وَدِينَارٌ يُنْفِقُهُ عَلَى أَصْحَابِهِ فِي سَبِيلِ اللّٰهِ',
+          'latin': '',
+          'translation': 'Artinya: "Rasulullah Saw bersabda: "Sebaik-baik Dinar (yakni, uang emas atau alat transaksi di masa Nabi) pemberian laki-laki ialah yang ia berikan kepada keluarganya, kemudian Dinar yang ia belanjakan untuk hewan ternaknya di jalan Allah, dan Dinar yang ia berikan kepada sahabatnya."',
+        },
+        {
+          'type': 'text',
+          'content': 'Nabi saw juga membuktikan bahwa berbuat baik kepada keluarga adalah amal yang tidak bisa disepelekan. Karena hal tersebut, beliau secara tegas mengatakan, bahwa beliau pun selalu memperlakukan keluarganya dengan sangat baik.\n\nDisebutkan dalam hadits yang diriwayatkan oleh Ibnu Majah, bersumber dari Ibnu Abbas:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'عَنِ النَّبِيِّ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ قَالَ: خَيْرُكُمْ ‌خَيْرُكُمْ ‌لِأَهْلِهِ، وَأَنَا خَيْرُكُمْ لِأَهْلِي',
+          'latin': '',
+          'translation': 'Artinya: "Dari Nabi Saw, beliau bersabda: "Sebaik-baik kalian ialah yang paling baik kepada keluarganya. Dan aku merupakan orang yang paling baik kepada keluargaku di antara kalian."',
+        },
+        {
+          'type': 'text',
+          'content': 'Tidak hanya pengakuan sepihak dari Nabi saw saja, akan tetapi testimoni tentang beliau yang berperilaku baik kepada keluarga ini, juga bersumber dari istri-istrinya. Salah satunya disebutkan oleh Aisyah binti Abu Bakar:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'مَا كَانَ النَّبِيُّ صَلَّى اللّٰهُ عَلَيْهِ وَسَلَّمَ ‌يَصْنَعُ ‌فِي ‌أَهْلِهِ؟ قَالَتْ: كَانَ فِي مِهْنَةِ أَهْلِهِ، فَإِذَا حَضَرَتِ الصَّلَاةُ قَامَ إِلَى الصَّلَاةِ',
+          'latin': '',
+          'translation': 'Artinya: "Apa yang dilakukan oleh Nabi saw ketika berada di tengah-tengah keluarganya?" Aisyah menjawab: "Nabi saw biasanya melakukan pekerjaan rumah. Namun apabila waktu shalat telah tiba, ia bergegas melaksanakannya."',
+        },
+        {
+          'type': 'text',
+          'content': 'Sering kali kita merasa senang dan puas hati telah membahagiakan teman dan sahabat, akan tetapi ketika melakukan perbuatan yang sama kepada keluarga, kita cenderung biasa-biasa saja.\n\nPadahal, di dalam Al-Qur\'an QS. An-Nisa ayat 36 disebutkan, bahwa kebaikan itu dimulai dari yang paling dekat hubungannya dengan kita. Dimulai dari orang tua, lalu kerabat, tetangga, kemudian orang yang memiliki hubungan yang jauh, seperti teman atau sahabat.\n\nKita juga perlu mencontoh apa yang dilakukan Nabi kepada keluarganya. Beliau selalu mendahulukan kebahagiaan untuk keluarganya. Sampai-sampai ia gemar membantu mengerjakan urusan rumah tangga. Wallahu a\'lam.\n\nUstadz Muhaimin Yasin, Alumnus Pondok Pesantren Ishlahul Muslimin Lombok Barat dan Pegiat Kajian Keislaman',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Menjemput Pertolongan Allah Lewat Kesabaran di Ramadhan',
+      'date': '12 Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': 'Pada bulan suci Ramadhan, sebagai Muslim kita tidak hanya memanfaatkan waktu untuk berpuasa, memperbanyak membaca Al-Qur\'an, dan melakukan berbagai amal kebaikan. Ramadhan juga menjadi momentum untuk memahami nilai-nilai penting yang sering kali luput dari perhatian, padahal merupakan bagian tak terpisahkan dari makna bulan yang mulia ini.\n\nSalah satu nilai tersebut adalah kesabaran. Ia melekat erat dengan Ramadhan, terutama melalui kewajiban puasa. Ibadah ini bukan sekadar menahan lapar dan dahaga, melainkan latihan membentuk kesabaran dalam seluruh aspek kehidupan.\n\nKarena itu, Ramadhan bukan hanya waktu yang tepat untuk melatih kesabaran secara fisik, tetapi juga kesempatan untuk memperdalam pemahaman kita tentang hakikat dan peran kesabaran dalam kehidupan sehari-hari.\n\nDi antara yang penting untuk kita pahami adalah, pertama, bahwa kesabaran sangat berkaitan erat dengan bulan Ramadhan. Kedua, kesabaran merupakan rezeki dari Allah SWT. Ketiga, bersabar merupakan awal dari pertolongan Allah SWT.\n\nMengenai poin pertama, bahwa kesabaran erat dengan bulan Ramadhan, Allah SWT berfirman dalam Surat al-Baqarah ayat 153:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوا اسْتَعِيْنُوْا بِالصَّبْرِ وَالصَّلٰوةِۗ اِنَّ اللّٰهَ مَعَ الصّٰبِرِيْنَ',
+          'latin': '',
+          'translation': 'Artinya: "Wahai orang-orang yang beriman, mohonlah pertolongan (kepada Allah) dengan sabar dan shalat. Sesungguhnya Allah beserta orang-orang yang sabar." (QS. Al-Baqarah [2]: 153).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dalam menafsirkan ayat ini, Imam Abu Hayyan dalam tafsir Al-Bahrul Muhith memaparkan beberapa pendapat para mufassir terkait makna sabar. Di antaranya seperti redaksi berikut:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَقَدْ قَيَّدَ بَعْضُهُمُ الصَّبْرَ هُنَا: بِأَنَّهُ الصَّبْرُ عَلَى أَذَى الْكُفَّارِ بِالطَّعْنِ عَلَى التَّحَوُّلِ وَالصَّلَاةِ إِلَى الْكَعْبَةِ، وَبَعْضُهُمْ بِالصَّبْرِ عَلَى أَدَاءِ الْفَرَائِضِ. وَرُوِيَ عَنِ ابْنِ عَبَّاسٍ وَبَعْضِهِمْ قَالَ: هُوَ كِنَايَةٌ عَنِ الصَّوْمِ، وَمِنْهُ قِيلَ لِرَمَضَانَ: شَهْرُ الصَّبْرِ',
+          'latin': '',
+          'translation': 'Artinya: "Sebagian ulama mengartikan sabar dalam ayat ini dengan kesabaran atas cacian orang-orang kafir soal perpindahan kiblat (yang sebelumnya shalat menghadap ke Baitul Maqdis) lalu berganti ke Ka\'bah. Sebagian lagi ada yang mengartikan sabar dalam melaksanakan kewajiban. Diriwayatkan dari Ibnu Abbas dan sebagian ulama, ia berkata, \'sabar itu adalah kinayah dari puasa; ada juga yang mengartikan bahwa Ramadhan bulan kesabaran." (Imam Abu Hayyan, Al-Bahrul Muhith, [Beirut: Darul Fikr, 1420 H], jilid II, hal. 51).',
+        },
+        {
+          'type': 'text',
+          'content': 'Jadi, antara kesabaran dan Ramadhan merupakan dua unsur yang sangat berkaitan, tak terpisahkan, hingga dikatakan bahwa Ramadhan merupakan bulan kesabaran, sebagaimana penafsiran paling akhir.\n\nKemudian, yang kedua, kesabaran merupakan rezeki dari Allah. Buktinya, Rasulullah SAW pun memosisikan kesabaran yang kita punya sebagai rezeki yang sangat berharga, bahkan sampai disebut pemberian yang paling baik dan luas. Berikut bunyi haditsnya:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'مَا رُزِقَ عَبْدٌ خَيْرًا لَهُ وَلَا أَوْسَعَ مِنَ الصَّبْرِ',
+          'latin': '',
+          'translation': 'Artinya: "Seorang hamba tidak diberikan rezeki yang lebih baik dan luas daripada rezeki kesabaran." (HR Imam Hakim).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dalam riwayat yang lain disebutkan:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَمَنْ يَسْتَعْفِفْ يُعِفَّهُ اللهُ، وَمَنْ يَسْتَغْنِ يُغْنِهِ اللهُ، وَمَنْ يَتَصَبَّرْ يُصَبِّرْهُ اللهُ، وَمَا أُعْطِيَ أَحَدٌ مِنْ عَطَاءٍ خَيْرًا وَأَوْسَعَ مِنَ الصَّبْرِ',
+          'latin': '',
+          'translation': 'Artinya: "Siapa saja menjaga kesucian dirinya, maka Allah akan menjaga kesuciannya, siapa saja mencukupkan dirinya tanpa meminta-minta, maka Allah akan menjadikannya kaya, dan siapa yang berlatih untuk bersabar, Allah akan beri kesabaran, dan tidaklah seseorang diberi pemberian yang lebih baik daripada kesabaran." (HR Imam Bukhari)',
+        },
+        {
+          'type': 'text',
+          'content': 'Dalam dua hadits di muka terdapat diksi ash-shabru, kesabaran dan yatashabbar, berlatih bersabar. Artinya, yang dimaksud dengan pemberian yang paling baik dan luas tersebut adalah kesabaran. Dalam konteks ini, kesabaran itu murni pemberian/rezeki dari Allah SWT. Ini makna dari hadits pertama dan kalimat terakhir dari hadits kedua.\n\nBagaimana cara mendapatkannya? Dengan berusaha bersabar, sebagaimana tersurat dalam kalimat awal dalam hadits kedua yang memakai diksi yatashabbar.\n\nDalam ilmu gramatika Arab, setiap kata yang mengikuti wazan tafa\'alah-yatafa\'alu, tashabbara-yatashabbaru, berfaedah takalluf. Artinya, harus ada usaha untuk mendapatkan hal tersebut; dalam konteks ini, adalah mendapatkan kesabaran.\n\nKenapa kesabaran dikategorikan sebagai rezeki paling baik dan luas? Simak jawaban berikut:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'لِأَنَّهُ إِكْلِيلٌ لِلْإِيمَانِ، وَأَوْفَرُ الْمُؤْمِنِينَ حَظًّا مِنَ الصَّبْرِ أَوْفَرُهُمْ حَظًّا مِنَ الْقُرْبِ مِنَ الرَّبِّ، وَالصَّبْرُ رِزْقٌ مِنَ اللَّهِ، لَا يَسْتَبِدُّ الْعَبْدُ بِكَسْبِهِ، وَمَا يُضَافُ إِلَى كَسْبِ الْعَبْدِ هُوَ التَّصَبُّرُ، فَإِذَا حَمَلَ عَلَى نَفْسِهِ التَّصَبُّرَ أَمَدَّهُ اللَّهُ بِكَمَالِ الصَّبْرِ، وَفِي الْخَبَرِ: مَنْ يَتَصَبَّرْ يُصَبِّرْهُ اللَّهُ، فَإِذَا رَزَقَهُ الصَّبْرَ كَانَ أَوْسَعَ مِنْ كُلِّ نِعْمَةٍ وَاسِعَةٍ، لِأَنَّهُ يُسَهِّلُ بِالصَّبْرِ جَمِيعَ الْخَيْرَاتِ، وَتَرْكَ الْمُنْكَرَاتِ، وَتَحَمُّلَ الْمَكْرُوهَاتِ الْمُقَدَّرَاتِ',
+          'latin': '',
+          'translation': 'Artinya: "Karena sabar layaknya mahkota bagi keimanan, dan karena semakin sempurna bagian kesabaran Mukminin, semakin sempurna bagian kedekatannya kepada Tuhannya. Kesabaran merupakan rezeki dari Allah. (Sejatinya) hamba-Nya tidak memiliki daya dengan cara ber-kasab/ikhtiar (mendapatkannya). Sedangkan penisbatan kasab pada seorang hamba itu merupakan proses/usaha bersabar.  Jadi, jika ia bisa menanggung usaha bersabar tersebut, Allah akan memberikan kesabaran yang sempurna.',
+        },
+        {
+          'type': 'text',
+          'content': '"Dalam hadits dikatakan, \'siapa saja berusaha bersabar niscaya Allah akan berikan kesabaran. Dan ketika ia diberi rezeki kesabaran, hal tersebut lebih luas daripada seluruh kenikmatan yang luas. Karena kesabaran akan mempermudah melaksanakan segala kebaikan, meninggal kemungkaran, dan sekaligus meringankan semua beban perkara yang tidak disukai tapi ditakdirkan." (Syekh Zainuddin Al-Munawi, Faydhul Qadir, [Mesir, Maktabah at-Tijariyyah al-Kubra, 1356 H], jilid V, hlm. 447).\n\nSelanjutnya, yang ketiga, sikap bersabar atas sesuatu yang terjadi merupakan tahap awal dari datangnya pertolongan Allah. Hal ini tersirat dalam ayat yang telah disebut sebelumnya, yaitu secara tegas Allah SWT memerintahkan orang-orang Mukmin untuk meminta pertolongan dengan kesabaran dan shalat.\n\nImam Mawardi mengutip beberapa kalam ulama tentang kesabaran yang menunjukkan bahwa pertolongan sangat erat kaitannya dengan kesabaran. Di antaranya adalah redaksi berikut:',
+        },
+        {
+          'type': 'arabic',
+          'content': 'وَاعْلَمْ أَنَّ النَّصْرَ مَعَ الصَّبْرِ .... وَقَالَ بَعْضُ الْحُكَمَاءِ: بِمِفْتَاحِ عَزِيمَةِ الصَّبْرِ تُعَالَجُ مَغَالِيقُ الْأُمُورِ',
+          'latin': '',
+          'translation': 'Artinya: "Ketahuilah! Sungguh pertolongan bersama dengan kesabaran. Sebagian filsuf berkata, \'Dengan kunci komitmen kesabaran, akan terbuka gembok-gembok segala urusan." (Imam Mawardi, Adabud Dunya wad Din, [Daru Maktabatul Hayat, t.t.], hal. 290).',
+        },
+        {
+          'type': 'text',
+          'content': 'Dari semua pemaparan di atas, bisa kita simpulkan bahwa bulan Ramadan merupakan momen yang sangat tepat untuk melatih bersabar dalam segala aspek kehidupan, baik secara vertikal dengan bersabar dalam menjalankan amal yang diperintahkan Allah SWT dan menjauhi larangan-Nya, atau secara horizontal dengan bersabar terhadap hal-hal yang tidak kita suka yang bersumber dari sesama manusia.\n\nLatihan bersabar tersebut merupakan ikhtiar kita agar diberi rezeki kesabaran yang menjadi kunci untuk membuka gembok-gembok dan bisa menyingkirkan kesulitan yang sedang menimpa. Jika kesulitan itu tak kunjung pergi, yakinlah bahwa pertolongan-Nya akan datang di waktu yang tepat berkat kesabaran kita. Wallahu a\'lam.\n\nSyifaul Qulub Amin, Alumnus PP Nurul Cholil Bangkalan dan Pengajar di PP Putri Al-Masyhuriyah Kebonan Bangkalan.',
+        },
+      ]
+    },
