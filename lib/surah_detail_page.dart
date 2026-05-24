@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 import 'quran_service.dart';
+import 'settings_provider.dart';
+import 'settings_page.dart';
 
 class SurahDetailPage extends StatefulWidget {
   final int nomor;
@@ -18,6 +21,35 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
   int? _currentlyPlayingAyat;
   bool _isFullSurahPlaying = false;
   List<String> _favoriteSurahs = [];
+  bool _showTranslation = true;
+
+  void _showFontSizeDialog(BuildContext context, SettingsProvider settings) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Pilih Ukuran Font', style: TextStyle(fontWeight: FontWeight.bold)),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: ['Kecil', 'Sedang', 'Besar'].map((option) {
+              return RadioListTile<String>(
+                title: Text(option),
+                value: option,
+                groupValue: settings.fontSize,
+                activeColor: const Color(0xFF13A884),
+                onChanged: (String? value) {
+                  if (value != null) {
+                    settings.setFontSize(value);
+                    Navigator.pop(context);
+                  }
+                },
+              );
+            }).toList(),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   void initState() {
@@ -218,7 +250,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
 
         final surah = snapshot.data!;
         return Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: CustomScrollView(
             slivers: [
               _buildSliverAppBar(surah),
@@ -241,8 +273,175 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
     );
   }
 
+  Widget _buildBottomSheetItem({
+    required BuildContext context,
+    required Widget icon,
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+        child: Row(
+          children: [
+            SizedBox(
+              width: 32,
+              child: icon,
+            ),
+            const SizedBox(width: 16),
+            Text(
+              title,
+              style: GoogleFonts.outfit(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: isDarkMode ? Colors.white : Colors.black87,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showMenuBottomSheet(BuildContext context, SurahDetailModel surah) {
+    final settings = Provider.of<SettingsProvider>(context, listen: false);
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setModalState) {
+            final localIsDarkMode = Theme.of(context).brightness == Brightness.dark;
+            final localIsFavorite = _favoriteSurahs.contains(widget.nomor.toString());
+            final localIsCompleted = _isCompleted;
+
+            return SafeArea(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 10, bottom: 10),
+                    width: 40,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                  _buildBottomSheetItem(
+                    context: context,
+                    icon: Center(
+                      child: Text(
+                        'aA',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: localIsDarkMode ? Colors.white : Colors.black87,
+                        ),
+                      ),
+                    ),
+                    title: 'Ubah ukuran teks',
+                    onTap: () {
+                      Navigator.pop(context);
+                      _showFontSizeDialog(context, settings);
+                    },
+                  ),
+                  _buildBottomSheetItem(
+                    context: context,
+                    icon: Icon(Icons.info_outline, color: localIsDarkMode ? Colors.white : Colors.black87),
+                    title: 'Informasi',
+                    onTap: () {
+                      Navigator.pop(context);
+                      _showInfo(surah);
+                    },
+                  ),
+                  _buildBottomSheetItem(
+                    context: context,
+                    icon: Icon(
+                      localIsFavorite ? Icons.bookmark : Icons.bookmark_border,
+                      color: localIsFavorite ? Colors.amber[800] : (localIsDarkMode ? Colors.white : localIsContrastColor(localIsDarkMode)),
+                    ),
+                    title: 'Bookmark',
+                    onTap: () async {
+                      await _toggleFavoriteSurah();
+                      setModalState(() {});
+                    },
+                  ),
+                  _buildBottomSheetItem(
+                    context: context,
+                    icon: Icon(
+                      localIsCompleted ? Icons.check_circle : Icons.check_circle_outline,
+                      color: localIsCompleted ? const Color(0xFF13A884) : (localIsDarkMode ? Colors.white : Colors.black87),
+                    ),
+                    title: 'Tandai Selesai',
+                    onTap: () async {
+                      await _toggleCompletedSurah();
+                      setModalState(() {});
+                    },
+                  ),
+                  _buildBottomSheetItem(
+                    context: context,
+                    icon: Icon(
+                      _showTranslation ? Icons.book : Icons.book_outlined,
+                      color: localIsDarkMode ? Colors.white : Colors.black87,
+                    ),
+                    title: 'Teks Terjemahan',
+                    onTap: () {
+                      setState(() {
+                        _showTranslation = !_showTranslation;
+                      });
+                      setModalState(() {});
+                    },
+                  ),
+                  _buildBottomSheetItem(
+                    context: context,
+                    icon: Icon(
+                      localIsDarkMode ? Icons.light_mode : Icons.dark_mode_outlined,
+                      color: localIsDarkMode ? Colors.white : Colors.black87,
+                    ),
+                    title: localIsDarkMode ? 'Mode siang' : 'Mode malam',
+                    onTap: () async {
+                      await settings.setThemeModeStr(localIsDarkMode ? 'Hijau' : 'Gelap');
+                      setModalState(() {});
+                    },
+                  ),
+                  _buildBottomSheetItem(
+                    context: context,
+                    icon: Icon(Icons.settings, color: localIsDarkMode ? Colors.white : Colors.black87),
+                    title: 'Pengaturan',
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SettingsPage()),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Color localIsContrastColor(bool isDark) {
+    return isDark ? Colors.white : Colors.black87;
+  }
+
   Widget _buildSliverAppBar(SurahDetailModel surah) {
-    final bool isFavorite = _favoriteSurahs.contains(widget.nomor.toString());
+    final settings = Provider.of<SettingsProvider>(context);
+    final isDarkMode = settings.themeModeStr == 'Gelap';
+
     return SliverAppBar(
       expandedHeight: 220.0,
       floating: false,
@@ -273,30 +472,9 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
       ),
       actions: [
         Padding(
-          padding: const EdgeInsets.only(right: 8, top: 8, bottom: 8),
-          child: GestureDetector(
-            onTap: _toggleCompletedSurah,
-            child: Container(
-              width: 40,
-              height: 40,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-              child: Center(
-                child: Icon(
-                  _isCompleted ? Icons.check_circle : Icons.check_circle_outline,
-                  color: _isCompleted ? const Color(0xFF13A884) : const Color(0xFF0C5441),
-                  size: 24,
-                ),
-              ),
-            ),
-          ),
-        ),
-        Padding(
           padding: const EdgeInsets.only(right: 16, top: 8, bottom: 8),
           child: GestureDetector(
-            onTap: _toggleFavoriteSurah,
+            onTap: () => _showMenuBottomSheet(context, surah),
             child: Container(
               width: 40,
               height: 40,
@@ -304,10 +482,10 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                 color: Colors.white,
                 shape: BoxShape.circle,
               ),
-              child: Center(
+              child: const Center(
                 child: Icon(
-                  isFavorite ? Icons.bookmark : Icons.bookmark_border,
-                  color: const Color(0xFF0C5441),
+                  Icons.more_vert,
+                  color: Color(0xFF0C5441),
                   size: 24,
                 ),
               ),
@@ -334,7 +512,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                   )
                 : null,
             background: Container(
-              color: const Color(0xFFE8F5F1), // Soft mint green background matching Gambar 1
+              color: isDarkMode ? const Color(0xFF0A2B21) : const Color(0xFFE8F5F1), // Dark green background in dark mode, light mint in light mode
               child: Stack(
                 children: [
                   // Mosque silhouette in the background
@@ -376,7 +554,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                           style: GoogleFonts.scheherazadeNew(
                             fontSize: 36,
                             fontWeight: FontWeight.bold,
-                            color: const Color(0xFF0C5441),
+                            color: isDarkMode ? Colors.white : const Color(0xFF0C5441),
                             height: 1.0,
                           ),
                         ),
@@ -386,7 +564,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                           style: GoogleFonts.outfit(
                             fontSize: 26,
                             fontWeight: FontWeight.bold,
-                            color: const Color(0xFF0C5441),
+                            color: isDarkMode ? Colors.white : const Color(0xFF0C5441),
                             height: 1.0,
                           ),
                         ),
@@ -396,7 +574,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                           style: GoogleFonts.outfit(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
-                            color: const Color(0xFF0C5441).withOpacity(0.7),
+                            color: isDarkMode ? Colors.white70 : const Color(0xFF0C5441).withOpacity(0.7),
                           ),
                         ),
                       ],
@@ -412,11 +590,12 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
   }
 
   Widget _buildAudioControlCard(SurahDetailModel surah) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
@@ -425,7 +604,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
             offset: const Offset(0, 4),
           ),
         ],
-        border: Border.all(color: Colors.grey.shade100),
+        border: Border.all(color: isDarkMode ? Colors.transparent : Colors.grey.shade100),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -439,7 +618,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                 style: GoogleFonts.outfit(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: Colors.grey.shade800,
+                  color: isDarkMode ? Colors.white : Colors.grey.shade800,
                 ),
               ),
             ],
@@ -493,6 +672,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
 
 
   Widget _buildAyatItem(AyatModel ayat) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return StreamBuilder<PlayerState>(
       stream: _player.playerStateStream,
       builder: (context, snapshot) {
@@ -505,7 +685,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
         return Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: Colors.grey[100]!)),
+            border: Border(bottom: BorderSide(color: Theme.of(context).dividerColor)),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -537,12 +717,12 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                   IconButton(
                     icon: Icon(
                       isMemorized ? Icons.star : Icons.star_border,
-                      color: isMemorized ? Colors.amber : Colors.grey,
+                      color: isMemorized ? Colors.amber : (isDarkMode ? Colors.grey[600] : Colors.grey),
                     ),
                     onPressed: () => _toggleMemorizedAyat(ayat.nomorAyat),
                   ),
                   IconButton(
-                    icon: const Icon(Icons.share_outlined, color: Colors.grey),
+                    icon: Icon(Icons.share_outlined, color: isDarkMode ? Colors.grey[400] : Colors.grey),
                     onPressed: () {},
                   ),
                 ],
@@ -555,28 +735,30 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                   fontSize: 32,
                   height: 1.8,
                   fontWeight: FontWeight.bold,
-                  color: const Color(0xFF2D2D2D),
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
-              const SizedBox(height: 20),
-              Text(
-                ayat.teksLatin,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontStyle: FontStyle.italic,
-                  color: Color(0xFF13A884),
-                  height: 1.5,
+              if (_showTranslation) ...[
+                const SizedBox(height: 20),
+                Text(
+                  ayat.teksLatin,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontStyle: FontStyle.italic,
+                    color: Color(0xFF13A884),
+                    height: 1.5,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                ayat.teksIndonesia,
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.grey[800],
-                  height: 1.5,
+                const SizedBox(height: 12),
+                Text(
+                  ayat.teksIndonesia,
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Theme.of(context).colorScheme.onSurface.withOpacity(0.8),
+                    height: 1.5,
+                  ),
                 ),
-              ),
+              ],
             ],
           ),
         );
@@ -585,9 +767,10 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
   }
 
   void _showInfo(SurahDetailModel surah) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.white,
+      backgroundColor: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
       ),
