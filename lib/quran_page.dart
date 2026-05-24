@@ -92,16 +92,17 @@ class _QuranPageState extends State<QuranPage> {
   int _activeTab = 0;
   int? _expandedJuz; // Which Juz is expanded inline
 
-  // Bottom Navigation Index
-  int _bottomNavIndex = 0;
   final FocusNode _searchFocusNode = FocusNode();
 
   // Formatting controls
   bool _showTranslation = false; // false = Lafal, true = Terjemahan
 
-  // Favorites
+  // Favorites & Progress
   List<String> _favoriteJuz = [];
   List<String> _favoriteSurahs = [];
+  List<String> _completedSurahs = [];
+  List<String> _memorizedAyats = [];
+  List<String> _studiedJuz = [];
 
   @override
   void initState() {
@@ -121,6 +122,9 @@ class _QuranPageState extends State<QuranPage> {
     setState(() {
       _favoriteJuz = prefs.getStringList('favoriteJuz') ?? [];
       _favoriteSurahs = prefs.getStringList('favoriteSurahs') ?? [];
+      _completedSurahs = prefs.getStringList('completedSurahs') ?? [];
+      _memorizedAyats = prefs.getStringList('memorizedAyats') ?? [];
+      _studiedJuz = prefs.getStringList('studiedJuz') ?? [];
     });
   }
 
@@ -136,6 +140,21 @@ class _QuranPageState extends State<QuranPage> {
     await prefs.setStringList('favoriteJuz', list);
     setState(() {
       _favoriteJuz = list;
+    });
+  }
+
+  Future<void> _toggleStudiedJuz(int juzNumber) async {
+    final prefs = await SharedPreferences.getInstance();
+    final list = List<String>.from(_studiedJuz);
+    final strNum = juzNumber.toString();
+    if (list.contains(strNum)) {
+      list.remove(strNum);
+    } else {
+      list.add(strNum);
+    }
+    await prefs.setStringList('studiedJuz', list);
+    setState(() {
+      _studiedJuz = list;
     });
   }
 
@@ -213,21 +232,18 @@ class _QuranPageState extends State<QuranPage> {
       backgroundColor: const Color(0xFFF9F9F9),
       body: Column(
         children: [
-          _bottomNavIndex == 0 ? _buildPremiumHeader() : _buildBookmarkHeader(),
+          _buildPremiumHeader(),
           Expanded(
-            child: _bottomNavIndex == 0
-                ? (_isLoading
-                    ? const Center(child: CircularProgressIndicator(color: Color(0xFF13A884)))
-                    : _errorMessage.isNotEmpty
-                        ? _buildErrorState()
-                        : _activeTab == 0
-                            ? _buildSurahTabContent()
-                            : _buildJuzTabContent())
-                : _buildBookmarkTabContent(),
+            child: _isLoading
+                ? const Center(child: CircularProgressIndicator(color: Color(0xFF13A884)))
+                : _errorMessage.isNotEmpty
+                    ? _buildErrorState()
+                    : _activeTab == 0
+                        ? _buildSurahTabContent()
+                        : _buildJuzTabContent(),
           ),
         ],
       ),
-      bottomNavigationBar: _buildCustomBottomNavBar(),
     );
   }
 
@@ -312,8 +328,8 @@ class _QuranPageState extends State<QuranPage> {
                   ),
                   Column(
                     children: [
-                      Text(
-                        widget.useApi ? 'Al-Quran (API)' : 'Al-Quran',
+                       Text(
+                        'Al-Quran',
                         style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -331,8 +347,13 @@ class _QuranPageState extends State<QuranPage> {
                     ],
                   ),
                   IconButton(
-                    icon: const Icon(Icons.menu_book, color: Colors.white, size: 24),
-                    onPressed: () {},
+                    icon: const Icon(Icons.settings, color: Colors.white, size: 24),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SettingsPage()),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -540,17 +561,17 @@ class _QuranPageState extends State<QuranPage> {
               children: [
                 _buildProgressIndicatorItem(
                   Icons.school_rounded,
-                  '12',
+                  '${_completedSurahs.length}',
                   'Surah Selesai',
                 ),
                 _buildProgressIndicatorItem(
                   Icons.star_rounded,
-                  '86',
+                  '${_memorizedAyats.length}',
                   'Ayat Dihafal',
                 ),
                 _buildProgressIndicatorItem(
                   Icons.bookmark_rounded,
-                  '5',
+                  '${_studiedJuz.length}',
                   'Juz Dipelajari',
                 ),
               ],
@@ -610,6 +631,7 @@ class _QuranPageState extends State<QuranPage> {
   Widget _buildJuzListItem(JuzInfo juz) {
     final bool isExpanded = _expandedJuz == juz.number;
     final bool isFavorite = _favoriteJuz.contains(juz.number.toString());
+    final bool isStudied = _studiedJuz.contains(juz.number.toString());
     final allSurahs = widget.useApi ? _surahs : QuranData.listSurah;
 
     // Get Surahs belonging to this Juz
@@ -695,17 +717,44 @@ class _QuranPageState extends State<QuranPage> {
                             ),
                             const SizedBox(height: 6),
                             // Favorite Button
-                            Row(
+                            Wrap(
+                              spacing: 8,
+                              runSpacing: 6,
                               children: [
                                 TextButton.icon(
                                   onPressed: () => _toggleFavoriteJuz(juz.number),
                                   icon: Icon(
                                     isFavorite ? Icons.star : Icons.star_border,
+                                    color: isFavorite ? Colors.amber[800] : const Color(0xFF13A884),
+                                    size: 16,
+                                  ),
+                                  label: Text(
+                                    'Favorit',
+                                    style: TextStyle(
+                                      color: isFavorite ? Colors.amber[800] : const Color(0xFF13A884),
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  style: TextButton.styleFrom(
+                                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                                    backgroundColor: isFavorite ? Colors.amber.shade50 : const Color(0xFFE8F5F1),
+                                    minimumSize: Size.zero,
+                                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                  ),
+                                ),
+                                TextButton.icon(
+                                  onPressed: () => _toggleStudiedJuz(juz.number),
+                                  icon: Icon(
+                                    isStudied ? Icons.bookmark : Icons.bookmark_border,
                                     color: const Color(0xFF13A884),
                                     size: 16,
                                   ),
                                   label: Text(
-                                    isFavorite ? 'Favorit' : 'Tambah ke Favorit',
+                                    isStudied ? 'Dipelajari' : 'Pelajari',
                                     style: const TextStyle(
                                       color: Color(0xFF13A884),
                                       fontSize: 11,
@@ -1159,108 +1208,4 @@ class _QuranPageState extends State<QuranPage> {
     );
   }
 
-  Widget _buildCustomBottomNavBar() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.04),
-            blurRadius: 10,
-            offset: const Offset(0, -4),
-          ),
-        ],
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
-      ),
-      child: SafeArea(
-        top: false,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _buildBottomNavItem(
-                index: 0,
-                icon: Icons.menu_book,
-                label: 'Surah',
-              ),
-              _buildBottomNavItem(
-                index: 1,
-                icon: Icons.bookmark_border,
-                label: 'Bookmark',
-              ),
-              _buildBottomNavItem(
-                index: 2,
-                icon: Icons.search,
-                label: 'Cari',
-              ),
-              _buildBottomNavItem(
-                index: 3,
-                icon: Icons.settings_outlined,
-                label: 'Pengaturan',
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildBottomNavItem({
-    required int index,
-    required IconData icon,
-    required String label,
-  }) {
-    final bool isSelected = _bottomNavIndex == index;
-    return GestureDetector(
-      onTap: () {
-        if (index == 2) {
-          setState(() {
-            _bottomNavIndex = 0;
-          });
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _searchFocusNode.requestFocus();
-          });
-        } else if (index == 3) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const SettingsPage()),
-          );
-        } else {
-          setState(() {
-            _bottomNavIndex = index;
-          });
-        }
-      },
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
-            decoration: BoxDecoration(
-              color: isSelected ? const Color(0xFF0C5441) : Colors.transparent,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Icon(
-              icon,
-              color: isSelected ? Colors.white : Colors.grey.shade600,
-              size: 24,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: GoogleFonts.outfit(
-              fontSize: 12,
-              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-              color: isSelected ? const Color(0xFF0C5441) : Colors.grey.shade600,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 }

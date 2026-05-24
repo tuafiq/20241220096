@@ -35,11 +35,87 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
     });
   }
 
+  bool _isCompleted = false;
+  List<String> _completedSurahs = [];
+  List<String> _memorizedAyats = [];
+
   Future<void> _loadFavorites() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       _favoriteSurahs = prefs.getStringList('favoriteSurahs') ?? [];
+      _completedSurahs = prefs.getStringList('completedSurahs') ?? [];
+      _isCompleted = _completedSurahs.contains(widget.nomor.toString());
+      _memorizedAyats = prefs.getStringList('memorizedAyats') ?? [];
     });
+  }
+
+  Future<void> _toggleCompletedSurah() async {
+    final prefs = await SharedPreferences.getInstance();
+    final list = List<String>.from(_completedSurahs);
+    final String surahStr = widget.nomor.toString();
+    
+    if (list.contains(surahStr)) {
+      list.remove(surahStr);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Batal menandai Surah selesai'),
+            duration: Duration(seconds: 1),
+          ),
+        );
+      }
+    } else {
+      list.add(surahStr);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Surah ditandai selesai!'),
+            duration: Duration(seconds: 1),
+          ),
+        );
+      }
+    }
+    await prefs.setStringList('completedSurahs', list);
+    if (mounted) {
+      setState(() {
+        _completedSurahs = list;
+        _isCompleted = list.contains(surahStr);
+      });
+    }
+  }
+
+  Future<void> _toggleMemorizedAyat(int ayatNomor) async {
+    final prefs = await SharedPreferences.getInstance();
+    final list = List<String>.from(_memorizedAyats);
+    final String key = "${widget.nomor}_$ayatNomor";
+    
+    if (list.contains(key)) {
+      list.remove(key);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Batal menandai hafalan ayat'),
+            duration: Duration(seconds: 1),
+          ),
+        );
+      }
+    } else {
+      list.add(key);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Ayat berhasil ditandai sebagai dihafal!'),
+            duration: Duration(seconds: 1),
+          ),
+        );
+      }
+    }
+    await prefs.setStringList('memorizedAyats', list);
+    if (mounted) {
+      setState(() {
+        _memorizedAyats = list;
+      });
+    }
   }
 
   Future<void> _toggleFavoriteSurah() async {
@@ -196,6 +272,27 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
         ),
       ),
       actions: [
+        Padding(
+          padding: const EdgeInsets.only(right: 8, top: 8, bottom: 8),
+          child: GestureDetector(
+            onTap: _toggleCompletedSurah,
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Icon(
+                  _isCompleted ? Icons.check_circle : Icons.check_circle_outline,
+                  color: _isCompleted ? const Color(0xFF13A884) : const Color(0xFF0C5441),
+                  size: 24,
+                ),
+              ),
+            ),
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.only(right: 16, top: 8, bottom: 8),
           child: GestureDetector(
@@ -403,6 +500,8 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
         final playing = playerState?.playing ?? false;
         bool isPlaying = playing && _currentlyPlayingAyat == ayat.nomorAyat;
 
+        final bool isMemorized = _memorizedAyats.contains("${widget.nomor}_${ayat.nomorAyat}");
+
         return Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
@@ -434,6 +533,13 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                       color: const Color(0xFF13A884),
                     ),
                     onPressed: () => _playAudio(ayat.audio['05'] ?? ayat.audio.values.first, ayatNomor: ayat.nomorAyat),
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      isMemorized ? Icons.star : Icons.star_border,
+                      color: isMemorized ? Colors.amber : Colors.grey,
+                    ),
+                    onPressed: () => _toggleMemorizedAyat(ayat.nomorAyat),
                   ),
                   IconButton(
                     icon: const Icon(Icons.share_outlined, color: Colors.grey),

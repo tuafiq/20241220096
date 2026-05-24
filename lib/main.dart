@@ -20,6 +20,7 @@ import 'package:hijri/hijri_calendar.dart';
 import 'hadith_page.dart';
 import 'tutorial_ibadah_page.dart';
 import 'ramadhan_page.dart';
+import 'quran_data.dart';
 
 
 import 'package:provider/provider.dart';
@@ -113,9 +114,16 @@ class _HomePageState extends State<HomePage> {
   List<Article> _homeArticles = [];
   bool _isArticlesLoading = true;
   String? _homeArticlesError;
+
+  List<String> _favoriteSurahs = [];
+  List<String> _completedSurahs = [];
+  List<String> _memorizedAyats = [];
+  List<String> _studiedJuz = [];
+
   @override
   void initState() {
     super.initState();
+    _loadQuranProgress();
     final settings = Provider.of<SettingsProvider>(context, listen: false);
     _currentHeaderIndex = 999 + settings.lastHeaderIndex;
     _headerPageController = PageController(initialPage: _currentHeaderIndex);
@@ -135,6 +143,18 @@ class _HomePageState extends State<HomePage> {
         }
       }
     });
+  }
+
+  Future<void> _loadQuranProgress() async {
+    final prefs = await SharedPreferences.getInstance();
+    if (mounted) {
+      setState(() {
+        _favoriteSurahs = prefs.getStringList('favoriteSurahs') ?? [];
+        _completedSurahs = prefs.getStringList('completedSurahs') ?? [];
+        _memorizedAyats = prefs.getStringList('memorizedAyats') ?? [];
+        _studiedJuz = prefs.getStringList('studiedJuz') ?? [];
+      });
+    }
   }
 
   @override
@@ -259,6 +279,9 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _selectedIndex = index;
     });
+    if (index == 0) {
+      _loadQuranProgress();
+    }
   }
 
   void _showLocationPicker() {
@@ -678,7 +701,12 @@ class _HomePageState extends State<HomePage> {
                             ),
                             const SizedBox(height: 2),
                             Text(
-                              'Ar-Rahman',
+                              _favoriteSurahs.isNotEmpty
+                                  ? QuranData.listSurah.firstWhere(
+                                      (s) => s.nomor.toString() == _favoriteSurahs.last,
+                                      orElse: () => QuranData.listSurah[54], // Ar-Rahman (index 54, nomor 55)
+                                    ).namaLatin
+                                  : 'Belum ada favorit',
                               style: GoogleFonts.outfit(
                                 color: Colors.white,
                                 fontSize: 20,
@@ -687,7 +715,12 @@ class _HomePageState extends State<HomePage> {
                             ),
                             const SizedBox(height: 1),
                             Text(
-                              'Surah 55',
+                              _favoriteSurahs.isNotEmpty
+                                  ? 'Surah ${QuranData.listSurah.firstWhere(
+                                      (s) => s.nomor.toString() == _favoriteSurahs.last,
+                                      orElse: () => QuranData.listSurah[54],
+                                    ).nomor}'
+                                  : 'Tandai Surah favoritmu',
                               style: TextStyle(
                                 color: Colors.white.withOpacity(0.8),
                                 fontSize: 10,
@@ -717,17 +750,17 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     _buildProgressIndicatorItem(
                       Icons.school_rounded,
-                      '12',
+                      '${_completedSurahs.length}',
                       'Surah Selesai',
                     ),
                     _buildProgressIndicatorItem(
                       Icons.star_rounded,
-                      '86',
+                      '${_memorizedAyats.length}',
                       'Ayat Dihafal',
                     ),
                     _buildProgressIndicatorItem(
                       Icons.bookmark_rounded,
-                      '5',
+                      '${_studiedJuz.length}',
                       'Juz Dipelajari',
                     ),
                   ],
@@ -1186,15 +1219,21 @@ class _HomePageState extends State<HomePage> {
       mainAxisSpacing: 16,
       crossAxisSpacing: 8,
       childAspectRatio: 0.85,
-      children: const [
-        AlQuranIcon(),
-        WiridDoaIcon(),
-        JadwalShalatIcon(), // Icon jam yang baru kita buat
-        KiblatIcon(),       // Tambahkan placeholder jika ingin melengkapi
-        TahlilIcon(),
-        MaulidIcon(),
-        TutorialIbadahIcon(),
-        RamadhanIcon(),
+      children: [
+        AlQuranIcon(onTap: () async {
+          await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const QuranPage(useApi: true)),
+          );
+          _loadQuranProgress();
+        }),
+        const WiridDoaIcon(),
+        const JadwalShalatIcon(), // Icon jam yang baru kita buat
+        const KiblatIcon(),       // Tambahkan placeholder jika ingin melengkapi
+        const TahlilIcon(),
+        const MaulidIcon(),
+        const TutorialIbadahIcon(),
+        const RamadhanIcon(),
       ],
     );
   }
@@ -1206,12 +1245,13 @@ class _HomePageState extends State<HomePage> {
 // Icon by BZZRINCANTATION - Flaticon (https://www.flaticon.com/free-icons/quran)
 // ─────────────────────────────────────────────────────────────
 class AlQuranIcon extends StatelessWidget {
-  const AlQuranIcon({super.key});
+  final VoidCallback? onTap;
+  const AlQuranIcon({super.key, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
+      onTap: onTap ?? () {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const QuranPage(useApi: true)),
