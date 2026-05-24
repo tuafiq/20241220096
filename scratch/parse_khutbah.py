@@ -150,11 +150,11 @@ def format_to_dart(khutbah):
     return "\n".join(dart)
 
 files = [
-    ("khutbah_16.html", "Ramadhan 1445 H"),
-    ("khutbah_17.html", "Ramadhan 1445 H"),
-    ("khutbah_18.html", "Ramadhan 1445 H"),
-    ("khutbah_19.html", "Ramadhan 1445 H"),
-    ("khutbah_20.html", "Ramadhan 1445 H")
+    ("khutbah_21.html", "1 Syawal 1444 H"),
+    ("khutbah_22.html", "1 Syawal 1444 H"),
+    ("khutbah_23.html", "1 Syawal 1444 H"),
+    ("khutbah_24.html", "1 Syawal 1444 H"),
+    ("khutbah_25.html", "1 Syawal 1444 H")
 ]
 base_dir = r"d:\uas\scratch\raw_html"
 
@@ -167,8 +167,8 @@ for filename, date in files:
         dart_code = format_to_dart(res)
         all_dart_blocks.append(dart_code)
 
-output_path = r"d:\uas\scratch\dart_output_4.txt"
+output_path = r"d:\uas\scratch\dart_output_5.txt"
 with open(output_path, "w", encoding="utf-8") as out:
     out.write("\n".join(all_dart_blocks))
 
-print("Successfully generated Dart output 4 in:", output_path)
+print("Successfully generated Dart output 5 in:", output_path)

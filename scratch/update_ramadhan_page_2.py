@@ -2,13 +2,13 @@ import os
 
 def update_ramadhan_page():
     dart_file_path = r"d:\uas\lib\ramadhan_page.dart"
-    dart_output_path = r"d:\uas\scratch\dart_output_4.txt"
+    dart_output_path = r"d:\uas\scratch\dart_output_5.txt"
     
     # Read the dart file
     with open(dart_file_path, "r", encoding="utf-8") as f:
         content = f.read()
         
-    # Read the new khutbah maps (16 to 20)
+    # Read the new khutbah maps (21 to 25)
     with open(dart_output_path, "r", encoding="utf-8") as f:
         new_khutbahs = f.read()
         
@@ -40,7 +40,7 @@ def update_ramadhan_page():
     
     # Construct the replaced block
     # We replace from list_end_idx to list_end_idx + 2 (which is '];')
-    replaced_list_end = ",\n" + new_khutbahs + "\n  ];"
+    replaced_list_end = "\n" + new_khutbahs + "\n  ];"
     
     replaced_content = content[:list_end_idx] + replaced_list_end + content[list_end_idx + 2:]
     
@@ -48,7 +48,7 @@ def update_ramadhan_page():
     with open(dart_file_path, "w", encoding="utf-8") as f:
         f.write(replaced_content)
         
-    print("Successfully appended Khutbah 16-20 to ramadhan_page.dart!")
+    print("Successfully appended Khutbah 21-25 to ramadhan_page.dart!")
 
 if __name__ == "__main__":
     update_ramadhan_page()
