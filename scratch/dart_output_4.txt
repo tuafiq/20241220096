@@ -1,0 +1,386 @@
+    {
+      'title': 'Kultum Ramadhan: 2 Tanda Puasa Ramadhan Diterima Oleh Allah',
+      'date': 'Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Menjadi hamba yang jerih payah ibadah puasanya diterima merupakan tujuan utama dalam bulan Ramadhan. Pasalnya, puasa adalah ibadah yang cukup berat dalam pelaksanaannya.
+
+Selain menahan diri dari hal-hal yang dihalalkan syariat, seperti makan, minum, dan hubungan intim suami istri bagi yang telah menikah, aspek lain seperti kejujuran menjadi hal krusial saat menjalankan ibadah puasa.
+
+Oleh karena itu, mendapatkan penerimaan dari Allah atas ibadah puasa sangatlah penting. Apalagi, puasa adalah satu-satunya ibadah yang pahalanya sepenuhnya bergantung pada penilaian Allah semata.
+
+Begitu juga sebaliknya, ibadah puasa yang tidak diterima menjadi hal yang harus dihindari sekaligus ditakuti oleh seorang hamba. Usaha yang dilakukan dari terbitnya fajar kedua (berkumandangnya adzan subuh) sampai terbenamnya matahari (berkumandangnya adzan maghrib) menjadi sia-sia.
+
+Bahkan puasa yang dilakukan menjadi tidak bernilai sama sekali. Nabi sudah memperingatkan, bahwa fenomena seseorang yang berpuasa namun hanya menyisakan lapar dan haus benar adanya. Sebagaimana sabda beliau:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''كَمْ مِنْ صَائِمٍ لَيْسَ لَهُ مِنْ صِيَامِهِ إِلَّا الْجُوْع وَالْعَطْش''',
+          'latin': '''''',
+          'translation': '''Artinya, “Begitu banyak seseorang yang sedang berpuasa hanya menyisakan lapar dan haus," (HR. Imam Ibnu Majah).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Kita berpotensi melaksanakan ibadah puasa dengan menyisakan lapar dan dahaga. Seyogyanya, kita dari awal  menyadari akan hal ini. Bisa jadi yang dimaksud oleh Nabi adalah diri kita sendiri.
+
+Beruntungnya, para ulama merumuskan tanda diterimanya puasa seseorang. Kendatipun segala hal yang berkaitan dengan puasa sepenuhnya ada dalam prerogatif Allah, terdapat tanda-tanda yang mengindikasikan Allah menerima ibadah puasa seseorang.
+
+Salah satu ulama dari kalangan Hanabilah (madzhab Hanbali) bernama Ibnu Rajab menjelaskan tanda-tanda yang mengindikasikan diterimanya ibadah puasa. Dalam kitabnya Lathaiful Ma’arif setidaknya dijelaskan bahwa ada dua tanda ibadah puasa seseorang diterima.
+
+Walaupun tanda yang dijelaskan tidak absolut, kemungkinan diterimanya cukup besar. Uniknya, tanda-tanda itu berdasar pada pola tindakan seseorang dalam berpuasa, bukan dari eksternal.
+
+Terbiasa Berpuasa di Bulan Syawal
+
+Salah satu tanda seseorang diterima ibadah puasanya selama bulan Ramadhan adalah melanjutkan berpuasa di bulan Syawal. Lebih tepatnya hari kedua pada bulan Syawal sampai pada hari ketujuh. Tidak hanya mendapatkan keutamaan-keutamaan berpuasa di bulan Syawal seperti setara berpuasa selama satu tahun penuh, namun menjadi indikator diterimanya puasa seseorang.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَنَّ مُعَاوَدَةَ الصِّيَامِ بَعْدَ صَامَ رَمَضَانَ عَلاَمَةٌ عَلىَ قَبُولِ صَوْمِ رَمَضَانَ؛ فَإِنَّ اللّٰهَ تَعَالى إِذَا تَقَبَّلَ عَمَلَ عَبْدٍ وَفَّقَهُ لِعَمَلٍ صَالِحٍ بَعْدَهُ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Memiliki kebiasaan berpuasa setelah puasa bulan Ramadhan (puasa bulan Syawal) merupakan tanda dari diterimanya puasa Ramadhan. Sebab Allah menerima amal seseorang bergantung pada amal shalih sesudahnya,” (Ibnu Rajab al-Hanbali, Lathaiful Ma'arif, [Riyadh, Dar Ibnu Khuzaimah: 2007], halaman 494).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Berdasar pada kaidah “suatu amal saleh dapat diterima jika melaksanakan amal saleh setelahnya” menjadikan berpuasa di bulan Syawal menjadi salah satu tanda diterimanya puasa Ramadhan. Hal yang sama berlaku pada setiap amal. Dengan demikian, setiap orang dituntut untuk terus melakukan amal saleh terus menerus secara berturut-turut untuk memungkinkan diterimanya amal. Sehingga dalam kehidupan sehari-harinya selalu diiringi dengan amal saleh.
+
+Berbeda ketika melakukan amal buruk setelah amal saleh. Jika seseorang mulanya beramal saleh namun diakhiri dengan amal yang buruk, maka amal saleh yang sebelumnya dilakukan akan tertolak dengan sendirinya (Lathaiful Ma'arif, halaman 494).
+
+.
+
+Berkomitmen Tidak Mengulangi Maksiat
+
+Tanda berikutnya adalah memiliki kecondongan hati untuk tidak mengulangi maksiat di waktu mendatang. Hal ini merupakan poin utama dalam bertobat. Melaksanakan peribadatan berbanding lurus dengan komitmen untuk tidak terjerumus pada kemaksiatan, baik maksiat yang pernah dilakukan, maupun yang belum pernah dilakukan.
+
+Hanya saja, kondisi hati yang masih cenderung untuk mengulangi maksiat memiliki konsekuensi tersendiri. Kendatipun secara tampak seseorang sedang melaksanakan suatu peribadatan tetapi kondisi hatinya masih condong pada kemaksiatan, peribadatan yang demikian tidak dapat diterima.
+
+Begitu pun dalam beribadah puasa di saat Ramadhan. Seseorang benar-benar harus memiliki keteguhan hati untuk tidak melakukan maksiat di luar waktu bulan puasa. Sebab seseorang yang berpuasa lalu berucap istighfar namun hatinya bertautan pada kemaksiatan, potensi diterimanya ibadah puasa sangat kecil.''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''فمَنِ اسْتَغْفَرَ بِلِسَانِهِ وَقَلْبُهُ عَلَى الْمَعْصِيَةِ مَعْقُوْد، وَعَزْمُهُ أنْ يَرْجِعَ إلَى المَعَاصِي بَعْدَ الشَّهْرِ ويَعُوْدُ؛ فَصَوْمُهُ عَلَيْهِ مَرْدُوْدٌ، وَبَابُ القَبُولِ عَنْهُ مَسْدُوْدٌ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Siapa yang meminta ampunan secara lisan akan tetapi hatinya bertaut pada kemaksiatan, serta merencanakan untuk kembali melakukan maksiat setelah bulan puasa, maka puasanya ditolak dan pintu penerimaan tobat ditutup,” (Lathaiful Ma'arif, halaman 484).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Tajuddin As-Subki mengutip pernyataan salah satu ulama syafi’iyah bernama Abu Ali Al-Ashbahani. Dalam sebuah majelis, Al-Ashbahani ditanya oleh seseorang mengenai tanda diterimanya ibadah puasa Ramadhan. Beliau menjawab, bahwa tanda ibadah puasa diterima ketika seseorang meninggal di bulan Syawal tanpa melakukan tindakan buruk (maksiat). Al-Ashbahani meninggal pada bulan Syawal di hari Senin pada tahun lima ratus dua puluh lima hijriah,” (Thabaqatus Syafi'iyah, [Beirut, Dar Ihya’: 1992], Juz VII, halaman 26).
+
+Dua tanda yang sudah dipaparkan dapat dijadikan acuan serta indikasi puasa Ramadhan kita akan diterima oleh Allah atau tidak. Walakin, sekali lagi, segala pertimbangan ibadah puasa sepenuhnya bergantung pada Allah, setidaknya kita memiliki gambaran atas kualitas puasa kita sendiri. Semoga puasa tahun ini dan puasa tahun-tahun berikutnya diterima oleh Allah. Amin. Wallahu A’lam
+
+Ustadz Shofi Mustajibullah, Mahasiswa Pascasarjana UNISMA dan Pengajar Pesantren Kampus Ainul Yaqin.''',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Adab dan Sunnah di Hari Idul Fitri',
+      'date': 'Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Tak terasa, bulan Ramadhan akan usai, dan hari Idul Fitri pun tiba. Tentu, di satu kita mesti merasa sedih sebab kita akan ditinggalkan oleh tamu agung Ramadhan yang penuh dengan keberkahan dan ampunan.
+
+Namun, di sisi lain kita juga perlu untuk mempersiapkan diri dalam menyambut Hari Raya Idul Fitri. Persiapan yang perlu kita perhatikan menjelang Hari Raya Idul Fitri, yakni perihal adab dan sunahnya, agar kita juga mendapatkan pahala dan keberkahan di Hari Raya. Jika kita runut dari awal masuk waktu malam 1 Syawal hingga pagi harinya, maka dapat kita lakukan di antaranya sebagai berikut:
+
+Pertama, ketika sudah resmi keluar pengumuman dari pemerintah terkait Hari Raya Idul Fitri, kita dianjurkan untuk mengumandangkan takbir atau biasa kita sebut takbiran. Anjuran takbiran ini sebagai bentuk rasa syukur kita, berdasarkan firman Allah:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَلِتُكْمِلُوا الْعِدَّةَ وَلِتُكَبِّرُوا اللّٰهَ عَلٰى مَا هَدٰىكُمْ وَلَعَلَّكُمْ تَشْكُرُوْنَ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Hendaklah kamu mencukupkan bilangannya (Ramadhan) dan mengagungkan Allah atas petunjuk-Nya yang diberikan kepadamu agar kamu bersyukur,” (QS. Al-Baqarah: 185).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dalam Kitab Fathul Qarib dijelaskan terdapat dua macam takbir di Hari Raya Idul Fitri. Pertama, muqayyad (dibatasi), yaitu takbir yang dilakukan setelah shalat, baik fardhu atau sunnah. Setiap selesai shalat, dianjurkan untuk membaca takbir.
+
+Kedua, mursal (dibebaskan), yaitu takbir yang tidak terbatas setelah shalat, bisa dilakukan di setiap kondisi. Takbir Idul Fitri bisa dikumandangkan di mana saja, di rumah, jalan, masjid, pasar atau tempat lainnya.
+
+Kesunnahan takbir Idul fitri dimulai sejak tenggelamnya matahari pada malam 1 Syawal sampai takbiratul Ihramnya Imam shalat Id bagi yang berjamaah, atau takbiratul Ihramnya mushalli sendiri, bagi yang shalat sendirian.
+
+Salah satu contoh bacaan takbir yang utama sebagaimana diterangkan Syekh Ibnu Hajar al-Haitami dalam Tuhfatul Muhtaj juz 3 hal 54 adalah:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''اللّٰهُ أَكْبَرُ اللّٰهُ أَكْبَرُ اللّٰهُ أَكْبَرُ لَا إلَهَ إلَّا اللّٰهُ اللّٰهُ أَكْبَرُ اللّٰهُ أَكْبَرُ وَلِلّٰهِ الْحَمْدُ، اللّٰهُ أَكْبَرُ كَبِيرًا وَالْحَمْدُ لِلّٰهِ كَثِيرًا وَسُبْحَانَ اللّٰهِ بُكْرَةً وَأَصِيلًا لَا إلَهَ إلَّا اللّٰهُ وَلَا نَعْبُدُ إلَّا إيَّاهُ مُخْلِصِينَ لَهُ الدِّينَ وَلَوْ كَرِهَ الْكَافِرُونَ لَا إلَهَ إلَّا اللّٰهُ وَحْدَهُ صَدَقَ وَعْدَهُ وَنَصَرَ عَبْدَهُ وَهَزَمَ الْأَحْزَابَ وَحْدَهُ لَا إلَهَ إلَّا اللّٰهُ وَاللهُ أَكْبَرُ''',
+          'latin': '''''',
+          'translation': '''''',
+        },
+        {
+          'type': 'text',
+          'content': '''Selain mengkumandangkan takbir, biasanya kita juga akan saling mengucapkan selamat Hari Raya Idul Fitri, dengan redaksi yang beragam. Baik mengucapkan secara langsung dengan bersalaman secara fisik, maupun sekadar mengirim ucapan melalui media sosial. Bahkan, ucapan tersebut tak jarang ditambahi dengan pantun nan jenaka, maupun kalimat yang mengharu biru.
+
+Hal demikian boleh-boleh saja, dengan catatan dilakukan dengan cara yang baik dan tidak melanggar syariat seperti bersalaman dengan lawan jenis yang bukan mahram, sebagaimana diterangkan oleh Syekh Abdul Hamid asy-Syarwani dalam Hasyiyatusy Syarwani, juz 3, hlm. 56:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَقَدْ يُقَالُ لَا مَانِعَ مِنْهُ أَيْضًا إذَا جَرَتْ الْعَادَةُ بِذَلِكَ لِمَا ذَكَرَهُ مِنْ أَنَّ الْمَقْصُودَ مِنْهُ التَّوَدُّدُ وَإِظْهَارُ السُّرُورِ وَيُؤَيِّدُهُ نَدْبُ التَّكْبِيرِ فِي لَيْلَةِ الْعِيدِ''',
+          'latin': '''''',
+          'translation': '''Artinya, "Terkadang diucapkan, tidak ada yang menghalangi hal tersebut apabila kebiasaan terlaku demikian, Karena alasan yang telah disampaikan bahwa tujuan dari tahniah adalah saling mengasihi dan menampakkan kebahagiaan. Sudut pandang ini dikuatkan dengan kesunnahan takbir di hari raya.”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ketiga, di malam Hari Raya, kita dianjurkan untuk menghidupkan malam Idul Fitri dengan ibadah. Dianjurkan menghidupkan malam hari raya dengan shalat, membaca shalawat, membaca Al-Qur’an, membaca kitab, memperbanyak doa, berdzikir, dan bentuk ibadah lainnya. Anjuran ini berdasarkan hadits Nabi:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''مَنْ أَحْيَا لَيْلَتَيْ الْعِيدِ لَمْ يَمُتْ قَلْبُهُ يَوْمَ تَمُوتُ الْقُلُوبُ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Barangsiapa menghidupi dua malam hari raya, hatinya tidak mati di hari matinya beberapa hati,” (HR. Ad-Daraquthni).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Hadits ini memang tergolong lemah, namun tetap bisa dipakai sebab berkaitan dengan keutamaan amal, tidak berbicara halal-haram atau akidah. Kesunnahan ini bisa hasil dengan menghidupkan sebagian besar malam Hari Raya.
+
+Kemudian, pada pagi Hari Raya Idul Fitri kita disunnahkan untuk melaksanakan Shalat Idul Fitri, dengan tata cara yang telah diajarkan dalam kitab-kitab fiqih. Sebelum berangkat melaksanakan shalat Id, terlebih dahulu kita disunnahkan untuk mandi dan berhias diri. Hal ini juga bertujuan untuk menebarkan syiar kebahagiaan di hari raya Idul Fitri.
+
+Waktu mandi ini dimulai sejak tengah malam Idul Fitri sampai tenggelamnya matahari di keesokan harinya. Lebih utama dilakukan dilakukan setelah terbit fajar. Keterangan ini sebagaimana disampaikan oleh Syekh Sulaiman al-Bujairimi dalam Tuhfatul Habib ‘ala Syarh al-Khathib, juz 1, hal. 252. Contoh niatnya adalah:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''نَوَيْتُ غُسْلَ عِيْدِ الْفِطْرِ سُنَّةً لِلهِ تَعَالَى''',
+          'latin': '''''',
+          'translation': '''Artinya, “Aku niat mandi Idul fitri, sunnah karena Allah”.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Berhias bisa dilakukan dengan membersihkan badan, memotong kuku serta rambut, memakai wewangian dan pakaian terbaik, yang tidak melanggar syariat seperti terlihat aurat pemakainya. Tak lupa, sebelum berangkat kita juga dianjurkan untuk makan terlebih dahulu sekadarnya, sebagai penanda bahwa di hari itu kita tidak lagi berpuasa.
+
+Perjalanan berangkat dan pulang, untuk menunaikan shalat Idul Fitri juga perlu kita perhatikan. Sebab kita dianjurkan untuk memilih jalur yang berbeda antara rute berangkat dan pulang.
+
+Di antara hikmahnya adalah agar memperbanyak pahala menuju tempat ibadah. Anjuran ini juga berlaku saat perjalanan haji, membesuk orang sakit dan ibadah lainnya, sebagaimana ditegaskan Imam Nawawi dalam kitab Riyadhus Shalihin (Lihat: Syekh Khathib al-Syarbini, Mughnil Muhtaj, juz 1, hal. 591).
+
+Hal terakhir, yang tak kalah penting, yang dapat kita lakukan di Hari Raya Idul Fitri, yakni saling meminta ataupun memberikan maaf. Setelah selama satu bulan kita berpuasa dan mengeluarkan zakat fitrah, maka kita sempurnakan dengan meminta dan memberikan maaf kepada sesama, dengan harapan segala kesalahan dan dosa kita diampuni sepenuhnya oleh Allah.
+
+Semoga kita diberikan umur yang panjang dan berkah serta sehat wal afiat, untuk menjalani Ramadhan di tahun ini hingga akhir, dan diperkenankan untuk bertemu kembali pada Ramadhan-Ramadhan mendatang. Amin Ya Rabbal Alamin.
+
+Ustadz Ajie Najmuddin, Ustadz Ajie Najmuddin, Pengurus MWCNU Banyudono Boyolali''',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Merawat Semangat Ibadah Setelah Ramadhan',
+      'date': 'Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Bulan suci Ramadhan tahun ini tak terasa hampir pergi. Padahal, seakan baru kemarin ia menyapa kita. Ia berjalan seperti angin, berlalu begitu cepat. Tapi sayang, kita terlalu santai dan lambat meresponsnya, tidak memanfaatkan waktu bersamanya dengan baik. Bahkan banyak waktu terlewati begitu saja. Banyak amalan yang luput, kadang kita juga melewati hari-hari Ramadhan ini seperti hari-hari biasa di bulan lain.
+
+Potret Para Sahabat dan Ulama Salaf ketika Berada di Penghujung Ramadhan
+
+Dalam kitab Lathaiful Ma’arif, Imam Ibnu Rajab al-Hanbali, menyatakan bahwa para sahabat dan ulama salaf adalah orang-orang yang paling antusias dalam menyempurnakan dan melakukan hal terbaik dalam beramal.
+
+Selain itu, mereka juga sangat antusias agar amal mereka diterima dan merasa takut jika amal tersebut ditolak. Mereka itulah sekelompok manusia yang Allah sebutkan dalam Al-Qur’an melalui firman-Nya:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَالَّذِينَ يُؤْتُونَ مَا آتَوْا وَقُلُوبُهُمْ وَجِلَةٌ أَنَّهُمْ إِلَى رَبِّهِمْ رَاجِعُونَ''',
+          'latin': '''''',
+          'translation': '''Artinya: “Dan orang-orang yang memberikan sesuatu yang telah mereka berikan, dengan hati yang takut, (karena mereka tahu bahwa) sesungguhnya mereka akan kembali kepada Tuhan mereka,” (QS. al-Mu’minun: 60).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Menurut Imam Ibnu Rajab, para sahabat dahulu berdoa selama enam bulan sebelum Ramadhan agar Allah mempertemukan mereka dengannya, dan enam bulan setelahnya mereka berdoa agar amal mereka diterima, (Imam Ibnu Rajab Al-Hanbali, Lathaiful Ma’arif, [Beirut, Dar Ibnu Hazm: 1424 H], hlm. 209).
+
+Setelah Ramadhan: Menjaga Semangat Ibadah Sepanjang Tahun
+
+Bulan suci Ramadhan itu bagaikan seorang kekasih, yang kehadirannya selalu dinantikan dan kepergiannya selalu membuat kesedihan serta kerinduan. Maka tidak mengherankan, jika tiba saatnya harus berpisah dengan Ramadhan, para sahabat dan ulama salaf bersedih, berharap agar dapat dipertemukan lagi dengan bulan Ramadhan tahun depan. Oleh karena itu, Imam Ibnu Rajab, dalam kitab Lathaiful Ma’arif-nya berkata:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''‏كَيْفَ لَا تَجْرِيْ لِلْمُؤْمِنِ عَلَى فِرَاقِ رَمَضَان دُمُوْعٌ؟ وَهُوَ لَا يَدْرِيْ هَلْ بَقِيَ لَهُ في عُمرِهِ إليه رُجُوعٌ''',
+          'latin': '''''',
+          'translation': '''Artinya: “Bagaimana bisa seorang mukmin tidak menetes air mata ketika berpisah dengan Ramadhan, sementara ia tak tahu pasti, apakah di sisa umurnya masih bisa berjumpa dengan bulan suci tersebut,” (hlm. 217).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Akan tetapi yang lebih penting dari pada itu semua adalah jangan sampai ungkapan kesedihan dan tangisan kita dengan perginya bulan Ramadhan adalah hanya kepura-puraan saja atau sekedar ikut-ikutan saja. Kita buktikan perpisahan dengan bulan Ramadhan dengan tetap melakukan ibadah-ibadah yang sudah sering dilakukan di bulan Ramadhan atau minimal tidak kita tinggalkan secara total.
+
+Bahkan Syekh Nawawi al-Bantani dalam kitabnya berjudul Nihayatuz Zain fi Irsyad al-Mubtadi’in, menyatakan bahwa salah satu dari kesepuluh amaliah sunah Ramadhan adalah melanjutkan amaliah-amaliah yang telah dilakukan di bulan Ramadhan di bulan-bulan berikutnya (Nihayahtuz Zain, [Beirut, Darul Kutub al-Islamiyyah: tt], hlm. 190).
+
+Oleh karena itu, Sayyid Abdullah al-Haddad juga pernah berkata,''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''لاَ تَسْكُب الدَّمَعَاتِ لِرَحِيْلِ رَمَضَانَ، فَرَمَضَانُ سَيَعُوْدُ، وَلَكِن اسْكُبْ الدَّمَعَاتِ خَشْيَةَ أَنْ يَعُودَ رَمَضَانُ وَ أنْتَ رَاحِلٌ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Kau tak perlu menyucurkan air mata karena kepergian Ramadhan, sebab bulan Ramadhan pasti akan kembali. Tapi cucurkanlah air mata karena khawatir ketika Ramadhan datang kembali, tapi kau telah pergi (sudah meninggal/ belum meninggal tapi telah pergi dari sebuah ketaatan).”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Masih Ada Asa agar Semua Tak Sia-sia
+
+Sejatinya, sebelum bulan Ramadhan pergi, kita masih mempunyai kesempatan untuk menyelesaikan target-target yang belum terlaksana, walaupun waktu yang tersisa begitu singkat, seperti mengkhatamkan al-Qur’an, memperbanyak sedekah, dan lain sebagainya.
+
+Kalau kita ibaratkan, hari-hari akhir Ramadhan ini seperti babak final dalam sebuah kompetisi, para peserta semakin sedikit. Hanya mereka yang bersungguh-sungguh dan istiqamah berhasil lolos dari babak sebelumnya.
+
+Layaknya seekor kuda pacu, yang mana jika sudah mendekati garis finis, ia akan mengerahkan segenap tenaganya untuk meraih kemenangan. Oleh karena itu, jika kita merasa tak baik dalam menyambut bulan Ramadhan, maka marilah melakukan yang baik di detik-detik perpisahan dengannya.
+
+Do’a Akhir Ramadhan
+
+Syekh Mutawalli asy-Sya’rawi dalam salah satu kesempatan pernah berkata dengan mengutip sebuah hadits, bahwa Nabi Muhammad SAW ketika berpisah dengan bulan suci Ramadhan berdoa sebagai berikut:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''أَللَّهُمَّ لاَ تَجْعَلْهُ آخِرَ الْعَهْدِ مِنْ صِيَامِنَا إِيَّاهُ، فَإِنْ جَعَلْتَهُ فَاجْعَلْنِيْ مَرْحُوْمًا وَ لاَ تَجْعَلْنِيْ مَحْرُوْمًا''',
+          'latin': '''''',
+          'translation': '''Artinya: "Ya Allah, janganlah Engkau jadikan bulan Ramadhan tahun ini sebagai bulan Ramadhan terakhir dalam hidupku. Namun, jika Engkau menjadikannya sebagai Ramadhan terakhir bagiku, maka jadikanlah aku sebagai orang yang Engkau sayangi dan jangan jadikan aku orang yang Engkau murkai."''',
+        },
+        {
+          'type': 'text',
+          'content': '''Lalu, Syekh Mutawalli asy-Sya’rawi  mengutip riwayat dari sahabat Jabir bin Abdillah RA, dari Nabi Muhammad SAW, bahwa barang siapa yang membaca doa ini di malam terakhir bulan Ramadhan, maka ia akan mendapatkan salah satu dari dua kebaikan: yakni menjumpai bulan Ramadhan mendatang atau pengampunan dan rahmat Allah. Wallahu a’lam.
+
+Ustadz Muhammad Ryan Romadhon, Alumni Ma’had Aly Al-Iman Bulus, Purworejo, Jawa Tengah.''',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Mari Perkuat Kesalehan Sosial Lewat Puasa',
+      'date': 'Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Saat ini kita sedang berada di bulan yang sangat dinanti oleh semua umat Islam. Bulan Ramadhan yang kehadirannya selalu dirindukan, bahkan jauh sebelum ia benar-benar datang. Banyak doa dipanjatkan agar kita bisa dipertemukan dengannya dan bisa menjalani hari-harinya dengan sebaik-baiknya. Dan alhamdulillah, pada hari ini kita tidak lagi menunggunya, tetapi sedang berada di dalamnya.
+
+Oleh karena itu, inilah kesempatan emas yang telah Allah SWT berikan kepada kita semua, karena Ramadhan merupakan bulan yang disediakan untuk saling berlomba-lomba dalam meningkatkan ketakwaan. Di dalamnya, semua amal ibadah dan kebaikan yang kita lakukan akan dilipatgandakan pahalanya oleh Allah. Allah SWT berfirman dalam Al-Qur’an:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Wahai orang-orang yang beriman, diwajibkan atas kamu berpuasa sebagaimana diwajibkan atas orang-orang sebelum kamu agar kamu bertakwa,” (QS. Al-Baqarah: 183).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Ayat ini menegaskan bahwa tujuan final dari ibadah puasa kita adalah meraih gelar “muttaqin”, yaitu menjadi orang-orang yang bertakwa. Namun, sering kali makna takwa ini kita persempit hanya sebagai rasa takut kepada Allah yang membuat kita rajin beribadah ritual saja. Padahal takwa adalah sebuah konsep yang sangat luas dan dinamis.
+
+Salah satu bukti kuat bahwa puasa Ramadhan tidak hanya dimaksudkan untuk meningkatkan ritual ibadah semata adalah peringatan Rasulullah tentang seseorang yang masih terus berkata dusta, mengucapkan perkataan bohong, serta melakukan perbuatan yang menyakiti sesama, maka puasanya tidak bernilai di hadapan Allah. Dalam salah satu haditsnya, Nabi bersabda:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''مَنْ لَمْ يَدَعْ قَوْلَ الزُّورِ وَالْعَمَلَ بِهِ وَالْجَهْلَ فَلَيْسَ لِلَّهِ حَاجَةٌ أَنْ يَدَعَ طَعَامَهُ وَشَرَابَهُ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Barang siapa yang tidak meninggalkan perkataan dusta, mengamalkannya, dan perbuatan bodoh (yang menyakiti), maka Allah tidak membutuhkan ia meninggalkan makan dan minumnya (puasanya).” (HR. Bukhari).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Oleh karena itu, puasa yang kita jalani pada bulan Ramadhan ini tidak hanya tentang peningkatan ibadah spiritual semata, tetapi juga tentang peningkatan kesalehan sosial. Kita tidak hanya dituntut untuk rajin shalat, membaca Al-Qur’an, dan berzikir, tetapi juga dituntut untuk peduli terhadap sesama, membantu orang yang kesusahan, menyantuni anak yatim, menjenguk orang sakit, dan berbuat baik kepada tetangga kita.
+
+Spirit tentang kesalehan sosial ini pada hakikatnya telah ditegaskan dalam Al-Qur’an bahwa Allah tidak menjadikan ukuran kebaikan dan ketakwaan hanya pada simbol-simbol ritual semata, tetapi juga pada sejauh mana ketakwaan itu melahirkan kepedulian sosial yang nyata. Allah berfirman:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''لَيْسَ الْبِرَّ أَنْ تُوَلُّوا وُجُوهَكُمْ قِبَلَ الْمَشْرِقِ وَالْمَغْرِبِ وَلَكِنَّ الْبِرَّ مَنْ آمَنَ بِاللَّهِ وَالْيَوْمِ الآخِرِ وَالْمَلائِكَةِ وَالْكِتَابِ وَالنَّبِيِّينَ وَآتَى الْمَالَ عَلَى حُبِّهِ ذَوِي الْقُرْبَى وَالْيَتَامَى وَالْمَسَاكِينَ وَابْنَ السَّبِيلِ وَالسَّائِلِينَ وَفِي الرِّقَابِ وَأَقَامَ الصَّلاةَ وَآتَى الزَّكَاةَ وَالْمُوفُونَ بِعَهْدِهِمْ إِذَا عَاهَدُوا وَالصَّابِرِينَ فِي الْبَأْسَاءِ وَالضَّرَّاءِ وَحِينَ الْبَأْسِ أُولَئِكَ الَّذِينَ صَدَقُوا وَأُولَئِكَ هُمُ الْمُتَّقُونَ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Kebajikan itu bukanlah menghadapkan wajahmu ke arah timur dan barat, melainkan kebajikan itu ialah (kebajikan) orang yang beriman kepada Allah, hari Akhir, malaikat-malaikat, kitab suci, dan nabi-nabi; memberikan harta yang dicintainya kepada kerabat, anak yatim, orang miskin, musafir, peminta-minta, dan (memerdekakan) hamba sahaya; melaksanakan salat; menunaikan zakat; menepati janji apabila berjanji; sabar dalam kemelaratan, penderitaan, dan pada masa peperangan. Mereka itulah orang-orang yang benar dan mereka itulah orang-orang yang bertakwa.” (QS. Al-Baqarah: 177).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Oleh sebab itu, mari kita jadikan puasa di bulan Ramadhan ini tidak hanya sebagai ladang untuk meningkatkan kesalehan individual saja, tetapi juga sebagai momentum untuk berusaha sekuat mungkin meningkatkan kesalehan sosial.
+
+Lantas, bagaimana caranya agar kita bisa meningkatkan kesalehan sosial di bulan Ramadhan ini? Caranya bisa kita mulai dari hal yang paling dekat dengan kita, yaitu menjaga lisan agar tidak melukai perasaan orang lain, menahan diri dari ghibah, adu domba, dan ucapan yang menyakitkan, sebab sering kali dosa sosial justru lahir dari kata-kata yang dianggap sepele tapi berdampak kepada yang lain.
+
+Selain itu, mari jadikan puasa sebagai madrasah kehidupan yang menumbuhkan kepekaan sosial. Rasa lapar yang kita rasakan hendaknya menyadarkan kita betapa beratnya perjuangan saudara-saudara yang hidup dalam kekurangan setiap hari. Dari kesadaran itu, lahirkan kepedulian yang nyata, misalnya dengan berbagi takjil atau membantu mereka yang membutuhkan.
+
+Dan memang demikianlah salah satu sebab disyariatkannya puasa yang perlu kita pahami dan kita sadari, sebagaimana disampaikan oleh Syekh Muhammad Ali as-Shabuni dalam salah satu karya tafsirnya,''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''فَلَيْسَ الصِّيَامُ حِرْمَانًا لِلْإِنْسَانِ عَنِ الطَّعَامِ وَالشَّرَابِ، بَلْ هُوَ تَفْجِيرٌ لِلطَّاقَةِ الرُّوحِيَّةِ فِي نَفْسِ الْإِنْسَانِ، لِيَشْعُرَ بِشُعُورِ إِخْوَانِهِ، وَيُحِسَّ بِإِحْسَاسِهِمْ، فَيَمُدَّ إِلَيْهِمْ يَدَ الْمُسَاعَدَةِ وَالْعَوْنِ، وَيَمْسَحَ دُمُوعَ الْبَائِسِينَ، وَيُزِيلَ أَحْزَانَ الْمَنْكُوبِينَ، بِمَا تَجُودُ بِهِ نَفْسُهُ الْخَيِّرَةُ الْكَرِيمَةُ الَّتِي هَذَّبَهَا شَهْرُ الصِّيَامِ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Puasa tidak hanya menghalangi manusia dari makan dan minum, tetapi juga menghalangi pancaran energi spiritual dalam jiwa manusia, sehingga ia mampu merasakan apa yang dirasakan oleh saudara-saudaranya, ikut merasakan perasaan mereka, lalu mengulurkan tangan pertolongan dan bantuan, mengusap air mata orang-orang yang menderita, serta menghilangkan kesedihan mereka yang tertimpa musibah, disebabkan kemurahan jiwa yang baik dan mulia, yang telah ditempa dan dibina oleh bulan puasa.” (Rawai’ul Bayan fi Tafsiri Ayatil Ahkam, [Damaskus: Maktabah al-Ghazali, 1400 H], halaman 93).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Oleh karena itu, setelah kita merasakan lapar dan dahaga di siang hari Ramadhan, jangan biarkan rasa itu berlalu begitu saja. Jadikan ia sebagai pengingat akan saudara-saudara kita yang kurang beruntung, yang setiap hari harus berjuang untuk mendapatkan sesuap nasi. Kemudian, wujudkan kepedulian itu dalam tindakan nyata.
+
+Kemudian jangan lupa, bahwa di era digital ini kesalehan sosial juga berarti menggunakan media sosial dengan bijak, menyebarkan kebaikan, menahan diri dari komentar yang buruk, dan menjadi agen perdamaian di tengah hiruk-pikuk informasi. Dengan begitu, kita tidak hanya berhasil meningkatkan kesalehan individual, tetapi juga kesalehan sosial.
+
+Demikianlah kultum Ramadhan tentang puasa dan kesalehan sosial. Semoga apa yang telah dijelaskan ini tidak hanya berhenti sebagai pengetahuan dan nasihat di lisan saja, tetapi benar-benar meresap ke dalam hati dan terwujud dalam perilaku keseharian kita. Aamiin ya Rabbal ‘alamin.
+
+Ustadz Sunnatullah, Pengajar di Pondok Pesantren Al-Hikmah Darussalam Durjan Kokop Bangkalan Jawa Timur.''',
+        },
+      ]
+    },
+    {
+      'title': 'Kultum Ramadhan: Menghidupkan Hati dengan Tadarus Al-Qur’an',
+      'date': 'Ramadhan 1445 H',
+      'sections': [
+        {
+          'type': 'text',
+          'content': '''Sebagai mukjizat paling agung yang dianugerahkan kepada Nabi Muhammad SAW, Al-Qur'an hadir sebagai kompas sejati bagi umat manusia dalam menghadapi kompleksitas kehidupan. Lembaran sejarah mencatat bahwa momen sakral turunnya kalam ilahi yang kita kenal sebagai peristiwa Nuzulul Qur'an ini bermula di tengah keagungan bulan suci Ramadhan.
+
+Peristiwa ini bukan sekadar catatan masa lalu, melainkan titik awal di mana cahaya petunjuk mulai menerangi jalan manusia menuju kebenaran. Allah berfirman dalam surat Al-Baqarah ayat 185:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''شَهْرُ رَمَضَانَ الَّذِيْٓ اُنْزِلَ فِيْهِ الْقُرْاٰنُ هُدًى لِّلنَّاسِ وَبَيِّنٰتٍ مِّنَ الْهُدٰى وَالْفُرْقَانِۚ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Bulan Ramadhan adalah (bulan) yang di dalamnya diturunkan Al-Quran sebagai petunjuk bagi manusia dan penjelasan-penjelasan mengenai petunjuk itu serta pembeda (antara yang hak dan yang batil).” (QS. Al-Baqarah: 185)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Imam Al-Qurthubi dalam kitab tafsirnya,  Al-Jami' li Ahkamil Qur'an, memberikan klasifikasi mengenai waktu turunnya kitab-kitab samawi yang semuanya berpusat pada bulan Ramadan. Mengutip sabda Rasulullah melalui jalur periwayatan Watsilah bin Asqa’, beliau merinci bahwa Shuhuf Ibrahim hadir pada malam pertama, Taurat pada tanggal keenam, dan Injil pada tanggal ketiga belas Ramadhan.
+
+Informasi ini memperkuat argumen teologis mengapa Ramadhan disebut sebagai bulan Al-Qur'an, karena secara historis, bulan ini memang dipilih sebagai waktu diturunkannya cahaya petunjuk bagi umat manusia lintas zaman. (Imam Al-Qurthubi, Al-Jami' li Ahkamil Qur'an, [Beirut, Muassasah Ar-Risalah: 2006], jilid. III, halaman 161).
+
+Tadarus Al-Qur’an, Menghidupkan Hati di Bulan Ramadhan
+
+Bulan suci Ramadhan hadir sebagai momentum emas bagi setiap Muslim untuk kembali merajut kedekatan dengan Al-Qur'an. Mengingat kaitan erat antara Ramadhan dan Al-Qur'an, memperbanyak tadarus bukan sekadar rutinitas, melainkan upaya menghidupkan kembali hati kita di bulan yang penuh berkah tersebut. Allah SWT. berfirman dalam surat Al-Isra’:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَنُنَزِّلُ مِنَ الْقُرْاٰنِ مَا هُوَ شِفَاۤءٌ وَّرَحْمَةٌ لِّلْمُؤْمِنِيْنَۙ وَلَا يَزِيْدُ الظّٰلِمِيْنَ اِلَّا خَسَارًا''',
+          'latin': '''''',
+          'translation': '''Artinya: “Kami turunkan dari Al-Qur’an sesuatu yang menjadi penawar dan rahmat bagi orang-orang mukmin, sedangkan bagi orang-orang zalim (Al-Qur’an itu) hanya akan menambah kerugian.” (QS. Al-Isra': 82)''',
+        },
+        {
+          'type': 'text',
+          'content': '''Syekh Mutawalli Asy-Sya’rawi dalam kitab Khawathir Haulal Qur’an-nya memberikan interpretasi terhadap ayat tersebut sebagai berikut:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''وَالشِّفَاءُ: أَنْ تُعَالِجَ دَاءً مَوْجُودًا لِتَبْرَأَ مِنْهُ. وَالرَّحْمَةُ: أَنْ تَتَّخِذَ مِنْ أَسْبَابِ الْوِقَايَةِ مَا يَضْمَنُ لَكَ عَدَمَ مُعَاوَدَةِ الْمَرَضِ مَرَّةً أُخْرَى، فَالرَّحْمَةُ وِقَايَةٌ، وَالشِّفَاءُ عِلَاجٌ.''',
+          'latin': '''''',
+          'translation': '''Artinya: “Syifa' (penawar/obat) yang dimaksud dalam ayat tersebut adalah mengobati penyakit yang sedang ada agar sembuh darinya. Sedangkan maksud dari ‘Rahmat’ adalah mengambil sebab-sebab pencegahan (preventif) yang menjamin Anda tidak akan tertular atau kambuh oleh penyakit itu lagi. Jadi, Rahmat adalah pencegahan, sedangkan Syifa' adalah pengobatan.” (Khawathir Haulal Qur’an, [Kairo, Mathabi’ Akhbarul Yaum: 1997 M], jilid XIV, halaman 8712).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Syekh Sya’rawi menawarkan distingsi yang sangat tajam sekaligus cerdas dalam membedah makna Syifa’ dan Rahmat pada ayat tersebut. Beliau memandang Syifa’ sebagai penawar bagi luka atau penyakit yang tengah merundung jiwa, sementara Rahmat adalah bentuk proteksi Ilahi yang menjaga kita agar tidak terperosok kembali ke dalam kesalahan yang sama.
+
+Dalam konteks ini, tadarus Al-Qur’an menghasilkan dampak ganda: ia tidak hanya menyembuhkan penyakit hati yang sedang diderita, tetapi juga menjadi perisai preventif yang menghidupkan hati dan menjaganya dari mati suri.
+
+Namun, apakah kesembuhan (syifa’) dari Al-Qur'an itu hanya bersifat maknawi (psikologis) untuk penyakit hati dan gangguan jiwa, sehingga membebaskan seorang Muslim dari kecemasan, kebingungan, dan rasa iri, serta mencabut akar dendam, kedengkian, dan hasad dari dalam jiwanya, ataukah ia juga merupakan obat bagi hal-hal fisik dan penyakit badan?
+
+Menurut Syekh Asy-Sya’rawi, pendapat yang paling kuat, bahkan yang dipastikan tanpa keraguan sedikit pun, adalah bahwa Al-Qur'an merupakan ‘obat’ dalam makna yang umum dan menyeluruh bagi kata tersebut. Artinya, Al-Qur'an adalah obat bagi penyakit fisik (materiil) sebagaimana ia juga obat bagi penyakit jiwa (maknawi).
+
+Lalu, apa yang dimaksud dengan hidupnya hati lantaran bertadarus Al-Qur’an? Hati yang hidup adalah hati yang mudah merasakan sensitivitas spiritual. Ia akan mudah merasakan manis, pahit, dan asamnya spiritualitas sehingga hatinya merasakan kelezatan ibadah dan kepedihan atas kesempatan ibadah yang luput.
+
+Syekh Ibnu Athaillah As-Sakandari dalam Al-Hikam-nya menyebut salah satu dari beberapa tanda kematian hati:''',
+        },
+        {
+          'type': 'arabic',
+          'content': '''مِنْ عَلَامَاتِ مَوْتِ الْقَلْبِ عَدَمُ الْحُزْنِ عَلَى مَا فَاتَكَ مِنَ الْمُوَافَقَاتِ، وَتَرْكُ النَّدَمِ عَلَى مَا فَعَلْتَ مِنْ وُجُودِ الزَّلَّاتِ''',
+          'latin': '''''',
+          'translation': '''Artinya, “Salah satu tanda kematian hati adalah tidak adanya kesedihan atas kesempatan ibadah yang terlewat dan tidak adanya penyesalan atas kekhilafan yang pernah dilakukan.”''',
+        },
+        {
+          'type': 'text',
+          'content': '''Syekh Ibnu Ajibah menyebutkan tiga tanda kematian hati: pertama, tidak bersedih atas kesempatan ibadah yang terlewat; kedua, tidak menyesali perbuatan buruk yang telah dilakukan; dan ketiga, persahabatan dengan orang-orang lalai yang juga mati hatinya. (Syekh Ibnu Ajibah, Iqazhul Himam, [Beirut, Darul Fikr: tanpa tahun], jilid. I, halaman 82).''',
+        },
+        {
+          'type': 'text',
+          'content': '''Artinya, dengan tadarus Al-Qur’an, seorang Muslim hatinya akan hidup sehingga mudah merasakan sensitivitas spiritual, seperti bersedih atas kesempatan ibadah yang terlewat; menyesali perbuatan buruk yang telah dilakukan; dan tidak akan bersahabat dengan orang-orang lalai yang juga mati hatinya.''',
+        },
+        {
+          'type': 'text',
+          'content': '''Dengan demikian, dapat disimpulkan bahwa tadarus Al-Qur’an bukanlah sekadar rutinitas membaca saja, akan tetapi merupakan aksi nyata sebuah metode pengobatan menyeluruh yang bekerja secara serentak. Ia berfungsi sebagai solusi penyembuhan untuk penyakit hati yang ada, sekaligus menjadi benteng pencegahan agar hati tidak mengalami degradasi spiritual atau bahkan ‘mati suri’, sehingga akan hidup dan mudah merasakan sensitivitas spiritual, seperti bersedih atas kesempatan ibadah yang terlewat; menyesali perbuatan buruk yang telah dilakukan; dan tidak akan bersahabat dengan orang-orang lalai yang juga mati hatinya.
+
+Menyitir perspektif Syekh Asy-Sya’rawi, tadarus menawarkan kesehatan yang bersifat holistik; ia memulihkan stabilitas psikologis dari jeratan kecemasan serta hasad, dan secara pasti diyakini membawa energi pemulihan bagi kesehatan fisik. Melalui keselarasan syifa’ dan rahmat ini, Al-Qur'an hadir sebagai penjaga keutuhan manusia secara lahir dan batin.
+
+Momentum Ramadhan adalah ruang terbaik untuk menghidupkan hati dan memperkuat iman melalui tadarus yang konsisten. Mari kita sambut ajakan kebaikan ini dengan tekad yang bulat untuk memperbanyak membaca Al-Qur’an di sepanjang bulan suci ini. Wallahu a'lam.
+
+Muhammad Ryan Romadhon, Alumni Ma’had Aly Al-Iman Bulus, Purworejo, Jawa Tengah.''',
+        },
+      ]
+    },
