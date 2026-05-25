@@ -34,6 +34,7 @@ class SettingsProvider with ChangeNotifier {
   String _defaultTampilanBaris = 'Selalu Tanya';
   String _halamanPermulaanAlFatihah = 'Halaman 1';
   double _savedAudioSize = 0.0;
+  List<String> _downloadedSurahs = [];
   bool _penandaOtomatis = false;
   bool _pengingatMembaca = true;
 
@@ -60,6 +61,7 @@ class SettingsProvider with ChangeNotifier {
   String get defaultTampilanBaris => _defaultTampilanBaris;
   String get halamanPermulaanAlFatihah => _halamanPermulaanAlFatihah;
   double get savedAudioSize => _savedAudioSize;
+  List<String> get downloadedSurahs => _downloadedSurahs;
   bool get penandaOtomatis => _penandaOtomatis;
   bool get pengingatMembaca => _pengingatMembaca;
 
@@ -105,6 +107,7 @@ class SettingsProvider with ChangeNotifier {
     _defaultTampilanBaris = _prefs.getString('defaultTampilanBaris') ?? 'Selalu Tanya';
     _halamanPermulaanAlFatihah = _prefs.getString('halamanPermulaanAlFatihah') ?? 'Halaman 1';
     _savedAudioSize = _prefs.getDouble('savedAudioSize') ?? 0.0;
+    _downloadedSurahs = _prefs.getStringList('downloadedSurahs') ?? [];
     _penandaOtomatis = _prefs.getBool('penandaOtomatis') ?? false;
     _pengingatMembaca = _prefs.getBool('pengingatMembaca') ?? true;
     
@@ -377,8 +380,21 @@ class SettingsProvider with ChangeNotifier {
 
   Future<void> clearSavedAudio() async {
     _savedAudioSize = 0.0;
+    _downloadedSurahs.clear();
     await _prefs.setDouble('savedAudioSize', 0.0);
+    await _prefs.setStringList('downloadedSurahs', []);
     notifyListeners();
+  }
+
+  Future<void> addDownloadedSurah(int number, double size) async {
+    final strNumber = number.toString();
+    if (!_downloadedSurahs.contains(strNumber)) {
+      _downloadedSurahs.add(strNumber);
+      _savedAudioSize += size;
+      await _prefs.setStringList('downloadedSurahs', _downloadedSurahs);
+      await _prefs.setDouble('savedAudioSize', _savedAudioSize);
+      notifyListeners();
+    }
   }
 
   Future<void> setPenandaOtomatis(bool value) async {

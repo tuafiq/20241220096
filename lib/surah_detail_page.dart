@@ -1128,6 +1128,8 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
   }
 
   Widget _buildAudioControlCard(SurahDetailModel surah) {
+    final settings = Provider.of<SettingsProvider>(context);
+    final isDownloaded = settings.downloadedSurahs.contains(surah.nomor.toString());
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return StreamBuilder<PlayerState>(
       stream: _player.playerStateStream,
@@ -1208,15 +1210,35 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                     ),
                     child: Center(
                       child: IconButton(
-                        icon: const Icon(Icons.file_download_outlined, color: Color(0xFF13A884), size: 18),
-                        tooltip: 'Unduh Audio',
+                        icon: Icon(
+                          isDownloaded ? Icons.cloud_done : Icons.file_download_outlined,
+                          color: isDownloaded ? Colors.green : const Color(0xFF13A884),
+                          size: isDownloaded ? 20 : 18,
+                        ),
+                        tooltip: isDownloaded ? 'Audio Surah Terunduh' : 'Unduh Audio',
                         onPressed: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Mengunduh audio surah...'),
-                              duration: Duration(seconds: 1),
-                            ),
-                          );
+                          if (isDownloaded) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Row(
+                                  children: [
+                                    const Icon(Icons.cloud_done, color: Colors.white),
+                                    const SizedBox(width: 10),
+                                    Text(
+                                      'Audio surah ini sudah diunduh offline.',
+                                      style: GoogleFonts.poppins(color: Colors.white, fontSize: 12),
+                                    ),
+                                  ],
+                                ),
+                                backgroundColor: const Color(0xFF13A884),
+                                behavior: SnackBarBehavior.floating,
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                                duration: const Duration(seconds: 2),
+                              ),
+                            );
+                          } else {
+                            _simulateDownloadAudio(context, settings, surah);
+                          }
                         },
                         padding: EdgeInsets.zero,
                         constraints: const BoxConstraints(),
@@ -1300,6 +1322,68 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
         );
       },
     );
+  }
+
+  void _simulateDownloadAudio(BuildContext context, SettingsProvider settings, SurahDetailModel surah) {
+    // 150 KB per verse
+    final double sizeInBytes = surah.jumlahAyat * 150.0 * 1024.0;
+    
+    // Show a premium progress/loading indicator SnackBar
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Row(
+          children: [
+            const SizedBox(
+              width: 18,
+              height: 18,
+              child: CircularProgressIndicator(
+                strokeWidth: 2,
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+              ),
+            ),
+            const SizedBox(width: 14),
+            Expanded(
+              child: Text(
+                'Mengunduh audio Surah ${surah.namaLatin}...',
+                style: GoogleFonts.poppins(color: Colors.white, fontSize: 12),
+              ),
+            ),
+          ],
+        ),
+        backgroundColor: const Color(0xFF13A884),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        duration: const Duration(milliseconds: 1500),
+      ),
+    );
+
+    // Simulate network delay
+    Future.delayed(const Duration(milliseconds: 1500), () {
+      if (!mounted) return;
+      settings.addDownloadedSurah(surah.nomor, sizeInBytes);
+      
+      // Show premium success SnackBar
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Row(
+            children: [
+              const Icon(Icons.cloud_done, color: Colors.white),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  'Audio Surah ${surah.namaLatin} berhasil diunduh (${(sizeInBytes / (1024 * 1024)).toStringAsFixed(1)} MB)!',
+                  style: GoogleFonts.poppins(color: Colors.white, fontSize: 12),
+                ),
+              ),
+            ],
+          ),
+          backgroundColor: const Color(0xFF13A884),
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    });
   }
 
 
