@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'settings_provider.dart';
 import 'panduan_tajwid_page.dart';
+import 'pilih_qori_page.dart';
 
 class QuranSettingsPage extends StatefulWidget {
   const QuranSettingsPage({super.key});
@@ -12,73 +13,6 @@ class QuranSettingsPage extends StatefulWidget {
 }
 
 class _QuranSettingsPageState extends State<QuranSettingsPage> {
-  // Available Reciters list
-  final List<Map<String, String>> _qoriList = [
-    {'name': 'Al-Husary', 'id': '05'},
-    {'name': 'Abdullah Al-Juhany', 'id': '01'},
-    {'name': 'Abdul-Muhsin Al-Qasim', 'id': '02'},
-    {'name': 'Abdurrahman As-Sudais', 'id': '03'},
-    {'name': 'Ibrahim Al-Dossari', 'id': '04'},
-    {'name': 'Yasser Al-Dosari', 'id': '06'},
-  ];
-
-  void _showQoriSelection(BuildContext context, SettingsProvider settings) {
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) {
-        return Container(
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Text(
-                  'Pilih Qori Murottal',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: const Color(0xFF0C5441),
-                  ),
-                ),
-              ),
-              const Divider(),
-              Flexible(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: _qoriList.length,
-                  itemBuilder: (context, index) {
-                    final qori = _qoriList[index];
-                    final isSelected = settings.selectedQoriId == qori['id'];
-                    return ListTile(
-                      title: Text(
-                        qori['name']!,
-                        style: GoogleFonts.poppins(
-                          fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                          color: isSelected ? const Color(0xFF13A884) : Colors.black87,
-                        ),
-                      ),
-                      trailing: isSelected
-                          ? const Icon(Icons.check_circle, color: Color(0xFF13A884))
-                          : null,
-                      onTap: () {
-                        settings.setSelectedQori(qori['name']!, qori['id']!);
-                        Navigator.pop(context);
-                      },
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
 
   void _showTampilanUtamaSelection(BuildContext context, SettingsProvider settings) {
     final options = ['Baris Per Ayat', 'Halaman'];
@@ -760,7 +694,12 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
               _buildClickableRow(
                 title: 'Pilih Qori',
                 value: settings.selectedQori,
-                onTap: () => _showQoriSelection(context, settings),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const PilihQoriPage()),
+                  );
+                },
               ),
               const Divider(height: 1),
               _buildClickableRow(
