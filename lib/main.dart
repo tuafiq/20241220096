@@ -729,10 +729,14 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         // Rehal image
-                        Image.asset(
-                          'assets/images/quran_rehal.png',
-                          fit: BoxFit.contain,
-                          height: 62,
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.asset(
+                            'assets/images/quran_rehal.png',
+                            fit: BoxFit.cover,
+                            height: 62,
+                            width: 62,
+                          ),
                         ),
                       ],
                     ),

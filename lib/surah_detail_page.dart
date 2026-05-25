@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,6 +19,7 @@ class SurahDetailPage extends StatefulWidget {
 
 class _SurahDetailPageState extends State<SurahDetailPage> {
   late Future<SurahDetailModel> _surahDetail;
+  late Future<TafsirDetailModel> _tafsirDetail;
   final AudioPlayer _player = AudioPlayer();
   int? _currentlyPlayingAyat;
   bool _isFullSurahPlaying = false;
@@ -59,6 +61,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
   void initState() {
     super.initState();
     _surahDetail = QuranService().getSurahDetail(widget.nomor);
+    _tafsirDetail = QuranService().getTafsirDetail(widget.nomor);
     _loadFavorites();
     
     _player.playerStateStream.listen((state) {
@@ -665,8 +668,49 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                       ),
                     )
                   else if (_activeTab == 1)
-                    SliverToBoxAdapter(
-                      child: _buildPlaceholderTabContent('Tafsir untuk Surah ini belum tersedia secara offline.', Icons.menu_book),
+                    FutureBuilder<TafsirDetailModel>(
+                      future: _tafsirDetail,
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.waiting) {
+                          return const SliverToBoxAdapter(
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(vertical: 40.0),
+                              child: Center(
+                                child: CircularProgressIndicator(
+                                  color: Color(0xFF13A884),
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                        if (snapshot.hasError) {
+                          return SliverToBoxAdapter(
+                            child: _buildPlaceholderTabContent(
+                              'Gagal memuat Tafsir. Pastikan Anda terhubung ke internet.',
+                              Icons.cloud_off_rounded,
+                            ),
+                          );
+                        }
+                        if (!snapshot.hasData || snapshot.data!.tafsir.isEmpty) {
+                          return SliverToBoxAdapter(
+                            child: _buildPlaceholderTabContent(
+                              'Tafsir tidak ditemukan.',
+                              Icons.book_outlined,
+                            ),
+                          );
+                        }
+
+                        final tafsirData = snapshot.data!;
+                        return SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            (context, index) {
+                              final item = tafsirData.tafsir[index];
+                              return _buildTafsirItem(item);
+                            },
+                            childCount: tafsirData.tafsir.length,
+                          ),
+                        );
+                      },
                     )
                   else if (_activeTab == 2)
                     SliverToBoxAdapter(
@@ -890,7 +934,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
             child: const Center(
               child: Icon(
                 Icons.chevron_left,
-                color: Color(0xFF0C5441),
+                color: Colors.black87,
                 size: 28,
               ),
             ),
@@ -958,29 +1002,41 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
               ),
               child: Stack(
                 children: [
-                  // Mosque silhouette in the background
+                  // Outer Islamic arch contour
                   Positioned(
-                    right: -20,
+                    right: 16,
                     bottom: 0,
-                    child: Opacity(
-                      opacity: 0.15,
-                      child: Icon(
-                        Icons.mosque,
-                        size: 170,
-                        color: const Color(0xFF13A884).withOpacity(0.3),
+                    top: 26,
+                    width: 138,
+                    child: ClipPath(
+                      clipper: IslamicArchClipper(),
+                      child: Container(
+                        color: Colors.white,
                       ),
                     ),
                   ),
-                  // Quran Rehal image in the foreground
+                  // Inner Islamic arch with Rehal image clipped inside it
                   Positioned(
-                    right: 8,
-                    bottom: 12,
-                    top: 60,
-                    width: 150,
-                    child: Image.asset(
-                      'assets/images/quran_rehal.png',
-                      fit: BoxFit.contain,
-                      errorBuilder: (context, error, stackTrace) => const SizedBox(),
+                    right: 20,
+                    bottom: 0,
+                    top: 30,
+                    width: 130,
+                    child: ClipPath(
+                      clipper: IslamicArchClipper(),
+                      child: Container(
+                        color: Colors.white,
+                        child: Image.asset(
+                          'assets/images/quran_rehal.png',
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) => const Center(
+                            child: Icon(
+                              Icons.menu_book,
+                              color: Color(0xFF13A884),
+                              size: 40,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                   // Left side info
@@ -1457,4 +1513,131 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
       },
     );
   }
+
+  Widget _buildTafsirItem(TafsirAyatModel item) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    
+    // Split text by newlines to render clean paragraphs
+    final paragraphs = item.teks.split('\n').where((p) => p.trim().isNotEmpty).toList();
+
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.04),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+        border: Border.all(
+          color: isDarkMode ? Colors.transparent : Colors.grey.shade100,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Header: Ayat Number Badge
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF0C5441).withOpacity(0.08),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.book_rounded,
+                      size: 14,
+                      color: Color(0xFF13A884),
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      'Tafsir Ayat ${item.ayat}',
+                      style: GoogleFonts.outfit(
+                        color: const Color(0xFF0C5441),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // Copy Button
+              IconButton(
+                icon: Icon(
+                  Icons.copy_rounded,
+                  size: 18,
+                  color: isDarkMode ? Colors.grey[400] : Colors.grey[500],
+                ),
+                onPressed: () {
+                  Clipboard.setData(ClipboardData(text: item.teks));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Tafsir Ayat ${item.ayat} disalin ke papan klip!'),
+                      behavior: SnackBarBehavior.floating,
+                      backgroundColor: const Color(0xFF0C5441),
+                    ),
+                  );
+                },
+                tooltip: 'Salin Tafsir',
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          // Paragraphs
+          ...paragraphs.map((paragraph) {
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 12.0),
+              child: Text(
+                paragraph.trim(),
+                style: TextStyle(
+                  fontSize: 14,
+                  height: 1.6,
+                  color: isDarkMode ? Colors.white70 : Colors.black87,
+                ),
+                textAlign: TextAlign.justify,
+              ),
+            );
+          }),
+        ],
+      ),
+    );
+  }
+}
+
+class IslamicArchClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    final w = size.width;
+    final h = size.height;
+    
+    path.moveTo(0, h);
+    path.lineTo(0, h * 0.35);
+    
+    // Islamic arch curve
+    // Left side shoulder curves
+    path.quadraticBezierTo(0, h * 0.15, w * 0.25, h * 0.12);
+    // Left curve to peak
+    path.quadraticBezierTo(w * 0.45, h * 0.08, w * 0.5, 0);
+    // Right curve from peak
+    path.quadraticBezierTo(w * 0.55, h * 0.08, w * 0.75, h * 0.12);
+    // Right shoulder curves
+    path.quadraticBezierTo(w, h * 0.15, w, h * 0.35);
+    
+    path.lineTo(w, h);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }

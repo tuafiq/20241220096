@@ -501,7 +501,7 @@ class _QuranPageState extends State<QuranPage> {
                     'assets/images/quran_rehal.png',
                     width: 80,
                     height: 80,
-                    fit: BoxFit.contain,
+                    fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) => Container(
                       width: 80,
                       height: 80,
@@ -673,7 +673,7 @@ class _QuranPageState extends State<QuranPage> {
                       'assets/images/quran_rehal.png',
                       width: 80,
                       height: 80,
-                      fit: BoxFit.contain,
+                      fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) => Container(
                         width: 80,
                         height: 80,

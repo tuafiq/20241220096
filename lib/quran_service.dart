@@ -33,6 +33,20 @@ class QuranService {
       throw Exception('Error fetching surah detail: $e');
     }
   }
+
+  Future<TafsirDetailModel> getTafsirDetail(int nomor) async {
+    try {
+      final response = await http.get(Uri.parse('$baseUrl/tafsir/$nomor'));
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        return TafsirDetailModel.fromJson(data['data']);
+      } else {
+        throw Exception('Failed to load tafsir detail');
+      }
+    } catch (e) {
+      throw Exception('Error fetching tafsir detail: $e');
+    }
+  }
 }
 
 class SurahDetailModel extends SurahModel {
@@ -93,6 +107,60 @@ class AyatModel {
       teksLatin: json['teksLatin'],
       teksIndonesia: json['teksIndonesia'],
       audio: Map<String, String>.from(json['audio']),
+    );
+  }
+}
+
+class TafsirDetailModel {
+  final int nomor;
+  final String nama;
+  final String namaLatin;
+  final int jumlahAyat;
+  final String tempatTurun;
+  final String arti;
+  final String deskripsi;
+  final List<TafsirAyatModel> tafsir;
+
+  TafsirDetailModel({
+    required this.nomor,
+    required this.nama,
+    required this.namaLatin,
+    required this.jumlahAyat,
+    required this.tempatTurun,
+    required this.arti,
+    required this.deskripsi,
+    required this.tafsir,
+  });
+
+  factory TafsirDetailModel.fromJson(Map<String, dynamic> json) {
+    return TafsirDetailModel(
+      nomor: json['nomor'],
+      nama: json['nama'],
+      namaLatin: json['namaLatin'],
+      jumlahAyat: json['jumlahAyat'],
+      tempatTurun: json['tempatTurun'],
+      arti: json['arti'],
+      deskripsi: json['deskripsi'],
+      tafsir: (json['tafsir'] as List)
+          .map((t) => TafsirAyatModel.fromJson(t))
+          .toList(),
+    );
+  }
+}
+
+class TafsirAyatModel {
+  final int ayat;
+  final String teks;
+
+  TafsirAyatModel({
+    required this.ayat,
+    required this.teks,
+  });
+
+  factory TafsirAyatModel.fromJson(Map<String, dynamic> json) {
+    return TafsirAyatModel(
+      ayat: json['ayat'],
+      teks: json['teks'],
     );
   }
 }
