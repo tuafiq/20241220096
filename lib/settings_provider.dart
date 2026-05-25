@@ -26,6 +26,17 @@ class SettingsProvider with ChangeNotifier {
 
   int _lastHeaderIndex = 0; // 0: Location, 1: Quran, 2: Dzikir
 
+  // Al-Quran Settings Defaults
+  bool _showWarnaTajwid = true;
+  String _selectedQori = 'Al-Husary';
+  String _selectedQoriId = '05';
+  String _defaultTampilanUtama = 'Baris Per Ayat';
+  String _defaultTampilanBaris = 'Selalu Tanya';
+  String _halamanPermulaanAlFatihah = 'Halaman 1';
+  double _savedAudioSize = 0.0;
+  bool _penandaOtomatis = false;
+  bool _pengingatMembaca = true;
+
   String get saveLocation => _saveLocation;
   String get fontSize => _fontSize;
   String get fontFamily => _fontFamily;
@@ -40,6 +51,17 @@ class SettingsProvider with ChangeNotifier {
   int get countAllahuAkbar => _countAllahuAkbar;
   int get countAstaghfirullah => _countAstaghfirullah;
   int get lastHeaderIndex => _lastHeaderIndex;
+
+  // Al-Quran Getters
+  bool get showWarnaTajwid => _showWarnaTajwid;
+  String get selectedQori => _selectedQori;
+  String get selectedQoriId => _selectedQoriId;
+  String get defaultTampilanUtama => _defaultTampilanUtama;
+  String get defaultTampilanBaris => _defaultTampilanBaris;
+  String get halamanPermulaanAlFatihah => _halamanPermulaanAlFatihah;
+  double get savedAudioSize => _savedAudioSize;
+  bool get penandaOtomatis => _penandaOtomatis;
+  bool get pengingatMembaca => _pengingatMembaca;
 
   Locale get locale {
     switch (_language) {
@@ -74,6 +96,17 @@ class SettingsProvider with ChangeNotifier {
     _countAstaghfirullah = _prefs.getInt('countAstaghfirullah') ?? 1;
 
     _lastHeaderIndex = _prefs.getInt('lastHeaderIndex') ?? 0;
+
+    // Load Al-Quran settings
+    _showWarnaTajwid = _prefs.getBool('showWarnaTajwid') ?? true;
+    _selectedQori = _prefs.getString('selectedQori') ?? 'Al-Husary';
+    _selectedQoriId = _prefs.getString('selectedQoriId') ?? '05';
+    _defaultTampilanUtama = _prefs.getString('defaultTampilanUtama') ?? 'Baris Per Ayat';
+    _defaultTampilanBaris = _prefs.getString('defaultTampilanBaris') ?? 'Selalu Tanya';
+    _halamanPermulaanAlFatihah = _prefs.getString('halamanPermulaanAlFatihah') ?? 'Halaman 1';
+    _savedAudioSize = _prefs.getDouble('savedAudioSize') ?? 0.0;
+    _penandaOtomatis = _prefs.getBool('penandaOtomatis') ?? false;
+    _pengingatMembaca = _prefs.getBool('pengingatMembaca') ?? true;
     
     _updateNotification();
   }
@@ -301,5 +334,62 @@ class SettingsProvider with ChangeNotifier {
       default:
         return 1.0;
     }
+  }
+
+  // Al-Quran Setters
+  Future<void> setShowWarnaTajwid(bool show) async {
+    _showWarnaTajwid = show;
+    await _prefs.setBool('showWarnaTajwid', show);
+    notifyListeners();
+  }
+
+  Future<void> setSelectedQori(String qori, String qoriId) async {
+    _selectedQori = qori;
+    _selectedQoriId = qoriId;
+    await _prefs.setString('selectedQori', qori);
+    await _prefs.setString('selectedQoriId', qoriId);
+    notifyListeners();
+  }
+
+  Future<void> setDefaultTampilanUtama(String style) async {
+    _defaultTampilanUtama = style;
+    await _prefs.setString('defaultTampilanUtama', style);
+    notifyListeners();
+  }
+
+  Future<void> setDefaultTampilanBaris(String style) async {
+    _defaultTampilanBaris = style;
+    await _prefs.setString('defaultTampilanBaris', style);
+    notifyListeners();
+  }
+
+  Future<void> setHalamanPermulaanAlFatihah(String page) async {
+    _halamanPermulaanAlFatihah = page;
+    await _prefs.setString('halamanPermulaanAlFatihah', page);
+    notifyListeners();
+  }
+
+  Future<void> setSavedAudioSize(double size) async {
+    _savedAudioSize = size;
+    await _prefs.setDouble('savedAudioSize', size);
+    notifyListeners();
+  }
+
+  Future<void> clearSavedAudio() async {
+    _savedAudioSize = 0.0;
+    await _prefs.setDouble('savedAudioSize', 0.0);
+    notifyListeners();
+  }
+
+  Future<void> setPenandaOtomatis(bool value) async {
+    _penandaOtomatis = value;
+    await _prefs.setBool('penandaOtomatis', value);
+    notifyListeners();
+  }
+
+  Future<void> setPengingatMembaca(bool value) async {
+    _pengingatMembaca = value;
+    await _prefs.setBool('pengingatMembaca', value);
+    notifyListeners();
   }
 }

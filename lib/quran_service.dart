@@ -51,6 +51,7 @@ class QuranService {
 
 class SurahDetailModel extends SurahModel {
   final List<AyatModel> ayat;
+  final Map<String, String> audioFull;
 
   SurahDetailModel({
     required super.nomor,
@@ -62,13 +63,17 @@ class SurahDetailModel extends SurahModel {
     required super.deskripsi,
     required super.audio,
     required this.ayat,
+    required this.audioFull,
   });
 
   factory SurahDetailModel.fromJson(Map<String, dynamic> json) {
     // API v2 return audioFull as a map, we take one (e.g., Al-Afasy) as default for the base model
     String audioUrl = '';
+    Map<String, String> audioFullMap = {};
     if (json['audioFull'] != null && json['audioFull'] is Map) {
-      audioUrl = json['audioFull']['05'] ?? json['audioFull'].values.first;
+      audioFullMap = Map<String, String>.from(
+          json['audioFull'].map((key, val) => MapEntry(key.toString(), val.toString())));
+      audioUrl = audioFullMap['05'] ?? audioFullMap.values.first;
     }
 
     return SurahDetailModel(
@@ -80,6 +85,7 @@ class SurahDetailModel extends SurahModel {
       arti: json['arti'],
       deskripsi: json['deskripsi'],
       audio: audioUrl,
+      audioFull: audioFullMap,
       ayat: (json['ayat'] as List).map((a) => AyatModel.fromJson(a)).toList(),
     );
   }

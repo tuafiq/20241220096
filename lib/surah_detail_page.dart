@@ -91,7 +91,10 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
 
     // Pre-load the full surah audio URL to get the duration metadata
     _surahDetail.then((surah) {
-      _player.setUrl(surah.audio).then((_) {
+      final settings = Provider.of<SettingsProvider>(context, listen: false);
+      final qoriId = settings.selectedQoriId;
+      final audioUrl = surah.audioFull[qoriId] ?? surah.audio;
+      _player.setUrl(audioUrl).then((_) {
         if (mounted) {
           setState(() {
             _duration = _player.duration ?? Duration.zero;
@@ -566,7 +569,9 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                         final prevAyat = _currentlyPlayingAyat! - 1;
                         if (prevAyat >= 1) {
                           final prevAyatModel = surah.ayat[prevAyat - 1];
-                          _playAudio(prevAyatModel.audio['05'] ?? prevAyatModel.audio.values.first, ayatNomor: prevAyat);
+                          final settings = Provider.of<SettingsProvider>(context, listen: false);
+                          final qoriId = settings.selectedQoriId;
+                          _playAudio(prevAyatModel.audio[qoriId] ?? prevAyatModel.audio.values.first, ayatNomor: prevAyat);
                         }
                       } else {
                         final newPos = _player.position - const Duration(seconds: 10);
@@ -605,7 +610,9 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                         final nextAyat = _currentlyPlayingAyat! + 1;
                         if (nextAyat <= surah.ayat.length) {
                           final nextAyatModel = surah.ayat[nextAyat - 1];
-                          _playAudio(nextAyatModel.audio['05'] ?? nextAyatModel.audio.values.first, ayatNomor: nextAyat);
+                          final settings = Provider.of<SettingsProvider>(context, listen: false);
+                          final qoriId = settings.selectedQoriId;
+                          _playAudio(nextAyatModel.audio[qoriId] ?? nextAyatModel.audio.values.first, ayatNomor: nextAyat);
                         }
                       } else {
                         final newPos = _player.position + const Duration(seconds: 10);
@@ -1217,7 +1224,12 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                   ),
                   const SizedBox(width: 8),
                   GestureDetector(
-                    onTap: () => _playAudio(surah.audio),
+                    onTap: () {
+                      final settings = Provider.of<SettingsProvider>(context, listen: false);
+                      final qoriId = settings.selectedQoriId;
+                      final audioUrl = surah.audioFull[qoriId] ?? surah.audio;
+                      _playAudio(audioUrl);
+                    },
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       decoration: BoxDecoration(
@@ -1291,7 +1303,8 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
 
 
   Widget _buildAyatItem(AyatModel ayat) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final settings = Provider.of<SettingsProvider>(context);
+    final isDarkMode = settings.themeModeStr == 'Gelap';
     return StreamBuilder<PlayerState>(
       stream: _player.playerStateStream,
       builder: (context, snapshot) {
@@ -1340,16 +1353,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
-                      ayat.teksArab,
-                      textAlign: TextAlign.right,
-                      style: GoogleFonts.scheherazadeNew(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: isDarkMode ? Colors.white : const Color(0xFF0C5441),
-                        height: 1.6,
-                      ),
-                    ),
+                    _buildTajwidRichText(ayat.teksArab, settings.showWarnaTajwid, isDarkMode),
                     if (_showTranslation) ...[
                       const SizedBox(height: 8),
                       Text(
@@ -1378,7 +1382,11 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                     Row(
                       children: [
                         GestureDetector(
-                          onTap: () => _playAudio(ayat.audio['05'] ?? ayat.audio.values.first, ayatNomor: ayat.nomorAyat),
+                          onTap: () {
+                            final settings = Provider.of<SettingsProvider>(context, listen: false);
+                            final qoriId = settings.selectedQoriId;
+                            _playAudio(ayat.audio[qoriId] ?? ayat.audio.values.first, ayatNomor: ayat.nomorAyat);
+                          },
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -1875,6 +1883,68 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildTajwidRichText(String text, bool showColor, bool isDarkMode) {
+    final baseColor = isDarkMode ? Colors.white : const Color(0xFF0C5441);
+    final style = GoogleFonts.scheherazadeNew(
+      fontSize: 22,
+      fontWeight: FontWeight.bold,
+      color: baseColor,
+      height: 1.6,
+    );
+
+    if (!showColor) {
+      return Text(
+        text,
+        textAlign: TextAlign.right,
+        style: style,
+      );
+    }
+
+    final ghunnahColor = const Color(0xFF27AE60); 
+    final qalqalahColor = const Color(0xFFE67E22); 
+    final madColor = const Color(0xFFC0392B); 
+    final idghamColor = const Color(0xFF2980B9); 
+
+    List<TextSpan> spans = [];
+    int i = 0;
+    while (i < text.length) {
+      String char = text[i];
+      
+      if ((char == 'ن' || char == 'م') && i + 1 < text.length && text[i + 1] == 'ّ') {
+        spans.add(TextSpan(text: char + 'ّ', style: style.copyWith(color: ghunnahColor)));
+        i += 2;
+        continue;
+      }
+      
+      if (('بجدطق'.contains(char)) && i + 1 < text.length && text[i + 1] == 'ْ') {
+        spans.add(TextSpan(text: char + 'ْ', style: style.copyWith(color: qalqalahColor)));
+        i += 2;
+        continue;
+      }
+      
+      if (char == '\u0670' || char == '\u0653' || char == 'آ') {
+        spans.add(TextSpan(text: char, style: style.copyWith(color: madColor)));
+        i++;
+        continue;
+      }
+      
+      if ((char == '\u064b' || char == '\u064c' || char == '\u064d') && i + 1 < text.length && 'يرملون'.contains(text[i + 1])) {
+        spans.add(TextSpan(text: char, style: style.copyWith(color: idghamColor)));
+        i++;
+        continue;
+      }
+
+      spans.add(TextSpan(text: char, style: style));
+      i++;
+    }
+
+    return RichText(
+      textAlign: TextAlign.right,
+      textDirection: TextDirection.rtl,
+      text: TextSpan(children: spans),
     );
   }
 }

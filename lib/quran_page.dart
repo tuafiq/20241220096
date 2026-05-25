@@ -5,6 +5,7 @@ import 'quran_data.dart';
 import 'quran_service.dart';
 import 'surah_detail_page.dart';
 import 'settings_page.dart';
+import 'quran_settings_page.dart';
 
 class JuzInfo {
   final int number;
@@ -351,7 +352,7 @@ class _QuranPageState extends State<QuranPage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const SettingsPage()),
+                        MaterialPageRoute(builder: (context) => const QuranSettingsPage()),
                       );
                     },
                   ),
