@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
@@ -27,6 +28,7 @@ class TajwidRule {
   final String? catatan;
   final List<String>? bulletPoints;
   final List<TajwidRuleExample> examples;
+  final String? harakat;
 
   TajwidRule({
     required this.title,
@@ -36,6 +38,7 @@ class TajwidRule {
     this.catatan,
     this.bulletPoints,
     required this.examples,
+    this.harakat,
   });
 }
 
@@ -54,6 +57,7 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
     TajwidRule(
       title: 'Ghunnah',
       titleColor: const Color(0xFFD222B5),
+      harakat: '2',
       description: 'Terjadi saat membaca nun tasydid (نّ) atau mim tasydid (مّ).\nLama dengungnya sekitar 2 harakat.',
       examples: [
         TajwidRuleExample(
@@ -71,6 +75,7 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
     TajwidRule(
       title: 'Idgham Bighunnah',
       titleColor: const Color(0xFFD222B5),
+      harakat: '2',
       description: 'Terjadi saat nun sukun (نْ) atau tanwin (ــًــٍــٌ) bertemu dengan salah satu dari ن (nun), م (mim), و (wau), atau ي (ya).',
       caraBaca: 'Cara baca: meleburkan bunyi nun sukun atau tanwin ke huruf berikutnya dengan dengung selama 2 harakat.',
       catatan: 'bila nun sukun bertemu dengan و atau ي dalam satu kata maka status bacaan menjadi idzhar muthlaq (wajib) alias dibaca jelas. Kasus ini hanya terjadi pada empat kata di berbagai surat: الدُّنْيَا، قِنْوَانٌ، صِنْوَانٌ، بُنْيَانٌ',
@@ -90,6 +95,7 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
     TajwidRule(
       title: 'Idgham Mimi',
       titleColor: const Color(0xFFD222B5),
+      harakat: '2',
       description: 'Terjadi saat mim sukun (مْ) bertemu dengan mim (م).',
       caraBaca: 'Cara baca: meleburkan mim sukun ke huruf mim berikutnya dengan dengung.',
       examples: [
@@ -200,6 +206,7 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
     TajwidRule(
       title: 'Ikhfa\' Haqiqi',
       titleColor: const Color(0xFF4CAF50),
+      harakat: '2',
       description: 'Terjadi ketika nun sukun (نْ) atau tanwin (ــًــٍــٌ) bertemu dengan 15 huruf ikhfa\':\nت - ث - ج - د - ذ - ز - س - ش - ص - ض - ط - ظ - ف - ق - ك',
       caraBaca: 'Cara baca: menyamarkan bunyi nun sukun atau tanwin, berada di antara jelas dan dengung, selama 2 harakat.',
       examples: [
@@ -224,6 +231,7 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
     TajwidRule(
       title: 'Ikhfa\' Syafawi',
       titleColor: const Color(0xFF4CAF50),
+      harakat: '2',
       description: 'Terjadi ketika mim sukun (مْ) bertemu dengan ب (ba\'). Cara baca: menyamarkan huruf mim mati (مْ) di bibir sambil didengungkan.',
       examples: [
         TajwidRuleExample(
@@ -241,6 +249,7 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
     TajwidRule(
       title: 'Iqlab',
       titleColor: const Color(0xFF00BCD4),
+      harakat: '2',
       description: 'Terjadi ketika nun sukun (نْ) atau tanwin (ــًــٍــٌ) bertemu dengan ب (ba\'). Cara baca: mengganti bunyi nun sukun atau tanwin menjadi mim mati dengan dengung.',
       examples: [
         TajwidRuleExample(
@@ -280,81 +289,162 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
 
   final List<TajwidRule> _madRules = [
     TajwidRule(
-      title: 'Mad Thabi\'i / Mad Asli',
-      titleColor: const Color(0xFF009688),
-      description: 'Terjadi jika alif sukun setelah fathah, ya sukun setelah kasrah, atau wau sukun setelah dhammad. Panjangnya 2 harakat.',
-      examples: [
-        TajwidRuleExample(
-          spans: [
-            TextSpanSpec('قَ', false),
-            TextSpanSpec('ا', true),
-            TextSpanSpec('لَ يَ', false),
-            TextSpanSpec('قُ', false),
-            TextSpanSpec('و', true),
-            TextSpanSpec('لُ ', false),
-            TextSpanSpec('قِ', false),
-            TextSpanSpec('ي', true),
-            TextSpanSpec('لَ', false),
-          ],
-          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/002008.mp3',
-        ),
-      ],
-    ),
-    TajwidRule(
-      title: 'Mad Wajib Muttasil',
-      titleColor: const Color(0xFF9C27B0),
-      description: 'Terjadi jika huruf Mad Thabi\'i bertemu hamzah dalam satu kata. Dibaca panjang 4-5 harakat (2 setengah alif).',
+      title: 'Mad Wajib Muttashil',
+      titleColor: const Color(0xFF00BCD4),
+      harakat: '5',
+      description: 'Terjadi saat mad thabi\'i bertemu dengan hamzah (ء) dalam satu kata.',
+      bulletPoints: ['Panjang bacaan adalah 5 harakat.'],
       examples: [
         TajwidRuleExample(
           spans: [
             TextSpanSpec('إِذَا ', false),
-            TextSpanSpec('جَاءَ', true),
-            TextSpanSpec(' نَصْرُ اللّٰهِ وَالْفَتْحُ', false),
+            TextSpanSpec('جَا\u200D', true),
+            TextSpanSpec('\u200Dءَ نَصْرُ اللهِ وَالْفَتْحُ', false),
           ],
           audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/110001.mp3',
         ),
       ],
     ),
     TajwidRule(
-      title: 'Mad Jaiz Munfasil',
-      titleColor: const Color(0xFF9C27B0),
-      description: 'Terjadi jika huruf Mad Thabi\'i bertemu hamzah di kata yang lain. Dibaca panjang 2, 4, atau 5 harakat.',
+      title: 'Mad Jaiz Munfashil',
+      titleColor: const Color(0xFF4CAF50),
+      harakat: '2-4-5',
+      description: 'Terjadi saat mad thabi\'i bertemu dengan hamzah (ء) dalam dua kata terpisah.',
+      bulletPoints: ['Boleh dibaca 2, 4, atau 5 harakat.'],
       examples: [
         TajwidRuleExample(
           spans: [
-            TextSpanSpec('إِ', false),
-            TextSpanSpec('نَّا أَنْ', true),
-            TextSpanSpec('زَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ', false),
+            TextSpanSpec('قُلْ ', false),
+            TextSpanSpec('يٰۤ\u200D', true),
+            TextSpanSpec('\u200Dأَيُّهَا الْكٰفِرُونَۙ', false),
           ],
-          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/097001.mp3',
+          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/109001.mp3',
+        ),
+        TajwidRuleExample(
+          spans: [
+            TextSpanSpec('لَاۤ ', true),
+            TextSpanSpec('أَعْبُدُ مَا تَعْبُدُونَۙ', false),
+          ],
+          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/109002.mp3',
         ),
       ],
     ),
     TajwidRule(
-      title: 'Mad Aridh Lissukun',
-      titleColor: const Color(0xFFFF9800),
-      description: 'Terjadi jika huruf mad berada sebelum huruf hidup di akhir ayat yang di-waqaf-kan (berhenti). Dibaca panjang 2, 4, atau 6 harakat.',
+      title: 'Mad Shilah Thawilah',
+      titleColor: const Color(0xFF4CAF50),
+      harakat: '2-4-5',
+      description: 'Terjadi ketika ha\' dhamir (ه) yang didahului harakat hidup bertemu hamzah.',
+      bulletPoints: ['Boleh dibaca 2, 4, atau 5 harakat.'],
       examples: [
         TajwidRuleExample(
           spans: [
-            TextSpanSpec('الْحَمْدُ لِلّٰهِ رَبِّ الْ', false),
-            TextSpanSpec('عَالَمِينَ', true),
+            TextSpanSpec('وَمَا يُكَذِّبُ بِ\u200D', false),
+            TextSpanSpec('\u200Dهِۦۤ', true),
+            TextSpanSpec(' إِلَّا مُعْتَدٍ أَثِيمٍ', false),
           ],
-          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/001002.mp3',
+          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/083012.mp3',
         ),
       ],
     ),
     TajwidRule(
-      title: 'Mad Lazim Kilmi Muthaqqal',
-      titleColor: const Color(0xFFE53935),
-      description: 'Terjadi jika huruf mad bertemu dengan huruf bertasydid dalam satu kata. Dibaca panjang wajib 6 harakat.',
+      title: 'Mad Farqi',
+      titleColor: const Color(0xFFD222B5),
+      harakat: '6',
+      description: 'Mad (bacaan panjang) yang berfungsi untuk membedakan pertanyaan atau bukan.',
+      bulletPoints: ['Harus dibaca panjang 6 harakat.'],
       examples: [
         TajwidRuleExample(
           spans: [
-            TextSpanSpec('صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَ', false),
-            TextSpanSpec('لَا الضَّالِّينَ', true),
+            TextSpanSpec('قُلِ الْحَمْدُ لِلَّهِ وَسَلَامٌ عَلَىٰ عِبَادِهِ الَّذِينَ اصْطَفَىٰۗ ', false),
+            TextSpanSpec('ءٰۤا', true),
+            TextSpanSpec('للَّهُ خَيْرٌ أَ\u200D', false),
+            TextSpanSpec('\u200Dمَّا', false, colorOverride: const Color(0xFFD222B5)),
+            TextSpanSpec(' يُشْرِكُونَ', false),
           ],
-          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/001007.mp3',
+          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/027059.mp3',
+        ),
+      ],
+    ),
+    TajwidRule(
+      title: 'Mad Lazim Mukhaffaf Kilmi',
+      titleColor: const Color(0xFFD222B5),
+      harakat: '6',
+      description: 'Terjadi saat mad thabi\'i bertemu dengan huruf sukun dalam satu kata.',
+      bulletPoints: ['Harus dibaca panjang 6 harakat.'],
+      examples: [
+        TajwidRuleExample(
+          spans: [
+            TextSpanSpec('آ', true),
+            TextSpanSpec('لْآنَ وَقَ\u200D', false),
+            TextSpanSpec('\u200Dدْ', false, colorOverride: const Color(0xFF3F51B5)),
+            TextSpanSpec(' عَصَيْتَ قَ\u200D', false),
+            TextSpanSpec('\u200Dبْ\u200D', false, colorOverride: const Color(0xFF3F51B5)),
+            TextSpanSpec('\u200Dلُ وَكُ\u200D', false),
+            TextSpanSpec('\u200Dنْتَ', false, colorOverride: const Color(0xFF4CAF50)),
+            TextSpanSpec(' مِنَ الْمُفْسِدِينَ', false),
+          ],
+          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/010091.mp3',
+        ),
+      ],
+    ),
+    TajwidRule(
+      title: 'Mad Lazim Mutsaqqal Kilmi',
+      titleColor: const Color(0xFFD222B5),
+      harakat: '6',
+      description: 'Terjadi saat mad thabi\'i bertemu dengan huruf bertasydid dalam satu kata.',
+      bulletPoints: ['Harus dibaca panjang 6 harakat.'],
+      examples: [
+        TajwidRuleExample(
+          spans: [
+            TextSpanSpec('وَلَا تَحَ\u200D', false),
+            TextSpanSpec('\u200Dاضُّ\u200D', true),
+            TextSpanSpec('\u200Dونَ عَلَىٰ طَعَامِ الْمِسْكِينِ', false),
+          ],
+          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/089018.mp3',
+        ),
+      ],
+    ),
+    TajwidRule(
+      title: 'Mad Lazim Harfi Musyabba',
+      titleColor: const Color(0xFFD222B5),
+      harakat: '6',
+      description: 'Bacaan panjang 6 harakat pada huruf-huruf di permulaan surat yang terdiri dari huruf:\nن - ق - ص - ع - س - ل - ك - م\nHuruf-huruf ini terkumpul dalam satu kalimat (نَقَصَ عَسَلُكُمْ).',
+      examples: [
+        TajwidRuleExample(
+          spans: [
+            TextSpanSpec('ا', false),
+            TextSpanSpec('لٓمٓ', true),
+          ],
+          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/002001.mp3',
+        ),
+        TajwidRuleExample(
+          spans: [
+            TextSpanSpec('ا', false),
+            TextSpanSpec('لٓمٓصٓ', true),
+          ],
+          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/007001.mp3',
+        ),
+        TajwidRuleExample(
+          spans: [
+            TextSpanSpec('كٰ\u200D', true),
+            TextSpanSpec('\u200Dهيٰ\u200D', false),
+            TextSpanSpec('\u200Dعٓصٓ', true),
+          ],
+          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/019001.mp3',
+        ),
+        TajwidRuleExample(
+          spans: [
+            TextSpanSpec('طٰ\u200D', false),
+            TextSpanSpec('\u200Dسٓمٓ', true),
+          ],
+          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/026001.mp3',
+        ),
+        TajwidRuleExample(
+          spans: [
+            TextSpanSpec('نٓۚ ', true),
+            TextSpanSpec('وَالْقَلَمِ وَمَا يَسْطُرُونَ', false),
+          ],
+          audioUrl: 'https://cdn.equran.id/audio-partial/Misyari-Rasyid-Al-Afasi/068001.mp3',
         ),
       ],
     ),
@@ -419,7 +509,7 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+        backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFF13A884),
         appBar: AppBar(
           title: Text(
             'Panduan Tajwid Berwarna',
@@ -434,20 +524,20 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
           elevation: 0,
           centerTitle: false,
           bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(40),
+            preferredSize: const Size.fromHeight(48),
             child: Container(
+              width: double.infinity,
               decoration: BoxDecoration(
                 color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
-                border: Border(
-                  bottom: BorderSide(
-                    color: isDarkMode ? Colors.grey.shade800 : Colors.grey.shade300,
-                    width: 1,
-                  ),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(24),
+                  topRight: Radius.circular(24),
                 ),
               ),
               child: TabBar(
                 indicatorColor: const Color(0xFF13A884),
-                indicatorWeight: 2.5,
+                indicatorWeight: 3,
+                indicatorSize: TabBarIndicatorSize.label,
                 labelColor: isDarkMode ? Colors.white : Colors.black,
                 unselectedLabelColor: isDarkMode ? Colors.white70 : Colors.grey,
                 labelStyle: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 13),
@@ -460,11 +550,14 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
             ),
           ),
         ),
-        body: TabBarView(
-          children: [
-            _buildRuleList(_dasarRules, isDarkMode),
-            _buildRuleList(_madRules, isDarkMode),
-          ],
+        body: Container(
+          color: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF5F7F8),
+          child: TabBarView(
+            children: [
+              _buildRuleList(_dasarRules, isDarkMode),
+              _buildRuleList(_madRules, isDarkMode),
+            ],
+          ),
         ),
       ),
     );
@@ -472,9 +565,12 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
 
   Widget _buildRuleList(List<TajwidRule> rules, bool isDarkMode) {
     return ListView.builder(
-      padding: EdgeInsets.zero,
-      itemCount: rules.length,
+      padding: const EdgeInsets.only(top: 8, bottom: 24),
+      itemCount: rules.length + 1,
       itemBuilder: (context, index) {
+        if (index == rules.length) {
+          return _buildCatatanPenting(isDarkMode);
+        }
         final rule = rules[index];
         return _buildRuleItem(rule, isDarkMode);
       },
@@ -482,164 +578,383 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
   }
 
   Widget _buildRuleItem(TajwidRule rule, bool isDarkMode) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          // Full width colored Title Bar
-          Container(
-            color: rule.titleColor,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
-            child: Text(
-              rule.title,
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
-              ),
-            ),
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: BoxDecoration(
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.04),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
           ),
-          // Description Area
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  rule.description,
-                  style: GoogleFonts.poppins(
-                    fontSize: 13,
-                    color: isDarkMode ? Colors.white70 : Colors.black87,
-                    height: 1.45,
-                  ),
-                ),
-                if (rule.caraBaca != null) ...[
-                  const SizedBox(height: 8),
-                  Text(
-                    rule.caraBaca!,
-                    style: GoogleFonts.poppins(
-                      fontSize: 13,
-                      color: isDarkMode ? Colors.white70 : Colors.black87,
-                      height: 1.45,
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // Left Accent Ribbon
+              Container(
+                width: 50,
+                color: rule.titleColor,
+                child: Center(
+                  child: Container(
+                    width: 30,
+                    height: 30,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.menu_book,
+                        color: rule.titleColor,
+                        size: 16,
+                      ),
                     ),
                   ),
-                ],
-                if (rule.bulletPoints != null) ...[
-                  const SizedBox(height: 6),
-                  ...rule.bulletPoints!.map((point) => Padding(
-                        padding: const EdgeInsets.only(left: 8, bottom: 3),
-                        child: Row(
+                ),
+              ),
+              // Center Content Column
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Title
+                      Text(
+                        rule.title,
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: rule.titleColor,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      // Description
+                      Text(
+                        rule.description,
+                        style: GoogleFonts.poppins(
+                          fontSize: 11,
+                          color: isDarkMode ? Colors.white70 : const Color(0xFF4A5568),
+                          height: 1.45,
+                        ),
+                      ),
+                      if (rule.caraBaca != null) ...[
+                        const SizedBox(height: 4),
+                        Text(
+                          rule.caraBaca!,
+                          style: GoogleFonts.poppins(
+                            fontSize: 11,
+                            color: isDarkMode ? Colors.white70 : const Color(0xFF4A5568),
+                            height: 1.45,
+                          ),
+                        ),
+                      ],
+                      if (rule.bulletPoints != null) ...[
+                        const SizedBox(height: 6),
+                        ...rule.bulletPoints!.map((point) => Padding(
+                              padding: const EdgeInsets.only(bottom: 3),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    margin: const EdgeInsets.only(top: 5, right: 6),
+                                    width: 5,
+                                    height: 5,
+                                    decoration: BoxDecoration(
+                                      color: rule.titleColor,
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      point,
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 11,
+                                        color: isDarkMode ? Colors.white70 : const Color(0xFF4A5568),
+                                        height: 1.4,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ],
+                      if (rule.catatan != null) ...[
+                        const SizedBox(height: 8),
+                        Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('• ', style: GoogleFonts.poppins(fontSize: 13, color: isDarkMode ? Colors.white70 : Colors.black87)),
+                            const Text('📝 ', style: TextStyle(fontSize: 11)),
                             Expanded(
-                              child: Text(
-                                point,
-                                style: GoogleFonts.poppins(
-                                  fontSize: 13,
-                                  color: isDarkMode ? Colors.white70 : Colors.black87,
-                                  height: 1.45,
+                              child: RichText(
+                                text: TextSpan(
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 11,
+                                    color: isDarkMode ? Colors.white70 : const Color(0xFF4A5568),
+                                    height: 1.45,
+                                  ),
+                                  children: [
+                                    const TextSpan(
+                                      text: 'Catatan: ',
+                                      style: TextStyle(fontWeight: FontWeight.bold),
+                                    ),
+                                    TextSpan(text: rule.catatan!),
+                                  ],
                                 ),
                               ),
                             ),
                           ],
                         ),
-                      )),
-                ],
-                if (rule.catatan != null) ...[
-                  const SizedBox(height: 10),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('📝 ', style: TextStyle(fontSize: 13)),
-                      Expanded(
-                        child: RichText(
-                          text: TextSpan(
-                            style: GoogleFonts.poppins(
-                              fontSize: 13,
-                              color: isDarkMode ? Colors.white70 : Colors.black87,
-                              height: 1.45,
-                            ),
-                            children: [
-                              const TextSpan(
-                                text: 'Catatan: ',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                      ],
+                      // Examples
+                      if (rule.examples.isNotEmpty) ...[
+                        ...rule.examples.asMap().entries.map((entry) {
+                          final idx = entry.key;
+                          final example = entry.value;
+                          final exampleId = '${rule.title}_$idx';
+                          final isPlaying = _currentlyPlayingExampleId == exampleId && _audioPlayer.playing;
+
+                          return Container(
+                            margin: const EdgeInsets.only(top: 8),
+                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                            decoration: BoxDecoration(
+                              color: isDarkMode ? const Color(0xFF262626) : Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: isDarkMode ? Colors.grey.shade800 : Colors.grey.shade200,
                               ),
-                              TextSpan(text: rule.catatan!),
-                            ],
-                          ),
-                        ),
-                      ),
+                            ),
+                            child: Row(
+                              children: [
+                                // Arabic Text (RTL)
+                                Expanded(
+                                  child: Directionality(
+                                    textDirection: TextDirection.rtl,
+                                    child: RichText(
+                                      textAlign: TextAlign.right,
+                                      text: TextSpan(
+                                        style: GoogleFonts.scheherazadeNew(
+                                          fontSize: 20,
+                                          height: 1.2,
+                                          color: isDarkMode ? Colors.white : const Color(0xFF0C5441),
+                                        ),
+                                        children: example.spans.map((spanSpec) {
+                                          return TextSpan(
+                                            text: spanSpec.text,
+                                            style: spanSpec.isColored
+                                                ? TextStyle(
+                                                    color: rule.titleColor,
+                                                    fontWeight: FontWeight.bold,
+                                                  )
+                                                : spanSpec.colorOverride != null
+                                                    ? TextStyle(
+                                                        color: spanSpec.colorOverride,
+                                                        fontWeight: FontWeight.bold,
+                                                      )
+                                                    : null,
+                                          );
+                                        }).toList(),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                // Speaker/Volume icon container
+                                Container(
+                                  width: 32,
+                                  height: 32,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: isDarkMode ? Colors.grey.shade700 : Colors.grey.shade300,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: IconButton(
+                                    icon: Icon(
+                                      isPlaying ? Icons.pause_circle_filled : Icons.volume_up,
+                                      color: const Color(0xFF13A884),
+                                      size: 16,
+                                    ),
+                                    onPressed: () => _playExampleAudio(example.audioUrl, exampleId),
+                                    constraints: const BoxConstraints(),
+                                    padding: EdgeInsets.zero,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        }),
+                      ],
                     ],
                   ),
-                ],
-                if (rule.examples.isNotEmpty) ...[
-                  const SizedBox(height: 10),
-                  ...rule.examples.asMap().entries.map((entry) {
-                    final idx = entry.key;
-                    final example = entry.value;
-                    final exampleId = '${rule.title}_$idx';
-                    final isPlaying = _currentlyPlayingExampleId == exampleId && _audioPlayer.playing;
+                ),
+              ),
+              // Right Harakat Badge
+              if (rule.harakat != null)
+                Container(
+                  padding: const EdgeInsets.only(right: 12),
+                  child: Center(
+                    child: _buildHarakatBadge(rule.harakat!, rule.titleColor),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 4),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Directionality(
-                              textDirection: TextDirection.rtl,
-                              child: RichText(
-                                textAlign: TextAlign.right,
-                                text: TextSpan(
-                                  style: GoogleFonts.scheherazadeNew(
-                                    fontSize: 22,
-                                    height: 1.1,
-                                    color: isDarkMode ? Colors.white : const Color(0xFF0C5441),
-                                  ),
-                                  children: example.spans.map((spanSpec) {
-                                    return TextSpan(
-                                      text: spanSpec.text,
-                                      style: spanSpec.isColored
-                                          ? TextStyle(
-                                              color: rule.titleColor,
-                                              fontWeight: FontWeight.bold,
-                                              )
-                                          : spanSpec.colorOverride != null
-                                              ? TextStyle(
-                                                  color: spanSpec.colorOverride,
-                                                  fontWeight: FontWeight.bold,
-                                                )
-                                              : null,
-                                    );
-                                  }).toList(),
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          IconButton(
-                            icon: Icon(
-                              isPlaying ? Icons.pause_circle_filled : Icons.volume_up,
-                              color: const Color(0xFF13A884),
-                              size: 24,
-                            ),
-                            onPressed: () => _playExampleAudio(example.audioUrl, exampleId),
-                            constraints: const BoxConstraints(),
-                            padding: EdgeInsets.zero,
-                          ),
-                        ],
-                      ),
-                    );
-                  }),
-                ],
-              ],
-            ),
+  Widget _buildHarakatBadge(String harakat, Color color) {
+    return SizedBox(
+      width: 60,
+      height: 60,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          CustomPaint(
+            size: const Size(60, 60),
+            painter: RubElHizbPainter(color: color),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                harakat,
+                style: GoogleFonts.poppins(
+                  fontSize: harakat.length > 2 ? 10 : 15,
+                  fontWeight: FontWeight.bold,
+                  color: color,
+                  height: 1.0,
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                'HARAKAT',
+                style: GoogleFonts.poppins(
+                  fontSize: 7,
+                  fontWeight: FontWeight.bold,
+                  color: color,
+                  height: 1.0,
+                ),
+              ),
+            ],
           ),
         ],
       ),
     );
   }
+
+  Widget _buildCatatanPenting(bool isDarkMode) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: isDarkMode ? const Color(0xFF1A2E26) : const Color(0xFFE8F5F1),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: isDarkMode
+              ? const Color(0xFF13A884).withOpacity(0.2)
+              : const Color(0xFF13A884).withOpacity(0.15),
+        ),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 36,
+            height: 36,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
+            child: const Center(
+              child: Icon(
+                Icons.lightbulb_outline,
+                color: Color(0xFF13A884),
+                size: 20,
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Catatan Penting',
+                  style: GoogleFonts.poppins(
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFF0C5441),
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  'Pahami setiap hukum bacaan dengan benar agar tilawah Al-Qur\'an menjadi lebih fasih dan sesuai dengan kaidah tajwid.',
+                  style: GoogleFonts.poppins(
+                    fontSize: 10,
+                    color: isDarkMode ? Colors.white70 : const Color(0xFF4A5568),
+                    height: 1.4,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 8),
+          const Icon(
+            Icons.chevron_right,
+            color: Color(0xFF13A884),
+            size: 20,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class RubElHizbPainter extends CustomPainter {
+  final Color color;
+
+  RubElHizbPainter({required this.color});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.8
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+
+    final path = Path();
+    final double cx = size.width / 2;
+    final double cy = size.height / 2;
+    final double outerRadius = size.width / 2;
+    final double innerRadius = outerRadius * 0.82;
+
+    for (int i = 0; i < 16; i++) {
+      final double angle = i * 3.14159265358979323846 / 8;
+      final double r = (i % 2 == 0) ? outerRadius : innerRadius;
+      final double x = cx + r * math.cos(angle);
+      final double y = cy + r * math.sin(angle);
+      if (i == 0) {
+        path.moveTo(x, y);
+      } else {
+        path.lineTo(x, y);
+      }
+    }
+    path.close();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
