@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,6 +23,9 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
   bool _isFullSurahPlaying = false;
   List<String> _favoriteSurahs = [];
   bool _showTranslation = true;
+  int _activeTab = 0; // 0: Ayat, 1: Tafsir, 2: Info Surah, 3: Keutamaan
+  Duration _position = Duration.zero;
+  Duration _duration = Duration.zero;
 
   void _showFontSizeDialog(BuildContext context, SettingsProvider settings) {
     showDialog(
@@ -64,6 +68,35 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
           _isFullSurahPlaying = false;
         });
       }
+    });
+
+    _player.positionStream.listen((p) {
+      if (mounted) {
+        setState(() {
+          _position = p;
+        });
+      }
+    });
+
+    _player.durationStream.listen((d) {
+      if (mounted) {
+        setState(() {
+          _duration = d ?? Duration.zero;
+        });
+      }
+    });
+
+    // Pre-load the full surah audio URL to get the duration metadata
+    _surahDetail.then((surah) {
+      _player.setUrl(surah.audio).then((_) {
+        if (mounted) {
+          setState(() {
+            _duration = _player.duration ?? Duration.zero;
+          });
+        }
+      }).catchError((e) {
+        // ignore or handle failure (e.g. offline mode)
+      });
     });
   }
 
@@ -195,23 +228,31 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
       final bool isCurrentFullSurah = (ayatNomor == null && _isFullSurahPlaying);
       final bool isCurrentAyat = (ayatNomor != null && _currentlyPlayingAyat == ayatNomor);
 
-      if ((isCurrentFullSurah || isCurrentAyat) && _player.playing) {
-        await _player.pause();
-        setState(() {
-          _currentlyPlayingAyat = null;
-          _isFullSurahPlaying = false;
-        });
+      if (isCurrentFullSurah || isCurrentAyat) {
+        // If the current track is active (either playing, loading or buffering), we pause/stop it.
+        if (_player.playing || 
+            _player.processingState == ProcessingState.loading || 
+            _player.processingState == ProcessingState.buffering) {
+          await _player.pause();
+        } else {
+          // If it's paused, we resume it.
+          await _player.play();
+        }
+        // Trigger UI update
+        setState(() {});
         return;
       }
 
+      // Stop previous audio and load new one
       await _player.stop();
-      await _player.setUrl(url);
-      await _player.play();
       
       setState(() {
         _currentlyPlayingAyat = ayatNomor;
-        _isFullSurahPlaying = ayatNomor == null;
+        _isFullSurahPlaying = (ayatNomor == null);
       });
+
+      await _player.setUrl(url);
+      await _player.play();
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -228,6 +269,358 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
         );
       }
     }
+  }
+
+  String _formatDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+    final minutes = twoDigits(duration.inMinutes.remainder(60));
+    final seconds = twoDigits(duration.inSeconds.remainder(60));
+    return '$minutes:$seconds';
+  }
+
+  Widget _buildAyatNumberOrnament(int number) {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Transform.rotate(
+          angle: pi / 4,
+          child: Container(
+            width: 34,
+            height: 34,
+            decoration: BoxDecoration(
+              border: Border.all(color: const Color(0xFF13A884).withOpacity(0.5), width: 1.5),
+              borderRadius: BorderRadius.circular(4),
+            ),
+          ),
+        ),
+        Container(
+          width: 34,
+          height: 34,
+          decoration: BoxDecoration(
+            border: Border.all(color: const Color(0xFF13A884).withOpacity(0.5), width: 1.5),
+            borderRadius: BorderRadius.circular(4),
+          ),
+        ),
+        Text(
+          '$number',
+          style: GoogleFonts.outfit(
+            fontSize: 12,
+            fontWeight: FontWeight.bold,
+            color: const Color(0xFF13A884),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildTabsRow() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final activeColor = const Color(0xFF13A884);
+    final inactiveColor = isDarkMode ? Colors.grey[400] : Colors.grey[600];
+
+    Widget tabItem(int index, IconData icon, String label) {
+      final isActive = _activeTab == index;
+      return GestureDetector(
+        onTap: () {
+          setState(() {
+            _activeTab = index;
+          });
+        },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      icon,
+                      size: 16,
+                      color: isActive ? activeColor : inactiveColor,
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      label,
+                      style: GoogleFonts.outfit(
+                        fontSize: 12,
+                        fontWeight: isActive ? FontWeight.bold : FontWeight.w500,
+                        color: isActive ? activeColor : inactiveColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              height: 3,
+              width: 28,
+              decoration: BoxDecoration(
+                color: isActive ? activeColor : Colors.transparent,
+                borderRadius: BorderRadius.circular(1.5),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: BoxDecoration(
+        color: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.03),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+        border: Border.all(
+          color: isDarkMode ? Colors.transparent : Colors.grey.shade100,
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(child: tabItem(0, Icons.menu_book, 'Ayat')),
+            Expanded(child: tabItem(1, Icons.book, 'Tafsir')),
+            Expanded(child: tabItem(2, Icons.info_outline, 'Info Surah')),
+            Expanded(child: tabItem(3, Icons.star_border, 'Keutamaan')),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPlaceholderTabContent(String text, IconData icon) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return Container(
+      margin: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.02),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 48, color: const Color(0xFF13A884).withOpacity(0.5)),
+          const SizedBox(height: 16),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.outfit(
+              fontSize: 15,
+              color: isDarkMode ? Colors.grey[400] : Colors.grey[600],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInfoTabContent(SurahDetailModel surah) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return Container(
+      margin: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.02),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+        border: Border.all(color: isDarkMode ? Colors.transparent : Colors.grey.shade100),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Tentang Surah ${surah.namaLatin}',
+            style: GoogleFonts.outfit(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: const Color(0xFF13A884),
+            ),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            surah.deskripsi.replaceAll(RegExp(r'<[^>]*>'), ''),
+            style: GoogleFonts.outfit(
+              fontSize: 14,
+              height: 1.6,
+              color: isDarkMode ? Colors.white70 : Colors.grey.shade800,
+            ),
+            textAlign: TextAlign.justify,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFloatingBottomPlayer(SurahDetailModel surah) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return StreamBuilder<PlayerState>(
+      stream: _player.playerStateStream,
+      builder: (context, snapshot) {
+        final playerState = snapshot.data;
+        final playing = playerState?.playing ?? false;
+        
+        if (_currentlyPlayingAyat == null && !_isFullSurahPlaying && !playing) {
+          return const SizedBox.shrink();
+        }
+
+        return Container(
+          height: 72,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          decoration: BoxDecoration(
+            color: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.08),
+                blurRadius: 16,
+                offset: const Offset(0, 4),
+              ),
+            ],
+            border: Border.all(
+              color: isDarkMode ? Colors.transparent : Colors.grey.shade100,
+            ),
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 48,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF386B5F),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                  child: Text(
+                    surah.nama,
+                    style: GoogleFonts.scheherazadeNew(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      surah.namaLatin,
+                      style: GoogleFonts.outfit(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: const Color(0xFF0C5441),
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Text(
+                      _currentlyPlayingAyat != null 
+                          ? 'Ayat $_currentlyPlayingAyat / ${surah.jumlahAyat}'
+                          : 'Surah ke-${surah.nomor} • ${surah.jumlahAyat} Ayat',
+                      style: GoogleFonts.outfit(
+                        fontSize: 12,
+                        color: isDarkMode ? Colors.white70 : Colors.grey[600],
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.skip_previous, color: Color(0xFF0C5441), size: 24),
+                    onPressed: () {
+                      if (_currentlyPlayingAyat != null) {
+                        final prevAyat = _currentlyPlayingAyat! - 1;
+                        if (prevAyat >= 1) {
+                          final prevAyatModel = surah.ayat[prevAyat - 1];
+                          _playAudio(prevAyatModel.audio['05'] ?? prevAyatModel.audio.values.first, ayatNomor: prevAyat);
+                        }
+                      } else {
+                        final newPos = _player.position - const Duration(seconds: 10);
+                        _player.seek(newPos < Duration.zero ? Duration.zero : newPos);
+                      }
+                    },
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      if (playing) {
+                        _player.pause();
+                      } else {
+                        _player.play();
+                      }
+                    },
+                    child: Container(
+                      width: 38,
+                      height: 38,
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF0C5441),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Icon(
+                          playing ? Icons.pause : Icons.play_arrow,
+                          color: Colors.white,
+                          size: 24,
+                        ),
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.skip_next, color: Color(0xFF0C5441), size: 24),
+                    onPressed: () {
+                      if (_currentlyPlayingAyat != null) {
+                        final nextAyat = _currentlyPlayingAyat! + 1;
+                        if (nextAyat <= surah.ayat.length) {
+                          final nextAyatModel = surah.ayat[nextAyat - 1];
+                          _playAudio(nextAyatModel.audio['05'] ?? nextAyatModel.audio.values.first, ayatNomor: nextAyat);
+                        }
+                      } else {
+                        final newPos = _player.position + const Duration(seconds: 10);
+                        _player.seek(newPos > _duration ? _duration : newPos);
+                      }
+                    },
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.list, color: Color(0xFF0C5441), size: 24),
+                    onPressed: () => _showMenuBottomSheet(context, surah),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -251,21 +644,47 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
         final surah = snapshot.data!;
         return Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          body: CustomScrollView(
-            slivers: [
-              _buildSliverAppBar(surah),
-              SliverToBoxAdapter(
-                child: _buildAudioControlCard(surah),
+          body: Stack(
+            children: [
+              CustomScrollView(
+                slivers: [
+                  _buildSliverAppBar(surah),
+                  SliverToBoxAdapter(
+                    child: _buildAudioControlCard(surah),
+                  ),
+                  SliverToBoxAdapter(
+                    child: _buildTabsRow(),
+                  ),
+                  if (_activeTab == 0)
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          return _buildAyatItem(surah.ayat[index]);
+                        },
+                        childCount: surah.ayat.length,
+                      ),
+                    )
+                  else if (_activeTab == 1)
+                    SliverToBoxAdapter(
+                      child: _buildPlaceholderTabContent('Tafsir untuk Surah ini belum tersedia secara offline.', Icons.menu_book),
+                    )
+                  else if (_activeTab == 2)
+                    SliverToBoxAdapter(
+                      child: _buildInfoTabContent(surah),
+                    )
+                  else if (_activeTab == 3)
+                    SliverToBoxAdapter(
+                      child: _buildPlaceholderTabContent('Keutamaan Surah ini sedang disiapkan.', Icons.star),
+                    ),
+                  const SliverToBoxAdapter(child: SizedBox(height: 100)),
+                ],
               ),
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    return _buildAyatItem(surah.ayat[index]);
-                  },
-                  childCount: surah.ayat.length,
-                ),
+              Positioned(
+                bottom: 16,
+                left: 16,
+                right: 16,
+                child: _buildFloatingBottomPlayer(surah),
               ),
-              const SliverToBoxAdapter(child: SizedBox(height: 32)),
             ],
           ),
         );
@@ -456,9 +875,17 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
           child: Container(
             width: 40,
             height: 40,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: Colors.white,
-              shape: BoxShape.circle,
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.08),
+                  blurRadius: 6,
+                  offset: const Offset(0, 2),
+                ),
+              ],
             ),
             child: const Center(
               child: Icon(
@@ -478,9 +905,17 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
             child: Container(
               width: 40,
               height: 40,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.white,
-                shape: BoxShape.circle,
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.08),
+                    blurRadius: 6,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
               ),
               child: const Center(
                 child: Icon(
@@ -512,7 +947,15 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                   )
                 : null,
             background: Container(
-              color: isDarkMode ? const Color(0xFF0A2B21) : const Color(0xFFE8F5F1), // Dark green background in dark mode, light mint in light mode
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: isDarkMode 
+                      ? [const Color(0xFF0A2B21), const Color(0xFF071F18)]
+                      : [const Color(0xFFF9FBFB), const Color(0xFFE8F5F1)],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
               child: Stack(
                 children: [
                   // Mosque silhouette in the background
@@ -543,7 +986,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                   // Left side info
                   Positioned(
                     left: 20,
-                    bottom: 24,
+                    bottom: 16,
                     right: 160,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -558,23 +1001,54 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                             height: 1.0,
                           ),
                         ),
-                        const SizedBox(height: 6),
+                        const SizedBox(height: 4),
                         Text(
                           surah.namaLatin,
                           style: GoogleFonts.outfit(
-                            fontSize: 26,
+                            fontSize: 28,
                             fontWeight: FontWeight.bold,
                             color: isDarkMode ? Colors.white : const Color(0xFF0C5441),
                             height: 1.0,
                           ),
                         ),
-                        const SizedBox(height: 8),
+                        const SizedBox(height: 6),
                         Text(
                           'Surah ke-${surah.nomor} • ${surah.jumlahAyat} Ayat • ${surah.tempatTurun == 'mekah' ? 'Makkiyah' : 'Madaniyah'}',
                           style: GoogleFonts.outfit(
-                            fontSize: 12,
+                            fontSize: 13,
                             fontWeight: FontWeight.w500,
-                            color: isDarkMode ? Colors.white70 : const Color(0xFF0C5441).withOpacity(0.7),
+                            color: isDarkMode ? Colors.white70 : Colors.grey[600],
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          decoration: BoxDecoration(
+                            color: isDarkMode ? const Color(0xFF0C5441).withOpacity(0.3) : const Color(0xFFE8F5F1),
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                              color: const Color(0xFF13A884).withOpacity(0.3),
+                              width: 1.2,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.menu_book, 
+                                size: 14, 
+                                color: isDarkMode ? const Color(0xFF13A884) : const Color(0xFF0C5441)
+                              ),
+                              const SizedBox(width: 6),
+                              Text(
+                                surah.arti,
+                                style: GoogleFonts.outfit(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: isDarkMode ? const Color(0xFF13A884) : const Color(0xFF0C5441),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -591,82 +1065,171 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
 
   Widget _buildAudioControlCard(SurahDetailModel surah) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      decoration: BoxDecoration(
-        color: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.03),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
+    return StreamBuilder<PlayerState>(
+      stream: _player.playerStateStream,
+      builder: (context, snapshot) {
+        final playerState = snapshot.data;
+        final playing = playerState?.playing ?? false;
+        final processingState = playerState?.processingState ?? ProcessingState.idle;
+        final bool isThisPlaying = _isFullSurahPlaying &&
+            (playing || processingState == ProcessingState.loading || processingState == ProcessingState.buffering);
+
+        final double maxVal = _duration.inMilliseconds.toDouble() > 0 
+            ? _duration.inMilliseconds.toDouble() 
+            : 1.0;
+        final double currentVal = _position.inMilliseconds.toDouble().clamp(0.0, maxVal);
+
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          decoration: BoxDecoration(
+            color: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.04),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
+            border: Border.all(color: isDarkMode ? Colors.transparent : Colors.grey.shade100),
           ),
-        ],
-        border: Border.all(color: isDarkMode ? Colors.transparent : Colors.grey.shade100),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.audiotrack, color: Color(0xFF13A884), size: 20),
-              const SizedBox(width: 8),
-              Text(
-                'Audio Surah Lengkap',
-                style: GoogleFonts.outfit(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: isDarkMode ? Colors.white : Colors.grey.shade800,
+              Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF13A884),
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(Icons.headphones, color: Colors.white, size: 20),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Audio Surah Lengkap',
+                          style: GoogleFonts.outfit(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: isDarkMode ? Colors.white : Colors.grey.shade800,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          isThisPlaying ? 'Sedang memutar audio surah' : 'Dengarkan per ayat atau lengkap',
+                          style: GoogleFonts.outfit(
+                            fontSize: 11,
+                            color: isDarkMode ? Colors.white70 : Colors.grey.shade500,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Container(
+                    width: 36,
+                    height: 36,
+                    decoration: BoxDecoration(
+                      color: isDarkMode ? Colors.grey[800] : const Color(0xFFF4F8F6),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: const Color(0xFF13A884).withOpacity(0.15)),
+                    ),
+                    child: Center(
+                      child: IconButton(
+                        icon: const Icon(Icons.file_download_outlined, color: Color(0xFF13A884), size: 18),
+                        tooltip: 'Unduh Audio',
+                        onPressed: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Mengunduh audio surah...'),
+                              duration: Duration(seconds: 1),
+                            ),
+                          );
+                        },
+                        padding: EdgeInsets.zero,
+                        constraints: const BoxConstraints(),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  GestureDetector(
+                    onTap: () => _playAudio(surah.audio),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF13A884),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            isThisPlaying ? Icons.stop : Icons.play_arrow,
+                            color: Colors.white,
+                            size: 16,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            isThisPlaying ? 'Stop' : 'Putar',
+                            style: GoogleFonts.outfit(
+                              color: Colors.white,
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              SliderTheme(
+                data: SliderThemeData(
+                  trackHeight: 2,
+                  activeTrackColor: const Color(0xFF13A884),
+                  inactiveTrackColor: isDarkMode ? Colors.grey[800] : Colors.grey[200],
+                  thumbColor: const Color(0xFF13A884),
+                  thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),
+                  overlayShape: const RoundSliderOverlayShape(overlayRadius: 14),
+                ),
+                child: Slider(
+                  min: 0,
+                  max: maxVal,
+                  value: currentVal,
+                  onChanged: (value) {
+                    _player.seek(Duration(milliseconds: value.toInt()));
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      _formatDuration(_position),
+                      style: TextStyle(fontSize: 11, color: isDarkMode ? Colors.grey[400] : Colors.grey[500]),
+                    ),
+                    Text(
+                      _formatDuration(_duration),
+                      style: TextStyle(fontSize: 11, color: isDarkMode ? Colors.grey[400] : Colors.grey[500]),
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
-          Row(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.info_outline, color: Color(0xFF13A884), size: 20),
-                tooltip: 'Info Surah',
-                onPressed: () => _showInfo(surah),
-              ),
-              const SizedBox(width: 8),
-              StreamBuilder<PlayerState>(
-                stream: _player.playerStateStream,
-                builder: (context, snapshot) {
-                  final playerState = snapshot.data;
-                  final playing = playerState?.playing ?? false;
-                  bool isThisPlaying = playing && _isFullSurahPlaying;
-                  
-                  return ElevatedButton.icon(
-                    onPressed: () => _playAudio(surah.audio),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF13A884),
-                      foregroundColor: Colors.white,
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    ),
-                    icon: Icon(
-                      isThisPlaying ? Icons.stop : Icons.play_arrow,
-                      size: 16,
-                    ),
-                    label: Text(
-                      isThisPlaying ? 'Stop' : 'Putar',
-                      style: GoogleFonts.outfit(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 
@@ -678,87 +1241,166 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
       builder: (context, snapshot) {
         final playerState = snapshot.data;
         final playing = playerState?.playing ?? false;
-        bool isPlaying = playing && _currentlyPlayingAyat == ayat.nomorAyat;
+        final processingState = playerState?.processingState ?? ProcessingState.idle;
+        bool isPlaying = _currentlyPlayingAyat == ayat.nomorAyat &&
+            (playing || processingState == ProcessingState.loading || processingState == ProcessingState.buffering);
 
         final bool isMemorized = _memorizedAyats.contains("${widget.nomor}_${ayat.nomorAyat}");
 
         return Container(
-          padding: const EdgeInsets.all(20),
+          margin: const EdgeInsets.only(bottom: 12, left: 16, right: 16),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: Theme.of(context).dividerColor)),
+            color: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.02),
+                blurRadius: 8,
+                offset: const Offset(0, 4),
+              ),
+            ],
+            border: Border.all(
+              color: isDarkMode ? Colors.transparent : Colors.grey.shade100,
+            ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              Column(
                 children: [
-                  Container(
-                    width: 32,
-                    height: 32,
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF13A884),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(
-                      child: Text(
-                        '${ayat.nomorAyat}',
-                        style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  const Spacer(),
-                  IconButton(
-                    icon: Icon(
-                      isPlaying ? Icons.pause_circle_outline : Icons.play_circle_outline,
-                      color: const Color(0xFF13A884),
-                    ),
-                    onPressed: () => _playAudio(ayat.audio['05'] ?? ayat.audio.values.first, ayatNomor: ayat.nomorAyat),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      isMemorized ? Icons.star : Icons.star_border,
-                      color: isMemorized ? Colors.amber : (isDarkMode ? Colors.grey[600] : Colors.grey),
-                    ),
-                    onPressed: () => _toggleMemorizedAyat(ayat.nomorAyat),
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.share_outlined, color: isDarkMode ? Colors.grey[400] : Colors.grey),
-                    onPressed: () {},
-                  ),
+                  const SizedBox(height: 4),
+                  _buildAyatNumberOrnament(ayat.nomorAyat),
                 ],
               ),
-              const SizedBox(height: 24),
-              Text(
-                ayat.teksArab,
-                textAlign: TextAlign.right,
-                style: GoogleFonts.scheherazadeNew(
-                  fontSize: 32,
-                  height: 1.8,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.onSurface,
+              const SizedBox(width: 12),
+              Container(
+                width: 1,
+                height: 48,
+                color: isDarkMode ? Colors.grey[800] : Colors.grey[200],
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      ayat.teksArab,
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.scheherazadeNew(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: isDarkMode ? Colors.white : const Color(0xFF0C5441),
+                        height: 1.6,
+                      ),
+                    ),
+                    if (_showTranslation) ...[
+                      const SizedBox(height: 8),
+                      Text(
+                        ayat.teksLatin,
+                        textAlign: TextAlign.left,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          fontStyle: FontStyle.italic,
+                          color: Color(0xFF13A884),
+                          height: 1.4,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        ayat.teksIndonesia,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: isDarkMode ? Colors.white70 : Colors.grey[600],
+                          height: 1.4,
+                        ),
+                      ),
+                    ],
+                    const SizedBox(height: 12),
+                    // Action Buttons Row under the text
+                    Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () => _playAudio(ayat.audio['05'] ?? ayat.audio.values.first, ayatNomor: ayat.nomorAyat),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                isPlaying ? Icons.pause_circle_outline : Icons.play_circle_outline,
+                                color: isPlaying ? const Color(0xFF13A884) : Colors.grey[600],
+                                size: 18,
+                              ),
+                              const SizedBox(width: 6),
+                              Text(
+                                isPlaying ? 'Pause' : 'Putar',
+                                style: GoogleFonts.outfit(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: isPlaying ? const Color(0xFF13A884) : Colors.grey[600],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: 24),
+                        GestureDetector(
+                          onTap: () => _toggleMemorizedAyat(ayat.nomorAyat),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                isMemorized ? Icons.favorite : Icons.favorite_border,
+                                color: isMemorized ? Colors.amber : Colors.grey[600],
+                                size: 18,
+                              ),
+                              const SizedBox(width: 6),
+                              Text(
+                                'Simpan',
+                                style: GoogleFonts.outfit(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: isMemorized ? Colors.amber : Colors.grey[600],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: 24),
+                        GestureDetector(
+                          onTap: () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Menyalin Ayat ${ayat.nomorAyat}...'),
+                                duration: const Duration(seconds: 1),
+                              ),
+                            );
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.share_outlined,
+                                color: Colors.grey[600],
+                                size: 18,
+                              ),
+                              const SizedBox(width: 6),
+                              Text(
+                                'Bagikan',
+                                style: GoogleFonts.outfit(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.grey[600],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-              if (_showTranslation) ...[
-                const SizedBox(height: 20),
-                Text(
-                  ayat.teksLatin,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontStyle: FontStyle.italic,
-                    color: Color(0xFF13A884),
-                    height: 1.5,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  ayat.teksIndonesia,
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Theme.of(context).colorScheme.onSurface.withOpacity(0.8),
-                    height: 1.5,
-                  ),
-                ),
-              ],
             ],
           ),
         );
