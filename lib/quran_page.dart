@@ -4,8 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'quran_data.dart';
 import 'quran_service.dart';
 import 'surah_detail_page.dart';
-import 'settings_page.dart';
 import 'quran_settings_page.dart';
+import 'juz_detail_page.dart';
 
 class JuzInfo {
   final int number;
@@ -91,7 +91,6 @@ class _QuranPageState extends State<QuranPage> {
 
   // Tabs: 0 for Surah, 1 for Juz
   int _activeTab = 0;
-  int? _expandedJuz; // Which Juz is expanded inline
 
   final FocusNode _searchFocusNode = FocusNode();
 
@@ -558,22 +557,30 @@ class _QuranPageState extends State<QuranPage> {
             Divider(color: Colors.grey[200], height: 1),
             const SizedBox(height: 12),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                _buildProgressIndicatorItem(
-                  Icons.school_rounded,
-                  '${_completedSurahs.length}',
-                  'Surah Selesai',
+                Expanded(
+                  child: _buildProgressIndicatorItem(
+                    Icons.school_rounded,
+                    '${_completedSurahs.length}',
+                    'Surah Selesai',
+                    _showCompletedSurahsBottomSheet,
+                  ),
                 ),
-                _buildProgressIndicatorItem(
-                  Icons.star_rounded,
-                  '${_memorizedAyats.length}',
-                  'Ayat Dihafal',
+                Expanded(
+                  child: _buildProgressIndicatorItem(
+                    Icons.star_rounded,
+                    '${_memorizedAyats.length}',
+                    'Ayat Dihafal',
+                    _showMemorizedAyatsBottomSheet,
+                  ),
                 ),
-                _buildProgressIndicatorItem(
-                  Icons.bookmark_rounded,
-                  '${_studiedJuz.length}',
-                  'Juz Dipelajari',
+                Expanded(
+                  child: _buildProgressIndicatorItem(
+                    Icons.bookmark_rounded,
+                    '${_studiedJuz.length}',
+                    'Juz Dipelajari',
+                    _showStudiedJuzBottomSheet,
+                  ),
                 ),
               ],
             ),
@@ -583,60 +590,426 @@ class _QuranPageState extends State<QuranPage> {
     );
   }
 
-  Widget _buildProgressIndicatorItem(IconData icon, String value, String label) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          width: 32,
-          height: 32,
-          decoration: const BoxDecoration(
-            color: Color(0xFF0C5441),
-            shape: BoxShape.circle,
-          ),
-          child: Icon(
-            icon,
-            color: Colors.white,
-            size: 16,
-          ),
-        ),
-        const SizedBox(width: 6),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
+  Widget _buildProgressIndicatorItem(IconData icon, String value, String label, VoidCallback onTap) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(10),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              value,
-              style: GoogleFonts.outfit(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: const Color(0xFF0C5441),
-                height: 1.1,
+            Container(
+              width: 30,
+              height: 30,
+              decoration: const BoxDecoration(
+                color: Color(0xFF0C5441),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                icon,
+                color: Colors.white,
+                size: 14,
               ),
             ),
-            Text(
-              label,
-              style: const TextStyle(
-                fontSize: 9,
-                fontWeight: FontWeight.w500,
-                color: Color(0xFF7F8C8D),
+            const SizedBox(width: 4),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    value,
+                    style: GoogleFonts.outfit(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xFF0C5441),
+                      height: 1.1,
+                    ),
+                  ),
+                  Text(
+                    label,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 9,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFF7F8C8D),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
         ),
-      ],
+      ),
+    );
+  }
+
+  SurahModel? _findSurahByNomor(int nomor) {
+    final list = widget.useApi ? _surahs : QuranData.listSurah;
+    for (final surah in list) {
+      if (surah.nomor == nomor) {
+        return surah;
+      }
+    }
+    return null;
+  }
+
+  void _showCompletedSurahsBottomSheet() {
+    final allSurahs = widget.useApi ? _surahs : QuranData.listSurah;
+    final completedList = allSurahs.where((surah) => _completedSurahs.contains(surah.nomor.toString())).toList();
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 10, bottom: 10),
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Surah Selesai Dibaca',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFF0C5441),
+                  ),
+                ),
+              ),
+            ),
+            const Divider(height: 1),
+            if (completedList.isEmpty)
+              Padding(
+                padding: const EdgeInsets.all(40.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.school_outlined, size: 60, color: Colors.grey[300]),
+                    const SizedBox(height: 12),
+                    Text(
+                      'Belum ada Surah yang selesai dibaca.',
+                      style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey[600]),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              )
+            else
+              Flexible(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: completedList.length,
+                  itemBuilder: (context, index) {
+                    final surah = completedList[index];
+                    return ListTile(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                      leading: Container(
+                        width: 32,
+                        height: 32,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFFE8F5F1),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Center(
+                          child: Text(
+                            _toArabicNumerals(surah.nomor),
+                            style: GoogleFonts.scheherazadeNew(
+                              color: const Color(0xFF13A884),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                      ),
+                      title: Text(
+                        surah.namaLatin,
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                      ),
+                      subtitle: Text(
+                        '${surah.tempatTurun.toUpperCase()} • ${surah.jumlahAyat} AYAT',
+                        style: GoogleFonts.poppins(fontSize: 11, color: Colors.grey[600]),
+                      ),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            surah.nama,
+                            style: GoogleFonts.scheherazadeNew(
+                              fontSize: 20,
+                              color: const Color(0xFF13A884),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          const Icon(Icons.chevron_right, color: Color(0xFF13A884), size: 18),
+                        ],
+                      ),
+                      onTap: () async {
+                        Navigator.pop(context); // close bottom sheet
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SurahDetailPage(nomor: surah.nomor),
+                          ),
+                        );
+                        _loadFavorites();
+                      },
+                    );
+                  },
+                ),
+              ),
+            const SizedBox(height: 16),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showMemorizedAyatsBottomSheet() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final List<Map<String, dynamic>> memorizedList = [];
+    for (final key in _memorizedAyats) {
+      final parts = key.split('_');
+      if (parts.length == 2) {
+        final surahNum = int.tryParse(parts[0]);
+        final ayatNum = int.tryParse(parts[1]);
+        if (surahNum != null && ayatNum != null) {
+          final surah = _findSurahByNomor(surahNum);
+          if (surah != null) {
+            memorizedList.add({
+              'surah': surah,
+              'ayat': ayatNum,
+            });
+          }
+        }
+      }
+    }
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 10, bottom: 10),
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Ayat yang Dihafal',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFF0C5441),
+                  ),
+                ),
+              ),
+            ),
+            const Divider(height: 1),
+            if (memorizedList.isEmpty)
+              Padding(
+                padding: const EdgeInsets.all(40.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.star_outline_rounded, size: 60, color: Colors.grey[300]),
+                    const SizedBox(height: 12),
+                    Text(
+                      'Belum ada ayat yang disimpan ke hafalan.',
+                      style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey[600]),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              )
+            else
+              Flexible(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: memorizedList.length,
+                  itemBuilder: (context, index) {
+                    final item = memorizedList[index];
+                    final SurahModel surah = item['surah'];
+                    final int ayatNum = item['ayat'];
+
+                    return ListTile(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                      leading: const Icon(Icons.star_rounded, color: Colors.amber, size: 24),
+                      title: Text(
+                        'QS. ${surah.namaLatin}: Ayat $ayatNum',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                      ),
+                      subtitle: Text(
+                        'Ketuk untuk membaca Surah ${surah.namaLatin}',
+                        style: GoogleFonts.poppins(fontSize: 11, color: Colors.grey[600]),
+                      ),
+                      trailing: const Icon(Icons.chevron_right, color: Color(0xFF13A884), size: 18),
+                      onTap: () async {
+                        Navigator.pop(context); // close bottom sheet
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SurahDetailPage(nomor: surah.nomor),
+                          ),
+                        );
+                        _loadFavorites();
+                      },
+                    );
+                  },
+                ),
+              ),
+            const SizedBox(height: 16),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showStudiedJuzBottomSheet() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final List<JuzInfo> studiedJuzList = [];
+    for (final strNum in _studiedJuz) {
+      final num = int.tryParse(strNum);
+      if (num != null) {
+        final juzInfo = _juzList.firstWhere((j) => j.number == num, orElse: () => _juzList.first);
+        if (juzInfo.number == num) {
+          studiedJuzList.add(juzInfo);
+        }
+      }
+    }
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 10, bottom: 10),
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Juz yang Dipelajari',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFF0C5441),
+                  ),
+                ),
+              ),
+            ),
+            const Divider(height: 1),
+            if (studiedJuzList.isEmpty)
+              Padding(
+                padding: const EdgeInsets.all(40.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.bookmark_outline_rounded, size: 60, color: Colors.grey[300]),
+                    const SizedBox(height: 12),
+                    Text(
+                      'Belum ada Juz yang ditandai dipelajari.',
+                      style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey[600]),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              )
+            else
+              Flexible(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: studiedJuzList.length,
+                  itemBuilder: (context, index) {
+                    final juz = studiedJuzList[index];
+                    return ListTile(
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                      leading: const Icon(Icons.bookmark_rounded, color: Color(0xFF13A884), size: 24),
+                      title: Text(
+                        'Juz ${_toArabicNumerals(juz.number)}',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                      ),
+                      subtitle: Text(
+                        '${juz.surahCount} Surah • ${juz.ayatCount} Ayat',
+                        style: GoogleFonts.poppins(fontSize: 11, color: Colors.grey[600]),
+                      ),
+                      trailing: const Icon(Icons.chevron_right, color: Color(0xFF13A884), size: 18),
+                      onTap: () async {
+                        Navigator.pop(context); // close bottom sheet
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => JuzDetailPage(juzNumber: juz.number),
+                          ),
+                        );
+                        _loadFavorites();
+                      },
+                    );
+                  },
+                ),
+              ),
+            const SizedBox(height: 16),
+          ],
+        );
+      },
     );
   }
 
   Widget _buildJuzListItem(JuzInfo juz) {
-    final bool isExpanded = _expandedJuz == juz.number;
     final bool isFavorite = _favoriteJuz.contains(juz.number.toString());
     final bool isStudied = _studiedJuz.contains(juz.number.toString());
-    final allSurahs = widget.useApi ? _surahs : QuranData.listSurah;
-
-    // Get Surahs belonging to this Juz
-    final juzSurahs = allSurahs.where((s) => juz.surahNumbers.contains(s.nomor)).toList();
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
@@ -656,10 +1029,14 @@ class _QuranPageState extends State<QuranPage> {
         children: [
           // Header Card (InkWell)
           InkWell(
-            onTap: () {
-              setState(() {
-                _expandedJuz = isExpanded ? null : juz.number;
-              });
+            onTap: () async {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => JuzDetailPage(juzNumber: juz.number),
+                ),
+              );
+              _loadFavorites();
             },
             borderRadius: BorderRadius.circular(20),
             child: Padding(
@@ -776,13 +1153,14 @@ class _QuranPageState extends State<QuranPage> {
                             ),
                           ],
                         ),
-                        // Expansion Chevron in the top right corner
-                        Positioned(
+                        // Navigation Chevron in the top right corner
+                        const Positioned(
                           right: 0,
                           top: 0,
                           child: Icon(
-                            isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-                            color: const Color(0xFF13A884),
+                            Icons.arrow_forward_ios,
+                            size: 16,
+                            color: Color(0xFF13A884),
                           ),
                         ),
                       ],
@@ -792,37 +1170,6 @@ class _QuranPageState extends State<QuranPage> {
               ),
             ),
           ),
-          // Expanded Surah list inside the card
-          if (isExpanded) ...[
-            Container(
-              decoration: const BoxDecoration(
-                color: Color(0xFFFBFBFB),
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                ),
-              ),
-              child: Column(
-                children: [
-                  Divider(color: Colors.grey[100], height: 1),
-                  ListView.separated(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: juzSurahs.length,
-                    separatorBuilder: (context, index) => Divider(
-                      color: Colors.grey[100],
-                      height: 1,
-                      indent: 80,
-                    ),
-                    itemBuilder: (context, index) {
-                      return _buildSurahItem(juzSurahs[index]);
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ],
         ],
       ),
     );

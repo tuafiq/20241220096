@@ -438,6 +438,401 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
     );
   }
 
+  void _showTajwidInfoDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+        int currentPage = 0;
+        return StatefulBuilder(
+          builder: (context, setModalState) {
+            return Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              backgroundColor: Colors.white,
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
+                width: 320,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Menampilkan Opsi Ayat',
+                      style: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 12),
+                    RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        style: GoogleFonts.poppins(
+                          fontSize: 13,
+                          color: Colors.grey[600],
+                          height: 1.4,
+                        ),
+                        children: const [
+                          TextSpan(text: 'Saat mode Quran Tajwid aktif, opsi ayat hanya bisa dibuka dengan '),
+                          TextSpan(
+                            text: 'menekan dan menahan nomor ayat.',
+                            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black87),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    // Carousel Container
+                    Container(
+                      height: 280,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: Colors.grey.shade200),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: PageView(
+                          onPageChanged: (index) {
+                            setModalState(() {
+                              currentPage = index;
+                            });
+                          },
+                          children: [
+                            _buildCarouselSlide1(),
+                            _buildCarouselSlide2(),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    // Indicator Dots
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(2, (index) {
+                        return AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          width: currentPage == index ? 20 : 8,
+                          height: 8,
+                          decoration: BoxDecoration(
+                            color: currentPage == index
+                                ? const Color(0xFF13A884)
+                                : Colors.grey.shade300,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                        );
+                      }),
+                    ),
+                    const SizedBox(height: 20),
+                    // Button "Mengerti"
+                    SizedBox(
+                      width: double.infinity,
+                      height: 48,
+                      child: ElevatedButton(
+                        onPressed: () => Navigator.pop(context),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF13A884),
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          elevation: 0,
+                        ),
+                        child: Text(
+                          'Mengerti',
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  InlineSpan _buildInlineVerseNumber(int number) {
+    return WidgetSpan(
+      alignment: PlaceholderAlignment.middle,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4),
+        child: Container(
+          width: 14,
+          height: 14,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(color: const Color(0xFF13A884), width: 1),
+          ),
+          child: Center(
+            child: Text(
+              number.toString(),
+              style: const TextStyle(
+                fontSize: 8,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF13A884),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMockHeader(String type, String title, String ayatCount) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+      margin: const EdgeInsets.only(bottom: 4),
+      decoration: BoxDecoration(
+        color: const Color(0xFFE8F5F1),
+        borderRadius: BorderRadius.circular(4),
+        border: Border.all(color: const Color(0xFF13A884).withOpacity(0.3)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            type,
+            style: GoogleFonts.poppins(fontSize: 8, fontWeight: FontWeight.bold, color: const Color(0xFF13A884)),
+          ),
+          Text(
+            title,
+            style: GoogleFonts.scheherazadeNew(fontSize: 10, fontWeight: FontWeight.bold, color: const Color(0xFF0C5441)),
+          ),
+          Text(
+            ayatCount,
+            style: GoogleFonts.poppins(fontSize: 8, fontWeight: FontWeight.bold, color: const Color(0xFF13A884)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMousePointer() {
+    return Transform.rotate(
+      angle: -0.5,
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: const [
+          Icon(Icons.navigation, size: 20, color: Colors.white),
+          Positioned(
+            top: 1,
+            left: 1,
+            child: Icon(Icons.navigation, size: 18, color: Colors.black),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMockQuranPage() {
+    final baseStyle = GoogleFonts.scheherazadeNew(
+      fontSize: 12.5,
+      fontWeight: FontWeight.bold,
+      color: const Color(0xFF0C5441),
+      height: 1.5,
+    );
+    final greenStyle = baseStyle.copyWith(color: const Color(0xFF27AE60));
+    final pinkStyle = baseStyle.copyWith(color: const Color(0xFFE84393));
+
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.all(8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // Surah Al-Falaq Header
+          _buildMockHeader('Makkiyah', 'سُورَةُ الْفَلَقِ', '5 Ayat'),
+          Text(
+            'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ',
+            style: baseStyle.copyWith(fontSize: 11),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 2),
+          // Al-Falaq text wrap
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: RichText(
+              textAlign: TextAlign.justify,
+              text: TextSpan(
+                children: [
+                  TextSpan(text: 'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ', style: baseStyle),
+                  _buildInlineVerseNumber(1),
+                  TextSpan(text: ' مِنْ ', style: baseStyle),
+                  TextSpan(text: 'شَرِّ', style: greenStyle),
+                  TextSpan(text: ' مَا خَلَقَ', style: baseStyle),
+                  _buildInlineVerseNumber(2),
+                  TextSpan(text: ' وَمِنْ ', style: baseStyle),
+                  TextSpan(text: 'شَرِّ', style: greenStyle),
+                  TextSpan(text: ' غَاسِقٍ إِذَا وَقَبَ', style: baseStyle),
+                  _buildInlineVerseNumber(3),
+                  TextSpan(text: ' وَمِنْ ', style: baseStyle),
+                  TextSpan(text: 'شَرِّ', style: greenStyle),
+                  TextSpan(text: ' ', style: baseStyle),
+                  TextSpan(text: 'النَّفّٰثٰتِ', style: pinkStyle),
+                  TextSpan(text: ' فِي الْعُقَدِ', style: baseStyle),
+                  _buildInlineVerseNumber(4),
+                  TextSpan(text: ' وَمِنْ ', style: baseStyle),
+                  TextSpan(text: 'شَرِّ', style: greenStyle),
+                  TextSpan(text: ' حَاسِدٍ إِذَا حَسَدَ', style: baseStyle),
+                  _buildInlineVerseNumber(5),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 6),
+          // Surah An-Nas Header
+          _buildMockHeader('Makkiyah', 'سُورَةُ النَّاسِ', '6 Ayat'),
+          Text(
+            'بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ',
+            style: baseStyle.copyWith(fontSize: 11),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 2),
+          // An-Nas text wrap
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: RichText(
+              textAlign: TextAlign.justify,
+              text: TextSpan(
+                children: [
+                  TextSpan(text: 'قُلْ أَعُوذُ بِرَبِّ ', style: baseStyle),
+                  TextSpan(text: 'النَّاسِ', style: pinkStyle),
+                  _buildInlineVerseNumber(1),
+                  TextSpan(text: ' مَلِكِ ', style: baseStyle),
+                  TextSpan(text: 'النَّاسِ', style: pinkStyle),
+                  _buildInlineVerseNumber(2),
+                  TextSpan(text: ' إِلٰهِ ', style: baseStyle),
+                  TextSpan(text: 'النَّاسِ', style: pinkStyle),
+                  _buildInlineVerseNumber(3),
+                  TextSpan(text: ' مِنْ ', style: baseStyle),
+                  TextSpan(text: 'شَرِّ', style: greenStyle),
+                  TextSpan(text: ' الْوَسْوَاسِ ', style: baseStyle),
+                  TextSpan(text: 'الْخَنَّاسِ', style: pinkStyle),
+                  _buildInlineVerseNumber(4),
+                  TextSpan(text: ' الَّذِي يُوَسْوِسُ فِي صُدُورِ ', style: baseStyle),
+                  TextSpan(text: 'النَّاسِ', style: pinkStyle),
+                  _buildInlineVerseNumber(5),
+                  TextSpan(text: ' مِنَ ', style: baseStyle),
+                  TextSpan(text: 'الْجِنَّةِ', style: pinkStyle),
+                  TextSpan(text: ' وَ', style: baseStyle),
+                  TextSpan(text: 'النَّاسِ', style: pinkStyle),
+                  _buildInlineVerseNumber(6),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCarouselSlide1() {
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
+            child: _buildMockQuranPage(),
+          ),
+        ),
+        // Positioned Pointer pointing to the start of Al-Falaq Verse 2
+        Positioned(
+          right: 90,
+          top: 62,
+          child: _buildMousePointer(),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCarouselSlide2() {
+    return Stack(
+      children: [
+        // Background verses
+        Positioned.fill(
+          child: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
+            child: _buildMockQuranPage(),
+          ),
+        ),
+        // Overlay Mock Bottom Sheet
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.15),
+                  blurRadius: 10,
+                  offset: const Offset(0, -2),
+                ),
+              ],
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Container(
+                    width: 32,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  'QS. Al-Falaq: Ayat 2 (Juz 30)',
+                  style: GoogleFonts.poppins(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.black87),
+                ),
+                const SizedBox(height: 4),
+                const Divider(height: 1),
+                _buildMockBottomSheetItem(Icons.play_arrow, 'Putar Ayat'),
+                _buildMockBottomSheetItem(Icons.share, 'Bagikan'),
+                _buildMockBottomSheetItem(Icons.book, 'Lihat Terjemah & Tafsir'),
+                _buildMockBottomSheetItem(Icons.bookmark_outline, 'Tandai Terakhir Dibaca'),
+                _buildMockBottomSheetItem(Icons.star_border, 'Simpan ke Bookmark'),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildMockBottomSheetItem(IconData icon, String label) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Row(
+        children: [
+          Icon(icon, size: 12, color: const Color(0xFF13A884)),
+          const SizedBox(width: 8),
+          Text(
+            label,
+            style: GoogleFonts.poppins(fontSize: 9, color: Colors.black87, fontWeight: FontWeight.w500),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final settings = Provider.of<SettingsProvider>(context);
@@ -477,7 +872,12 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
               _buildSwitchRow(
                 title: 'Tampilkan Warna Tajwid',
                 value: settings.showWarnaTajwid,
-                onChanged: (val) => settings.setShowWarnaTajwid(val),
+                onChanged: (val) {
+                  settings.setShowWarnaTajwid(val);
+                  if (val) {
+                    _showTajwidInfoDialog(context);
+                  }
+                },
               ),
               const Divider(height: 1),
               _buildClickableRow(
@@ -595,30 +995,34 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
     required bool value,
     required ValueChanged<bool> onChanged,
   }) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: Text(
-              title,
-              style: GoogleFonts.poppins(
-                fontSize: 14,
-                color: Colors.black87,
-                fontWeight: FontWeight.w500,
+    return InkWell(
+      onTap: () => onChanged(!value),
+      borderRadius: BorderRadius.circular(12),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: Text(
+                title,
+                style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
-          ),
-          Switch(
-            value: value,
-            onChanged: onChanged,
-            activeColor: const Color(0xFF13A884),
-            activeTrackColor: const Color(0xFF13A884).withOpacity(0.3),
-            inactiveThumbColor: Colors.grey[200],
-            inactiveTrackColor: Colors.grey[300],
-          ),
-        ],
+            Switch(
+              value: value,
+              onChanged: onChanged,
+              activeColor: const Color(0xFF13A884),
+              activeTrackColor: const Color(0xFF13A884).withOpacity(0.3),
+              inactiveThumbColor: Colors.grey[200],
+              inactiveTrackColor: Colors.grey[300],
+            ),
+          ],
+        ),
       ),
     );
   }

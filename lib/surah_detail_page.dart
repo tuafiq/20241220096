@@ -669,7 +669,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
                         (context, index) {
-                          return _buildAyatItem(surah.ayat[index]);
+                          return _buildAyatItem(surah, surah.ayat[index]);
                         },
                         childCount: surah.ayat.length,
                       ),
@@ -1302,7 +1302,138 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
   }
 
 
-  Widget _buildAyatItem(AyatModel ayat) {
+  int _getJuzNumber(int surahNum, int ayatNum) {
+    if (surahNum == 1) return 1;
+    if (surahNum == 2) {
+      if (ayatNum <= 141) return 1;
+      if (ayatNum <= 252) return 2;
+      return 3;
+    }
+    if (surahNum == 3) {
+      if (ayatNum <= 92) return 3;
+      return 4;
+    }
+    if (surahNum >= 78) return 30;
+    if (surahNum >= 67) return 29;
+    if (surahNum >= 58) return 28;
+    return 30;
+  }
+
+  void _showVerseOptionsBottomSheet(BuildContext context, SurahDetailModel surah, AyatModel ayat) {
+    final settings = Provider.of<SettingsProvider>(context, listen: false);
+    final isDarkMode = settings.themeModeStr == 'Gelap';
+    final juzNum = _getJuzNumber(surah.nomor, ayat.nomorAyat);
+    final isMemorized = _memorizedAyats.contains("${widget.nomor}_${ayat.nomorAyat}");
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (BuildContext context) {
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(top: 10, bottom: 10),
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'QS. ${surah.namaLatin}: Ayat ${ayat.nomorAyat} (Juz $juzNum)',
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: isDarkMode ? Colors.white70 : Colors.black87,
+                    ),
+                  ),
+                ),
+              ),
+              const Divider(height: 1),
+              _buildBottomSheetItem(
+                context: context,
+                icon: const Icon(Icons.play_arrow, color: Color(0xFF13A884)),
+                title: 'Putar Ayat',
+                onTap: () {
+                  Navigator.pop(context);
+                  final qoriId = settings.selectedQoriId;
+                  _playAudio(ayat.audio[qoriId] ?? ayat.audio.values.first, ayatNomor: ayat.nomorAyat);
+                },
+              ),
+              _buildBottomSheetItem(
+                context: context,
+                icon: const Icon(Icons.share, color: Color(0xFF13A884)),
+                title: 'Bagikan',
+                onTap: () {
+                  Navigator.pop(context);
+                  Clipboard.setData(ClipboardData(text: "${ayat.teksArab}\n\n${ayat.teksIndonesia} (QS. ${surah.namaLatin}: ${ayat.nomorAyat})"));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Menyalin Ayat ${ayat.nomorAyat} ke Clipboard...'),
+                      backgroundColor: const Color(0xFF13A884),
+                    ),
+                  );
+                },
+              ),
+              _buildBottomSheetItem(
+                context: context,
+                icon: const Icon(Icons.book, color: Color(0xFF13A884)),
+                title: 'Lihat Terjemah & Tafsir',
+                onTap: () {
+                  Navigator.pop(context);
+                  setState(() {
+                    _activeTab = 1;
+                  });
+                },
+              ),
+              _buildBottomSheetItem(
+                context: context,
+                icon: const Icon(Icons.bookmark_outline, color: Color(0xFF13A884)),
+                title: 'Tandai Terakhir Dibaca',
+                onTap: () async {
+                  final messenger = ScaffoldMessenger.of(context);
+                  Navigator.pop(context);
+                  final prefs = await SharedPreferences.getInstance();
+                  await prefs.setString('lastReadSurah', surah.namaLatin);
+                  await prefs.setInt('lastReadVerse', ayat.nomorAyat);
+                  messenger.showSnackBar(
+                    SnackBar(
+                      content: Text('Tandai sebagai ayat terakhir dibaca: QS. ${surah.namaLatin} ayat ${ayat.nomorAyat}'),
+                      backgroundColor: const Color(0xFF13A884),
+                    ),
+                  );
+                },
+              ),
+              _buildBottomSheetItem(
+                context: context,
+                icon: Icon(
+                  isMemorized ? Icons.star : Icons.star_border,
+                  color: const Color(0xFF13A884),
+                ),
+                title: 'Simpan ke Bookmark',
+                onTap: () {
+                  Navigator.pop(context);
+                  _toggleMemorizedAyat(ayat.nomorAyat);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildAyatItem(SurahDetailModel surah, AyatModel ayat) {
     final settings = Provider.of<SettingsProvider>(context);
     final isDarkMode = settings.themeModeStr == 'Gelap';
     return StreamBuilder<PlayerState>(
@@ -1339,7 +1470,12 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
               Column(
                 children: [
                   const SizedBox(height: 4),
-                  _buildAyatNumberOrnament(ayat.nomorAyat),
+                  GestureDetector(
+                    onLongPress: () {
+                      _showVerseOptionsBottomSheet(context, surah, ayat);
+                    },
+                    child: _buildAyatNumberOrnament(ayat.nomorAyat),
+                  ),
                 ],
               ),
               const SizedBox(width: 12),
@@ -1377,91 +1513,93 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                         ),
                       ),
                     ],
-                    const SizedBox(height: 12),
-                    // Action Buttons Row under the text
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            final settings = Provider.of<SettingsProvider>(context, listen: false);
-                            final qoriId = settings.selectedQoriId;
-                            _playAudio(ayat.audio[qoriId] ?? ayat.audio.values.first, ayatNomor: ayat.nomorAyat);
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                isPlaying ? Icons.pause_circle_outline : Icons.play_circle_outline,
-                                color: isPlaying ? const Color(0xFF13A884) : Colors.grey[600],
-                                size: 18,
-                              ),
-                              const SizedBox(width: 6),
-                              Text(
-                                isPlaying ? 'Pause' : 'Putar',
-                                style: GoogleFonts.outfit(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                    if (!settings.showWarnaTajwid) ...[
+                      const SizedBox(height: 12),
+                      // Action Buttons Row under the text
+                      Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              final settings = Provider.of<SettingsProvider>(context, listen: false);
+                              final qoriId = settings.selectedQoriId;
+                              _playAudio(ayat.audio[qoriId] ?? ayat.audio.values.first, ayatNomor: ayat.nomorAyat);
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  isPlaying ? Icons.pause_circle_outline : Icons.play_circle_outline,
                                   color: isPlaying ? const Color(0xFF13A884) : Colors.grey[600],
+                                  size: 18,
                                 ),
-                              ),
-                            ],
+                                const SizedBox(width: 6),
+                                Text(
+                                  isPlaying ? 'Pause' : 'Putar',
+                                  style: GoogleFonts.outfit(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                    color: isPlaying ? const Color(0xFF13A884) : Colors.grey[600],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 24),
-                        GestureDetector(
-                          onTap: () => _toggleMemorizedAyat(ayat.nomorAyat),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                isMemorized ? Icons.favorite : Icons.favorite_border,
-                                color: isMemorized ? Colors.amber : Colors.grey[600],
-                                size: 18,
-                              ),
-                              const SizedBox(width: 6),
-                              Text(
-                                'Simpan',
-                                style: GoogleFonts.outfit(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                          const SizedBox(width: 24),
+                          GestureDetector(
+                            onTap: () => _toggleMemorizedAyat(ayat.nomorAyat),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  isMemorized ? Icons.favorite : Icons.favorite_border,
                                   color: isMemorized ? Colors.amber : Colors.grey[600],
+                                  size: 18,
                                 ),
-                              ),
-                            ],
+                                const SizedBox(width: 6),
+                                Text(
+                                  'Simpan',
+                                  style: GoogleFonts.outfit(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                    color: isMemorized ? Colors.amber : Colors.grey[600],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 24),
-                        GestureDetector(
-                          onTap: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('Menyalin Ayat ${ayat.nomorAyat}...'),
-                                duration: const Duration(seconds: 1),
-                              ),
-                            );
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                Icons.share_outlined,
-                                color: Colors.grey[600],
-                                size: 18,
-                              ),
-                              const SizedBox(width: 6),
-                              Text(
-                                'Bagikan',
-                                style: GoogleFonts.outfit(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                          const SizedBox(width: 24),
+                          GestureDetector(
+                            onTap: () {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('Menyalin Ayat ${ayat.nomorAyat}...'),
+                                  duration: const Duration(seconds: 1),
+                                ),
+                              );
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.share_outlined,
                                   color: Colors.grey[600],
+                                  size: 18,
                                 ),
-                              ),
-                            ],
+                                const SizedBox(width: 6),
+                                Text(
+                                  'Bagikan',
+                                  style: GoogleFonts.outfit(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.grey[600],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
+                    ],
                   ],
                 ),
               ),
