@@ -14,6 +14,8 @@ class QuranSettingsPage extends StatefulWidget {
 
 class _QuranSettingsPageState extends State<QuranSettingsPage> {
 
+
+
   void _showHalamanPermulaanSelection(BuildContext context, SettingsProvider settings) {
     final options = ['Halaman 1', 'Halaman 2', 'Halaman 3', 'Halaman 4', 'Halaman 5'];
     showModalBottomSheet(
@@ -691,8 +693,6 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
                 onTap: () => _showClearAudioDialog(context, settings),
               ),
             ]),
-
-
 
             const SizedBox(height: 16),
 
