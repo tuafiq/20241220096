@@ -854,7 +854,6 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
   Widget _buildCatatanPenting(bool isDarkMode) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: isDarkMode ? const Color(0xFF1A2E26) : const Color(0xFFE8F5F1),
         borderRadius: BorderRadius.circular(16),
@@ -864,56 +863,272 @@ class _PanduanTajwidPageState extends State<PanduanTajwidPage> {
               : const Color(0xFF13A884).withOpacity(0.15),
         ),
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            width: 36,
-            height: 36,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-            ),
-            child: const Center(
-              child: Icon(
-                Icons.lightbulb_outline,
-                color: Color(0xFF13A884),
-                size: 20,
-              ),
-            ),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(16),
+          onTap: () => _showCatatanPentingBottomSheet(context, isDarkMode),
+          child: Padding(
+            padding: const EdgeInsets.all(14),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  'Catatan Penting',
-                  style: GoogleFonts.poppins(
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold,
-                    color: const Color(0xFF0C5441),
+                Container(
+                  width: 36,
+                  height: 36,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Center(
+                    child: Icon(
+                      Icons.lightbulb_outline,
+                      color: Color(0xFF13A884),
+                      size: 20,
+                    ),
                   ),
                 ),
-                const SizedBox(height: 2),
-                Text(
-                  'Pahami setiap hukum bacaan dengan benar agar tilawah Al-Qur\'an menjadi lebih fasih dan sesuai dengan kaidah tajwid.',
-                  style: GoogleFonts.poppins(
-                    fontSize: 10,
-                    color: isDarkMode ? Colors.white70 : const Color(0xFF4A5568),
-                    height: 1.4,
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Catatan Penting',
+                        style: GoogleFonts.poppins(
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                          color: const Color(0xFF0C5441),
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        'Pahami setiap hukum bacaan dengan benar agar tilawah Al-Qur\'an menjadi lebih fasih dan sesuai dengan kaidah tajwid.',
+                        style: GoogleFonts.poppins(
+                          fontSize: 10,
+                          color: isDarkMode ? Colors.white70 : const Color(0xFF4A5568),
+                          height: 1.4,
+                        ),
+                      ),
+                    ],
                   ),
+                ),
+                const SizedBox(width: 8),
+                const Icon(
+                  Icons.chevron_right,
+                  color: Color(0xFF13A884),
+                  size: 20,
                 ),
               ],
             ),
           ),
-          const SizedBox(width: 8),
-          const Icon(
-            Icons.chevron_right,
-            color: Color(0xFF13A884),
-            size: 20,
+        ),
+      ),
+    );
+  }
+
+  void _showCatatanPentingBottomSheet(BuildContext context, bool isDarkMode) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) {
+        return DraggableScrollableSheet(
+          initialChildSize: 0.7,
+          minChildSize: 0.5,
+          maxChildSize: 0.95,
+          builder: (_, controller) {
+            return Container(
+              decoration: BoxDecoration(
+                color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(24),
+                  topRight: Radius.circular(24),
+                ),
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 8, bottom: 4),
+                    width: 40,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: isDarkMode ? Colors.white24 : Colors.black12,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 36,
+                          height: 36,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF13A884).withOpacity(0.1),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Center(
+                            child: Icon(
+                              Icons.lightbulb_outline,
+                              color: Color(0xFF13A884),
+                              size: 20,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            'Catatan Penting & Adab Tilawah',
+                            style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: isDarkMode ? Colors.white : const Color(0xFF0C5441),
+                            ),
+                          ),
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.close),
+                          color: isDarkMode ? Colors.white70 : Colors.black54,
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Divider(
+                    height: 1,
+                    color: isDarkMode ? Colors.white12 : Colors.grey.shade200,
+                  ),
+                  Expanded(
+                    child: ListView(
+                      controller: controller,
+                      padding: const EdgeInsets.all(20),
+                      children: [
+                        _buildBottomSheetCard(
+                          title: 'Keutamaan Membaca Al-Qur\'an',
+                          icon: Icons.star_border,
+                          isDarkMode: isDarkMode,
+                          content: '“Sebaik-baik kalian adalah orang yang mempelajari Al-Qur\'an dan mengajarkannya.”\n— (HR. Bukhari)',
+                          accentColor: const Color(0xFF13A884),
+                        ),
+                        const SizedBox(height: 16),
+                        _buildBottomSheetCard(
+                          title: 'Hukum Belajar & Praktik Tajwid',
+                          icon: Icons.menu_book,
+                          isDarkMode: isDarkMode,
+                          content: '• Ilmu Tajwid (Teori): Hukumnya Fardhu Kifayah (wajib kolektif bagi sebagian umat).\n• Membaca dengan Tajwid (Praktik): Hukumnya Fardhu \'Ain bagi setiap Muslim saat membaca Al-Qur\'an agar terjaga dari kesalahan harakat atau makhraj.',
+                          accentColor: const Color(0xFFD222B5),
+                        ),
+                        const SizedBox(height: 16),
+                        _buildBottomSheetCard(
+                          title: 'Adab Utama Sebelum & Saat Tilawah',
+                          icon: Icons.clean_hands,
+                          isDarkMode: isDarkMode,
+                          content: '1. Berwudhu (suci dari hadats).\n2. Memulai dengan Ta\'awudz & Basmalah.\n3. Membaca dengan tartil (tidak terburu-buru).\n4. Menghadap Kiblat (bila memungkinkan).\n5. Khusyuk dan merenungkan makna ayat.',
+                          accentColor: const Color(0xFF00BCD4),
+                        ),
+                        const SizedBox(height: 16),
+                        _buildBottomSheetCard(
+                          title: 'Tingkatan Kecepatan Membaca (Qira\'ah)',
+                          icon: Icons.speed,
+                          isDarkMode: isDarkMode,
+                          content: '• At-Tahqiq: Sangat perlahan & teliti (sangat baik untuk belajar makhraj & tajwid).\n• At-Tartil: Perlahan & tenang sesuai tajwid (dianjurkan oleh Allah SWT).\n• At-Tadwir: Kecepatan sedang (di antara tartil dan hadr).\n• Al-Hadr: Kecepatan cepat namun tetap memelihara hukum-hukum tajwid.',
+                          accentColor: const Color(0xFF4CAF50),
+                        ),
+                        const SizedBox(height: 16),
+                        _buildBottomSheetCard(
+                          title: 'Jenis Kesalahan Membaca (Lahn)',
+                          icon: Icons.warning_amber_rounded,
+                          isDarkMode: isDarkMode,
+                          content: '• Lahn Jali (Fatal): Kesalahan yang merubah arti/makna ayat, seperti mengubah makhraj huruf atau harakat (hukumnya haram).\n• Lahn Khafi (Samar/Ringan): Kesalahan ringan yang menyalahi keindahan bacaan tetapi tidak merubah arti, seperti kurang dengung atau kurang panjang mad.',
+                          accentColor: const Color(0xFFD32F2F),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Widget _buildBottomSheetCard({
+    required String title,
+    required IconData icon,
+    required String content,
+    required Color accentColor,
+    required bool isDarkMode,
+  }) {
+    return Container(
+      decoration: BoxDecoration(
+        color: isDarkMode ? const Color(0xFF262626) : Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: isDarkMode ? Colors.white10 : Colors.grey.shade200,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(isDarkMode ? 0.2 : 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
           ),
         ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                width: 8,
+                color: accentColor,
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            icon,
+                            color: accentColor,
+                            size: 18,
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              title,
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: isDarkMode ? Colors.white : const Color(0xFF2D3748),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        content,
+                        style: GoogleFonts.poppins(
+                          fontSize: 11,
+                          color: isDarkMode ? Colors.white70 : const Color(0xFF4A5568),
+                          height: 1.5,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
