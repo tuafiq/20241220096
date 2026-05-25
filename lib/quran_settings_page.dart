@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'settings_provider.dart';
+import 'panduan_tajwid_page.dart';
 
 class QuranSettingsPage extends StatefulWidget {
   const QuranSettingsPage({super.key});
@@ -245,147 +246,7 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
     );
   }
 
-  void _showPanduanTajwid(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) {
-        return DraggableScrollableSheet(
-          initialChildSize: 0.6,
-          maxChildSize: 0.9,
-          minChildSize: 0.4,
-          expand: false,
-          builder: (context, scrollController) {
-            return Container(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: Container(
-                      width: 50,
-                      height: 5,
-                      decoration: BoxDecoration(
-                        color: Colors.grey[300],
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  Text(
-                    'Panduan Tajwid Warna',
-                    style: GoogleFonts.poppins(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: const Color(0xFF0C5441),
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Pewarnaan ayat membantu Anda membaca Al-Qur\'an dengan hukum tajwid yang benar.',
-                    style: GoogleFonts.poppins(
-                      fontSize: 13,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                  const Divider(height: 24),
-                  Expanded(
-                    child: ListView(
-                      controller: scrollController,
-                      children: [
-                        _buildTajwidGuideItem(
-                          'Ikhfa / Ghunnah',
-                          'Mendengung pada pangkal hidung selama 2 harakat.',
-                          const Color(0xFF27AE60),
-                        ),
-                        _buildTajwidGuideItem(
-                          'Idgham / Iqlab',
-                          'Meleburkan suara huruf ke huruf berikutnya.',
-                          const Color(0xFF2980B9),
-                        ),
-                        _buildTajwidGuideItem(
-                          'Qalqalah',
-                          'Pantulan suara ketika sukun atau waqaf.',
-                          const Color(0xFFE67E22),
-                        ),
-                        _buildTajwidGuideItem(
-                          'Mad Wajib / Jaiz',
-                          'Memanjangkan bacaan 4-5 harakat.',
-                          const Color(0xFFC0392B),
-                        ),
-                        _buildTajwidGuideItem(
-                          'Mad Thabi\'i / Mad Asli',
-                          'Memanjangkan bacaan sebanyak 2 harakat.',
-                          const Color(0xFF8E44AD),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-      },
-    );
-  }
 
-  Widget _buildTajwidGuideItem(String title, String desc, Color color) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 24,
-            height: 24,
-            decoration: BoxDecoration(
-              color: color.withOpacity(0.15),
-              borderRadius: BorderRadius.circular(6),
-              border: Border.all(color: color, width: 1.5),
-            ),
-            child: Center(
-              child: Container(
-                width: 10,
-                height: 10,
-                decoration: BoxDecoration(
-                  color: color,
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(width: 16),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                  ),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  desc,
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    color: Colors.grey[600],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
   void _showClearAudioDialog(BuildContext context, SettingsProvider settings) {
     showDialog(
@@ -882,7 +743,12 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
               const Divider(height: 1),
               _buildClickableRow(
                 title: 'Panduan Tajwid',
-                onTap: () => _showPanduanTajwid(context),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const PanduanTajwidPage()),
+                  );
+                },
               ),
             ]),
 

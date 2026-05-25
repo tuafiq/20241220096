@@ -249,6 +249,23 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
   late ScrollController _scrollController;
   late ScrollController _juzTabScrollController;
   final Map<int, GlobalKey> _surahKeys = {};
+  final Map<int, GlobalKey> _ayatKeys = {};
+  int _playlistStartIndex = 0;
+
+  void _scrollToCurrentlyPlaying() {
+    if (_currentlyPlayingIndex == null) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final key = _ayatKeys[_currentlyPlayingIndex];
+      if (key != null && key.currentContext != null) {
+        Scrollable.ensureVisible(
+          key.currentContext!,
+          duration: const Duration(milliseconds: 600),
+          curve: Curves.easeInOut,
+          alignment: 0.3, // Centers the playing verse in the view
+        );
+      }
+    });
+  }
 
   @override
   void initState() {
@@ -262,7 +279,23 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
     
     _player.playerStateStream.listen((state) {
       if (state.processingState == ProcessingState.completed) {
-        _onAudioCompleted();
+        if (mounted) {
+          setState(() {
+            _currentlyPlayingIndex = null;
+          });
+        }
+      }
+    });
+
+    _player.currentIndexStream.listen((index) {
+      if (index != null && mounted) {
+        final actualIndex = _playlistStartIndex + index;
+        if (_currentlyPlayingIndex != actualIndex && actualIndex < _juzAyats.length) {
+          setState(() {
+            _currentlyPlayingIndex = actualIndex;
+          });
+          _scrollToCurrentlyPlaying();
+        }
       }
     });
 
@@ -318,9 +351,12 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
   }
 
   Future<void> _loadJuzData() async {
+    _player.stop();
     setState(() {
       _isLoading = true;
       _errorMessage = '';
+      _currentlyPlayingIndex = null;
+      _ayatKeys.clear();
     });
     try {
       final boundaries = juzBoundaries[_currentJuzNumber];
@@ -371,24 +407,20 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
     }
   }
 
-  void _onAudioCompleted() {
-    if (_currentlyPlayingIndex != null) {
-      final nextIndex = _currentlyPlayingIndex! + 1;
-      if (nextIndex < _juzAyats.length) {
-        final settings = Provider.of<SettingsProvider>(context, listen: false);
-        final qoriId = settings.selectedQoriId;
-        final nextAyat = _juzAyats[nextIndex];
-        final url = nextAyat.ayat.audio[qoriId] ?? nextAyat.ayat.audio.values.first;
-        _playAudioAtIndex(url, nextIndex);
-      } else {
-        setState(() {
-          _currentlyPlayingIndex = null;
-        });
-      }
+  AudioSource _buildPlaylist(int startIndex) {
+    final settings = Provider.of<SettingsProvider>(context, listen: false);
+    final qoriId = settings.selectedQoriId;
+    
+    List<AudioSource> sources = [];
+    for (int i = startIndex; i < _juzAyats.length; i++) {
+      final item = _juzAyats[i];
+      final url = item.ayat.audio[qoriId] ?? item.ayat.audio.values.first;
+      sources.add(AudioSource.uri(Uri.parse(url)));
     }
+    return ConcatenatingAudioSource(children: sources);
   }
 
-  Future<void> _playAudioAtIndex(String url, int index) async {
+  Future<void> _playAudioAtIndex(int index) async {
     try {
       if (_currentlyPlayingIndex == index) {
         if (_player.playing) {
@@ -401,16 +433,21 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
       }
 
       await _player.stop();
+      _playlistStartIndex = index;
       setState(() {
         _currentlyPlayingIndex = index;
       });
-      await _player.setUrl(url);
+      _scrollToCurrentlyPlaying();
+      
+      final playlist = _buildPlaylist(index);
+      await _player.setAudioSource(playlist);
       await _player.play();
     } catch (e) {
+      print('DEBUG AUDIO ERROR: $e');
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Gagal memutar audio.'),
+          SnackBar(
+            content: Text('Gagal memutar audio: $e'),
             backgroundColor: Colors.redAccent,
           ),
         );
@@ -684,8 +721,7 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
                   Navigator.pop(context);
                   final idx = _juzAyats.indexOf(item);
                   if (idx != -1) {
-                    final qoriId = settings.selectedQoriId;
-                    _playAudioAtIndex(item.ayat.audio[qoriId] ?? item.ayat.audio.values.first, idx);
+                    _playAudioAtIndex(idx);
                   }
                 },
               ),
@@ -847,99 +883,110 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
     final settings = Provider.of<SettingsProvider>(context);
     final isDarkMode = settings.themeModeStr == 'Gelap';
     final isMemorized = _memorizedAyats.contains("${item.surah.nomor}_${item.ayat.nomorAyat}");
-    final isPlaying = _currentlyPlayingIndex == index && _player.playing;
+    final isPlaying = _currentlyPlayingIndex == index;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Left option menu trigger (three vertical dots)
-              IconButton(
-                icon: Icon(
-                  Icons.more_vert,
-                  color: isDarkMode ? Colors.grey[400] : Colors.grey[600],
-                ),
-                onPressed: () => _showVerseOptionsBottomSheet(context, item),
+    _ayatKeys.putIfAbsent(index, () => GlobalKey());
+    final itemKey = _ayatKeys[index];
+
+    return Container(
+      key: itemKey,
+      decoration: BoxDecoration(
+        color: isPlaying
+            ? (isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1))
+            : Colors.transparent,
+        border: Border(
+          left: BorderSide(
+            color: isPlaying ? const Color(0xFF13A884) : Colors.transparent,
+            width: 4,
+          ),
+          bottom: BorderSide(
+            color: isDarkMode ? Colors.grey[850]! : Colors.grey[200]!,
+            width: 1,
+          ),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Left option menu trigger (three vertical dots)
+            IconButton(
+              icon: Icon(
+                Icons.more_vert,
+                color: isDarkMode ? Colors.grey[400] : Colors.grey[600],
               ),
-              const SizedBox(width: 8),
-              // Verse content: Arabic, Transliteration, and translation
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    // Arabic verse text with inline end-of-verse ornament
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Directionality(
-                            textDirection: TextDirection.rtl,
-                            child: RichText(
-                              textAlign: TextAlign.right,
-                              text: TextSpan(
-                                children: [
-                                  ..._buildTajwidSpans(
-                                    item.ayat.teksArab,
-                                    settings.showWarnaTajwid,
-                                    isDarkMode,
-                                    settings.fontSize,
+              onPressed: () => _showVerseOptionsBottomSheet(context, item),
+            ),
+            const SizedBox(width: 8),
+            // Verse content: Arabic, Transliteration, and translation
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  // Arabic verse text with inline end-of-verse ornament
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: RichText(
+                            textAlign: TextAlign.right,
+                            text: TextSpan(
+                              children: [
+                                ..._buildTajwidSpans(
+                                  item.ayat.teksArab,
+                                  settings.showWarnaTajwid,
+                                  isDarkMode,
+                                  settings.fontSize,
+                                ),
+                                WidgetSpan(
+                                  alignment: PlaceholderAlignment.middle,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 8.0, left: 4.0),
+                                    child: _buildAyatNumberOrnament(item.ayat.nomorAyat),
                                   ),
-                                  WidgetSpan(
-                                    alignment: PlaceholderAlignment.middle,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(right: 8.0, left: 4.0),
-                                      child: _buildAyatNumberOrnament(item.ayat.nomorAyat),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                    if (_showTranslation) ...[
-                      const SizedBox(height: 12),
-                      // Latin Transliteration (Teal)
-                      Text(
-                        item.ayat.teksLatin,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: _getLatinFontSize(settings.fontSize),
-                          fontStyle: FontStyle.italic,
-                          color: const Color(0xFF13A884),
-                          height: 1.4,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      // Indonesian translation
-                      Text(
-                        item.ayat.teksIndonesia,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: _getLatinFontSize(settings.fontSize) + 1,
-                          color: isDarkMode ? Colors.white70 : Colors.grey[700],
-                          height: 1.5,
-                        ),
                       ),
                     ],
+                  ),
+                  if (_showTranslation) ...[
+                    const SizedBox(height: 12),
+                    // Latin Transliteration (Teal)
+                    Text(
+                      item.ayat.teksLatin,
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: _getLatinFontSize(settings.fontSize),
+                        fontStyle: FontStyle.italic,
+                        color: const Color(0xFF13A884),
+                        height: 1.4,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    // Indonesian translation
+                    Text(
+                      item.ayat.teksIndonesia,
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: _getLatinFontSize(settings.fontSize) + 1,
+                        color: isDarkMode ? Colors.white70 : Colors.grey[700],
+                        height: 1.5,
+                      ),
+                    ),
                   ],
-                ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        Divider(
-          height: 1,
-          thickness: 1,
-          color: isDarkMode ? Colors.grey[850] : Colors.grey[200],
-        ),
-      ],
+      ),
     );
   }
 

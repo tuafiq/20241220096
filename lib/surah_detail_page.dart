@@ -260,10 +260,11 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
       await _player.setUrl(url);
       await _player.play();
     } catch (e) {
+      print('DEBUG AUDIO ERROR: $e');
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Gagal memutar audio. Ini mungkin karena pembatasan browser (CORS). Coba akses di perangkat seluler atau browser lain.'),
+            content: Text('Gagal memutar audio: $e'),
             backgroundColor: Colors.redAccent,
             duration: const Duration(seconds: 5),
             action: SnackBarAction(
@@ -1451,7 +1452,9 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
           margin: const EdgeInsets.only(bottom: 12, left: 16, right: 16),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+            color: isPlaying
+                ? (isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1))
+                : (isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white),
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
@@ -1461,7 +1464,10 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
               ),
             ],
             border: Border.all(
-              color: isDarkMode ? Colors.transparent : Colors.grey.shade100,
+              color: isPlaying
+                  ? const Color(0xFF13A884)
+                  : (isDarkMode ? Colors.transparent : Colors.grey.shade100),
+              width: isPlaying ? 1.5 : 1.0,
             ),
           ),
           child: Row(
