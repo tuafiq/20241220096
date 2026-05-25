@@ -718,7 +718,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                     )
                   else if (_activeTab == 3)
                     SliverToBoxAdapter(
-                      child: _buildPlaceholderTabContent('Keutamaan Surah ini sedang disiapkan.', Icons.star),
+                      child: _buildKeutamaanTabContent(surah),
                     ),
                   const SliverToBoxAdapter(child: SizedBox(height: 100)),
                 ],
@@ -1611,6 +1611,272 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
       ),
     );
   }
+
+  Widget _buildKeutamaanTabContent(SurahDetailModel surah) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    const primaryGreen = Color(0xFF13A884);
+    const darkGreen = Color(0xFF0C5441);
+    
+    final virtue = SurahVirtue.getVirtue(surah.nomor, surah.namaLatin);
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // 1. Top Card: Title, Alternative Name, & Description
+          Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: isDarkMode
+                    ? [const Color(0xFF0A2B21), const Color(0xFF071F18)]
+                    : [const Color(0xFFF9FBFB), const Color(0xFFE8F5F1)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: primaryGreen.withOpacity(0.15),
+                width: 1.2,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.04),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: primaryGreen.withOpacity(0.1),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.stars_rounded,
+                        color: Color(0xFFE1B12C), // Gold star
+                        size: 28,
+                      ),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Keutamaan Surah',
+                            style: GoogleFonts.outfit(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: primaryGreen,
+                              letterSpacing: 1.0,
+                            ),
+                          ),
+                          Text(
+                            surah.namaLatin,
+                            style: GoogleFonts.outfit(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: isDarkMode ? Colors.white : darkGreen,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                if (virtue.namaLain.isNotEmpty) ...[
+                  const SizedBox(height: 14),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.local_offer_rounded,
+                        size: 14,
+                        color: primaryGreen.withOpacity(0.7),
+                      ),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: Text(
+                          'Nama Lain: ${virtue.namaLain}',
+                          style: GoogleFonts.outfit(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: isDarkMode ? Colors.white70 : darkGreen.withOpacity(0.8),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+                const SizedBox(height: 12),
+                Divider(color: primaryGreen.withOpacity(0.15), thickness: 1),
+                const SizedBox(height: 12),
+                Text(
+                  virtue.deskripsi,
+                  style: TextStyle(
+                    fontSize: 14,
+                    height: 1.6,
+                    color: isDarkMode ? Colors.white70 : Colors.black87,
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+
+          // 2. Hadith Card (Quote)
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: isDarkMode ? Colors.transparent : Colors.grey.shade100,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.03),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.format_quote_rounded,
+                      color: Color(0xFF13A884),
+                      size: 24,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      'Dalil / Hadits Rujukan',
+                      style: GoogleFonts.outfit(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        color: isDarkMode ? Colors.white : darkGreen,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                // Arabic Hadith
+                if (virtue.haditsArab.isNotEmpty) ...[
+                  Text(
+                    virtue.haditsArab,
+                    textAlign: TextAlign.right,
+                    style: GoogleFonts.scheherazadeNew(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: primaryGreen,
+                      height: 1.5,
+                    ),
+                  ),
+                  const SizedBox(height: 14),
+                ],
+                // Translation
+                Text(
+                  virtue.haditsTerjemahan,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontStyle: FontStyle.italic,
+                    height: 1.5,
+                    color: isDarkMode ? Colors.white70 : Colors.grey[800],
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  virtue.riwayat,
+                  textAlign: TextAlign.right,
+                  style: GoogleFonts.outfit(
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
+                    color: primaryGreen,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+
+          // 3. Fadhilah / Keutamaan Utama List
+          Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: isDarkMode ? Colors.transparent : Colors.grey.shade100,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.03),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Fadhilah Utama',
+                  style: GoogleFonts.outfit(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: isDarkMode ? Colors.white : darkGreen,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                ...virtue.fadhilah.map((fadhilahItem) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 12.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(top: 2),
+                          child: const Icon(
+                            Icons.check_circle_rounded,
+                            color: Color(0xFF13A884),
+                            size: 16,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            fadhilahItem,
+                            style: TextStyle(
+                              fontSize: 13,
+                              height: 1.5,
+                              color: isDarkMode ? Colors.white70 : Colors.black87,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class IslamicArchClipper extends CustomClipper<Path> {
@@ -1640,4 +1906,158 @@ class IslamicArchClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
+}
+
+class SurahVirtue {
+  final String namaLain;
+  final String deskripsi;
+  final String haditsArab;
+  final String haditsTerjemahan;
+  final String riwayat;
+  final List<String> fadhilah;
+
+  SurahVirtue({
+    required this.namaLain,
+    required this.deskripsi,
+    required this.haditsArab,
+    required this.haditsTerjemahan,
+    required this.riwayat,
+    required this.fadhilah,
+  });
+
+  static SurahVirtue getVirtue(int nomorSurah, String namaLatin) {
+    switch (nomorSurah) {
+      case 1:
+        return SurahVirtue(
+          namaLain: 'Ummul Qur\'an, As-Sab\'ul Matsani, Asy-Syifa',
+          deskripsi: 'Surah Al-Fatihah adalah surah paling agung dalam Al-Qur\'an. Ia merupakan rukun shalat yang wajib dibaca pada setiap rakaat dan berfungsi sebagai obat (ruqyah) penyembuh dari berbagai penyakit hati maupun fisik.',
+          haditsArab: 'أَعْظَمُ سُورَةٍ فِي الْقُرْآنِ',
+          haditsTerjemahan: '"Maukah aku ajarkan kepadamu surah yang paling agung di dalam Al-Qur\'an sebelum engkau keluar dari masjid?" Beliau bersabda: "Al-Hamdulillahi Rabbil \'Alamin (Al-Fatihah), ia adalah As-Sab\'ul Matsani (tujuh ayat yang berulang-ulang) dan Al-Qur\'an Al-Azhim yang diberikan kepadaku."',
+          riwayat: 'HR. Bukhari no. 4474',
+          fadhilah: [
+            'Rukun shalat yang wajib dibaca pada setiap rakaat.',
+            'Asy-Syifa: Penawar dan penyembuh atas izin Allah.',
+            'Membuka pintu-pintu kebaikan dan keberkahan doa.',
+          ],
+        );
+      case 2:
+        return SurahVirtue(
+          namaLain: 'Fusthathul Qur\'an (Tenda Al-Qur\'an)',
+          deskripsi: 'Surah Al-Baqarah adalah surah terpanjang yang memiliki kekuatan perlindungan yang sangat besar bagi rumah tangga dari gangguan setan dan sihir. Di dalamnya terdapat Ayat Kursi, ayat paling agung dalam Al-Qur\'an.',
+          haditsArab: 'إِنَّ الشَّيْطَانَ يَنْفِرُ مِنَ الْبَيْتِ الَّذِي تُقْرَأُ فِيهِ سُورَةُ الْبَقَرَةِ',
+          haditsTerjemahan: '"Janganlah jadikan rumah-rumah kalian seperti kuburan, sesungguhnya setan lari dari rumah yang dibacakan di dalamnya surah Al-Baqarah."',
+          riwayat: 'HR. Muslim no. 780',
+          fadhilah: [
+            'Mengusir setan dan pengaruh sihir dari dalam rumah.',
+            'Mengandung Ayat Kursi sebagai pelindung utama sebelum tidur.',
+            'Dua ayat terakhirnya mencukupi perlindungan sepanjang malam.',
+          ],
+        );
+      case 18:
+        return SurahVirtue(
+          namaLain: 'Al-Ishmah (Perlindungan)',
+          deskripsi: 'Surah Al-Kahfi memberikan pancaran cahaya iman bagi pembacanya di antara dua Jumat, serta menjadi perisai kokoh yang melindungi umat Islam dari dahsyatnya fitnah Dajjal di akhir zaman.',
+          haditsArab: 'مَنْ حَفِظَ عَشْرَ آيَاتٍ مِنْ أَوَّلِ سُورَةِ الْكَهْفِ عُصِمَ مِنَ الدَّجَّالِ',
+          haditsTerjemahan: '"Barangsiapa menghafal sepuluh ayat pertama dari surah Al-Kahfi, maka ia akan terlindungi dari fitnah Dajjal."',
+          riwayat: 'HR. Muslim no. 809',
+          fadhilah: [
+            'Menjadi cahaya penerang di antara dua Jumat bagi pembacanya.',
+            'Perlindungan mutlak dari fitnah Dajjal dengan menghafal 10 ayat pertamanya.',
+            'Mendatangkan ketenangan jiwa (sakinah) saat dibaca.',
+          ],
+        );
+      case 36:
+        return SurahVirtue(
+          namaLain: 'Qalbul Qur\'an (Jantung Al-Qur\'an)',
+          deskripsi: 'Surah Yasin merupakan jantung dari kitab suci Al-Qur\'an. Membaca Yasin dengan ikhlas karena Allah mendatangkan ampunan dosa-dosa yang lalu dan memberikan kemudahan dalam setiap urusan hidup.',
+          haditsArab: 'إِنَّ لِكُلِّ شَيْءٍ قَلْبًا وَقَلْبُ الْقُرْآنِ يس',
+          haditsTerjemahan: '"Sesungguhnya segala sesuatu memiliki jantung (hati), dan jantung Al-Qur\'an adalah surah Yasin. Barangsiapa membacanya, Allah mencatat baginya pahala membaca Al-Qur\'an sepuluh kali."',
+          riwayat: 'HR. Tirmidzi no. 2887 (Hadits Fadhilah)',
+          fadhilah: [
+            'Mendapatkan ampunan dosa di malam hari jika dibaca dengan ikhlas.',
+            'Memberikan ketenangan dan meringankan sakaratul maut bagi yang membacanya.',
+            'Mempermudah hajat hidup dan melapangkan kesusahan.',
+          ],
+        );
+      case 55:
+        return SurahVirtue(
+          namaLain: '\'Arusul Qur\'an (Pengantin Al-Qur\'an)',
+          deskripsi: 'Surah Ar-Rahman adalah surat yang sangat indah yang menggambarkan keluasan sifat kasih sayang Allah (Ar-Rahman). Membacanya menumbuhkan rasa syukur mendalam atas nikmat lahir dan batin.',
+          haditsArab: 'لِكُلِّ شَيْءٍ عَرُوسٌ، وَعَرُوسُ الْقُرْآنِ سُورَةُ الرَّحْمَنِ',
+          haditsTerjemahan: '"Setiap sesuatu memiliki pengantin (hiasan), dan pengantin Al-Qur\'an adalah surah Ar-Rahman."',
+          riwayat: 'HR. Baihaqi dalam Syu\'abul Iman',
+          fadhilah: [
+            'Mengingatkan hamba secara mendalam akan nikmat-nikmat Allah yang tak terhitung.',
+            'Menanamkan kecintaan yang kuat kepada Sang Pencipta Yang Maha Pengasih.',
+            'Melunakkan hati yang keras dengan untaian ayatnya yang berirama indah.',
+          ],
+        );
+      case 56:
+        return SurahVirtue(
+          namaLain: 'Surah Kekayaan',
+          deskripsi: 'Surah Al-Waqi\'ah menceritakan gambaran hari kiamat dan pembagian golongan manusia. Membaca Al-Waqi\'ah secara istiqamah di malam hari berkhasiat menghindarkan seseorang dari kesusahan ekonomi.',
+          haditsArab: 'مَنْ قَرَأَ سُورَةَ الْوَاقِعَةِ كُلَّ لَيْلَةٍ لَمْ تُصِبْهُ فَاقَةٌ أَبَدًا',
+          haditsTerjemahan: '"Barangsiapa membaca surah Al-Waqi\'ah setiap malam, maka dia tidak akan tertimpa kefakiran (kemiskinan) selamanya."',
+          riwayat: 'HR. Al-Harits bin Abu Usamah (Hadits Fadhilah)',
+          fadhilah: [
+            'Diberikan kecukupan rezeki dan dijauhkan dari kemiskinan.',
+            'Menjadi alarm pengingat tentang kepastian hari kiamat.',
+            'Mendidik jiwa untuk bersikap zuhud terhadap kemewahan dunia.',
+          ],
+        );
+      case 67:
+        return SurahVirtue(
+          namaLain: 'Al-Mani\'ah (Pencegah), Al-Munjiyah (Penyelamat)',
+          deskripsi: 'Surah Al-Mulk memiliki keutamaan luar biasa sebagai pembela pembacanya di hari penghakiman. Rutin membacanya sebelum tidur akan menjadi pelindung dan penyelamat dari siksa kubur.',
+          haditsArab: 'سُورَةٌ مِنَ الْقُرْآنِ ثَلَاثُونَ آيَةً تَشْفَعُ لِصَاحِبِهَا حَتَّى يُغْفَرَ لَهُ',
+          haditsTerjemahan: '"Ada satu surah di dalam Al-Qur\'an yang terdiri dari tiga puluh ayat, ia dapat memberikan syafaat bagi pembacanya hingga ia diampuni, yaitu surah Tabarakalladzi bi yadihil mulk (Al-Mulk)."',
+          riwayat: 'HR. Abu Dawud no. 1400 & Tirmidzi no. 2891',
+          fadhilah: [
+            'Pencegah utama dari siksa kubur jika dibaca istiqamah sebelum tidur.',
+            'Memberikan syafaat pembelaan di hari kiamat hingga dosa diampuni.',
+            'Menegaskan keagungan dan kekuasaan mutlak Allah atas alam semesta.',
+          ],
+        );
+      case 112:
+        return SurahVirtue(
+          namaLain: 'Al-Ikhlas (Kemurnian Tauhid)',
+          deskripsi: 'Surah Al-Ikhlas mengandung penjelasan murni tentang sifat keesaan Allah yang mutlak. Membacanya setara dengan membaca sepertiga isi Al-Qur\'an dan mencintai surah ini mendatangkan cinta Allah.',
+          haditsArab: 'قُلْ هُوَ اللَّهُ أَحَدٌ تَعْدِلُ ثُلُثَ الْقُرْآنِ',
+          haditsTerjemahan: '"Demi Zat yang jiwaku berada di tangan-Nya, sesungguhnya surah Qul Huwallahu Ahad sebanding dengan sepertiga Al-Qur\'an."',
+          riwayat: 'HR. Bukhari no. 5013',
+          fadhilah: [
+            'Setara sepertiga Al-Qur\'an dalam hal pahala dan isi kandungan tauhid.',
+            'Mendapatkan istana di surga bagi yang membacanya sepuluh kali sehari.',
+            'Menjadi wasilah masuk surga karena rasa cinta kepada kandungan maknanya.',
+          ],
+        );
+      case 113:
+      case 114:
+        return SurahVirtue(
+          namaLain: 'Al-Mu\'awwidzatain (Dua Pelindung)',
+          deskripsi: 'Surah Al-Falaq dan An-Nas diturunkan bersamaan sebagai obat perlindungan mutlak bagi umat Islam dari kejahatan malam, bisikan setan, sihir, hasad, serta kejahatan mahluk lainnya.',
+          haditsArab: 'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ وَ قُلْ أَعُوذُ بِرَبِّ النَّاسِ',
+          haditsTerjemahan: '"Tidakkah engkau tahu bahwa malam ini telah diturunkan ayat-ayat yang tidak ada bandingannya sama sekali, yaitu Qul A\'udzu Birabbil Falaq dan Qul A\'udzu Birabbin Nas."',
+          riwayat: 'HR. Muslim no. 814',
+          fadhilah: [
+            'Sarana perlindungan (ruqyah mandiri) terbaik dari sihir dan penyakit non-fisik (\'ain).',
+            'Menjaga diri dari bisikan-bisikan jahat setan dari golongan jin dan manusia.',
+            'Sunnah dibaca rutin setelah shalat wajib dan sebelum tidur.',
+          ],
+        );
+      default:
+        return SurahVirtue(
+          namaLain: 'Kalamullah (Wahyu Suci)',
+          deskripsi: 'Membaca Surah $namaLatin merupakan ibadah yang mulia. Setiap ayat yang dilafalkan mengandung keberkahan dan pahala yang dilipatgandakan oleh Allah SWT.',
+          haditsArab: 'مَنْ قَرَأَ حَرْفًا مِنْ كِتَابِ اللَّهِ فَلَهُ بِهِ حَسَنَةٌ',
+          haditsTerjemahan: '"Barangsiapa membaca satu huruf dari kitab Allah (Al-Qur\'an), maka baginya satu kebaikan, dan satu kebaikan dilipatgandakan menjadi sepuluh kali lipat. Aku tidak mengatakan Alif Lam Mim itu satu huruf..."',
+          riwayat: 'HR. Tirmidzi no. 2910',
+          fadhilah: [
+            'Setiap huruf yang dibaca bernilai 10 kebaikan di sisi Allah.',
+            'Al-Qur\'an akan datang sebagai saksi penolong (syafaat) di hari kiamat.',
+            'Mendatangkan rahmat, ketenangan, serta naungan para malaikat bagi pembacanya.',
+          ],
+        );
+    }
+  }
 }
