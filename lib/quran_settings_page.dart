@@ -14,115 +14,6 @@ class QuranSettingsPage extends StatefulWidget {
 
 class _QuranSettingsPageState extends State<QuranSettingsPage> {
 
-  void _showTampilanUtamaSelection(BuildContext context, SettingsProvider settings) {
-    final options = ['Baris Per Ayat', 'Halaman'];
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) {
-        return Container(
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Text(
-                  'Default Tampilan Utama',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: const Color(0xFF0C5441),
-                  ),
-                ),
-              ),
-              const Divider(),
-              ...options.map((opt) {
-                final isSelected = settings.defaultTampilanUtama == opt;
-                return ListTile(
-                  title: Text(
-                    opt,
-                    style: GoogleFonts.poppins(
-                      fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                      color: isSelected ? const Color(0xFF13A884) : Colors.black87,
-                    ),
-                  ),
-                  trailing: isSelected
-                      ? const Icon(Icons.check_circle, color: Color(0xFF13A884))
-                      : null,
-                  onTap: () {
-                    settings.setDefaultTampilanUtama(opt);
-                    Navigator.pop(context);
-                  },
-                );
-              }),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  void _showTampilanBarisSelection(BuildContext context, SettingsProvider settings) {
-    final options = ['Selalu Tanya', 'Tampilkan Terjemahan', 'Hanya Arab', 'Arab & Latin'];
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) {
-        return Container(
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Text(
-                  'Default Tampilan Baris',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: const Color(0xFF0C5441),
-                  ),
-                ),
-              ),
-              const Divider(),
-              Flexible(
-                child: ListView(
-                  shrinkWrap: true,
-                  children: options.map((opt) {
-                    final isSelected = settings.defaultTampilanBaris == opt;
-                    return ListTile(
-                      title: Text(
-                        opt,
-                        style: GoogleFonts.poppins(
-                          fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                          color: isSelected ? const Color(0xFF13A884) : Colors.black87,
-                        ),
-                      ),
-                      trailing: isSelected
-                          ? const Icon(Icons.check_circle, color: Color(0xFF13A884))
-                          : null,
-                      onTap: () {
-                        settings.setDefaultTampilanBaris(opt);
-                        Navigator.pop(context);
-                      },
-                    );
-                  }).toList(),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
   void _showHalamanPermulaanSelection(BuildContext context, SettingsProvider settings) {
     final options = ['Halaman 1', 'Halaman 2', 'Halaman 3', 'Halaman 4', 'Halaman 5'];
     showModalBottomSheet(
@@ -801,23 +692,7 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
               ),
             ]),
 
-            const SizedBox(height: 16),
 
-            // Section 3: Tampilan
-            _buildSectionHeader('Tampilan'),
-            _buildGroupCard([
-              _buildClickableRow(
-                title: 'Default Tampilan Utama',
-                value: settings.defaultTampilanUtama,
-                onTap: () => _showTampilanUtamaSelection(context, settings),
-              ),
-              const Divider(height: 1),
-              _buildClickableRow(
-                title: 'Default Tampilan Baris',
-                value: settings.defaultTampilanBaris,
-                onTap: () => _showTampilanBarisSelection(context, settings),
-              ),
-            ]),
 
             const SizedBox(height: 16),
 
