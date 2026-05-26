@@ -25,7 +25,7 @@ class JuzInfo {
   });
 }
 
-const List<JuzInfo> _juzList = [
+const List<JuzInfo> juzList = [
   JuzInfo(number: 1, pageRange: "Halaman 1 - 21", surahCount: 2, ayatCount: 148, surahNumbers: [1, 2]),
   JuzInfo(number: 2, pageRange: "Halaman 22 - 41", surahCount: 1, ayatCount: 111, surahNumbers: [2]),
   JuzInfo(number: 3, pageRange: "Halaman 42 - 61", surahCount: 2, ayatCount: 126, surahNumbers: [2, 3]),
@@ -210,12 +210,12 @@ class _QuranPageState extends State<QuranPage> {
   }
 
   List<JuzInfo> get _filteredJuzList {
-    if (_searchQuery.isEmpty) return _juzList;
+    if (_searchQuery.isEmpty) return juzList;
 
     final query = _searchQuery.toLowerCase();
     final allSurahs = widget.useApi ? _surahs : QuranData.listSurah;
 
-    return _juzList.where((juz) {
+    return juzList.where((juz) {
       if ('juz ${juz.number}'.contains(query) || juz.number.toString() == query) {
         return true;
       }
@@ -353,11 +353,12 @@ class _QuranPageState extends State<QuranPage> {
                   ),
                   IconButton(
                     icon: const Icon(Icons.settings, color: Colors.white, size: 24),
-                    onPressed: () {
-                      Navigator.push(
+                    onPressed: () async {
+                      await Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const QuranSettingsPage()),
                       );
+                      _loadFavorites();
                     },
                   ),
                 ],
@@ -914,7 +915,7 @@ class _QuranPageState extends State<QuranPage> {
     for (final strNum in _studiedJuz) {
       final num = int.tryParse(strNum);
       if (num != null) {
-        final juzInfo = _juzList.firstWhere((j) => j.number == num, orElse: () => _juzList.first);
+        final juzInfo = juzList.firstWhere((j) => j.number == num, orElse: () => juzList.first);
         if (juzInfo.number == num) {
           studiedJuzList.add(juzInfo);
         }
@@ -1482,7 +1483,7 @@ class _QuranPageState extends State<QuranPage> {
 
   Widget _buildBookmarkTabContent() {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final bookmarkedJuz = _juzList.where((juz) => _favoriteJuz.contains(juz.number.toString())).toList();
+    final bookmarkedJuz = juzList.where((juz) => _favoriteJuz.contains(juz.number.toString())).toList();
     final allSurahs = widget.useApi ? _surahs : QuranData.listSurah;
     final bookmarkedSurahs = allSurahs.where((surah) => _favoriteSurahs.contains(surah.nomor.toString())).toList();
 

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'settings_provider.dart';
 import 'panduan_tajwid_page.dart';
 import 'pilih_qori_page.dart';
+import 'favorit_juz_page.dart';
 
 class QuranSettingsPage extends StatefulWidget {
   const QuranSettingsPage({super.key});
@@ -13,6 +15,24 @@ class QuranSettingsPage extends StatefulWidget {
 }
 
 class _QuranSettingsPageState extends State<QuranSettingsPage> {
+  int _favoriteJuzCount = 0;
+  bool _isDarkMode = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadFavoritesCount();
+  }
+
+  Future<void> _loadFavoritesCount() async {
+    final prefs = await SharedPreferences.getInstance();
+    final list = prefs.getStringList('favoriteJuz') ?? [];
+    if (mounted) {
+      setState(() {
+        _favoriteJuzCount = list.length;
+      });
+    }
+  }
 
 
 
@@ -175,7 +195,7 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
-              backgroundColor: Colors.white,
+              backgroundColor: _isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
               child: Container(
                 padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
                 width: 320,
@@ -187,7 +207,7 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
                       style: GoogleFonts.poppins(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+                        color: _isDarkMode ? Colors.white : Colors.black87,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -197,14 +217,14 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
                       text: TextSpan(
                         style: GoogleFonts.poppins(
                           fontSize: 13,
-                          color: Colors.grey[600],
+                          color: _isDarkMode ? Colors.white70 : Colors.grey[600],
                           height: 1.4,
                         ),
-                        children: const [
-                          TextSpan(text: 'Saat mode Quran Tajwid aktif, opsi ayat hanya bisa dibuka dengan '),
+                        children: [
+                          const TextSpan(text: 'Saat mode Quran Tajwid aktif, opsi ayat hanya bisa dibuka dengan '),
                           TextSpan(
                             text: 'menekan dan menahan nomor ayat.',
-                            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black87),
+                            style: TextStyle(fontWeight: FontWeight.bold, color: _isDarkMode ? Colors.white : Colors.black87),
                           ),
                         ],
                       ),
@@ -214,9 +234,9 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
                     Container(
                       height: 280,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: _isDarkMode ? const Color(0xFF252525) : Colors.white,
                         borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: Colors.grey.shade200),
+                        border: Border.all(color: _isDarkMode ? Colors.white10 : Colors.grey.shade200),
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(12),
@@ -246,7 +266,7 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
                           decoration: BoxDecoration(
                             color: currentPage == index
                                 ? const Color(0xFF13A884)
-                                : Colors.grey.shade300,
+                                : (_isDarkMode ? Colors.grey[800] : Colors.grey.shade300),
                             borderRadius: BorderRadius.circular(4),
                           ),
                         );
@@ -318,9 +338,9 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
       padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
       margin: const EdgeInsets.only(bottom: 4),
       decoration: BoxDecoration(
-        color: const Color(0xFFE8F5F1),
+        color: _isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
         borderRadius: BorderRadius.circular(4),
-        border: Border.all(color: const Color(0xFF13A884).withOpacity(0.3)),
+        border: Border.all(color: const Color(0xFF13A884).withOpacity(_isDarkMode ? 0.15 : 0.3)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -331,7 +351,7 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
           ),
           Text(
             title,
-            style: GoogleFonts.scheherazadeNew(fontSize: 10, fontWeight: FontWeight.bold, color: const Color(0xFF0C5441)),
+            style: GoogleFonts.scheherazadeNew(fontSize: 10, fontWeight: FontWeight.bold, color: _isDarkMode ? const Color(0xFF13A884) : const Color(0xFF0C5441)),
           ),
           Text(
             ayatCount,
@@ -363,14 +383,14 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
     final baseStyle = GoogleFonts.scheherazadeNew(
       fontSize: 12.5,
       fontWeight: FontWeight.bold,
-      color: const Color(0xFF0C5441),
+      color: _isDarkMode ? Colors.white : const Color(0xFF0C5441),
       height: 1.5,
     );
-    final greenStyle = baseStyle.copyWith(color: const Color(0xFF27AE60));
-    final pinkStyle = baseStyle.copyWith(color: const Color(0xFFE84393));
+    final greenStyle = baseStyle.copyWith(color: _isDarkMode ? const Color(0xFF81C784) : const Color(0xFF27AE60));
+    final pinkStyle = baseStyle.copyWith(color: _isDarkMode ? const Color(0xFFF48FB1) : const Color(0xFFE84393));
 
     return Container(
-      color: Colors.white,
+      color: _isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
       padding: const EdgeInsets.all(8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -497,7 +517,7 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
           right: 0,
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: _isDarkMode ? const Color(0xFF252525) : Colors.white,
               borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
               boxShadow: [
                 BoxShadow(
@@ -517,7 +537,7 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
                     width: 32,
                     height: 4,
                     decoration: BoxDecoration(
-                      color: Colors.grey[300],
+                      color: _isDarkMode ? Colors.white10 : Colors.grey[300],
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
@@ -525,10 +545,10 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
                 const SizedBox(height: 6),
                 Text(
                   'QS. Al-Falaq: Ayat 2 (Juz 30)',
-                  style: GoogleFonts.poppins(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.black87),
+                  style: GoogleFonts.poppins(fontSize: 10, fontWeight: FontWeight.bold, color: _isDarkMode ? Colors.white : Colors.black87),
                 ),
                 const SizedBox(height: 4),
-                const Divider(height: 1),
+                Divider(height: 1, color: _isDarkMode ? Colors.white10 : Colors.grey[200]),
                 _buildMockBottomSheetItem(Icons.play_arrow, 'Putar Ayat'),
                 _buildMockBottomSheetItem(Icons.share, 'Bagikan'),
                 _buildMockBottomSheetItem(Icons.book, 'Lihat Terjemah & Tafsir'),
@@ -551,7 +571,7 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
           const SizedBox(width: 8),
           Text(
             label,
-            style: GoogleFonts.poppins(fontSize: 9, color: Colors.black87, fontWeight: FontWeight.w500),
+            style: GoogleFonts.poppins(fontSize: 9, color: _isDarkMode ? Colors.white : Colors.black87, fontWeight: FontWeight.w500),
           ),
         ],
       ),
@@ -656,6 +676,24 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
                 title: 'Pengingat Membaca',
                 value: settings.pengingatMembaca,
                 onChanged: (val) => settings.setPengingatMembaca(val),
+              ),
+            ]),
+
+            const SizedBox(height: 16),
+
+            // Section 6: Juz Favorit
+            _buildSectionHeader('Juz Favorit'),
+            _buildGroupCard([
+              _buildClickableRow(
+                title: 'Juz Favorit',
+                value: '$_favoriteJuzCount Juz',
+                onTap: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const FavoritJuzPage()),
+                  );
+                  _loadFavoritesCount();
+                },
               ),
             ]),
           ],
