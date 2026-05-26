@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'settings_provider.dart';
 import 'panduan_tajwid_page.dart';
 import 'pilih_qori_page.dart';
-import 'halaman_alfatihah_page.dart';
 
 class QuranSettingsPage extends StatefulWidget {
   const QuranSettingsPage({super.key});
@@ -14,6 +13,8 @@ class QuranSettingsPage extends StatefulWidget {
 }
 
 class _QuranSettingsPageState extends State<QuranSettingsPage> {
+
+
 
 
 
@@ -638,22 +639,7 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
               ),
             ]),
 
-            const SizedBox(height: 16),
 
-            // Section 4: Sesuaikan Halaman Permulaan
-            _buildSectionHeader('Sesuaikan Halaman Permulaan'),
-            _buildGroupCard([
-              _buildClickableRow(
-                title: 'Halaman Surah Al-Fatihah',
-                value: settings.halamanPermulaanAlFatihah,
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HalamanAlFatihahPage()),
-                  );
-                },
-              ),
-            ]),
 
             const SizedBox(height: 16),
 
