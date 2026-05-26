@@ -115,6 +115,13 @@ class LanguageSelectionPage extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(message), duration: const Duration(seconds: 1)),
           );
+
+          // Pop back to the previous page after a small delay
+          Future.delayed(const Duration(milliseconds: 300), () {
+            if (context.mounted) {
+              Navigator.pop(context);
+            }
+          });
         },
       ),
     );

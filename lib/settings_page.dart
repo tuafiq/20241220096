@@ -270,7 +270,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 Divider(height: 1, indent: 16, endIndent: 16, color: isDarkMode ? Colors.white12 : Colors.grey[200]),
                 ListTile(
                   leading: Icon(Icons.text_format, color: isDarkMode ? Colors.white70 : Colors.black54),
-                  title: Text('Preferensi Membaca', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87)),
+                  title: Text(settings.translate('reading_preferences'), style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87)),
                   trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
                   onTap: () {
                     Navigator.push(
@@ -282,7 +282,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 Divider(height: 1, indent: 16, endIndent: 16, color: isDarkMode ? Colors.white12 : Colors.grey[200]),
                 ListTile(
                   leading: Icon(Icons.bookmark_border, color: isDarkMode ? Colors.white70 : Colors.black54),
-                  title: Text('Daftar Bookmark', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87)),
+                  title: Text(settings.translate('bookmark_list'), style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87)),
                   trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
                   onTap: () {},
                 ),

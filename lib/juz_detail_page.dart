@@ -6,9 +6,11 @@ import 'package:just_audio/just_audio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 import 'quran_service.dart';
+import 'quran_data.dart';
 import 'settings_provider.dart';
 import 'quran_settings_page.dart';
 import 'preferensi_membaca_page.dart';
+import 'pilih_surah_page.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 class JuzRange {
@@ -253,6 +255,8 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
   final Map<int, GlobalKey> _surahKeys = {};
   final Map<int, GlobalKey> _ayatKeys = {};
   int _playlistStartIndex = 0;
+  int? _pendingScrollToSurah;
+  int? _pendingScrollToVerse;
 
   void _scrollToCurrentlyPlaying() {
     if (_currentlyPlayingIndex == null) return;
@@ -408,6 +412,22 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
             _currentSurahNomor = tempAyats.first.surah.nomor;
           }
           _isLoading = false;
+        });
+        
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _scrollToCurrentJuzTab();
+          
+          if (_pendingScrollToSurah != null && _pendingScrollToVerse != null) {
+            final targetSurah = _pendingScrollToSurah!;
+            final targetVerse = _pendingScrollToVerse!;
+            _pendingScrollToSurah = null;
+            _pendingScrollToVerse = null;
+            
+            setState(() {
+              _currentSurahNomor = targetSurah;
+            });
+            _scrollToSurahVerse(targetSurah, targetVerse);
+          }
         });
       }
     } catch (e) {
@@ -1156,63 +1176,285 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
     return list;
   }
 
-  void _showSurahSelectorMenu(BuildContext context) {
-    final uniqueSurahs = uniqueSurahsInJuz;
-    if (uniqueSurahs.isEmpty) return;
-
-    final RenderBox appBarRenderBox = context.findRenderObject() as RenderBox;
-    final position = appBarRenderBox.localToGlobal(Offset.zero);
-
-    showMenu<int>(
-      context: context,
-      position: RelativeRect.fromLTRB(
-        position.dx + 16,
-        position.dy + kToolbarHeight + 8,
-        position.dx + 200,
-        position.dy + 400,
-      ),
-      items: uniqueSurahs.map((surah) {
-        return PopupMenuItem<int>(
-          value: surah.nomor,
-          child: Text(
-            surah.namaLatin,
-            style: GoogleFonts.poppins(fontSize: 14),
-          ),
+  void _scrollToSurahVerse(int surahNomor, int ayatNomor) {
+    int targetIndex = _juzAyats.indexWhere(
+      (item) => item.surah.nomor == surahNomor && item.ayat.nomorAyat == ayatNomor
+    );
+    if (targetIndex != -1) {
+      final key = _ayatKeys[targetIndex];
+      if (key != null && key.currentContext != null) {
+        Scrollable.ensureVisible(
+          key.currentContext!,
+          duration: const Duration(milliseconds: 600),
+          curve: Curves.easeInOut,
+          alignment: 0.3,
         );
-      }).toList(),
-    ).then((selectedSurahNomor) {
-      if (selectedSurahNomor != null) {
-        int targetIndex = _juzAyats.indexWhere((item) => item.surah.nomor == selectedSurahNomor);
-        if (targetIndex != -1) {
-          setState(() {
-            _currentSurahNomor = selectedSurahNomor;
-          });
-          final key = _surahKeys[selectedSurahNomor];
-          if (key?.currentContext != null) {
-            Scrollable.ensureVisible(
-              key!.currentContext!,
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.easeInOut,
-            );
-          } else {
-            double estimatedOffset = 0.0;
-            for (int i = 0; i < targetIndex; i++) {
-              final bool isFirstOfSurah = i == 0 || _juzAyats[i - 1].surah.nomor != _juzAyats[i].surah.nomor;
-              if (isFirstOfSurah) {
-                estimatedOffset += 100.0;
-              }
-              estimatedOffset += 180.0;
-            }
-            _scrollController.animateTo(
-              estimatedOffset,
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.easeInOut,
-            );
+      } else {
+        double estimatedOffset = 0.0;
+        for (int i = 0; i < targetIndex; i++) {
+          final bool isFirstOfSurah = i == 0 || _juzAyats[i - 1].surah.nomor != _juzAyats[i].surah.nomor;
+          if (isFirstOfSurah) {
+            estimatedOffset += 100.0;
           }
+          estimatedOffset += 180.0;
         }
+        _scrollController.animateTo(
+          estimatedOffset,
+          duration: const Duration(milliseconds: 600),
+          curve: Curves.easeInOut,
+        );
       }
-    });
+    }
   }
+
+  void _showGoToDialog(BuildContext context) {
+    final settings = Provider.of<SettingsProvider>(context, listen: false);
+    final isDarkMode = settings.themeModeStr == 'Gelap';
+    final surahList = QuranData.listSurah;
+    
+    SurahModel selectedSurah = surahList.firstWhere(
+      (s) => s.nomor == _currentSurahNomor,
+      orElse: () => surahList.first,
+    );
+    
+    final TextEditingController verseController = TextEditingController();
+    
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            final maxVerses = selectedSurah.jumlahAyat;
+            
+            return AlertDialog(
+              backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              contentPadding: const EdgeInsets.all(24),
+              content: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'Pergi ke',
+                      style: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: isDarkMode ? Colors.white : Colors.black87,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    
+                    Text(
+                      'Pilih Surah',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        color: isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    
+                    InkWell(
+                      onTap: () async {
+                        final result = await Navigator.push<SurahModel>(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PilihSurahPage(currentSurah: selectedSurah),
+                          ),
+                        );
+                        if (result != null) {
+                          setState(() {
+                            selectedSurah = result;
+                            verseController.clear();
+                          });
+                        }
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: isDarkMode ? Colors.grey[700]! : Colors.grey[350]!,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                          color: isDarkMode ? const Color(0xFF2D2D2D) : Colors.white,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '${selectedSurah.nomor}. ${selectedSurah.namaLatin}',
+                              style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                color: isDarkMode ? Colors.white : Colors.black87,
+                              ),
+                            ),
+                            Icon(
+                              Icons.keyboard_arrow_down,
+                              color: isDarkMode ? Colors.white70 : Colors.black54,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    
+                    Text(
+                      'Masukkan nomor ayat antara 1 - $maxVerses',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        color: isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    
+                    TextField(
+                      controller: verseController,
+                      keyboardType: TextInputType.number,
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        color: isDarkMode ? Colors.white : Colors.black87,
+                      ),
+                      decoration: InputDecoration(
+                        hintText: '1 - $maxVerses',
+                        hintStyle: GoogleFonts.poppins(
+                          fontSize: 14,
+                          color: isDarkMode ? Colors.grey[600] : Colors.grey[400],
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            color: isDarkMode ? Colors.grey[700]! : Colors.grey[350]!,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            color: isDarkMode ? Colors.grey[700]! : Colors.grey[350]!,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF13A884),
+                            width: 1.5,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    
+                    Row(
+                      children: [
+                        Expanded(
+                          child: OutlinedButton(
+                            onPressed: () => Navigator.pop(context),
+                            style: OutlinedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              side: BorderSide(
+                                color: isDarkMode ? Colors.grey[700]! : Colors.grey[350]!,
+                              ),
+                            ),
+                            child: Text(
+                              'Batal',
+                              style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: isDarkMode ? Colors.white70 : Colors.black87,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () {
+                              final input = verseController.text.trim();
+                              final verseNum = int.tryParse(input);
+                              if (verseNum == null || verseNum < 1 || verseNum > maxVerses) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Nomor ayat tidak valid. Masukkan antara 1 - $maxVerses',
+                                      style: GoogleFonts.poppins(),
+                                    ),
+                                    backgroundColor: Colors.redAccent,
+                                    duration: const Duration(seconds: 2),
+                                  ),
+                                );
+                                return;
+                              }
+                              
+                              Navigator.pop(context);
+                              
+                              int targetIndex = _juzAyats.indexWhere(
+                                (item) => item.surah.nomor == selectedSurah.nomor && item.ayat.nomorAyat == verseNum
+                              );
+                              
+                              if (targetIndex != -1) {
+                                setState(() {
+                                  _currentSurahNomor = selectedSurah.nomor;
+                                });
+                                _scrollToSurahVerse(selectedSurah.nomor, verseNum);
+                              } else {
+                                int? targetJuz;
+                                for (final entry in juzBoundaries.entries) {
+                                  for (final range in entry.value) {
+                                    if (range.surahNumber == selectedSurah.nomor &&
+                                        verseNum >= range.startVerse &&
+                                        verseNum <= range.endVerse) {
+                                      targetJuz = entry.key;
+                                      break;
+                                    }
+                                  }
+                                  if (targetJuz != null) break;
+                                }
+                                
+                                if (targetJuz != null) {
+                                  setState(() {
+                                    _pendingScrollToSurah = selectedSurah.nomor;
+                                    _pendingScrollToVerse = verseNum;
+                                    _currentJuzNumber = targetJuz!;
+                                  });
+                                  _loadJuzData();
+                                }
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF13A884),
+                              elevation: 0,
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            child: Text(
+                              'Oke',
+                              style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
 
   AppBar _buildAppBar(BuildContext context, bool isDarkMode, SettingsProvider settings) {
     final activeSurahName = _juzAyats.isNotEmpty
@@ -1231,7 +1473,7 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
       ),
       titleSpacing: 0,
       title: GestureDetector(
-        onTap: () => _showSurahSelectorMenu(context),
+        onTap: () => _showGoToDialog(context),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
           decoration: BoxDecoration(

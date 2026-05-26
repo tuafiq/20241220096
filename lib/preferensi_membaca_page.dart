@@ -16,7 +16,7 @@ class PreferensiMembacaPage extends StatelessWidget {
       backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF5F7F8),
       appBar: AppBar(
         title: Text(
-          'Preferensi Membaca',
+          settings.translate('reading_preferences'),
           style: GoogleFonts.poppins(
             color: Colors.white,
             fontWeight: FontWeight.w600,
@@ -89,7 +89,7 @@ class PreferensiMembacaPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildSectionTitle('Ukuran Teks Arab', isDarkMode),
+          _buildSectionTitle(settings.translate('arabic_text_size'), isDarkMode),
           const SizedBox(height: 12),
           Row(
             children: [
@@ -171,7 +171,7 @@ class PreferensiMembacaPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildSectionTitle('Ukuran Teks Latin', isDarkMode),
+          _buildSectionTitle(settings.translate('latin_text_size'), isDarkMode),
           const SizedBox(height: 12),
           Row(
             children: [
@@ -253,12 +253,12 @@ class PreferensiMembacaPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildSectionTitle('Aktifkan Teks', isDarkMode),
+          _buildSectionTitle(settings.translate('activate_text'), isDarkMode),
           const SizedBox(height: 8),
           ListTile(
             contentPadding: EdgeInsets.zero,
             title: Text(
-              'Transliterasi (Latin)',
+              settings.translate('transliteration_latin'),
               style: GoogleFonts.poppins(
                 fontSize: 13,
                 color: isDarkMode ? Colors.white : const Color(0xFF2D3748),
@@ -271,12 +271,15 @@ class PreferensiMembacaPage extends StatelessWidget {
                 settings.setShowTransliterasi(val);
               },
             ),
+            onTap: () {
+              settings.setShowTransliterasi(!settings.showTransliterasi);
+            },
           ),
           Divider(height: 1, color: isDarkMode ? Colors.white12 : Colors.grey[200]),
           ListTile(
             contentPadding: EdgeInsets.zero,
             title: Text(
-              'Terjemah',
+              settings.translate('translation'),
               style: GoogleFonts.poppins(
                 fontSize: 13,
                 color: isDarkMode ? Colors.white : const Color(0xFF2D3748),
@@ -289,6 +292,9 @@ class PreferensiMembacaPage extends StatelessWidget {
                 settings.setShowTerjemah(val);
               },
             ),
+            onTap: () {
+              settings.setShowTerjemah(!settings.showTerjemah);
+            },
           ),
         ],
       ),
@@ -301,12 +307,12 @@ class PreferensiMembacaPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildSectionTitle('Bahasa Terjemah Al Quran', isDarkMode),
+          _buildSectionTitle(settings.translate('translation_language'), isDarkMode),
           const SizedBox(height: 8),
           ListTile(
             contentPadding: EdgeInsets.zero,
             title: Text(
-              'Pilih Bahasa',
+              settings.translate('choose_language'),
               style: GoogleFonts.poppins(
                 fontSize: 13,
                 color: isDarkMode ? Colors.white : const Color(0xFF2D3748),
@@ -348,19 +354,19 @@ class PreferensiMembacaPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildSectionTitle('Tampilan Layar ketika Membaca', isDarkMode),
+          _buildSectionTitle(settings.translate('screen_display_reading'), isDarkMode),
           const SizedBox(height: 8),
           ListTile(
             contentPadding: EdgeInsets.zero,
             title: Text(
-              'Layar Tetap Aktif',
+              settings.translate('screen_keep_on'),
               style: GoogleFonts.poppins(
                 fontSize: 13,
                 color: isDarkMode ? Colors.white : const Color(0xFF2D3748),
               ),
             ),
             subtitle: Text(
-              'Mencegah layar HP mati/redup saat membaca Al-Qur\'an',
+              settings.translate('screen_keep_on_desc'),
               style: GoogleFonts.poppins(
                 fontSize: 10,
                 color: isDarkMode ? Colors.white54 : Colors.grey[500],
@@ -373,6 +379,9 @@ class PreferensiMembacaPage extends StatelessWidget {
                 settings.setLayarTetapAktif(val);
               },
             ),
+            onTap: () {
+              settings.setLayarTetapAktif(!settings.layarTetapAktif);
+            },
           ),
         ],
       ),
