@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'settings_provider.dart';
 import 'panduan_tajwid_page.dart';
 import 'pilih_qori_page.dart';
+import 'default_tampilan_baris_page.dart';
 
 class QuranSettingsPage extends StatefulWidget {
   const QuranSettingsPage({super.key});
@@ -16,62 +17,7 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
 
 
 
-  void _showHalamanPermulaanSelection(BuildContext context, SettingsProvider settings) {
-    final options = ['Halaman 1', 'Halaman 2', 'Halaman 3', 'Halaman 4', 'Halaman 5'];
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) {
-        return Container(
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Text(
-                  'Halaman Surah Al-Fatihah',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: const Color(0xFF0C5441),
-                  ),
-                ),
-              ),
-              const Divider(),
-              Flexible(
-                child: ListView(
-                  shrinkWrap: true,
-                  children: options.map((opt) {
-                    final isSelected = settings.halamanPermulaanAlFatihah == opt;
-                    return ListTile(
-                      title: Text(
-                        opt,
-                        style: GoogleFonts.poppins(
-                          fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                          color: isSelected ? const Color(0xFF13A884) : Colors.black87,
-                        ),
-                      ),
-                      trailing: isSelected
-                          ? const Icon(Icons.check_circle, color: Color(0xFF13A884))
-                          : null,
-                      onTap: () {
-                        settings.setHalamanPermulaanAlFatihah(opt);
-                        Navigator.pop(context);
-                      },
-                    );
-                  }).toList(),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
+
 
 
 
@@ -702,7 +648,12 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
               _buildClickableRow(
                 title: 'Halaman Surah Al-Fatihah',
                 value: settings.halamanPermulaanAlFatihah,
-                onTap: () => _showHalamanPermulaanSelection(context, settings),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const DefaultTampilanBarisPage()),
+                  );
+                },
               ),
             ]),
 

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 import 'quran_data.dart';
 import 'quran_service.dart';
 import 'surah_detail_page.dart';
 import 'quran_settings_page.dart';
 import 'juz_detail_page.dart';
+import 'settings_provider.dart';
 
 class JuzInfo {
   final int number;
@@ -109,6 +111,144 @@ class _QuranPageState extends State<QuranPage> {
     super.initState();
     _fetchData();
     _loadFavorites();
+    _initStartingTab();
+  }
+
+  void _initStartingTab() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final settings = Provider.of<SettingsProvider>(context, listen: false);
+      final startingPage = settings.halamanPermulaanAlFatihah;
+      if (startingPage == 'Mode Surah') {
+        setState(() {
+          _activeTab = 0;
+        });
+      } else if (startingPage == 'Mode Juz') {
+        setState(() {
+          _activeTab = 1;
+        });
+      } else if (startingPage == 'Selalu Tanya') {
+        _showStartingTabSelectionDialog();
+      }
+    });
+  }
+
+  void _showStartingTabSelectionDialog() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return Dialog(
+          backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 28),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 64,
+                  height: 64,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF13A884).withOpacity(isDarkMode ? 0.1 : 0.1),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Center(
+                    child: Icon(
+                      Icons.chrome_reader_mode_outlined,
+                      color: Color(0xFF13A884),
+                      size: 32,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  'Pilih Tampilan Utama',
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: isDarkMode ? Colors.white : const Color(0xFF1A202C),
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  'Silakan pilih mode tampilan awal Al-Quran yang ingin Anda buka.',
+                  style: GoogleFonts.poppins(
+                    fontSize: 12,
+                    color: isDarkMode ? Colors.white70 : const Color(0xFF718096),
+                    height: 1.5,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 28),
+                Row(
+                  children: [
+                    Expanded(
+                      child: OutlinedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          setState(() {
+                            _activeTab = 0;
+                          });
+                        },
+                        style: OutlinedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          side: const BorderSide(
+                            color: Color(0xFF13A884),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        child: Text(
+                          'Mode Surah',
+                          style: GoogleFonts.poppins(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: const Color(0xFF13A884),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          setState(() {
+                            _activeTab = 1;
+                          });
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF13A884),
+                          foregroundColor: Colors.white,
+                          elevation: 0,
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        child: Text(
+                          'Mode Juz',
+                          style: GoogleFonts.poppins(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override
