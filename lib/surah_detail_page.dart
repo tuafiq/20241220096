@@ -1491,6 +1491,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                   final prefs = await SharedPreferences.getInstance();
                   await prefs.setString('lastReadSurah', surah.namaLatin);
                   await prefs.setInt('lastReadVerse', ayat.nomorAyat);
+                  await prefs.setInt('lastReadSurahNumber', surah.nomor);
                   messenger.showSnackBar(
                     SnackBar(
                       content: Text('Tandai sebagai ayat terakhir dibaca: QS. ${surah.namaLatin} ayat ${ayat.nomorAyat}'),

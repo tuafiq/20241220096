@@ -759,6 +759,7 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
                   final prefs = await SharedPreferences.getInstance();
                   await prefs.setString('lastReadSurah', item.surah.namaLatin);
                   await prefs.setInt('lastReadVerse', item.ayat.nomorAyat);
+                  await prefs.setInt('lastReadSurahNumber', item.surah.nomor);
                   messenger.showSnackBar(
                     SnackBar(
                       content: Text('Tandai sebagai ayat terakhir dibaca: QS. ${item.surah.namaLatin} ayat ${item.ayat.nomorAyat}'),

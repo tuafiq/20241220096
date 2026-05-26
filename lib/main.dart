@@ -9,6 +9,7 @@ import 'wirid_doa_page.dart';
 import 'dzikir_card.dart';
 import 'prayer_schedule_page.dart';
 import 'quran_page.dart';
+import 'surah_detail_page.dart';
 import 'qibla_page.dart';
 import 'calendar_page.dart';
 import 'settings_page.dart';
@@ -119,6 +120,9 @@ class _HomePageState extends State<HomePage> {
   List<String> _completedSurahs = [];
   List<String> _memorizedAyats = [];
   List<String> _studiedJuz = [];
+  String _lastReadSurah = '';
+  int _lastReadVerse = 0;
+  int _lastReadSurahNumber = 0;
 
   @override
   void initState() {
@@ -153,6 +157,9 @@ class _HomePageState extends State<HomePage> {
         _completedSurahs = prefs.getStringList('completedSurahs') ?? [];
         _memorizedAyats = prefs.getStringList('memorizedAyats') ?? [];
         _studiedJuz = prefs.getStringList('studiedJuz') ?? [];
+        _lastReadSurah = prefs.getString('lastReadSurah') ?? '';
+        _lastReadVerse = prefs.getInt('lastReadVerse') ?? 0;
+        _lastReadSurahNumber = prefs.getInt('lastReadSurahNumber') ?? 0;
       });
     }
   }
@@ -659,89 +666,106 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             // 2. Middle Green Section (Inset Card)
-            Container(
-              height: 82,
-              margin: const EdgeInsets.symmetric(horizontal: 12),
-              decoration: BoxDecoration(
-                color: const Color(0xFF0C5441),
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Stack(
-                children: [
-                  // Mosque/Islamic pattern background image for depth
-                  Positioned.fill(
-                    child: Opacity(
-                      opacity: 0.15,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.asset(
-                          'assets/images/islamic_pattern_bg.png',
-                          fit: BoxFit.cover,
+            GestureDetector(
+              onTap: () {
+                if (_lastReadSurahNumber != 0) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SurahDetailPage(nomor: _lastReadSurahNumber),
+                    ),
+                  ).then((_) {
+                    _loadQuranProgress();
+                  });
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const QuranPage(useApi: true),
+                    ),
+                  ).then((_) {
+                    _loadQuranProgress();
+                  });
+                }
+              },
+              child: Container(
+                height: 82,
+                margin: const EdgeInsets.symmetric(horizontal: 12),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF0C5441),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Stack(
+                  children: [
+                    // Mosque/Islamic pattern background image for depth
+                    Positioned.fill(
+                      child: Opacity(
+                        opacity: 0.15,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Image.asset(
+                            'assets/images/islamic_pattern_bg.png',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  // Content
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Surah Favorit',
-                              style: TextStyle(
-                                color: Colors.white.withOpacity(0.9),
-                                fontSize: 10,
-                                fontWeight: FontWeight.w500,
+                    // Content
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Terakhir Dibaca',
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(0.9),
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 2),
-                            Text(
-                              _favoriteSurahs.isNotEmpty
-                                  ? QuranData.listSurah.firstWhere(
-                                      (s) => s.nomor.toString() == _favoriteSurahs.last,
-                                      orElse: () => QuranData.listSurah[54], // Ar-Rahman (index 54, nomor 55)
-                                    ).namaLatin
-                                  : 'Belum ada favorit',
-                              style: GoogleFonts.outfit(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                              const SizedBox(height: 2),
+                              Text(
+                                _lastReadSurah.isNotEmpty
+                                    ? _lastReadSurah
+                                    : 'Belum ada riwayat',
+                                style: GoogleFonts.outfit(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 1),
-                            Text(
-                              _favoriteSurahs.isNotEmpty
-                                  ? 'Surah ${QuranData.listSurah.firstWhere(
-                                      (s) => s.nomor.toString() == _favoriteSurahs.last,
-                                      orElse: () => QuranData.listSurah[54],
-                                    ).nomor}'
-                                  : 'Tandai Surah favoritmu',
-                              style: TextStyle(
-                                color: Colors.white.withOpacity(0.8),
-                                fontSize: 10,
+                              const SizedBox(height: 1),
+                              Text(
+                                _lastReadSurah.isNotEmpty
+                                    ? 'Ayat $_lastReadVerse'
+                                    : 'Tandai terakhir dibaca',
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(0.8),
+                                  fontSize: 10,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        // Rehal image
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.asset(
-                            'assets/images/quran_rehal.png',
-                            fit: BoxFit.cover,
-                            height: 62,
-                            width: 62,
+                            ],
                           ),
-                        ),
-                      ],
+                          // Rehal image
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              'assets/images/quran_rehal.png',
+                              fit: BoxFit.cover,
+                              height: 62,
+                              width: 62,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             // 3. Bottom White Bar (3 Progress Indicators Row)
