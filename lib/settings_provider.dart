@@ -32,7 +32,7 @@ class SettingsProvider with ChangeNotifier {
   String _selectedQoriId = '05';
   String _defaultTampilanUtama = 'Baris Per Ayat';
   String _defaultTampilanBaris = 'Selalu Tanya';
-  String _halamanPermulaanAlFatihah = 'Mode Surah';
+  String _halamanPermulaanAlFatihah = 'Halaman 0';
   double _savedAudioSize = 0.0;
   List<String> _downloadedSurahs = [];
   bool _penandaOtomatis = false;
@@ -105,7 +105,7 @@ class SettingsProvider with ChangeNotifier {
     _selectedQoriId = _prefs.getString('selectedQoriId') ?? '05';
     _defaultTampilanUtama = _prefs.getString('defaultTampilanUtama') ?? 'Baris Per Ayat';
     _defaultTampilanBaris = _prefs.getString('defaultTampilanBaris') ?? 'Selalu Tanya';
-    _halamanPermulaanAlFatihah = _prefs.getString('halamanPermulaanAlFatihah') ?? 'Mode Surah';
+    _halamanPermulaanAlFatihah = _prefs.getString('halamanPermulaanAlFatihah') ?? 'Halaman 0';
     _savedAudioSize = _prefs.getDouble('savedAudioSize') ?? 0.0;
     _downloadedSurahs = _prefs.getStringList('downloadedSurahs') ?? [];
     _penandaOtomatis = _prefs.getBool('penandaOtomatis') ?? false;

@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'settings_provider.dart';
 import 'panduan_tajwid_page.dart';
 import 'pilih_qori_page.dart';
-import 'default_tampilan_baris_page.dart';
+import 'halaman_alfatihah_page.dart';
 
 class QuranSettingsPage extends StatefulWidget {
   const QuranSettingsPage({super.key});
@@ -14,8 +14,6 @@ class QuranSettingsPage extends StatefulWidget {
 }
 
 class _QuranSettingsPageState extends State<QuranSettingsPage> {
-
-
 
 
 
@@ -651,7 +649,7 @@ class _QuranSettingsPageState extends State<QuranSettingsPage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const DefaultTampilanBarisPage()),
+                    MaterialPageRoute(builder: (context) => const HalamanAlFatihahPage()),
                   );
                 },
               ),
