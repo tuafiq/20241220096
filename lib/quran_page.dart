@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
+import 'settings_provider.dart';
 import 'quran_data.dart';
 import 'quran_service.dart';
 import 'surah_detail_page.dart';
@@ -228,8 +230,9 @@ class _QuranPageState extends State<QuranPage> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F9F9),
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF9F9F9),
       body: Column(
         children: [
           _buildPremiumHeader(),
@@ -249,6 +252,7 @@ class _QuranPageState extends State<QuranPage> {
 
   Widget _buildSurahTabContent() {
     final filteredSurahs = _filteredSurahs;
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return ListView(
       padding: const EdgeInsets.only(bottom: 24),
       children: [
@@ -263,7 +267,7 @@ class _QuranPageState extends State<QuranPage> {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: filteredSurahs.length,
             separatorBuilder: (context, index) => Divider(
-              color: Colors.grey[200],
+              color: isDarkMode ? Colors.white10 : Colors.grey[200],
               height: 1,
               indent: 80,
             ),
@@ -298,6 +302,7 @@ class _QuranPageState extends State<QuranPage> {
   }
 
   Widget _buildPremiumHeader() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       width: double.infinity,
       decoration: const BoxDecoration(
@@ -363,11 +368,11 @@ class _QuranPageState extends State<QuranPage> {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.08),
+                    color: isDarkMode ? Colors.black.withOpacity(0.2) : Colors.black.withOpacity(0.08),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -376,21 +381,21 @@ class _QuranPageState extends State<QuranPage> {
               child: TextField(
                 focusNode: _searchFocusNode,
                 onChanged: _onSearch,
-                style: const TextStyle(color: Colors.black87),
+                style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87),
                 decoration: InputDecoration(
                   hintText: 'Cari surah, arti, atau juz...',
-                  hintStyle: TextStyle(color: Colors.grey[400]),
+                  hintStyle: TextStyle(color: isDarkMode ? Colors.white30 : Colors.grey[400]),
                   prefixIcon: const Icon(Icons.search, color: Color(0xFF13A884)),
                   suffixIcon: Container(
                     margin: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: Colors.grey[100],
+                      color: isDarkMode ? const Color(0xFF2D2D2D) : Colors.grey[100],
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: const Icon(Icons.tune, color: Color(0xFF13A884), size: 18),
                   ),
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                     borderSide: BorderSide.none,
@@ -474,19 +479,20 @@ class _QuranPageState extends State<QuranPage> {
   }
 
   Widget _buildSurahBannerCard() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: isDarkMode ? Colors.black.withOpacity(0.15) : Colors.black.withOpacity(0.04),
             blurRadius: 15,
             offset: const Offset(0, 6),
           ),
         ],
-        border: Border.all(color: Colors.grey.shade100),
+        border: Border.all(color: isDarkMode ? Colors.white10 : Colors.grey.shade100),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -515,12 +521,12 @@ class _QuranPageState extends State<QuranPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'Al-Quran Al-Karim',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF0C5441),
+                          color: isDarkMode ? const Color(0xFF13A884) : const Color(0xFF0C5441),
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -529,14 +535,14 @@ class _QuranPageState extends State<QuranPage> {
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
-                          color: Colors.grey.shade600,
+                          color: isDarkMode ? Colors.white60 : Colors.grey.shade600,
                         ),
                       ),
                       const SizedBox(height: 6),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
-                          color: const Color(0xFFE8F5F1),
+                          color: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: const Text(
@@ -554,7 +560,7 @@ class _QuranPageState extends State<QuranPage> {
               ],
             ),
             const SizedBox(height: 16),
-            Divider(color: Colors.grey[200], height: 1),
+            Divider(color: isDarkMode ? Colors.white10 : Colors.grey[200], height: 1),
             const SizedBox(height: 12),
             Row(
               children: [
@@ -591,6 +597,7 @@ class _QuranPageState extends State<QuranPage> {
   }
 
   Widget _buildProgressIndicatorItem(IconData icon, String value, String label, VoidCallback onTap) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(10),
@@ -623,7 +630,7 @@ class _QuranPageState extends State<QuranPage> {
                     style: GoogleFonts.outfit(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xFF0C5441),
+                      color: isDarkMode ? const Color(0xFF13A884) : const Color(0xFF0C5441),
                       height: 1.1,
                     ),
                   ),
@@ -631,10 +638,10 @@ class _QuranPageState extends State<QuranPage> {
                     label,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 9,
                       fontWeight: FontWeight.w500,
-                      color: Color(0xFF7F8C8D),
+                      color: isDarkMode ? Colors.white38 : const Color(0xFF7F8C8D),
                     ),
                   ),
                 ],
@@ -1008,22 +1015,23 @@ class _QuranPageState extends State<QuranPage> {
   }
 
   Widget _buildJuzListItem(JuzInfo juz) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final bool isFavorite = _favoriteJuz.contains(juz.number.toString());
     final bool isStudied = _studiedJuz.contains(juz.number.toString());
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: isDarkMode ? Colors.black.withOpacity(0.15) : Colors.black.withOpacity(0.04),
             blurRadius: 15,
             offset: const Offset(0, 6),
           ),
         ],
-        border: Border.all(color: Colors.grey.shade100),
+        border: Border.all(color: isDarkMode ? Colors.white10 : Colors.grey.shade100),
       ),
       child: Column(
         children: [
@@ -1070,10 +1078,10 @@ class _QuranPageState extends State<QuranPage> {
                           children: [
                             Text(
                               'Juz ${_toArabicNumerals(juz.number)}',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFF0C5441),
+                                color: isDarkMode ? const Color(0xFF13A884) : const Color(0xFF0C5441),
                               ),
                             ),
                             const SizedBox(height: 4),
@@ -1081,16 +1089,16 @@ class _QuranPageState extends State<QuranPage> {
                               juz.pageRange,
                               style: TextStyle(
                                 fontSize: 13,
-                                color: Colors.grey.shade600,
+                                color: isDarkMode ? Colors.white60 : Colors.grey.shade600,
                               ),
                             ),
                             const SizedBox(height: 2),
                             Text(
                               '${juz.surahCount} Surah • ${juz.ayatCount} Ayat',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,
-                                color: Colors.black87,
+                                color: isDarkMode ? Colors.white70 : Colors.black87,
                               ),
                             ),
                             const SizedBox(height: 6),
@@ -1116,7 +1124,9 @@ class _QuranPageState extends State<QuranPage> {
                                   ),
                                   style: TextButton.styleFrom(
                                     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-                                    backgroundColor: isFavorite ? Colors.amber.shade50 : const Color(0xFFE8F5F1),
+                                    backgroundColor: isFavorite
+                                        ? (isDarkMode ? const Color(0xFF3E2D00) : Colors.amber.shade50)
+                                        : (isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1)),
                                     minimumSize: Size.zero,
                                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                     shape: RoundedRectangleBorder(
@@ -1141,7 +1151,7 @@ class _QuranPageState extends State<QuranPage> {
                                   ),
                                   style: TextButton.styleFrom(
                                     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-                                    backgroundColor: const Color(0xFFE8F5F1),
+                                    backgroundColor: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
                                     minimumSize: Size.zero,
                                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                     shape: RoundedRectangleBorder(
@@ -1176,6 +1186,7 @@ class _QuranPageState extends State<QuranPage> {
   }
 
   Widget _buildListHeaderAndControls() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final String titleText = _activeTab == 0 ? "Daftar Surah" : "Daftar Juz";
     final String countText = _activeTab == 0 ? "114 Surah" : "30 Juz";
 
@@ -1190,17 +1201,17 @@ class _QuranPageState extends State<QuranPage> {
             children: [
               Text(
                 titleText,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0C5441),
+                  color: isDarkMode ? const Color(0xFF13A884) : const Color(0xFF0C5441),
                 ),
               ),
               Text(
                 countText,
                 style: TextStyle(
                   fontSize: 13,
-                  color: Colors.grey.shade600,
+                  color: isDarkMode ? Colors.white60 : Colors.grey.shade600,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -1214,9 +1225,9 @@ class _QuranPageState extends State<QuranPage> {
               // Terjemahan vs Lafal Toggle
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.grey.shade200),
+                  border: Border.all(color: isDarkMode ? Colors.white10 : Colors.grey.shade200),
                 ),
                 padding: const EdgeInsets.all(2),
                 child: Row(
@@ -1249,6 +1260,7 @@ class _QuranPageState extends State<QuranPage> {
     required bool isSelected,
     required VoidCallback onTap,
   }) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -1262,7 +1274,7 @@ class _QuranPageState extends State<QuranPage> {
             Icon(
               icon,
               size: 14,
-              color: isSelected ? Colors.white : Colors.grey.shade600,
+              color: isSelected ? Colors.white : (isDarkMode ? Colors.white30 : Colors.grey.shade600),
             ),
             const SizedBox(width: 6),
             Text(
@@ -1270,7 +1282,7 @@ class _QuranPageState extends State<QuranPage> {
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                color: isSelected ? Colors.white : Colors.grey.shade600,
+                color: isSelected ? Colors.white : (isDarkMode ? Colors.white30 : Colors.grey.shade600),
               ),
             ),
           ],
@@ -1280,13 +1292,14 @@ class _QuranPageState extends State<QuranPage> {
   }
 
   Widget _buildSurahItem(SurahModel surah) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
       leading: Container(
         width: 32,
         height: 32,
-        decoration: const BoxDecoration(
-          color: Color(0xFFE8F5F1),
+        decoration: BoxDecoration(
+          color: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
           shape: BoxShape.circle,
         ),
         child: Center(
@@ -1302,10 +1315,10 @@ class _QuranPageState extends State<QuranPage> {
       ),
       title: Text(
         surah.namaLatin,
-        style: const TextStyle(
+        style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 16,
-          color: Colors.black87,
+          color: isDarkMode ? Colors.white : Colors.black87,
         ),
       ),
       subtitle: Text(
@@ -1313,7 +1326,7 @@ class _QuranPageState extends State<QuranPage> {
             ? surah.arti
             : '${surah.tempatTurun.toUpperCase()} • ${surah.jumlahAyat} AYAT',
         style: TextStyle(
-          color: Colors.grey[600],
+          color: isDarkMode ? Colors.white60 : Colors.grey[600],
           fontSize: 12,
         ),
       ),
@@ -1468,6 +1481,7 @@ class _QuranPageState extends State<QuranPage> {
   }
 
   Widget _buildBookmarkTabContent() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final bookmarkedJuz = _juzList.where((juz) => _favoriteJuz.contains(juz.number.toString())).toList();
     final allSurahs = widget.useApi ? _surahs : QuranData.listSurah;
     final bookmarkedSurahs = allSurahs.where((surah) => _favoriteSurahs.contains(surah.nomor.toString())).toList();
@@ -1479,12 +1493,12 @@ class _QuranPageState extends State<QuranPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.bookmark_border, size: 80, color: Colors.grey[300]),
+              Icon(Icons.bookmark_border, size: 80, color: isDarkMode ? Colors.grey[800] : Colors.grey[300]),
               const SizedBox(height: 16),
               Text(
                 'Belum ada bookmark',
                 style: TextStyle(
-                  color: Colors.grey[800],
+                  color: isDarkMode ? Colors.white70 : Colors.grey[800],
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
@@ -1494,7 +1508,7 @@ class _QuranPageState extends State<QuranPage> {
                 'Tandai Surah atau Juz favoritmu untuk menyimpannya di sini.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.grey[500],
+                  color: isDarkMode ? Colors.white60 : Colors.grey[500],
                   fontSize: 13,
                 ),
               ),
@@ -1515,7 +1529,7 @@ class _QuranPageState extends State<QuranPage> {
               style: GoogleFonts.outfit(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xFF0C5441),
+                color: isDarkMode ? const Color(0xFF13A884) : const Color(0xFF0C5441),
               ),
             ),
           ),
@@ -1538,7 +1552,7 @@ class _QuranPageState extends State<QuranPage> {
               style: GoogleFonts.outfit(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xFF0C5441),
+                color: isDarkMode ? const Color(0xFF13A884) : const Color(0xFF0C5441),
               ),
             ),
           ),

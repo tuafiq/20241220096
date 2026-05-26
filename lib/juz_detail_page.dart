@@ -8,6 +8,8 @@ import 'package:provider/provider.dart';
 import 'quran_service.dart';
 import 'settings_provider.dart';
 import 'quran_settings_page.dart';
+import 'preferensi_membaca_page.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 class JuzRange {
   final int surahNumber;
@@ -320,6 +322,7 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
     _scrollController.dispose();
     _juzTabScrollController.dispose();
     _player.dispose();
+    WakelockPlus.disable();
     super.dispose();
   }
 
@@ -560,11 +563,10 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
     );
   }
 
-  List<InlineSpan> _buildTajwidSpans(String text, bool showColor, bool isDarkMode, String sizeSetting) {
+  List<InlineSpan> _buildTajwidSpans(String text, bool showColor, bool isDarkMode, double fontSize) {
     final baseColor = isDarkMode ? Colors.white : const Color(0xFF0C5441);
-    final size = _getArabicFontSize(sizeSetting);
     final style = GoogleFonts.scheherazadeNew(
-      fontSize: size,
+      fontSize: fontSize,
       fontWeight: FontWeight.bold,
       color: baseColor,
       height: 1.6,
@@ -951,7 +953,7 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
                                   item.ayat.teksArab,
                                   settings.showWarnaTajwid,
                                   isDarkMode,
-                                  settings.fontSize,
+                                  settings.arabFontSize,
                                 ),
                                 WidgetSpan(
                                   alignment: PlaceholderAlignment.middle,
@@ -968,29 +970,33 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
                     ],
                   ),
                   if (_showTranslation) ...[
-                    const SizedBox(height: 12),
-                    // Latin Transliteration (Teal)
-                    Text(
-                      item.ayat.teksLatin,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontSize: _getLatinFontSize(settings.fontSize),
-                        fontStyle: FontStyle.italic,
-                        color: const Color(0xFF13A884),
-                        height: 1.4,
+                    if (settings.showTransliterasi) ...[
+                      const SizedBox(height: 12),
+                      // Latin Transliteration (Teal)
+                      Text(
+                        item.ayat.teksLatin,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: settings.latinFontSize,
+                          fontStyle: FontStyle.italic,
+                          color: const Color(0xFF13A884),
+                          height: 1.4,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                    // Indonesian translation
-                    Text(
-                      item.ayat.teksIndonesia,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontSize: _getLatinFontSize(settings.fontSize) + 1,
-                        color: isDarkMode ? Colors.white70 : Colors.grey[700],
-                        height: 1.5,
+                    ],
+                    if (settings.showTerjemah) ...[
+                      const SizedBox(height: 8),
+                      // Indonesian translation
+                      Text(
+                        item.ayat.teksIndonesia,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: settings.latinFontSize + 1,
+                          color: isDarkMode ? Colors.white70 : Colors.grey[600],
+                          height: 1.4,
+                        ),
                       ),
-                    ),
+                    ],
                   ],
                 ],
               ),
@@ -1132,30 +1138,9 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
   }
 
   void _showFontSizeDialog(BuildContext context, SettingsProvider settings) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Pilih Ukuran Font', style: TextStyle(fontWeight: FontWeight.bold)),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: ['Kecil', 'Sedang', 'Besar'].map((option) {
-              return RadioListTile<String>(
-                title: Text(option),
-                value: option,
-                groupValue: settings.fontSize,
-                activeColor: const Color(0xFF13A884),
-                onChanged: (String? value) {
-                  if (value != null) {
-                    settings.setFontSize(value);
-                    Navigator.pop(context);
-                  }
-                },
-              );
-            }).toList(),
-          ),
-        );
-      },
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const PreferensiMembacaPage()),
     );
   }
 
@@ -1382,6 +1367,12 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
   Widget build(BuildContext context) {
     final settings = Provider.of<SettingsProvider>(context);
     final isDarkMode = settings.themeModeStr == 'Gelap';
+
+    if (settings.layarTetapAktif) {
+      WakelockPlus.enable();
+    } else {
+      WakelockPlus.disable();
+    }
 
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,

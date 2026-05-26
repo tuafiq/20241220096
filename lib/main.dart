@@ -406,12 +406,13 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildLocationHeader({Key? key}) {
     const primaryGreen = Color(0xFF13A884);
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       key: key,
       width: double.infinity,
       height: 200,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
@@ -484,10 +485,10 @@ class _HomePageState extends State<HomePage> {
                                 _currentLocation.split(',').first.trim(),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.bold,
-                                  color: Color(0xFF2D3436),
+                                  color: isDarkMode ? Colors.white70 : const Color(0xFF2D3436),
                                 ),
                               ),
                             ),
@@ -502,12 +503,12 @@ class _HomePageState extends State<HomePage> {
                 // Center Divider with Icon (Compact)
                 Row(
                   children: [
-                    Expanded(child: Divider(color: Colors.grey[150], thickness: 1)),
+                    Expanded(child: Divider(color: isDarkMode ? Colors.white10 : Colors.grey[150], thickness: 1)),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       child: Icon(Icons.wb_sunny_rounded, size: 14, color: primaryGreen.withOpacity(0.4)),
                     ),
-                    Expanded(child: Divider(color: Colors.grey[150], thickness: 1)),
+                    Expanded(child: Divider(color: isDarkMode ? Colors.white10 : Colors.grey[150], thickness: 1)),
                   ],
                 ),
                 // Prayer Time Section (More landscape-oriented)
@@ -573,7 +574,7 @@ class _HomePageState extends State<HomePage> {
                           '${_getFormattedDate(_currentTime)} / ${_getHijriDate(_currentTime)}',
                           style: TextStyle(
                             fontSize: 10,
-                            color: Colors.grey[600],
+                            color: isDarkMode ? Colors.white60 : Colors.grey[600],
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -599,6 +600,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildQuranHeaderCard({Key? key}) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -610,7 +612,7 @@ class _HomePageState extends State<HomePage> {
         width: double.infinity,
         height: 200,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
           borderRadius: BorderRadius.circular(24),
           boxShadow: [
             BoxShadow(
@@ -647,19 +649,19 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       const SizedBox(width: 8),
-                      const Text(
+                      Text(
                         'Al-Quran',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF2C3E50),
+                          color: isDarkMode ? Colors.white70 : const Color(0xFF2C3E50),
                         ),
                       ),
                     ],
                   ),
                   Icon(
                     Icons.more_vert,
-                    color: Colors.grey[750],
+                    color: isDarkMode ? Colors.white60 : Colors.grey[750],
                     size: 20,
                   ),
                 ],
@@ -802,6 +804,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildProgressIndicatorItem(IconData icon, String value, String label) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Row(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -829,7 +832,7 @@ class _HomePageState extends State<HomePage> {
               style: GoogleFonts.outfit(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xFF0C5441),
+                color: isDarkMode ? const Color(0xFF13A884) : const Color(0xFF0C5441),
                 height: 1.1,
               ),
             ),
@@ -849,14 +852,15 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : Colors.white,
       body: IndexedStack(
         index: _selectedIndex,
         children: [
           // Index 0: Beranda (Home)
           Container(
-            color: const Color(0xFFF9F9F9), // Base background color (light grey/white)
+            color: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF9F9F9), // Base background color (light grey/white)
             child: SingleChildScrollView(
               child: Stack(
                 children: [
@@ -963,7 +967,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Icon(
                                   Icons.arrow_back_ios_new_rounded,
                                   size: 14,
-                                  color: Colors.grey[400],
+                                  color: isDarkMode ? Colors.white30 : Colors.grey[400],
                                 ),
                               ),
                             ),
@@ -981,7 +985,7 @@ class _HomePageState extends State<HomePage> {
                                     shape: BoxShape.circle,
                                     color: isActive
                                         ? const Color(0xFF13A884)
-                                        : const Color(0xFF13A884).withOpacity(0.2),
+                                        : (isDarkMode ? Colors.white24 : const Color(0xFF13A884).withOpacity(0.2)),
                                   ),
                                 );
                               }),
@@ -1003,7 +1007,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Icon(
                                   Icons.arrow_forward_ios_rounded,
                                   size: 14,
-                                  color: Colors.grey[400],
+                                  color: isDarkMode ? Colors.white30 : Colors.grey[400],
                                 ),
                               ),
                             ),
@@ -1014,11 +1018,11 @@ class _HomePageState extends State<HomePage> {
                           margin: const EdgeInsets.symmetric(horizontal: 16),
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                             borderRadius: BorderRadius.circular(30),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.08),
+                                color: isDarkMode ? Colors.black.withOpacity(0.2) : Colors.black.withOpacity(0.08),
                                 blurRadius: 20,
                                 offset: const Offset(0, 10),
                               ),
@@ -1051,8 +1055,9 @@ class _HomePageState extends State<HomePage> {
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
+        backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         selectedItemColor: const Color(0xFF13A884),
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: isDarkMode ? Colors.white30 : Colors.grey,
         showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(
@@ -1125,6 +1130,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildHomeNewsSection() {
     const primaryGreen = Color(0xFF13A884);
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -1133,12 +1139,12 @@ class _HomePageState extends State<HomePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
+              Text(
                 'Berita Terbaru',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF2D3436),
+                  color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                 ),
               ),
               TextButton(
@@ -1162,7 +1168,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     _homeArticlesError ?? 'Gagal memuat berita',
-                    style: TextStyle(color: Colors.grey[600], fontSize: 14),
+                    style: TextStyle(color: isDarkMode ? Colors.white60 : Colors.grey[600], fontSize: 14),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 12),
@@ -1195,11 +1201,11 @@ class _HomePageState extends State<HomePage> {
               final article = _homeArticles[index];
               return Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.04),
+                      color: isDarkMode ? Colors.black.withOpacity(0.15) : Colors.black.withOpacity(0.04),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),
@@ -1215,20 +1221,27 @@ class _HomePageState extends State<HomePage> {
                       height: 80,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) =>
-                          Container(width: 80, height: 80, color: Colors.grey[200]),
+                          Container(width: 80, height: 80, color: isDarkMode ? Colors.grey[800] : Colors.grey[200]),
                     ),
                   ),
                   title: Text(
                     article.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: isDarkMode ? Colors.white : Colors.black87,
+                    ),
                   ),
                   subtitle: Text(
                     article.contentSnippet,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(fontSize: 12),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: isDarkMode ? Colors.white60 : Colors.black54,
+                    ),
                   ),
                   onTap: () => _onItemTapped(2), // Go to full news page
                 ),
@@ -1278,6 +1291,7 @@ class AlQuranIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: onTap ?? () {
         Navigator.push(
@@ -1292,8 +1306,8 @@ class AlQuranIcon extends StatelessWidget {
           Container(
             width: 52,
             height: 52,
-            decoration: const BoxDecoration(
-              color: Color(0xFFE8F5F1),
+            decoration: BoxDecoration(
+              color: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(8),
@@ -1302,12 +1316,12 @@ class AlQuranIcon extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          const Text(
+          Text(
             'Al-Quran',
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w500,
-              color: Color(0xFF333333),
+              color: isDarkMode ? Colors.white70 : const Color(0xFF333333),
             ),
             textAlign: TextAlign.center,
           ),
@@ -1325,6 +1339,7 @@ class WiridDoaIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -1339,8 +1354,8 @@ class WiridDoaIcon extends StatelessWidget {
           Container(
             width: 52,
             height: 52,
-            decoration: const BoxDecoration(
-              color: Color(0xFFE8F5F1),
+            decoration: BoxDecoration(
+              color: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(8),
@@ -1350,12 +1365,12 @@ class WiridDoaIcon extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          const Text(
+          Text(
             'Wirid & Doa',
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w500,
-              color: Color(0xFF333333),
+              color: isDarkMode ? Colors.white70 : const Color(0xFF333333),
             ),
             textAlign: TextAlign.center,
           ),
@@ -1374,6 +1389,7 @@ class JadwalShalatIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -1388,8 +1404,8 @@ class JadwalShalatIcon extends StatelessWidget {
           Container(
             width: 52,
             height: 52,
-            decoration: const BoxDecoration(
-              color: Color(0xFFE8F5F1),
+            decoration: BoxDecoration(
+              color: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
               shape: BoxShape.circle,
             ),
             child: Center(
@@ -1397,7 +1413,7 @@ class JadwalShalatIcon extends StatelessWidget {
                 width: 32,
                 height: 32,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: const Color(0xFF13A884),
@@ -1443,12 +1459,12 @@ class JadwalShalatIcon extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          const Text(
+          Text(
             'Jadwal Shalat',
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w500,
-              color: Color(0xFF333333),
+              color: isDarkMode ? Colors.white70 : const Color(0xFF333333),
             ),
             textAlign: TextAlign.center,
           ),
@@ -1467,6 +1483,7 @@ class KiblatIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -1481,8 +1498,8 @@ class KiblatIcon extends StatelessWidget {
           Container(
             width: 52,
             height: 52,
-            decoration: const BoxDecoration(
-              color: Color(0xFFE8F5F1),
+            decoration: BoxDecoration(
+              color: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(8),
@@ -1492,12 +1509,12 @@ class KiblatIcon extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          const Text(
+          Text(
             'Kiblat',
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w500,
-              color: Color(0xFF333333),
+              color: isDarkMode ? Colors.white70 : const Color(0xFF333333),
             ),
             textAlign: TextAlign.center,
           ),
@@ -1517,6 +1534,7 @@ class TahlilIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -1531,8 +1549,8 @@ class TahlilIcon extends StatelessWidget {
           Container(
             width: 52,
             height: 52,
-            decoration: const BoxDecoration(
-              color: Color(0xFFE8F5F1),
+            decoration: BoxDecoration(
+              color: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(8),
@@ -1542,12 +1560,12 @@ class TahlilIcon extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          const Text(
+          Text(
             'Tahlil & Yasin',
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w500,
-              color: Color(0xFF333333),
+              color: isDarkMode ? Colors.white70 : const Color(0xFF333333),
             ),
             textAlign: TextAlign.center,
           ),
@@ -1566,6 +1584,7 @@ class MaulidIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -1580,8 +1599,8 @@ class MaulidIcon extends StatelessWidget {
           Container(
             width: 52,
             height: 52,
-            decoration: const BoxDecoration(
-              color: Color(0xFFE8F5F1),
+            decoration: BoxDecoration(
+              color: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(8),
@@ -1591,12 +1610,12 @@ class MaulidIcon extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          const Text(
+          Text(
             'Hadis',
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w500,
-              color: Color(0xFF333333),
+              color: isDarkMode ? Colors.white70 : const Color(0xFF333333),
             ),
             textAlign: TextAlign.center,
           ),
@@ -1615,6 +1634,7 @@ class TutorialIbadahIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -1629,8 +1649,8 @@ class TutorialIbadahIcon extends StatelessWidget {
           Container(
             width: 52,
             height: 52,
-            decoration: const BoxDecoration(
-              color: Color(0xFFE8F5F1),
+            decoration: BoxDecoration(
+              color: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(8),
@@ -1640,12 +1660,12 @@ class TutorialIbadahIcon extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          const Text(
+          Text(
             'Tutorial Ibadah',
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w500,
-              color: Color(0xFF333333),
+              color: isDarkMode ? Colors.white70 : const Color(0xFF333333),
             ),
             textAlign: TextAlign.center,
           ),
@@ -1664,6 +1684,7 @@ class RamadhanIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -1678,8 +1699,8 @@ class RamadhanIcon extends StatelessWidget {
           Container(
             width: 52,
             height: 52,
-            decoration: const BoxDecoration(
-              color: Color(0xFFE8F5F1),
+            decoration: BoxDecoration(
+              color: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(8),
@@ -1689,12 +1710,12 @@ class RamadhanIcon extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          const Text(
+          Text(
             'Ramadhan',
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w500,
-              color: Color(0xFF333333),
+              color: isDarkMode ? Colors.white70 : const Color(0xFF333333),
             ),
             textAlign: TextAlign.center,
           ),

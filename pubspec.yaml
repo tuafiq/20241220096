@@ -55,6 +55,7 @@ dependencies:
   package_info_plus: ^9.0.1
   flutter_local_notifications: ^21.0.0
   html: ^0.15.6
+  wakelock_plus: ^1.5.2
 
 dev_dependencies:
   flutter_test:

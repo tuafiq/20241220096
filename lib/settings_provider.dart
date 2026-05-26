@@ -38,6 +38,13 @@ class SettingsProvider with ChangeNotifier {
   bool _penandaOtomatis = false;
   bool _pengingatMembaca = true;
 
+  // New Reading Preferences Fields
+  double _arabFontSize = 24.0;
+  double _latinFontSize = 13.0;
+  bool _showTransliterasi = true;
+  bool _showTerjemah = true;
+  bool _layarTetapAktif = false;
+
   String get saveLocation => _saveLocation;
   String get fontSize => _fontSize;
   String get fontFamily => _fontFamily;
@@ -64,6 +71,11 @@ class SettingsProvider with ChangeNotifier {
   List<String> get downloadedSurahs => _downloadedSurahs;
   bool get penandaOtomatis => _penandaOtomatis;
   bool get pengingatMembaca => _pengingatMembaca;
+  double get arabFontSize => _arabFontSize;
+  double get latinFontSize => _latinFontSize;
+  bool get showTransliterasi => _showTransliterasi;
+  bool get showTerjemah => _showTerjemah;
+  bool get layarTetapAktif => _layarTetapAktif;
 
   Locale get locale {
     switch (_language) {
@@ -110,6 +122,13 @@ class SettingsProvider with ChangeNotifier {
     _downloadedSurahs = _prefs.getStringList('downloadedSurahs') ?? [];
     _penandaOtomatis = _prefs.getBool('penandaOtomatis') ?? false;
     _pengingatMembaca = _prefs.getBool('pengingatMembaca') ?? true;
+
+    // Load Reading Preferences
+    _arabFontSize = _prefs.getDouble('arabFontSize') ?? 24.0;
+    _latinFontSize = _prefs.getDouble('latinFontSize') ?? 13.0;
+    _showTransliterasi = _prefs.getBool('showTransliterasi') ?? true;
+    _showTerjemah = _prefs.getBool('showTerjemah') ?? true;
+    _layarTetapAktif = _prefs.getBool('layarTetapAktif') ?? false;
     
     _updateNotification();
     _updateReadingReminder();
@@ -359,6 +378,36 @@ class SettingsProvider with ChangeNotifier {
   Future<void> setShowWarnaTajwid(bool show) async {
     _showWarnaTajwid = show;
     await _prefs.setBool('showWarnaTajwid', show);
+    notifyListeners();
+  }
+
+  Future<void> setArabFontSize(double size) async {
+    _arabFontSize = size;
+    await _prefs.setDouble('arabFontSize', size);
+    notifyListeners();
+  }
+
+  Future<void> setLatinFontSize(double size) async {
+    _latinFontSize = size;
+    await _prefs.setDouble('latinFontSize', size);
+    notifyListeners();
+  }
+
+  Future<void> setShowTransliterasi(bool val) async {
+    _showTransliterasi = val;
+    await _prefs.setBool('showTransliterasi', val);
+    notifyListeners();
+  }
+
+  Future<void> setShowTerjemah(bool val) async {
+    _showTerjemah = val;
+    await _prefs.setBool('showTerjemah', val);
+    notifyListeners();
+  }
+
+  Future<void> setLayarTetapAktif(bool val) async {
+    _layarTetapAktif = val;
+    await _prefs.setBool('layarTetapAktif', val);
     notifyListeners();
   }
 

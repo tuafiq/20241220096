@@ -8,6 +8,8 @@ import 'package:provider/provider.dart';
 import 'quran_service.dart';
 import 'settings_provider.dart';
 import 'settings_page.dart';
+import 'preferensi_membaca_page.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 class SurahDetailPage extends StatefulWidget {
   final int nomor;
@@ -30,30 +32,9 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
   Duration _duration = Duration.zero;
 
   void _showFontSizeDialog(BuildContext context, SettingsProvider settings) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Pilih Ukuran Font', style: TextStyle(fontWeight: FontWeight.bold)),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: ['Kecil', 'Sedang', 'Besar'].map((option) {
-              return RadioListTile<String>(
-                title: Text(option),
-                value: option,
-                groupValue: settings.fontSize,
-                activeColor: const Color(0xFF13A884),
-                onChanged: (String? value) {
-                  if (value != null) {
-                    settings.setFontSize(value);
-                    Navigator.pop(context);
-                  }
-                },
-              );
-            }).toList(),
-          ),
-        );
-      },
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const PreferensiMembacaPage()),
     );
   }
 
@@ -236,6 +217,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
   @override
   void dispose() {
     _player.dispose();
+    WakelockPlus.disable();
     super.dispose();
   }
 
@@ -658,6 +640,13 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    final settings = Provider.of<SettingsProvider>(context);
+    if (settings.layarTetapAktif) {
+      WakelockPlus.enable();
+    } else {
+      WakelockPlus.disable();
+    }
+
     return FutureBuilder<SurahDetailModel>(
       future: _surahDetail,
       builder: (context, snapshot) {
@@ -1602,29 +1591,33 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    _buildTajwidRichText(ayat.teksArab, settings.showWarnaTajwid, isDarkMode),
+                    _buildTajwidRichText(ayat.teksArab, settings.showWarnaTajwid, isDarkMode, settings.arabFontSize),
                     if (_showTranslation) ...[
-                      const SizedBox(height: 8),
-                      Text(
-                        ayat.teksLatin,
-                        textAlign: TextAlign.left,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          fontStyle: FontStyle.italic,
-                          color: Color(0xFF13A884),
-                          height: 1.4,
+                      if (settings.showTransliterasi) ...[
+                        const SizedBox(height: 8),
+                        Text(
+                          ayat.teksLatin,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: settings.latinFontSize,
+                            fontStyle: FontStyle.italic,
+                            color: const Color(0xFF13A884),
+                            height: 1.4,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        ayat.teksIndonesia,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: isDarkMode ? Colors.white70 : Colors.grey[600],
-                          height: 1.4,
+                      ],
+                      if (settings.showTerjemah) ...[
+                        const SizedBox(height: 6),
+                        Text(
+                          ayat.teksIndonesia,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: settings.latinFontSize + 1,
+                            color: isDarkMode ? Colors.white70 : Colors.grey[600],
+                            height: 1.4,
+                          ),
                         ),
-                      ),
+                      ],
                     ],
                     if (!settings.showWarnaTajwid) ...[
                       const SizedBox(height: 12),
@@ -2137,10 +2130,10 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
     );
   }
 
-  Widget _buildTajwidRichText(String text, bool showColor, bool isDarkMode) {
+  Widget _buildTajwidRichText(String text, bool showColor, bool isDarkMode, double fontSize) {
     final baseColor = isDarkMode ? Colors.white : const Color(0xFF0C5441);
     final style = GoogleFonts.scheherazadeNew(
-      fontSize: 22,
+      fontSize: fontSize,
       fontWeight: FontWeight.bold,
       color: baseColor,
       height: 1.6,

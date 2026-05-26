@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'settings_provider.dart';
 import 'article_model.dart';
 import 'article_service.dart';
 import 'article_detail_page.dart';
@@ -126,15 +128,17 @@ class _ArticlePageState extends State<ArticlePage> {
   @override
   Widget build(BuildContext context) {
     const primaryGreen = Color(0xFF13A884);
+    final settings = Provider.of<SettingsProvider>(context);
+    final isDarkMode = settings.themeModeStr == 'Gelap';
     
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA),
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF8F9FA),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
-        title: const Text(
+        backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+        title: Text(
           'Artikel & Berita Islam',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          style: TextStyle(color: isDarkMode ? Colors.white : Colors.black, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         bottom: PreferredSize(
@@ -145,12 +149,14 @@ class _ArticlePageState extends State<ArticlePage> {
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: TextField(
                   controller: _searchController,
+                  style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87),
                   decoration: InputDecoration(
                     hintText: 'Cari artikel...',
+                    hintStyle: TextStyle(color: isDarkMode ? Colors.white30 : Colors.grey[400]),
                     prefixIcon: const Icon(Icons.search, color: primaryGreen),
                     suffixIcon: _searchController.text.isNotEmpty
                         ? IconButton(
-                            icon: const Icon(Icons.clear, size: 18),
+                            icon: Icon(Icons.clear, size: 18, color: isDarkMode ? Colors.white70 : Colors.black54),
                             onPressed: () {
                               _searchController.clear();
                               FocusScope.of(context).unfocus();
@@ -159,7 +165,7 @@ class _ArticlePageState extends State<ArticlePage> {
                           )
                         : null,
                     filled: true,
-                    fillColor: Colors.grey[100],
+                    fillColor: isDarkMode ? const Color(0xFF2D2D2D) : Colors.grey[100],
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                       borderSide: BorderSide.none,
@@ -194,16 +200,16 @@ class _ArticlePageState extends State<ArticlePage> {
                         },
                         selectedColor: primaryGreen,
                         labelStyle: TextStyle(
-                          color: isSelected ? Colors.white : Colors.black87,
+                          color: isSelected ? Colors.white : (isDarkMode ? Colors.white70 : Colors.black87),
                           fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                         ),
-                        backgroundColor: Colors.white,
+                        backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                         elevation: isSelected ? 2 : 0,
                         pressElevation: 4,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                           side: BorderSide(
-                            color: isSelected ? primaryGreen : Colors.grey[300]!,
+                            color: isSelected ? primaryGreen : (isDarkMode ? Colors.white10 : Colors.grey[300]!),
                           ),
                         ),
                       ),
@@ -224,13 +230,13 @@ class _ArticlePageState extends State<ArticlePage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.cloud_off, size: 80, color: Colors.grey[300]),
+                        Icon(Icons.cloud_off, size: 80, color: isDarkMode ? Colors.grey[800] : Colors.grey[300]),
                         const SizedBox(height: 16),
                         Text(
                           _selectedPortal == 'cs' || _selectedPortal == 'rum'
                               ? 'Portal ini sedang mengalami gangguan.'
                               : 'Gagal memuat artikel.',
-                          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black87),
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: isDarkMode ? Colors.white : Colors.black87),
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 8),
@@ -239,7 +245,7 @@ class _ArticlePageState extends State<ArticlePage> {
                               ? 'Server API untuk portal ini mengembalikan respon error (500/502). Silakan coba portal lain.'
                               : _errorMessage!,
                           textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.grey[600], fontSize: 13),
+                          style: TextStyle(color: isDarkMode ? Colors.white60 : Colors.grey[600], fontSize: 13),
                         ),
                         const SizedBox(height: 24),
                         ElevatedButton.icon(
@@ -257,11 +263,11 @@ class _ArticlePageState extends State<ArticlePage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.article_outlined, size: 80, color: Colors.grey[300]),
+                          Icon(Icons.article_outlined, size: 80, color: isDarkMode ? Colors.grey[800] : Colors.grey[300]),
                           const SizedBox(height: 16),
                           Text(
                             'Tidak ada artikel ditemukan',
-                            style: TextStyle(color: Colors.grey[600], fontSize: 16),
+                            style: TextStyle(color: isDarkMode ? Colors.white60 : Colors.grey[600], fontSize: 16),
                           ),
                           const SizedBox(height: 16),
                           ElevatedButton(
@@ -302,17 +308,17 @@ class _ArticlePageState extends State<ArticlePage> {
                             sourceName: sourceName,
                             onTap: () {
                               Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ArticleDetailPage(
-                                    portalId: _selectedPortal,
-                                    articleId: article.id,
-                                    articleTitle: article.title,
-                                    articleUrl: article.url,
-                                    articleSource: sourceName,
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ArticleDetailPage(
+                                      portalId: _selectedPortal,
+                                      articleId: article.id,
+                                      articleTitle: article.title,
+                                      articleUrl: article.url,
+                                      articleSource: sourceName,
+                                    ),
                                   ),
-                                ),
-                              );
+                                );
                             },
                           );
                         },
@@ -409,15 +415,17 @@ class _ArticleCardState extends State<ArticleCard> {
   @override
   Widget build(BuildContext context) {
     const primaryGreen = Color(0xFF13A884);
+    final settings = Provider.of<SettingsProvider>(context);
+    final isDarkMode = settings.themeModeStr == 'Gelap';
     
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: isDarkMode ? Colors.black.withOpacity(0.2) : Colors.black.withOpacity(0.05),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -431,7 +439,7 @@ class _ArticleCardState extends State<ArticleCard> {
           children: [
             ClipRRect(
               borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-              child: _buildImageSection(primaryGreen),
+              child: _buildImageSection(primaryGreen, isDarkMode),
             ),
             Padding(
               padding: const EdgeInsets.all(16),
@@ -444,7 +452,7 @@ class _ArticleCardState extends State<ArticleCard> {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
-                          color: primaryGreen.withOpacity(0.1),
+                          color: primaryGreen.withOpacity(isDarkMode ? 0.2 : 0.1),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(
@@ -460,7 +468,7 @@ class _ArticleCardState extends State<ArticleCard> {
                         Text(
                           widget.article.date.trim(),
                           style: TextStyle(
-                            color: Colors.grey[600],
+                            color: isDarkMode ? Colors.white60 : Colors.grey[600],
                             fontSize: 12,
                           ),
                         ),
@@ -469,10 +477,10 @@ class _ArticleCardState extends State<ArticleCard> {
                   const SizedBox(height: 12),
                   Text(
                     widget.article.title,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black87,
+                      color: isDarkMode ? Colors.white : Colors.black87,
                       height: 1.3,
                     ),
                     maxLines: 3,
@@ -484,7 +492,7 @@ class _ArticleCardState extends State<ArticleCard> {
                       'Penulis: ${widget.article.author.trim()}',
                       style: TextStyle(
                         fontSize: 13,
-                        color: Colors.grey[600],
+                        color: isDarkMode ? Colors.white60 : Colors.grey[600],
                         fontStyle: FontStyle.italic,
                       ),
                     ),
@@ -498,13 +506,13 @@ class _ArticleCardState extends State<ArticleCard> {
                         return Container(
                           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                           decoration: BoxDecoration(
-                            color: Colors.grey[100],
+                            color: isDarkMode ? const Color(0xFF2D2D2D) : Colors.grey[100],
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(
                             cat,
                             style: TextStyle(
-                              color: Colors.grey[700],
+                              color: isDarkMode ? Colors.white70 : Colors.grey[700],
                               fontSize: 11,
                             ),
                           ),
@@ -541,7 +549,7 @@ class _ArticleCardState extends State<ArticleCard> {
     );
   }
 
-  Widget _buildImageSection(Color primaryGreen) {
+  Widget _buildImageSection(Color primaryGreen, bool isDarkMode) {
     if (_lazyThumbnail != null && _lazyThumbnail!.isNotEmpty) {
       return Image.network(
         _lazyThumbnail!,
@@ -549,7 +557,7 @@ class _ArticleCardState extends State<ArticleCard> {
         width: double.infinity,
         fit: BoxFit.cover,
         errorBuilder: (context, error, stackTrace) =>
-            _buildPlaceholderImage(widget.article.categories, widget.sourceName),
+            _buildPlaceholderImage(widget.article.categories, widget.sourceName, isDarkMode),
       );
     }
 
@@ -557,7 +565,7 @@ class _ArticleCardState extends State<ArticleCard> {
       return Container(
         height: 180,
         width: double.infinity,
-        color: Colors.grey[100],
+        color: isDarkMode ? const Color(0xFF2D2D2D) : Colors.grey[100],
         child: Center(
           child: SizedBox(
             width: 30,
@@ -571,30 +579,32 @@ class _ArticleCardState extends State<ArticleCard> {
       );
     }
 
-    return _buildPlaceholderImage(widget.article.categories, widget.sourceName);
+    return _buildPlaceholderImage(widget.article.categories, widget.sourceName, isDarkMode);
   }
 
-  Widget _buildPlaceholderImage(List<String> categories, String sourceName) {
+  Widget _buildPlaceholderImage(List<String> categories, String sourceName, bool isDarkMode) {
     String tagText = categories.isNotEmpty ? categories.first : sourceName;
     return Container(
       height: 180,
       width: double.infinity,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [Color(0xFFE0F2F1), Color(0xFFB2DFDB)],
+          colors: isDarkMode 
+              ? [const Color(0xFF0F362C), const Color(0xFF0C5441)]
+              : [const Color(0xFFE0F2F1), const Color(0xFFB2DFDB)],
         ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.menu_book_rounded, size: 50, color: const Color(0xFF13A884).withOpacity(0.5)),
+          Icon(Icons.menu_book_rounded, size: 50, color: const Color(0xFF13A884).withOpacity(isDarkMode ? 0.3 : 0.5)),
           const SizedBox(height: 8),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
             decoration: BoxDecoration(
-              color: const Color(0xFF13A884).withOpacity(0.15),
+              color: const Color(0xFF13A884).withOpacity(isDarkMode ? 0.2 : 0.15),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(

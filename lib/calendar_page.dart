@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:hijri/hijri_calendar.dart';
+import 'package:provider/provider.dart';
+import 'settings_provider.dart';
 import 'holiday_model.dart';
 import 'holiday_service.dart';
 import 'all_holidays_page.dart';
@@ -105,16 +107,30 @@ class _CalendarPageState extends State<CalendarPage> {
     return '${hijriMonths[hFirst.hMonth]} - ${hijriMonths[hLast.hMonth]} ${hFirst.hYear}';
   }
 
-  Widget _buildDayCell(DateTime day, {bool isSelected = false, bool isOutside = false, bool isToday = false}) {
+  Widget _buildDayCell(DateTime day, bool isDarkMode, {bool isSelected = false, bool isOutside = false, bool isToday = false}) {
     final hDate = HijriCalendar.fromDate(day);
     final pasaran = _getPasaran(day);
     final isSunday = day.weekday == DateTime.sunday;
     final isHoliday = _getEventsForDay(day).isNotEmpty;
     final isRed = isSunday || isHoliday;
     
-    Color textColor = isSelected ? Colors.white : (isOutside ? Colors.grey[300]! : (isRed ? Colors.red : Colors.black87));
-    Color pasaranColor = isSelected ? Colors.white.withOpacity(0.9) : (isOutside ? Colors.grey[300]! : Colors.grey[500]!);
-    Color hijriColor = isSelected ? Colors.white.withOpacity(0.8) : (isOutside ? Colors.grey[300]! : Colors.black54);
+    Color textColor = isSelected 
+        ? Colors.white 
+        : (isOutside 
+            ? (isDarkMode ? Colors.grey[800]! : Colors.grey[300]!) 
+            : (isRed 
+                ? Colors.red 
+                : (isDarkMode ? Colors.white : Colors.black87)));
+    Color pasaranColor = isSelected 
+        ? Colors.white.withOpacity(0.9) 
+        : (isOutside 
+            ? (isDarkMode ? Colors.grey[800]! : Colors.grey[300]!) 
+            : (isDarkMode ? Colors.white30 : Colors.grey[500]!));
+    Color hijriColor = isSelected 
+        ? Colors.white.withOpacity(0.8) 
+        : (isOutside 
+            ? (isDarkMode ? Colors.grey[800]! : Colors.grey[300]!) 
+            : (isDarkMode ? Colors.white38 : Colors.black54));
 
     return Container(
       margin: const EdgeInsets.all(2),
@@ -187,8 +203,11 @@ class _CalendarPageState extends State<CalendarPage> {
 
   @override
   Widget build(BuildContext context) {
+    final settings = Provider.of<SettingsProvider>(context);
+    final isDarkMode = settings.themeModeStr == 'Gelap';
+
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : Colors.grey[100],
       appBar: AppBar(
         title: _isSearching
             ? TextField(
@@ -253,7 +272,7 @@ class _CalendarPageState extends State<CalendarPage> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4)),
@@ -267,7 +286,7 @@ class _CalendarPageState extends State<CalendarPage> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                _buildCircleArrow(Icons.arrow_back_ios_new, () {
+                                _buildCircleArrow(Icons.arrow_back_ios_new, isDarkMode, () {
                                   setState(() {
                                     _focusedDay = DateTime(_focusedDay.year, _focusedDay.month - 1, 1);
                                   });
@@ -276,7 +295,11 @@ class _CalendarPageState extends State<CalendarPage> {
                                   children: [
                                     Text(
                                       '${indonesianMonths[_focusedDay.month - 1]} ${_focusedDay.year}',
-                                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                        color: isDarkMode ? Colors.white : Colors.black87,
+                                      ),
                                     ),
                                     const SizedBox(height: 2),
                                     Text(
@@ -285,7 +308,7 @@ class _CalendarPageState extends State<CalendarPage> {
                                     ),
                                   ],
                                 ),
-                                _buildCircleArrow(Icons.arrow_forward_ios, () {
+                                _buildCircleArrow(Icons.arrow_forward_ios, isDarkMode, () {
                                   setState(() {
                                     _focusedDay = DateTime(_focusedDay.year, _focusedDay.month + 1, 1);
                                   });
@@ -311,17 +334,17 @@ class _CalendarPageState extends State<CalendarPage> {
                                   child: Text(
                                     text,
                                     style: TextStyle(
-                                      color: isSunday ? Colors.red : Colors.grey[700],
+                                      color: isSunday ? Colors.red : (isDarkMode ? Colors.white70 : Colors.grey[700]),
                                       fontSize: 12,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                 );
                               },
-                              defaultBuilder: (context, day, focusedDay) => _buildDayCell(day),
-                              todayBuilder: (context, day, focusedDay) => _buildDayCell(day, isToday: true, isSelected: isSameDay(_selectedDay, day)),
-                              selectedBuilder: (context, day, focusedDay) => _buildDayCell(day, isSelected: true),
-                              outsideBuilder: (context, day, focusedDay) => _buildDayCell(day, isOutside: true),
+                              defaultBuilder: (context, day, focusedDay) => _buildDayCell(day, isDarkMode),
+                              todayBuilder: (context, day, focusedDay) => _buildDayCell(day, isDarkMode, isToday: true, isSelected: isSameDay(_selectedDay, day)),
+                              selectedBuilder: (context, day, focusedDay) => _buildDayCell(day, isDarkMode, isSelected: true),
+                              outsideBuilder: (context, day, focusedDay) => _buildDayCell(day, isDarkMode, isOutside: true),
                             ),
                             onDaySelected: (selectedDay, focusedDay) {
                               setState(() {
@@ -339,11 +362,11 @@ class _CalendarPageState extends State<CalendarPage> {
                       ),
                     ),
                     if (_selectedDay != null && _getEventsForDay(_selectedDay!).isNotEmpty)
-                      _buildSelectedDayDetail(),
+                      _buildSelectedDayDetail(isDarkMode),
                     const SizedBox(height: 20),
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4)),
@@ -362,7 +385,14 @@ class _CalendarPageState extends State<CalendarPage> {
                                   child: Icon(Icons.calendar_today, color: accentGreen, size: 20),
                                 ),
                                 const SizedBox(width: 12),
-                                const Text('Hari Besar & Libur Nasional', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                                Text(
+                                  'Hari Besar & Libur Nasional',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                    color: isDarkMode ? Colors.white : Colors.black87,
+                                  ),
+                                ),
                                 const Spacer(),
                                 Icon(_isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down, color: Colors.grey),
                               ],
@@ -370,7 +400,7 @@ class _CalendarPageState extends State<CalendarPage> {
                           ),
                           if (_isExpanded) ...[
                             const SizedBox(height: 16),
-                            _buildHolidayList(),
+                            _buildHolidayList(isDarkMode),
                             const SizedBox(height: 16),
                             SizedBox(
                               width: double.infinity,
@@ -388,9 +418,9 @@ class _CalendarPageState extends State<CalendarPage> {
                                 child: const Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    const Text('Lihat Semua Hari Besar', style: TextStyle(fontWeight: FontWeight.bold)),
-                                    const SizedBox(width: 8),
-                                    const Icon(Icons.arrow_forward, size: 18),
+                                    Text('Lihat Semua Hari Besar', style: TextStyle(fontWeight: FontWeight.bold)),
+                                    SizedBox(width: 8),
+                                    Icon(Icons.arrow_forward, size: 18),
                                   ],
                                 ),
                               ),
@@ -409,7 +439,7 @@ class _CalendarPageState extends State<CalendarPage> {
     );
   }
 
-  Widget _buildSelectedDayDetail() {
+  Widget _buildSelectedDayDetail(bool isDarkMode) {
     final events = _getEventsForDay(_selectedDay!);
     return Container(
       margin: const EdgeInsets.only(top: 16),
@@ -435,7 +465,7 @@ class _CalendarPageState extends State<CalendarPage> {
           const SizedBox(height: 8),
           ...events.map((e) => Padding(
             padding: const EdgeInsets.only(bottom: 4.0),
-            child: Text('• ${e.description}', style: const TextStyle(fontWeight: FontWeight.w500)),
+            child: Text('• ${e.description}', style: TextStyle(fontWeight: FontWeight.w500, color: isDarkMode ? Colors.white70 : Colors.black87)),
           )),
         ],
       ),
@@ -456,10 +486,10 @@ class _CalendarPageState extends State<CalendarPage> {
     }
   }
 
-  Widget _buildCircleArrow(IconData icon, VoidCallback onPressed) {
+  Widget _buildCircleArrow(IconData icon, bool isDarkMode, VoidCallback onPressed) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey[100],
+        color: isDarkMode ? const Color(0xFF2D2D2D) : Colors.grey[100],
         shape: BoxShape.circle,
       ),
       child: IconButton(
@@ -471,7 +501,7 @@ class _CalendarPageState extends State<CalendarPage> {
     );
   }
 
-  Widget _buildHolidayList() {
+  Widget _buildHolidayList(bool isDarkMode) {
     List<Holiday> currentMonthHolidays = [];
     _holidays.forEach((date, list) {
       if (date.month == _focusedDay.month && date.year == _focusedDay.year) {
@@ -488,7 +518,10 @@ class _CalendarPageState extends State<CalendarPage> {
     if (currentMonthHolidays.isEmpty) {
       return Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Text('Tidak ada hari libur di bulan ini.', style: TextStyle(color: Colors.grey[500], fontSize: 13)),
+        child: Text(
+          'Tidak ada hari libur di bulan ini.',
+          style: TextStyle(color: isDarkMode ? Colors.white38 : Colors.grey[500], fontSize: 13),
+        ),
       );
     }
 
@@ -506,9 +539,9 @@ class _CalendarPageState extends State<CalendarPage> {
           margin: const EdgeInsets.only(bottom: 12),
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.grey[50],
+            color: isDarkMode ? const Color(0xFF2D2D2D) : Colors.grey[50],
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.grey[200]!),
+            border: Border.all(color: isDarkMode ? Colors.white10 : Colors.grey[200]!),
           ),
           child: Row(
             children: [
@@ -516,9 +549,9 @@ class _CalendarPageState extends State<CalendarPage> {
                 width: 50,
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.grey[200]!),
+                  border: Border.all(color: isDarkMode ? Colors.white10 : Colors.grey[200]!),
                 ),
                 child: Column(
                   children: [
@@ -532,11 +565,18 @@ class _CalendarPageState extends State<CalendarPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(holiday.description, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                    Text(
+                      holiday.description,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        color: isDarkMode ? Colors.white : Colors.black87,
+                      ),
+                    ),
                     const SizedBox(height: 4),
                     Text(
                       '$dayName, ${holiday.date.day} $monthStr ${holiday.date.year} / ${hDate.hDay} ${hijriMonths[hDate.hMonth]} ${hDate.hYear}',
-                      style: TextStyle(color: Colors.grey[600], fontSize: 11),
+                      style: TextStyle(color: isDarkMode ? Colors.white60 : Colors.grey[600], fontSize: 11),
                     ),
                   ],
                 ),
@@ -549,5 +589,3 @@ class _CalendarPageState extends State<CalendarPage> {
     );
   }
 }
-
-
