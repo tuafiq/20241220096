@@ -92,6 +92,16 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
     // Pre-load the full surah audio URL to get the duration metadata
     _surahDetail.then((surah) {
       final settings = Provider.of<SettingsProvider>(context, listen: false);
+      
+      // Auto-bookmark first verse if penandaOtomatis is enabled
+      if (settings.penandaOtomatis) {
+        SharedPreferences.getInstance().then((prefs) async {
+          await prefs.setString('lastReadSurah', surah.namaLatin);
+          await prefs.setInt('lastReadVerse', 1);
+          await prefs.setInt('lastReadSurahNumber', surah.nomor);
+        });
+      }
+
       final qoriId = settings.selectedQoriId;
       final audioUrl = surah.audioFull[qoriId] ?? surah.audio;
       _player.setUrl(audioUrl).then((_) {
@@ -256,6 +266,18 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
         _currentlyPlayingAyat = ayatNomor;
         _isFullSurahPlaying = (ayatNomor == null);
       });
+
+      if (ayatNomor != null) {
+        final settings = Provider.of<SettingsProvider>(context, listen: false);
+        if (settings.penandaOtomatis) {
+          SharedPreferences.getInstance().then((prefs) async {
+            final surah = await _surahDetail;
+            await prefs.setString('lastReadSurah', surah.namaLatin);
+            await prefs.setInt('lastReadVerse', ayatNomor);
+            await prefs.setInt('lastReadSurahNumber', surah.nomor);
+          });
+        }
+      }
 
       await _player.setUrl(url);
       await _player.play();

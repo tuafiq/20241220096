@@ -112,6 +112,7 @@ class SettingsProvider with ChangeNotifier {
     _pengingatMembaca = _prefs.getBool('pengingatMembaca') ?? true;
     
     _updateNotification();
+    _updateReadingReminder();
   }
 
   static const Map<String, Map<String, String>> _localizedValues = {
@@ -255,6 +256,21 @@ class SettingsProvider with ChangeNotifier {
         notificationId,
         'Waktunya Berdoa',
         'Mari sempatkan waktu untuk membaca doa hari ini.',
+        time,
+      );
+    } else {
+      NotificationService().cancelNotification(notificationId);
+    }
+  }
+
+  void _updateReadingReminder() {
+    final int notificationId = 101;
+    if (_pengingatMembaca) {
+      const time = TimeOfDay(hour: 18, minute: 30);
+      NotificationService().scheduleDailyNotification(
+        notificationId,
+        'Membaca Al-Quran',
+        'Mari sempatkan waktu untuk membaca Al-Quran hari ini.',
         time,
       );
     } else {
@@ -406,6 +422,7 @@ class SettingsProvider with ChangeNotifier {
   Future<void> setPengingatMembaca(bool value) async {
     _pengingatMembaca = value;
     await _prefs.setBool('pengingatMembaca', value);
+    _updateReadingReminder();
     notifyListeners();
   }
 }

@@ -295,6 +295,16 @@ class _JuzDetailPageState extends State<JuzDetailPage> {
             _currentlyPlayingIndex = actualIndex;
           });
           _scrollToCurrentlyPlaying();
+
+          final settings = Provider.of<SettingsProvider>(context, listen: false);
+          if (settings.penandaOtomatis) {
+            final item = _juzAyats[actualIndex];
+            SharedPreferences.getInstance().then((prefs) async {
+              await prefs.setString('lastReadSurah', item.surah.namaLatin);
+              await prefs.setInt('lastReadVerse', item.ayat.nomorAyat);
+              await prefs.setInt('lastReadSurahNumber', item.surah.nomor);
+            });
+          }
         }
       }
     });
