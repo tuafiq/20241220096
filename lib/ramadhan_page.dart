@@ -9560,21 +9560,49 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
             children: [
               // Navigation Row
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
                     icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 20),
                     onPressed: () => Navigator.pop(context),
+                    padding: EdgeInsets.zero,
+                    constraints: const BoxConstraints(),
                   ),
-                  Text(
-                    'Ramadhan Kareem',
-                    style: GoogleFonts.outfit(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Text(
+                      'Ramadhan Kareem',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.outfit(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
+                  // Moon icon
                   const Icon(Icons.nightlight_round, color: goldColor, size: 22),
+                  const SizedBox(width: 8),
+                  // Bell / notification icon
+                  Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Icon(Icons.notifications_outlined, color: Colors.white.withOpacity(0.85), size: 22),
+                      Positioned(
+                        top: -2,
+                        right: -2,
+                        child: Container(
+                          width: 8,
+                          height: 8,
+                          decoration: const BoxDecoration(
+                            color: goldColor,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(width: 8),
+                  // Settings icon
+                  Icon(Icons.settings_outlined, color: Colors.white.withOpacity(0.85), size: 22),
                 ],
               ),
               const SizedBox(height: 16),
