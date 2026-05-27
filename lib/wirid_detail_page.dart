@@ -23,9 +23,10 @@ class WiridDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const primaryColor = Color(0xFF13A884);
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F7F8),
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF5F7F8),
       appBar: AppBar(
         title: Text(
           category.title,
@@ -43,7 +44,7 @@ class WiridDetailPage extends StatelessWidget {
             margin: const EdgeInsets.all(16),
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
               borderRadius: BorderRadius.circular(16),
             ),
             child: Row(
@@ -52,7 +53,7 @@ class WiridDetailPage extends StatelessWidget {
                   width: 60,
                   height: 60,
                   decoration: BoxDecoration(
-                    color: const Color(0xFFE8F5F1),
+                    color: isDarkMode ? const Color(0xFF203630) : const Color(0xFFE8F5F1),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Icon(_getIconForCategory(category.id), color: primaryColor, size: 32),
@@ -62,28 +63,28 @@ class WiridDetailPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'Kumpulan Wirid',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF2D3436),
+                          color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                         ),
                       ),
                       Text(
                         category.title.replaceAll('Wirid ', ''),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF2D3436),
+                          color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                         ),
                       ),
                       const SizedBox(height: 6),
                       Text(
                         '${category.items.length} Bacaan',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 13,
-                          color: Colors.grey,
+                          color: isDarkMode ? Colors.white60 : Colors.grey,
                         ),
                       ),
                     ],
@@ -99,7 +100,7 @@ class WiridDetailPage extends StatelessWidget {
               itemCount: category.items.length,
               itemBuilder: (context, index) {
                 final item = category.items[index];
-                return _buildWiridItem(context, item, index, category.items.length);
+                return _buildWiridItem(context, item, index, category.items.length, isDarkMode);
               },
             ),
           ),
@@ -108,12 +109,12 @@ class WiridDetailPage extends StatelessWidget {
     );
   }
 
-  Widget _buildWiridItem(BuildContext context, WiridItem item, int index, int total) {
+  Widget _buildWiridItem(BuildContext context, WiridItem item, int index, int total, bool isDarkMode) {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -161,28 +162,28 @@ class WiridDetailPage extends StatelessWidget {
           const SizedBox(height: 20),
           Text(
             item.latin,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 14,
               fontStyle: FontStyle.italic,
-              color: Color(0xFF636E72),
+              color: isDarkMode ? Colors.white70 : const Color(0xFF636E72),
               height: 1.5,
             ),
           ),
           const SizedBox(height: 16),
-          const Text(
+          Text(
             'Artinya:',
             style: TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF2D3436),
+              color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
             ),
           ),
           const SizedBox(height: 8),
           Text(
             item.translation,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 13,
-              color: Color(0xFF2D3436),
+              color: isDarkMode ? Colors.white.withOpacity(0.87) : const Color(0xFF2D3436),
               height: 1.5,
             ),
           ),

@@ -9518,7 +9518,7 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundLight,
+      backgroundColor: Theme.of(context).brightness == Brightness.dark ? const Color(0xFF121212) : backgroundLight,
       body: Column(
         children: [
           _buildPremiumHeader(),
@@ -9724,8 +9724,9 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
   }
 
   Widget _buildTabBar() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
-      color: Colors.white,
+      color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
       child: TabBar(
         controller: _tabController,
         labelColor: primaryTeal,
@@ -9784,13 +9785,14 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
         final day = schedules[index];
         final isToday = day['tanggal_lengkap'] == todayStr;
 
+        final isDarkMode = Theme.of(context).brightness == Brightness.dark;
         return Container(
           margin: const EdgeInsets.only(bottom: 12),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: isToday ? goldColor : Colors.grey.shade100,
+              color: isToday ? goldColor : (isDarkMode ? Colors.white10 : Colors.grey.shade100),
               width: isToday ? 2.0 : 1.0,
             ),
             boxShadow: [
@@ -9809,7 +9811,7 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
                 width: 38,
                 height: 38,
                 decoration: BoxDecoration(
-                  color: isToday ? goldColor : lightTeal,
+                  color: isToday ? goldColor : (isDarkMode ? const Color(0xFF1A3E35) : lightTeal),
                   shape: BoxShape.circle,
                 ),
                 child: Center(
@@ -9829,7 +9831,7 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
                     '${day['hari']}, ${day['tanggal']} ${_monthNames[_selectedMonth - 1]}',
                     style: TextStyle(
                       fontWeight: isToday ? FontWeight.bold : FontWeight.w600,
-                      color: isToday ? goldColor : Colors.black87,
+                      color: isToday ? goldColor : (isDarkMode ? Colors.white : Colors.black87),
                       fontSize: 14,
                     ),
                   ),
@@ -9865,7 +9867,7 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
                 ),
               ),
               children: [
-                const Divider(height: 1, color: Colors.black12, indent: 16, endIndent: 16),
+                Divider(height: 1, color: isDarkMode ? Colors.white10 : Colors.black12, indent: 16, endIndent: 16),
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Row(
@@ -9888,6 +9890,7 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
   }
 
   Widget _buildCompactTime(String label, String time, bool isToday) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -9895,7 +9898,7 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
           label,
           style: TextStyle(
             fontSize: 10,
-            color: Colors.grey.shade500,
+            color: isDarkMode ? Colors.grey.shade400 : Colors.grey.shade500,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -9904,7 +9907,7 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
           style: TextStyle(
             fontSize: 13,
             fontWeight: FontWeight.bold,
-            color: isToday ? primaryTeal : Colors.black87,
+            color: isToday ? primaryTeal : (isDarkMode ? Colors.white70 : Colors.black87),
           ),
         ),
       ],
@@ -9932,14 +9935,15 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
   }
 
   Widget _buildChip(String label, IconData icon, bool isSelected, VoidCallback onTap) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
-          color: isSelected ? primaryTeal : Colors.white,
+          color: isSelected ? primaryTeal : (isDarkMode ? const Color(0xFF1E1E1E) : Colors.white),
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: isSelected ? primaryTeal : Colors.grey.shade200),
+          border: Border.all(color: isSelected ? primaryTeal : (isDarkMode ? Colors.white10 : Colors.grey.shade200)),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.02),
@@ -9956,7 +9960,7 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
               label,
               style: TextStyle(
                 fontSize: 13,
-                color: isSelected ? Colors.white : Colors.black87,
+                color: isSelected ? Colors.white : (isDarkMode ? Colors.white70 : Colors.black87),
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -9967,6 +9971,7 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
   }
 
   Widget _buildDuasTab() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Column(
       children: [
         // Horizontal Chips Scroll
@@ -9998,7 +10003,7 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
               hintStyle: const TextStyle(color: Colors.grey),
               prefixIcon: const Icon(Icons.search, color: Colors.grey),
               filled: true,
-              fillColor: Colors.grey.shade100,
+              fillColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.grey.shade100,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide.none,
@@ -10035,7 +10040,7 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 itemCount: listData.length,
                 separatorBuilder: (context, index) => Divider(
-                  color: Colors.grey.shade300,
+                  color: isDarkMode ? Colors.white10 : Colors.grey.shade300,
                   height: 1,
                 ),
                 itemBuilder: (context, index) {
@@ -10090,24 +10095,24 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
                           Expanded(
                             child: Text(
                               item['title']!,
-                              style: const TextStyle(
-                                color: Colors.black87,
+                              style: TextStyle(
+                                color: isDarkMode ? Colors.white70 : Colors.black87,
                                 fontSize: 15,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                           ),
                           if (_selectedCategory == 'Artikel Ramadhan' || _selectedCategory == 'Khutbah Ramadhan' || _selectedCategory == 'Kultum Ramadhan' || _selectedCategory == 'Khutbah Idul Fitri')
-                            const Icon(
+                            Icon(
                               Icons.menu_book_outlined,
                               size: 16,
-                              color: Colors.black54,
+                              color: isDarkMode ? Colors.white54 : Colors.black54,
                             )
                           else
-                            const Icon(
+                            Icon(
                               Icons.arrow_forward_ios,
                               size: 16,
-                              color: Colors.black54,
+                              color: isDarkMode ? Colors.white54 : Colors.black54,
                             ),
                         ],
                       ),

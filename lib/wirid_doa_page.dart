@@ -44,6 +44,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     const primaryColor = Color(0xFF13A884);
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     
     final settings = context.watch<SettingsProvider>();
     List<DoaModel> orderedList = [];
@@ -66,7 +67,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
     }).toList();
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F7F8),
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF5F7F8),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(140),
         child: Container(
@@ -200,6 +201,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
   }
 
   Widget _buildWiridTab() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
@@ -220,9 +222,9 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
           return Container(
             margin: const EdgeInsets.only(bottom: 16),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: const Color(0xFF13A884).withOpacity(0.3), width: 1),
+              border: Border.all(color: const Color(0xFF13A884).withOpacity(isDarkMode ? 0.15 : 0.3), width: 1),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.02),
@@ -260,7 +262,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                         width: 48,
                         height: 48,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFF0F9F6),
+                          color: isDarkMode ? const Color(0xFF203630) : const Color(0xFFF0F9F6),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Icon(categoryIcon, color: const Color(0xFF13A884)),
@@ -272,18 +274,18 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                           children: [
                             Text(
                               category.title,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFF2D3436),
+                                color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                               ),
                             ),
                             const SizedBox(height: 4),
                             Text(
                               category.subtitle,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 12,
-                                color: Colors.grey,
+                                color: isDarkMode ? Colors.white60 : Colors.grey,
                               ),
                             ),
                           ],
@@ -307,16 +309,19 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
 
   Widget _buildSearchBar() {
     final settings = context.watch<SettingsProvider>();
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       padding: const EdgeInsets.all(16),
-      color: Colors.white,
+      color: isDarkMode ? const Color(0xFF121212) : Colors.white,
       child: TextField(
         controller: _searchController,
+        style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87),
         decoration: InputDecoration(
           hintText: settings.translate('search_hint'),
+          hintStyle: TextStyle(color: isDarkMode ? Colors.white30 : Colors.grey),
           prefixIcon: const Icon(Icons.search, color: Color(0xFF13A884)),
           filled: true,
-          fillColor: const Color(0xFFF1F3F4),
+          fillColor: isDarkMode ? const Color(0xFF1E1E1E) : const Color(0xFFF1F3F4),
           contentPadding: const EdgeInsets.symmetric(horizontal: 20),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
@@ -328,12 +333,13 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
   }
 
   Widget _buildDoaCard(DoaModel doa, int index, List<DoaModel> displayDoaList) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFF13A884).withOpacity(0.2), width: 1),
+        border: Border.all(color: const Color(0xFF13A884).withOpacity(isDarkMode ? 0.15 : 0.2), width: 1),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.02),
@@ -378,18 +384,18 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                     children: [
                       Text(
                         doa.title,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF2D3436),
+                          color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                         ),
                       ),
                       const SizedBox(height: 4),
-                      const Text(
+                      Text(
                         'Bacaan doa harian',
                         style: TextStyle(
                           fontSize: 12,
-                          color: Colors.grey,
+                          color: isDarkMode ? Colors.white60 : Colors.grey,
                         ),
                       ),
                     ],
@@ -411,6 +417,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
 
 
   void _showSettingsModal(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -420,9 +427,9 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
           builder: (context, settings, child) {
             return Container(
           height: MediaQuery.of(context).size.height * 0.9,
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
+          decoration: BoxDecoration(
+            color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(24),
               topRight: Radius.circular(24),
             ),
@@ -436,10 +443,10 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                   children: [
                     Text(
                       settings.translate('settings'),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF2D3436),
+                        color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                       ),
                     ),
                     InkWell(
@@ -476,6 +483,15 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                           settings.setFontFamily(val);
                         });
                       },
+                    ),
+                    _buildSettingsItem(
+                      icon: Icons.dark_mode_outlined,
+                      title: settings.translate('theme_mode'),
+                      subtitle: settings.translate('theme_mode_desc'),
+                      trailingText: settings.themeModeStr == 'Gelap'
+                          ? (settings.language == 'Inggris' ? 'Dark' : (settings.language == 'Arab' ? 'داكن' : 'Gelap'))
+                          : (settings.language == 'Inggris' ? 'Light' : (settings.language == 'Arab' ? 'فاتح' : 'Terang')),
+                      onTap: () => _showThemeSelectionBottomSheet(context, settings),
                     ),
 
 
@@ -515,15 +531,93 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
     );
   }
 
+  void _showThemeSelectionBottomSheet(BuildContext context, SettingsProvider settings) {
+    final isDarkMode = settings.themeModeStr == 'Gelap';
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Container(
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: isDarkMode ? Colors.white24 : Colors.grey[300],
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                settings.translate('theme_mode_dialog'),
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: isDarkMode ? Colors.white : Colors.black87,
+                ),
+              ),
+              const SizedBox(height: 16),
+              ListTile(
+                leading: Icon(Icons.light_mode, color: isDarkMode ? Colors.white70 : const Color(0xFF13A884)),
+                title: Text(
+                  settings.language == 'Inggris' 
+                      ? 'Light Mode (Green)' 
+                      : (settings.language == 'Arab' ? 'الوضع الفاتح (الأخضر)' : 'Mode Terang (Hijau)'),
+                  style: TextStyle(
+                    color: isDarkMode ? Colors.white : Colors.black87,
+                    fontWeight: settings.themeModeStr == 'Hijau' ? FontWeight.bold : FontWeight.normal,
+                  ),
+                ),
+                trailing: settings.themeModeStr == 'Hijau'
+                    ? const Icon(Icons.check_circle, color: Color(0xFF13A884))
+                    : null,
+                onTap: () {
+                  settings.setThemeModeStr('Hijau');
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.dark_mode, color: isDarkMode ? const Color(0xFF13A884) : Colors.black54),
+                title: Text(
+                  settings.language == 'Inggris' 
+                      ? 'Dark Mode' 
+                      : (settings.language == 'Arab' ? 'الوضع الداكن' : 'Mode Gelap'),
+                  style: TextStyle(
+                    color: isDarkMode ? Colors.white : Colors.black87,
+                    fontWeight: settings.themeModeStr == 'Gelap' ? FontWeight.bold : FontWeight.normal,
+                  ),
+                ),
+                trailing: settings.themeModeStr == 'Gelap'
+                    ? const Icon(Icons.check_circle, color: Color(0xFF13A884))
+                    : null,
+                onTap: () {
+                  settings.setThemeModeStr('Gelap');
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   Widget _buildSettingsSectionTitle(String title) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0),
       child: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.bold,
-          color: Color(0xFF2D3436),
+          color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
         ),
       ),
     );
@@ -537,6 +631,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
     bool isSwitch = false,
     VoidCallback? onTap,
   }) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(16),
@@ -544,9 +639,9 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
         margin: const EdgeInsets.only(bottom: 12.0),
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDarkMode ? const Color(0xFF252525) : Colors.white,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: const Color(0xFFF1F3F4), width: 1.5),
+          border: Border.all(color: isDarkMode ? Colors.white10 : const Color(0xFFF1F3F4), width: 1.5),
         ),
       child: Row(
         children: [
@@ -554,7 +649,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
             width: 44,
             height: 44,
             decoration: BoxDecoration(
-              color: const Color(0xFFE8F5F1),
+              color: isDarkMode ? const Color(0xFF1F3530) : const Color(0xFFE8F5F1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Icon(icon, color: const Color(0xFF13A884), size: 24),
@@ -566,18 +661,18 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF2D3436),
+                    color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   subtitle,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 12,
-                    color: Colors.grey,
+                    color: isDarkMode ? Colors.white60 : Colors.grey,
                   ),
                 ),
               ],
@@ -586,9 +681,9 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
           if (trailingText != null) ...[
             Text(
               trailingText,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey,
+                color: isDarkMode ? Colors.white60 : Colors.grey,
               ),
             ),
             const SizedBox(width: 8),

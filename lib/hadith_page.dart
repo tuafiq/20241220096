@@ -72,9 +72,10 @@ class _HadithPageState extends State<HadithPage> {
   @override
   Widget build(BuildContext context) {
     const primaryGreen = Color(0xFF13A884);
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F9F9),
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF9F9F9),
       appBar: AppBar(
         backgroundColor: const Color(0xFF0C5441),
         elevation: 0,
@@ -137,6 +138,7 @@ class _HadithPageState extends State<HadithPage> {
   }
 
   Widget _buildKoleksiTab() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Column(
       children: [
         Padding(
@@ -147,7 +149,7 @@ class _HadithPageState extends State<HadithPage> {
               hintText: 'Cari perawi...',
               prefixIcon: const Icon(Icons.search, color: Colors.grey),
               filled: true,
-              fillColor: Colors.white,
+              fillColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide.none,
@@ -175,6 +177,7 @@ class _HadithPageState extends State<HadithPage> {
   }
 
   Widget _buildCariTab() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final List<String> popularSearches = ['shalat', 'puasa', 'iman', 'zakat', 'sabar', 'sedekah', 'niat', 'jihad'];
 
     return SingleChildScrollView(
@@ -188,23 +191,23 @@ class _HadithPageState extends State<HadithPage> {
               hintStyle: TextStyle(color: Colors.grey[400], fontSize: 14),
               suffixIcon: const Icon(Icons.search, color: Colors.grey),
               filled: true,
-              fillColor: Colors.white,
+              fillColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: Colors.grey[200]!),
+                borderSide: BorderSide(color: isDarkMode ? Colors.white10 : Colors.grey[200]!),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: Colors.grey[200]!),
+                borderSide: BorderSide(color: isDarkMode ? Colors.white10 : Colors.grey[200]!),
               ),
               contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             ),
             onSubmitted: (value) => _performSearch(value),
           ),
           const SizedBox(height: 32),
-          const Text(
+          Text(
             'Pencarian Populer',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: isDarkMode ? Colors.white : Colors.black87),
           ),
           const SizedBox(height: 16),
           Wrap(
@@ -213,9 +216,9 @@ class _HadithPageState extends State<HadithPage> {
             children: popularSearches.map((tag) => _buildSearchTag(tag)).toList(),
           ),
           const SizedBox(height: 32),
-          const Text(
+          Text(
             'Riwayat Pencarian',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: isDarkMode ? Colors.white : Colors.black87),
           ),
           const SizedBox(height: 16),
           ..._searchHistory.map((history) => _buildHistoryItem(history)).toList(),
@@ -239,12 +242,13 @@ class _HadithPageState extends State<HadithPage> {
   }
 
   Widget _buildSearchTag(String tag) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return InkWell(
       onTap: () => _performSearch(tag),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
-          color: const Color(0xFFF0F9F6),
+          color: isDarkMode ? const Color(0xFF1A3E35) : const Color(0xFFF0F9F6),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Text(
@@ -256,6 +260,7 @@ class _HadithPageState extends State<HadithPage> {
   }
 
   Widget _buildHistoryItem(String text) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Row(
@@ -267,7 +272,7 @@ class _HadithPageState extends State<HadithPage> {
               onTap: () => _performSearch(text),
               child: Text(
                 text,
-                style: const TextStyle(fontSize: 14, color: Colors.black87),
+                style: TextStyle(fontSize: 14, color: isDarkMode ? Colors.white70 : Colors.black87),
               ),
             ),
           ),
@@ -411,6 +416,7 @@ class _HadithPageState extends State<HadithPage> {
   }
 
   Widget _buildBookmarkTab() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final bookmarks = _allBookmarks.where((item) {
       if (_activeBookmarkTab == 'Semua') return true;
       return item['type'] == _activeBookmarkTab;
@@ -447,11 +453,11 @@ class _HadithPageState extends State<HadithPage> {
                 }),
                 style: TextButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
-                  backgroundColor: Colors.white,
-                  side: BorderSide(color: Colors.grey[200]!),
+                  backgroundColor: isDarkMode ? const Color(0xFF2C2C2C) : Colors.white,
+                  side: BorderSide(color: isDarkMode ? Colors.white10 : Colors.grey[200]!),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                 ),
-                child: Text(_isEditMode ? 'Batal' : 'Pilih', style: const TextStyle(color: Colors.black87, fontWeight: FontWeight.w500)),
+                child: Text(_isEditMode ? 'Batal' : 'Pilih', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87, fontWeight: FontWeight.w500)),
               ),
             ],
           ),
@@ -468,7 +474,9 @@ class _HadithPageState extends State<HadithPage> {
               return Container(
                 margin: const EdgeInsets.only(bottom: 12),
                 decoration: BoxDecoration(
-                  color: isSelected ? Colors.grey[100] : Colors.white,
+                  color: isSelected 
+                      ? (isDarkMode ? Colors.grey[900] : Colors.grey[100]) 
+                      : (isDarkMode ? const Color(0xFF1E1E1E) : Colors.white),
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
@@ -525,11 +533,11 @@ class _HadithPageState extends State<HadithPage> {
                   ),
                   title: Text(
                     item['narrator'],
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: isDarkMode ? Colors.white : Colors.black87),
                   ),
                   subtitle: Text(
                     item['detail'],
-                    style: TextStyle(color: Colors.grey[600], fontSize: 13),
+                    style: TextStyle(color: isDarkMode ? Colors.grey[400] : Colors.grey[600], fontSize: 13),
                   ),
                   trailing: _isEditMode
                       ? Checkbox(
@@ -629,12 +637,15 @@ class _HadithPageState extends State<HadithPage> {
   }
 
   Widget _buildCategoryTab(String label, bool isActive, VoidCallback onTap) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
         decoration: BoxDecoration(
-          color: isActive ? const Color(0xFFF0F9F6) : Colors.transparent,
+          color: isActive 
+              ? (isDarkMode ? const Color(0xFF1A3E35) : const Color(0xFFF0F9F6)) 
+              : Colors.transparent,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Text(
@@ -650,10 +661,11 @@ class _HadithPageState extends State<HadithPage> {
   }
 
   Widget _buildNarratorCard(Map<String, dynamic> narrator, int index) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -669,18 +681,18 @@ class _HadithPageState extends State<HadithPage> {
           width: 50,
           height: 50,
           decoration: BoxDecoration(
-            color: const Color(0xFFF0F9F6),
+            color: isDarkMode ? const Color(0xFF1A3E35) : const Color(0xFFF0F9F6),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Icon(narrator['icon'], color: const Color(0xFF13A884), size: 24),
         ),
         title: Text(
           narrator['name'],
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: isDarkMode ? Colors.white : Colors.black87),
         ),
         subtitle: Text(
           narrator['count'],
-          style: TextStyle(color: Colors.grey[600], fontSize: 13),
+          style: TextStyle(color: isDarkMode ? Colors.grey[400] : Colors.grey[600], fontSize: 13),
         ),
         trailing: const Icon(Icons.chevron_right, color: Colors.grey, size: 20),
         onTap: () {
@@ -915,12 +927,13 @@ class _HadithPageState extends State<HadithPage> {
   }
 
   Widget _buildDrawerItem(IconData icon, String title, VoidCallback onTap, {bool isExit = false}) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return ListTile(
-      leading: Icon(icon, color: isExit ? Colors.red : Colors.grey[700], size: 24),
+      leading: Icon(icon, color: isExit ? Colors.red : (isDarkMode ? Colors.grey[400] : Colors.grey[700]), size: 24),
       title: Text(
         title,
         style: TextStyle(
-          color: isExit ? Colors.red : Colors.black87,
+          color: isExit ? Colors.red : (isDarkMode ? Colors.white70 : Colors.black87),
           fontSize: 15,
           fontWeight: FontWeight.w500,
         ),

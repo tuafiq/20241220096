@@ -351,16 +351,7 @@ class _QuranPageState extends State<QuranPage> {
                       ),
                     ],
                   ),
-                  IconButton(
-                    icon: const Icon(Icons.settings, color: Colors.white, size: 24),
-                    onPressed: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const QuranSettingsPage()),
-                      );
-                      _loadFavorites();
-                    },
-                  ),
+                  const SizedBox(width: 48),
                 ],
               ),
             ),

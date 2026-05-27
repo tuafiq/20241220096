@@ -104,9 +104,10 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
   @override
   Widget build(BuildContext context) {
     const primaryColor = Color(0xFF13A884);
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F7F8),
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF5F7F8),
       appBar: AppBar(
         title: const Text(
           'Tahlil & Yasin',
@@ -136,7 +137,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             itemCount: DoaData.listTahlil.length,
             itemBuilder: (context, index) {
-              return _buildTahlilItem(DoaData.listTahlil[index], index);
+              return _buildTahlilItem(DoaData.listTahlil[index], index, isDarkMode);
             },
           ),
           // Tab Yasin
@@ -152,7 +153,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                         child: Container(
                           padding: const EdgeInsets.all(16),
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.9),
+                            color: isDarkMode ? const Color(0xFF1E1E1E).withOpacity(0.9) : Colors.white.withOpacity(0.9),
                             borderRadius: BorderRadius.circular(24),
                             border: Border.all(color: primaryColor.withOpacity(0.1)),
                             boxShadow: [
@@ -198,7 +199,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                                     },
                                   ),
                                   const SizedBox(width: 16),
-                                  const Expanded(
+                                  Expanded(
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
@@ -207,13 +208,13 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16,
-                                            color: Color(0xFF2D3436),
+                                            color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                                           ),
                                         ),
                                         Text(
                                           'Mishary Rashid Alafasy',
                                           style: TextStyle(
-                                            color: Color(0xFF636E72),
+                                            color: isDarkMode ? Colors.white60 : const Color(0xFF636E72),
                                             fontSize: 12,
                                             fontWeight: FontWeight.w500,
                                           ),
@@ -233,7 +234,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                                   ),
                                   IconButton(
                                     icon: const Icon(Icons.replay_rounded),
-                                    color: Colors.grey[400],
+                                    color: isDarkMode ? Colors.white30 : Colors.grey[400],
                                     onPressed: _replayAudio,
                                   ),
                                 ],
@@ -264,17 +265,17 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                                   children: [
                                     Text(
                                       _formatDuration(_position),
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontSize: 11,
-                                        color: Color(0xFF636E72),
+                                        color: isDarkMode ? Colors.white70 : const Color(0xFF636E72),
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Text(
                                       _formatDuration(_duration),
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontSize: 11,
-                                        color: Color(0xFF636E72),
+                                        color: isDarkMode ? Colors.white70 : const Color(0xFF636E72),
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -293,7 +294,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       itemCount: YasinData.verses.length,
                       itemBuilder: (context, index) {
-                        return _buildYasinVerseItem(YasinData.verses[index]);
+                        return _buildYasinVerseItem(YasinData.verses[index], isDarkMode);
                       },
                     ),
                   ),
@@ -304,7 +305,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
     );
   }
 
-  Widget _buildYasinVerseItem(YasinVerse verse) {
+  Widget _buildYasinVerseItem(YasinVerse verse, bool isDarkMode) {
     const primaryColor = Color(0xFF13A884);
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
@@ -314,9 +315,9 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: const Color(0xFFE8F5F1), width: 2),
+              border: Border.all(color: isDarkMode ? Colors.white10 : const Color(0xFFE8F5F1), width: 2),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -334,27 +335,27 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                 const SizedBox(height: 16),
                 Text(
                   verse.transliteration,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
                     fontStyle: FontStyle.italic,
-                    color: Color(0xFF636E72),
+                    color: isDarkMode ? Colors.white70 : const Color(0xFF636E72),
                   ),
                 ),
                 const SizedBox(height: 12),
-                const Text(
+                Text(
                   'Artinya:',
                   style: TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
-                    color: Colors.grey,
+                    color: isDarkMode ? Colors.white60 : Colors.grey,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   verse.translation,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
-                    color: Color(0xFF2D3436),
+                    color: isDarkMode ? Colors.white.withOpacity(0.87) : const Color(0xFF2D3436),
                     height: 1.5,
                   ),
                 ),
@@ -366,7 +367,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
     );
   }
 
-  Widget _buildTahlilItem(TahlilModel tahlil, int index) {
+  Widget _buildTahlilItem(TahlilModel tahlil, int index, bool isDarkMode) {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       child: Row(
@@ -399,19 +400,19 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
               children: [
                 Text(
                   tahlil.title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF2D3436),
+                    color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                   ),
                 ),
                 const SizedBox(height: 12),
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: const Color(0xFFE8F5F1), width: 2),
+                    border: Border.all(color: isDarkMode ? Colors.white10 : const Color(0xFFE8F5F1), width: 2),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -429,27 +430,27 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                       const SizedBox(height: 16),
                       Text(
                         tahlil.transliteration,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 13,
                           fontStyle: FontStyle.italic,
-                          color: Color(0xFF636E72),
+                          color: isDarkMode ? Colors.white70 : const Color(0xFF636E72),
                         ),
                       ),
                       const SizedBox(height: 12),
-                      const Text(
+                      Text(
                         'Artinya:',
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.bold,
-                          color: Colors.grey,
+                          color: isDarkMode ? Colors.white60 : Colors.grey,
                         ),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         tahlil.translation,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 13,
-                          color: Color(0xFF2D3436),
+                          color: isDarkMode ? Colors.white.withOpacity(0.87) : const Color(0xFF2D3436),
                           height: 1.5,
                         ),
                       ),
@@ -458,15 +459,15 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                         Container(
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFFFF9DB),
+                            color: isDarkMode ? const Color(0xFF332D15) : const Color(0xFFFFF9DB),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Text(
                             tahlil.note!,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 12,
                               fontStyle: FontStyle.italic,
-                              color: Color(0xFFF08C00),
+                              color: isDarkMode ? const Color(0xFFFFD43B) : const Color(0xFFF08C00),
                             ),
                           ),
                         ),

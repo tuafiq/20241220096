@@ -17,6 +17,7 @@ class RamadhanDetailPage extends StatefulWidget {
 
 class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
   static const Color primaryTeal = Color(0xFF0C5441);
+  static const Color accentTeal = Color(0xFF13A884);
   double _fontSizeMultiplier = 1.0;
   late int _currentIndex;
 
@@ -46,8 +47,9 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
   Widget build(BuildContext context) {
     final currentMenu = widget.menuList[_currentIndex];
     final total = widget.menuList.length;
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : Colors.white,
       appBar: AppBar(
         backgroundColor: primaryTeal,
         elevation: 0,
@@ -84,9 +86,9 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
           Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              border: Border(bottom: BorderSide(color: Colors.black12)),
+            decoration: BoxDecoration(
+              color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+              border: Border(bottom: BorderSide(color: isDarkMode ? Colors.white10 : Colors.black12)),
             ),
             child: Column(
               children: [
@@ -101,10 +103,10 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
                     ),
                     Text(
                       '${_currentIndex + 1}/$total',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+                        color: isDarkMode ? Colors.white70 : Colors.black87,
                       ),
                     ),
                     IconButton(
@@ -119,10 +121,10 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
                 Text(
                   currentMenu['title']!,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: isDarkMode ? Colors.white : Colors.black,
                   ),
                 ),
               ],
@@ -143,17 +145,17 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           if (index > 0)
-                            const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 16),
-                              child: Divider(color: Colors.black12, height: 1),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 16),
+                              child: Divider(color: isDarkMode ? Colors.white10 : Colors.black12, height: 1),
                             ),
                           Text(
                             section['subtitle'] ?? '',
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: Color(0xFF8D6E63), // Brownish color as in image
+                              color: isDarkMode ? Colors.orange[300]! : const Color(0xFF8D6E63), // Brownish color as in image
                             ),
                           ),
                           const SizedBox(height: 16),
@@ -166,7 +168,7 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
                                 fontSize: 26 * _fontSizeMultiplier,
                                 height: 2.0,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black87,
+                                color: isDarkMode ? const Color(0xFFE0E0E0) : Colors.black87,
                               ),
                             ),
                             const SizedBox(height: 24),
@@ -176,7 +178,7 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
                               section['latin'],
                               style: TextStyle(
                                 fontSize: 14 * _fontSizeMultiplier,
-                                color: primaryTeal,
+                                color: isDarkMode ? accentTeal : primaryTeal,
                                 height: 1.5,
                               ),
                             ),
@@ -187,7 +189,7 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
                               section['translation'],
                               style: TextStyle(
                                 fontSize: 14 * _fontSizeMultiplier,
-                                color: Colors.grey.shade800,
+                                color: isDarkMode ? Colors.white70 : Colors.grey.shade800,
                                 height: 1.5,
                               ),
                             ),
@@ -205,7 +207,7 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
                           fontSize: 26 * _fontSizeMultiplier,
                           height: 2.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: isDarkMode ? const Color(0xFFE0E0E0) : Colors.black87,
                         ),
                       ),
                       const SizedBox(height: 24),
@@ -215,7 +217,7 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
                         currentMenu['latin'],
                         style: TextStyle(
                           fontSize: 14 * _fontSizeMultiplier,
-                          color: primaryTeal,
+                          color: isDarkMode ? accentTeal : primaryTeal,
                           height: 1.5,
                         ),
                       ),
@@ -226,7 +228,7 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
                         currentMenu['translation'],
                         style: TextStyle(
                           fontSize: 14 * _fontSizeMultiplier,
-                          color: Colors.grey.shade800,
+                          color: isDarkMode ? Colors.white70 : Colors.grey.shade800,
                           height: 1.5,
                         ),
                       ),

@@ -57,9 +57,10 @@ class _HadithListPageState extends State<HadithListPage> {
   @override
   Widget build(BuildContext context) {
     const primaryGreen = Color(0xFF13A884);
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F9F9),
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF9F9F9),
       appBar: AppBar(
         backgroundColor: const Color(0xFF0C5441),
         title: Text(widget.narratorName, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
@@ -94,11 +95,11 @@ class _HadithListPageState extends State<HadithListPage> {
                     children: [
                       Text(
                         widget.narratorName,
-                        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: isDarkMode ? Colors.white : Colors.black87),
                       ),
                       Text(
                         '${_hadiths.length} Hadis',
-                        style: TextStyle(color: Colors.grey[600], fontSize: 16),
+                        style: TextStyle(color: isDarkMode ? Colors.grey[400] : Colors.grey[600], fontSize: 16),
                       ),
                     ],
                   ),
@@ -125,6 +126,7 @@ class _HadithListPageState extends State<HadithListPage> {
   Widget _buildHadithCard(Map<String, dynamic> hadith, int index) {
     const primaryGreen = Color(0xFF13A884);
     final isSelected = _selectedIndex == index;
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return GestureDetector(
       onTap: () {
@@ -147,10 +149,12 @@ class _HadithListPageState extends State<HadithListPage> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFF0F9F6) : Colors.white,
+          color: isSelected 
+              ? (isDarkMode ? const Color(0xFF1A3E35) : const Color(0xFFF0F9F6)) 
+              : (isDarkMode ? const Color(0xFF1E1E1E) : Colors.white),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSelected ? primaryGreen : Colors.black.withOpacity(0.05),
+            color: isSelected ? primaryGreen : (isDarkMode ? Colors.white10 : Colors.black.withOpacity(0.05)),
             width: isSelected ? 1.5 : 1,
           ),
           boxShadow: [
@@ -186,7 +190,7 @@ class _HadithListPageState extends State<HadithListPage> {
                   hadith['id'] ?? '',
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontSize: 14, height: 1.5),
+                  style: TextStyle(fontSize: 14, height: 1.5, color: isDarkMode ? Colors.white70 : Colors.black87),
                 ),
               ),
             ],
@@ -309,9 +313,10 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
   @override
   Widget build(BuildContext context) {
     const primaryGreen = Color(0xFF13A884);
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : Colors.white,
       appBar: AppBar(
         backgroundColor: const Color(0xFF0C5441),
         elevation: 0,
@@ -338,10 +343,10 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
                 children: [
                   Text(
                     _currentNarratorName ?? currentHadith['name'] ?? 'Hadis',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black87,
+                      color: isDarkMode ? Colors.white : Colors.black87,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -349,7 +354,7 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
                     'No. ${currentHadith['number']}',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.grey[700],
+                      color: isDarkMode ? Colors.grey[400] : Colors.grey[700],
                     ),
                   ),
                 ],
@@ -365,7 +370,7 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                     height: 1.8,
-                    color: const Color(0xFF2D2D2D),
+                    color: isDarkMode ? const Color(0xFFE0E0E0) : const Color(0xFF2D2D2D),
                   ),
                   textAlign: TextAlign.center,
                   textDirection: TextDirection.rtl,
@@ -378,12 +383,12 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Artinya:',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
-                      color: Colors.black87,
+                      color: isDarkMode ? Colors.white : Colors.black87,
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -392,7 +397,7 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
                     style: TextStyle(
                       fontSize: 14,
                       height: 1.6,
-                      color: Colors.grey[800],
+                      color: isDarkMode ? Colors.white70 : Colors.grey[800],
                     ),
                   ),
                 ],
@@ -410,7 +415,7 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFF0F9F6),
+                      color: isDarkMode ? const Color(0xFF1A3E35) : const Color(0xFFF0F9F6),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: const Text(
@@ -434,8 +439,8 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 decoration: BoxDecoration(
                   border: Border(
-                    top: BorderSide(color: Colors.grey[100]!),
-                    bottom: BorderSide(color: Colors.grey[100]!),
+                    top: BorderSide(color: isDarkMode ? Colors.white10 : Colors.grey[100]!),
+                    bottom: BorderSide(color: isDarkMode ? Colors.white10 : Colors.grey[100]!),
                   ),
                 ),
                 child: Row(
@@ -447,30 +452,30 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
                           children: [
                             Icon(
                               _isBookmarked ? Icons.bookmark : Icons.bookmark_border, 
-                              color: _isBookmarked ? primaryGreen : Colors.black54
+                              color: _isBookmarked ? primaryGreen : (isDarkMode ? Colors.white60 : Colors.black54)
                             ),
                             const SizedBox(height: 4),
                             Text(
                               'Bookmark', 
                               style: TextStyle(
                                 fontSize: 12, 
-                                color: _isBookmarked ? primaryGreen : Colors.black54
+                                color: _isBookmarked ? primaryGreen : (isDarkMode ? Colors.white60 : Colors.black54)
                               )
                             ),
                           ],
                         ),
                       ),
                     ),
-                    Container(width: 1, height: 24, color: Colors.grey[200]),
+                    Container(width: 1, height: 24, color: isDarkMode ? Colors.white10 : Colors.grey[200]),
                     Expanded(
                       child: InkWell(
                         onTap: () => _showShareBottomSheet(context),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.share_outlined, color: Colors.grey[600], size: 20),
+                            Icon(Icons.share_outlined, color: isDarkMode ? Colors.grey[400] : Colors.grey[600], size: 20),
                             const SizedBox(width: 8),
-                            Text('Bagikan', style: TextStyle(color: Colors.grey[700], fontWeight: FontWeight.w500)),
+                            Text('Bagikan', style: TextStyle(color: isDarkMode ? Colors.grey[400] : Colors.grey[700], fontWeight: FontWeight.w500)),
                           ],
                         ),
                       ),
@@ -487,9 +492,9 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Informasi Hadis',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black87),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: isDarkMode ? Colors.white : Colors.black87),
                   ),
                   const SizedBox(height: 16),
                   _buildInfoRow('Perawi', _currentNarratorName ?? 'Anonim'),
@@ -510,7 +515,7 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 12),
-                        side: const BorderSide(color: Color(0xFFE0E0E0)),
+                        side: BorderSide(color: isDarkMode ? Colors.white24 : const Color(0xFFE0E0E0)),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                       ),
                       onPressed: () => _navigateHadith(-1),
@@ -532,7 +537,7 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 12),
-                        backgroundColor: const Color(0xFFF0F9F6),
+                        backgroundColor: isDarkMode ? const Color(0xFF1A3E35) : const Color(0xFFF0F9F6),
                         side: const BorderSide(color: Color(0xFF13A884), width: 0.5),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                       ),
@@ -560,6 +565,7 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
   }
 
   Widget _buildInfoRow(String label, String value) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Row(
@@ -569,13 +575,13 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
             width: 120,
             child: Text(
               label,
-              style: TextStyle(color: Colors.grey[600], fontSize: 13),
+              style: TextStyle(color: isDarkMode ? Colors.grey[400] : Colors.grey[600], fontSize: 13),
             ),
           ),
           Expanded(
             child: Text(
               value,
-              style: const TextStyle(color: Colors.black87, fontSize: 13, fontWeight: FontWeight.w500),
+              style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87, fontSize: 13, fontWeight: FontWeight.w500),
             ),
           ),
         ],
@@ -588,78 +594,82 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
       context: context,
       backgroundColor: Colors.transparent,
       isScrollControlled: true,
-      builder: (context) => Container(
-        decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.3),
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(24),
-            topRight: Radius.circular(24),
+      builder: (context) {
+        final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+        return Container(
+          decoration: BoxDecoration(
+            color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(24),
+              topRight: Radius.circular(24),
+            ),
           ),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(height: 8),
-            Container(width: 40, height: 4, decoration: BoxDecoration(color: Colors.white.withOpacity(0.3), borderRadius: BorderRadius.circular(2))),
-            const SizedBox(height: 16),
-            const Text(
-              'Bagikan Hadis',
-              style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 24),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 24),
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 8),
+              Container(width: 40, height: 4, decoration: BoxDecoration(color: Colors.grey.withOpacity(0.3), borderRadius: BorderRadius.circular(2))),
+              const SizedBox(height: 16),
+              Text(
+                'Bagikan Hadis',
+                style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87, fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF0C5441),
-                      borderRadius: BorderRadius.circular(8),
+              const SizedBox(height: 24),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 24),
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: isDarkMode ? const Color(0xFF2C2C2C) : Colors.grey.shade50,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: isDarkMode ? Colors.white10 : Colors.transparent),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF0C5441),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const Icon(Icons.mosque, color: Colors.white, size: 20),
                     ),
-                    child: const Icon(Icons.mosque, color: Colors.white, size: 20),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Jami\' At-Tirmidzi',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                        ),
-                        Text(
-                          'Kitab Shalat - No. 3',
-                          style: TextStyle(color: Colors.grey[600], fontSize: 13),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          currentHadith['id'] ?? '',
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(color: Colors.grey[800], fontSize: 13, height: 1.4),
-                        ),
-                      ],
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            _currentNarratorName ?? 'Hadis',
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: isDarkMode ? Colors.white : Colors.black87),
+                          ),
+                          Text(
+                            'No. ${currentHadith['number']}',
+                            style: TextStyle(color: isDarkMode ? Colors.grey[400] : Colors.grey[600], fontSize: 13),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            currentHadith['id'] ?? '',
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(color: isDarkMode ? Colors.white70 : Colors.grey[800], fontSize: 13, height: 1.4),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 24),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 24),
-              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
+              const SizedBox(height: 24),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 24),
+                padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+                decoration: BoxDecoration(
+                  color: isDarkMode ? const Color(0xFF2C2C2C) : Colors.grey.shade50,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: isDarkMode ? Colors.white10 : Colors.transparent),
+                ),
               child: Column(
                 children: [
                   Row(
@@ -708,11 +718,12 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
                 child: ElevatedButton(
                   onPressed: () => Navigator.pop(context),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                     foregroundColor: const Color(0xFF13A884),
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     elevation: 0,
+                    side: BorderSide(color: isDarkMode ? Colors.white10 : Colors.grey[200]!),
                   ),
                   child: const Text('Batal', style: TextStyle(fontWeight: FontWeight.bold)),
                 ),
@@ -720,11 +731,13 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
             ),
           ],
         ),
-      ),
-    );
-  }
+      );
+    },
+  );
+}
 
   Widget _buildShareApp(String label, IconData icon, Color color, VoidCallback onTap) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return InkWell(
       onTap: onTap,
       child: Column(
@@ -733,7 +746,7 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
           const SizedBox(height: 8),
           Text(
             label,
-            style: const TextStyle(fontSize: 11, color: Colors.black87),
+            style: TextStyle(fontSize: 11, color: isDarkMode ? Colors.white70 : Colors.black87),
           ),
         ],
       ),
@@ -767,6 +780,7 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
   }
 
   Widget _buildActionItem(String label, IconData icon, {bool isGmail = false, VoidCallback? onTap}) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return InkWell(
       onTap: onTap,
       child: Column(
@@ -776,18 +790,18 @@ class _HadithDetailPageState extends State<HadithDetailPage> {
             height: 45,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: Colors.grey[200]!),
+              border: Border.all(color: isDarkMode ? Colors.white10 : Colors.grey[200]!),
             ),
             child: Icon(
               icon, 
-              color: isGmail ? Colors.red : Colors.black54, 
+              color: isGmail ? Colors.red : (isDarkMode ? Colors.white60 : Colors.black54), 
               size: 20,
             ),
           ),
           const SizedBox(height: 8),
           Text(
             label,
-            style: const TextStyle(fontSize: 11, color: Colors.black87),
+            style: TextStyle(fontSize: 11, color: isDarkMode ? Colors.white70 : Colors.black87),
           ),
         ],
       ),

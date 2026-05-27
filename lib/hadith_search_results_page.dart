@@ -46,8 +46,10 @@ class HadithSearchResultsPage extends StatelessWidget {
       },
     ];
 
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F9F9),
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF9F9F9),
       appBar: AppBar(
         backgroundColor: const Color(0xFF0C5441),
         elevation: 0,
@@ -70,14 +72,14 @@ class HadithSearchResultsPage extends StatelessWidget {
               decoration: InputDecoration(
                 suffixIcon: const Icon(Icons.search, color: Colors.grey),
                 filled: true,
-                fillColor: Colors.white,
+                fillColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.grey[200]!),
+                  borderSide: BorderSide(color: isDarkMode ? Colors.white10 : Colors.grey[200]!),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.grey[200]!),
+                  borderSide: BorderSide(color: isDarkMode ? Colors.white10 : Colors.grey[200]!),
                 ),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               ),
@@ -87,7 +89,7 @@ class HadithSearchResultsPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
               'Ditemukan ${results.length} hasil',
-              style: TextStyle(color: Colors.grey[600], fontSize: 14),
+              style: TextStyle(color: isDarkMode ? Colors.grey[400] : Colors.grey[600], fontSize: 14),
             ),
           ),
           const SizedBox(height: 16),
@@ -107,10 +109,11 @@ class HadithSearchResultsPage extends StatelessWidget {
   }
 
   Widget _buildResultCard(BuildContext context, Map<String, dynamic> item, int index) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -158,12 +161,12 @@ class HadithSearchResultsPage extends StatelessWidget {
           children: [
             Text(
               item['name'],
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: isDarkMode ? Colors.white : Colors.black87),
             ),
             const SizedBox(height: 2),
             Text(
               item['detail'],
-              style: TextStyle(color: Colors.grey[600], fontSize: 13),
+              style: TextStyle(color: isDarkMode ? Colors.grey[400] : Colors.grey[600], fontSize: 13),
             ),
           ],
         ),
@@ -173,7 +176,7 @@ class HadithSearchResultsPage extends StatelessWidget {
             item['snippet'],
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(color: Colors.grey[600], fontSize: 13),
+            style: TextStyle(color: isDarkMode ? Colors.grey[400] : Colors.grey[600], fontSize: 13),
           ),
         ),
       ),

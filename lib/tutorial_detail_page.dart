@@ -74,21 +74,22 @@ Bagikan dari Aplikasi UAS
   @override
   Widget build(BuildContext context) {
     const primaryGreen = Color(0xFF149177);
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Color(0xFF2D3436)),
+          icon: Icon(Icons.arrow_back, color: isDarkMode ? Colors.white : const Color(0xFF2D3436)),
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
           currentItem.name,
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.bold, 
-            color: const Color(0xFF2D3436),
+            color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
             fontSize: 18,
           ),
         ),
@@ -170,7 +171,7 @@ Bagikan dari Aplikasi UAS
                       ),
                       child: Text(
                         '${currentItem.name} dibaca dengan khusyu sebagai bagian dari rukun/sunnah dalam sholat untuk menyempurnakan ibadah.',
-                        style: GoogleFonts.poppins(fontSize: 13, height: 1.6, color: const Color(0xFF2D3436)),
+                        style: GoogleFonts.poppins(fontSize: 13, height: 1.6, color: isDarkMode ? Colors.white70 : const Color(0xFF2D3436)),
                       ),
                     ),
                   ],
@@ -189,6 +190,7 @@ Bagikan dari Aplikasi UAS
   }
 
   Widget _buildContentSection(String title, String content, Color color, {bool isItalic = false}) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -211,18 +213,19 @@ Bagikan dari Aplikasi UAS
           content,
           textAlign: title == 'ARAB' ? TextAlign.right : TextAlign.left,
           style: title == 'ARAB' 
-            ? GoogleFonts.scheherazadeNew(fontSize: 24, height: 1.8, color: const Color(0xFF2D3436), fontWeight: FontWeight.bold)
-            : GoogleFonts.poppins(fontSize: 14, height: 1.6, color: const Color(0xFF2D3436), fontStyle: isItalic ? FontStyle.italic : FontStyle.normal),
+            ? GoogleFonts.scheherazadeNew(fontSize: 24, height: 1.8, color: isDarkMode ? Colors.white : const Color(0xFF2D3436), fontWeight: FontWeight.bold)
+            : GoogleFonts.poppins(fontSize: 14, height: 1.6, color: isDarkMode ? Colors.white70 : const Color(0xFF2D3436), fontStyle: isItalic ? FontStyle.italic : FontStyle.normal),
         ),
       ],
     );
   }
 
   Widget _buildBottomNav(Color primaryGreen) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       height: 90,
       decoration: BoxDecoration(
-        color: const Color(0xFFF8FBFA),
+        color: isDarkMode ? const Color(0xFF1E1E1E) : const Color(0xFFF8FBFA),
         borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
         boxShadow: [
           BoxShadow(color: Colors.black.withOpacity(0.03), blurRadius: 10, offset: const Offset(0, -5)),
@@ -246,7 +249,7 @@ Bagikan dari Aplikasi UAS
                   ),
                   Text(
                     currentIndex > 0 ? widget.allItems[currentIndex - 1].name : '-',
-                    style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.bold, color: isDarkMode ? Colors.white : Colors.black87),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ],
@@ -275,7 +278,7 @@ Bagikan dari Aplikasi UAS
                   ),
                   Text(
                     currentIndex < widget.allItems.length - 1 ? widget.allItems[currentIndex + 1].name : '-',
-                    style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.bold, color: isDarkMode ? Colors.white : Colors.black87),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ],

@@ -12,17 +12,19 @@ class RamadhanArticlePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
-        foregroundColor: primaryTeal,
+        backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+        foregroundColor: isDarkMode ? accentTeal : primaryTeal,
         title: Text(
           'Artikel Ramadhan',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,
             fontSize: 16,
+            color: isDarkMode ? Colors.white : primaryTeal,
           ),
         ),
         centerTitle: true,
@@ -36,7 +38,7 @@ class RamadhanArticlePage extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
               decoration: BoxDecoration(
-                color: primaryTeal.withOpacity(0.05),
+                color: isDarkMode ? primaryTeal.withOpacity(0.15) : primaryTeal.withOpacity(0.05),
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(32),
                   bottomRight: Radius.circular(32),
@@ -66,20 +68,20 @@ class RamadhanArticlePage extends StatelessWidget {
                     style: GoogleFonts.poppins(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: primaryTeal,
+                      color: isDarkMode ? accentTeal : primaryTeal,
                       height: 1.4,
                     ),
                   ),
                   const SizedBox(height: 16),
                   Row(
                     children: [
-                      Icon(Icons.calendar_today_outlined, size: 14, color: Colors.grey.shade600),
+                      Icon(Icons.calendar_today_outlined, size: 14, color: isDarkMode ? Colors.grey.shade400 : Colors.grey.shade600),
                       const SizedBox(width: 6),
                       Text(
                         article['date'] ?? '12 Ramadhan 1445 H',
                         style: TextStyle(
                           fontSize: 12,
-                          color: Colors.grey.shade600,
+                          color: isDarkMode ? Colors.grey[400] : Colors.grey.shade600,
                         ),
                       ),
                     ],
@@ -101,7 +103,7 @@ class RamadhanArticlePage extends StatelessWidget {
                         section['content'] ?? '',
                         style: GoogleFonts.lora(
                           fontSize: 16,
-                          color: Colors.black87,
+                          color: isDarkMode ? Colors.white70 : Colors.black87,
                           height: 1.8,
                         ),
                       ),
@@ -112,7 +114,7 @@ class RamadhanArticlePage extends StatelessWidget {
                       margin: const EdgeInsets.only(bottom: 16),
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                        color: lightTeal,
+                        color: isDarkMode ? const Color(0xFF1A3E35) : lightTeal,
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(color: primaryTeal.withOpacity(0.1)),
                       ),
@@ -122,10 +124,10 @@ class RamadhanArticlePage extends StatelessWidget {
                             section['content'] ?? '',
                             textAlign: TextAlign.center,
                             textDirection: TextDirection.rtl,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontFamily: 'LPMQIsepMisbah',
                               fontSize: 24,
-                              color: primaryTeal,
+                              color: isDarkMode ? Colors.white : primaryTeal,
                               height: 2.0,
                             ),
                           ),
@@ -136,7 +138,7 @@ class RamadhanArticlePage extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: GoogleFonts.poppins(
                                 fontSize: 13,
-                                color: primaryTeal,
+                                color: isDarkMode ? accentTeal : primaryTeal,
                                 fontStyle: FontStyle.italic,
                                 fontWeight: FontWeight.w500,
                                 height: 1.5,
@@ -149,7 +151,7 @@ class RamadhanArticlePage extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: GoogleFonts.poppins(
                               fontSize: 13,
-                              color: Colors.black54,
+                              color: isDarkMode ? Colors.white60 : Colors.black54,
                               fontStyle: FontStyle.italic,
                               height: 1.5,
                             ),
@@ -164,7 +166,7 @@ class RamadhanArticlePage extends StatelessWidget {
                     article['content'] ?? '',
                     style: GoogleFonts.lora(
                       fontSize: 16,
-                      color: Colors.black87,
+                      color: isDarkMode ? Colors.white70 : Colors.black87,
                       height: 1.8,
                     ),
                   ),

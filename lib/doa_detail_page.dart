@@ -98,8 +98,10 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
     final prevDoa = hasPrev ? widget.doaList[_currentIndex - 1] : null;
     final nextDoa = hasNext ? widget.doaList[_currentIndex + 1] : null;
 
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F7F8),
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF5F7F8),
       appBar: AppBar(
         title: Text(
           currentDoa.title,
@@ -121,7 +123,7 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                     width: double.infinity,
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Row(
@@ -130,7 +132,7 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                           width: 60,
                           height: 60,
                           decoration: BoxDecoration(
-                            color: const Color(0xFFE8F5F1),
+                            color: isDarkMode ? const Color(0xFF203630) : const Color(0xFFE8F5F1),
                             borderRadius: BorderRadius.circular(16),
                           ),
                           child: Icon(
@@ -146,18 +148,18 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                             children: [
                               Text(
                                 currentDoa.title,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
-                                  color: Color(0xFF2D3436),
+                                  color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                                 ),
                               ),
                               const SizedBox(height: 4),
-                              const Text(
+                              Text(
                                 'Bacaan doa',
                                 style: TextStyle(
                                   fontSize: 13,
-                                  color: Colors.grey,
+                                  color: isDarkMode ? Colors.white60 : Colors.grey,
                                 ),
                               ),
                             ],
@@ -173,7 +175,7 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                     width: double.infinity,
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Column(
@@ -192,30 +194,30 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                         const SizedBox(height: 20),
                         Text(
                           currentDoa.transliteration,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 14,
                             fontStyle: FontStyle.italic,
-                            color: Color(0xFF636E72),
+                            color: isDarkMode ? Colors.white70 : const Color(0xFF636E72),
                             height: 1.5,
                           ),
                         ),
                         const SizedBox(height: 16),
-                        const Divider(),
+                        Divider(color: isDarkMode ? Colors.white10 : Colors.black12),
                         const SizedBox(height: 16),
-                        const Text(
+                        Text(
                           'Artinya:',
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF2D3436),
+                            color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                           ),
                         ),
                         const SizedBox(height: 8),
                         Text(
                           currentDoa.translation,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 14,
-                            color: Color(0xFF2D3436),
+                            color: isDarkMode ? Colors.white.withOpacity(0.87) : const Color(0xFF2D3436),
                             height: 1.5,
                           ),
                         ),
@@ -225,7 +227,7 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                         Container(
                           padding: const EdgeInsets.all(16),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFF0F9F6),
+                            color: isDarkMode ? const Color(0xFF1A2E2A) : const Color(0xFFF0F9F6),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Column(
@@ -250,8 +252,8 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                                 padding: const EdgeInsets.only(left: 28),
                                 child: Text(
                                   _getSourceForDoa(currentDoa.title),
-                                  style: const TextStyle(
-                                    color: Colors.grey,
+                                  style: TextStyle(
+                                    color: isDarkMode ? Colors.white60 : Colors.grey,
                                     fontSize: 12,
                                   ),
                                 ),
@@ -298,10 +300,10 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
           // Bottom Navigation Card
           Container(
             padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-            decoration: const BoxDecoration(
-              color: Colors.white,
+            decoration: BoxDecoration(
+              color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
               border: Border(
-                top: BorderSide(color: Color(0xFFE8F5F1), width: 1),
+                top: BorderSide(color: isDarkMode ? Colors.white10 : const Color(0xFFE8F5F1), width: 1),
               ),
             ),
             child: SafeArea(
@@ -333,8 +335,8 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                                   const SizedBox(height: 2),
                                   Text(
                                     prevDoa?.title ?? '-',
-                                    style: const TextStyle(
-                                      color: Colors.grey,
+                                    style: TextStyle(
+                                      color: isDarkMode ? Colors.white60 : Colors.grey,
                                       fontSize: 11,
                                     ),
                                     maxLines: 1,
@@ -353,7 +355,7 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                   Container(
                     height: 30,
                     width: 1,
-                    color: const Color(0xFFE8F5F1),
+                    color: isDarkMode ? Colors.white10 : const Color(0xFFE8F5F1),
                   ),
                   const SizedBox(width: 12),
 
@@ -382,8 +384,8 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                                   const SizedBox(height: 2),
                                   Text(
                                     nextDoa?.title ?? '-',
-                                    style: const TextStyle(
-                                      color: Colors.grey,
+                                    style: TextStyle(
+                                      color: isDarkMode ? Colors.white60 : Colors.grey,
                                       fontSize: 11,
                                     ),
                                     maxLines: 1,

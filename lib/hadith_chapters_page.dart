@@ -53,9 +53,10 @@ class _HadithChaptersPageState extends State<HadithChaptersPage> {
   @override
   Widget build(BuildContext context) {
     const primaryGreen = Color(0xFF13A884);
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F9F9),
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF9F9F9),
       appBar: AppBar(
         backgroundColor: const Color(0xFF0C5441),
         title: Text(widget.narrator['name'], style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
@@ -73,7 +74,7 @@ class _HadithChaptersPageState extends State<HadithChaptersPage> {
             // Narrator Info Header (Screen 2)
             Container(
               padding: const EdgeInsets.all(24),
-              color: Colors.white,
+              color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
               child: Column(
                 children: [
                   Row(
@@ -93,11 +94,11 @@ class _HadithChaptersPageState extends State<HadithChaptersPage> {
                         children: [
                           Text(
                             widget.narrator['name'],
-                            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: isDarkMode ? Colors.white : Colors.black87),
                           ),
                           Text(
                             widget.narrator['count'],
-                            style: TextStyle(color: Colors.grey[600], fontSize: 14),
+                            style: TextStyle(color: isDarkMode ? Colors.grey[400] : Colors.grey[600], fontSize: 14),
                           ),
                         ],
                       ),
@@ -106,7 +107,7 @@ class _HadithChaptersPageState extends State<HadithChaptersPage> {
                   const SizedBox(height: 16),
                   Text(
                     'Salah satu kitab hadis Sittah yang disusun oleh imam ${widget.narrator['name'].split(' ').last} rahimahullah.',
-                    style: TextStyle(color: Colors.grey[600], fontSize: 13, height: 1.5),
+                    style: TextStyle(color: isDarkMode ? Colors.grey[400] : Colors.grey[600], fontSize: 13, height: 1.5),
                   ),
                 ],
               ),
@@ -132,10 +133,11 @@ class _HadithChaptersPageState extends State<HadithChaptersPage> {
   }
 
   Widget _buildChapterCard(BuildContext context, Map<String, dynamic> chapter) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -163,11 +165,11 @@ class _HadithChaptersPageState extends State<HadithChaptersPage> {
         ),
         title: Text(
           chapter['name'],
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: isDarkMode ? Colors.white : Colors.black87),
         ),
         subtitle: Text(
           chapter['count'],
-          style: TextStyle(color: Colors.grey[600], fontSize: 13),
+          style: TextStyle(color: isDarkMode ? Colors.grey[400] : Colors.grey[600], fontSize: 13),
         ),
         trailing: const Icon(Icons.chevron_right, color: Colors.grey, size: 20),
         onTap: () {

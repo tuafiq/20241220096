@@ -305,28 +305,32 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
         Transform.rotate(
           angle: pi / 4,
           child: Container(
-            width: 34,
-            height: 34,
+            width: 28,
+            height: 28,
             decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xFF13A884).withOpacity(0.5), width: 1.5),
+              border: Border.all(
+                color: const Color(0xFFC5A880),
+                width: 1.2,
+              ),
               borderRadius: BorderRadius.circular(4),
             ),
           ),
         ),
         Container(
-          width: 34,
-          height: 34,
-          decoration: BoxDecoration(
-            border: Border.all(color: const Color(0xFF13A884).withOpacity(0.5), width: 1.5),
-            borderRadius: BorderRadius.circular(4),
+          width: 24,
+          height: 24,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
           ),
-        ),
-        Text(
-          '$number',
-          style: GoogleFonts.outfit(
-            fontSize: 12,
-            fontWeight: FontWeight.bold,
-            color: const Color(0xFF13A884),
+          child: Center(
+            child: Text(
+              '$number',
+              style: GoogleFonts.outfit(
+                fontSize: 9,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xFFC5A880),
+              ),
+            ),
           ),
         ),
       ],
@@ -1264,7 +1268,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
           final bool isCollapsed = top <= (MediaQuery.of(context).padding.top + kToolbarHeight + 10);
           
           return FlexibleSpaceBar(
-            titlePadding: EdgeInsets.zero,
+            titlePadding: const EdgeInsets.only(bottom: 12),
             centerTitle: true,
             title: isCollapsed
                 ? GestureDetector(
@@ -1831,175 +1835,88 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
         bool isPlaying = _currentlyPlayingAyat == ayat.nomorAyat &&
             (playing || processingState == ProcessingState.loading || processingState == ProcessingState.buffering);
 
-        final bool isMemorized = _memorizedAyats.contains("${widget.nomor}_${ayat.nomorAyat}");
-
         return Container(
           key: itemKey,
-          margin: const EdgeInsets.only(bottom: 12, left: 16, right: 16),
-          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: isPlaying
                 ? (isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1))
-                : (isDarkMode ? Theme.of(context).colorScheme.surface : Colors.white),
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.02),
-                blurRadius: 8,
-                offset: const Offset(0, 4),
+                : Colors.transparent,
+            border: Border(
+              bottom: BorderSide(
+                color: isDarkMode ? Colors.grey[850]! : Colors.grey[200]!,
+                width: 1,
               ),
-            ],
-            border: Border.all(
-              color: isPlaying
-                  ? const Color(0xFF13A884)
-                  : (isDarkMode ? Colors.transparent : Colors.grey.shade100),
-              width: isPlaying ? 1.5 : 1.0,
             ),
           ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                children: [
-                  const SizedBox(height: 4),
-                  GestureDetector(
-                    onLongPress: () {
-                      _showVerseOptionsBottomSheet(context, surah, ayat);
-                    },
-                    child: _buildAyatNumberOrnament(ayat.nomorAyat),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Left option menu trigger (three vertical dots)
+                IconButton(
+                  icon: Icon(
+                    Icons.more_vert,
+                    color: isDarkMode ? Colors.grey[400] : Colors.grey[600],
                   ),
-                ],
-              ),
-              const SizedBox(width: 12),
-              Container(
-                width: 1,
-                height: 48,
-                color: isDarkMode ? Colors.grey[800] : Colors.grey[200],
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    _buildTajwidRichText(ayat.teksArab, settings.showWarnaTajwid, isDarkMode, settings.arabFontSize),
-                    if (_showTranslation) ...[
-                      if (settings.showTransliterasi) ...[
-                        const SizedBox(height: 8),
-                        Text(
-                          ayat.teksLatin,
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: settings.latinFontSize,
-                            fontStyle: FontStyle.italic,
-                            color: const Color(0xFF13A884),
-                            height: 1.4,
-                          ),
-                        ),
-                      ],
-                      if (settings.showTerjemah) ...[
-                        const SizedBox(height: 6),
-                        Text(
-                          ayat.teksIndonesia,
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: settings.latinFontSize + 1,
-                            color: isDarkMode ? Colors.white70 : Colors.grey[600],
-                            height: 1.4,
-                          ),
-                        ),
-                      ],
-                    ],
-                    if (!settings.showWarnaTajwid) ...[
-                      const SizedBox(height: 12),
-                      // Action Buttons Row under the text
+                  onPressed: () => _showVerseOptionsBottomSheet(context, surah, ayat),
+                ),
+                const SizedBox(width: 8),
+                // Verse content: Arabic, Transliteration, and translation
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      // Arabic verse text with inline end-of-verse ornament
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          GestureDetector(
-                            onTap: () {
-                              final settings = Provider.of<SettingsProvider>(context, listen: false);
-                              final qoriId = settings.selectedQoriId;
-                              _playAudio(ayat.audio[qoriId] ?? ayat.audio.values.first, ayatNomor: ayat.nomorAyat);
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(
-                                  isPlaying ? Icons.pause_circle_outline : Icons.play_circle_outline,
-                                  color: isPlaying ? const Color(0xFF13A884) : Colors.grey[600],
-                                  size: 18,
-                                ),
-                                const SizedBox(width: 6),
-                                Text(
-                                  isPlaying ? 'Pause' : 'Putar',
-                                  style: GoogleFonts.outfit(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                    color: isPlaying ? const Color(0xFF13A884) : Colors.grey[600],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 24),
-                          GestureDetector(
-                            onTap: () => _toggleMemorizedAyat(ayat.nomorAyat),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(
-                                  isMemorized ? Icons.favorite : Icons.favorite_border,
-                                  color: isMemorized ? Colors.amber : Colors.grey[600],
-                                  size: 18,
-                                ),
-                                const SizedBox(width: 6),
-                                Text(
-                                  'Simpan',
-                                  style: GoogleFonts.outfit(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                    color: isMemorized ? Colors.amber : Colors.grey[600],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 24),
-                          GestureDetector(
-                            onTap: () {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text('Menyalin Ayat ${ayat.nomorAyat}...'),
-                                  duration: const Duration(seconds: 1),
-                                ),
-                              );
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(
-                                  Icons.share_outlined,
-                                  color: Colors.grey[600],
-                                  size: 18,
-                                ),
-                                const SizedBox(width: 6),
-                                Text(
-                                  'Bagikan',
-                                  style: GoogleFonts.outfit(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.grey[600],
-                                  ),
-                                ),
-                              ],
+                          Expanded(
+                            child: _buildTajwidRichText(
+                              ayat.teksArab,
+                              settings.showWarnaTajwid,
+                              isDarkMode,
+                              settings.arabFontSize,
+                              ayat.nomorAyat,
                             ),
                           ),
                         ],
                       ),
+                      if (_showTranslation) ...[
+                        if (settings.showTransliterasi) ...[
+                          const SizedBox(height: 12),
+                          // Latin Transliteration (Teal)
+                          Text(
+                            ayat.teksLatin,
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: settings.latinFontSize,
+                              fontStyle: FontStyle.italic,
+                              color: const Color(0xFF13A884),
+                              height: 1.4,
+                            ),
+                          ),
+                        ],
+                        if (settings.showTerjemah) ...[
+                          const SizedBox(height: 8),
+                          // Indonesian translation
+                          Text(
+                            ayat.teksIndonesia,
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: settings.latinFontSize + 1,
+                              color: isDarkMode ? Colors.white70 : Colors.grey[600],
+                              height: 1.4,
+                            ),
+                          ),
+                        ],
+                      ],
                     ],
-                  ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
@@ -2420,7 +2337,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
     );
   }
 
-  Widget _buildTajwidRichText(String text, bool showColor, bool isDarkMode, double fontSize) {
+  Widget _buildTajwidRichText(String text, bool showColor, bool isDarkMode, double fontSize, int ayatNomor) {
     final baseColor = isDarkMode ? Colors.white : const Color(0xFF0C5441);
     final style = GoogleFonts.scheherazadeNew(
       fontSize: fontSize,
@@ -2429,11 +2346,26 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
       height: 1.6,
     );
 
+    final ornamentSpan = WidgetSpan(
+      alignment: PlaceholderAlignment.middle,
+      child: Padding(
+        padding: const EdgeInsets.only(right: 8.0, left: 4.0),
+        child: _buildAyatNumberOrnament(ayatNomor),
+      ),
+    );
+
     if (!showColor) {
-      return Text(
-        text,
-        textAlign: TextAlign.right,
-        style: style,
+      return Directionality(
+        textDirection: TextDirection.rtl,
+        child: RichText(
+          textAlign: TextAlign.right,
+          text: TextSpan(
+            children: [
+              TextSpan(text: text, style: style),
+              ornamentSpan,
+            ],
+          ),
+        ),
       );
     }
 
@@ -2442,7 +2374,7 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
     final madColor = const Color(0xFFC0392B); 
     final idghamColor = const Color(0xFF2980B9); 
 
-    List<TextSpan> spans = [];
+    List<InlineSpan> spans = [];
     int i = 0;
     while (i < text.length) {
       String char = text[i];
@@ -2475,10 +2407,14 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
       i++;
     }
 
-    return RichText(
-      textAlign: TextAlign.right,
+    spans.add(ornamentSpan);
+
+    return Directionality(
       textDirection: TextDirection.rtl,
-      text: TextSpan(children: spans),
+      child: RichText(
+        textAlign: TextAlign.right,
+        text: TextSpan(children: spans),
+      ),
     );
   }
 }

@@ -59,9 +59,10 @@ class _QiblaPageState extends State<QiblaPage> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     if (kIsWeb) {
       return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: isDarkMode ? const Color(0xFF121212) : Colors.white,
         body: Column(
           children: [
             _buildSimpleHeader(context),
@@ -78,22 +79,22 @@ class _QiblaPageState extends State<QiblaPage> {
                         color: Color(0xFF13A884),
                       ),
                       const SizedBox(height: 24),
-                      const Text(
+                      Text(
                         "Sensor Kompas Tidak Didukung di Web",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF2D3436),
+                          color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                         ),
                       ),
                       const SizedBox(height: 12),
-                      const Text(
+                      Text(
                         "Fitur Arah Kiblat real-time memerlukan sensor magnetik/kompas yang hanya tersedia di HP fisik (Android/iOS).",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.grey,
+                          color: isDarkMode ? Colors.grey[400] : Colors.grey,
                         ),
                       ),
                       const SizedBox(height: 32),
@@ -136,7 +137,7 @@ class _QiblaPageState extends State<QiblaPage> {
             return const QiblahCompass();
           } else {
             return Scaffold(
-              backgroundColor: Colors.white,
+              backgroundColor: isDarkMode ? const Color(0xFF121212) : Colors.white,
               body: Column(
                 children: [
                   _buildSimpleHeader(context),
@@ -153,22 +154,22 @@ class _QiblaPageState extends State<QiblaPage> {
                               color: Colors.redAccent,
                             ),
                             const SizedBox(height: 24),
-                            const Text(
+                            Text(
                               "Sensor Kompas Tidak Ditemukan",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFF2D3436),
+                                color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                               ),
                             ),
                             const SizedBox(height: 12),
-                            const Text(
+                            Text(
                               "Perangkat ini tidak memiliki sensor magnetik (kompas) untuk mendeteksi arah kiblat secara real-time.",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey,
+                                  fontSize: 14,
+                                  color: isDarkMode ? Colors.grey[400] : Colors.grey,
                               ),
                             ),
                             const SizedBox(height: 32),
@@ -323,9 +324,14 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
               city.name.toLowerCase().contains(searchQuery.toLowerCase())
             ).toList();
 
+            final isDarkMode = Theme.of(context).brightness == Brightness.dark;
             return Container(
               height: MediaQuery.of(context).size.height * 0.75,
               padding: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+                borderRadius: const BorderRadius.vertical(top: Radius.circular(25)),
+              ),
               child: Column(
                 children: [
                   const SizedBox(height: 12),
@@ -333,7 +339,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
                     width: 40,
                     height: 4,
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
+                      color: isDarkMode ? Colors.white24 : Colors.grey.shade300,
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
@@ -366,7 +372,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
                           )
                         : null,
                       filled: true,
-                      fillColor: Colors.grey.shade100,
+                      fillColor: isDarkMode ? const Color(0xFF2C2C2C) : Colors.grey.shade100,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                         borderSide: BorderSide.none,
@@ -385,7 +391,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
                               backgroundColor: Colors.blue,
                               child: Icon(Icons.my_location, color: Colors.white, size: 20),
                             ),
-                            title: const Text("Gunakan Lokasi Saat Ini (GPS)", style: TextStyle(fontWeight: FontWeight.bold)),
+                            title: Text("Gunakan Lokasi Saat Ini (GPS)", style: TextStyle(fontWeight: FontWeight.bold, color: isDarkMode ? Colors.white : Colors.black87)),
                             onTap: () {
                               setState(() {
                                 _manualCity = null;
@@ -403,8 +409,8 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
                             backgroundColor: Color(0xFF13A884),
                             child: Icon(Icons.location_city, color: Colors.white, size: 20),
                           ),
-                          title: Text(city.name),
-                          subtitle: Text("Lat: ${city.latitude}, Lng: ${city.longitude}", style: const TextStyle(fontSize: 12)),
+                          title: Text(city.name, style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87)),
+                          subtitle: Text("Lat: ${city.latitude}, Lng: ${city.longitude}", style: TextStyle(fontSize: 12, color: isDarkMode ? Colors.grey[400] : Colors.grey)),
                           onTap: () {
                             setState(() {
                               _manualCity = city;
@@ -426,6 +432,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return StreamBuilder(
       stream: FlutterQiblah.qiblahStream,
       builder: (_, AsyncSnapshot<QiblahDirection> snapshot) {
@@ -456,18 +463,6 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
                 ),
               ),
             ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Opacity(
-                opacity: 0.2,
-                child: Image.asset(
-                  'assets/images/mosque_silhouette_footer.png',
-                  fit: BoxFit.fitWidth,
-                ),
-              ),
-            ),
             Column(
               children: [
                 _buildHeader(context),
@@ -487,9 +482,9 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
                             "Sejajarkan panah hijau",
                             style: TextStyle(fontSize: 18, color: Color(0xFF13A884), fontWeight: FontWeight.bold),
                           ),
-                          const Text(
+                          Text(
                             "dengan jarum kiblat",
-                            style: TextStyle(fontSize: 16, color: Colors.grey),
+                            style: TextStyle(fontSize: 16, color: isDarkMode ? Colors.grey[400] : Colors.grey),
                           ),
                           const SizedBox(height: 20),
                           Text(
@@ -556,15 +551,16 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
   }
 
   Widget _buildArahKiblatLabel() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(Icons.diamond, size: 12, color: Colors.orange.shade300),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8.0),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Text(
             "Arah Kiblat",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.grey),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: isDarkMode ? Colors.grey[400] : Colors.grey),
           ),
         ),
         Icon(Icons.diamond, size: 12, color: Colors.orange.shade300),
@@ -573,10 +569,11 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
   }
 
   Widget _buildLocationCard(bool hasData) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
@@ -603,13 +600,13 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
                 ),
                 Text(
                   _manualCity?.name ?? "Gunakan GPS (Otomatis)",
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: isDarkMode ? Colors.white : Colors.black87),
                 ),
                 Text(
                   _manualCity != null 
                       ? "Lat: ${_manualCity!.latitude}, Lng: ${_manualCity!.longitude}"
                       : (hasData ? "GPS Aktif & Terkoneksi" : "Mendeteksi lokasi otomatis..."),
-                  style: const TextStyle(fontSize: 12, color: Colors.grey),
+                  style: TextStyle(fontSize: 12, color: isDarkMode ? Colors.grey[400] : Colors.grey),
                 ),
               ],
             ),
@@ -639,20 +636,17 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
   }
 
   Widget _buildCompassBackground(QiblahDirection qiblahDirection, double qiblaAngle) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       width: 300,
       height: 300,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: Border.all(color: Colors.grey.shade200, width: 1),
+        border: Border.all(color: isDarkMode ? Colors.white12 : Colors.grey.shade200, width: 1),
       ),
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Opacity(
-            opacity: 0.1,
-            child: Image.asset('assets/images/islamic_pattern_bg.png', width: 200),
-          ),
           ...List.generate(72, (index) {
             return Transform.rotate(
               angle: (index * 5) * (pi / 180),
@@ -661,7 +655,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
                 child: Container(
                   height: index % 2 == 0 ? 15 : 10,
                   width: 1,
-                  color: index % 18 == 0 ? const Color(0xFF13A884) : Colors.grey.shade300,
+                  color: index % 18 == 0 ? const Color(0xFF13A884) : (isDarkMode ? Colors.white10 : Colors.grey.shade300),
                 ),
               ),
             );
@@ -671,9 +665,9 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
             child: Stack(
               children: [
                 _buildCardinalLabel("U", Alignment.topCenter, Colors.green),
-                _buildCardinalLabel("S", Alignment.bottomCenter, Colors.black),
-                _buildCardinalLabel("B", Alignment.centerLeft, Colors.black),
-                _buildCardinalLabel("T", Alignment.centerRight, Colors.black),
+                _buildCardinalLabel("S", Alignment.bottomCenter, isDarkMode ? Colors.white : Colors.black),
+                _buildCardinalLabel("B", Alignment.centerLeft, isDarkMode ? Colors.white : Colors.black),
+                _buildCardinalLabel("T", Alignment.centerRight, isDarkMode ? Colors.white : Colors.black),
                 Transform.rotate(
                   angle: (qiblaAngle * (pi / 180)),
                   child: Align(
@@ -710,6 +704,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
   }
 
   Widget _buildQiblaNeedle() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       width: 300,
       height: 300,
@@ -729,7 +724,7 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
             height: 16,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.white,
+              color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
               border: Border.all(color: const Color(0xFF13A884), width: 4),
               boxShadow: [
                 BoxShadow(color: Colors.black.withOpacity(0.2), blurRadius: 4),
@@ -742,10 +737,11 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
   }
 
   Widget _buildFooterCard() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
@@ -759,10 +755,10 @@ class _QiblahCompassWidgetState extends State<QiblahCompassWidget> {
         children: [
           const Icon(Icons.compass_calibration, color: Color(0xFF13A884), size: 32),
           const SizedBox(width: 16),
-          const Expanded(
+          Expanded(
             child: Text(
               "Pastikan posisi perangkat dalam keadaan datar untuk hasil yang akurat",
-              style: TextStyle(fontSize: 13, color: Colors.grey),
+              style: TextStyle(fontSize: 13, color: isDarkMode ? Colors.grey[400] : Colors.grey),
             ),
           ),
           const SizedBox(width: 8),
@@ -781,12 +777,13 @@ class LocationErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Center(
       child: Container(
         padding: const EdgeInsets.all(24),
         margin: const EdgeInsets.all(24),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 20),
@@ -804,13 +801,13 @@ class LocationErrorWidget extends StatelessWidget {
             Text(
               error ?? 'Terjadi kesalahan lokasi',
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: isDarkMode ? Colors.white : Colors.black87),
             ),
             const SizedBox(height: 12),
-            const Text(
+            Text(
               "Aplikasi memerlukan akses lokasi untuk menentukan arah kiblat yang akurat.",
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 14, color: Colors.grey),
+              style: TextStyle(fontSize: 14, color: isDarkMode ? Colors.grey[400] : Colors.grey),
             ),
             const SizedBox(height: 32),
             SizedBox(

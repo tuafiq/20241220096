@@ -108,11 +108,12 @@ class _PrayerSchedulePageState extends State<PrayerSchedulePage> {
               item.toLowerCase().contains(searchQuery.toLowerCase())
             ).toList();
 
+            final isDarkMode = Theme.of(context).brightness == Brightness.dark;
             return Container(
               height: MediaQuery.of(context).size.height * 0.75,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+              decoration: BoxDecoration(
+                color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+                borderRadius: const BorderRadius.vertical(top: Radius.circular(25)),
               ),
               child: Column(
                 children: [
@@ -121,7 +122,7 @@ class _PrayerSchedulePageState extends State<PrayerSchedulePage> {
                     width: 40,
                     height: 4,
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
+                      color: isDarkMode ? Colors.white24 : Colors.grey.shade300,
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
@@ -144,7 +145,7 @@ class _PrayerSchedulePageState extends State<PrayerSchedulePage> {
                         hintText: "Cari...",
                         prefixIcon: const Icon(Icons.search, color: primaryColor),
                         filled: true,
-                        fillColor: Colors.grey.shade100,
+                        fillColor: isDarkMode ? const Color(0xFF2C2C2C) : Colors.grey.shade100,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                           borderSide: BorderSide.none,
@@ -164,7 +165,7 @@ class _PrayerSchedulePageState extends State<PrayerSchedulePage> {
                           title: Text(
                             item,
                             style: TextStyle(
-                              color: isSelected ? primaryColor : Colors.black87,
+                              color: isSelected ? primaryColor : (isDarkMode ? Colors.white70 : Colors.black87),
                               fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                             ),
                           ),
@@ -188,8 +189,9 @@ class _PrayerSchedulePageState extends State<PrayerSchedulePage> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: const Color(0xFFF9FBFB),
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF9FBFB),
       body: CustomScrollView(
         slivers: [
           _buildSliverHeader(),
@@ -457,11 +459,12 @@ class _PrayerSchedulePageState extends State<PrayerSchedulePage> {
         (context, index) {
           final day = schedules[index];
 
+          final isDarkMode = Theme.of(context).brightness == Brightness.dark;
           return Container(
             margin: const EdgeInsets.fromLTRB(16, 0, 16, 20),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
                 BoxShadow(
@@ -479,10 +482,10 @@ class _PrayerSchedulePageState extends State<PrayerSchedulePage> {
                     const SizedBox(width: 8),
                     Text(
                       '${day['hari']}, ${day['tanggal']}',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
-                        color: Color(0xFF2D3436),
+                        color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                       ),
                     ),
                     const Spacer(),
@@ -538,18 +541,19 @@ class _PrayerSchedulePageState extends State<PrayerSchedulePage> {
   }
 
   Widget _buildTimeBox(String label, IconData icon, String time) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 4),
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
       width: 70,
       decoration: BoxDecoration(
-        color: const Color(0xFFF9FBFB),
+        color: isDarkMode ? const Color(0xFF2D2D2D) : const Color(0xFFF9FBFB),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.1)),
+        border: Border.all(color: isDarkMode ? Colors.white10 : Colors.grey.withOpacity(0.1)),
       ),
       child: Column(
         children: [
-          Text(label, style: const TextStyle(fontSize: 10, color: Colors.grey, fontWeight: FontWeight.w500)),
+          Text(label, style: TextStyle(fontSize: 10, color: isDarkMode ? Colors.grey[400] : Colors.grey, fontWeight: FontWeight.w500)),
           const SizedBox(height: 8),
           Icon(icon, size: 18, color: Colors.grey.shade600),
           const SizedBox(height: 8),
@@ -563,11 +567,12 @@ class _PrayerSchedulePageState extends State<PrayerSchedulePage> {
   }
 
   Widget _buildQuoteCard() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 8, 16, 20),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
@@ -580,14 +585,18 @@ class _PrayerSchedulePageState extends State<PrayerSchedulePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Row(
+          Row(
             children: [
-              Icon(Icons.format_quote, color: primaryColor, size: 30),
-              SizedBox(width: 8),
+              const Icon(Icons.format_quote, color: primaryColor, size: 30),
+              const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   'Sesungguhnya shalat itu adalah tiang agama.',
-                  style: TextStyle(color: Color(0xFF2D3436), fontWeight: FontWeight.bold, fontSize: 15),
+                  style: TextStyle(
+                    color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
                 ),
               ),
             ],

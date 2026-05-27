@@ -58,28 +58,29 @@ class _TutorialIbadahPageState extends State<TutorialIbadahPage> with SingleTick
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: backgroundLight,
+      backgroundColor: isDarkMode ? const Color(0xFF121212) : backgroundLight,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Color(0xFF2D3436)),
+          icon: Icon(Icons.arrow_back, color: isDarkMode ? Colors.white : const Color(0xFF2D3436)),
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
           'Tutorial Ibadah',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.bold, 
-            color: const Color(0xFF2D3436),
+            color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
             fontSize: 18,
           ),
         ),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(60),
           child: Container(
-            color: Colors.white,
+            color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
             child: TabBar(
               controller: _tabController,
               indicatorColor: primaryGreen,
@@ -141,10 +142,11 @@ class _TutorialIbadahPageState extends State<TutorialIbadahPage> with SingleTick
   }
 
   Widget _buildTutorialCard(TutorialModel item, int index, List<TutorialModel> allItems) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
@@ -202,14 +204,14 @@ class _TutorialIbadahPageState extends State<TutorialIbadahPage> with SingleTick
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
-                          color: const Color(0xFF2D3436),
+                          color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                         ),
                       ),
                       Text(
                         _getSubtitle(item.name),
                         style: GoogleFonts.poppins(
                           fontSize: 12,
-                          color: Colors.grey[500],
+                          color: isDarkMode ? Colors.grey[400] : Colors.grey[500],
                         ),
                       ),
                     ],
