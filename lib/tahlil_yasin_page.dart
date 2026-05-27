@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'dart:ui';
 import 'dart:math';
+import 'package:provider/provider.dart';
+import 'settings_provider.dart';
 import 'doa_data.dart';
 import 'yasin_data.dart';
 
@@ -105,6 +107,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
   Widget build(BuildContext context) {
     const primaryColor = Color(0xFF13A884);
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final settings = context.watch<SettingsProvider>();
 
     return Scaffold(
       backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF5F7F8),
@@ -137,7 +140,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             itemCount: DoaData.listTahlil.length,
             itemBuilder: (context, index) {
-              return _buildTahlilItem(DoaData.listTahlil[index], index, isDarkMode);
+              return _buildTahlilItem(DoaData.listTahlil[index], index, isDarkMode, settings);
             },
           ),
           // Tab Yasin
@@ -291,11 +294,11 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                   // Yasin List
                   Expanded(
                     child: ListView.builder(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      itemCount: YasinData.verses.length,
-                      itemBuilder: (context, index) {
-                        return _buildYasinVerseItem(YasinData.verses[index], isDarkMode);
-                      },
+                       padding: const EdgeInsets.symmetric(horizontal: 16),
+                       itemCount: YasinData.verses.length,
+                       itemBuilder: (context, index) {
+                         return _buildYasinVerseItem(YasinData.verses[index], isDarkMode, settings);
+                       },
                     ),
                   ),
                 ],
@@ -305,7 +308,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
     );
   }
 
-  Widget _buildYasinVerseItem(YasinVerse verse, bool isDarkMode) {
+  Widget _buildYasinVerseItem(YasinVerse verse, bool isDarkMode, SettingsProvider settings) {
     const primaryColor = Color(0xFF13A884);
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
@@ -326,7 +329,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                   verse.arabic,
                   textAlign: TextAlign.right,
                   style: GoogleFonts.scheherazadeNew(
-                    fontSize: 28,
+                    fontSize: settings.arabFontSize,
                     height: 1.6,
                     color: const Color(0xFF13A884),
                     fontWeight: FontWeight.bold,
@@ -336,7 +339,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                 Text(
                   verse.transliteration,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: settings.latinFontSize,
                     fontStyle: FontStyle.italic,
                     color: isDarkMode ? Colors.white70 : const Color(0xFF636E72),
                   ),
@@ -345,7 +348,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                 Text(
                   'Artinya:',
                   style: TextStyle(
-                    fontSize: 11,
+                    fontSize: settings.latinFontSize - 3.0,
                     fontWeight: FontWeight.bold,
                     color: isDarkMode ? Colors.white60 : Colors.grey,
                   ),
@@ -354,7 +357,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                 Text(
                   verse.translation,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: settings.latinFontSize - 1.0,
                     color: isDarkMode ? Colors.white.withOpacity(0.87) : const Color(0xFF2D3436),
                     height: 1.5,
                   ),
@@ -367,7 +370,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
     );
   }
 
-  Widget _buildTahlilItem(TahlilModel tahlil, int index, bool isDarkMode) {
+  Widget _buildTahlilItem(TahlilModel tahlil, int index, bool isDarkMode, SettingsProvider settings) {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       child: Row(
@@ -421,7 +424,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                         tahlil.arabic,
                         textAlign: TextAlign.right,
                         style: GoogleFonts.scheherazadeNew(
-                          fontSize: 28,
+                          fontSize: settings.arabFontSize,
                           height: 1.6,
                           color: const Color(0xFF13A884),
                           fontWeight: FontWeight.bold,
@@ -431,7 +434,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                       Text(
                         tahlil.transliteration,
                         style: TextStyle(
-                          fontSize: 13,
+                          fontSize: settings.latinFontSize,
                           fontStyle: FontStyle.italic,
                           color: isDarkMode ? Colors.white70 : const Color(0xFF636E72),
                         ),
@@ -440,7 +443,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                       Text(
                         'Artinya:',
                         style: TextStyle(
-                          fontSize: 11,
+                          fontSize: settings.latinFontSize - 3.0,
                           fontWeight: FontWeight.bold,
                           color: isDarkMode ? Colors.white60 : Colors.grey,
                         ),
@@ -449,7 +452,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                       Text(
                         tahlil.translation,
                         style: TextStyle(
-                          fontSize: 13,
+                          fontSize: settings.latinFontSize - 1.0,
                           color: isDarkMode ? Colors.white.withOpacity(0.87) : const Color(0xFF2D3436),
                           height: 1.5,
                         ),
@@ -465,7 +468,7 @@ class _TahlilYasinPageState extends State<TahlilYasinPage> with SingleTickerProv
                           child: Text(
                             tahlil.note!,
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: settings.latinFontSize - 2.0,
                               fontStyle: FontStyle.italic,
                               color: isDarkMode ? const Color(0xFFFFD43B) : const Color(0xFFF08C00),
                             ),

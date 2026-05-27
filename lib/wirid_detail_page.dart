@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 import 'wirid_data.dart';
+import 'wirid_doa_localizations.dart';
+import 'settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class WiridDetailPage extends StatelessWidget {
   final WiridCategory category;
@@ -24,12 +27,13 @@ class WiridDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     const primaryColor = Color(0xFF13A884);
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final settings = context.watch<SettingsProvider>();
 
     return Scaffold(
       backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF5F7F8),
       appBar: AppBar(
         title: Text(
-          category.title,
+          WiridDoaLocalizations.translate(category.title, settings.language),
           style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18),
         ),
         backgroundColor: primaryColor,
@@ -64,7 +68,7 @@ class WiridDetailPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Kumpulan Wirid',
+                        WiridDoaLocalizations.translate('Kumpulan Wirid', settings.language),
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -72,7 +76,7 @@ class WiridDetailPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        category.title.replaceAll('Wirid ', ''),
+                        WiridDoaLocalizations.translate(category.title, settings.language).replaceAll('Wirid ', '').replaceAll('Dhikr ', ''),
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -81,7 +85,7 @@ class WiridDetailPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 6),
                       Text(
-                        '${category.items.length} Bacaan',
+                        WiridDoaLocalizations.translate(category.subtitle, settings.language),
                         style: TextStyle(
                           fontSize: 13,
                           color: isDarkMode ? Colors.white60 : Colors.grey,
@@ -100,7 +104,7 @@ class WiridDetailPage extends StatelessWidget {
               itemCount: category.items.length,
               itemBuilder: (context, index) {
                 final item = category.items[index];
-                return _buildWiridItem(context, item, index, category.items.length, isDarkMode);
+                return _buildWiridItem(context, item, index, category.items.length, isDarkMode, settings);
               },
             ),
           ),
@@ -109,7 +113,14 @@ class WiridDetailPage extends StatelessWidget {
     );
   }
 
-  Widget _buildWiridItem(BuildContext context, WiridItem item, int index, int total, bool isDarkMode) {
+  Widget _buildWiridItem(BuildContext context, WiridItem item, int index, int total, bool isDarkMode, SettingsProvider settings) {
+    final lang = settings.language;
+    final localizedTranslation = WiridDoaLocalizations.translateContent('${category.id}_$index', 'translation', item.translation, lang);
+    final localizedArtinya = WiridDoaLocalizations.translate('Artinya:', lang);
+    final localizedBagikan = WiridDoaLocalizations.translate('Bagikan', lang);
+    final localizedSalin = WiridDoaLocalizations.translate('Salin', lang);
+    final localizedCopied = WiridDoaLocalizations.translate('Teks disalin ke clipboard', lang);
+
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       padding: const EdgeInsets.all(20),
@@ -152,10 +163,10 @@ class WiridDetailPage extends StatelessWidget {
           Text(
             item.arabic,
             textAlign: TextAlign.right,
-            style: const TextStyle(
-              fontSize: 26,
+            style: TextStyle(
+              fontSize: settings.arabFontSize,
               height: 2.0,
-              color: Color(0xFF13A884),
+              color: const Color(0xFF13A884),
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -163,7 +174,7 @@ class WiridDetailPage extends StatelessWidget {
           Text(
             item.latin,
             style: TextStyle(
-              fontSize: 14,
+              fontSize: settings.latinFontSize,
               fontStyle: FontStyle.italic,
               color: isDarkMode ? Colors.white70 : const Color(0xFF636E72),
               height: 1.5,
@@ -171,18 +182,18 @@ class WiridDetailPage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            'Artinya:',
+            localizedArtinya,
             style: TextStyle(
-              fontSize: 13,
+              fontSize: settings.latinFontSize - 1.0,
               fontWeight: FontWeight.bold,
               color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
             ),
           ),
           const SizedBox(height: 8),
           Text(
-            item.translation,
+            localizedTranslation,
             style: TextStyle(
-              fontSize: 13,
+              fontSize: settings.latinFontSize - 1.0,
               color: isDarkMode ? Colors.white.withOpacity(0.87) : const Color(0xFF2D3436),
               height: 1.5,
             ),
@@ -193,21 +204,21 @@ class WiridDetailPage extends StatelessWidget {
             children: [
               _buildActionButton(
                 icon: Icons.share_outlined,
-                label: 'Bagikan',
+                label: localizedBagikan,
                 onTap: () {
-                  Share.share('${item.arabic}\n\n${item.latin}\n\nArtinya:\n${item.translation}');
+                  Share.share('${item.arabic}\n\n${item.latin}\n\n$localizedArtinya\n$localizedTranslation');
                 },
               ),
 
               _buildActionButton(
                 icon: Icons.copy_outlined,
-                label: 'Salin',
+                label: localizedSalin,
                 onTap: () {
                   Clipboard.setData(ClipboardData(
-                    text: '${item.arabic}\n\n${item.latin}\n\nArtinya:\n${item.translation}',
+                    text: '${item.arabic}\n\n${item.latin}\n\n$localizedArtinya\n$localizedTranslation',
                   ));
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Teks disalin ke clipboard')),
+                    SnackBar(content: Text(localizedCopied)),
                   );
                 },
               ),

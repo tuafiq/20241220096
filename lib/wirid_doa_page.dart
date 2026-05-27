@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'doa_data.dart';
 import 'wirid_data.dart';
 import 'wirid_detail_page.dart';
@@ -7,6 +8,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'settings_provider.dart';
 import 'dzikir_card.dart';
+import 'wirid_doa_localizations.dart';
+
 
 
 
@@ -202,6 +205,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
 
   Widget _buildWiridTab() {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final settings = context.read<SettingsProvider>();
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
@@ -273,7 +277,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              category.title,
+                              WiridDoaLocalizations.translate(category.title, settings.language),
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
@@ -282,7 +286,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              category.subtitle,
+                              WiridDoaLocalizations.translate(category.subtitle, settings.language),
                               style: TextStyle(
                                 fontSize: 12,
                                 color: isDarkMode ? Colors.white60 : Colors.grey,
@@ -334,6 +338,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
 
   Widget _buildDoaCard(DoaModel doa, int index, List<DoaModel> displayDoaList) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final settings = context.read<SettingsProvider>();
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
@@ -383,7 +388,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        doa.title,
+                        WiridDoaLocalizations.translate(doa.title, settings.language),
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -392,7 +397,7 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'Bacaan doa harian',
+                        WiridDoaLocalizations.translate('Bacaan doa harian', settings.language),
                         style: TextStyle(
                           fontSize: 12,
                           color: isDarkMode ? Colors.white60 : Colors.grey,
@@ -466,11 +471,9 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                       icon: Icons.text_fields,
                       title: settings.translate('font_size'),
                       subtitle: settings.translate('font_size_desc'),
-                      trailingText: settings.fontSize,
+                      trailingText: 'A: ${settings.arabFontSize.toInt()} | L: ${settings.latinFontSize.toInt()}',
                       onTap: () {
-                        _showOptionsDialog(context, settings.translate('font_size_dialog'), ['Kecil', 'Sedang', 'Besar'], settings.fontSize, (val) {
-                          settings.setFontSize(val);
-                        });
+                        _showFontSizeSlidersBottomSheet(context, settings);
                       },
                     ),
                     _buildSettingsItem(
@@ -526,6 +529,282 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
           ),
         );
           },
+        );
+      },
+    );
+  }
+
+  void _showFontSizeSlidersBottomSheet(BuildContext context, SettingsProvider settings) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (BuildContext context) {
+        return Consumer<SettingsProvider>(
+          builder: (context, settings, child) {
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Center(
+                      child: Container(
+                        width: 40,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          color: isDarkMode ? Colors.white24 : Colors.grey[300],
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          settings.translate('font_size_dialog'),
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: const Icon(Icons.close, color: Color(0xFF13A884), size: 24),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 24),
+
+                    // 1. Ukuran Teks Arab Card
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: isDarkMode ? const Color(0xFF252525) : const Color(0xFFF8F9FA),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: isDarkMode ? Colors.white10 : const Color(0xFFE9ECEF), width: 1.5),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                settings.translate('arabic_text_size'),
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                  color: isDarkMode ? Colors.white : const Color(0xFF2D3748),
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF13A884).withOpacity(0.15),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Text(
+                                  '${settings.arabFontSize.toInt()} px',
+                                  style: const TextStyle(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFF13A884),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  settings.setArabFontSize((settings.arabFontSize - 1.0).clamp(18.0, 40.0));
+                                },
+                                child: const Icon(
+                                  Icons.remove_circle_outline,
+                                  color: Color(0xFF13A884),
+                                  size: 22,
+                                ),
+                              ),
+                              Expanded(
+                                child: SliderTheme(
+                                  data: SliderThemeData(
+                                    activeTrackColor: const Color(0xFF13A884),
+                                    inactiveTrackColor: isDarkMode ? Colors.grey[800] : Colors.grey[200],
+                                    thumbColor: Colors.white,
+                                    trackHeight: 3.0,
+                                  ),
+                                  child: Slider(
+                                    min: 18.0,
+                                    max: 40.0,
+                                    value: settings.arabFontSize,
+                                    onChanged: (val) {
+                                      settings.setArabFontSize(val);
+                                    },
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  settings.setArabFontSize((settings.arabFontSize + 1.0).clamp(18.0, 40.0));
+                                },
+                                child: const Icon(
+                                  Icons.add_circle_outline,
+                                  color: Color(0xFF13A884),
+                                  size: 22,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          Container(
+                            width: double.infinity,
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+                            decoration: BoxDecoration(
+                              color: isDarkMode ? const Color(0xFF16322B) : const Color(0xFFE8F5F1),
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: const Color(0xFF13A884).withOpacity(0.2),
+                                width: 1.0,
+                              ),
+                            ),
+                            child: Text(
+                              'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',
+                              style: GoogleFonts.scheherazadeNew(
+                                fontSize: settings.arabFontSize,
+                                fontWeight: FontWeight.bold,
+                                color: isDarkMode ? Colors.white : const Color(0xFF0C5441),
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+
+                    // 2. Ukuran Teks Latin Card
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: isDarkMode ? const Color(0xFF252525) : const Color(0xFFF8F9FA),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: isDarkMode ? Colors.white10 : const Color(0xFFE9ECEF), width: 1.5),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                settings.translate('latin_text_size'),
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                  color: isDarkMode ? Colors.white : const Color(0xFF2D3748),
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF13A884).withOpacity(0.15),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Text(
+                                  '${settings.latinFontSize.toInt()} px',
+                                  style: const TextStyle(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFF13A884),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  settings.setLatinFontSize((settings.latinFontSize - 1.0).clamp(10.0, 24.0));
+                                },
+                                child: const Icon(
+                                  Icons.remove_circle_outline,
+                                  color: Color(0xFF13A884),
+                                  size: 22,
+                                ),
+                              ),
+                              Expanded(
+                                child: SliderTheme(
+                                  data: SliderThemeData(
+                                    activeTrackColor: const Color(0xFF13A884),
+                                    inactiveTrackColor: isDarkMode ? Colors.grey[800] : Colors.grey[200],
+                                    thumbColor: Colors.white,
+                                    trackHeight: 3.0,
+                                  ),
+                                  child: Slider(
+                                    min: 10.0,
+                                    max: 24.0,
+                                    value: settings.latinFontSize,
+                                    onChanged: (val) {
+                                      settings.setLatinFontSize(val);
+                                    },
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  settings.setLatinFontSize((settings.latinFontSize + 1.0).clamp(10.0, 24.0));
+                                },
+                                child: const Icon(
+                                  Icons.add_circle_outline,
+                                  color: Color(0xFF13A884),
+                                  size: 22,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          Container(
+                            width: double.infinity,
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+                            decoration: BoxDecoration(
+                              color: isDarkMode ? const Color(0xFF16322B) : const Color(0xFFE8F5F1),
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: const Color(0xFF13A884).withOpacity(0.2),
+                                width: 1.0,
+                              ),
+                            ),
+                            child: Text(
+                              'Bismillâhirrahmânirrahîm',
+                              style: GoogleFonts.poppins(
+                                fontSize: settings.latinFontSize,
+                                fontStyle: FontStyle.italic,
+                                color: isDarkMode ? Colors.white : const Color(0xFF0C5441),
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
         );
       },
     );
@@ -699,34 +978,6 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
         ],
       ),
       ),
-    );
-  }
-
-  void _showOptionsDialog(BuildContext context, String title, List<String> options, String currentValue, Function(String) onSelected) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: options.map((option) {
-              return RadioListTile<String>(
-                title: Text(option),
-                value: option,
-                groupValue: currentValue,
-                activeColor: const Color(0xFF13A884),
-                onChanged: (String? value) {
-                  if (value != null) {
-                    onSelected(value);
-                    Navigator.pop(context);
-                  }
-                },
-              );
-            }).toList(),
-          ),
-        );
-      },
     );
   }
 

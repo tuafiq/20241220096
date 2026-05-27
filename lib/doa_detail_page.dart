@@ -3,6 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'doa_data.dart';
+import 'wirid_doa_localizations.dart';
+import 'settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class DoaDetailPage extends StatefulWidget {
   final DoaModel doa;
@@ -99,12 +102,23 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
     final nextDoa = hasNext ? widget.doaList[_currentIndex + 1] : null;
 
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final settings = context.watch<SettingsProvider>();
+
+    final translatedTitle = WiridDoaLocalizations.translate(currentDoa.title, settings.language);
+    final translatedTranslit = WiridDoaLocalizations.translateContent(currentDoa.title, 'transliteration', currentDoa.transliteration, settings.language);
+    final translatedTranslation = WiridDoaLocalizations.translateContent(currentDoa.title, 'translation', currentDoa.translation, settings.language);
+    final translatedArtinya = WiridDoaLocalizations.translate('Artinya:', settings.language);
+    final translatedSumber = WiridDoaLocalizations.translate('Sumber', settings.language);
+    final translatedBagikan = WiridDoaLocalizations.translate('Bagikan', settings.language);
+    final translatedSalin = WiridDoaLocalizations.translate('Salin', settings.language);
+    final translatedCopied = WiridDoaLocalizations.translate('Teks disalin ke clipboard', settings.language);
+    final translatedDoaSebenarnya = WiridDoaLocalizations.translate('Bacaan doa', settings.language);
 
     return Scaffold(
       backgroundColor: isDarkMode ? const Color(0xFF121212) : const Color(0xFFF5F7F8),
       appBar: AppBar(
         title: Text(
-          currentDoa.title,
+          translatedTitle,
           style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18),
         ),
         backgroundColor: primaryColor,
@@ -147,7 +161,7 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                currentDoa.title,
+                                translatedTitle,
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
@@ -156,7 +170,7 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                'Bacaan doa',
+                                translatedDoaSebenarnya,
                                 style: TextStyle(
                                   fontSize: 13,
                                   color: isDarkMode ? Colors.white60 : Colors.grey,
@@ -181,21 +195,21 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Text(
+                         Text(
                           currentDoa.arabic,
                           textAlign: TextAlign.right,
-                          style: const TextStyle(
-                            fontSize: 26,
+                          style: TextStyle(
+                            fontSize: settings.arabFontSize,
                             height: 2.0,
-                            color: Color(0xFF13A884),
+                            color: const Color(0xFF13A884),
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                         const SizedBox(height: 20),
                         Text(
-                          currentDoa.transliteration,
+                          translatedTranslit,
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: settings.latinFontSize,
                             fontStyle: FontStyle.italic,
                             color: isDarkMode ? Colors.white70 : const Color(0xFF636E72),
                             height: 1.5,
@@ -205,18 +219,18 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                         Divider(color: isDarkMode ? Colors.white10 : Colors.black12),
                         const SizedBox(height: 16),
                         Text(
-                          'Artinya:',
+                          translatedArtinya,
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: settings.latinFontSize - 1.0,
                             fontWeight: FontWeight.bold,
                             color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
                           ),
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          currentDoa.translation,
+                          translatedTranslation,
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: settings.latinFontSize - 1.0,
                             color: isDarkMode ? Colors.white.withOpacity(0.87) : const Color(0xFF2D3436),
                             height: 1.5,
                           ),
@@ -234,12 +248,12 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                children: const [
-                                  Icon(Icons.menu_book, color: primaryColor, size: 20),
-                                  SizedBox(width: 8),
+                                children: [
+                                  const Icon(Icons.menu_book, color: primaryColor, size: 20),
+                                  const SizedBox(width: 8),
                                   Text(
-                                    'Sumber',
-                                    style: TextStyle(
+                                    translatedSumber,
+                                    style: const TextStyle(
                                       color: primaryColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 14,
@@ -251,7 +265,7 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 28),
                                 child: Text(
-                                  _getSourceForDoa(currentDoa.title),
+                                  WiridDoaLocalizations.translate(_getSourceForDoa(currentDoa.title), settings.language),
                                   style: TextStyle(
                                     color: isDarkMode ? Colors.white60 : Colors.grey,
                                     fontSize: 12,
@@ -269,21 +283,21 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                           children: [
                             _buildActionButton(
                               icon: Icons.share_outlined,
-                              label: 'Bagikan',
+                              label: translatedBagikan,
                               onTap: () {
-                                Share.share('${currentDoa.title}\n\n${currentDoa.arabic}\n\n${currentDoa.transliteration}\n\nArtinya:\n${currentDoa.translation}');
+                                Share.share('$translatedTitle\n\n${currentDoa.arabic}\n\n$translatedTranslit\n\n$translatedArtinya\n$translatedTranslation');
                               },
                             ),
 
                             _buildActionButton(
                               icon: Icons.copy_outlined,
-                              label: 'Salin',
+                              label: translatedSalin,
                               onTap: () {
                                 Clipboard.setData(ClipboardData(
-                                  text: '${currentDoa.title}\n\n${currentDoa.arabic}\n\n${currentDoa.transliteration}\n\nArtinya:\n${currentDoa.translation}',
+                                  text: '$translatedTitle\n\n${currentDoa.arabic}\n\n$translatedTranslit\n\n$translatedArtinya\n$translatedTranslation',
                                 ));
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(content: Text('Teks disalin ke clipboard')),
+                                  SnackBar(content: Text(translatedCopied)),
                                 );
                               },
                             ),
@@ -324,9 +338,9 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  const Text(
-                                    'Doa Sebelumnya',
-                                    style: TextStyle(
+                                  Text(
+                                    WiridDoaLocalizations.translate('Doa Sebelumnya', settings.language),
+                                    style: const TextStyle(
                                       color: primaryColor,
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
@@ -334,7 +348,7 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                                   ),
                                   const SizedBox(height: 2),
                                   Text(
-                                    prevDoa?.title ?? '-',
+                                    prevDoa != null ? WiridDoaLocalizations.translate(prevDoa.title, settings.language) : '-',
                                     style: TextStyle(
                                       color: isDarkMode ? Colors.white60 : Colors.grey,
                                       fontSize: 11,
@@ -373,9 +387,9 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  const Text(
-                                    'Doa Selanjutnya',
-                                    style: TextStyle(
+                                  Text(
+                                    WiridDoaLocalizations.translate('Doa Selanjutnya', settings.language),
+                                    style: const TextStyle(
                                       color: primaryColor,
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
@@ -383,7 +397,7 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
                                   ),
                                   const SizedBox(height: 2),
                                   Text(
-                                    nextDoa?.title ?? '-',
+                                    nextDoa != null ? WiridDoaLocalizations.translate(nextDoa.title, settings.language) : '-',
                                     style: TextStyle(
                                       color: isDarkMode ? Colors.white60 : Colors.grey,
                                       fontSize: 11,

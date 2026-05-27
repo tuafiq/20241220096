@@ -1340,6 +1340,7 @@ class WiridDoaIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final settings = context.watch<SettingsProvider>();
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -1366,7 +1367,7 @@ class WiridDoaIcon extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Text(
-            'Wirid & Doa',
+            settings.translate('title'),
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w500,

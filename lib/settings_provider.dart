@@ -24,6 +24,12 @@ class SettingsProvider with ChangeNotifier {
   int _countAllahuAkbar = 33;
   int _countAstaghfirullah = 1;
 
+  // Dzikir Harian Targets
+  int _targetSubhanallah = 33;
+  int _targetAlhamdulillah = 33;
+  int _targetAllahuAkbar = 33;
+  int _targetAstaghfirullah = 33;
+
   int _lastHeaderIndex = 0; // 0: Location, 1: Quran, 2: Dzikir
 
   // Al-Quran Settings Defaults
@@ -59,6 +65,11 @@ class SettingsProvider with ChangeNotifier {
   int get countAllahuAkbar => _countAllahuAkbar;
   int get countAstaghfirullah => _countAstaghfirullah;
   int get lastHeaderIndex => _lastHeaderIndex;
+
+  int get targetSubhanallah => _targetSubhanallah;
+  int get targetAlhamdulillah => _targetAlhamdulillah;
+  int get targetAllahuAkbar => _targetAllahuAkbar;
+  int get targetAstaghfirullah => _targetAstaghfirullah;
 
   // Al-Quran Getters
   bool get showWarnaTajwid => _showWarnaTajwid;
@@ -108,6 +119,12 @@ class SettingsProvider with ChangeNotifier {
     _countAlhamdulillah = _prefs.getInt('countAlhamdulillah') ?? 33;
     _countAllahuAkbar = _prefs.getInt('countAllahuAkbar') ?? 33;
     _countAstaghfirullah = _prefs.getInt('countAstaghfirullah') ?? 1;
+
+    // Load persisted Dzikir Harian targets
+    _targetSubhanallah = _prefs.getInt('targetSubhanallah') ?? 33;
+    _targetAlhamdulillah = _prefs.getInt('targetAlhamdulillah') ?? 33;
+    _targetAllahuAkbar = _prefs.getInt('targetAllahuAkbar') ?? 34; // default to 34 to match the image
+    _targetAstaghfirullah = _prefs.getInt('targetAstaghfirullah') ?? 33;
 
     _lastHeaderIndex = _prefs.getInt('lastHeaderIndex') ?? 0;
 
@@ -356,17 +373,51 @@ class SettingsProvider with ChangeNotifier {
 
   Future<void> incrementDzikir(String type) async {
     if (type == 'subhanallah') {
-      _countSubhanallah = (_countSubhanallah + 1) > 33 ? 0 : _countSubhanallah + 1;
+      _countSubhanallah = (_countSubhanallah + 1) > _targetSubhanallah ? 0 : _countSubhanallah + 1;
       await _prefs.setInt('countSubhanallah', _countSubhanallah);
     } else if (type == 'alhamdulillah') {
-      _countAlhamdulillah = (_countAlhamdulillah + 1) > 33 ? 0 : _countAlhamdulillah + 1;
+      _countAlhamdulillah = (_countAlhamdulillah + 1) > _targetAlhamdulillah ? 0 : _countAlhamdulillah + 1;
       await _prefs.setInt('countAlhamdulillah', _countAlhamdulillah);
     } else if (type == 'allahu_akbar') {
-      _countAllahuAkbar = (_countAllahuAkbar + 1) > 33 ? 0 : _countAllahuAkbar + 1;
+      _countAllahuAkbar = (_countAllahuAkbar + 1) > _targetAllahuAkbar ? 0 : _countAllahuAkbar + 1;
       await _prefs.setInt('countAllahuAkbar', _countAllahuAkbar);
     } else if (type == 'astaghfirullah') {
-      _countAstaghfirullah = (_countAstaghfirullah + 1) > 33 ? 0 : _countAstaghfirullah + 1;
+      _countAstaghfirullah = (_countAstaghfirullah + 1) > _targetAstaghfirullah ? 0 : _countAstaghfirullah + 1;
       await _prefs.setInt('countAstaghfirullah', _countAstaghfirullah);
+    }
+    notifyListeners();
+  }
+
+  Future<void> decrementDzikir(String type) async {
+    if (type == 'subhanallah') {
+      _countSubhanallah = (_countSubhanallah - 1) < 0 ? 0 : _countSubhanallah - 1;
+      await _prefs.setInt('countSubhanallah', _countSubhanallah);
+    } else if (type == 'alhamdulillah') {
+      _countAlhamdulillah = (_countAlhamdulillah - 1) < 0 ? 0 : _countAlhamdulillah - 1;
+      await _prefs.setInt('countAlhamdulillah', _countAlhamdulillah);
+    } else if (type == 'allahu_akbar') {
+      _countAllahuAkbar = (_countAllahuAkbar - 1) < 0 ? 0 : _countAllahuAkbar - 1;
+      await _prefs.setInt('countAllahuAkbar', _countAllahuAkbar);
+    } else if (type == 'astaghfirullah') {
+      _countAstaghfirullah = (_countAstaghfirullah - 1) < 0 ? 0 : _countAstaghfirullah - 1;
+      await _prefs.setInt('countAstaghfirullah', _countAstaghfirullah);
+    }
+    notifyListeners();
+  }
+
+  Future<void> setTargetDzikir(String type, int target) async {
+    if (type == 'subhanallah') {
+      _targetSubhanallah = target;
+      await _prefs.setInt('targetSubhanallah', target);
+    } else if (type == 'alhamdulillah') {
+      _targetAlhamdulillah = target;
+      await _prefs.setInt('targetAlhamdulillah', target);
+    } else if (type == 'allahu_akbar') {
+      _targetAllahuAkbar = target;
+      await _prefs.setInt('targetAllahuAkbar', target);
+    } else if (type == 'astaghfirullah') {
+      _targetAstaghfirullah = target;
+      await _prefs.setInt('targetAstaghfirullah', target);
     }
     notifyListeners();
   }
