@@ -21,6 +21,7 @@ import 'article_service.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'hadith_page.dart';
 import 'tutorial_ibadah_page.dart';
+import 'kajian_video_page.dart';
 import 'ramadhan_page.dart';
 import 'quran_data.dart';
 import 'wirid_detail_page.dart';
@@ -1618,28 +1619,28 @@ class _HomePageState extends State<HomePage> {
     
     final videos = [
       {
-        'title': 'Boleh Menangis Saat Kehilangan, Asalkan Tidak Melakukan Satu Hal Ini',
-        'category': 'Syariah & Ubudiyah',
-        'duration': '10:09',
-        'videoId': 'R_l-4uV5a84',
+        'title': 'Vlog Haji Khusus: Dari Haramain Menuju Masjidil Haram',
+        'category': 'Ibadah Haji',
+        'duration': '03:10',
+        'videoId': 'W3ebQEEecm0',
       },
       {
-        'title': 'Medis yang Terlupakan: Rufaidah Al-Aslamiyah, Pelopor Keperawatan Modern',
-        'category': 'Peradaban',
-        'duration': '07:19',
-        'videoId': 'kYv9N-6c_l4',
+        'title': 'Vlog Haji Tarwiyah di Mina: Aktivitas Jemaah Haji Plus',
+        'category': 'Ibadah Haji',
+        'duration': '07:07',
+        'videoId': 'xK09lG3wp5Y',
       },
       {
-        'title': 'Tata Cara Wudhu yang Benar Sesuai Sunnah Nabi SAW',
+        'title': 'Sejarah, Fiqih, Akidah & Hikmah Dari Syariat Qurban',
         'category': 'Syariah & Ubudiyah',
-        'duration': '15:34',
-        'videoId': 'zcp9XMZz5ac',
+        'duration': '72:11',
+        'videoId': 'Ndy1wRvajzg',
       },
       {
-        'title': 'Serial Fiqh Eps 5: Tata Cara Berwudhu yang Benar',
-        'category': 'Syariah & Ubudiyah',
-        'duration': '08:42',
-        'videoId': '_aaCzur4jFM',
+        'title': 'Ayat-Ayat Perekat Cinta Pasangan Suami Istri',
+        'category': 'Keluarga & Muamalah',
+        'duration': '89:39',
+        'videoId': 'vxgQvrr_tvE',
       },
     ];
 
@@ -1652,7 +1653,7 @@ class _HomePageState extends State<HomePage> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const TutorialIbadahPage()),
+                MaterialPageRoute(builder: (context) => const KajianVideoPage()),
               );
             },
             child: Row(
@@ -1815,7 +1816,7 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const TutorialIbadahPage()),
+                      MaterialPageRoute(builder: (context) => const KajianVideoPage()),
                     );
                   },
                   child: SizedBox(
