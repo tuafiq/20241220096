@@ -17,6 +17,7 @@ class SettingsProvider with ChangeNotifier {
   bool _reminderEnabled = false;
   String _reminderTime = '04:00';
   List<String> _doaOrder = []; // List of Doa Titles in order
+  List<String> _bookmarkedDoas = [];
 
   // Dzikir Harian State Counts
   int _countSubhanallah = 33;
@@ -59,6 +60,7 @@ class SettingsProvider with ChangeNotifier {
   bool get reminderEnabled => _reminderEnabled;
   String get reminderTime => _reminderTime;
   List<String> get doaOrder => _doaOrder;
+  List<String> get bookmarkedDoas => _bookmarkedDoas;
 
   int get countSubhanallah => _countSubhanallah;
   int get countAlhamdulillah => _countAlhamdulillah;
@@ -113,6 +115,7 @@ class SettingsProvider with ChangeNotifier {
     _reminderEnabled = _prefs.getBool('reminderEnabled') ?? false;
     _reminderTime = _prefs.getString('reminderTime') ?? '04:00';
     _doaOrder = _prefs.getStringList('doaOrder') ?? [];
+    _bookmarkedDoas = _prefs.getStringList('bookmarkedDoas') ?? [];
     
     // Load persisted Dzikir Harian counts
     _countSubhanallah = _prefs.getInt('countSubhanallah') ?? 33;
@@ -568,6 +571,20 @@ class SettingsProvider with ChangeNotifier {
     _pengingatMembaca = value;
     await _prefs.setBool('pengingatMembaca', value);
     _updateReadingReminder();
+    notifyListeners();
+  }
+
+  bool isDoaBookmarked(String title) {
+    return _bookmarkedDoas.contains(title);
+  }
+
+  Future<void> toggleDoaBookmark(String title) async {
+    if (_bookmarkedDoas.contains(title)) {
+      _bookmarkedDoas.remove(title);
+    } else {
+      _bookmarkedDoas.add(title);
+    }
+    await _prefs.setStringList('bookmarkedDoas', _bookmarkedDoas);
     notifyListeners();
   }
 }

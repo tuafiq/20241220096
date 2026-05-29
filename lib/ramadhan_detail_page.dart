@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'settings_provider.dart';
 
 class RamadhanDetailPage extends StatefulWidget {
   final List<Map<String, dynamic>> menuList;
@@ -62,9 +64,19 @@ class _RamadhanDetailPageState extends State<RamadhanDetailPage> {
             icon: const Icon(Icons.info_outline, color: Colors.white),
             onPressed: () {},
           ),
-          IconButton(
-            icon: const Icon(Icons.bookmark_border, color: Colors.white),
-            onPressed: () {},
+          Consumer<SettingsProvider>(
+            builder: (context, settings, child) {
+              final isBookmarked = settings.isDoaBookmarked(currentMenu['title']!);
+              return IconButton(
+                icon: Icon(
+                  isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  settings.toggleDoaBookmark(currentMenu['title']!);
+                },
+              );
+            },
           ),
           IconButton(
             icon: const Text('aA', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),

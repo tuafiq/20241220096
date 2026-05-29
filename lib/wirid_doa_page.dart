@@ -9,6 +9,8 @@ import 'package:provider/provider.dart';
 import 'settings_provider.dart';
 import 'dzikir_card.dart';
 import 'wirid_doa_localizations.dart';
+import 'ramadhan_page.dart';
+import 'ramadhan_detail_page.dart';
 
 
 
@@ -406,6 +408,15 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                     ],
                   ),
                 ),
+                IconButton(
+                  icon: Icon(
+                    settings.isDoaBookmarked(doa.title) ? Icons.bookmark : Icons.bookmark_border,
+                    color: const Color(0xFF13A884),
+                  ),
+                  onPressed: () {
+                    settings.toggleDoaBookmark(doa.title);
+                  },
+                ),
                 const Icon(
                   Icons.chevron_right,
                   size: 20,
@@ -519,6 +530,118 @@ class _WiridDoaPageState extends State<WiridDoaPage> with SingleTickerProviderSt
                           settings.setLanguage(val);
                         });
                       },
+                    ),
+
+                    const SizedBox(height: 24),
+                    _buildSettingsSectionTitle(settings.language == 'Inggris' ? 'Saved Bookmarks' : (settings.language == 'Arab' ? 'الإشارات المرجعية المحفوظة' : 'Bookmark Saya')),
+                    Builder(
+                      builder: (context) {
+                        final bookmarkedDoas = DoaData.listDoaHarian.where((d) => settings.isDoaBookmarked(d.title)).toList();
+                        final bookmarkedRamadhan = RamadhanPage.ramadhanMenu.where((d) => settings.isDoaBookmarked(d['title']!)).toList();
+
+                        if (bookmarkedDoas.isEmpty && bookmarkedRamadhan.isEmpty) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text(
+                              settings.language == 'Inggris' ? 'No bookmarks saved yet' : (settings.language == 'Arab' ? 'لا توجد إشارات مرجعية محفوظة بعد' : 'Belum ada bookmark yang disimpan'),
+                              style: const TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),
+                              textAlign: TextAlign.center,
+                            ),
+                          );
+                        }
+
+                        return Column(
+                          children: [
+                            ...bookmarkedDoas.map((doa) {
+                              return Card(
+                                margin: const EdgeInsets.only(bottom: 8.0),
+                                color: isDarkMode ? const Color(0xFF252525) : Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                  side: BorderSide(color: isDarkMode ? Colors.white10 : const Color(0xFFF1F3F4)),
+                                ),
+                                child: ListTile(
+                                  leading: const Icon(Icons.bookmark, color: Color(0xFF13A884)),
+                                  title: Text(
+                                    WiridDoaLocalizations.translate(doa.title, settings.language),
+                                    style: TextStyle(
+                                      color: isDarkMode ? Colors.white : Colors.black87,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                  subtitle: Text(
+                                    settings.language == 'Inggris' ? 'Daily Prayer' : (settings.language == 'Arab' ? 'دعاء يومي' : 'Doa Harian'),
+                                    style: const TextStyle(fontSize: 11, color: Colors.grey),
+                                  ),
+                                  trailing: IconButton(
+                                    icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
+                                    onPressed: () {
+                                      settings.toggleDoaBookmark(doa.title);
+                                    },
+                                  ),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => DoaDetailPage(
+                                          doa: doa,
+                                          doaList: DoaData.listDoaHarian,
+                                          currentIndex: DoaData.listDoaHarian.indexOf(doa),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            }),
+                            ...bookmarkedRamadhan.map((item) {
+                              return Card(
+                                margin: const EdgeInsets.only(bottom: 8.0),
+                                color: isDarkMode ? const Color(0xFF252525) : Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                  side: BorderSide(color: isDarkMode ? Colors.white10 : const Color(0xFFF1F3F4)),
+                                ),
+                                child: ListTile(
+                                  leading: const Icon(Icons.bookmark, color: Color(0xFF13A884)),
+                                  title: Text(
+                                    item['title']!,
+                                    style: TextStyle(
+                                      color: isDarkMode ? Colors.white : Colors.black87,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                  subtitle: Text(
+                                    settings.language == 'Inggris' ? 'Ramadhan Prayer' : (settings.language == 'Arab' ? 'دعاء رمضان' : 'Doa Ramadhan'),
+                                    style: const TextStyle(fontSize: 11, color: Colors.grey),
+                                  ),
+                                  trailing: IconButton(
+                                    icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
+                                    onPressed: () {
+                                      settings.toggleDoaBookmark(item['title']!);
+                                    },
+                                  ),
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => RamadhanDetailPage(
+                                          menuList: RamadhanPage.ramadhanMenu,
+                                          initialIndex: RamadhanPage.ramadhanMenu.indexOf(item),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            }),
+                          ],
+                        );
+                      }
                     ),
 
                     const SizedBox(height: 32),

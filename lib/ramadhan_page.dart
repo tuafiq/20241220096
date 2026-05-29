@@ -6,9 +6,16 @@ import 'package:intl/intl.dart' show DateFormat;
 import 'prayer_service.dart';
 import 'ramadhan_detail_page.dart';
 import 'ramadhan_article_page.dart';
+import 'package:provider/provider.dart';
+import 'settings_provider.dart';
+import 'doa_detail_page.dart';
+import 'doa_data.dart';
+import 'wirid_doa_localizations.dart';
 
 class RamadhanPage extends StatefulWidget {
   const RamadhanPage({super.key});
+
+  static List<Map<String, dynamic>> get ramadhanMenu => _RamadhanPageState._ramadhanMenu;
 
   @override
   State<RamadhanPage> createState() => _RamadhanPageState();
@@ -8858,7 +8865,7 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
     }
   ];
 
-  final List<Map<String, dynamic>> _ramadhanMenu = [
+  static final List<Map<String, dynamic>> _ramadhanMenu = [
     {
       'title': 'Doa Menyambut Bulan Ramadhan',
       'arabic': 'اَللَّهُمَّ سَلِّمْنِيْ مِنْ رَمَضَانَ، وَسَلِّمْ رَمَضَانَ لِيْ، وَتَسَلَّمْهُ مِنِّيْ مُتَقَبَّلًا',
@@ -9602,7 +9609,14 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
                   ),
                   const SizedBox(width: 8),
                   // Settings icon
-                  Icon(Icons.settings_outlined, color: Colors.white.withOpacity(0.85), size: 22),
+                  IconButton(
+                    icon: Icon(Icons.settings_outlined, color: Colors.white.withOpacity(0.85), size: 22),
+                    onPressed: () {
+                      _showSettingsModal(context);
+                    },
+                    padding: EdgeInsets.zero,
+                    constraints: const BoxConstraints(),
+                  ),
                 ],
               ),
               const SizedBox(height: 16),
@@ -10136,12 +10150,31 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
                               size: 16,
                               color: isDarkMode ? Colors.white54 : Colors.black54,
                             )
-                          else
+                          else ...[
+                            Consumer<SettingsProvider>(
+                              builder: (context, settings, child) {
+                                final isBookmarked = settings.isDoaBookmarked(item['title']!);
+                                return IconButton(
+                                  icon: Icon(
+                                    isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                                    color: primaryTeal,
+                                    size: 20,
+                                  ),
+                                  onPressed: () {
+                                    settings.toggleDoaBookmark(item['title']!);
+                                  },
+                                  padding: EdgeInsets.zero,
+                                  constraints: const BoxConstraints(),
+                                );
+                              },
+                            ),
+                            const SizedBox(width: 8),
                             Icon(
                               Icons.arrow_forward_ios,
                               size: 16,
                               color: isDarkMode ? Colors.white54 : Colors.black54,
                             ),
+                          ],
                         ],
                       ),
                     ),
@@ -10152,6 +10185,734 @@ Selain puasa konsumsi, syariat puasa juga mengajarkan kita untuk mengendalikan l
           ),
         ),
       ],
+    );
+  }
+
+  void _showSettingsModal(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext context) {
+        return Consumer<SettingsProvider>(
+          builder: (context, settings, child) {
+            return Container(
+              height: MediaQuery.of(context).size.height * 0.9,
+              decoration: BoxDecoration(
+                color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(24),
+                  topRight: Radius.circular(24),
+                ),
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(24.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          settings.translate('settings'),
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: const Icon(Icons.close, color: accentTeal, size: 28),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: ListView(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      children: [
+                        _buildSettingsSectionTitle(settings.translate('appearance')),
+                        _buildSettingsItem(
+                          icon: Icons.text_fields,
+                          title: settings.translate('font_size'),
+                          subtitle: settings.translate('font_size_desc'),
+                          trailingText: 'A: ${settings.arabFontSize.toInt()} | L: ${settings.latinFontSize.toInt()}',
+                          onTap: () {
+                            _showFontSizeSlidersBottomSheet(context, settings);
+                          },
+                        ),
+                        _buildSettingsItem(
+                          icon: Icons.font_download,
+                          title: settings.translate('font_style'),
+                          subtitle: settings.translate('font_style_desc'),
+                          trailingText: settings.fontFamily,
+                          onTap: () {
+                            _showOptionsBottomSheet(context, settings.translate('font_style_dialog'), ['Poppins', 'Inter', 'Roboto', 'Times New Roman', 'Arial', 'Courier New', 'Georgia', 'Verdana'], settings.fontFamily, (val) {
+                              settings.setFontFamily(val);
+                            });
+                          },
+                        ),
+                        _buildSettingsItem(
+                          icon: Icons.dark_mode_outlined,
+                          title: settings.translate('theme_mode'),
+                          subtitle: settings.translate('theme_mode_desc'),
+                          trailingText: settings.themeModeStr == 'Gelap'
+                              ? (settings.language == 'Inggris' ? 'Dark' : (settings.language == 'Arab' ? 'داكن' : 'Gelap'))
+                              : (settings.language == 'Inggris' ? 'Light' : (settings.language == 'Arab' ? 'فاتح' : 'Terang')),
+                          onTap: () => _showThemeSelectionBottomSheet(context, settings),
+                        ),
+
+                        const SizedBox(height: 24),
+                        _buildSettingsSectionTitle(settings.translate('others')),
+                        _buildSettingsItem(
+                          icon: Icons.language,
+                          title: settings.translate('language'),
+                          subtitle: settings.translate('language_desc'),
+                          trailingText: settings.language,
+                          onTap: () {
+                            _showOptionsBottomSheet(context, settings.translate('lang_dialog'), ['Indonesia', 'Inggris', 'Arab'], settings.language, (val) {
+                              settings.setLanguage(val);
+                            });
+                          },
+                        ),
+
+                        const SizedBox(height: 24),
+                        _buildSettingsSectionTitle(settings.language == 'Inggris' ? 'Saved Bookmarks' : (settings.language == 'Arab' ? 'الإشارات المرجعية المحفوظة' : 'Bookmark Saya')),
+                        Builder(
+                          builder: (context) {
+                            final bookmarkedDoas = DoaData.listDoaHarian.where((d) => settings.isDoaBookmarked(d.title)).toList();
+                            final bookmarkedRamadhan = _ramadhanMenu.where((d) => settings.isDoaBookmarked(d['title']!)).toList();
+
+                            if (bookmarkedDoas.isEmpty && bookmarkedRamadhan.isEmpty) {
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                child: Text(
+                                  settings.language == 'Inggris' ? 'No bookmarks saved yet' : (settings.language == 'Arab' ? 'لا توجد إشارات مرجعية محفوظة بعد' : 'Belum ada bookmark yang disimpan'),
+                                  style: const TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),
+                                  textAlign: TextAlign.center,
+                                ),
+                              );
+                            }
+
+                            return Column(
+                              children: [
+                                ...bookmarkedDoas.map((doa) {
+                                  return Card(
+                                    margin: const EdgeInsets.only(bottom: 8.0),
+                                    color: isDarkMode ? const Color(0xFF252525) : Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                      side: BorderSide(color: isDarkMode ? Colors.white10 : const Color(0xFFF1F3F4)),
+                                    ),
+                                    child: ListTile(
+                                      leading: const Icon(Icons.bookmark, color: accentTeal),
+                                      title: Text(
+                                        WiridDoaLocalizations.translate(doa.title, settings.language),
+                                        style: TextStyle(
+                                          color: isDarkMode ? Colors.white : Colors.black87,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                      subtitle: Text(
+                                        settings.language == 'Inggris' ? 'Daily Prayer' : (settings.language == 'Arab' ? 'دعاء يومي' : 'Doa Harian'),
+                                        style: const TextStyle(fontSize: 11, color: Colors.grey),
+                                      ),
+                                      trailing: IconButton(
+                                        icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
+                                        onPressed: () {
+                                          settings.toggleDoaBookmark(doa.title);
+                                        },
+                                      ),
+                                      onTap: () {
+                                        Navigator.pop(context);
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => DoaDetailPage(
+                                              doa: doa,
+                                              doaList: DoaData.listDoaHarian,
+                                              currentIndex: DoaData.listDoaHarian.indexOf(doa),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  );
+                                }),
+                                ...bookmarkedRamadhan.map((item) {
+                                  return Card(
+                                    margin: const EdgeInsets.only(bottom: 8.0),
+                                    color: isDarkMode ? const Color(0xFF252525) : Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                      side: BorderSide(color: isDarkMode ? Colors.white10 : const Color(0xFFF1F3F4)),
+                                    ),
+                                    child: ListTile(
+                                      leading: const Icon(Icons.bookmark, color: accentTeal),
+                                      title: Text(
+                                        item['title']!,
+                                        style: TextStyle(
+                                          color: isDarkMode ? Colors.white : Colors.black87,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                      subtitle: Text(
+                                        settings.language == 'Inggris' ? 'Ramadhan Prayer' : (settings.language == 'Arab' ? 'دعاء رمضان' : 'Doa Ramadhan'),
+                                        style: const TextStyle(fontSize: 11, color: Colors.grey),
+                                      ),
+                                      trailing: IconButton(
+                                        icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
+                                        onPressed: () {
+                                          settings.toggleDoaBookmark(item['title']!);
+                                        },
+                                      ),
+                                      onTap: () {
+                                        Navigator.pop(context);
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => RamadhanDetailPage(
+                                              menuList: _ramadhanMenu,
+                                              initialIndex: _ramadhanMenu.indexOf(item),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  );
+                                }),
+                              ],
+                            );
+                          }
+                        ),
+                        const SizedBox(height: 32),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  void _showFontSizeSlidersBottomSheet(BuildContext context, SettingsProvider settings) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (BuildContext context) {
+        return Consumer<SettingsProvider>(
+          builder: (context, settings, child) {
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Center(
+                      child: Container(
+                        width: 40,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          color: isDarkMode ? Colors.white24 : Colors.grey[300],
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          settings.translate('font_size_dialog'),
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: const Icon(Icons.close, color: accentTeal, size: 24),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 24),
+
+                    // 1. Ukuran Teks Arab Card
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: isDarkMode ? const Color(0xFF252525) : const Color(0xFFF8F9FA),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: isDarkMode ? Colors.white10 : const Color(0xFFE9ECEF), width: 1.5),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                settings.translate('arabic_text_size'),
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                  color: isDarkMode ? Colors.white : const Color(0xFF2D3748),
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                decoration: BoxDecoration(
+                                  color: accentTeal.withOpacity(0.15),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Text(
+                                  '${settings.arabFontSize.toInt()} px',
+                                  style: const TextStyle(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.bold,
+                                    color: accentTeal,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  settings.setArabFontSize((settings.arabFontSize - 1.0).clamp(18.0, 40.0));
+                                },
+                                child: const Icon(
+                                  Icons.remove_circle_outline,
+                                  color: accentTeal,
+                                  size: 22,
+                                ),
+                              ),
+                              Expanded(
+                                child: SliderTheme(
+                                  data: SliderThemeData(
+                                    activeTrackColor: accentTeal,
+                                    inactiveTrackColor: isDarkMode ? Colors.grey[800] : Colors.grey[200],
+                                    thumbColor: Colors.white,
+                                    trackHeight: 3.0,
+                                  ),
+                                  child: Slider(
+                                    min: 18.0,
+                                    max: 40.0,
+                                    value: settings.arabFontSize,
+                                    onChanged: (val) {
+                                      settings.setArabFontSize(val);
+                                    },
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  settings.setArabFontSize((settings.arabFontSize + 1.0).clamp(18.0, 40.0));
+                                },
+                                child: const Icon(
+                                  Icons.add_circle_outline,
+                                  color: accentTeal,
+                                  size: 22,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          Container(
+                            width: double.infinity,
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+                            decoration: BoxDecoration(
+                              color: isDarkMode ? const Color(0xFF16322B) : const Color(0xFFE8F5F1),
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: accentTeal.withOpacity(0.2),
+                                width: 1.0,
+                              ),
+                            ),
+                            child: Text(
+                              'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',
+                              style: GoogleFonts.scheherazadeNew(
+                                fontSize: settings.arabFontSize,
+                                fontWeight: FontWeight.bold,
+                                color: isDarkMode ? Colors.white : const Color(0xFF0C5441),
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+
+                    // 2. Ukuran Teks Latin Card
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: isDarkMode ? const Color(0xFF252525) : const Color(0xFFF8F9FA),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: isDarkMode ? Colors.white10 : const Color(0xFFE9ECEF), width: 1.5),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                settings.translate('latin_text_size'),
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                  color: isDarkMode ? Colors.white : const Color(0xFF2D3748),
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                decoration: BoxDecoration(
+                                  color: accentTeal.withOpacity(0.15),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Text(
+                                  '${settings.latinFontSize.toInt()} px',
+                                  style: const TextStyle(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.bold,
+                                    color: accentTeal,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  settings.setLatinFontSize((settings.latinFontSize - 1.0).clamp(10.0, 24.0));
+                                },
+                                child: const Icon(
+                                  Icons.remove_circle_outline,
+                                  color: accentTeal,
+                                  size: 22,
+                                ),
+                              ),
+                              Expanded(
+                                child: SliderTheme(
+                                  data: SliderThemeData(
+                                    activeTrackColor: accentTeal,
+                                    inactiveTrackColor: isDarkMode ? Colors.grey[800] : Colors.grey[200],
+                                    thumbColor: Colors.white,
+                                    trackHeight: 3.0,
+                                  ),
+                                  child: Slider(
+                                    min: 10.0,
+                                    max: 24.0,
+                                    value: settings.latinFontSize,
+                                    onChanged: (val) {
+                                      settings.setLatinFontSize(val);
+                                    },
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  settings.setLatinFontSize((settings.latinFontSize + 1.0).clamp(10.0, 24.0));
+                                },
+                                child: const Icon(
+                                  Icons.add_circle_outline,
+                                  color: accentTeal,
+                                  size: 22,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          Container(
+                            width: double.infinity,
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+                            decoration: BoxDecoration(
+                              color: isDarkMode ? const Color(0xFF16322B) : const Color(0xFFE8F5F1),
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: accentTeal.withOpacity(0.2),
+                                width: 1.0,
+                              ),
+                            ),
+                            child: Text(
+                              'Bismillâhirrahmânirrahîm',
+                              style: GoogleFonts.poppins(
+                                fontSize: settings.latinFontSize,
+                                fontStyle: FontStyle.italic,
+                                color: isDarkMode ? Colors.white : const Color(0xFF0C5441),
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+        );
+      },
+    );
+  }
+
+  void _showThemeSelectionBottomSheet(BuildContext context, SettingsProvider settings) {
+    final isDarkMode = settings.themeModeStr == 'Gelap';
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return Container(
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: isDarkMode ? Colors.white24 : Colors.grey[300],
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                settings.translate('theme_mode_dialog'),
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: isDarkMode ? Colors.white : Colors.black87,
+                ),
+              ),
+              const SizedBox(height: 16),
+              ListTile(
+                leading: Icon(Icons.light_mode, color: isDarkMode ? Colors.white70 : accentTeal),
+                title: Text(
+                  settings.language == 'Inggris' 
+                      ? 'Light Mode (Green)' 
+                      : (settings.language == 'Arab' ? 'الوضع الفاتح (الأخضر)' : 'Mode Terang (Hijau)'),
+                  style: TextStyle(
+                    color: isDarkMode ? Colors.white : Colors.black87,
+                    fontWeight: settings.themeModeStr == 'Hijau' ? FontWeight.bold : FontWeight.normal,
+                  ),
+                ),
+                trailing: settings.themeModeStr == 'Hijau'
+                    ? const Icon(Icons.check_circle, color: accentTeal)
+                    : null,
+                onTap: () {
+                  settings.setThemeModeStr('Hijau');
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.dark_mode, color: isDarkMode ? accentTeal : Colors.black54),
+                title: Text(
+                  settings.language == 'Inggris' 
+                      ? 'Dark Mode' 
+                      : (settings.language == 'Arab' ? 'الوضع الداكن' : 'Mode Gelap'),
+                  style: TextStyle(
+                    color: isDarkMode ? Colors.white : Colors.black87,
+                    fontWeight: settings.themeModeStr == 'Gelap' ? FontWeight.bold : FontWeight.normal,
+                  ),
+                ),
+                trailing: settings.themeModeStr == 'Gelap'
+                    ? const Icon(Icons.check_circle, color: accentTeal)
+                    : null,
+                onTap: () {
+                  settings.setThemeModeStr('Gelap');
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildSettingsSectionTitle(String title) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12.0),
+      child: Text(
+        title,
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSettingsItem({
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    String? trailingText,
+    bool isSwitch = false,
+    VoidCallback? onTap,
+  }) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 12.0),
+        padding: const EdgeInsets.all(16.0),
+        decoration: BoxDecoration(
+          color: isDarkMode ? const Color(0xFF252525) : Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: isDarkMode ? Colors.white10 : const Color(0xFFF1F3F4), width: 1.5),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                color: isDarkMode ? const Color(0xFF1F3530) : const Color(0xFFE8F5F1),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Icon(icon, color: accentTeal, size: 24),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    subtitle,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: isDarkMode ? Colors.white60 : Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (trailingText != null) ...[
+              Text(
+                trailingText,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: isDarkMode ? Colors.white60 : Colors.grey,
+                ),
+              ),
+              const SizedBox(width: 8),
+            ],
+            if (isSwitch)
+              Switch(
+                value: false,
+                onChanged: (val) {},
+                activeColor: accentTeal,
+              )
+            else
+              const Icon(Icons.chevron_right, color: accentTeal, size: 24),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showOptionsBottomSheet(BuildContext context, String title, List<String> options, String currentValue, Function(String) onSelected) {
+    String selectedValue = currentValue;
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setModalState) {
+            return SingleChildScrollView(
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 24),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: Text(
+                        title,
+                        style: TextStyle(
+                          fontSize: 18, 
+                          fontWeight: FontWeight.bold,
+                          color: isDarkMode ? Colors.white : Colors.black87,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    ...options.map((option) {
+                      final isSelected = selectedValue == option;
+                      return ListTile(
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+                        title: Text(
+                          option,
+                          style: TextStyle(
+                            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                            color: isSelected ? accentTeal : (isDarkMode ? Colors.white70 : Colors.black87),
+                          ),
+                        ),
+                        trailing: isSelected
+                            ? const Icon(Icons.check, color: accentTeal)
+                            : null,
+                        onTap: () {
+                          setModalState(() {
+                            selectedValue = option;
+                          });
+                          onSelected(option);
+                          Future.delayed(const Duration(milliseconds: 300), () {
+                            if (context.mounted) {
+                              Navigator.pop(context);
+                            }
+                          });
+                        },
+                      );
+                    }),
+                  ],
+                ),
+              ),
+            );
+          }
+        );
+      },
     );
   }
 }

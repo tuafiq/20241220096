@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'dart:math';
+import 'package:url_launcher/url_launcher.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'wirid_doa_page.dart';
@@ -22,6 +23,11 @@ import 'hadith_page.dart';
 import 'tutorial_ibadah_page.dart';
 import 'ramadhan_page.dart';
 import 'quran_data.dart';
+import 'wirid_detail_page.dart';
+import 'wirid_data.dart';
+import 'doa_data.dart';
+import 'article_detail_page.dart';
+import 'doa_detail_page.dart';
 
 
 import 'package:provider/provider.dart';
@@ -95,6 +101,9 @@ class _HomePageState extends State<HomePage> {
   int _currentHeaderIndex = 999;
   bool _isHoldingHeader = false;
   late PageController _headerPageController;
+  late PageController _bannerPageController;
+  int _currentBannerIndex = 0;
+  bool _isHoldingBanner = false;
   String _currentLocation = 'Pamekasan, Kabupaten Pamekasan';
   Map<String, String> _todaySchedule = {
     'Subuh': '04:25',
@@ -131,6 +140,7 @@ class _HomePageState extends State<HomePage> {
     final settings = Provider.of<SettingsProvider>(context, listen: false);
     _currentHeaderIndex = 999 + settings.lastHeaderIndex;
     _headerPageController = PageController(initialPage: _currentHeaderIndex);
+    _bannerPageController = PageController(initialPage: 1000, viewportFraction: 0.9);
     _updateTime();
     _fetchPrayerTimes(_currentLocation);
     _loadHomeArticles();
@@ -138,9 +148,19 @@ class _HomePageState extends State<HomePage> {
       _updateTime();
       if (mounted && timer.tick % 2 == 0 && !_isHoldingHeader) {
         if (_headerPageController.hasClients) {
-          final nextPage = _currentHeaderIndex + 1;
+          final nextPage = _headerPageController.page!.round() + 1;
           _headerPageController.animateToPage(
             nextPage,
+            duration: const Duration(milliseconds: 600),
+            curve: Curves.easeInOutCubic,
+          );
+        }
+      }
+      if (mounted && timer.tick % 4 == 0 && !_isHoldingBanner) {
+        if (_bannerPageController.hasClients) {
+          final nextBannerPage = _bannerPageController.page!.round() + 1;
+          _bannerPageController.animateToPage(
+            nextBannerPage,
             duration: const Duration(milliseconds: 600),
             curve: Curves.easeInOutCubic,
           );
@@ -168,6 +188,7 @@ class _HomePageState extends State<HomePage> {
   void dispose() {
     _timer?.cancel();
     _headerPageController.dispose();
+    _bannerPageController.dispose();
     super.dispose();
   }
 
@@ -1031,8 +1052,22 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
                           child: _buildMenuGrid(),
                         ),
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 24),
+                        _buildHomeSearchBar(),
+                        const SizedBox(height: 24),
                         _buildHomeNewsSection(),
+                        const SizedBox(height: 20),
+                        _buildBannerCarousel(),
+                        const SizedBox(height: 12),
+                        _buildBannerIndicators(),
+                        const SizedBox(height: 24),
+                        _buildAksesCepatSection(),
+                        const SizedBox(height: 24),
+                        _buildKutipanInspiratifSection(),
+                        const SizedBox(height: 24),
+                        _buildVideoTutorialSection(),
+                        const SizedBox(height: 24),
+                        _buildAgendaTerdekatSection(),
                         const SizedBox(height: 100),
                       ],
                     ),
@@ -1279,6 +1314,1604 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget _buildHomeSearchBar() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: GestureDetector(
+        onTap: () => _showGlobalSearch(context),
+        child: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: isDarkMode ? const Color(0xFF1E1E1E) : const Color(0xFFF2F4F5),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: isDarkMode ? Colors.white.withOpacity(0.08) : Colors.transparent,
+            ),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          child: Row(
+            children: [
+              Icon(
+                Icons.search,
+                color: isDarkMode ? Colors.white60 : Colors.grey[600],
+                size: 20,
+              ),
+              const SizedBox(width: 12),
+              Text(
+                'Cari doa, wirid, artikel',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: isDarkMode ? Colors.white54 : Colors.grey[500],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showGlobalSearch(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) {
+        return const GlobalSearchModal();
+      },
+    );
+  }
+
+  Widget _buildBannerCarousel() {
+    return SizedBox(
+      height: 130,
+      child: PageView.builder(
+        controller: _bannerPageController,
+        itemCount: 10000,
+        onPageChanged: (index) {
+          setState(() {
+            _currentBannerIndex = index % 4;
+          });
+        },
+        itemBuilder: (context, index) {
+          final actualIndex = index % 4;
+          return Listener(
+            onPointerDown: (_) => setState(() => _isHoldingBanner = true),
+            onPointerUp: (_) => setState(() => _isHoldingBanner = false),
+            child: _buildBannerCard(actualIndex),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildBannerCard(int index) {
+    switch (index) {
+      case 0:
+        return _buildZakatBanner();
+      case 1:
+        return _buildBsnBanner();
+      case 2:
+        return _buildArticleBanner();
+      case 3:
+        return _buildPrayerBanner();
+      default:
+        return const SizedBox.shrink();
+    }
+  }
+
+  Widget _buildBannerIndicators() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final primaryGreen = const Color(0xFF13A884);
+    
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(4, (index) {
+        final isSelected = _currentBannerIndex == index;
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          margin: const EdgeInsets.symmetric(horizontal: 4),
+          width: isSelected ? 16 : 8,
+          height: 8,
+          decoration: BoxDecoration(
+            color: isSelected 
+                ? primaryGreen 
+                : (isDarkMode ? Colors.white24 : const Color(0xFFE2E8F0)),
+            borderRadius: BorderRadius.circular(4),
+          ),
+        );
+      }),
+    );
+  }
+
+  Widget _buildAksesCepatSection() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Text(
+            'Akses Cepat',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+            ),
+          ),
+        ),
+        const SizedBox(height: 10),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Row(
+            children: [
+              Expanded(
+                child: _buildAksesCepatCard(
+                  icon: Icons.calendar_month,
+                  title: 'Jadwal\nKegiatan',
+                  onTap: () => _onItemTapped(3),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: _buildAksesCepatCard(
+                  icon: Icons.school,
+                  title: 'Ilmu\nBermanfaat',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const TutorialIbadahPage()),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildAksesCepatCard({
+    required IconData icon,
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    const primaryGreen = Color(0xFF13A884);
+    
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+        decoration: BoxDecoration(
+          color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: isDarkMode ? Colors.black.withOpacity(0.15) : Colors.black.withOpacity(0.04),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Column(
+          children: [
+            Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                color: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                icon,
+                color: primaryGreen,
+                size: 20,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+                height: 1.3,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildKutipanInspiratifSection() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    const primaryGreen = Color(0xFF13A884);
+    
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        decoration: BoxDecoration(
+          color: isDarkMode ? const Color(0xFF132A24) : const Color(0xFFEAF4F1),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Kutipan Inspiratif',
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                      color: primaryGreen,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '“',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: primaryGreen,
+                          height: 0.9,
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: Text(
+                          '"ilmu tanpa amal ibarat pohon tanpa buah,\ndan amal tanpa ilmu ibarat perjalanan tanpa arah."',
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w500,
+                            color: isDarkMode ? Colors.white.withOpacity(0.8) : const Color(0xFF2D3436),
+                            height: 1.4,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Text(
+                      '- Imam Al-Ghazali',
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                        color: primaryGreen,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 8),
+            SizedBox(
+              width: 90,
+              height: 80,
+              child: CustomPaint(
+                painter: LanternPainter(color: primaryGreen),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildVideoTutorialSection() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    const primaryGreen = Color(0xFF13A884);
+    
+    final videos = [
+      {
+        'title': 'Boleh Menangis Saat Kehilangan, Asalkan Tidak Melakukan Satu Hal Ini',
+        'category': 'Syariah & Ubudiyah',
+        'duration': '10:09',
+        'videoId': 'R_l-4uV5a84',
+      },
+      {
+        'title': 'Medis yang Terlupakan: Rufaidah Al-Aslamiyah, Pelopor Keperawatan Modern',
+        'category': 'Peradaban',
+        'duration': '07:19',
+        'videoId': 'kYv9N-6c_l4',
+      },
+      {
+        'title': 'Tata Cara Wudhu yang Benar Sesuai Sunnah Nabi SAW',
+        'category': 'Syariah & Ubudiyah',
+        'duration': '15:34',
+        'videoId': 'zcp9XMZz5ac',
+      },
+      {
+        'title': 'Serial Fiqh Eps 5: Tata Cara Berwudhu yang Benar',
+        'category': 'Syariah & Ubudiyah',
+        'duration': '08:42',
+        'videoId': '_aaCzur4jFM',
+      },
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const TutorialIbadahPage()),
+              );
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      width: 4,
+                      height: 18,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFB85C38),
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      'Video',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: isDarkMode ? Colors.white : const Color(0xFF1E1E1E),
+                      ),
+                    ),
+                  ],
+                ),
+                Icon(
+                  Icons.chevron_right,
+                  color: isDarkMode ? Colors.white54 : Colors.black54,
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 4),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Row(
+            children: [
+              ...videos.map((vid) {
+                final videoId = vid['videoId']!;
+                final videoUrl = 'https://www.youtube.com/watch?v=$videoId';
+                
+                return Padding(
+                  padding: const EdgeInsets.only(right: 16, bottom: 8),
+                  child: GestureDetector(
+                    onTap: () async {
+                      final Uri uri = Uri.parse(videoUrl);
+                      if (await canLaunchUrl(uri)) {
+                        await launchUrl(uri, mode: LaunchMode.externalApplication);
+                      } else {
+                        if (!mounted) return;
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('Tidak dapat membuka link: $videoUrl')),
+                        );
+                      }
+                    },
+                    child: Container(
+                      width: 160,
+                      height: 175,
+                      decoration: BoxDecoration(
+                        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: isDarkMode ? Colors.black.withOpacity(0.2) : Colors.black.withOpacity(0.05),
+                            blurRadius: 6,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+                                child: Image.network(
+                                  'https://img.youtube.com/vi/$videoId/mqdefault.jpg',
+                                  height: 95,
+                                  width: 160,
+                                  fit: BoxFit.cover,
+                                  errorBuilder: (context, error, stackTrace) => Container(
+                                    height: 95,
+                                    width: 160,
+                                    decoration: const BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [Color(0xFF0F5A47), Color(0xFF13A884)],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
+                                    ),
+                                    child: const Center(
+                                      child: Icon(Icons.play_circle_fill, color: Colors.white, size: 36),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                right: 8,
+                                bottom: 8,
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                  decoration: BoxDecoration(
+                                    color: Colors.black.withOpacity(0.7),
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                  child: Text(
+                                    vid['duration']!,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 9,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  vid['category']!,
+                                  style: TextStyle(
+                                    fontSize: 9,
+                                    color: isDarkMode ? Colors.white54 : Colors.grey[600],
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  vid['title']!,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.bold,
+                                    color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+                                    height: 1.3,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              }),
+              Padding(
+                padding: const EdgeInsets.only(right: 8, bottom: 8),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const TutorialIbadahPage()),
+                    );
+                  },
+                  child: SizedBox(
+                    width: 100,
+                    height: 175,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 44,
+                          height: 44,
+                          decoration: BoxDecoration(
+                            color: primaryGreen,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: primaryGreen.withOpacity(0.3),
+                                blurRadius: 8,
+                                offset: const Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: const Icon(
+                            Icons.chevron_right,
+                            color: Colors.white,
+                            size: 24,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          'Lihat Semua',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildAgendaTerdekatSection() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    const primaryGreen = Color(0xFF13A884);
+    
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Agenda Terdekat',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+                ),
+              ),
+              TextButton(
+                onPressed: () => _onItemTapped(3),
+                style: TextButton.styleFrom(
+                  minimumSize: Size.zero,
+                  padding: EdgeInsets.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                child: const Text('Lihat Semua', style: TextStyle(color: primaryGreen, fontSize: 13)),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 12),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: GestureDetector(
+            onTap: () => _onItemTapped(3),
+            child: Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: isDarkMode ? Colors.black.withOpacity(0.15) : Colors.black.withOpacity(0.04),
+                    blurRadius: 10,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    width: 56,
+                    height: 56,
+                    decoration: BoxDecoration(
+                      color: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '25',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: primaryGreen,
+                            height: 1.1,
+                          ),
+                        ),
+                        Text(
+                          'MEI 2024',
+                          style: TextStyle(
+                            fontSize: 8,
+                            fontWeight: FontWeight.bold,
+                            color: primaryGreen,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Kajian Rutin Sabtu Pagi',
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                            color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Row(
+                          children: [
+                            Icon(Icons.access_time, size: 12, color: isDarkMode ? Colors.white54 : Colors.grey[600]),
+                            const SizedBox(width: 4),
+                            Text(
+                              '08.00 - 10.00 WIB',
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: isDarkMode ? Colors.white54 : Colors.grey[600],
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 2),
+                        Row(
+                          children: [
+                            Icon(Icons.location_on, size: 12, color: isDarkMode ? Colors.white54 : Colors.grey[600]),
+                            const SizedBox(width: 4),
+                            Text(
+                              'Aula MMU Ulul Maqam',
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: isDarkMode ? Colors.white54 : Colors.grey[600],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: isDarkMode ? const Color(0xFF0F362C) : const Color(0xFFE8F5F1),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: const Text(
+                      'Akan Datang',
+                      style: TextStyle(
+                        fontSize: 9,
+                        fontWeight: FontWeight.bold,
+                        color: primaryGreen,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildPhotoIllustration(String assetPath) {
+    return Container(
+      width: 95,
+      height: 90,
+      margin: const EdgeInsets.only(left: 8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.white, width: 2),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.15),
+            blurRadius: 6,
+            offset: const Offset(2, 2),
+          ),
+        ],
+        image: DecorationImage(
+          image: AssetImage(assetPath),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildZakatBannerIllustration() {
+    return _buildPhotoIllustration('assets/images/banner_staff.jpg');
+  }
+
+  Widget _buildBsnBannerIllustration() {
+    return _buildPhotoIllustration('assets/images/banner_group_teal.jpg');
+  }
+
+  Widget _buildArticleBannerIllustration() {
+    return _buildPhotoIllustration('assets/images/banner_male_students.jpg');
+  }
+
+  Widget _buildPrayerBannerIllustration() {
+    return _buildPhotoIllustration('assets/images/banner_female_students.jpg');
+  }
+
+  Widget _buildZakatBanner() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 6),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [
+            Color(0xFF0F5A47),
+            Color(0xFF13A884),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.08),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: const Text(
+                          'DEWAN GURU',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 8,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        'MMU Ulul Maqam',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.8),
+                          fontSize: 8,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  const Text(
+                    'Ustadz & Ustadzah',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    'Para pendidik dan pengabdi yang mengajar dengan keikhlasan di Madrasah Miftahul Ulum Ulul Maqam.',
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.9),
+                      fontSize: 9,
+                      height: 1.2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            _buildZakatBannerIllustration(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBsnBanner() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 6),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [
+            Color(0xFF7CA695),
+            Color(0xFFA5C2B4),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.08),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: const Text(
+                          'IKSAUMA',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 8,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        'Ikatan Santri Ulul Maqam',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.8),
+                          fontSize: 8,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  const Text(
+                    'BUKBER (Buka Bersama)',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    'Menjalin ukhuwah dan kebersamaan dalam indahnya berbagi di bulan suci.',
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.9),
+                      fontSize: 9,
+                      height: 1.2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            _buildBsnBannerIllustration(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildArticleBanner() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 6),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [
+            Color(0xFFE07A5F),
+            Color(0xFFF4A261),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.08),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: const Text(
+                          'IKSAUMA',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 8,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        'Ikatan Santri Ulul Maqam',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.8),
+                          fontSize: 8,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  const Text(
+                    'IKSAUMA Putra',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    'Wadah silaturahmi, kreasi, dan ukhuwah santri putra Yayasan Pendidikan El-Maqam.',
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.9),
+                      fontSize: 9,
+                      height: 1.2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            _buildArticleBannerIllustration(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPrayerBanner() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 6),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [
+            Color(0xFF264653),
+            Color(0xFF2A9D8F),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.08),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: const Text(
+                          'IKSAUMA',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 8,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        'Ikatan Santri Ulul Maqam',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.8),
+                          fontSize: 8,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  const Text(
+                    'IKSAUMA Putri',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    'Wadah silaturahmi, kreasi, dan ukhuwah santriwati Yayasan Pendidikan El-Maqam.',
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.9),
+                      fontSize: 9,
+                      height: 1.2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            _buildPrayerBannerIllustration(),
+          ],
+        ),
+      ),
+    );
+  }
+
+}
+
+class GlobalSearchModal extends StatefulWidget {
+  const GlobalSearchModal({super.key});
+
+  @override
+  State<GlobalSearchModal> createState() => _GlobalSearchModalState();
+}
+
+class _GlobalSearchModalState extends State<GlobalSearchModal> {
+  final TextEditingController _searchController = TextEditingController();
+  final ArticleService _articleService = ArticleService();
+  String _query = '';
+  String _activeTab = 'Semua';
+  List<DoaModel> _filteredDoas = [];
+  List<WiridCategory> _filteredWirids = [];
+  List<Article> _filteredArticles = [];
+  bool _isLoadingArticles = false;
+  Timer? _debounce;
+
+  @override
+  void initState() {
+    super.initState();
+    _searchController.addListener(_onSearchChanged);
+  }
+
+  @override
+  void dispose() {
+    _searchController.removeListener(_onSearchChanged);
+    _searchController.dispose();
+    _debounce?.cancel();
+    super.dispose();
+  }
+
+  void _onSearchChanged() {
+    if (_debounce?.isActive ?? false) _debounce!.cancel();
+    _debounce = Timer(const Duration(milliseconds: 350), () {
+      final q = _searchController.text.trim();
+      if (q != _query) {
+        setState(() {
+          _query = q;
+        });
+        _performSearch();
+      }
+    });
+  }
+
+  Future<void> _performSearch() async {
+    if (_query.isEmpty) {
+      setState(() {
+        _filteredDoas = [];
+        _filteredWirids = [];
+        _filteredArticles = [];
+      });
+      return;
+    }
+
+    final lowerQuery = _query.toLowerCase();
+
+    final matchingDoas = DoaData.listDoaHarian.where((doa) {
+      return doa.title.toLowerCase().contains(lowerQuery) ||
+             doa.translation.toLowerCase().contains(lowerQuery) ||
+             doa.arabic.contains(_query);
+    }).toList();
+
+    final matchingWirids = wiridData.where((category) {
+      final titleMatch = category.title.toLowerCase().contains(lowerQuery);
+      final subtitleMatch = category.subtitle.toLowerCase().contains(lowerQuery);
+      final itemsMatch = category.items.any((item) =>
+          item.arabic.contains(_query) ||
+          item.latin.toLowerCase().contains(lowerQuery) ||
+          item.translation.toLowerCase().contains(lowerQuery));
+      return titleMatch || subtitleMatch || itemsMatch;
+    }).toList();
+
+    setState(() {
+      _filteredDoas = matchingDoas;
+      _filteredWirids = matchingWirids;
+    });
+
+    setState(() {
+      _isLoadingArticles = true;
+    });
+
+    try {
+      final result = await _articleService.getArticles('fir', query: _query);
+      var articles = result['articles'] as List<Article>? ?? [];
+      
+      if (articles.isEmpty) {
+        final resultKs = await _articleService.getArticles('ks', query: _query);
+        articles = resultKs['articles'] as List<Article>? ?? [];
+      }
+
+      if (mounted) {
+        setState(() {
+          _filteredArticles = articles;
+          _isLoadingArticles = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _isLoadingArticles = false;
+        });
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    const primaryGreen = Color(0xFF13A884);
+    
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.85,
+      decoration: BoxDecoration(
+        color: isDarkMode ? const Color(0xFF121212) : Colors.white,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(24),
+          topRight: Radius.circular(24),
+        ),
+      ),
+      padding: EdgeInsets.only(
+        top: 16,
+        left: 16,
+        right: 16,
+        bottom: MediaQuery.of(context).viewInsets.bottom + 16,
+      ),
+      child: Column(
+        children: [
+          Center(
+            child: Container(
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: isDarkMode ? Colors.white24 : Colors.grey[300],
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: isDarkMode ? const Color(0xFF1E1E1E) : const Color(0xFFF2F4F5),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: TextField(
+                    controller: _searchController,
+                    autofocus: true,
+                    style: TextStyle(
+                      color: isDarkMode ? Colors.white : Colors.black87,
+                      fontSize: 15,
+                    ),
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: isDarkMode ? Colors.white60 : Colors.grey[600],
+                      ),
+                      suffixIcon: _searchController.text.isNotEmpty
+                          ? IconButton(
+                              icon: const Icon(Icons.clear, size: 18),
+                              onPressed: () {
+                                _searchController.clear();
+                                setState(() {
+                                  _query = '';
+                                  _filteredDoas = [];
+                                  _filteredWirids = [];
+                                  _filteredArticles = [];
+                                });
+                              },
+                            )
+                          : null,
+                      hintText: 'Cari doa, wirid, artikel...',
+                      hintStyle: TextStyle(
+                        color: isDarkMode ? Colors.white38 : Colors.grey[500],
+                        fontSize: 15,
+                      ),
+                      border: InputBorder.none,
+                      contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text(
+                  'Batal',
+                  style: TextStyle(
+                    color: primaryGreen,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                _buildTabButton('Semua'),
+                _buildTabButton('Doa'),
+                _buildTabButton('Wirid'),
+                _buildTabButton('Artikel'),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
+          Expanded(
+            child: _query.isEmpty
+                ? _buildEmptyState('Ketik kata kunci untuk memulai pencarian')
+                : _buildResultsList(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTabButton(String name) {
+    final isSelected = _activeTab == name;
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    const primaryGreen = Color(0xFF13A884);
+    return Padding(
+      padding: const EdgeInsets.only(right: 8),
+      child: ChoiceChip(
+        label: Text(
+          name,
+          style: TextStyle(
+            color: isSelected
+                ? Colors.white
+                : (isDarkMode ? Colors.white70 : Colors.black87),
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+            fontSize: 13,
+          ),
+        ),
+        selected: isSelected,
+        onSelected: (selected) {
+          if (selected) {
+            setState(() {
+              _activeTab = name;
+            });
+          }
+        },
+        selectedColor: primaryGreen,
+        backgroundColor: isDarkMode ? const Color(0xFF1E1E1E) : const Color(0xFFF2F4F5),
+        checkmarkColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 6),
+      ),
+    );
+  }
+
+  Widget _buildEmptyState(String message) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.search_off_outlined,
+              size: 48,
+              color: isDarkMode ? Colors.white24 : Colors.grey[400],
+            ),
+            const SizedBox(height: 12),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: isDarkMode ? Colors.white54 : Colors.grey[600],
+                fontSize: 14,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildResultsList() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    
+    final showDoa = _activeTab == 'Semua' || _activeTab == 'Doa';
+    final showWirid = _activeTab == 'Semua' || _activeTab == 'Wirid';
+    final showArticles = _activeTab == 'Semua' || _activeTab == 'Artikel';
+
+    final List<Widget> listItems = [];
+
+    if (showDoa && _filteredDoas.isNotEmpty) {
+      listItems.add(_buildHeader('Doa Harian (${_filteredDoas.length})'));
+      for (final doa in _filteredDoas) {
+        listItems.add(_buildDoaRow(doa));
+      }
+    }
+
+    if (showWirid && _filteredWirids.isNotEmpty) {
+      listItems.add(_buildHeader('Wirid (${_filteredWirids.length})'));
+      for (final category in _filteredWirids) {
+        listItems.add(_buildWiridRow(category));
+      }
+    }
+
+    if (showArticles) {
+      if (_isLoadingArticles) {
+        listItems.add(
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 24),
+            child: Center(
+              child: CircularProgressIndicator(color: Color(0xFF13A884)),
+            ),
+          ),
+        );
+      } else if (_filteredArticles.isNotEmpty) {
+        listItems.add(_buildHeader('Artikel (${_filteredArticles.length})'));
+        for (final article in _filteredArticles) {
+          listItems.add(_buildArticleRow(article));
+        }
+      }
+    }
+
+    if (listItems.isEmpty) {
+      if (_isLoadingArticles && _activeTab == 'Artikel') {
+        return const Center(
+          child: CircularProgressIndicator(color: Color(0xFF13A884)),
+        );
+      }
+      return _buildEmptyState('Tidak ada hasil ditemukan untuk "$_query"');
+    }
+
+    return ListView.separated(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      itemCount: listItems.length,
+      separatorBuilder: (context, index) {
+        if (listItems[index] is _HeaderWidget || (index + 1 < listItems.length && listItems[index + 1] is _HeaderWidget)) {
+          return const SizedBox.shrink();
+        }
+        return Divider(
+          color: isDarkMode ? Colors.white10 : Colors.grey[200],
+          height: 1,
+        );
+      },
+      itemBuilder: (context, index) => listItems[index],
+    );
+  }
+
+  Widget _buildHeader(String title) {
+    return _HeaderWidget(title: title);
+  }
+
+  Widget _buildDoaRow(DoaModel doa) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return ListTile(
+      leading: Container(
+        width: 36,
+        height: 36,
+        decoration: BoxDecoration(
+          color: isDarkMode ? const Color(0xFF1F2E2A) : const Color(0xFFE8F5F1),
+          shape: BoxShape.circle,
+        ),
+        child: const Icon(Icons.bookmark_border, color: Color(0xFF13A884), size: 18),
+      ),
+      title: Text(
+        doa.title,
+        style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+      ),
+      subtitle: Text(
+        doa.translation,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(fontSize: 12, color: isDarkMode ? Colors.white54 : Colors.grey[600]),
+      ),
+      trailing: const Icon(Icons.arrow_forward_ios, size: 12, color: Colors.grey),
+      onTap: () {
+        Navigator.pop(context);
+        final idx = DoaData.listDoaHarian.indexOf(doa);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DoaDetailPage(
+              doa: doa,
+              doaList: DoaData.listDoaHarian,
+              currentIndex: idx >= 0 ? idx : 0,
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildWiridRow(WiridCategory category) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return ListTile(
+      leading: Container(
+        width: 36,
+        height: 36,
+        decoration: BoxDecoration(
+          color: isDarkMode ? const Color(0xFF1F2E2A) : const Color(0xFFE8F5F1),
+          shape: BoxShape.circle,
+        ),
+        child: const Icon(Icons.menu_book, color: Color(0xFF13A884), size: 18),
+      ),
+      title: Text(
+        category.title,
+        style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+      ),
+      subtitle: Text(
+        category.subtitle,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(fontSize: 12, color: isDarkMode ? Colors.white54 : Colors.grey[600]),
+      ),
+      trailing: const Icon(Icons.arrow_forward_ios, size: 12, color: Colors.grey),
+      onTap: () {
+        Navigator.pop(context);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => WiridDetailPage(category: category),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildArticleRow(Article article) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return ListTile(
+      leading: ClipRRect(
+        borderRadius: BorderRadius.circular(6),
+        child: article.thumbnail.isNotEmpty
+            ? Image.network(
+                article.thumbnail,
+                width: 36,
+                height: 36,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) => Container(
+                  width: 36,
+                  height: 36,
+                  color: const Color(0xFFE8F5F1),
+                  child: const Icon(Icons.article_outlined, color: Color(0xFF13A884), size: 18),
+                ),
+              )
+            : Container(
+                width: 36,
+                height: 36,
+                color: const Color(0xFFE8F5F1),
+                child: const Icon(Icons.article_outlined, color: Color(0xFF13A884), size: 18),
+              ),
+      ),
+      title: Text(
+        article.title,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+        style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13, height: 1.3),
+      ),
+      subtitle: Text(
+        article.contentSnippet,
+        style: TextStyle(fontSize: 11, color: isDarkMode ? Colors.white54 : Colors.grey[500]),
+      ),
+      trailing: const Icon(Icons.arrow_forward_ios, size: 12, color: Colors.grey),
+      onTap: () {
+        Navigator.pop(context);
+        final portalId = article.type.isNotEmpty ? article.type : (article.url.contains('firanda') ? 'fir' : 'ks');
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ArticleDetailPage(
+              portalId: portalId,
+              articleId: article.id,
+              articleTitle: article.title,
+              articleUrl: article.url,
+              articleSource: portalId == 'fir' ? 'Firanda.com' : 'Konsultasi Syariah',
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _HeaderWidget extends StatelessWidget {
+  final String title;
+  const _HeaderWidget({required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return Container(
+      width: double.infinity,
+      color: isDarkMode ? const Color(0xFF1A1A1A) : Colors.grey[50],
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Text(
+        title,
+        style: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.bold,
+          color: isDarkMode ? Colors.white60 : Colors.grey[700],
+          letterSpacing: 0.5,
+        ),
+      ),
+    );
+  }
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -1882,6 +3515,167 @@ class QuranIconPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
+
+class LanternPainter extends CustomPainter {
+  final Color color;
+  LanternPainter({required this.color});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+    
+    final double lCenterX = w * 0.65;
+    final double lCenterY = h * 0.55;
+    final double lWidth = w * 0.30;
+    final double lHeight = h * 0.60;
+    
+    final paintLantern = Paint()
+      ..color = color
+      ..style = PaintingStyle.fill;
+      
+    final paintLanternStroke = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.3;
+
+    final paintGlow = Paint()
+      ..color = const Color(0xFFFFFDF0)
+      ..style = PaintingStyle.fill;
+
+    final paintHighlight = Paint()
+      ..color = const Color(0xFFFFD700)
+      ..style = PaintingStyle.fill;
+
+    // 1. Hanging loop at top
+    canvas.drawCircle(
+      Offset(lCenterX, lCenterY - lHeight * 0.5),
+      lWidth * 0.22,
+      Paint()
+        ..color = color.withOpacity(0.4)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1.5,
+    );
+
+    // 2. Cap/dome
+    final pathCap = Path()
+      ..moveTo(lCenterX - lWidth * 0.4, lCenterY - lHeight * 0.3)
+      ..quadraticBezierTo(lCenterX, lCenterY - lHeight * 0.52, lCenterX + lWidth * 0.4, lCenterY - lHeight * 0.3)
+      ..close();
+    canvas.drawPath(pathCap, paintLantern);
+
+    // 3. Glass body background glow & border
+    final rectBody = Rect.fromLTRB(
+      lCenterX - lWidth * 0.32,
+      lCenterY - lHeight * 0.3,
+      lCenterX + lWidth * 0.32,
+      lCenterY + lHeight * 0.28,
+    );
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(rectBody, Radius.circular(lWidth * 0.15)),
+      paintGlow,
+    );
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(rectBody, Radius.circular(lWidth * 0.15)),
+      paintLanternStroke,
+    );
+
+    // 4. Glowing core
+    canvas.drawCircle(
+      Offset(lCenterX, lCenterY),
+      lWidth * 0.20,
+      Paint()
+        ..color = const Color(0xFFFFE082).withOpacity(0.8)
+        ..style = PaintingStyle.fill
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2),
+    );
+
+    // 5. Vertical lines & arches in glass
+    final archPaint = Paint()
+      ..color = color.withOpacity(0.3)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.0;
+    
+    final pathArch1 = Path()
+      ..moveTo(lCenterX - lWidth * 0.2, lCenterY + lHeight * 0.28)
+      ..lineTo(lCenterX - lWidth * 0.2, lCenterY - lHeight * 0.1)
+      ..quadraticBezierTo(lCenterX, lCenterY - lHeight * 0.25, lCenterX + lWidth * 0.2, lCenterY - lHeight * 0.1)
+      ..lineTo(lCenterX + lWidth * 0.2, lCenterY + lHeight * 0.28);
+    canvas.drawPath(pathArch1, archPaint);
+
+    final pathCenterLine = Path()
+      ..moveTo(lCenterX, lCenterY - lHeight * 0.3)
+      ..lineTo(lCenterX, lCenterY + lHeight * 0.28);
+    canvas.drawPath(pathCenterLine, archPaint);
+
+    // 6. Base
+    final pathBase = Path()
+      ..moveTo(lCenterX - lWidth * 0.45, lCenterY + lHeight * 0.28)
+      ..lineTo(lCenterX + lWidth * 0.45, lCenterY + lHeight * 0.28)
+      ..lineTo(lCenterX + lWidth * 0.35, lCenterY + lHeight * 0.38)
+      ..lineTo(lCenterX - lWidth * 0.35, lCenterY + lHeight * 0.38)
+      ..close();
+    canvas.drawPath(pathBase, paintLantern);
+
+    // 7. Leaf clusters wrapping the base
+    final paintLeafDark = Paint()
+      ..color = const Color(0xFF0F664F)
+      ..style = PaintingStyle.fill;
+    final paintLeafLight = Paint()
+      ..color = const Color(0xFF26A683)
+      ..style = PaintingStyle.fill;
+
+    // Left leaves
+    final pathLeaf1 = Path()
+      ..moveTo(lCenterX - lWidth * 0.5, lCenterY + lHeight * 0.38)
+      ..quadraticBezierTo(lCenterX - lWidth * 1.0, lCenterY + lHeight * 0.2, lCenterX - lWidth * 0.5, lCenterY - lHeight * 0.05)
+      ..quadraticBezierTo(lCenterX - lWidth * 0.2, lCenterY + lHeight * 0.2, lCenterX - lWidth * 0.5, lCenterY + lHeight * 0.38)
+      ..close();
+    canvas.drawPath(pathLeaf1, paintLeafDark);
+
+    final pathLeaf2 = Path()
+      ..moveTo(lCenterX - lWidth * 0.2, lCenterY + lHeight * 0.38)
+      ..quadraticBezierTo(lCenterX - lWidth * 0.6, lCenterY + lHeight * 0.15, lCenterX - lWidth * 0.3, lCenterY - lHeight * 0.12)
+      ..quadraticBezierTo(lCenterX - lWidth * 0.0, lCenterY + lHeight * 0.15, lCenterX - lWidth * 0.2, lCenterY + lHeight * 0.38)
+      ..close();
+    canvas.drawPath(pathLeaf2, paintLeafLight);
+
+    // Right leaves
+    final pathLeaf3 = Path()
+      ..moveTo(lCenterX + lWidth * 0.2, lCenterY + lHeight * 0.38)
+      ..quadraticBezierTo(lCenterX + lWidth * 0.6, lCenterY + lHeight * 0.15, lCenterX + lWidth * 0.3, lCenterY - lHeight * 0.12)
+      ..quadraticBezierTo(lCenterX + lWidth * 0.0, lCenterY + lHeight * 0.15, lCenterX + lWidth * 0.2, lCenterY + lHeight * 0.38)
+      ..close();
+    canvas.drawPath(pathLeaf3, paintLeafLight);
+
+    final pathLeaf4 = Path()
+      ..moveTo(lCenterX + lWidth * 0.5, lCenterY + lHeight * 0.38)
+      ..quadraticBezierTo(lCenterX + lWidth * 1.0, lCenterY + lHeight * 0.2, lCenterX + lWidth * 0.5, lCenterY - lHeight * 0.05)
+      ..quadraticBezierTo(lCenterX + lWidth * 0.2, lCenterY + lHeight * 0.2, lCenterX + lWidth * 0.5, lCenterY + lHeight * 0.38)
+      ..close();
+    canvas.drawPath(pathLeaf4, paintLeafDark);
+
+    // 8. Sparkles
+    _drawStar(canvas, Offset(w * 0.18, h * 0.55), 2.5, paintHighlight);
+    _drawStar(canvas, Offset(w * 0.25, h * 0.28), 4.0, paintHighlight);
+    _drawStar(canvas, Offset(w * 0.32, h * 0.45), 2.0, paintHighlight);
+    _drawStar(canvas, Offset(lCenterX + lWidth * 0.8, lCenterY - lHeight * 0.3), 3.0, paintHighlight);
+  }
+
+  void _drawStar(Canvas canvas, Offset center, double size, Paint paint) {
+    final path = Path()
+      ..moveTo(center.dx, center.dy - size)
+      ..quadraticBezierTo(center.dx, center.dy, center.dx + size, center.dy)
+      ..quadraticBezierTo(center.dx, center.dy, center.dx, center.dy + size)
+      ..quadraticBezierTo(center.dx, center.dy, center.dx - size, center.dy)
+      ..quadraticBezierTo(center.dx, center.dy, center.dx, center.dy - size)
+      ..close();
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
 

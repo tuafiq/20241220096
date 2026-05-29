@@ -124,6 +124,17 @@ class _DoaDetailPageState extends State<DoaDetailPage> {
         backgroundColor: primaryColor,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.white),
+        actions: [
+          IconButton(
+            icon: Icon(
+              settings.isDoaBookmarked(currentDoa.title) ? Icons.bookmark : Icons.bookmark_border,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              settings.toggleDoaBookmark(currentDoa.title);
+            },
+          ),
+        ],
       ),
       body: Column(
         children: [
