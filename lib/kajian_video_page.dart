@@ -5,6 +5,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
 import 'settings_provider.dart';
 import 'settings_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:async';
 
 class KajianVideoPage extends StatefulWidget {
   const KajianVideoPage({super.key});
@@ -18,6 +20,11 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
   String _selectedCategory = 'Semua';
   bool _isPlayingMiniPlayer = true;
   String _videoTextSize = 'Sedang'; // Kecil, Sedang, Besar
+
+  SharedPreferences? _prefs;
+  List<String> _bookmarkedIds = [];
+  List<String> _historyIds = [];
+  List<String> _downloadedIds = [];
 
   double get _localTextScale {
     switch (_videoTextSize) {
@@ -351,6 +358,17 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
     _searchController.addListener(() {
       setState(() {});
     });
+    _initSharedPrefs();
+  }
+
+  Future<void> _initSharedPrefs() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _prefs = prefs;
+      _bookmarkedIds = prefs.getStringList('bookmarked_kajian_videos') ?? [];
+      _historyIds = prefs.getStringList('history_kajian_videos') ?? [];
+      _downloadedIds = prefs.getStringList('downloaded_kajian_videos') ?? [];
+    });
   }
 
   @override
@@ -359,7 +377,234 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
     super.dispose();
   }
 
+  void _addToHistory(String videoId) async {
+    _historyIds.remove(videoId);
+    _historyIds.insert(0, videoId);
+    if (_historyIds.length > 20) {
+      _historyIds = _historyIds.sublist(0, 20);
+    }
+    await _prefs?.setStringList('history_kajian_videos', _historyIds);
+    setState(() {});
+  }
+
+  void _toggleBookmark(String videoId) async {
+    setState(() {
+      if (_bookmarkedIds.contains(videoId)) {
+        _bookmarkedIds.remove(videoId);
+      } else {
+        _bookmarkedIds.add(videoId);
+      }
+    });
+    await _prefs?.setStringList('bookmarked_kajian_videos', _bookmarkedIds);
+  }
+
+  void _startDownloadSimulation(Map<String, String> video) {
+    if (_downloadedIds.contains(video['videoId'])) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Video "${video['title']}" sudah diunduh offline')),
+      );
+      return;
+    }
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        double progress = 0.0;
+        return StatefulBuilder(
+          builder: (context, setStateDialog) {
+            Future.delayed(const Duration(milliseconds: 100), () {
+              if (progress < 1.0) {
+                setStateDialog(() {
+                  progress += 0.05;
+                });
+              } else {
+                Navigator.pop(context);
+                _saveDownload(video['videoId']!);
+              }
+            });
+
+            return AlertDialog(
+              backgroundColor: Theme.of(context).cardColor,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              title: Text(
+                'Mengunduh Kajian...',
+                style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    video['title']!,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: GoogleFonts.poppins(fontSize: 12),
+                  ),
+                  const SizedBox(height: 16),
+                  LinearProgressIndicator(
+                    value: progress,
+                    backgroundColor: Colors.grey[200],
+                    valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF13A884)),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    '${(progress * 100).toInt()}%',
+                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 13, color: const Color(0xFF13A884)),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  void _saveDownload(String videoId) async {
+    if (!_downloadedIds.contains(videoId)) {
+      _downloadedIds.add(videoId);
+      await _prefs?.setStringList('downloaded_kajian_videos', _downloadedIds);
+      setState(() {});
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Video berhasil diunduh ke penyimpanan offline aplikasi')),
+      );
+    }
+  }
+
+  void _showVideoListBottomSheet({
+    required String title,
+    required List<String> videoIds,
+    required String emptyMessage,
+    bool showClearAll = false,
+    VoidCallback? onClearAll,
+  }) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final cardColor = isDarkMode ? const Color(0xFF1E1E1E) : Colors.white;
+    final textColor = isDarkMode ? Colors.white : const Color(0xFF2D3436);
+    final Color subtitleColor = isDarkMode ? Colors.white70 : const Color(0xFF757575);
+
+    final List<Map<String, String>> videos = videoIds.map((id) {
+      return kajianVideos.firstWhere((v) => v['videoId'] == id, orElse: () => {
+        'videoId': id,
+        'title': 'Kajian Islam',
+        'duration': '--:--',
+        'ustadz': 'Ust. Dr. Firanda Andirja, MA',
+        'category': 'Umum'
+      });
+    }).toList();
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: cardColor,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setSheetState) {
+            return Container(
+              padding: const EdgeInsets.all(20),
+              height: MediaQuery.of(context).size.height * 0.5,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        title,
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: textColor,
+                        ),
+                      ),
+                      if (showClearAll && videoIds.isNotEmpty)
+                        TextButton(
+                          onPressed: () {
+                            if (onClearAll != null) {
+                              onClearAll();
+                              setSheetState(() {
+                                videos.clear();
+                              });
+                              Navigator.pop(context);
+                            }
+                          },
+                          child: Text(
+                            'Hapus Semua',
+                            style: GoogleFonts.poppins(color: Colors.red, fontSize: 12, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  if (videos.isEmpty)
+                    Expanded(
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.video_library_outlined, size: 40, color: subtitleColor.withOpacity(0.5)),
+                            const SizedBox(height: 12),
+                            Text(
+                              emptyMessage,
+                              style: GoogleFonts.poppins(color: subtitleColor, fontSize: 12),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  else
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: videos.length,
+                        itemBuilder: (context, index) {
+                          final vid = videos[index];
+                          final videoId = vid['videoId']!;
+                          return ListTile(
+                            contentPadding: EdgeInsets.zero,
+                            leading: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.network(
+                                'https://img.youtube.com/vi/$videoId/mqdefault.jpg',
+                                width: 70,
+                                height: 45,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            title: Text(
+                              vid['title']!,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 12, color: textColor),
+                            ),
+                            subtitle: Text(
+                              vid['ustadz']!,
+                              style: GoogleFonts.poppins(fontSize: 10, color: subtitleColor),
+                            ),
+                            trailing: IconButton(
+                              icon: Icon(Icons.play_arrow_rounded, color: const Color(0xFF13A884)),
+                              onPressed: () {
+                                Navigator.pop(context);
+                                _launchYouTube(videoId);
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
   Future<void> _launchYouTube(String videoId) async {
+    _addToHistory(videoId);
     final url = 'https://www.youtube.com/watch?v=$videoId';
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -776,7 +1021,6 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
     final actions = [
       {'icon': Icons.download_for_offline_outlined, 'label': 'Download'},
       {'icon': Icons.share_outlined, 'label': 'Bagikan'},
-      {'icon': Icons.text_fields_outlined, 'label': 'Ukuran Teks'},
       {'icon': Icons.bookmark_border_outlined, 'label': 'Bookmark'},
       {'icon': Icons.history_outlined, 'label': 'Riwayat'},
       {'icon': Icons.settings_outlined, 'label': 'Pengaturan'},
@@ -797,33 +1041,157 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
             child: InkWell(
               onTap: () {
                 // Action logic
+                final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+                final cardColor = isDarkMode ? const Color(0xFF1E1E1E) : Colors.white;
+                final textColor = isDarkMode ? Colors.white : const Color(0xFF2D3436);
+                final subtitleColor = isDarkMode ? Colors.white70 : Colors.grey[600];
+
                 if (index == 0) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Fitur Download Video sedang disiapkan')),
+                  // Download Bottom Sheet
+                  showModalBottomSheet(
+                    context: context,
+                    backgroundColor: cardColor,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                    ),
+                    builder: (context) {
+                      final isDownloaded = _downloadedIds.contains(_activePlayerVideo['videoId']);
+                      return Container(
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Unduhan Kajian',
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 16, color: textColor),
+                            ),
+                            const SizedBox(height: 16),
+                            ListTile(
+                              leading: Icon(isDownloaded ? Icons.download_done : Icons.download, color: const Color(0xFF13A884)),
+                              title: Text(
+                                isDownloaded ? 'Video Aktif Sudah Diunduh' : 'Unduh Video Aktif Offline',
+                                style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w600, color: textColor),
+                              ),
+                              subtitle: Text(
+                                _activePlayerVideo['title']!,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.poppins(fontSize: 11, color: subtitleColor),
+                              ),
+                              onTap: isDownloaded
+                                  ? null
+                                  : () {
+                                      Navigator.pop(context);
+                                      _startDownloadSimulation(_activePlayerVideo);
+                                    },
+                            ),
+                            const Divider(),
+                            ListTile(
+                              leading: Icon(Icons.folder_zip_outlined, color: const Color(0xFF13A884)),
+                              title: Text(
+                                'Daftar Unduhan Saya (${_downloadedIds.length})',
+                                style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w600, color: textColor),
+                              ),
+                              onTap: () {
+                                Navigator.pop(context);
+                                _showVideoListBottomSheet(
+                                  title: 'Video Hasil Unduhan',
+                                  videoIds: _downloadedIds,
+                                  emptyMessage: 'Belum ada video yang diunduh offline',
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
                   );
                 } else if (index == 1) {
-                  Share.share('Ayo tonton video kajian menarik dan bermanfaat di aplikasi Al-Qur\'an NU!');
+                  // Share active video details
+                  Share.share("Yuk tonton kajian '${_activePlayerVideo['title']}' oleh ${_activePlayerVideo['ustadz']} di YouTube: https://www.youtube.com/watch?v=${_activePlayerVideo['videoId']}");
                 } else if (index == 2) {
-                  // Size
-                  String next = 'Sedang';
-                  if (_videoTextSize == 'Kecil') next = 'Sedang';
-                  else if (_videoTextSize == 'Sedang') next = 'Besar';
-                  else if (_videoTextSize == 'Besar') next = 'Kecil';
-                  setState(() {
-                    _videoTextSize = next;
-                  });
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Ukuran teks kajian diubah ke: $next')),
+                  // Bookmark Bottom Sheet
+                  showModalBottomSheet(
+                    context: context,
+                    backgroundColor: cardColor,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                    ),
+                    builder: (context) {
+                      final isBookmarked = _bookmarkedIds.contains(_activePlayerVideo['videoId']);
+                      return Container(
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Bookmark Kajian',
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 16, color: textColor),
+                            ),
+                            const SizedBox(height: 16),
+                            ListTile(
+                              leading: Icon(isBookmarked ? Icons.bookmark : Icons.bookmark_border, color: const Color(0xFF13A884)),
+                              title: Text(
+                                isBookmarked ? 'Hapus dari Bookmark' : 'Tambah Video Aktif ke Bookmark',
+                                style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w600, color: textColor),
+                              ),
+                              subtitle: Text(
+                                _activePlayerVideo['title']!,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.poppins(fontSize: 11, color: subtitleColor),
+                              ),
+                              onTap: () {
+                                Navigator.pop(context);
+                                _toggleBookmark(_activePlayerVideo['videoId']!);
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      isBookmarked
+                                          ? 'Dihapus dari Bookmark'
+                                          : 'Berhasil ditambahkan ke Bookmark',
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                            const Divider(),
+                            ListTile(
+                              leading: Icon(Icons.collections_bookmark_outlined, color: const Color(0xFF13A884)),
+                              title: Text(
+                                'Daftar Bookmark Saya (${_bookmarkedIds.length})',
+                                style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w600, color: textColor),
+                              ),
+                              onTap: () {
+                                Navigator.pop(context);
+                                _showVideoListBottomSheet(
+                                  title: 'Kajian yang Dibookmark',
+                                  videoIds: _bookmarkedIds,
+                                  emptyMessage: 'Belum ada kajian yang disimpan di bookmark',
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
                   );
                 } else if (index == 3) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Bookmark Video berhasil disimpan')),
+                  // Riwayat Bottom Sheet
+                  _showVideoListBottomSheet(
+                    title: 'Riwayat Tontonan',
+                    videoIds: _historyIds,
+                    emptyMessage: 'Belum ada riwayat tontonan video',
+                    showClearAll: true,
+                    onClearAll: () async {
+                      _historyIds.clear();
+                      await _prefs?.setStringList('history_kajian_videos', []);
+                      setState(() {});
+                    },
                   );
                 } else if (index == 4) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Menampilkan riwayat tontonan kajian')),
-                  );
-                } else if (index == 5) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const SettingsPage()),
