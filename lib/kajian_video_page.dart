@@ -25,6 +25,9 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
   List<String> _bookmarkedIds = [];
   List<String> _historyIds = [];
   List<String> _downloadedIds = [];
+  bool _autoplayMiniPlayer = true;
+  String _preferredQuality = 'Standar (480p)';
+  double _defaultPlaybackSpeed = 1.0;
 
   double get _localTextScale {
     switch (_videoTextSize) {
@@ -368,6 +371,9 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
       _bookmarkedIds = prefs.getStringList('bookmarked_kajian_videos') ?? [];
       _historyIds = prefs.getStringList('history_kajian_videos') ?? [];
       _downloadedIds = prefs.getStringList('downloaded_kajian_videos') ?? [];
+      _autoplayMiniPlayer = prefs.getBool('video_autoplay_miniplayer') ?? true;
+      _preferredQuality = prefs.getString('video_quality') ?? 'Standar (480p)';
+      _defaultPlaybackSpeed = prefs.getDouble('video_playback_speed') ?? 1.0;
     });
   }
 
@@ -1192,10 +1198,7 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
                     },
                   );
                 } else if (index == 4) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const SettingsPage()),
-                  );
+                  _showVideoSettingsBottomSheet();
                 }
               },
               child: Column(
@@ -1232,6 +1235,370 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
           );
         },
       ),
+    );
+  }
+
+  void _clearAllHistory() async {
+    setState(() {
+      _historyIds.clear();
+    });
+    await _prefs?.setStringList('history_kajian_videos', []);
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Riwayat tontonan berhasil dibersihkan')),
+    );
+  }
+
+  void _clearAllBookmarks() async {
+    setState(() {
+      _bookmarkedIds.clear();
+    });
+    await _prefs?.setStringList('bookmarked_kajian_videos', []);
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Semua bookmark video berhasil dihapus')),
+    );
+  }
+
+  void _clearAllDownloads() async {
+    setState(() {
+      _downloadedIds.clear();
+    });
+    await _prefs?.setStringList('downloaded_kajian_videos', []);
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Semua unduhan offline berhasil dihapus')),
+    );
+  }
+
+  void _showQualitySelectionDialog(BuildContext context, StateSetter parentSetState) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final cardColor = isDarkMode ? const Color(0xFF1E1E1E) : Colors.white;
+    final textColor = isDarkMode ? Colors.white : const Color(0xFF2D3436);
+    
+    final qualities = ['Hemat Data (360p)', 'Standar (480p)', 'Kualitas Tinggi (720p)', 'Full HD (1080p)', 'Otomatis'];
+    
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: cardColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: Text(
+            'Kualitas Putar default',
+            style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 15, color: textColor),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: qualities.map((q) {
+              return RadioListTile<String>(
+                title: Text(q, style: GoogleFonts.poppins(fontSize: 13, color: textColor)),
+                value: q,
+                groupValue: _preferredQuality,
+                activeColor: const Color(0xFF13A884),
+                contentPadding: EdgeInsets.zero,
+                onChanged: (val) async {
+                  if (val != null) {
+                    setState(() {
+                      _preferredQuality = val;
+                    });
+                    parentSetState(() {
+                      _preferredQuality = val;
+                    });
+                    await _prefs?.setString('video_quality', val);
+                    Navigator.pop(context);
+                  }
+                },
+              );
+            }).toList(),
+          ),
+        );
+      },
+    );
+  }
+
+  void _showPlaybackSpeedSelectionDialog(BuildContext context, StateSetter parentSetState) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final cardColor = isDarkMode ? const Color(0xFF1E1E1E) : Colors.white;
+    final textColor = isDarkMode ? Colors.white : const Color(0xFF2D3436);
+    
+    final speeds = [0.75, 1.0, 1.25, 1.5, 2.0];
+    
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: cardColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: Text(
+            'Kecepatan Putar default',
+            style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 15, color: textColor),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: speeds.map((s) {
+              return RadioListTile<double>(
+                title: Text('${s}x', style: GoogleFonts.poppins(fontSize: 13, color: textColor)),
+                value: s,
+                groupValue: _defaultPlaybackSpeed,
+                activeColor: const Color(0xFF13A884),
+                contentPadding: EdgeInsets.zero,
+                onChanged: (val) async {
+                  if (val != null) {
+                    setState(() {
+                      _defaultPlaybackSpeed = val;
+                    });
+                    parentSetState(() {
+                      _defaultPlaybackSpeed = val;
+                    });
+                    await _prefs?.setDouble('video_playback_speed', val);
+                    Navigator.pop(context);
+                  }
+                },
+              );
+            }).toList(),
+          ),
+        );
+      },
+    );
+  }
+
+  void _confirmClearDataDialog(
+    BuildContext context,
+    String title,
+    String message,
+    VoidCallback onConfirmed,
+  ) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final cardColor = isDarkMode ? const Color(0xFF1E1E1E) : Colors.white;
+    final textColor = isDarkMode ? Colors.white : const Color(0xFF2D3436);
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: cardColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: Text(
+            title,
+            style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 15, color: textColor),
+          ),
+          content: Text(
+            message,
+            style: GoogleFonts.poppins(fontSize: 13, color: textColor),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text(
+                'Batal',
+                style: GoogleFonts.poppins(fontSize: 13, color: Colors.grey),
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.redAccent,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+                onConfirmed();
+              },
+              child: Text(
+                'Hapus',
+                style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.white),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showVideoSettingsBottomSheet() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final cardColor = isDarkMode ? const Color(0xFF1E1E1E) : Colors.white;
+    final textColor = isDarkMode ? Colors.white : const Color(0xFF2D3436);
+    final subtitleColor = isDarkMode ? Colors.white70 : Colors.grey[600];
+    final primaryGreen = const Color(0xFF13A884);
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: cardColor,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setSheetState) {
+            return Padding(
+              padding: EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 20,
+                bottom: MediaQuery.of(context).viewInsets.bottom + 20,
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Container(
+                        width: 40,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          color: isDarkMode ? Colors.white24 : Colors.grey[300],
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Pengaturan Kajian Video',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: textColor,
+                          ),
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.close),
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      'Pemutaran Video',
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                        color: primaryGreen,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    SwitchListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: Text(
+                        'Autoplay Mini Player',
+                        style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.bold, color: textColor),
+                      ),
+                      subtitle: Text(
+                        'Memutar video otomatis ketika diklik dari daftar',
+                        style: GoogleFonts.poppins(fontSize: 11, color: subtitleColor),
+                      ),
+                      value: _autoplayMiniPlayer,
+                      activeColor: primaryGreen,
+                      onChanged: (val) async {
+                        setState(() {
+                          _autoplayMiniPlayer = val;
+                        });
+                        setSheetState(() {
+                          _autoplayMiniPlayer = val;
+                        });
+                        await _prefs?.setBool('video_autoplay_miniplayer', val);
+                      },
+                    ),
+                    const Divider(),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: Text(
+                        'Kualitas Putar default',
+                        style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.bold, color: textColor),
+                      ),
+                      subtitle: Text(
+                        _preferredQuality,
+                        style: GoogleFonts.poppins(fontSize: 11, color: subtitleColor),
+                      ),
+                      trailing: const Icon(Icons.arrow_forward_ios, size: 14),
+                      onTap: () {
+                        _showQualitySelectionDialog(context, setSheetState);
+                      },
+                    ),
+                    const Divider(),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: Text(
+                        'Kecepatan Putar default',
+                        style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.bold, color: textColor),
+                      ),
+                      subtitle: Text(
+                        '${_defaultPlaybackSpeed}x',
+                        style: GoogleFonts.poppins(fontSize: 11, color: subtitleColor),
+                      ),
+                      trailing: const Icon(Icons.arrow_forward_ios, size: 14),
+                      onTap: () {
+                        _showPlaybackSpeedSelectionDialog(context, setSheetState);
+                      },
+                    ),
+                    const SizedBox(height: 20),
+                    Text(
+                      'Penyimpanan & Data',
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                        color: primaryGreen,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.history, color: Colors.redAccent),
+                      title: Text(
+                        'Hapus Semua Riwayat',
+                        style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w600, color: textColor),
+                      ),
+                      onTap: () {
+                        _confirmClearDataDialog(
+                          context,
+                          'Hapus Riwayat',
+                          'Apakah Anda yakin ingin menghapus semua riwayat tontonan kajian video?',
+                          _clearAllHistory,
+                        );
+                      },
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.bookmark_remove, color: Colors.redAccent),
+                      title: Text(
+                        'Hapus Semua Bookmark',
+                        style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w600, color: textColor),
+                      ),
+                      onTap: () {
+                        _confirmClearDataDialog(
+                          context,
+                          'Hapus Bookmark',
+                          'Apakah Anda yakin ingin menghapus semua bookmark video kajian?',
+                          _clearAllBookmarks,
+                        );
+                      },
+                    ),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.delete_sweep, color: Colors.redAccent),
+                      title: Text(
+                        'Hapus Semua Unduhan Offline',
+                        style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w600, color: textColor),
+                      ),
+                      onTap: () {
+                        _confirmClearDataDialog(
+                          context,
+                          'Hapus Unduhan',
+                          'Apakah Anda yakin ingin menghapus semua file unduhan kajian offline?',
+                          _clearAllDownloads,
+                        );
+                      },
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 
@@ -1932,12 +2299,15 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
             borderRadius: BorderRadius.circular(16),
             child: InkWell(
               onTap: () {
-                // Set as active player video
                 setState(() {
                   _activePlayerVideo = vid;
-                  _isPlayingMiniPlayer = true;
+                  _isPlayingMiniPlayer = _autoplayMiniPlayer;
                 });
-                _launchYouTube(videoId);
+                if (_autoplayMiniPlayer) {
+                  _launchYouTube(videoId);
+                } else {
+                  _addToHistory(videoId);
+                }
               },
               child: Row(
                 children: [
