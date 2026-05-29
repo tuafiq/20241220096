@@ -134,6 +134,26 @@ class _HomePageState extends State<HomePage> {
   int _lastReadVerse = 0;
   int _lastReadSurahNumber = 0;
 
+  // Daily inspirational quotes list
+  final List<String> _dailyQuotes = [
+    "Ilmu itu cahaya, dan amal adalah pelita yang menuntun ke jalan yang benar.",
+    "Bersihkan hati dari riya, karena keikhlasan adalah kunci pahala yang abadi.",
+    "Setiap napas adalah kesempatan untuk mengingat Allah dan memperbaiki diri.",
+    "Cinta kepada Allah menumbuhkan rasa tanggung jawab terhadap ciptaan-Nya, termasuk lingkungan.",
+    "Kesabaran dalam ujian adalah bekal terkuat bagi jiwa yang ingin mendekatkan diri pada-Nya.",
+    "Berbagi ilmu adalah menebar benih kebaikan yang akan tumbuh subur di masa depan.",
+    "Hidup sederhana meminimalisir dampak pada bumi, sekaligus menumbuhkan rasa syukur.",
+    "Doa adalah senjata utama dalam melawan hawa nafsu dan menjaga keseimbangan hidup.",
+    "Berdoa untuk lingkungan adalah doa untuk generasi yang akan datang.",
+    "Keberanian menghadapi tantangan hidup adalah iman yang teruji dalam tindakan.",
+  ];
+
+  // Getter for today's inspirational quote
+  String get _todayQuote {
+    final int index = DateTime.now().day % _dailyQuotes.length;
+    return _dailyQuotes[index];
+  }
+
   @override
   void initState() {
     super.initState();
@@ -1573,7 +1593,7 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(width: 6),
                       Expanded(
                         child: Text(
-                          '"ilmu tanpa amal ibarat pohon tanpa buah,\ndan amal tanpa ilmu ibarat perjalanan tanpa arah."',
+                          _todayQuote,
                           style: TextStyle(
                             fontSize: 11,
                             fontWeight: FontWeight.w500,
@@ -1583,18 +1603,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ],
-                  ),
-                  const SizedBox(height: 6),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Text(
-                      '- Imam Al-Ghazali',
-                      style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                        color: primaryGreen,
-                      ),
-                    ),
                   ),
                 ],
               ),

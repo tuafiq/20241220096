@@ -15,10 +15,11 @@ class KajianVideoPage extends StatefulWidget {
   State<KajianVideoPage> createState() => _KajianVideoPageState();
 }
 
+
 class _KajianVideoPageState extends State<KajianVideoPage> {
   final TextEditingController _searchController = TextEditingController();
   String _selectedCategory = 'Semua';
-  bool _isPlayingMiniPlayer = true;
+  bool _isPlayingMiniPlayer = false;
   String _videoTextSize = 'Sedang'; // Kecil, Sedang, Besar
 
   SharedPreferences? _prefs;
@@ -29,6 +30,7 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
   String _preferredQuality = 'Standar (480p)';
   double _defaultPlaybackSpeed = 1.0;
 
+  // Getter for text scaling based on selected size
   double get _localTextScale {
     switch (_videoTextSize) {
       case 'Kecil':
@@ -763,10 +765,11 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
             padding: const EdgeInsets.only(bottom: 120),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // SEARCH BAR
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
+                children: [
+
+                  // SEARCH BAR
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
                   child: Container(
                     decoration: BoxDecoration(
                       color: cardColor,
@@ -801,6 +804,7 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
 
                 // FEATURED BANNER
                 _buildFeaturedBanner(primaryGreen, cardColor, isDarkMode),
+
 
                 // QUICK ACTIONS
                 _buildQuickActionsRow(cardColor, textColor, isDarkMode, themeProvider),
@@ -841,9 +845,18 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
 
   // --- WIDGET BUILDERS ---
 
+  int get _dailyFeaturedIndex {
+    final now = DateTime.now();
+    final dateSum = now.year + now.month + now.day;
+    return dateSum % kajianVideos.length;
+  }
+
   Widget _buildFeaturedBanner(Color primaryGreen, Color cardColor, bool isDarkMode) {
-    // Featured video: W3ebQEEecm0
-    final featuredId = 'W3ebQEEecm0';
+    final featuredVideo = kajianVideos[_dailyFeaturedIndex];
+    final featuredId = featuredVideo['videoId']!;
+    final featuredTitle = featuredVideo['title']!;
+    final featuredUstadz = featuredVideo['ustadz']!;
+
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: GestureDetector(
@@ -910,7 +923,7 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Text(
-                          'KAJIAN SPESIAL',
+                          'REKOMENDASI HARI INI',
                           style: GoogleFonts.poppins(
                             color: Colors.white,
                             fontSize: 9,
@@ -921,7 +934,7 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
                       ),
                       const SizedBox(height: 6),
                       Text(
-                        'Meraih Ketenangan Hati\ndalam Al-Qur\'an & Sunnah',
+                        featuredTitle,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: GoogleFonts.poppins(
@@ -933,7 +946,7 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        'Ust. Muhammad Abduh Tuasikal, M.Sc.',
+                        featuredUstadz,
                         style: GoogleFonts.poppins(
                           color: Colors.white70,
                           fontSize: 11,
@@ -1635,8 +1648,16 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
               ),
               GestureDetector(
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Menampilkan semua riwayat')),
+                  _showVideoListBottomSheet(
+                    title: 'Riwayat Tontonan',
+                    videoIds: _historyIds,
+                    emptyMessage: 'Belum ada riwayat tontonan video',
+                    showClearAll: true,
+                    onClearAll: () async {
+                      _historyIds.clear();
+                      await _prefs?.setStringList('history_kajian_videos', []);
+                      setState(() {});
+                    },
                   );
                 },
                 child: Row(
@@ -1783,39 +1804,71 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
     );
   }
 
+  List<Map<String, String>> _getPlaylistVideos(int index) {
+    switch (index) {
+      case 0: // Seputar Shalat
+        return kajianVideos.where((v) {
+          final t = v['title']!.toLowerCase();
+          return t.contains('ibadah') || t.contains('shalat') || t.contains('sholat') || t.contains('syariat') || t.contains('hukum') || t.contains('ilmu') || t.contains('taubat');
+        }).toList();
+      case 1: // Seputar Zakat
+        return kajianVideos.where((v) {
+          final t = v['title']!.toLowerCase();
+          return t.contains('zakat') || t.contains('sedekah') || t.contains('pedagang') || t.contains('harta') || t.contains('muamalah') || t.contains('silaturahmi');
+        }).toList();
+      case 2: // Kisah Nabi & Rasul
+        return kajianVideos.where((v) {
+          final t = v['title']!.toLowerCase();
+          return t.contains('ibrahim') || t.contains('sejarah') || t.contains('qurban') || t.contains('kisah') || t.contains('nabi') || t.contains('rasul');
+        }).toList();
+      case 3: // Keluarga Islami
+        return kajianVideos.where((v) {
+          final t = v['title']!.toLowerCase();
+          return v['category'] == 'Keluarga & Muamalah' || t.contains('cinta') || t.contains('istri') || t.contains('suami') || t.contains('keluarga') || t.contains('rumah');
+        }).toList();
+      case 4: // Doa & Dzikir
+        return kajianVideos.where((v) {
+          final t = v['title']!.toLowerCase();
+          return v['category'] == 'Tazkiyatun Nufus' || t.contains('taubat') || t.contains('dzikir') || t.contains('hati') || t.contains('sombong') || t.contains('doa') || t.contains('nikmat');
+        }).toList();
+      default:
+        return [];
+    }
+  }
+
   Widget _buildPlaylistPopulerSection(Color textColor, Color subtitleColor, bool isDarkMode) {
     final playlists = [
       {
         'title': 'Seputar Shalat',
-        'count': '32 Video',
+        'count': '${_getPlaylistVideos(0).length} Video',
         'color': const Color(0xFFE6F4F1),
         'darkColor': const Color(0xFF0F3A30),
         'icon': Icons.menu_book,
       },
       {
         'title': 'Seputar Zakat',
-        'count': '28 Video',
+        'count': '${_getPlaylistVideos(1).length} Video',
         'color': const Color(0xFFFBF1EB),
         'darkColor': const Color(0xFF402E23),
         'icon': Icons.volunteer_activism,
       },
       {
         'title': 'Kisah Nabi & Rasul',
-        'count': '45 Video',
+        'count': '${_getPlaylistVideos(2).length} Video',
         'color': const Color(0xFFE8F5E9),
         'darkColor': const Color(0xFF1B3D20),
         'icon': Icons.history_edu,
       },
       {
         'title': 'Keluarga Islami',
-        'count': '36 Video',
+        'count': '${_getPlaylistVideos(3).length} Video',
         'color': const Color(0xFFEDE7F6),
         'darkColor': const Color(0xFF261F3D),
         'icon': Icons.people_outline,
       },
       {
         'title': 'Doa & Dzikir',
-        'count': '52 Video',
+        'count': '${_getPlaylistVideos(4).length} Video',
         'color': const Color(0xFFE1F5FE),
         'darkColor': const Color(0xFF0F314D),
         'icon': Icons.spa_outlined,
@@ -1840,9 +1893,7 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
               ),
               GestureDetector(
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Menampilkan semua playlist')),
-                  );
+                  _showAllPlaylistsBottomSheet();
                 },
                 child: Row(
                   children: [
@@ -1874,21 +1925,8 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
               
               return GestureDetector(
                 onTap: () {
-                  // Filter by corresponding category
-                  String filterCat = 'Semua';
-                  if (index == 0) filterCat = 'Aqidah & Fiqih';
-                  else if (index == 1) filterCat = 'Haji & Qurban';
-                  else if (index == 2) filterCat = 'Haji & Qurban';
-                  else if (index == 3) filterCat = 'Keluarga & Muamalah';
-                  else if (index == 4) filterCat = 'Tazkiyatun Nufus';
-                  
-                  setState(() {
-                    _selectedCategory = filterCat;
-                  });
-
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Menyaring video kategori: $filterCat')),
-                  );
+                  final playlistVideos = _getPlaylistVideos(index);
+                  _showPlaylistVideosBottomSheet(pl['title'] as String, playlistVideos);
                 },
                 child: Container(
                   width: 110,
@@ -1943,6 +1981,383 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
           ),
         ),
       ],
+    );
+  }
+
+  void _showPlaylistVideosBottomSheet(String title, List<Map<String, String>> playlistVideos) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final cardColor = isDarkMode ? const Color(0xFF1E1E1E) : Colors.white;
+    final textColor = isDarkMode ? Colors.white : const Color(0xFF2D3436);
+    final subtitleColor = isDarkMode ? Colors.white70 : Colors.grey[600];
+    final primaryGreen = const Color(0xFF13A884);
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: cardColor,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      isScrollControlled: true,
+      builder: (context) {
+        return Container(
+          padding: const EdgeInsets.all(20),
+          height: MediaQuery.of(context).size.height * 0.6,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: textColor,
+                          ),
+                        ),
+                        Text(
+                          '${playlistVideos.length} Video Kajian',
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            color: subtitleColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.close),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              if (playlistVideos.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 16.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: primaryGreen,
+                      minimumSize: const Size.fromHeight(45),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+                      elevation: 0,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      _launchYouTube(playlistVideos[0]['videoId']!);
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.play_arrow_rounded, color: Colors.white),
+                        const SizedBox(width: 8),
+                        Text(
+                          'Putar Semua',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              Expanded(
+                child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: playlistVideos.length,
+                  itemBuilder: (context, index) {
+                    final vid = playlistVideos[index];
+                    final String videoId = vid['videoId']!;
+                    return Container(
+                      margin: const EdgeInsets.only(bottom: 12),
+                      decoration: BoxDecoration(
+                        color: isDarkMode ? Colors.black.withOpacity(0.2) : const Color(0xFFF8F9FA),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: ListTile(
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.network(
+                            'https://img.youtube.com/vi/$videoId/mqdefault.jpg',
+                            width: 75,
+                            height: 48,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        title: Text(
+                          vid['title']!,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 11,
+                            color: textColor,
+                            height: 1.25,
+                          ),
+                        ),
+                        subtitle: Text(
+                          vid['ustadz']!,
+                          style: GoogleFonts.poppins(
+                            fontSize: 9,
+                            color: subtitleColor,
+                          ),
+                        ),
+                        trailing: Icon(Icons.play_arrow_rounded, color: primaryGreen),
+                        onTap: () {
+                          Navigator.pop(context);
+                          _launchYouTube(videoId);
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  void _showAllPlaylistsBottomSheet() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final cardColor = isDarkMode ? const Color(0xFF1E1E1E) : Colors.white;
+    final textColor = isDarkMode ? Colors.white : const Color(0xFF2D3436);
+    final primaryGreen = const Color(0xFF13A884);
+
+    final playlists = [
+      {'title': 'Seputar Shalat', 'count': '${_getPlaylistVideos(0).length} Video', 'icon': Icons.menu_book},
+      {'title': 'Seputar Zakat', 'count': '${_getPlaylistVideos(1).length} Video', 'icon': Icons.volunteer_activism},
+      {'title': 'Kisah Nabi & Rasul', 'count': '${_getPlaylistVideos(2).length} Video', 'icon': Icons.history_edu},
+      {'title': 'Keluarga Islami', 'count': '${_getPlaylistVideos(3).length} Video', 'icon': Icons.people_outline},
+      {'title': 'Doa & Dzikir', 'count': '${_getPlaylistVideos(4).length} Video', 'icon': Icons.spa_outlined},
+    ];
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: cardColor,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (context) {
+        return Container(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Daftar Playlist Populer',
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: textColor,
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.close),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: playlists.length,
+                  itemBuilder: (context, index) {
+                    final pl = playlists[index];
+                    return ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      leading: CircleAvatar(
+                        backgroundColor: primaryGreen.withOpacity(0.1),
+                        child: Icon(pl['icon'] as IconData, color: primaryGreen),
+                      ),
+                      title: Text(
+                        pl['title'] as String,
+                        style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 13, color: textColor),
+                      ),
+                      subtitle: Text(
+                        pl['count'] as String,
+                        style: GoogleFonts.poppins(fontSize: 11, color: Colors.grey),
+                      ),
+                      trailing: const Icon(Icons.arrow_forward_ios, size: 14),
+                      onTap: () {
+                        Navigator.pop(context); // Close all playlists sheet
+                        final playlistVideos = _getPlaylistVideos(index);
+                        _showPlaylistVideosBottomSheet(pl['title'] as String, playlistVideos);
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  void _showTrendingVideosBottomSheet(List<Map<String, String>> trendingList) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final cardColor = isDarkMode ? const Color(0xFF1E1E1E) : Colors.white;
+    final textColor = isDarkMode ? Colors.white : const Color(0xFF2D3436);
+    final subtitleColor = isDarkMode ? Colors.white70 : Colors.grey[600];
+    final primaryGreen = const Color(0xFF13A884);
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: cardColor,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      isScrollControlled: true,
+      builder: (context) {
+        return Container(
+          padding: const EdgeInsets.all(20),
+          height: MediaQuery.of(context).size.height * 0.65,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Kajian Trending Terpopuler',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: textColor,
+                          ),
+                        ),
+                        Text(
+                          'Kajian yang paling banyak ditonton minggu ini',
+                          style: GoogleFonts.poppins(
+                            fontSize: 11,
+                            color: subtitleColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.close),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Expanded(
+                child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: trendingList.length,
+                  itemBuilder: (context, index) {
+                    final item = trendingList[index];
+                    final String videoId = item['videoId']!;
+                    return Container(
+                      margin: const EdgeInsets.only(bottom: 12),
+                      decoration: BoxDecoration(
+                        color: isDarkMode ? Colors.black.withOpacity(0.2) : const Color(0xFFF8F9FA),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: ListTile(
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                        leading: Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.network(
+                                'https://img.youtube.com/vi/$videoId/mqdefault.jpg',
+                                width: 80,
+                                height: 50,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Positioned(
+                              left: 4,
+                              top: 4,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1.5),
+                                decoration: BoxDecoration(
+                                  color: primaryGreen,
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child: Text(
+                                  '#${index + 1}',
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontSize: 8,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        title: Text(
+                          item['title']!,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 11,
+                            color: textColor,
+                            height: 1.25,
+                          ),
+                        ),
+                        subtitle: Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                item['ustadz']!,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 9,
+                                  color: subtitleColor,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 4),
+                            Icon(Icons.remove_red_eye_outlined, size: 9, color: subtitleColor),
+                            const SizedBox(width: 2),
+                            Text(
+                              '${item['views']}',
+                              style: GoogleFonts.poppins(
+                                fontSize: 9,
+                                color: subtitleColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                        trailing: Icon(Icons.play_arrow_rounded, color: primaryGreen, size: 24),
+                        onTap: () {
+                          Navigator.pop(context);
+                          _launchYouTube(videoId);
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 
@@ -2001,9 +2416,7 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
               ),
               GestureDetector(
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Menampilkan video trending')),
-                  );
+                  _showTrendingVideosBottomSheet(trendingList);
                 },
                 child: Row(
                   children: [
@@ -2474,18 +2887,26 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
                 }
               },
             ),
-            IconButton(
-              icon: Icon(
-                _isPlayingMiniPlayer ? Icons.pause_circle_filled : Icons.play_circle_filled,
-                color: primaryGreen,
-                size: 28,
-              ),
-              onPressed: () {
+            GestureDetector(
+              onTap: () {
                 setState(() {
                   _isPlayingMiniPlayer = !_isPlayingMiniPlayer;
                 });
                 _launchYouTube(_activePlayerVideo['videoId']!);
               },
+              child: Container(
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                  color: primaryGreen,
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  _isPlayingMiniPlayer ? Icons.pause_rounded : Icons.play_arrow_rounded,
+                  color: Colors.white,
+                  size: 20,
+                ),
+              ),
             ),
             IconButton(
               icon: Icon(Icons.skip_next_rounded, color: textColor, size: 20),
