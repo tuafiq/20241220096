@@ -694,16 +694,6 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
           IconButton(
             constraints: const BoxConstraints(),
             padding: const EdgeInsets.all(6),
-            icon: Icon(Icons.bookmark_outline, color: textColor, size: 20),
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Daftar bookmark video disimpan di Favorit')),
-              );
-            },
-          ),
-          IconButton(
-            constraints: const BoxConstraints(),
-            padding: const EdgeInsets.all(6),
             icon: Icon(
               themeProvider.themeModeStr == 'Gelap' ? Icons.dark_mode : Icons.light_mode,
               color: textColor,
@@ -761,14 +751,6 @@ class _KajianVideoPageState extends State<KajianVideoPage> {
                   ),
                 ),
               );
-            },
-          ),
-          IconButton(
-            constraints: const BoxConstraints(),
-            padding: const EdgeInsets.all(6),
-            icon: Icon(Icons.share_outlined, color: textColor, size: 20),
-            onPressed: () {
-              Share.share('Ayo tonton video kajian menarik dan bermanfaat di aplikasi Al-Qur\'an NU!');
             },
           ),
           const SizedBox(width: 10),
