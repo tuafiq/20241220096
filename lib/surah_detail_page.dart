@@ -1707,7 +1707,8 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
     final settings = Provider.of<SettingsProvider>(context, listen: false);
     final isDarkMode = settings.themeModeStr == 'Gelap';
     final juzNum = _getJuzNumber(surah.nomor, ayat.nomorAyat);
-    final isMemorized = _memorizedAyats.contains("${widget.nomor}_${ayat.nomorAyat}");
+    final bookmarkStr = '${surah.nomor}|${surah.namaLatin}|${ayat.nomorAyat}';
+    final isBookmarked = settings.isQuranBookmarked(bookmarkStr);
 
     showModalBottomSheet(
       context: context,
@@ -1802,13 +1803,20 @@ class _SurahDetailPageState extends State<SurahDetailPage> {
               _buildBottomSheetItem(
                 context: context,
                 icon: Icon(
-                  isMemorized ? Icons.star : Icons.star_border,
+                  isBookmarked ? Icons.bookmark : Icons.bookmark_border,
                   color: const Color(0xFF13A884),
                 ),
-                title: 'Simpan ke Bookmark',
+                title: isBookmarked ? 'Hapus dari Bookmark' : 'Simpan ke Bookmark',
                 onTap: () {
                   Navigator.pop(context);
-                  _toggleMemorizedAyat(ayat.nomorAyat);
+                  settings.toggleQuranBookmark(bookmarkStr);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(isBookmarked ? 'Dihapus dari bookmark' : 'Tersimpan di bookmark'),
+                      backgroundColor: const Color(0xFF13A884),
+                      duration: const Duration(seconds: 1),
+                    ),
+                  );
                 },
               ),
             ],

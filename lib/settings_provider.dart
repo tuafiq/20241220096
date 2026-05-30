@@ -18,6 +18,8 @@ class SettingsProvider with ChangeNotifier {
   String _reminderTime = '04:00';
   List<String> _doaOrder = []; // List of Doa Titles in order
   List<String> _bookmarkedDoas = [];
+  List<String> _quranBookmarks = [];
+  List<String> _tutorialBookmarks = [];
 
   // Dzikir Harian State Counts
   int _countSubhanallah = 33;
@@ -61,6 +63,8 @@ class SettingsProvider with ChangeNotifier {
   String get reminderTime => _reminderTime;
   List<String> get doaOrder => _doaOrder;
   List<String> get bookmarkedDoas => _bookmarkedDoas;
+  List<String> get quranBookmarks => _quranBookmarks;
+  List<String> get tutorialBookmarks => _tutorialBookmarks;
 
   int get countSubhanallah => _countSubhanallah;
   int get countAlhamdulillah => _countAlhamdulillah;
@@ -116,6 +120,8 @@ class SettingsProvider with ChangeNotifier {
     _reminderTime = _prefs.getString('reminderTime') ?? '04:00';
     _doaOrder = _prefs.getStringList('doaOrder') ?? [];
     _bookmarkedDoas = _prefs.getStringList('bookmarkedDoas') ?? [];
+    _quranBookmarks = _prefs.getStringList('quranBookmarks') ?? [];
+    _tutorialBookmarks = _prefs.getStringList('tutorialBookmarks') ?? [];
     
     // Load persisted Dzikir Harian counts
     _countSubhanallah = _prefs.getInt('countSubhanallah') ?? 33;
@@ -585,6 +591,34 @@ class SettingsProvider with ChangeNotifier {
       _bookmarkedDoas.add(title);
     }
     await _prefs.setStringList('bookmarkedDoas', _bookmarkedDoas);
+    notifyListeners();
+  }
+
+  bool isQuranBookmarked(String bookmarkJson) {
+    return _quranBookmarks.contains(bookmarkJson);
+  }
+
+  Future<void> toggleQuranBookmark(String bookmarkJson) async {
+    if (_quranBookmarks.contains(bookmarkJson)) {
+      _quranBookmarks.remove(bookmarkJson);
+    } else {
+      _quranBookmarks.add(bookmarkJson);
+    }
+    await _prefs.setStringList('quranBookmarks', _quranBookmarks);
+    notifyListeners();
+  }
+
+  bool isTutorialBookmarked(String title) {
+    return _tutorialBookmarks.contains(title);
+  }
+
+  Future<void> toggleTutorialBookmark(String title) async {
+    if (_tutorialBookmarks.contains(title)) {
+      _tutorialBookmarks.remove(title);
+    } else {
+      _tutorialBookmarks.add(title);
+    }
+    await _prefs.setStringList('tutorialBookmarks', _tutorialBookmarks);
     notifyListeners();
   }
 }

@@ -5,6 +5,7 @@ import 'settings_provider.dart';
 import 'login_page.dart';
 import 'edit_profile_page.dart';
 import 'preferensi_membaca_page.dart';
+import 'daftar_bookmark_page.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -108,8 +109,7 @@ class _SettingsPageState extends State<SettingsPage> {
         iconTheme: const IconThemeData(color: Colors.white),
         elevation: 0,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
           Container(
             color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
@@ -283,6 +283,52 @@ class _SettingsPageState extends State<SettingsPage> {
                 ListTile(
                   leading: Icon(Icons.bookmark_border, color: isDarkMode ? Colors.white70 : Colors.black54),
                   title: Text(settings.translate('bookmark_list'), style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87)),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const DaftarBookmarkPage()),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 8),
+          Container(
+            color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  child: Text(
+                    'Ibadah',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: isDarkMode ? Colors.white : Colors.black,
+                    ),
+                  ),
+                ),
+                ListTile(
+                  leading: Icon(Icons.book_outlined, color: isDarkMode ? Colors.white70 : Colors.black54),
+                  title: Text('Al-Quran', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87)),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
+                  onTap: () {},
+                ),
+                Divider(height: 1, indent: 16, endIndent: 16, color: isDarkMode ? Colors.white12 : Colors.grey[200]),
+                ListTile(
+                  leading: Icon(Icons.access_time, color: isDarkMode ? Colors.white70 : Colors.black54),
+                  title: Text('Lokasi dan Pengaturan Waktu Shalat', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87)),
+                  trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
+                  onTap: () {},
+                ),
+                Divider(height: 1, indent: 16, endIndent: 16, color: isDarkMode ? Colors.white12 : Colors.grey[200]),
+                ListTile(
+                  leading: Icon(Icons.notifications_none, color: isDarkMode ? Colors.white70 : Colors.black54),
+                  title: Text('Notifikasi Waktu Shalat', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87)),
                   trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
                   onTap: () {},
                 ),

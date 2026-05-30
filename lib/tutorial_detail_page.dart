@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:provider/provider.dart';
 import 'tutorial_model.dart';
+import 'settings_provider.dart';
 
 class TutorialDetailPage extends StatefulWidget {
   final TutorialModel item;
@@ -75,6 +77,8 @@ Bagikan dari Aplikasi UAS
   Widget build(BuildContext context) {
     const primaryGreen = Color(0xFF149177);
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final settings = Provider.of<SettingsProvider>(context);
+    final isBookmarked = settings.isTutorialBookmarked(currentItem.name);
 
     return Scaffold(
       backgroundColor: isDarkMode ? const Color(0xFF121212) : Colors.white,
@@ -95,6 +99,22 @@ Bagikan dari Aplikasi UAS
         ),
         centerTitle: true,
         actions: [
+          IconButton(
+            icon: Icon(
+              isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+              color: primaryGreen,
+            ),
+            onPressed: () {
+              settings.toggleTutorialBookmark(currentItem.name);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(isBookmarked ? 'Dihapus dari bookmark' : 'Tersimpan di bookmark'),
+                  backgroundColor: primaryGreen,
+                  duration: const Duration(seconds: 1),
+                ),
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.share_outlined, color: primaryGreen),
             onPressed: _shareContent,
