@@ -105,6 +105,9 @@ class _HomePageState extends State<HomePage> {
   late PageController _bannerPageController;
   int _currentBannerIndex = 0;
   bool _isHoldingBanner = false;
+  late PageController _bottomBannerPageController;
+  int _currentBottomBannerIndex = 0;
+  bool _isHoldingBottomBanner = false;
   String _currentLocation = 'Pamekasan, Kabupaten Pamekasan';
   Map<String, String> _todaySchedule = {
     'Subuh': '04:25',
@@ -162,6 +165,7 @@ class _HomePageState extends State<HomePage> {
     _currentHeaderIndex = 999 + settings.lastHeaderIndex;
     _headerPageController = PageController(initialPage: _currentHeaderIndex);
     _bannerPageController = PageController(initialPage: 1000, viewportFraction: 0.9);
+    _bottomBannerPageController = PageController(initialPage: 3000, viewportFraction: 0.92);
     _updateTime();
     _fetchPrayerTimes(_currentLocation);
     _loadHomeArticles();
@@ -210,6 +214,7 @@ class _HomePageState extends State<HomePage> {
     _timer?.cancel();
     _headerPageController.dispose();
     _bannerPageController.dispose();
+    _bottomBannerPageController.dispose();
     super.dispose();
   }
 
@@ -701,11 +706,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-                  Icon(
-                    Icons.more_vert,
-                    color: isDarkMode ? Colors.white60 : Colors.grey[750],
-                    size: 20,
-                  ),
+                  const SizedBox(),
                 ],
               ),
             ),
@@ -1089,7 +1090,9 @@ class _HomePageState extends State<HomePage> {
                         _buildVideoTutorialSection(),
                         const SizedBox(height: 24),
                         _buildAgendaTerdekatSection(),
-                        const SizedBox(height: 100),
+                        const SizedBox(height: 24),
+                        _buildBottomBannersSection(),
+                        const SizedBox(height: 16),
                       ],
                     ),
                   ),
@@ -2441,6 +2444,80 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildBottomBannersSection() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return Container(
+      width: double.infinity,
+      color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+      padding: const EdgeInsets.symmetric(vertical: 24),
+      child: Column(
+        children: [
+          _buildBottomBanners(),
+          const SizedBox(height: 16),
+          _buildBottomBannerIndicators(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBottomBanners() {
+    return AspectRatio(
+      aspectRatio: 21 / 9,
+      child: PageView.builder(
+        controller: _bottomBannerPageController,
+        itemCount: 10000,
+        onPageChanged: (index) {
+          setState(() {
+            _currentBottomBannerIndex = index % 3;
+          });
+        },
+        itemBuilder: (context, index) {
+          final actualIndex = index % 3;
+          // Gambar adalah banner_bawah_1.jpg, banner_bawah_2.jpg, banner_bawah_3.jpg
+          final imagePath = 'assets/images/banner_bawah_${actualIndex + 1}.jpg';
+          return Listener(
+            onPointerDown: (_) => setState(() => _isHoldingBottomBanner = true),
+            onPointerUp: (_) => setState(() => _isHoldingBottomBanner = false),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 6),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.asset(
+                  imagePath,
+                  fit: BoxFit.cover, 
+                  width: double.infinity,
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildBottomBannerIndicators() {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final primaryGreen = const Color(0xFF13A884);
+    
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(3, (index) {
+        final isSelected = _currentBottomBannerIndex == index;
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 4),
+          width: 10,
+          height: 10,
+          decoration: BoxDecoration(
+            color: isSelected 
+                ? primaryGreen 
+                : (isDarkMode ? Colors.white24 : const Color(0xFFE2E8F0)),
+            shape: BoxShape.circle,
+          ),
+        );
+      }),
     );
   }
 
