@@ -6,6 +6,7 @@ import 'login_page.dart';
 import 'edit_profile_page.dart';
 import 'preferensi_membaca_page.dart';
 import 'daftar_bookmark_page.dart';
+import 'quran_settings_page.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -316,7 +317,12 @@ class _SettingsPageState extends State<SettingsPage> {
                   leading: Icon(Icons.book_outlined, color: isDarkMode ? Colors.white70 : Colors.black54),
                   title: Text('Al-Quran', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87)),
                   trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const QuranSettingsPage()),
+                    );
+                  },
                 ),
                 Divider(height: 1, indent: 16, endIndent: 16, color: isDarkMode ? Colors.white12 : Colors.grey[200]),
                 ListTile(
