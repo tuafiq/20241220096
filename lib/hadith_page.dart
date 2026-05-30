@@ -10,6 +10,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:flutter/services.dart';
 import 'dart:math';
+import 'package:provider/provider.dart';
+import 'settings_provider.dart';
 
 class HadithPage extends StatefulWidget {
   const HadithPage({super.key});
@@ -305,7 +307,7 @@ class _HadithPageState extends State<HadithPage> {
     );
   }
 
-  void _showTextSizeDialog() {
+  void _showTextSizeDialog(SettingsProvider settingsProvider) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -315,9 +317,9 @@ class _HadithPageState extends State<HadithPage> {
           mainAxisSize: MainAxisSize.min,
           children: ['Kecil', 'Sedang', 'Besar'].map((size) => ListTile(
             title: Text(size),
-            trailing: _textSize == size ? const Icon(Icons.check, color: Color(0xFF13A884)) : null,
+            trailing: settingsProvider.fontSize == size ? const Icon(Icons.check, color: Color(0xFF13A884)) : null,
             onTap: () {
-              setState(() => _textSize = size);
+              settingsProvider.setFontSize(size);
               Navigator.pop(context);
             },
           )).toList(),
@@ -799,106 +801,203 @@ class _HadithPageState extends State<HadithPage> {
   }
 
   Widget _buildDrawer(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final primaryGreen = const Color(0xFF13A884);
+    final darkGreen = const Color(0xFF0C5441);
+    final settingsProvider = Provider.of<SettingsProvider>(context, listen: false);
+
     return Drawer(
+      backgroundColor: darkGreen, // Whole drawer background is dark green
       child: Column(
         children: [
           // Drawer Header
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.only(top: 60, bottom: 24, left: 24, right: 24),
-            color: const Color(0xFF0C5441),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: 80,
-                  height: 80,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          '60',
-                          style: TextStyle(
-                            color: Color(0xFF13A884),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
+          SafeArea(
+            bottom: false,
+            child: Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 70,
+                        height: 70,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(color: Colors.lightGreenAccent.withOpacity(0.5), blurRadius: 20, spreadRadius: 2)
+                          ],
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('60', style: TextStyle(color: primaryGreen, fontWeight: FontWeight.bold, fontSize: 18)),
+                              Icon(Icons.menu_book, color: primaryGreen, size: 20),
+                            ],
                           ),
                         ),
-                        const Icon(Icons.menu_book, color: Color(0xFF13A884), size: 24),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text('Aplikasi Hadis Digital', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)),
+                            const SizedBox(height: 4),
+                            const Text('Belajar, Pahami, Amalkan ✨', style: TextStyle(color: Colors.white70, fontSize: 11)),
+                            const SizedBox(height: 8),
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                              decoration: BoxDecoration(
+                                color: primaryGreen,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: const Text('v1.0.0', style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+                  // Row for Toggles
+                  IntrinsicHeight(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(color: Colors.white24),
+                            ),
+                            child: Row(
+                              children: [
+                                Icon(isDarkMode ? Icons.nightlight_round : Icons.wb_sunny, color: Colors.amber, size: 18),
+                                const SizedBox(width: 8),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const Text('Mode Terang', style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
+                                      Text(isDarkMode ? 'Nonaktif' : 'Aktif', style: const TextStyle(color: Colors.white70, fontSize: 8)),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                  width: 30,
+                                  child: Transform.scale(
+                                    scale: 0.7,
+                                    child: Switch(
+                                      value: !isDarkMode,
+                                      activeColor: Colors.white,
+                                      activeTrackColor: primaryGreen,
+                                      padding: EdgeInsets.zero,
+                                      onChanged: (val) {
+                                        if (isDarkMode) {
+                                          settingsProvider.setThemeModeStr('Hijau');
+                                        } else {
+                                          settingsProvider.setThemeModeStr('Gelap');
+                                        }
+                                      },
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: InkWell(
+                            onTap: () => _showTextSizeDialog(settingsProvider),
+                            child: Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(color: Colors.white24),
+                              ),
+                              child: Row(
+                                children: [
+                                  const Text('Aa', style: TextStyle(color: Colors.lightGreenAccent, fontSize: 16, fontWeight: FontWeight.bold)),
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        const Text('Ukuran Font', style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
+                                        Text('${settingsProvider.fontSize} (${settingsProvider.fontSize == 'Kecil' ? '85%' : settingsProvider.fontSize == 'Besar' ? '120%' : '100%'})', style: const TextStyle(color: Colors.white70, fontSize: 8)),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'Aplikasi Hadis Digital',
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
-                ),
-                const SizedBox(height: 4),
-                const Text(
-                  'v1.0.0',
-                  style: TextStyle(color: Colors.white70, fontSize: 13),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-          
-          // Drawer Menu Items
+          // Drawer Menu List in white container
           Expanded(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                _buildDrawerItem(Icons.home_outlined, 'Beranda', () {
-                  Navigator.pop(context);
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const NotificationHadithPage()));
-                }),
-                _buildDrawerItem(Icons.grid_view_rounded, 'Koleksi', () {
-                  Navigator.pop(context);
-                  setState(() => _currentIndex = 0);
-                }),
-                _buildDrawerItem(Icons.search, 'Cari', () {
-                  Navigator.pop(context);
-                  setState(() => _currentIndex = 1);
-                }),
-                _buildDrawerItem(Icons.bookmark_border, 'Bookmark', () {
-                  Navigator.pop(context);
-                  setState(() => _currentIndex = 2);
-                }),
-                _buildDrawerItem(Icons.settings_outlined, 'Pengaturan', () {
-                  Navigator.pop(context);
-                  setState(() => _currentIndex = 3);
-                }),
-                
-                const Divider(height: 32, indent: 16, endIndent: 16),
-                
-                _buildDrawerItem(Icons.info_outline, 'Tentang Aplikasi', () {
-                  Navigator.pop(context);
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutAppPage()));
-                }),
-                _buildDrawerItem(Icons.help_outline, 'Bantuan', () async {
-                  Navigator.pop(context);
-                  final Uri url = Uri.parse('https://hadits.in/panduan');
-                  if (!await launchUrl(url)) {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Tidak dapat membuka panduan')));
-                  }
-                }),
-                _buildDrawerItem(Icons.share_outlined, 'Bagikan', () {
-                  Navigator.pop(context);
-                  Share.share('Ayo pelajari hadis dengan Aplikasi Hadis Digital! Download di sini: https://play.google.com/store/apps/details?id=com.example.uas');
-                }),
-                
-                const Divider(height: 32, indent: 16, endIndent: 16),
-                
-                _buildDrawerItem(Icons.logout, 'Keluar', () {
-                  Navigator.pop(context);
-                  _showExitDialog(context);
-                }, isExit: true),
-              ],
+            child: Container(
+              decoration: BoxDecoration(
+                color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+                borderRadius: const BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)),
+              ),
+              child: ListView(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+                children: [
+                  _buildDrawerItem(Icons.home, 'Beranda', () {
+                    Navigator.pop(context);
+                    Navigator.popUntil(context, (route) => route.isFirst);
+                  }, isActive: true),
+                  _buildDrawerItem(Icons.grid_view_rounded, 'Koleksi', () {
+                    Navigator.pop(context);
+                    setState(() => _currentIndex = 0);
+                  }),
+                  _buildDrawerItem(Icons.search, 'Cari', () {
+                    Navigator.pop(context);
+                    setState(() => _currentIndex = 1);
+                  }),
+                  _buildDrawerItem(Icons.bookmark_border, 'Bookmark', () {
+                    Navigator.pop(context);
+                    setState(() => _currentIndex = 2);
+                  }),
+                  
+                  Divider(height: 32, indent: 16, endIndent: 16, color: isDarkMode ? Colors.white10 : Colors.grey[200]),
+                  
+                  _buildDrawerItem(Icons.info_outline, 'Tentang Aplikasi', () {
+                    Navigator.pop(context);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutAppPage()));
+                  }),
+                  _buildDrawerItem(Icons.help_outline, 'Bantuan', () async {
+                    Navigator.pop(context);
+                    final Uri url = Uri.parse('https://hadits.in/panduan');
+                    if (!await launchUrl(url)) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Tidak dapat membuka panduan')));
+                    }
+                  }),
+                  
+                  Divider(height: 32, indent: 16, endIndent: 16, color: isDarkMode ? Colors.white10 : Colors.grey[200]),
+                  
+                  _buildExitDrawerItem(context),
+                ],
+              ),
             ),
           ),
         ],
@@ -926,20 +1025,64 @@ class _HadithPageState extends State<HadithPage> {
     );
   }
 
-  Widget _buildDrawerItem(IconData icon, String title, VoidCallback onTap, {bool isExit = false}) {
+  Widget _buildDrawerItem(IconData icon, String title, VoidCallback onTap, {bool isActive = false}) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return ListTile(
-      leading: Icon(icon, color: isExit ? Colors.red : (isDarkMode ? Colors.grey[400] : Colors.grey[700]), size: 24),
-      title: Text(
-        title,
-        style: TextStyle(
-          color: isExit ? Colors.red : (isDarkMode ? Colors.white70 : Colors.black87),
-          fontSize: 15,
-          fontWeight: FontWeight.w500,
-        ),
+    final primaryGreen = const Color(0xFF13A884);
+    final bgColor = isActive ? primaryGreen.withOpacity(0.1) : Colors.transparent;
+    final textColor = isActive ? primaryGreen : (isDarkMode ? Colors.white70 : Colors.black87);
+    final iconColor = isActive ? primaryGreen : (isDarkMode ? Colors.grey[400] : Colors.grey[700]);
+
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: BorderRadius.circular(12),
       ),
-      onTap: onTap,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Stack(
+        children: [
+          if (isActive)
+            Positioned(
+              left: 0,
+              top: 8,
+              bottom: 8,
+              child: Container(width: 4, decoration: BoxDecoration(color: primaryGreen, borderRadius: BorderRadius.circular(4))),
+            ),
+          ListTile(
+            leading: Icon(icon, color: iconColor, size: 24),
+            title: Text(title, style: TextStyle(color: textColor, fontSize: 15, fontWeight: isActive ? FontWeight.bold : FontWeight.w500)),
+            trailing: Icon(Icons.chevron_right, color: isDarkMode ? Colors.white24 : Colors.grey[300], size: 20),
+            onTap: onTap,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildExitDrawerItem(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    return Container(
+      margin: const EdgeInsets.only(bottom: 16),
+      decoration: BoxDecoration(
+        color: Colors.red.withOpacity(0.05),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: ListTile(
+        leading: Container(
+          padding: const EdgeInsets.all(6),
+          decoration: BoxDecoration(color: Colors.red.withOpacity(0.1), borderRadius: BorderRadius.circular(8)),
+          child: const Icon(Icons.logout, color: Colors.red, size: 20),
+        ),
+        title: const Text('Keluar', style: TextStyle(color: Colors.red, fontSize: 15, fontWeight: FontWeight.bold)),
+        trailing: const Icon(Icons.chevron_right, color: Colors.red, size: 20),
+        onTap: () {
+          Navigator.pop(context);
+          _showExitDialog(context);
+        },
+        contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      ),
     );
   }
 }
