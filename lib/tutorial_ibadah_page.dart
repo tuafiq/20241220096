@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'settings_provider.dart';
 import 'tutorial_model.dart';
 import 'tutorial_service.dart';
 import 'tutorial_detail_page.dart';
@@ -56,9 +58,31 @@ class _TutorialIbadahPageState extends State<TutorialIbadahPage> with SingleTick
     return 'Panduan ibadah sholat';
   }
 
+  void _showTextSizeDialog(SettingsProvider settingsProvider) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Pilih Ukuran Teks'),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: ['Kecil', 'Sedang', 'Besar'].map((size) => ListTile(
+            title: Text(size),
+            trailing: settingsProvider.fontSize == size ? const Icon(Icons.check, color: Color(0xFF149177)) : null,
+            onTap: () {
+              settingsProvider.setFontSize(size);
+              Navigator.pop(context);
+            },
+          )).toList(),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final settingsProvider = Provider.of<SettingsProvider>(context);
     return Scaffold(
       backgroundColor: isDarkMode ? const Color(0xFF121212) : backgroundLight,
       appBar: AppBar(
@@ -77,6 +101,33 @@ class _TutorialIbadahPageState extends State<TutorialIbadahPage> with SingleTick
             fontSize: 18,
           ),
         ),
+        actions: [
+          IconButton(
+            icon: Text(
+              'Aa',
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+              ),
+            ),
+            onPressed: () => _showTextSizeDialog(settingsProvider),
+          ),
+          IconButton(
+            icon: Icon(
+              isDarkMode ? Icons.nightlight_round : Icons.wb_sunny,
+              color: isDarkMode ? Colors.white : const Color(0xFF2D3436),
+            ),
+            onPressed: () {
+              if (isDarkMode) {
+                settingsProvider.setThemeModeStr('Hijau');
+              } else {
+                settingsProvider.setThemeModeStr('Gelap');
+              }
+            },
+          ),
+          const SizedBox(width: 8),
+        ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(60),
           child: Container(
