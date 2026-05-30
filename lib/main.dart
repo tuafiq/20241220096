@@ -1882,6 +1882,33 @@ class _HomePageState extends State<HomePage> {
   Widget _buildAgendaTerdekatSection() {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     const primaryGreen = Color(0xFF13A884);
+
+    DateTime getNextJumatManis() {
+      DateTime reference = DateTime(2024, 6, 7); // Known Jum'at Manis (Legi)
+      DateTime now = DateTime.now();
+      now = DateTime(now.year, now.month, now.day);
+      
+      if (now.isBefore(reference)) {
+        int diff = reference.difference(now).inDays;
+        int daysToNext = diff % 35;
+        if (daysToNext == 0) return now;
+        return now.add(Duration(days: daysToNext));
+      } else {
+        int diff = now.difference(reference).inDays;
+        int mod = diff % 35;
+        if (mod == 0) return now;
+        return now.add(Duration(days: 35 - mod));
+      }
+    }
+    
+    String getMonthName(int month) {
+      const months = ['', 'JANUARI', 'FEBRUARI', 'MARET', 'APRIL', 'MEI', 'JUNI', 'JULI', 'AGUSTUS', 'SEPTEMBER', 'OKTOBER', 'NOVEMBER', 'DESEMBER'];
+      return months[month];
+    }
+    
+    DateTime nextJumatManis = getNextJumatManis();
+    String dayString = nextJumatManis.day.toString();
+    String monthYearString = '${getMonthName(nextJumatManis.month)} ${nextJumatManis.year}';
     
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -1942,7 +1969,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          '25',
+                          dayString,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -1951,7 +1978,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Text(
-                          'MEI 2024',
+                          monthYearString,
                           style: TextStyle(
                             fontSize: 8,
                             fontWeight: FontWeight.bold,
@@ -1994,7 +2021,7 @@ class _HomePageState extends State<HomePage> {
                             Icon(Icons.location_on, size: 12, color: isDarkMode ? Colors.white54 : Colors.grey[600]),
                             const SizedBox(width: 4),
                             Text(
-                              'Aula MMU Ulul Maqam',
+                              'Astah MMU Ulul Maqam',
                               style: TextStyle(
                                 fontSize: 10,
                                 color: isDarkMode ? Colors.white54 : Colors.grey[600],
