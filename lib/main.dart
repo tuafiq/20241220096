@@ -29,8 +29,8 @@ import 'wirid_data.dart';
 import 'doa_data.dart';
 import 'article_detail_page.dart';
 import 'doa_detail_page.dart';
-
-
+import 'jadwal_kegiatan_page.dart';
+import 'kitab_page.dart';
 import 'package:provider/provider.dart';
 import 'settings_provider.dart';
 import 'notification_service.dart';
@@ -1472,18 +1472,23 @@ class _HomePageState extends State<HomePage> {
                 child: _buildAksesCepatCard(
                   icon: Icons.calendar_month,
                   title: 'Jadwal\nKegiatan',
-                  onTap: () => _onItemTapped(3),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const JadwalKegiatanPage()),
+                    );
+                  },
                 ),
               ),
               const SizedBox(width: 16),
               Expanded(
                 child: _buildAksesCepatCard(
                   icon: Icons.school,
-                  title: 'Ilmu\nBermanfaat',
+                  title: 'Kitab yang\ndipelajari',
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const TutorialIbadahPage()),
+                      MaterialPageRoute(builder: (context) => const KitabPage()),
                     );
                   },
                 ),
@@ -1962,7 +1967,7 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Kajian Rutin Sabtu Pagi',
+                          'Kajian Hotmil Quran Jum\'at Manis (PAGI)',
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
