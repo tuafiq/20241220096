@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'notification_service.dart';
 
 class SettingsProvider with ChangeNotifier {
@@ -54,6 +56,15 @@ class SettingsProvider with ChangeNotifier {
   bool _showTerjemah = true;
   bool _layarTetapAktif = false;
 
+  // Lokasi & Adzan Settings
+  String _currentLocation = 'Pamekasan, Kabupaten Pamekasan';
+  String _adzanSound = 'Makkah'; // Makkah, Madinah, Al-Aqsa, Indonesia
+  bool _adzanSubuh = true;
+  bool _adzanDzuhur = true;
+  bool _adzanAshar = true;
+  bool _adzanMaghrib = true;
+  bool _adzanIsya = true;
+
   String get saveLocation => _saveLocation;
   String get fontSize => _fontSize;
   String get fontFamily => _fontFamily;
@@ -93,6 +104,15 @@ class SettingsProvider with ChangeNotifier {
   bool get showTransliterasi => _showTransliterasi;
   bool get showTerjemah => _showTerjemah;
   bool get layarTetapAktif => _layarTetapAktif;
+
+  // Lokasi & Adzan Getters
+  String get currentLocation => _currentLocation;
+  String get adzanSound => _adzanSound;
+  bool get adzanSubuh => _adzanSubuh;
+  bool get adzanDzuhur => _adzanDzuhur;
+  bool get adzanAshar => _adzanAshar;
+  bool get adzanMaghrib => _adzanMaghrib;
+  bool get adzanIsya => _adzanIsya;
 
   Locale get locale {
     switch (_language) {
@@ -156,8 +176,20 @@ class SettingsProvider with ChangeNotifier {
     _showTerjemah = _prefs.getBool('showTerjemah') ?? true;
     _layarTetapAktif = _prefs.getBool('layarTetapAktif') ?? false;
     
+    // Load Lokasi & Adzan Settings
+    _currentLocation = _prefs.getString('currentLocation') ?? 'Pamekasan, Kabupaten Pamekasan';
+    _adzanSound = _prefs.getString('adzanSound') ?? 'Makkah';
+    _adzanSubuh = _prefs.getBool('adzanSubuh') ?? true;
+    _adzanDzuhur = _prefs.getBool('adzanDzuhur') ?? true;
+    _adzanAshar = _prefs.getBool('adzanAshar') ?? true;
+    _adzanMaghrib = _prefs.getBool('adzanMaghrib') ?? true;
+    _adzanIsya = _prefs.getBool('adzanIsya') ?? true;
+
     _updateNotification();
     _updateReadingReminder();
+    
+    // Check if we need to fetch/schedule for a new month
+    _rescheduleAdzans();
   }
 
   static const Map<String, Map<String, String>> _localizedValues = {
@@ -510,10 +542,146 @@ class SettingsProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> setLayarTetapAktif(bool val) async {
-    _layarTetapAktif = val;
-    await _prefs.setBool('layarTetapAktif', val);
+  Future<void> setLayarTetapAktif(bool value) async {
+    _layarTetapAktif = value;
+    await _prefs.setBool('layarTetapAktif', value);
     notifyListeners();
+  }
+
+  // Lokasi & Adzan Setters
+  Future<void> setCurrentLocation(String value) async {
+    if (_currentLocation != value) {
+      _currentLocation = value;
+      await _prefs.setString('currentLocation', value);
+      notifyListeners();
+      _rescheduleAdzans();
+    }
+  }
+
+  Future<void> setAdzanSound(String value) async {
+    _adzanSound = value;
+    await _prefs.setString('adzanSound', value);
+    notifyListeners();
+    _rescheduleAdzans(skipFetch: true);
+  }
+
+  Future<void> setAdzanSubuh(bool value) async {
+    _adzanSubuh = value;
+    await _prefs.setBool('adzanSubuh', value);
+    notifyListeners();
+    _rescheduleAdzans(skipFetch: true);
+  }
+
+  Future<void> setAdzanDzuhur(bool value) async {
+    _adzanDzuhur = value;
+    await _prefs.setBool('adzanDzuhur', value);
+    notifyListeners();
+    _rescheduleAdzans(skipFetch: true);
+  }
+
+  Future<void> setAdzanAshar(bool value) async {
+    _adzanAshar = value;
+    await _prefs.setBool('adzanAshar', value);
+    notifyListeners();
+    _rescheduleAdzans(skipFetch: true);
+  }
+
+  Future<void> setAdzanMaghrib(bool value) async {
+    _adzanMaghrib = value;
+    await _prefs.setBool('adzanMaghrib', value);
+    notifyListeners();
+    _rescheduleAdzans(skipFetch: true);
+  }
+
+  Future<void> setAdzanIsya(bool value) async {
+    _adzanIsya = value;
+    await _prefs.setBool('adzanIsya', value);
+    notifyListeners();
+    _rescheduleAdzans(skipFetch: true);
+  }
+
+  Future<void> _rescheduleAdzans({bool skipFetch = false}) async {
+    final now = DateTime.now();
+    await NotificationService().cancelAllAdzans();
+
+    List<dynamic> monthlySchedule = [];
+    final cachedScheduleStr = _prefs.getString('monthlyScheduleCache');
+    final cachedMonth = _prefs.getInt('monthlyScheduleMonth');
+    
+    // Check if we need to fetch new data (if forced, or cache is missing, or month has changed)
+    if (!skipFetch || cachedScheduleStr == null || cachedMonth != now.month) {
+      try {
+        String cityName = _currentLocation.contains(',') ? _currentLocation.split(',').last.trim() : _currentLocation;
+        cityName = cityName.replaceAll('Kabupaten ', '').replaceAll('Kota ', '').trim();
+        
+        final searchUrl = Uri.parse('https://api.myquran.com/v2/sholat/kota/cari/$cityName');
+        final searchResponse = await http.get(searchUrl);
+        
+        if (searchResponse.statusCode == 200) {
+          final searchData = json.decode(searchResponse.body);
+          if (searchData['status'] == true && (searchData['data'] as List).isNotEmpty) {
+            final cityId = searchData['data'][0]['id'];
+            
+            final scheduleUrl = Uri.parse('https://api.myquran.com/v2/sholat/jadwal/$cityId/${now.year}/${now.month.toString().padLeft(2, "0")}');
+            final scheduleResponse = await http.get(scheduleUrl);
+            
+            if (scheduleResponse.statusCode == 200) {
+              final scheduleData = json.decode(scheduleResponse.body);
+              if (scheduleData['status'] == true) {
+                monthlySchedule = scheduleData['data']['jadwal'];
+                await _prefs.setString('monthlyScheduleCache', json.encode(monthlySchedule));
+                await _prefs.setInt('monthlyScheduleMonth', now.month);
+              }
+            }
+          }
+        }
+      } catch (e) {
+        debugPrint('Error fetching monthly schedule: $e');
+      }
+    }
+
+    // Load from cache if API failed or we skipped fetch
+    if (monthlySchedule.isEmpty && _prefs.getString('monthlyScheduleCache') != null) {
+      try {
+        monthlySchedule = json.decode(_prefs.getString('monthlyScheduleCache')!);
+      } catch (e) {
+        debugPrint('Error parsing cached schedule: $e');
+      }
+    }
+
+    if (monthlySchedule.isEmpty) return;
+
+    // Schedule all future adzans for this month
+    for (var dayData in monthlySchedule) {
+      final dateStr = dayData['date'] as String; // e.g. "2026-05-01"
+      final parts = dateStr.split('-');
+      final year = int.parse(parts[0]);
+      final month = int.parse(parts[1]);
+      final day = int.parse(parts[2]);
+
+      void schedulePrayer(String name, String timeStr, bool enabled, int prayerIndex) {
+        if (!enabled) return;
+        final timeParts = timeStr.split(':');
+        final prayerTime = DateTime(year, month, day, int.parse(timeParts[0]), int.parse(timeParts[1]));
+        
+        if (prayerTime.isAfter(now)) {
+          final id = 1000 + (day * 10) + prayerIndex; // Unique ID for each prayer in a month
+          NotificationService().scheduleAdzan(
+            id,
+            'Adzan $name',
+            'Waktunya sholat $name untuk wilayah ${_currentLocation.split(",").first}',
+            prayerTime,
+            _adzanSound,
+          );
+        }
+      }
+
+      schedulePrayer('Subuh', dayData['subuh'], _adzanSubuh, 0);
+      schedulePrayer('Dzuhur', dayData['dzuhur'], _adzanDzuhur, 1);
+      schedulePrayer('Ashar', dayData['ashar'], _adzanAshar, 2);
+      schedulePrayer('Maghrib', dayData['maghrib'], _adzanMaghrib, 3);
+      schedulePrayer('Isya', dayData['isya'], _adzanIsya, 4);
+    }
   }
 
   Future<void> setSelectedQori(String qori, String qoriId) async {

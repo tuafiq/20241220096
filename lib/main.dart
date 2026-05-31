@@ -36,6 +36,7 @@ import 'settings_provider.dart';
 import 'notification_service.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'lokasi_adzan_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -108,7 +109,6 @@ class _HomePageState extends State<HomePage> {
   late PageController _bottomBannerPageController;
   int _currentBottomBannerIndex = 0;
   bool _isHoldingBottomBanner = false;
-  String _currentLocation = 'Pamekasan, Kabupaten Pamekasan';
   Map<String, String> _todaySchedule = {
     'Subuh': '04:25',
     'Dzuhur': '11:45',
@@ -167,7 +167,7 @@ class _HomePageState extends State<HomePage> {
     _bannerPageController = PageController(initialPage: 1000, viewportFraction: 0.9);
     _bottomBannerPageController = PageController(initialPage: 3000, viewportFraction: 0.92);
     _updateTime();
-    _fetchPrayerTimes(_currentLocation);
+    _fetchPrayerTimes(settings.currentLocation);
     _loadHomeArticles();
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       _updateTime();
@@ -222,9 +222,10 @@ class _HomePageState extends State<HomePage> {
     final now = DateTime.now();
     
     // Auto-refresh schedule at midnight
+    final settings = Provider.of<SettingsProvider>(context, listen: false);
     if (_lastFetchDate != null && 
         (now.day != _lastFetchDate!.day || now.month != _lastFetchDate!.month || now.year != _lastFetchDate!.year)) {
-      _fetchPrayerTimes(_currentLocation);
+      _fetchPrayerTimes(settings.currentLocation);
     }
     _lastFetchDate = now;
     final schedule = <String, DateTime>{};
@@ -413,7 +414,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       itemBuilder: (context, index) {
                         final city = filteredCities[index];
-                        final isSelected = city == _currentLocation;
+                        final isSelected = city == Provider.of<SettingsProvider>(context, listen: false).currentLocation;
                         return ListTile(
                           leading: Icon(
                             Icons.location_on_outlined,
@@ -432,9 +433,7 @@ class _HomePageState extends State<HomePage> {
                               ? const Icon(Icons.check_circle, color: Color(0xFF13A884), size: 20)
                               : null,
                           onTap: () {
-                            setState(() {
-                              _currentLocation = city;
-                            });
+                            Provider.of<SettingsProvider>(context, listen: false).setCurrentLocation(city);
                             _fetchPrayerTimes(city);
                             Navigator.pop(context);
                           },
@@ -454,194 +453,206 @@ class _HomePageState extends State<HomePage> {
   Widget _buildLocationHeader({Key? key}) {
     const primaryGreen = Color(0xFF13A884);
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return Container(
-      key: key,
-      width: double.infinity,
-      height: 200,
-      decoration: BoxDecoration(
-        color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.08),
-            blurRadius: 15,
-            offset: const Offset(0, 8),
-          ),
-        ],
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: Stack(
-        children: [
-          // Background Illustration (Lower height for landscape feel)
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Opacity(
-              opacity: 0.4,
-              child: Image.asset(
-                'assets/images/mosque_widget_bg.png',
-                fit: BoxFit.cover,
-                height: 120, // Increased height to match taller container
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const LokasiAdzanPage()),
+        );
+      },
+      child: Container(
+        key: key,
+        width: double.infinity,
+        height: 200,
+        decoration: BoxDecoration(
+          color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+          borderRadius: BorderRadius.circular(24),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.08),
+              blurRadius: 15,
+              offset: const Offset(0, 8),
+            ),
+          ],
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: Stack(
+          children: [
+            // Background Illustration (Lower height for landscape feel)
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Opacity(
+                opacity: 0.4,
+                child: Image.asset(
+                  'assets/images/mosque_widget_bg.png',
+                  fit: BoxFit.cover,
+                  height: 120, // Increased height to match taller container
+                ),
               ),
             ),
-          ),
-          // Content
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // Top Row: Title and Location (Combined to save vertical space)
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Image.asset(
-                          'assets/images/logo_el_maqam.png',
-                          height: 24,
-                          width: 24,
-                        ),
-                        const SizedBox(width: 8),
-                        const Text(
-                          'MMU Ulul Maqam',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: primaryGreen,
+            // Content
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Top Row: Title and Location (Combined to save vertical space)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.asset(
+                            'assets/images/logo_el_maqam.png',
+                            height: 24,
+                            width: 24,
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(width: 8),
-                    Flexible(
-                      child: GestureDetector(
-                        onTap: _showLocationPicker,
-                        behavior: HitTestBehavior.opaque,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            const Icon(Icons.location_on, color: primaryGreen, size: 14),
-                            const SizedBox(width: 4),
-                            Flexible(
-                              child: Text(
-                                _currentLocation.split(',').first.trim(),
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: isDarkMode ? Colors.white70 : const Color(0xFF2D3436),
-                                ),
-                              ),
+                          const SizedBox(width: 8),
+                          const Text(
+                            'MMU Ulul Maqam',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: primaryGreen,
                             ),
-                            const SizedBox(width: 4),
-                            Icon(Icons.keyboard_arrow_down_rounded, color: Colors.grey[400], size: 14),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                // Center Divider with Icon (Compact)
-                Row(
-                  children: [
-                    Expanded(child: Divider(color: isDarkMode ? Colors.white10 : Colors.grey[150], thickness: 1)),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Icon(Icons.wb_sunny_rounded, size: 14, color: primaryGreen.withOpacity(0.4)),
-                    ),
-                    Expanded(child: Divider(color: isDarkMode ? Colors.white10 : Colors.grey[150], thickness: 1)),
-                  ],
-                ),
-                // Prayer Time Section (More landscape-oriented)
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          _nextPrayerName,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: primaryGreen,
                           ),
-                        ),
-                        RichText(
-                          text: TextSpan(
+                        ],
+                      ),
+                      const SizedBox(width: 8),
+                      Flexible(
+                        child: GestureDetector(
+                          onTap: _showLocationPicker,
+                          behavior: HitTestBehavior.opaque,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              TextSpan(
-                                text: _nextPrayerTimeStr,
-                                style: const TextStyle(
-                                  fontSize: 34,
-                                  fontWeight: FontWeight.w900,
-                                  color: primaryGreen,
+                              const Icon(Icons.location_on, color: primaryGreen, size: 14),
+                              const SizedBox(width: 4),
+                              Flexible(
+                                child: Consumer<SettingsProvider>(
+                                  builder: (context, settings, child) {
+                                    return Text(
+                                      settings.currentLocation.split(',').first.trim(),
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 1,
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold,
+                                        color: isDarkMode ? Colors.white70 : const Color(0xFF2D3436),
+                                      ),
+                                    );
+                                  },
                                 ),
                               ),
-                              const TextSpan(
-                                text: ' WIB',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: primaryGreen,
-                                ),
-                              ),
+                              const SizedBox(width: 4),
+                              Icon(Icons.keyboard_arrow_down_rounded, color: Colors.grey[400], size: 14),
                             ],
                           ),
                         ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                          decoration: BoxDecoration(
-                            color: primaryGreen.withOpacity(0.08),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Text(
-                            '- ${_timeUntilNextPrayer.inHours.toString().padLeft(2, '0')} : ${(_timeUntilNextPrayer.inMinutes % 60).toString().padLeft(2, '0')} : ${(_timeUntilNextPrayer.inSeconds % 60).toString().padLeft(2, '0')}',
+                      ),
+                    ],
+                  ),
+                  // Center Divider with Icon (Compact)
+                  Row(
+                    children: [
+                      Expanded(child: Divider(color: isDarkMode ? Colors.white10 : Colors.grey[150], thickness: 1)),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        child: Icon(Icons.wb_sunny_rounded, size: 14, color: primaryGreen.withOpacity(0.4)),
+                      ),
+                      Expanded(child: Divider(color: isDarkMode ? Colors.white10 : Colors.grey[150], thickness: 1)),
+                    ],
+                  ),
+                  // Prayer Time Section (More landscape-oriented)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            _nextPrayerName,
                             style: const TextStyle(
-                              fontSize: 14,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: primaryGreen,
-                              fontFeatures: [FontFeature.tabularFigures()],
                             ),
                           ),
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          '${_getFormattedDate(_currentTime)} / ${_getHijriDate(_currentTime)}',
-                          style: TextStyle(
-                            fontSize: 10,
-                            color: isDarkMode ? Colors.white60 : Colors.grey[600],
-                            fontWeight: FontWeight.w500,
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: _nextPrayerTimeStr,
+                                  style: const TextStyle(
+                                    fontSize: 34,
+                                    fontWeight: FontWeight.w900,
+                                    color: primaryGreen,
+                                  ),
+                                ),
+                                const TextSpan(
+                                  text: ' WIB',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: primaryGreen,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: primaryGreen.withOpacity(0.08),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Text(
+                              '- ${_timeUntilNextPrayer.inHours.toString().padLeft(2, '0')} : ${(_timeUntilNextPrayer.inMinutes % 60).toString().padLeft(2, '0')} : ${(_timeUntilNextPrayer.inSeconds % 60).toString().padLeft(2, '0')}',
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: primaryGreen,
+                                fontFeatures: [FontFeature.tabularFigures()],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            '${_getFormattedDate(_currentTime)} / ${_getHijriDate(_currentTime)}',
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: isDarkMode ? Colors.white60 : Colors.grey[600],
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-          // Subtle Decoration Icon (Smaller and less intrusive)
-          Positioned(
-            right: -10,
-            bottom: -10,
-            child: Opacity(
-              opacity: 0.05,
-              child: Icon(Icons.nightlight_round, size: 60, color: primaryGreen),
+            // Subtle Decoration Icon (Smaller and less intrusive)
+            Positioned(
+              right: -10,
+              bottom: -10,
+              child: Opacity(
+                opacity: 0.05,
+                child: Icon(Icons.nightlight_round, size: 60, color: primaryGreen),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

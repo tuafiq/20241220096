@@ -7,6 +7,7 @@ import 'edit_profile_page.dart';
 import 'preferensi_membaca_page.dart';
 import 'daftar_bookmark_page.dart';
 import 'quran_settings_page.dart';
+import 'lokasi_adzan_page.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -327,17 +328,16 @@ class _SettingsPageState extends State<SettingsPage> {
                 Divider(height: 1, indent: 16, endIndent: 16, color: isDarkMode ? Colors.white12 : Colors.grey[200]),
                 ListTile(
                   leading: Icon(Icons.access_time, color: isDarkMode ? Colors.white70 : Colors.black54),
-                  title: Text('Lokasi dan Pengaturan Waktu Shalat', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87)),
+                  title: Text('Lokasi dan pilihan adzan', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87)),
                   trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const LokasiAdzanPage()),
+                    );
+                  },
                 ),
-                Divider(height: 1, indent: 16, endIndent: 16, color: isDarkMode ? Colors.white12 : Colors.grey[200]),
-                ListTile(
-                  leading: Icon(Icons.notifications_none, color: isDarkMode ? Colors.white70 : Colors.black54),
-                  title: Text('Notifikasi Waktu Shalat', style: TextStyle(color: isDarkMode ? Colors.white : Colors.black87)),
-                  trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
-                  onTap: () {},
-                ),
+
               ],
             ),
           ),
