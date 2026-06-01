@@ -2,6 +2,13 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:flutter/material.dart';
+import 'lokasi_adzan_page.dart';
+
+// Fungsi top-level untuk handle notifikasi di background (wajib top-level, bukan class method)
+@pragma('vm:entry-point')
+void onDidReceiveBackgroundNotificationResponse(NotificationResponse response) {
+  // Tidak bisa navigasi dari background handler, tapi bisa disimpan untuk dibuka saat app aktif
+}
 
 class NotificationService {
   static final NotificationService _instance = NotificationService._internal();
@@ -21,9 +28,15 @@ class NotificationService {
 
     await _flutterLocalNotificationsPlugin.initialize(
       settings: initializationSettings,
-      onDidReceiveNotificationResponse: (NotificationResponse response) async {
-        // Handle notification tap
+      onDidReceiveNotificationResponse: (NotificationResponse response) {
+        // ID adzan dimulai dari 1000 ke atas
+        // Saat notifikasi adzan diklik, buka halaman Lokasi & Pilihan Adzan
+        final id = response.id ?? -1;
+        if (id >= 1000) {
+          _navigateToAdzanPage();
+        }
       },
+      onDidReceiveBackgroundNotificationResponse: onDidReceiveBackgroundNotificationResponse,
     );
 
     // Request permissions for Android 13+
@@ -139,5 +152,33 @@ class NotificationService {
       scheduledDate = scheduledDate.add(const Duration(days: 1));
     }
     return scheduledDate;
+  }
+
+  /// Navigasi ke halaman Lokasi & Pilihan Adzan saat notifikasi adzan diklik.
+  /// Menggunakan navigatorKey global dari main.dart.
+  void _navigateToAdzanPage() {
+    // Import navigatorKey dari main.dart secara dinamis saat runtime
+    // untuk menghindari circular import
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      try {
+        // Gunakan navigatorKey yang tersedia secara global
+        final context = _navigatorKey?.currentContext;
+        if (context != null) {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const LokasiAdzanPage()),
+          );
+        }
+      } catch (e) {
+        debugPrint('Navigasi ke LokasiAdzanPage gagal: $e');
+      }
+    });
+  }
+
+  // Navigator key yang disetel dari main.dart
+  static GlobalKey<NavigatorState>? _navigatorKey;
+
+  /// Panggil ini dari main.dart setelah navigatorKey dibuat.
+  static void setNavigatorKey(GlobalKey<NavigatorState> key) {
+    _navigatorKey = key;
   }
 }

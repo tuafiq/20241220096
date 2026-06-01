@@ -38,9 +38,15 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'lokasi_adzan_page.dart';
 
+// Global navigator key - digunakan agar NotificationService bisa navigasi
+// ke halaman manapun dari luar widget tree (misalnya saat notifikasi adzan diklik)
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await NotificationService().init();
+  // Daftarkan navigatorKey agar notifikasi adzan bisa membuka halaman saat diklik
+  NotificationService.setNavigatorKey(navigatorKey);
   final prefs = await SharedPreferences.getInstance();
 
   runApp(
@@ -84,6 +90,7 @@ class MyApp extends StatelessWidget {
               ),
             );
           },
+          navigatorKey: navigatorKey,
           home: const HomePage(),
         );
       },
