@@ -13,6 +13,7 @@ class SettingsProvider with ChangeNotifier {
   String _fontSize = 'Sedang'; // Kecil, Sedang, Besar
   String _fontFamily = 'Poppins'; // Poppins, Inter, Roboto
   String _themeModeStr = 'Hijau'; // Hijau, Gelap, Terang
+  bool _isLoggedIn = false; // Add login state
   
   // New Lainnya Defaults
   String _language = 'Indonesia';
@@ -69,6 +70,7 @@ class SettingsProvider with ChangeNotifier {
   String get fontSize => _fontSize;
   String get fontFamily => _fontFamily;
   String get themeModeStr => _themeModeStr;
+  bool get isLoggedIn => _isLoggedIn; // Add getter
   String get language => _language;
   bool get reminderEnabled => _reminderEnabled;
   String get reminderTime => _reminderTime;
@@ -135,6 +137,7 @@ class SettingsProvider with ChangeNotifier {
     _fontSize = _prefs.getString('fontSize') ?? 'Sedang';
     _fontFamily = _prefs.getString('fontFamily') ?? 'Poppins';
     _themeModeStr = _prefs.getString('themeModeStr') ?? 'Hijau';
+    _isLoggedIn = _prefs.getBool('isLoggedIn') ?? false; // Load state
     _language = _prefs.getString('language') ?? 'Indonesia';
     _reminderEnabled = _prefs.getBool('reminderEnabled') ?? false;
     _reminderTime = _prefs.getString('reminderTime') ?? '04:00';
@@ -343,6 +346,12 @@ class SettingsProvider with ChangeNotifier {
   Future<void> setThemeModeStr(String theme) async {
     _themeModeStr = theme;
     await _prefs.setString('themeModeStr', theme);
+    notifyListeners();
+  }
+
+  Future<void> setLoggedIn(bool loggedIn) async {
+    _isLoggedIn = loggedIn;
+    await _prefs.setBool('isLoggedIn', loggedIn);
     notifyListeners();
   }
 

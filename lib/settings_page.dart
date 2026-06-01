@@ -17,7 +17,6 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  bool _isLoggedIn = false;
   final String _mockUserName = 'Taufiq Hidayat';
   final String _mockUserEmail = 'tuafiq8214829@gmail.com';
   Uint8List? _profileImageBytes;
@@ -118,7 +117,7 @@ class _SettingsPageState extends State<SettingsPage> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: Row(
               children: [
-                if (_isLoggedIn)
+                if (settings.isLoggedIn)
                   Container(
                     width: 70,
                     height: 70,
@@ -165,14 +164,14 @@ class _SettingsPageState extends State<SettingsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        _isLoggedIn ? _mockUserName : 'Masuk ke Akunmu',
+                        settings.isLoggedIn ? _mockUserName : 'Masuk ke Akunmu',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: isDarkMode ? Colors.white : Colors.black87,
                         ),
                       ),
-                      if (_isLoggedIn) ...[
+                      if (settings.isLoggedIn) ...[
                         const SizedBox(height: 4),
                         Text(
                           _mockUserEmail,
@@ -183,7 +182,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         ),
                       ],
                       const SizedBox(height: 8),
-                      if (!_isLoggedIn)
+                      if (!settings.isLoggedIn)
                         OutlinedButton(
                           onPressed: () async {
                             final result = await Navigator.push(
@@ -191,9 +190,7 @@ class _SettingsPageState extends State<SettingsPage> {
                               MaterialPageRoute(builder: (context) => const LoginPage()),
                             );
                             if (result == true) {
-                              setState(() {
-                                _isLoggedIn = true;
-                              });
+                              settings.setLoggedIn(true);
                             }
                           },
                           style: OutlinedButton.styleFrom(
@@ -341,6 +338,41 @@ class _SettingsPageState extends State<SettingsPage> {
               ],
             ),
           ),
+          
+          if (settings.isLoggedIn) ...[
+            const SizedBox(height: 8),
+            Container(
+              color: isDarkMode ? const Color(0xFF1E1E1E) : Colors.white,
+              padding: const EdgeInsets.all(16.0),
+              child: SizedBox(
+                width: double.infinity,
+                child: OutlinedButton(
+                  onPressed: () {
+                    // Logic to handle logout
+                    settings.setLoggedIn(false);
+                    setState(() {
+                      _profileImageBytes = null;
+                    });
+                  },
+                  style: OutlinedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    side: const BorderSide(color: Colors.grey, width: 1),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: const Text(
+                    'Logout',
+                    style: TextStyle(
+                      color: Color(0xFFE53935), // Red color for logout text
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ],
       ),
     );
