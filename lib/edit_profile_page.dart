@@ -1,6 +1,8 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
+import 'settings_provider.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({super.key});
@@ -10,10 +12,24 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
-  final TextEditingController _nameController = TextEditingController(text: 'Taufiq Hidayat');
-  final TextEditingController _emailController = TextEditingController(text: 'tuafiq8214829@gmail.com');
-  final TextEditingController _phoneController = TextEditingController(text: '628123455678910');
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final settings = Provider.of<SettingsProvider>(context, listen: false);
+      setState(() {
+        _nameController.text = settings.userName.isNotEmpty ? settings.userName : 'Taufiq Hidayat';
+        _emailController.text = settings.userEmail.isNotEmpty ? settings.userEmail : 'tuafiq8214829@gmail.com';
+        _phoneController.text = settings.userPhone.isNotEmpty ? settings.userPhone : '628123455678910';
+        _addressController.text = settings.userAddress;
+      });
+    });
+  }
 
   Uint8List? _imageBytes;
 
@@ -176,9 +192,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                   child: Center(
                     child: _imageBytes == null
-                        ? const Text(
-                            'T',
-                            style: TextStyle(
+                        ? Text(
+                            _nameController.text.isNotEmpty ? _nameController.text[0].toUpperCase() : 'T',
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 40,
                               fontWeight: FontWeight.w400,
@@ -241,7 +257,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   _buildTextFieldLabel('Email'),
                   TextField(
                     controller: _emailController,
-                    style: const TextStyle(color: Colors.grey), // Email usually non-editable or greyed out
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                       border: OutlineInputBorder(
@@ -263,7 +278,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   _buildTextFieldLabel('Nomor HP'),
                   TextField(
                     controller: _phoneController,
-                    style: const TextStyle(color: Colors.grey),
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                       border: OutlineInputBorder(
@@ -310,13 +324,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ),
           ),
           
-          // Save Button Section
           Container(
             padding: const EdgeInsets.all(24.0),
             child: SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
+                  final settings = Provider.of<SettingsProvider>(context, listen: false);
+                  settings.updateProfile(
+                    _nameController.text.trim(),
+                    _emailController.text.trim(),
+                    _phoneController.text.trim(),
+                    _addressController.text.trim(),
+                  );
                   Navigator.pop(context, _imageBytes);
                 },
                 style: ElevatedButton.styleFrom(

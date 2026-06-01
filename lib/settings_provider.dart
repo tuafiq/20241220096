@@ -16,6 +16,8 @@ class SettingsProvider with ChangeNotifier {
   bool _isLoggedIn = false; // Add login state
   String _userName = '';
   String _userEmail = '';
+  String _userPhone = '';
+  String _userAddress = '';
   
   // New Lainnya Defaults
   String _language = 'Indonesia';
@@ -75,6 +77,8 @@ class SettingsProvider with ChangeNotifier {
   bool get isLoggedIn => _isLoggedIn; // Add getter
   String get userName => _userName;
   String get userEmail => _userEmail;
+  String get userPhone => _userPhone;
+  String get userAddress => _userAddress;
   String get language => _language;
   bool get reminderEnabled => _reminderEnabled;
   String get reminderTime => _reminderTime;
@@ -144,6 +148,8 @@ class SettingsProvider with ChangeNotifier {
     _isLoggedIn = _prefs.getBool('isLoggedIn') ?? false; // Load state
     _userName = _prefs.getString('userName') ?? '';
     _userEmail = _prefs.getString('userEmail') ?? '';
+    _userPhone = _prefs.getString('userPhone') ?? '';
+    _userAddress = _prefs.getString('userAddress') ?? '';
     _language = _prefs.getString('language') ?? 'Indonesia';
     _reminderEnabled = _prefs.getBool('reminderEnabled') ?? false;
     _reminderTime = _prefs.getString('reminderTime') ?? '04:00';
@@ -371,13 +377,29 @@ class SettingsProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> updateProfile(String name, String email, String phone, String address) async {
+    _userName = name;
+    _userEmail = email;
+    _userPhone = phone;
+    _userAddress = address;
+    await _prefs.setString('userName', name);
+    await _prefs.setString('userEmail', email);
+    await _prefs.setString('userPhone', phone);
+    await _prefs.setString('userAddress', address);
+    notifyListeners();
+  }
+
   Future<void> logout() async {
     _isLoggedIn = false;
     _userName = '';
     _userEmail = '';
+    _userPhone = '';
+    _userAddress = '';
     await _prefs.setBool('isLoggedIn', false);
     await _prefs.remove('userName');
     await _prefs.remove('userEmail');
+    await _prefs.remove('userPhone');
+    await _prefs.remove('userAddress');
     notifyListeners();
   }
 
