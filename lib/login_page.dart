@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'settings_provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -11,6 +13,15 @@ class _LoginPageState extends State<LoginPage> {
   bool _obscurePassword = true;
   bool _autoLogin = true;
   bool _isLoading = false;
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   void _handleMockLogin() async {
     setState(() {
@@ -19,6 +30,24 @@ class _LoginPageState extends State<LoginPage> {
     // Simulasi delay jaringan (Mock Login)
     await Future.delayed(const Duration(seconds: 2));
     if (mounted) {
+      String input = _usernameController.text.trim();
+      if (input.isEmpty) {
+        input = 'Pengguna';
+      }
+      
+      String email = '';
+      String name = '';
+      if (input.contains('@')) {
+         email = input;
+         name = input.split('@')[0];
+      } else {
+         name = input;
+         email = '${input.toLowerCase().replaceAll(' ', '')}@gmail.com';
+      }
+      
+      final settings = Provider.of<SettingsProvider>(context, listen: false);
+      await settings.login(name, email);
+      
       setState(() {
         _isLoading = false;
       });
@@ -128,8 +157,9 @@ class _LoginPageState extends State<LoginPage> {
             
             // Username Field
             TextField(
+              controller: _usernameController,
               decoration: InputDecoration(
-                hintText: 'nama pengguna, Email atau nomor t...',
+                hintText: 'Nama pengguna, Email atau nomor t...',
                 hintStyle: const TextStyle(color: Colors.grey),
                 prefixIcon: const Icon(Icons.person_outline, color: Colors.grey),
                 border: OutlineInputBorder(
@@ -151,6 +181,7 @@ class _LoginPageState extends State<LoginPage> {
             
             // Password Field
             TextField(
+              controller: _passwordController,
               obscureText: _obscurePassword,
               decoration: InputDecoration(
                 hintText: 'Kata sandi',

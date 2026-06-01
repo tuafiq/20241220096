@@ -75,8 +75,8 @@ class NotificationService {
     String channelId = 'adzan_channel_default';
     String channelName = 'Adzan Default';
     
-    if (soundType.toLowerCase().contains('makkah')) {
-      soundFileName = 'makkah';
+    if (soundType.toLowerCase().contains('makkah') || soundType.toLowerCase().contains('mekah')) {
+      soundFileName = 'mekah';
       channelId = 'adzan_channel_makkah';
       channelName = 'Adzan Makkah';
     } else if (soundType.toLowerCase().contains('madinah')) {

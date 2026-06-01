@@ -14,6 +14,8 @@ class SettingsProvider with ChangeNotifier {
   String _fontFamily = 'Poppins'; // Poppins, Inter, Roboto
   String _themeModeStr = 'Hijau'; // Hijau, Gelap, Terang
   bool _isLoggedIn = false; // Add login state
+  String _userName = '';
+  String _userEmail = '';
   
   // New Lainnya Defaults
   String _language = 'Indonesia';
@@ -71,6 +73,8 @@ class SettingsProvider with ChangeNotifier {
   String get fontFamily => _fontFamily;
   String get themeModeStr => _themeModeStr;
   bool get isLoggedIn => _isLoggedIn; // Add getter
+  String get userName => _userName;
+  String get userEmail => _userEmail;
   String get language => _language;
   bool get reminderEnabled => _reminderEnabled;
   String get reminderTime => _reminderTime;
@@ -138,6 +142,8 @@ class SettingsProvider with ChangeNotifier {
     _fontFamily = _prefs.getString('fontFamily') ?? 'Poppins';
     _themeModeStr = _prefs.getString('themeModeStr') ?? 'Hijau';
     _isLoggedIn = _prefs.getBool('isLoggedIn') ?? false; // Load state
+    _userName = _prefs.getString('userName') ?? '';
+    _userEmail = _prefs.getString('userEmail') ?? '';
     _language = _prefs.getString('language') ?? 'Indonesia';
     _reminderEnabled = _prefs.getBool('reminderEnabled') ?? false;
     _reminderTime = _prefs.getString('reminderTime') ?? '04:00';
@@ -352,6 +358,26 @@ class SettingsProvider with ChangeNotifier {
   Future<void> setLoggedIn(bool loggedIn) async {
     _isLoggedIn = loggedIn;
     await _prefs.setBool('isLoggedIn', loggedIn);
+    notifyListeners();
+  }
+
+  Future<void> login(String name, String email) async {
+    _isLoggedIn = true;
+    _userName = name;
+    _userEmail = email;
+    await _prefs.setBool('isLoggedIn', true);
+    await _prefs.setString('userName', name);
+    await _prefs.setString('userEmail', email);
+    notifyListeners();
+  }
+
+  Future<void> logout() async {
+    _isLoggedIn = false;
+    _userName = '';
+    _userEmail = '';
+    await _prefs.setBool('isLoggedIn', false);
+    await _prefs.remove('userName');
+    await _prefs.remove('userEmail');
     notifyListeners();
   }
 
