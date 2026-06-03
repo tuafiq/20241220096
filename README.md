@@ -30,26 +30,26 @@ Proyek ini adalah tugas UAS Mata Kuliah **Mobile Programming** dengan fokus pada
 - [x] Pembuatan struktur README.md sebagai Blueprint.
 - [x] Implementasi Base Layout (Warna Hijau & Bidang Putih).
 
-### 2. Tahap UI Navigation & Core Layout (Minggu 2) - *Progres Sekarang*
-- [ ] Implementasi Bottom Navigation Bar satu per satu secara presisi:
+### 2. Tahap UI Navigation & Core Layout (Minggu 2) - *Selesai*
+- [x] Implementasi Bottom Navigation Bar satu per satu secara presisi:
     - [x] Icon Beranda & Label.
     - [x] Icon Al-Quran & Label.
     - [x] Icon Artikel & Label.
-    - [ ] Icon Jadwal Salat & Label.
-    - [ ] Icon Profil/Lainnya & Label.
-- [ ] Implementasi Header (Informasi Waktu Salat & Lokasi).
-- [ ] Implementasi Grid Menu Utama di Body.
+    - [x] Icon Jadwal Salat & Label.
+    - [x] Icon Profil/Lainnya & Label.
+- [x] Implementasi Header (Informasi Waktu Salat & Lokasi).
+- [x] Implementasi Grid Menu Utama di Body.
 
-### 3. Tahap Integrasi Data & Fitur (Minggu 3-4)
-- [ ] Penambahan Asset Icon Custom (Gambar PNG/SVG).
-- [ ] Integrasi Data JSON untuk daftar Surah Al-Qur'an.
-- [ ] Implementasi fitur pencarian (Search Bar).
-- [ ] Pembuatan halaman Detail Surah.
+### 3. Tahap Integrasi Data & Fitur (Minggu 3-4) - *Selesai*
+- [x] Penambahan Asset Icon Custom (Gambar PNG/SVG).
+- [x] Integrasi Data JSON untuk daftar Surah Al-Qur'an.
+- [x] Implementasi fitur pencarian (Search Bar).
+- [x] Pembuatan halaman Detail Surah.
 
-### 4. Tahap Finalisasi & Deployment (H-2 Minggu UAS)
-- [ ] Uji coba fungsionalitas (Widget Testing).
-- [ ] Optimasi UI (Polishing & Spacing).
-- [ ] Pendaftaran aplikasi ke Google Play Store / Apple App Store.
+### 4. Tahap Finalisasi & Deployment (H-2 Minggu UAS) - *Selesai*
+- [x] Uji coba fungsionalitas (Widget Testing).
+- [x] Optimasi UI (Polishing & Spacing).
+- [x] Pendaftaran aplikasi ke Google Play Store / Apple App Store.
 
 ---
 
