@@ -18,9 +18,10 @@ samples, guidance on mobile development, and a full API reference.
 
 
 
-# Blueprint Pengembangan Aplikasi Al-Qur'an 
+# Blueprint Pengembangan Aplikasi MD Online
 
-Proyek ini adalah tugas UAS Mata Kuliah **Mobile Programming** dengan fokus pada implementasi UI/UX yang elegan dan fungsional menggunakan Flutter.
+Proyek ini adalah tugas UAS Mata Kuliah **Mobile Programming** dengan fokus pada implementasi UI/UX yang elegan dan fungsional menggunakan Flutter. 
+Selain sebagai tugas akademik, aplikasi ini juga didedikasikan dan dikaitkan secara khusus dengan madrasah kebanggaan kami, yaitu **Yayasan Pendidikan dan Dakwah Santri (Madrasah Miftahul Ulum) Ulul Maqam**.
 
 ## Rencana Kerja (Work Plan)
 

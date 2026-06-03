@@ -20,14 +20,13 @@ class _ArticlePageState extends State<ArticlePage> {
   List<Article> _articles = [];
   bool _isLoading = true;
   bool _isLoadMoreLoading = false;
-  String _selectedPortal = 'fir';
+  String _selectedPortal = 'ks';
   String? _errorMessage;
 
   int _currentPage = 1;
   int _totalPages = 1;
 
   final List<Map<String, String>> _portals = [
-    {'id': 'fir', 'name': 'Firanda.com'},
     {'id': 'ks', 'name': 'Konsultasi Syariah'},
     {'id': 'ms', 'name': 'Muslim.or.id'},
     {'id': 'msh', 'name': 'Muslimah.or.id'},

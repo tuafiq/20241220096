@@ -779,18 +779,19 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Terakhir Dibaca',
-                                style: TextStyle(
-                                  color: Colors.white.withOpacity(0.9),
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w500,
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Terakhir Dibaca',
+                                  style: TextStyle(
+                                    color: Colors.white.withOpacity(0.9),
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
-                              ),
                               const SizedBox(height: 2),
                               Text(
                                 _lastReadSurah.isNotEmpty
@@ -801,6 +802,7 @@ class _HomePageState extends State<HomePage> {
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                 ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                               const SizedBox(height: 1),
                               Text(
@@ -811,9 +813,12 @@ class _HomePageState extends State<HomePage> {
                                   color: Colors.white.withOpacity(0.8),
                                   fontSize: 10,
                                 ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ],
                           ),
+                          ),
+                          const SizedBox(width: 8),
                           // Rehal image
                           ClipRRect(
                             borderRadius: BorderRadius.circular(10),
@@ -866,48 +871,55 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildProgressIndicatorItem(IconData icon, String value, String label) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          width: 32,
-          height: 32,
-          decoration: const BoxDecoration(
-            color: Color(0xFF0C5441),
-            shape: BoxShape.circle,
-          ),
-          child: Icon(
-            icon,
-            color: Colors.white,
-            size: 16,
-          ),
-        ),
-        const SizedBox(width: 6),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              value,
-              style: GoogleFonts.outfit(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: isDarkMode ? const Color(0xFF13A884) : const Color(0xFF0C5441),
-                height: 1.1,
-              ),
+    return Expanded(
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 32,
+            height: 32,
+            decoration: const BoxDecoration(
+              color: Color(0xFF0C5441),
+              shape: BoxShape.circle,
             ),
-            Text(
-              label,
-              style: const TextStyle(
-                fontSize: 9,
-                fontWeight: FontWeight.w500,
-                color: Color(0xFF7F8C8D),
-              ),
+            child: Icon(
+              icon,
+              color: Colors.white,
+              size: 16,
             ),
-          ],
-        ),
-      ],
+          ),
+          const SizedBox(width: 4),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  value,
+                  style: GoogleFonts.outfit(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: isDarkMode ? const Color(0xFF13A884) : const Color(0xFF0C5441),
+                    height: 1.1,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  label,
+                  style: const TextStyle(
+                    fontSize: 8,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFF7F8C8D),
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -1170,13 +1182,8 @@ class _HomePageState extends State<HomePage> {
       });
     }
     try {
-      // Try Firanda first
-      var result = await _articleService.getArticles('fir', page: 1);
-      
-      // Fallback to Konsultasi Syariah if fir fails or returns empty list
-      if (result['success'] == false || (result['articles'] as List).isEmpty) {
-        result = await _articleService.getArticles('ks', page: 1);
-      }
+      // Fetch articles from Konsultasi Syariah
+      var result = await _articleService.getArticles('ks', page: 1);
 
       if (mounted) {
         setState(() {
@@ -1298,7 +1305,16 @@ class _HomePageState extends State<HomePage> {
                       height: 80,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) =>
-                          Container(width: 80, height: 80, color: isDarkMode ? Colors.grey[800] : Colors.grey[200]),
+                          Container(
+                            width: 80, 
+                            height: 80, 
+                            color: isDarkMode ? Colors.grey[800] : Colors.grey[200],
+                            child: Icon(
+                              Icons.menu_book_rounded, 
+                              color: const Color(0xFF13A884).withOpacity(0.5), 
+                              size: 32,
+                            ),
+                          ),
                     ),
                   ),
                   title: Text(
@@ -1336,7 +1352,7 @@ class _HomePageState extends State<HomePage> {
       physics: const NeverScrollableScrollPhysics(),
       mainAxisSpacing: 16,
       crossAxisSpacing: 8,
-      childAspectRatio: 0.85,
+      childAspectRatio: 0.65, // Adjusted to prevent bottom overflow on small screens
       children: [
         AlQuranIcon(onTap: () async {
           await Navigator.push(
@@ -2027,11 +2043,14 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Icon(Icons.access_time, size: 12, color: isDarkMode ? Colors.white54 : Colors.grey[600]),
                             const SizedBox(width: 4),
-                            Text(
-                              '08.00 - 10.00 WIB',
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: isDarkMode ? Colors.white54 : Colors.grey[600],
+                            Expanded(
+                              child: Text(
+                                '08.00 - 10.00 WIB',
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: isDarkMode ? Colors.white54 : Colors.grey[600],
+                                ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
@@ -2041,11 +2060,14 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Icon(Icons.location_on, size: 12, color: isDarkMode ? Colors.white54 : Colors.grey[600]),
                             const SizedBox(width: 4),
-                            Text(
-                              'Astah MMU Ulul Maqam',
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: isDarkMode ? Colors.white54 : Colors.grey[600],
+                            Expanded(
+                              child: Text(
+                                'Astah MMU Ulul Maqam',
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: isDarkMode ? Colors.white54 : Colors.grey[600],
+                                ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
