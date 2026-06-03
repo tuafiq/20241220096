@@ -27,6 +27,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         _emailController.text = settings.userEmail.isNotEmpty ? settings.userEmail : 'tuafiq8214829@gmail.com';
         _phoneController.text = settings.userPhone.isNotEmpty ? settings.userPhone : '628123455678910';
         _addressController.text = settings.userAddress;
+        _imageBytes = settings.profileImageBytes;
       });
     });
   }
@@ -34,13 +35,22 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Uint8List? _imageBytes;
 
   Future<void> _pickImage(ImageSource source) async {
-    final ImagePicker picker = ImagePicker();
-    final XFile? image = await picker.pickImage(source: source);
-    if (image != null) {
-      final bytes = await image.readAsBytes();
-      setState(() {
-        _imageBytes = bytes;
-      });
+    try {
+      final ImagePicker picker = ImagePicker();
+      final XFile? image = await picker.pickImage(
+        source: source,
+        maxWidth: 256,
+        maxHeight: 256,
+        imageQuality: 85,
+      );
+      if (image != null) {
+        final bytes = await image.readAsBytes();
+        setState(() {
+          _imageBytes = bytes;
+        });
+      }
+    } catch (e) {
+      debugPrint('Error picking image: $e');
     }
   }
 
@@ -337,7 +347,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     _phoneController.text.trim(),
                     _addressController.text.trim(),
                   );
-                  Navigator.pop(context, _imageBytes);
+                  settings.setProfileImage(_imageBytes);
+                  Navigator.pop(context);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF009688),

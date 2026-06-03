@@ -17,7 +17,6 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  Uint8List? _profileImageBytes;
 
   void _showThemeSelectionBottomSheet(BuildContext context, SettingsProvider settings) {
     final isDarkMode = settings.themeModeStr == 'Gelap';
@@ -283,15 +282,15 @@ class _SettingsPageState extends State<SettingsPage> {
                                     decoration: BoxDecoration(
                                       color: const Color(0xFF0088CC),
                                       shape: BoxShape.circle,
-                                      image: _profileImageBytes != null
+                                      image: settings.profileImageBytes != null
                                           ? DecorationImage(
-                                              image: MemoryImage(_profileImageBytes!),
+                                              image: MemoryImage(settings.profileImageBytes!),
                                               fit: BoxFit.cover,
                                             )
                                           : null,
                                     ),
                                     child: Center(
-                                      child: (!settings.isLoggedIn || _profileImageBytes == null)
+                                      child: (!settings.isLoggedIn || settings.profileImageBytes == null)
                                         ? Text(
                                             settings.isLoggedIn && settings.userName.isNotEmpty
                                                 ? settings.userName[0].toUpperCase()
@@ -395,16 +394,11 @@ class _SettingsPageState extends State<SettingsPage> {
                               )
                             else
                               OutlinedButton.icon(
-                                onPressed: () async {
-                                  final newImageBytes = await Navigator.push(
+                                onPressed: () {
+                                  Navigator.push(
                                     context,
                                     MaterialPageRoute(builder: (context) => const EditProfilePage()),
                                   );
-                                  if (newImageBytes != null && newImageBytes is Uint8List) {
-                                    setState(() {
-                                      _profileImageBytes = newImageBytes;
-                                    });
-                                  }
                                 },
                                 icon: const Icon(Icons.edit_outlined, size: 12, color: Color(0xFF13A884)),
                                 label: const Text(
@@ -514,9 +508,6 @@ class _SettingsPageState extends State<SettingsPage> {
                           child: ElevatedButton.icon(
                             onPressed: () {
                               settings.logout();
-                              setState(() {
-                                _profileImageBytes = null;
-                              });
                             },
                             icon: const Icon(Icons.power_settings_new, color: Color(0xFFE53935), size: 18),
                             label: const Text(

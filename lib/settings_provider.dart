@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'dart:typed_data';
 import 'notification_service.dart';
 
 class SettingsProvider with ChangeNotifier {
@@ -18,6 +19,8 @@ class SettingsProvider with ChangeNotifier {
   String _userEmail = '';
   String _userPhone = '';
   String _userAddress = '';
+  String _profileImageBase64 = ''; // Base64 image
+  Uint8List? _profileImageBytes;
   
   // New Lainnya Defaults
   String _language = 'Indonesia';
@@ -79,6 +82,7 @@ class SettingsProvider with ChangeNotifier {
   String get userEmail => _userEmail;
   String get userPhone => _userPhone;
   String get userAddress => _userAddress;
+  Uint8List? get profileImageBytes => _profileImageBytes;
   String get language => _language;
   bool get reminderEnabled => _reminderEnabled;
   String get reminderTime => _reminderTime;
@@ -150,6 +154,16 @@ class SettingsProvider with ChangeNotifier {
     _userEmail = _prefs.getString('userEmail') ?? '';
     _userPhone = _prefs.getString('userPhone') ?? '';
     _userAddress = _prefs.getString('userAddress') ?? '';
+    _profileImageBase64 = _prefs.getString('profileImageBase64') ?? '';
+    if (_profileImageBase64.isNotEmpty) {
+      try {
+        _profileImageBytes = base64Decode(_profileImageBase64);
+      } catch (e) {
+        _profileImageBytes = null;
+      }
+    } else {
+      _profileImageBytes = null;
+    }
     _language = _prefs.getString('language') ?? 'Indonesia';
     _reminderEnabled = _prefs.getBool('reminderEnabled') ?? false;
     _reminderTime = _prefs.getString('reminderTime') ?? '04:00';
@@ -389,17 +403,40 @@ class SettingsProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> setProfileImage(Uint8List? bytes) async {
+    _profileImageBytes = bytes;
+    if (bytes == null) {
+      _profileImageBase64 = '';
+      try {
+        await _prefs.remove('profileImageBase64');
+      } catch (e) {
+        debugPrint('Error removing profile image: $e');
+      }
+    } else {
+      try {
+        _profileImageBase64 = base64Encode(bytes);
+        await _prefs.setString('profileImageBase64', _profileImageBase64);
+      } catch (e) {
+        debugPrint('Error saving profile image: $e');
+      }
+    }
+    notifyListeners();
+  }
+
   Future<void> logout() async {
     _isLoggedIn = false;
     _userName = '';
     _userEmail = '';
     _userPhone = '';
     _userAddress = '';
+    _profileImageBase64 = '';
+    _profileImageBytes = null;
     await _prefs.setBool('isLoggedIn', false);
     await _prefs.remove('userName');
     await _prefs.remove('userEmail');
     await _prefs.remove('userPhone');
     await _prefs.remove('userAddress');
+    await _prefs.remove('profileImageBase64');
     notifyListeners();
   }
 
